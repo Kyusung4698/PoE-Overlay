@@ -9,7 +9,7 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
 
     public optional = false;
 
-    public parse(item: ExportedItem, target: Item): Section {        
+    public parse(item: ExportedItem, target: Item): Section {
         const raritySection = item.sections.find(x => x.content.indexOf(this.phrase) === 0);
         if (!raritySection) {
             return null;
@@ -28,7 +28,7 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
                 return null;
         }
 
-        target.rarity = <ItemRarity>lines[0].slice(this.phrase.length).toLowerCase().split(' ').join('');
+        target.rarity = lines[0].slice(this.phrase.length).toLowerCase().split(' ').join('') as ItemRarity;
         target.nameType = (`${target.name || ''} ${target.type || ''}`).trim();
         return raritySection;
     }

@@ -36,17 +36,17 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
 
             const augmented = line.indexOf('(augmented)') !== -1;
             let text = line.replace('(augmented)', '');
-            let value: string = undefined;
+            let value: string;
 
-            const prop = this.properties.find(prop => line.indexOf(prop) === 0);
+            const prop = this.properties.find(x => line.indexOf(x) === 0);
             if (prop) {
                 value = text.slice(prop.length);
                 text = text.slice(0, prop.length - 1);
             }
             const property: ItemProperty = {
-                text: text,
-                augmented: augmented,
-                value: value
+                text,
+                augmented,
+                value
             };
             return property;
         });

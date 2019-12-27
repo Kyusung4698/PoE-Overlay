@@ -54,7 +54,8 @@ const gem: Item = {
           Feuerschaden, wenn die Stärkung ausläuft oder verbraucht ist`,
     }
   ],
-  description: 'Setze die Gemme in eine Fassung mit der richtigen Farbe ein, um diese Fertigkeit zu erhalten. Entferne sie mit Rechtsklick aus der Fassung.',
+  description: `Setze die Gemme in eine Fassung mit der richtigen Farbe ein,
+                um diese Fertigkeit zu erhalten. Entferne sie mit Rechtsklick aus der Fassung.`,
 };
 
 

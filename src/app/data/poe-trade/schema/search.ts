@@ -93,6 +93,7 @@ export class SearchForm {
 
 export interface SearchResponse {
     items: SearchItem[];
+    url: string;
 }
 
 export interface SearchItem {

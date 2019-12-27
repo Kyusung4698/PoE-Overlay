@@ -13,6 +13,19 @@ export class WindowService {
         this.electron = electronProvider.provideRemote();
     }
 
+    public open(url: string): void {
+        const BrowserWindow = this.electron.BrowserWindow;
+        const win = new BrowserWindow({
+            center: true,
+            modal: true,
+            parent: this.electron.getCurrentWindow(),
+            autoHideMenuBar: true,
+            width: 1000,
+            height: 800
+        });
+        win.loadURL(url);
+    }
+
     public alwaysTop(): void {
         this.electron.getCurrentWindow().setAlwaysOnTop(true);
     }

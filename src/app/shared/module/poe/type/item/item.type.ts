@@ -1,6 +1,6 @@
-import { Currency } from "../currency/currency.type"
+import { Currency } from '../currency/currency.type';
 
-export type Item = {
+export interface Item {
     rarity?: ItemRarity;
     name?: string;
     type?: string;
@@ -27,28 +27,28 @@ export enum ItemRarity {
     DivinationCard = 'divinationcard'
 }
 
-export type ItemFlags = {
+export interface ItemFlags {
     unique?: boolean;
 }
 
-export type ItemProperty = {
+export interface ItemProperty {
     text: string;
     value?: string;
     augmented?: boolean;
 }
 
-export type ItemMod = {
+export interface ItemMod {
     text: string;
 }
 
-export type ItemRequirements = {
+export interface ItemRequirements {
     level?: number;
     int?: number;
     str?: number;
     dex?: number;
 }
 
-export type ItemsMap = {
+export interface ItemsMap {
     label: string;
     items: Item[];
 }
@@ -58,9 +58,9 @@ export type EvaluateItem = Item & {
     originalCurrencyAmount: number;
     targetCurrency: Currency;
     targetCurrencyAmount: number;
-}
+};
 
-export type ItemSearchEvaluateResult = {
+export interface ItemSearchEvaluateResult {
     items: EvaluateItem[];
     targetCurrency?: Currency;
     targetCurrencyAvg?: number;
@@ -69,23 +69,24 @@ export type ItemSearchEvaluateResult = {
 export type SearchItem = Item & {
     currency: Currency;
     currencyAmount: number;
-}
+};
 
-export type ItemSearchResult = {
+export interface ItemSearchResult {
     items: SearchItem[];
+    url: string;
 }
 
 
-export type ExportedItem = {
+export interface ExportedItem {
     sections: Section[];
 }
 
-export type Section = {
+export interface Section {
     content: string;
     lines: string[];
 }
 
-export type ItemSectionParserService = {
-    parse(item: ExportedItem, target: Item): Section;
+export interface ItemSectionParserService {
     optional: boolean;
+    parse(item: ExportedItem, target: Item): Section;
 }

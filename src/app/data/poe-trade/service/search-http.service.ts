@@ -24,14 +24,16 @@ export class SearchHttpService {
         });
         return this.httpClient.post(this.apiUrl, params, {
             responseType: 'text',
+            observe: 'response',
             headers
         }).pipe(
             map(response => {
                 const result: SearchResponse = {
-                    items: []
+                    items: [],
+                    url: response.url
                 };
 
-                const el = new DOMParser().parseFromString(response, 'text/html');
+                const el = new DOMParser().parseFromString(response.body, 'text/html');
                 const items = el.getElementsByClassName('item');
                 for (let i = 0; i < items.length; ++i) {
                     const item = items.item(i);

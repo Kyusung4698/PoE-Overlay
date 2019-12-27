@@ -23,7 +23,7 @@ export class EvaluateService {
 
     public evaluate(): Observable<void> {
         // TODO: service
-        
+
         let item: Item;
         let point: Point;
         try {
@@ -44,7 +44,7 @@ export class EvaluateService {
         return this.dialog.open(EvaluateDialogComponent, {
             position: {
                 left: `${point.x}px`,
-                top: `${point.y}px`,                
+                top: `${point.y}px`,
             },
             backdropClass: 'backdrop-clear',
             data: item,

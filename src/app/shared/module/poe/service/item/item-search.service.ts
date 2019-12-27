@@ -27,7 +27,11 @@ export class ItemSearchService {
         return this.searchHttpService.search(form).pipe(
             flatMap(response => {
                 if (response.items.length <= 0) {
-                    return of(undefined);
+                    const result: ItemSearchResult = {
+                        items: [],
+                        url: response.url
+                    };
+                    return of(result);
                 }
                 const items$ = response.items
                     .map(item => this.createSearchItem(requestedItem, item));
@@ -35,7 +39,8 @@ export class ItemSearchService {
                 return forkJoin(items$).pipe(
                     map(items => {
                         const result: ItemSearchResult = {
-                            items: items.filter(item => item !== undefined)
+                            items: items.filter(item => item !== undefined),
+                            url: response.url
                         };
                         return result;
                     })

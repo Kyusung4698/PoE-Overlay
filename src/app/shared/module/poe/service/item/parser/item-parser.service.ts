@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ExportedItem, Item, ItemSectionParserService, Section } from '../../../type';
 import { ItemSectionDescriptonParserService } from './item-section-descripton-parser.service';
 import { ItemSectionImplicitsParserService } from './item-section-implicits-parser.service';
-import { ItemSectionItemLevelParserService } from "./item-section-item-level-parser.service";
+import { ItemSectionItemLevelParserService } from './item-section-item-level-parser.service';
 import { ItemSectionNoteParserService } from './item-section-note-parser.service';
 import { ItemSectionPropertiesParserService } from './item-section-properties-parser.service';
 import { ItemSectionRarityParserService } from './item-section-rarity-parser.service';
@@ -47,9 +47,9 @@ export class ItemParserService {
                 .filter(lines => lines.length > 0)
                 .map(lines => {
                     const section: Section = {
-                        lines: lines,
+                        lines,
                         content: lines.join('\n'),
-                    }
+                    };
                     return section;
                 })
         };

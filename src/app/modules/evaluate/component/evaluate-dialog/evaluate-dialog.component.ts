@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { WindowService } from '@app/service';
 import { CurrencyService } from '@shared/module/poe/service/currency/currency-service';
 import { ItemSearchEvaluateService } from '@shared/module/poe/service/item/item-search-evaluate.service';
 import { ItemSearchService } from '@shared/module/poe/service/item/item-search.service';
 import { Item, ItemSearchEvaluateResult } from '@shared/module/poe/type';
-import { forkJoin, Observable, of, BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, forkJoin, of } from 'rxjs';
 import { flatMap } from 'rxjs/operators';
 
 @Component({
@@ -14,6 +15,8 @@ import { flatMap } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EvaluateDialogComponent implements OnInit {
+  private url: string;
+
   public result$ = new BehaviorSubject<ItemSearchEvaluateResult>(null);
 
   constructor(
@@ -22,7 +25,7 @@ export class EvaluateDialogComponent implements OnInit {
     private readonly itemSearchService: ItemSearchService,
     private readonly itemSearchEvaluateService: ItemSearchEvaluateService,
     private readonly currencyService: CurrencyService,
-  ) {
+    private readonly window: WindowService) {
 
   }
 
@@ -32,7 +35,9 @@ export class EvaluateDialogComponent implements OnInit {
       this.currencyService.getForId('chaos')
     ).pipe(
       flatMap(results => {
-        if (!results[0]) {
+        this.url = results[0].url;
+
+        if (results[0].items.length <= 0) {
           const empty: ItemSearchEvaluateResult = {
             items: [],
             targetCurrency: null,
@@ -40,10 +45,17 @@ export class EvaluateDialogComponent implements OnInit {
           };
           return of(empty);
         }
+
         return this.itemSearchEvaluateService.evaluate(results[0], results[1]);
       })
     ).subscribe(result => {
       this.result$.next(result);
     });
+  }
+
+  public onCurrencyClick(): void {
+    if (this.url) {
+      this.window.open(this.url);
+    }
   }
 }
