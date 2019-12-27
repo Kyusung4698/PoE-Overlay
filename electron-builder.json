@@ -1,0 +1,11 @@
+{
+    "productName": "poe-overlay",
+    "directories": {
+        "output": "release/"
+    },
+    "win": {
+        "target": [
+            "portable"
+        ]
+    }
+}

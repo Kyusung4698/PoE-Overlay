@@ -1,0 +1,18 @@
+@import "./styles/fonts";
+@import "./styles/theme";
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.backdrop-clear + .cdk-global-overlay-wrapper{
+  .mat-dialog-container{
+    box-shadow: none;
+    background: none;
+    border-radius: 0;
+    padding: 0;
+  }
+}

@@ -1,0 +1,18 @@
+<app-item-frame [item]="item" [separator]="true">
+    <ng-container [ngSwitch]="result$ | async">
+        <ng-container *ngSwitchCase="null">
+            Loading...
+        </ng-container>
+        <ng-container *ngSwitchDefault>
+            <ng-container *ngIf="(result$ | async) as result">
+                <ng-container *ngIf="result.items.length > 0">
+                    <app-currency-frame [amount]="result.targetCurrencyAvg" [currency]="result.targetCurrency">
+                    </app-currency-frame>
+                </ng-container>
+                <ng-container *ngIf="result.items.length === 0">
+                    No matching items found.
+                </ng-container>
+            </ng-container>
+        </ng-container>
+    </ng-container>
+</app-item-frame>
