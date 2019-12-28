@@ -57,7 +57,7 @@ These instructions will get you a executable to run and enjoy the overlay.
 #### Prerequisites
 
 * Path of Exile ***must be*** in windowed fullscreen mode
-* Path of Exile ***must be*** in language englisch
+* Path of Exile ***must be*** in language english
 * Path of Exile ***must be*** using the latest league (Metamorph)
 
 #### Installing
