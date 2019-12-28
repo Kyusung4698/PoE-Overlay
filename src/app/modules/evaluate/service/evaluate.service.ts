@@ -7,6 +7,7 @@ import { Item } from '@shared/module/poe/type';
 import { Observable, of } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { EvaluateDialogComponent } from '../component/evaluate-dialog/evaluate-dialog.component';
+import { SnackBarService } from '@shared/module/material/service';
 
 @Injectable({
     providedIn: 'root'
@@ -18,7 +19,8 @@ export class EvaluateService {
         private readonly keyboard: KeyboardService,
         private readonly clipboard: ClipboardService,
         private readonly itemParser: ItemParserService,
-        private readonly window: WindowService) {
+        private readonly window: WindowService,
+        private readonly snackbar: SnackBarService) {
     }
 
     public evaluate(): Observable<void> {
@@ -31,11 +33,11 @@ export class EvaluateService {
             const text = this.clipboard.readText();
             item = this.itemParser.parse(text);
         } catch (e) {
-            return of(null);
+            return this.snackbar.error('An unexpected error occured while parsing the item.');
         }
 
         if (!item) {
-            return of(null);
+            return this.snackbar.warning('Could not parse the copied text into a item.');
         }
 
         const width = 300;

@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { WindowService } from '@app/service';
+import { SnackBarService } from '@shared/module/material/service';
 import { CurrencyService } from '@shared/module/poe/service/currency/currency-service';
 import { ItemSearchEvaluateService } from '@shared/module/poe/service/item/item-search-evaluate.service';
 import { ItemSearchService } from '@shared/module/poe/service/item/item-search.service';
@@ -24,7 +25,8 @@ export class EvaluateDialogComponent implements OnInit {
     private readonly itemSearchService: ItemSearchService,
     private readonly itemSearchEvaluateService: ItemSearchEvaluateService,
     private readonly currencyService: CurrencyService,
-    private readonly window: WindowService) {
+    private readonly window: WindowService,
+    private readonly snackbar: SnackBarService) {
 
   }
 
@@ -49,6 +51,11 @@ export class EvaluateDialogComponent implements OnInit {
       })
     ).subscribe(result => {
       this.result$.next(result);
+    }, () => {
+      this.result$.next({
+        items: null
+      });
+      this.snackbar.error('An unexpected error occured while searching for the item. Please try again later.');
     });
   }
 

@@ -31,7 +31,8 @@ export class WindowService {
             parent: this.electron.getCurrentWindow(),
             autoHideMenuBar: true,
             width: 1000,
-            height: 800
+            height: 800,
+            backgroundColor: '#0F0F0F'
         });
         win.loadURL(url);
     }

@@ -8,10 +8,12 @@
   "author": {
     "name": "Kyusung4698"
   },
-  "version": "1.0.0",
+  "version": "0.1.0",
   "scripts": {
     "postinstall": "electron-builder install-app-deps",
     "ng:serve": "ng serve",
+    "ng:test": "ng test",
+    "ng:lint": "ng lint --fix",
     "start": "npm-run-all -p ng:serve electron:serve",
     "build": "npm run electron:serve-tsc && ng build",
     "build:dev": "npm run build",
@@ -20,7 +22,6 @@
     "electron:serve": "wait-on http-get://localhost:4200/ && npm run electron:serve-tsc && electron . --serve",
     "electron:local": "npm run build:prod && electron .",
     "electron:windows": "npm run build:prod && electron-builder build --windows",
-    "electron:windows:fast": "electron-builder build --windows",
     "electron:version": "electron -v && electron -a",
     "robotjs:rebuild": "npm rebuild --runtime=electron --target=7.1.7 --disturl=https://atom.io/download/atom-shell --abi=75"
   },

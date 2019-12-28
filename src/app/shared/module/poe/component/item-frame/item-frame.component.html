@@ -16,7 +16,7 @@
                 <span>{{property.text}}</span>
                 <span *ngIf="property.value" [class]="property.augmented ? 'purpel' : 'white'">&nbsp;{{property.value}}</span>
             </div>
-            <div class="separator"></div>
+            <div class="separator" *ngIf="item.requirements || item.secondaryDescription || (item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.description"></div>
         </ng-container>
 
         <!-- requirements -->
@@ -43,36 +43,29 @@
                     <span>Int</span>
                 </ng-container>
             </div>
-            <div class="separator"></div>
+            <div class="separator" *ngIf="item.secondaryDescription || (item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.description"></div>
         </ng-container>
 
         <ng-container *ngIf="item.secondaryDescription">
             <div class="secondary-description">
                 {{item.secondaryDescription}}
             </div>
-            <div class="separator"></div>
+            <div class="separator" *ngIf="(item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.description"></div>
         </ng-container>
 
         <ng-container *ngIf="item.implicits && item.implicits.length > 0">
             <div *ngFor="let implicit of item.implicits" class="implicit">
                 <span>{{implicit.text}}</span>
             </div>
-            <div class="separator"></div>
+            <div class="separator" *ngIf="(item.explicits && item.explicits.length > 0) || item.description"></div>
         </ng-container>
 
         <ng-container *ngIf="item.explicits && item.explicits.length > 0">
             <div *ngFor="let explicit of item.explicits" class="explicit">
                 <span>{{explicit.text}}</span>
             </div>
-            <div class="separator"></div>
+            <div class="separator" *ngIf="item.description"></div>
         </ng-container>
-
-        <!-- additional-properties TODO: if needed
-            <div>
-                <span class="white">5,669,115/13,437,908</span>
-            </div>
-            <div class="separator"></div>
-        -->
 
         <ng-container *ngIf="item.description">
             <div class="description" [innerHTML]="item.description">

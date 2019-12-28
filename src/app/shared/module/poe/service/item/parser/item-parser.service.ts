@@ -32,7 +32,7 @@ export class ItemParserService {
             itemSectionSocketsParserService,
             itemSectionImplicitsParserService,
             itemSectionPropertiesParserService,
-            itemSectionDescriptonParserService,
+            // itemSectionDescriptonParserService, TODO: Disable for now
         ];
     }
 
