@@ -42,8 +42,8 @@ export class EvaluateService {
         const avgHeight = 200;
 
         const bounds = this.window.getBounds();
-        let left = Math.min(Math.max(point.x - width * 0.5, bounds.x), bounds.x + bounds.width - width);
-        let top = Math.min(Math.max(point.y - avgHeight * 0.5, bounds.y), bounds.y + bounds.height - avgHeight);
+        const left = Math.min(Math.max(point.x - width * 0.5, bounds.x), bounds.x + bounds.width - width);
+        const top = Math.min(Math.max(point.y - avgHeight * 0.5, bounds.y), bounds.y + bounds.height - avgHeight);
 
         this.window.enableInput();
         return this.dialog.open(EvaluateDialogComponent, {

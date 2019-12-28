@@ -19,7 +19,7 @@ export class WindowService {
         return bounds;
     }
 
-    public quit(): void{
+    public quit(): void {
         this.electron.app.quit();
     }
 
