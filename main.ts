@@ -19,11 +19,9 @@ function createWindow(): BrowserWindow {
         fullscreen: true,
         transparent: true,
         frame: false,
-        alwaysOnTop: true,
         focusable: false,
         resizable: false,
         movable: false,
-        darkTheme: true,
         webPreferences: {
             nodeIntegration: true,
             allowRunningInsecureContent: (serve) ? true : false,
@@ -31,6 +29,7 @@ function createWindow(): BrowserWindow {
         }
     });
     win.setIgnoreMouseEvents(true, { forward: true });
+    win.setAlwaysOnTop(true, 'screen-saver');
 
     if (serve) {
         require('electron-reload')(__dirname, {

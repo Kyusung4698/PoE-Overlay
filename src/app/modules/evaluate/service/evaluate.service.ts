@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ClipboardService, WindowService, KeyboardService, MouseService } from '@app/service';
+import { ClipboardService, KeyboardService, MouseService, WindowService } from '@app/service';
 import { Point } from '@app/type';
 import { ItemParserService } from '@shared/module/poe';
 import { Item } from '@shared/module/poe/type';
@@ -18,12 +18,10 @@ export class EvaluateService {
         private readonly keyboard: KeyboardService,
         private readonly clipboard: ClipboardService,
         private readonly itemParser: ItemParserService,
-        private readonly input: WindowService) {
+        private readonly window: WindowService) {
     }
 
     public evaluate(): Observable<void> {
-        // TODO: service
-
         let item: Item;
         let point: Point;
         try {
@@ -40,18 +38,26 @@ export class EvaluateService {
             return of(null);
         }
 
-        this.input.enableInput();
+        const width = 300;
+        const avgHeight = 200;
+
+        const bounds = this.window.getBounds();
+        let left = Math.min(Math.max(point.x - width * 0.5, bounds.x), bounds.x + bounds.width - width);
+        let top = Math.min(Math.max(point.y - avgHeight * 0.5, bounds.y), bounds.y + bounds.height - avgHeight);
+
+        this.window.enableInput();
         return this.dialog.open(EvaluateDialogComponent, {
             position: {
-                left: `${point.x}px`,
-                top: `${point.y}px`,
+                left: `${left}px`,
+                top: `${top}px`,
             },
             backdropClass: 'backdrop-clear',
             data: item,
+            width: `${width}px`,
         }).afterClosed().pipe(
             tap(() => {
                 if (this.dialog.openDialogs.length === 0) {
-                    this.input.disableInput();
+                    this.window.disableInput();
                 }
             })
         );

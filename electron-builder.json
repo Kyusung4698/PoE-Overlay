@@ -3,6 +3,10 @@
     "directories": {
         "output": "release/"
     },
+    "files": [
+        "main.js",
+        "dist/**/*"
+    ],
     "win": {
         "target": [
             "portable"

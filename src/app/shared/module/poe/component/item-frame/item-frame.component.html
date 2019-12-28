@@ -14,7 +14,7 @@
         <ng-container *ngIf="item.properties && item.properties.length > 0">
             <div *ngFor="let property of item.properties">
                 <span>{{property.text}}</span>
-                <span *ngIf="property.value" [class]="property.augmented ? 'augmented' : 'normal'">&nbsp;{{property.value}}</span>
+                <span *ngIf="property.value" [class]="property.augmented ? 'purpel' : 'white'">&nbsp;{{property.value}}</span>
             </div>
             <div class="separator"></div>
         </ng-container>

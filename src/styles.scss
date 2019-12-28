@@ -8,8 +8,12 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-.backdrop-clear + .cdk-global-overlay-wrapper{
-  .mat-dialog-container{
+.clickable {
+  cursor: pointer;
+}
+
+.backdrop-clear + .cdk-global-overlay-wrapper {
+  .mat-dialog-container {
     box-shadow: none;
     background: none;
     border-radius: 0;

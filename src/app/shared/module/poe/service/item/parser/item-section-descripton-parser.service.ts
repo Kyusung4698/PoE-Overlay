@@ -17,7 +17,7 @@ export class ItemSectionDescriptonParserService implements ItemSectionParserServ
             return null;
         }
 
-        target.description = descriptionSection.content.split('\n').join('<br>').split('.').join('.<br>');
+        target.description = descriptionSection.content.split('\n').join('<br>');
         return descriptionSection;
     }
 }

@@ -3,13 +3,17 @@ import { ShortcutService, WindowService } from '@app/service';
 import { FEATURE_MODULES } from '@app/token';
 import { FeatureModule } from '@app/type';
 import { ContextService } from '@shared/module/poe/service/context.service';
+import { version } from '../../package.json';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnInit, OnDestroy {
+  public version: string = version;
+
   constructor(
     @Inject(FEATURE_MODULES)
     private readonly modules: FeatureModule[],
@@ -43,7 +47,7 @@ export class AppComponent implements OnInit, OnDestroy {
     });
 
     this.shortcut.register('F5').subscribe(() => {
-      this.window.alwaysTop();
+      this.window.quit();
     });
   }
 

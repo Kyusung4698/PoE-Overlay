@@ -6,7 +6,7 @@
         <ng-container *ngSwitchDefault>
             <ng-container *ngIf="(result$ | async) as result">
                 <ng-container *ngIf="result.items.length > 0">
-                    <div [class.clickable]="url" (click)="url && onCurrencyClick()">
+                    <div class="clickable" (click)="onCurrencyClick()">
                         <app-currency-frame [amount]="result.targetCurrencyAvg" [currency]="result.targetCurrency">
                         </app-currency-frame>
                     </div>

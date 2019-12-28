@@ -44,19 +44,19 @@
     font-style: italic;
   }
 
-  .normal {
+  .white {
     color: #fff;
   }
 
-  .augmented {
+  .purpel {
     color: #88f;
   }
 
   &.normal {
     .header {
-      background: url(/assets/poe/item/header-normal-left.png) top left no-repeat,
-        url(/assets/poe/item/header-normal-right.png) top right no-repeat,
-        url(/assets/poe/item/header-normal-middle.png) top center repeat-x;
+      background: url(../../../../../../assets/poe/item/header-normal-left.png) top left no-repeat,
+        url(../../../../../../assets/poe/item/header-normal-right.png) top right no-repeat,
+        url(../../../../../../assets/poe/item/header-normal-middle.png) top center repeat-x;
     }
 
     .name {
@@ -101,9 +101,9 @@
 
   &.magic {
     .header {
-      background: url(/assets/poe/item/header-magic-left.png) top left no-repeat,
-        url(/assets/poe/item/header-magic-right.png) top right no-repeat,
-        url(/assets/poe/item/header-magic-middle.png) top center repeat-x;
+      background: url(../../../../../../assets/poe/item/header-magic-left.png) top left no-repeat,
+        url(../../../../../../assets/poe/item/header-magic-right.png) top right no-repeat,
+        url(../../../../../../assets/poe/item/header-magic-middle.png) top center repeat-x;
     }
 
     .name {
@@ -145,14 +145,14 @@
 
   &.rare {
     .header {
-      background: url(/assets/poe/item/header-rare-left.png) top left no-repeat,
-        url(/assets/poe/item/header-rare-right.png) top right no-repeat,
-        url(/assets/poe/item/header-rare-middle.png) top center repeat-x;
+      background: url(../../../../../../assets/poe/item/header-rare-left.png) top left no-repeat,
+        url(../../../../../../assets/poe/item/header-rare-right.png) top right no-repeat,
+        url(../../../../../../assets/poe/item/header-rare-middle.png) top center repeat-x;
 
       &.double {
-        background: url(/assets/poe/item/header-double-rare-left.png) top left no-repeat,
-          url(/assets/poe/item/header-double-rare-right.png) top right no-repeat,
-          url(/assets/poe/item/header-double-rare-middle.png) top center repeat-x;
+        background: url(../../../../../../assets/poe/item/header-double-rare-left.png) top left no-repeat,
+          url(../../../../../../assets/poe/item/header-double-rare-right.png) top right no-repeat,
+          url(../../../../../../assets/poe/item/header-double-rare-middle.png) top center repeat-x;
       }
     }
 
@@ -198,14 +198,14 @@
 
   &.unique {
     .header {
-      background: url(/assets/poe/item/header-unique-left.png) top left no-repeat,
-        url(/assets/poe/item/header-unique-right.png) top right no-repeat,
-        url(/assets/poe/item/header-unique-middle.png) top center repeat-x;
+      background: url(../../../../../../assets/poe/item/header-unique-left.png) top left no-repeat,
+        url(../../../../../../assets/poe/item/header-unique-right.png) top right no-repeat,
+        url(../../../../../../assets/poe/item/header-unique-middle.png) top center repeat-x;
 
       &.double {
-        background: url(/assets/poe/item/header-double-unique-left.png) top left no-repeat,
-          url(/assets/poe/item/header-double-unique-right.png) top right no-repeat,
-          url(/assets/poe/item/header-double-unique-middle.png) top center repeat-x;
+        background: url(../../../../../../assets/poe/item/header-double-unique-left.png) top left no-repeat,
+          url(../../../../../../assets/poe/item/header-double-unique-right.png) top right no-repeat,
+          url(../../../../../../assets/poe/item/header-double-unique-middle.png) top center repeat-x;
       }
     }
 
@@ -250,9 +250,9 @@
 
   &.currency {
     .header {
-      background: url(/assets/poe/item/header-currency-left.png) top left no-repeat,
-        url(/assets/poe/item/header-currency-right.png) top right no-repeat,
-        url(/assets/poe/item/header-currency-middle.png) top center repeat-x;
+      background: url(../../../../../../assets/poe/item/header-currency-left.png) top left no-repeat,
+        url(../../../../../../assets/poe/item/header-currency-right.png) top right no-repeat,
+        url(../../../../../../assets/poe/item/header-currency-middle.png) top center repeat-x;
     }
 
     .name {
@@ -296,9 +296,9 @@
 
   &.gem {
     .header {
-      background: url(/assets/poe/item/header-gem-left.png) top left no-repeat,
-        url(/assets/poe/item/header-gem-right.png) top right no-repeat,
-        url(/assets/poe/item/header-gem-middle.png) top center repeat-x;
+      background: url(../../../../../../assets/poe/item/header-gem-left.png) top left no-repeat,
+        url(../../../../../../assets/poe/item/header-gem-right.png) top right no-repeat,
+        url(../../../../../../assets/poe/item/header-gem-middle.png) top center repeat-x;
     }
 
     .name,

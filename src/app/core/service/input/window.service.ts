@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ElectronProvider } from '@app/provider';
+import { Rectangle } from '@app/type';
 import { Remote } from 'electron';
 
 @Injectable({
@@ -13,6 +14,15 @@ export class WindowService {
         this.electron = electronProvider.provideRemote();
     }
 
+    public getBounds(): Rectangle {
+        const bounds = this.electron.getCurrentWindow().getBounds();
+        return bounds;
+    }
+
+    public quit(): void{
+        this.electron.app.quit();
+    }
+
     public open(url: string): void {
         const BrowserWindow = this.electron.BrowserWindow;
         const win = new BrowserWindow({
@@ -24,10 +34,6 @@ export class WindowService {
             height: 800
         });
         win.loadURL(url);
-    }
-
-    public alwaysTop(): void {
-        this.electron.getCurrentWindow().setAlwaysOnTop(true);
     }
 
     public disableInput(): void {

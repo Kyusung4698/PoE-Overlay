@@ -1,5 +1,13 @@
 {
   "name": "poe-overlay",
+  "description": "A Overlay for Path of Exile. Built with Electron and Angular.",
+  "homepage": "https://github.com/Kyusung4698/PoE-Overlay",
+  "repository": {
+    "url": "https://github.com/Kyusung4698/PoE-Overlay"
+  },
+  "author": {
+    "name": "Kyusung4698"
+  },
   "version": "1.0.0",
   "scripts": {
     "postinstall": "electron-builder install-app-deps",
@@ -12,6 +20,7 @@
     "electron:serve": "wait-on http-get://localhost:4200/ && npm run electron:serve-tsc && electron . --serve",
     "electron:local": "npm run build:prod && electron .",
     "electron:windows": "npm run build:prod && electron-builder build --windows",
+    "electron:windows:fast": "electron-builder build --windows",
     "electron:version": "electron -v && electron -a",
     "robotjs:rebuild": "npm rebuild --runtime=electron --target=7.1.7 --disturl=https://atom.io/download/atom-shell --abi=75"
   },

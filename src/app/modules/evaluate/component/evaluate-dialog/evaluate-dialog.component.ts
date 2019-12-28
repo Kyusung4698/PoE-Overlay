@@ -16,7 +16,6 @@ import { flatMap } from 'rxjs/operators';
 })
 export class EvaluateDialogComponent implements OnInit {
   private url: string;
-
   public result$ = new BehaviorSubject<ItemSearchEvaluateResult>(null);
 
   constructor(
