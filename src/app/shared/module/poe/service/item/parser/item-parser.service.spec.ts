@@ -1,16 +1,24 @@
 import { async, TestBed } from '@angular/core/testing';
-import { AppModule } from 'src/app/app.module';
+import { Language } from '@shared/module/poe/type';
+import { SharedModule } from '@shared/shared.module';
+import { ContextService } from '../../context.service';
 import { ItemParserService } from './item-parser.service';
 
 describe('ItemParser', () => {
     let sut: ItemParserService;
+    let contextService: ContextService;
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             imports: [
-                AppModule
+                SharedModule
             ],
         }).compileComponents();
         sut = TestBed.get<ItemParserService>(ItemParserService);
+
+        contextService = TestBed.get<ContextService>(ContextService);
+        contextService.init({
+            language: Language.English
+        });
     }));
 
     const items: string[][] = [
@@ -83,7 +91,6 @@ describe('ItemParser', () => {
     items.forEach(itemStringified => {
         it(`should parse item: '${itemStringified[0]}'`, () => {
             const item = sut.parse(itemStringified[1]);
-            console.log(item);
             expect(item).toBeTruthy();
         });
     });

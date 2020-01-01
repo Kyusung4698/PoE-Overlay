@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ExportedItem, Item, ItemSectionParserService, Section } from '../../../type';
+import { ExportedItem, Item, ItemSectionParserService, Language, Section } from '../../../type';
+import { ContextService } from '../../context.service';
 import { ItemSectionDescriptonParserService } from './item-section-descripton-parser.service';
 import { ItemSectionImplicitsParserService } from './item-section-implicits-parser.service';
 import { ItemSectionItemLevelParserService } from './item-section-item-level-parser.service';
@@ -16,6 +17,7 @@ export class ItemParserService {
     private readonly parsers: ItemSectionParserService[];
 
     constructor(
+        private readonly context: ContextService,
         itemSectionRarityParser: ItemSectionRarityParserService,
         itemSectionRequirementsParserService: ItemSectionRequirementsParserService,
         itemSectionNoteParserService: ItemSectionNoteParserService,
@@ -36,7 +38,9 @@ export class ItemParserService {
         ];
     }
 
-    public parse(stringifiedItem: string): Item {
+    public parse(stringifiedItem: string, language?: Language): Item {
+        language = language || this.context.get().language;
+
         const exportedItem: ExportedItem = {
             sections: stringifiedItem
                 .split('--------')
@@ -54,7 +58,7 @@ export class ItemParserService {
                 })
         };
 
-        const target: Item = {};
+        const target: Item = { language };
         for (const parser of this.parsers) {
             const section = parser.parse(exportedItem, target);
             if (!section) {
@@ -66,7 +70,6 @@ export class ItemParserService {
             }
             exportedItem.sections.splice(exportedItem.sections.indexOf(section), 1);
         }
-        console.log(exportedItem);
         return target;
     }
 }

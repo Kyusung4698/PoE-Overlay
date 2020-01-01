@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/cor
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { WindowService } from '@app/service';
 import { SnackBarService } from '@shared/module/material/service';
-import { CurrencyService } from '@shared/module/poe/service/currency/currency-service';
+import { CurrencyService } from '@shared/module/poe/service/currency/currency.service';
 import { ItemSearchEvaluateService } from '@shared/module/poe/service/item/item-search-evaluate.service';
 import { ItemSearchService } from '@shared/module/poe/service/item/item-search.service';
 import { Item, ItemSearchEvaluateResult } from '@shared/module/poe/type';
@@ -12,7 +12,6 @@ import { flatMap } from 'rxjs/operators';
 @Component({
   selector: 'app-evaluate-dialog',
   templateUrl: './evaluate-dialog.component.html',
-  styleUrls: ['./evaluate-dialog.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EvaluateDialogComponent implements OnInit {
@@ -33,7 +32,7 @@ export class EvaluateDialogComponent implements OnInit {
   public ngOnInit(): void {
     forkJoin(
       this.itemSearchService.search(this.item),
-      this.currencyService.getForId('chaos')
+      this.currencyService.get('chaos')
     ).pipe(
       flatMap(results => {
         this.url = results[0].url;
@@ -51,11 +50,11 @@ export class EvaluateDialogComponent implements OnInit {
       })
     ).subscribe(result => {
       this.result$.next(result);
-    }, () => {
+    }, (error) => {
       this.result$.next({
         items: null
       });
-      this.snackbar.error('An unexpected error occured while searching for the item. Please try again later.');
+      this.snackbar.error(`${typeof error === 'string' ? `${error}` : 'An unexpected error occured while searching for the item.'}`);
     });
   }
 

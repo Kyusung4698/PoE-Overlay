@@ -1,61 +1,70 @@
 import { Injectable } from '@angular/core';
 import * as PoETrade from '@data/poe-trade';
-import { Item, ItemSearchResult, SearchItem } from '@shared/module/poe/type';
-import { forkJoin, Observable, of } from 'rxjs';
+import { Item, ItemSearchResult, Language, SearchItem } from '@shared/module/poe/type';
+import { forkJoin, Observable, of, throwError } from 'rxjs';
 import { flatMap, map } from 'rxjs/operators';
 import { ContextService } from '../context.service';
-import { CurrencyService } from '../currency/currency-service';
+import { CurrencyService } from '../currency/currency.service';
+import { ItemTranslatorService } from './translator/item-translator.service';
 
 @Injectable({
     providedIn: 'root'
 })
 export class ItemSearchService {
     constructor(
-        private readonly contextService: ContextService,
+        private readonly context: ContextService,
         private readonly currencyService: CurrencyService,
+        private readonly translatorService: ItemTranslatorService,
         private readonly searchHttpService: PoETrade.SearchHttpService) { }
 
     public search(requestedItem: Item, leagueId?: string): Observable<ItemSearchResult> {
-        leagueId = leagueId || this.contextService.get().leagueId;
+        leagueId = leagueId || this.context.get().leagueId;
 
-        const form = new PoETrade.SearchForm();
-        form.name = requestedItem.nameType;
-        form.league = leagueId;
-        form.online = 'x';
-        form.capquality = 'x';
+        // poetrade only supports english names
+        return this.translatorService.translate(requestedItem, Language.English).pipe(
+            flatMap(translatedItem => {
+                console.log(translatedItem);
 
-        return this.searchHttpService.search(form).pipe(
-            flatMap(response => {
-                if (response.items.length <= 0) {
-                    const result: ItemSearchResult = {
-                        items: [],
-                        url: response.url
-                    };
-                    return of(result);
-                }
-                const items$ = response.items
-                    .map(item => this.createSearchItem(requestedItem, item));
+                const form = new PoETrade.SearchForm();
+                form.name = translatedItem.nameType;
+                form.league = leagueId;
+                form.online = 'x';
+                form.capquality = 'x';
 
-                return forkJoin(items$).pipe(
-                    map(items => {
-                        const result: ItemSearchResult = {
-                            items: items.filter(item => item !== undefined),
-                            url: response.url
-                        };
-                        return result;
+                return this.searchHttpService.search(form).pipe(
+                    flatMap(response => {
+                        if (response.items.length <= 0) {
+                            const result: ItemSearchResult = {
+                                items: [],
+                                url: response.url
+                            };
+                            return of(result);
+                        }
+                        const items$ = response.items
+                            .map(item => this.createSearchItem(translatedItem, item));
+
+                        return forkJoin(items$).pipe(
+                            map(items => {
+                                const result: ItemSearchResult = {
+                                    items: items.filter(item => item !== undefined),
+                                    url: response.url
+                                };
+                                return result;
+                            })
+                        );
                     })
                 );
             })
         );
     }
 
-    private createSearchItem(requestedItem: Item, searchResponseItem: PoETrade.SearchItem): Observable<SearchItem> {
+    private createSearchItem(translatedItem: Item, searchResponseItem: PoETrade.SearchItem): Observable<SearchItem> {
         // `1 alteration`
         const splittedValue = searchResponseItem.value.split(' ');
         const currencyAmount = +(splittedValue[0].trim());
         const currencyId = splittedValue[1].trim();
 
-        return this.currencyService.getForId(currencyId).pipe(
+        return this.currencyService.get(currencyId).pipe(
             map(currency => {
 
                 if (currency === undefined) {
@@ -64,9 +73,7 @@ export class ItemSearchService {
                 }
 
                 const item: SearchItem = {
-                    nameType: requestedItem.nameType,
-                    name: requestedItem.name,
-                    type: requestedItem.type,
+                    ...translatedItem,
                     currency,
                     currencyAmount
                 };

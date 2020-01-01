@@ -210,3 +210,91 @@ Trigger Word of Fury on Hit
 +19 to maximum Life
 6% increased Rarity of Items found
 +1 Mana gained on Kill
+
+Seltenheit: Einzigartig
+Herr der Splitter
+Schlangenstab
+--------
+Kriegsstab
+Physischer Schaden: 48-100
+Kritische Trefferchance: 6.30%
+Angriffe pro Sekunde: 1.25
+Waffenreichweite: 13
+--------
+Anforderungen:
+Stufe: 62
+Str: 85
+Ges: 90
+Int: 134
+--------
+Fassungen: B-B-B-G 
+--------
+Gegenstandsstufe: 80
+--------
++20% Chance, Angriffsschaden zu blocken beim Tragen eines Stabs (implicit)
+--------
+Eingefasste Gemmen feuern 4 zusätzliche Projektile
+Eingefasste Gemmen feuern Projektile in einem Kreis
++17 zu allen Attributen
++6% zu allen Elementarwiderständen
+67% erhöhter Projektilschaden
+20% vergrößerter Lichtradius
+--------
+Was gebrochen war, kann noch zerstören.
+
+Seltenheit: Selten
+Widersacher-Sicherheit
+Ringpanzerwams
+--------
+Rüstung: 97
+Energieschild: 21
+--------
+Anforderungen:
+Stufe: 62
+Str: 60
+Ges: 60
+Int: 134
+--------
+Fassungen: R-B-R-B 
+--------
+Gegenstandsstufe: 25
+--------
++32 zu maximalem Mana
++16% zu Feuerwiderstand
++17% zu Kältewiderstand
+16% beschleunigte Betäubungs- und Blockerholung
++18 zu maximalem Leben (crafted)
+
+Seltenheit: Selten
+Leichen-Riemen
+Ledergürtel
+--------
+Anforderungen:
+Stufe: 24
+--------
+Gegenstandsstufe: 45
+--------
++33 zu maximalem Leben (implicit)
+--------
++10 zu maximalem Energieschild
++42 zu maximalem Leben
++10% zu Kältewiderstand
+11% beschleunigte Betäubungs- und Blockerholung
++21% zu Blitzwiderstand (crafted)
+
+Rarity: Rare
+Corpse Lash
+Leather Belt
+--------
+Requirements:
+Level: 24
+--------
+Item Level: 45
+--------
++33 to maximum Life (implicit)
+--------
++10 to maximum Energy Shield
++42 to maximum Life
++10% to Cold Resistance
+11% increased Stun and Block Recovery
++21% to Lightning Resistance (crafted)

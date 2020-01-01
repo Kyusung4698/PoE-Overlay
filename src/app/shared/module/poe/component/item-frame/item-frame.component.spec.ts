@@ -1,8 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { Item, ItemRarity } from '../../type';
+import { Item, ItemRarity, Language } from '../../type';
 import { ItemFrameComponent } from './item-frame.component';
 
 const gem: Item = {
+  language: Language.German,
   rarity: ItemRarity.Gem,
   nameType: 'Lavaschilde',
   type: 'Lavaschilde',

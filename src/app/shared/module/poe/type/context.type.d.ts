@@ -1,4 +1,6 @@
+import { Language } from "./language.type";
+
 export type Context = {
-    language: string;
-    leagueId: string;
+    language?: Language;
+    leagueId?: string;
 }

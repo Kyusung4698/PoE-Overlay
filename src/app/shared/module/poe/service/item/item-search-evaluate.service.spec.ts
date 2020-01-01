@@ -1,9 +1,9 @@
 import { async, TestBed } from '@angular/core/testing';
-import { Item } from '@shared/module/poe/type';
+import { Item, Language } from '@shared/module/poe/type';
+import { SharedModule } from '@shared/shared.module';
 import { forkJoin } from 'rxjs';
-import { AppModule } from 'src/app/app.module';
 import { ContextService } from '../context.service';
-import { CurrencyService } from '../currency/currency-service';
+import { CurrencyService } from '../currency/currency.service';
 import { ItemSearchEvaluateService } from './item-search-evaluate.service';
 import { ItemSearchService } from './item-search.service';
 
@@ -16,7 +16,7 @@ describe('ItemSearchEvaluate', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             imports: [
-                AppModule
+                SharedModule
             ],
         }).compileComponents();
         sut = TestBed.get<ItemSearchEvaluateService>(ItemSearchEvaluateService);
@@ -30,12 +30,13 @@ describe('ItemSearchEvaluate', () => {
 
     it('should return items', (done) => {
         const requestedItem: Item = {
+            language: Language.English,
             nameType: 'Horror Coil Topaz Ring'
         };
 
         forkJoin(
             searchService.search(requestedItem),
-            currencyService.getForId('chaos')
+            currencyService.get('chaos')
         ).subscribe(results => {
             sut.evaluate(results[0], results[1]).subscribe(result => {
                 console.log(result.targetCurrencyAvg);

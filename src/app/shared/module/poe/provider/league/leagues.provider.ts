@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as PoE from '@data/poe';
-import { League } from '@shared/module/poe/type';
+import { Language, League, LanguageMap } from '@shared/module/poe/type';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { filter, map, take, tap } from 'rxjs/operators';
 
@@ -8,32 +8,34 @@ import { filter, map, take, tap } from 'rxjs/operators';
     providedIn: 'root'
 })
 export class LeaguesProvider {
-    private leagues: BehaviorSubject<League[]>;
+    private readonly languageMap: LanguageMap<BehaviorSubject<League[]>> = {};
 
     constructor(
         private readonly tradeHttpService: PoE.TradeHttpService) { }
 
-    public provide(): Observable<League[]> {
-        if (this.leagues) {
-            return this.leagues.pipe(
-                filter(leagues => !!leagues),
+    public provide(language: Language): Observable<League[]> {
+        const leagues = this.languageMap[language];
+        if (leagues) {
+            return leagues.pipe(
+                filter(result => !!result),
                 take(1));
         }
-        this.leagues = new BehaviorSubject<League[]>(undefined);
-        return this.fetch();
+        this.languageMap[language] = new BehaviorSubject<League[]>(undefined);
+        return this.fetch(language);
     }
 
-    private fetch(): Observable<League[]> {
-        return this.tradeHttpService.getLeagues()
+    private fetch(language: Language): Observable<League[]> {
+        return this.tradeHttpService.getLeagues(language)
             .pipe(
                 map(leagues => leagues.result.map(league => {
                     const result: League = {
+                        language,
                         id: league.id,
                         text: league.text
                     };
                     return result;
                 })),
-                tap(leagues => this.leagues.next([...leagues]))
+                tap(leagues => this.languageMap[language].next([...leagues]))
             );
     }
 }

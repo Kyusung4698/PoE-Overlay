@@ -1,6 +1,8 @@
-import { Currency } from '../currency/currency.type';
+import { Currency } from './currency.type';
+import { Language } from './language.type';
 
 export interface Item {
+    language: Language;
     rarity?: ItemRarity;
     name?: string;
     type?: string;
