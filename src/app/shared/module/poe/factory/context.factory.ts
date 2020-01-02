@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Context, Language } from '../type';
-import { LeaguesProvider } from '../provider/league/leagues.provider';
+import { LeaguesProvider } from '../provider/leagues.provider';
 
 @Injectable({
     providedIn: 'root'

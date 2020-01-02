@@ -11,7 +11,7 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
     public optional = false;
 
     public parse(item: ExportedItem, target: Item): Section {
-        const phrase = `${this.clientString.get('ItemDisplayStringRarity', target.language)}: `;
+        const phrase = `${this.clientString.translate('ItemDisplayStringRarity', target.language)}: `;
 
         const raritySection = item.sections.find(x => x.content.indexOf(phrase) === 0);
         if (!raritySection) {
@@ -52,31 +52,31 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
     }[] {
         return [
             {
-                key: this.clientString.get('ItemDisplayStringNormal', target.language),
+                key: this.clientString.translate('ItemDisplayStringNormal', target.language),
                 value: ItemRarity.Normal,
             },
             {
-                key: this.clientString.get('ItemDisplayStringMagic', target.language),
+                key: this.clientString.translate('ItemDisplayStringMagic', target.language),
                 value: ItemRarity.Magic,
             },
             {
-                key: this.clientString.get('ItemDisplayStringRare', target.language),
+                key: this.clientString.translate('ItemDisplayStringRare', target.language),
                 value: ItemRarity.Rare,
             },
             {
-                key: this.clientString.get('ItemDisplayStringUnique', target.language),
+                key: this.clientString.translate('ItemDisplayStringUnique', target.language),
                 value: ItemRarity.Unique,
             },
             {
-                key: this.clientString.get('ItemDisplayStringCurrency', target.language),
+                key: this.clientString.translate('ItemDisplayStringCurrency', target.language),
                 value: ItemRarity.Currency,
             },
             {
-                key: this.clientString.get('ItemDisplayStringGem', target.language),
+                key: this.clientString.translate('ItemDisplayStringGem', target.language),
                 value: ItemRarity.Gem,
             },
             {
-                key: this.clientString.get('ItemDisplayStringDivinationCard', target.language),
+                key: this.clientString.translate('ItemDisplayStringDivinationCard', target.language),
                 value: ItemRarity.DivinationCard,
             },
         ];

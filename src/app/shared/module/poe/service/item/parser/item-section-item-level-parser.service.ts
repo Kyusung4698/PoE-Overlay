@@ -11,7 +11,7 @@ export class ItemSectionItemLevelParserService implements ItemSectionParserServi
     public optional = true;
 
     public parse(item: ExportedItem, target: Item): Section {
-        const phrase = `${this.clientString.get('ItemDisplayStringItemLevel', target.language)}: `;
+        const phrase = `${this.clientString.translate('ItemDisplayStringItemLevel', target.language)}: `;
 
         const itemLevelSection = item.sections.find(x => x.content.indexOf(phrase) === 0);
         if (!itemLevelSection) {

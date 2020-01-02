@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { SharedModule } from '@shared/shared.module';
 import { Item, ItemRarity, Language } from '../../type';
 import { ItemFrameComponent } from './item-frame.component';
 
@@ -7,23 +8,6 @@ const gem: Item = {
   rarity: ItemRarity.Gem,
   nameType: 'Lavaschilde',
   type: 'Lavaschilde',
-  properties: [
-    {
-      text: 'Zauber, Wirkungsbereich, Dauer, Feuer, Physisch, Wächter'
-    },
-    {
-      text: 'Stufe: 16',
-    },
-    {
-      text: 'Manakosten: 11',
-    },
-    {
-      text: 'Abklingzeit: 4.00 Sek',
-    },
-    {
-      text: 'Zauberzeit: Sofort',
-    }
-  ],
   requirements: {
     level: 58,
     str: 130,
@@ -66,7 +50,7 @@ describe('ItemFrameComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ItemFrameComponent]
+      imports: [SharedModule]
     })
       .compileComponents();
   }));

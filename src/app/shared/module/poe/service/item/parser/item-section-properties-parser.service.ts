@@ -58,16 +58,16 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
 
     private getPhrases(target: Item): string[] {
         return [
-            `${this.clientString.get('ItemDisplayWeaponPhysicalDamage', target.language)}: `,
-            `${this.clientString.get('ItemDisplayWeaponElementalDamage', target.language)}: `,
-            `${this.clientString.get('ItemDisplayWeaponChaosDamage', target.language)}: `,
-            `${this.clientString.get('ItemDisplayWeaponCriticalStrikeChance', target.language)}: `,
-            `${this.clientString.get('ItemDisplayWeaponAttacksPerSecond', target.language)}: `,
-            `${this.clientString.get('ItemDisplayWeaponRange', target.language)}: `,
-            `${this.clientString.get('ItemDisplayShieldBlockChance', target.language)}: `,
-            `${this.clientString.get('ItemDisplayArmourArmour', target.language)}: `,
-            `${this.clientString.get('ItemDisplayArmourEvasionRating', target.language)}: `,
-            `${this.clientString.get('ItemDisplayArmourEnergyShield', target.language)}: `,
+            `${this.clientString.translate('ItemDisplayWeaponPhysicalDamage', target.language)}: `,
+            `${this.clientString.translate('ItemDisplayWeaponElementalDamage', target.language)}: `,
+            `${this.clientString.translate('ItemDisplayWeaponChaosDamage', target.language)}: `,
+            `${this.clientString.translate('ItemDisplayWeaponCriticalStrikeChance', target.language)}: `,
+            `${this.clientString.translate('ItemDisplayWeaponAttacksPerSecond', target.language)}: `,
+            `${this.clientString.translate('ItemDisplayWeaponRange', target.language)}: `,
+            `${this.clientString.translate('ItemDisplayShieldBlockChance', target.language)}: `,
+            `${this.clientString.translate('ItemDisplayArmourArmour', target.language)}: `,
+            `${this.clientString.translate('ItemDisplayArmourEvasionRating', target.language)}: `,
+            `${this.clientString.translate('ItemDisplayArmourEnergyShield', target.language)}: `,
         ];
     }
 }

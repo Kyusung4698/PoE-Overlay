@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { CurrenciesProvider } from '@shared/module/poe/provider';
 import { Currency, Language, LanguageMap } from '@shared/module/poe/type';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { filter, map, take, tap } from 'rxjs/operators';
-import { ContextService } from '../context.service';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
+import { catchError, filter, map, take, tap } from 'rxjs/operators';
 
 interface CurrencyMap {
     [key: string]: Currency;

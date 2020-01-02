@@ -2,9 +2,8 @@ import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/cor
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { WindowService } from '@app/service';
 import { SnackBarService } from '@shared/module/material/service';
+import { ItemSearchEvaluateService, ItemSearchService } from '@shared/module/poe/service';
 import { CurrencyService } from '@shared/module/poe/service/currency/currency.service';
-import { ItemSearchEvaluateService } from '@shared/module/poe/service/item/item-search-evaluate.service';
-import { ItemSearchService } from '@shared/module/poe/service/item/item-search.service';
 import { Item, ItemSearchEvaluateResult } from '@shared/module/poe/type';
 import { BehaviorSubject, forkJoin, of } from 'rxjs';
 import { flatMap } from 'rxjs/operators';

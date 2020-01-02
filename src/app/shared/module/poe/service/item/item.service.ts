@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ItemsProvider } from '@shared/module/poe/provider/item/items.provider';
+import { ItemsProvider } from '@shared/module/poe/provider/items.provider';
 import { Item, Language } from '@shared/module/poe/type';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';

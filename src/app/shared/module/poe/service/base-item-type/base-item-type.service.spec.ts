@@ -2,10 +2,10 @@ import { async, TestBed } from '@angular/core/testing';
 import { SharedModule } from '@shared/shared.module';
 import { Language } from '../../type';
 import { ContextService } from '../context.service';
-import { ClientStringService } from './client-string.service';
+import { BaseItemTypeService } from './base-item-type.service';
 
-describe('ClientString', () => {
-    let sut: ClientStringService;
+describe('BaseItemType', () => {
+    let sut: BaseItemTypeService;
     let contextService: ContextService;
     beforeEach(async(() => {
         TestBed.configureTestingModule({
@@ -13,7 +13,7 @@ describe('ClientString', () => {
                 SharedModule
             ],
         }).compileComponents();
-        sut = TestBed.get<ClientStringService>(ClientStringService);
+        sut = TestBed.get<BaseItemTypeService>(BaseItemTypeService);
 
         contextService = TestBed.get<ContextService>(ContextService);
         contextService.init();
@@ -26,15 +26,17 @@ describe('ClientString', () => {
         Language.Korean,
         Language.Russian,
     ];
-    const ids = [
-        'ItemDisplayStringRarity',
-        'ItemDisplayStringUnique'
+    const texts = [
+        'Orbe du chaos',
+        `Pierre à aiguiser de forgeron`
     ];
-    ids.forEach(id => {
+    texts.forEach(text => {
         languages.forEach(language => {
-            it(`should get text for id: '${id}' in '${Language[language]}'`, () => {
-                const text = sut.translate(id, language);
-                expect(text.indexOf('untranslated') === -1).toBeTruthy();
+            it(`should search for text: '${text}' in French and translate in '${Language[language]}'`, () => {
+                const id = sut.search(text, Language.French);
+                expect(id).toBeTruthy();
+                const localizedText = sut.translate(id, language);
+                expect(localizedText.indexOf('untranslated') === -1).toBeTruthy();
             });
         });
     });

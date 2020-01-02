@@ -84,3 +84,33 @@ Remodèle un objet rare en lui donnant de nouveaux modificateurs au hasard
 --------
 Effectuez un clic droit sur cet objet puis appliquez-le avec un clic gauche sur un objet rare.
 Maj-clic pour séparer l'ensemble.
+
+Rareté: Normal
+Orbe lunaire
+--------
+« La lune est une mère sage qui nous baigne de sa douce
+et fraîche lueur afin d'éclairer nos chemins.
+Sa lumière est sagesse. Sa lumière est vie. »
+– Les Versets lunaires
+
+Rareté: Gemme
+Invocation d'Esprit enragé
+--------
+Sort, Créature, Durée, Feu
+Niveau: 13
+Coût en mana: 9
+Temps d'incantation: 0.50 sec.
+Expérience: 1.833.983/2.507.110
+--------
+Prérequis::
+Niveau: 48
+Int: 109
+--------
+Un sort qui invoque un crâne incandescent ayant une courte durée de vie. Le crâne fonce sur les ennemis à proximité et les attaque rapidement. Les ennemis n'attaqueront pas directement ces crânes, et peuvent passer au travers.
+--------
+La Durée de base est de 5.00 secondes
+Vous pouvez avoir jusqu'à 20 Esprits enragés d'Invoqués au maximum
+Les Créatures ont 15% de Perte de Dégâts ajoutés
+Les Créatures ne peuvent pas Provoquer les Ennemis
+--------
+Insérez cette Gemme dans une châsse de la même couleur pour acquérir cette Aptitude. Retirez-la à l'aide d'un clic droit.

@@ -10,6 +10,6 @@ export class ClientStringPipe implements PipeTransform {
     }
 
     public transform(value: string, language: Language) {
-        return this.clientString.get(value, language);
+        return this.clientString.translate(value, language);
     }
 }
