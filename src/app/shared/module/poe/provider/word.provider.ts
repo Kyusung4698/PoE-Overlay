@@ -24,8 +24,6 @@ export class WordProvider {
                 return Spanish;
             case Language.Korean:
                 return Korean;
-            case Language.TraditionalChinese:
-            case Language.SimplifiedChinese:
             default:
                 throw new Error(`Could not map words to language: '${Language[language]}'.`);
         }

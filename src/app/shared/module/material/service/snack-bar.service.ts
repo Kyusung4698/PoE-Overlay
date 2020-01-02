@@ -30,7 +30,7 @@ export class SnackBarService {
         return from(this.matSnackBar.open(message, undefined, {
             duration: 5 * 1000,
             verticalPosition: 'bottom',
-            panelClass: `snack-bar-service-${panelClass}`,
+            panelClass: `snack-bar-service`,
         }).onAction().toPromise());
     }
 }

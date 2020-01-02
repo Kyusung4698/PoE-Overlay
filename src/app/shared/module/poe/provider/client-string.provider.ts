@@ -24,8 +24,6 @@ export class ClientStringProvider {
                 return Spanish;
             case Language.Korean:
                 return Korean;
-            case Language.TraditionalChinese:
-            case Language.SimplifiedChinese:
             default:
                 throw new Error(`Could not map clientstrings to language: '${Language[language]}'.`);
         }

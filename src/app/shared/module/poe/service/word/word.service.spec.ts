@@ -4,7 +4,7 @@ import { Language } from '../../type';
 import { ContextService } from '../context.service';
 import { WordService } from './word.service';
 
-describe('Word', () => {
+describe('WordService', () => {
     let sut: WordService;
     let contextService: ContextService;
     beforeEach(async(() => {
@@ -16,7 +16,9 @@ describe('Word', () => {
         sut = TestBed.get<WordService>(WordService);
 
         contextService = TestBed.get<ContextService>(ContextService);
-        contextService.init();
+        contextService.init({
+            language: Language.English
+        });
     }));
 
     const languages: Language[] = [

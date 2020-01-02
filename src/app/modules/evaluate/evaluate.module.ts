@@ -25,7 +25,7 @@ export class EvaluateModule implements FeatureModule {
             },
             {
                 name: 'evaluate-english',
-                defaultShortcut: 'CommandOrControl+T'
+                defaultShortcut: 'CommandOrControl+F'
             }
         ];
     }

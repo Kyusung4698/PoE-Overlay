@@ -17,12 +17,16 @@ describe('ItemSearchService', () => {
         sut = TestBed.get<ItemSearchService>(ItemSearchService);
 
         contextService = TestBed.get<ContextService>(ContextService);
-        contextService.init();
+        contextService.init({
+            language: Language.English
+        });
     }));
 
     it('should return items', (done) => {
         const requestedItem: Item = {
             language: Language.English,
+            name: 'Horror Coil',
+            type: 'Topaz Ring',
             nameType: 'Horror Coil Topaz Ring'
         };
 

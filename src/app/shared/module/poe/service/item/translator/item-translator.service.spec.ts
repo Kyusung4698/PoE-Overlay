@@ -4,7 +4,7 @@ import { SharedModule } from '@shared/shared.module';
 import { ItemTranslatorService } from '../..';
 import { ContextService } from '../../context.service';
 
-describe('ItemTranslator', () => {
+describe('ItemTranslatorService', () => {
     let sut: ItemTranslatorService;
     let contextService: ContextService;
 
@@ -17,7 +17,9 @@ describe('ItemTranslator', () => {
         sut = TestBed.get<ItemTranslatorService>(ItemTranslatorService);
 
         contextService = TestBed.get<ContextService>(ContextService);
-        contextService.init();
+        contextService.init({
+            language: Language.English
+        });
     }));
 
     const testCases: {

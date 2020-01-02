@@ -23,8 +23,6 @@ export class ItemSearchService {
         // poetrade only supports english names
         return this.translatorService.translate(requestedItem, Language.English).pipe(
             flatMap(translatedItem => {
-                console.log(translatedItem);
-
                 const form = new PoETrade.SearchForm();
                 // ignore name if rare
                 form.name = translatedItem.rarity === ItemRarity.Rare

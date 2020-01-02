@@ -1,11 +1,12 @@
 import { async, TestBed } from '@angular/core/testing';
+import { SharedModule } from '@shared/shared.module';
 import { forkJoin } from 'rxjs';
+import { Language } from '../../type';
 import { ContextService } from '../context.service';
 import { CurrencyConverterService } from './currency-converter.service';
 import { CurrencyService } from './currency.service';
-import { SharedModule } from '@shared/shared.module';
 
-describe('CurrencyConverter', () => {
+describe('CurrencyConverterService', () => {
     let sut: CurrencyConverterService;
     let contextService: ContextService;
     let currencyService: CurrencyService;
@@ -19,7 +20,9 @@ describe('CurrencyConverter', () => {
         sut = TestBed.get<CurrencyConverterService>(CurrencyConverterService);
 
         contextService = TestBed.get<ContextService>(ContextService);
-        contextService.init();
+        contextService.init({
+            language: Language.English
+        });
 
         currencyService = TestBed.get<CurrencyService>(CurrencyService);
     }));

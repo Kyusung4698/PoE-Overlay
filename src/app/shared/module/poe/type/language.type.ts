@@ -7,8 +7,6 @@ export enum Language {
     French = 6,
     Spanish = 7,
     Korean = 8,
-    TraditionalChinese = 9,
-    SimplifiedChinese = 10,
 }
 
 export interface LanguageMap<TType> {

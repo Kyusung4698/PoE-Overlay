@@ -7,7 +7,7 @@ import { CurrencyService } from '../currency/currency.service';
 import { ItemSearchEvaluateService } from './item-search-evaluate.service';
 import { ItemSearchService } from './item-search.service';
 
-describe('ItemSearchEvaluate', () => {
+describe('ItemSearchEvaluateService', () => {
     let sut: ItemSearchEvaluateService;
     let contextService: ContextService;
     let searchService: ItemSearchService;
@@ -22,7 +22,9 @@ describe('ItemSearchEvaluate', () => {
         sut = TestBed.get<ItemSearchEvaluateService>(ItemSearchEvaluateService);
 
         contextService = TestBed.get<ContextService>(ContextService);
-        contextService.init();
+        contextService.init({
+            language: Language.English
+        });
 
         searchService = TestBed.get<ItemSearchService>(ItemSearchService);
         currencyService = TestBed.get<CurrencyService>(CurrencyService);
@@ -31,6 +33,8 @@ describe('ItemSearchEvaluate', () => {
     it('should return items', (done) => {
         const requestedItem: Item = {
             language: Language.English,
+            name: 'Horror Coil',
+            type: 'Topaz Ring',
             nameType: 'Horror Coil Topaz Ring'
         };
 
@@ -39,7 +43,6 @@ describe('ItemSearchEvaluate', () => {
             currencyService.get('chaos')
         ).subscribe(results => {
             sut.evaluate(results[0], results[1]).subscribe(result => {
-                console.log(result.targetCurrencyAvg);
                 expect(result.targetCurrencyAvg).toBeGreaterThan(0);
                 done();
             }, error => {

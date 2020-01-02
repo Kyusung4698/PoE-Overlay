@@ -4,7 +4,7 @@ import { SharedModule } from '@shared/shared.module';
 import { ContextService } from '../../context.service';
 import { ItemParserService } from './item-parser.service';
 
-describe('ItemParser', () => {
+describe('ItemParserService', () => {
     let sut: ItemParserService;
     let contextService: ContextService;
     beforeEach(async(() => {
