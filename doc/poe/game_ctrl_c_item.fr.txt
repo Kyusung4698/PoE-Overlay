@@ -1,0 +1,86 @@
+Rareté: Unique
+Engendreur d'éclats
+Bâton en serpentine
+--------
+Bâton de guerre
+Dégâts physiques: 48-100
+Chances de coup critique: 6.30%
+Attaques par seconde: 1.25
+Allonge: 13
+--------
+Prérequis::
+Niveau: 62
+For: 85
+Dex: 90
+Int: 134
+--------
+Châsses: B-B-B-G 
+--------
+Niveau de l'objet: 80
+--------
++20% de Chances de Bloquer les Dégâts d'Attaque en maniant un bâton (implicit)
+--------
+Les Gemmes Enchâssées tirent 4 Projectiles supplémentaires
+Les Projectiles des Gemmes Enchâssées sont tirés en cercle
++17 à tous les Attributs
++6% à toutes les Résistances élémentaires
+67% d'Augmentation des Dégâts des Projectiles
+20% d'Augmentation du Rayonnement lumineux
+--------
+Ce qui est cassé peut encore se rompre.
+
+Rareté: Rare
+Lanière cadavérique
+Ceinture en cuir
+--------
+Prérequis::
+Niveau: 24
+--------
+Niveau de l'objet: 45
+--------
++33 de Vie maximale (implicit)
+--------
++10 de Bouclier d'énergie maximal
++42 de Vie maximale
++10% à la Résistance au froid
+11% d'Augmentation de la Récupération de Blocage et d'Étourdissement
++21% à la Résistance à la foudre (crafted)
+
+Rareté: Magique
+Haubert en chaînes du Prodige
+--------
+Armure: 281
+Bouclier d'énergie: 55
+--------
+Prérequis::
+Niveau: 51
+For: 75
+Int: 75
+--------
+Châsses: B B-B-R-R 
+--------
+Niveau de l'objet: 51
+--------
++19 d'Intelligence
+--------
+Commentaire: ~price 1 alt
+
+Rareté: Objet monétaire
+Orbe royal
+--------
+Taille de l'ensemble: 3/10
+--------
+Améliore un objet magique en un objet rare
+--------
+Effectuez un clic droit sur cet objet puis appliquez-le avec un clic gauche sur un objet magique. Il conservera ses modificateurs actuels et en recevra un nouveau. Retire 5% de la qualité appliquée par les Catalystes.
+Maj-clic pour séparer l'ensemble.
+
+Rareté: Objet monétaire
+Orbe du chaos
+--------
+Taille de l'ensemble: 16/10
+--------
+Remodèle un objet rare en lui donnant de nouveaux modificateurs au hasard
+--------
+Effectuez un clic droit sur cet objet puis appliquez-le avec un clic gauche sur un objet rare.
+Maj-clic pour séparer l'ensemble.

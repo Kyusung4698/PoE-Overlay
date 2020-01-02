@@ -25,9 +25,7 @@ export class EvaluateDialogComponent implements OnInit {
     private readonly itemSearchEvaluateService: ItemSearchEvaluateService,
     private readonly currencyService: CurrencyService,
     private readonly window: WindowService,
-    private readonly snackbar: SnackBarService) {
-
-  }
+    private readonly snackbar: SnackBarService) { }
 
   public ngOnInit(): void {
     forkJoin(

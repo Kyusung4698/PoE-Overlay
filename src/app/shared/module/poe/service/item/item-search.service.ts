@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as PoETrade from '@data/poe-trade';
-import { Item, ItemSearchResult, Language, SearchItem } from '@shared/module/poe/type';
-import { forkJoin, Observable, of, throwError } from 'rxjs';
+import { Item, ItemRarity, ItemSearchResult, Language, SearchItem } from '@shared/module/poe/type';
+import { forkJoin, Observable, of } from 'rxjs';
 import { flatMap, map } from 'rxjs/operators';
 import { ContextService } from '../context.service';
 import { CurrencyService } from '../currency/currency.service';
@@ -26,7 +26,10 @@ export class ItemSearchService {
                 console.log(translatedItem);
 
                 const form = new PoETrade.SearchForm();
-                form.name = translatedItem.nameType;
+                // ignore name if rare
+                form.name = translatedItem.rarity === ItemRarity.Rare
+                    ? translatedItem.type
+                    : translatedItem.nameType;
                 form.league = leagueId;
                 form.online = 'x';
                 form.capquality = 'x';

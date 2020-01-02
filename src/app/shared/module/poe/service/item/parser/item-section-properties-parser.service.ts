@@ -1,55 +1,73 @@
 import { Injectable } from '@angular/core';
-import { ExportedItem, Item, ItemProperty, ItemSectionParserService, Section } from '@shared/module/poe/type';
+import { ExportedItem, Item, ItemProperty, ItemSectionParserService, Section, ItemProperties } from '@shared/module/poe/type';
+import { ClientStringService } from '../../client-string/client-string.service';
 
 @Injectable({
     providedIn: 'root'
 })
 export class ItemSectionPropertiesParserService implements ItemSectionParserService {
-    // not provided in content.ggpk
-    private readonly properties = [
-        // jewels
-        'Limited to: ',
-        'Radius: ',
-        // currency
-        'Stack Size: ',
-        // attack
-        'Physical Damage: ',
-        'Critical Strike Chance: ',
-        'Attacks per Second: ',
-        'Weapon Range: ',
-        // defense
-        'Armour: ',
-        'Evasion Rating: ',
-        'Energy Shield: ',
-        'Block: ',
-    ];
+    constructor(private readonly clientString: ClientStringService) { }
 
     public optional = true;
 
     public parse(item: ExportedItem, target: Item): Section {
-        const propertiesSection = item.sections.find(x => this.properties.findIndex(prop => x.content.indexOf(prop) !== -1) !== -1);
+        const phrases = this.getPhrases(target);
+
+        const propertiesSection = item.sections.find(section => phrases
+            .findIndex(prop => section.content.indexOf(prop) !== -1) !== -1);
         if (!propertiesSection) {
             return null;
         }
 
-        target.properties = propertiesSection.lines.map(line => {
+        const props: ItemProperties = {};
 
-            const augmented = line.indexOf('(augmented)') !== -1;
-            let text = line.replace('(augmented)', '');
-            let value: string;
+        const lines = propertiesSection.lines;
+        for (const line of lines) {
+            props.weaponPhysicalDamage = this.parseProperty(line, phrases[0], props.weaponPhysicalDamage);
+            props.weaponElementalDamage = this.parseProperty(line, phrases[1], props.weaponElementalDamage);
+            props.weaponChaosDamage = this.parseProperty(line, phrases[2], props.weaponChaosDamage);
+            props.weaponCriticalStrikeChance = this.parseProperty(line, phrases[3], props.weaponCriticalStrikeChance);
+            props.weaponAttacksPerSecond = this.parseProperty(line, phrases[4], props.weaponAttacksPerSecond);
+            props.weaponRange = this.parseProperty(line, phrases[5], props.weaponRange);
+            props.shieldBlockChance = this.parseProperty(line, phrases[6], props.shieldBlockChance);
+            props.armourArmour = this.parseProperty(line, phrases[7], props.armourArmour);
+            props.armourEvasionRating = this.parseProperty(line, phrases[8], props.armourEvasionRating);
+            props.armourEnergyShield = this.parseProperty(line, phrases[9], props.armourEnergyShield);
+        }
 
-            const prop = this.properties.find(x => line.indexOf(x) === 0);
-            if (prop) {
-                value = text.slice(prop.length);
-                text = text.slice(0, prop.length - 1);
-            }
-            const property: ItemProperty = {
-                text,
-                augmented,
-                value
-            };
-            return property;
-        });
+        target.properties = props;
         return propertiesSection;
+    }
+
+    private parseProperty(line: string, phrase: string, prop: ItemProperty): ItemProperty {
+        if (line.indexOf(phrase) !== 0) {
+            return prop;
+        }
+
+        const augmented = line.indexOf(' (augmented)') !== -1;
+        const text = line.replace(' (augmented)', '');
+
+        const value = text.slice(phrase.length);
+
+        const property: ItemProperty = {
+            augmented,
+            value
+        };
+        return property;
+    }
+
+    private getPhrases(target: Item): string[] {
+        return [
+            `${this.clientString.get('ItemDisplayWeaponPhysicalDamage', target.language)}: `,
+            `${this.clientString.get('ItemDisplayWeaponElementalDamage', target.language)}: `,
+            `${this.clientString.get('ItemDisplayWeaponChaosDamage', target.language)}: `,
+            `${this.clientString.get('ItemDisplayWeaponCriticalStrikeChance', target.language)}: `,
+            `${this.clientString.get('ItemDisplayWeaponAttacksPerSecond', target.language)}: `,
+            `${this.clientString.get('ItemDisplayWeaponRange', target.language)}: `,
+            `${this.clientString.get('ItemDisplayShieldBlockChance', target.language)}: `,
+            `${this.clientString.get('ItemDisplayArmourArmour', target.language)}: `,
+            `${this.clientString.get('ItemDisplayArmourEvasionRating', target.language)}: `,
+            `${this.clientString.get('ItemDisplayArmourEnergyShield', target.language)}: `,
+        ];
     }
 }

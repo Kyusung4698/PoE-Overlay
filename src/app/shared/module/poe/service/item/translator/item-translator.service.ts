@@ -45,7 +45,7 @@ export class ItemTranslatorService {
                             break;
                         }
 
-                        if (item.type === originalItem.type) {
+                        if (!item.name && originalItem.type.indexOf(item.type) !== -1) {
                             typeItemId = itemId;
                             typeMapId = mapId;
                             break;

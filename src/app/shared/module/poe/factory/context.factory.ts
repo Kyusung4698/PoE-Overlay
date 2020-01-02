@@ -11,7 +11,7 @@ export class ContextFactory {
     constructor(private readonly leaguesProvider: LeaguesProvider) { }
 
     public create(context?: Context): Observable<Context> {
-        return this.leaguesProvider.provide(Language.German).pipe(
+        return this.leaguesProvider.provide(Language.French).pipe(
             map(leagues => {
                 const result: Context = {
                     leagueId: leagues[0].id,

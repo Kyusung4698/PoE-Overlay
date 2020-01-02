@@ -1,20 +1,24 @@
 import { Injectable } from '@angular/core';
 import { ExportedItem, Item, ItemSectionParserService, Section } from '@shared/module/poe/type';
+import { ClientStringService } from '../../client-string/client-string.service';
 
 @Injectable({
     providedIn: 'root'
 })
 export class ItemSectionItemLevelParserService implements ItemSectionParserService {
-    private readonly phrase = 'Item Level: ';
+    constructor(private readonly clientString: ClientStringService) { }
 
     public optional = true;
 
     public parse(item: ExportedItem, target: Item): Section {
-        const itemLevelSection = item.sections.find(x => x.content.indexOf(this.phrase) === 0);
+        const phrase = `${this.clientString.get('ItemDisplayStringItemLevel', target.language)}: `;
+
+        const itemLevelSection = item.sections.find(x => x.content.indexOf(phrase) === 0);
         if (!itemLevelSection) {
             return null;
         }
-        target.level = +itemLevelSection.lines[0].slice(this.phrase.length);
+
+        target.level = +itemLevelSection.lines[0].slice(phrase.length);
         return itemLevelSection;
     }
 }

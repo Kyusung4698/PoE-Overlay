@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FEATURE_MODULES } from '@app/token';
 import { Feature, FeatureModule } from '@app/type';
+import { Language } from '@shared/module/poe/type';
 import { SharedModule } from '@shared/shared.module';
 import { EvaluateDialogComponent } from './component/evaluate-dialog/evaluate-dialog.component';
 import { EvaluateService } from './service/evaluate.service';
@@ -21,6 +22,10 @@ export class EvaluateModule implements FeatureModule {
             {
                 name: 'evaluate',
                 defaultShortcut: 'CommandOrControl+D'
+            },
+            {
+                name: 'evaluate-english',
+                defaultShortcut: 'CommandOrControl+T'
             }
         ];
     }
@@ -29,6 +34,9 @@ export class EvaluateModule implements FeatureModule {
         switch (feature) {
             case 'evaluate':
                 this.evaluateService.evaluate().toPromise();
+                break;
+            case 'evaluate-english':
+                this.evaluateService.evaluate(Language.English).toPromise();
                 break;
             default:
                 break;

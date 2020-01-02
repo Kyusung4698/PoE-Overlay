@@ -10,7 +10,7 @@ export interface Item {
     flags?: ItemFlags;
     level?: number;
     sockets?: string;
-    properties?: ItemProperty[];
+    properties?: ItemProperties;
     requirements?: ItemRequirements;
     secondaryDescription?: string;
     implicits?: ItemMod[];
@@ -33,10 +33,27 @@ export interface ItemFlags {
     unique?: boolean;
 }
 
+export interface ItemProperties {
+    weaponPhysicalDamage?: ItemProperty;
+    weaponElementalDamage?: ItemProperty;
+    weaponChaosDamage?: ItemProperty;
+    weaponCriticalStrikeChance?: ItemProperty;
+    weaponAttacksPerSecond?: ItemProperty;
+    weaponRange?: ItemProperty;
+    shieldBlockChance?: ItemProperty;
+    armourArmour?: ItemProperty;
+    armourEvasionRating?: ItemProperty;
+    armourEnergyShield?: ItemProperty;
+    additionals?: ItemProperty[];
+}
+
 export interface ItemProperty {
+    value: string;
+    augmented: boolean;
+}
+
+export interface ItemAdditionalProperty extends ItemProperty {
     text: string;
-    value?: string;
-    augmented?: boolean;
 }
 
 export interface ItemMod {
