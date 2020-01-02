@@ -59,11 +59,7 @@ export class AppComponent implements OnInit, OnDestroy {
       });
     });
 
-    this.shortcut.register('F5').subscribe(() => {
-      this.window.quit();
-    });
-
-    this.shortcut.register('F8').subscribe(() => {
+    this.shortcut.register('F7').subscribe(() => {
       if (!this.settingsDialogOpen) {
         this.settingsDialogOpen = this.userSettingsDialog.open().pipe(
           finalize(() => this.settingsDialogOpen = null)
@@ -77,6 +73,10 @@ export class AppComponent implements OnInit, OnDestroy {
           }
         });
       }
+    });
+
+    this.shortcut.register('F8').subscribe(() => {
+      this.window.quit();
     });
   }
 
