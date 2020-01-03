@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ExportedItem, Item, ItemProperty, ItemSectionParserService, Section, ItemProperties } from '@shared/module/poe/type';
+import { ExportedItem, Item, ItemProperties, ItemProperty, ItemSectionParserService, Language, Section } from '@shared/module/poe/type';
 import { ClientStringService } from '../../client-string/client-string.service';
 
 @Injectable({
@@ -11,7 +11,7 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
     public optional = true;
 
     public parse(item: ExportedItem, target: Item): Section {
-        const phrases = this.getPhrases(target);
+        const phrases = this.getPhrases();
 
         const propertiesSection = item.sections.find(section => phrases
             .findIndex(prop => section.content.indexOf(prop) !== -1) !== -1);
@@ -56,18 +56,18 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
         return property;
     }
 
-    private getPhrases(target: Item): string[] {
+    private getPhrases(): string[] {
         return [
-            `${this.clientString.translate('ItemDisplayWeaponPhysicalDamage', target.language)}: `,
-            `${this.clientString.translate('ItemDisplayWeaponElementalDamage', target.language)}: `,
-            `${this.clientString.translate('ItemDisplayWeaponChaosDamage', target.language)}: `,
-            `${this.clientString.translate('ItemDisplayWeaponCriticalStrikeChance', target.language)}: `,
-            `${this.clientString.translate('ItemDisplayWeaponAttacksPerSecond', target.language)}: `,
-            `${this.clientString.translate('ItemDisplayWeaponRange', target.language)}: `,
-            `${this.clientString.translate('ItemDisplayShieldBlockChance', target.language)}: `,
-            `${this.clientString.translate('ItemDisplayArmourArmour', target.language)}: `,
-            `${this.clientString.translate('ItemDisplayArmourEvasionRating', target.language)}: `,
-            `${this.clientString.translate('ItemDisplayArmourEnergyShield', target.language)}: `,
+            `${this.clientString.translate('ItemDisplayWeaponPhysicalDamage')}: `,
+            `${this.clientString.translate('ItemDisplayWeaponElementalDamage')}: `,
+            `${this.clientString.translate('ItemDisplayWeaponChaosDamage')}: `,
+            `${this.clientString.translate('ItemDisplayWeaponCriticalStrikeChance')}: `,
+            `${this.clientString.translate('ItemDisplayWeaponAttacksPerSecond')}: `,
+            `${this.clientString.translate('ItemDisplayWeaponRange')}: `,
+            `${this.clientString.translate('ItemDisplayShieldBlockChance')}: `,
+            `${this.clientString.translate('ItemDisplayArmourArmour')}: `,
+            `${this.clientString.translate('ItemDisplayArmourEvasionRating')}: `,
+            `${this.clientString.translate('ItemDisplayArmourEnergyShield')}: `,
         ];
     }
 }

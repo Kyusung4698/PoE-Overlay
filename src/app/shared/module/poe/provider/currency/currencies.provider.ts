@@ -39,7 +39,6 @@ export class CurrenciesProvider {
                         label: currencyGroup.label,
                         currencies: currencyGroup.entries.reduce((self, entry) => {
                             const currency: Currency = {
-                                language,
                                 id: entry.id,
                                 nameType: entry.text,
                                 image: entry.image

@@ -1,7 +1,6 @@
 import { Language } from "./language.type"
 
 export type Currency = {
-    language: Language;
     id: string;
     nameType: string;
     image: string;

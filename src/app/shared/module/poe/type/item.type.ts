@@ -1,13 +1,9 @@
 import { Currency } from './currency.type';
-import { Language } from './language.type';
 
 export interface Item {
-    language: Language;
     rarity?: ItemRarity;
-    name?: string;
-    type?: string;
-    nameType?: string;
-    flags?: ItemFlags;
+    nameId?: string;
+    typeId?: string;
     level?: number;
     sockets?: string;
     properties?: ItemProperties;
@@ -27,10 +23,6 @@ export enum ItemRarity {
     Currency = 'currency',
     Gem = 'gem',
     DivinationCard = 'divinationcard'
-}
-
-export interface ItemFlags {
-    unique?: boolean;
 }
 
 export interface ItemProperties {
@@ -97,7 +89,6 @@ export interface ItemSearchResult {
     items: SearchItem[];
     url: string;
 }
-
 
 export interface ExportedItem {
     sections: Section[];

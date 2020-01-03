@@ -4,9 +4,14 @@ import { WindowService } from '@app/service';
 import { SnackBarService } from '@shared/module/material/service';
 import { ItemSearchEvaluateService, ItemSearchService } from '@shared/module/poe/service';
 import { CurrencyService } from '@shared/module/poe/service/currency/currency.service';
-import { Item, ItemSearchEvaluateResult } from '@shared/module/poe/type';
+import { Item, ItemSearchEvaluateResult, Language } from '@shared/module/poe/type';
 import { BehaviorSubject, forkJoin, of } from 'rxjs';
 import { flatMap } from 'rxjs/operators';
+
+export interface EvaluateDialogData {
+  item: Item;
+  language?: Language;
+}
 
 @Component({
   selector: 'app-evaluate-dialog',
@@ -15,20 +20,22 @@ import { flatMap } from 'rxjs/operators';
 })
 export class EvaluateDialogComponent implements OnInit {
   private url: string;
+
   public result$ = new BehaviorSubject<ItemSearchEvaluateResult>(null);
 
   constructor(
     @Inject(MAT_DIALOG_DATA)
-    public item: Item,
+    public data: EvaluateDialogData,
     private readonly itemSearchService: ItemSearchService,
     private readonly itemSearchEvaluateService: ItemSearchEvaluateService,
     private readonly currencyService: CurrencyService,
     private readonly window: WindowService,
-    private readonly snackbar: SnackBarService) { }
+    private readonly snackbar: SnackBarService) {
+  }
 
   public ngOnInit(): void {
     forkJoin(
-      this.itemSearchService.search(this.item),
+      this.itemSearchService.search(this.data.item),
       this.currencyService.get('chaos')
     ).pipe(
       flatMap(results => {

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FEATURE_MODULES } from '@app/token';
 import { Feature, FeatureModule } from '@app/type';
-import { Language } from '@shared/module/poe/type';
 import { SharedModule } from '@shared/shared.module';
 import { EvaluateDialogComponent } from './component/evaluate-dialog/evaluate-dialog.component';
 import { EvaluateService } from './service/evaluate.service';
@@ -33,10 +32,10 @@ export class EvaluateModule implements FeatureModule {
     public run(feature: string): void {
         switch (feature) {
             case 'evaluate':
-                this.evaluateService.evaluate().toPromise();
+                this.evaluateService.evaluate().subscribe();
                 break;
             case 'evaluate-english':
-                this.evaluateService.evaluate(Language.English).toPromise();
+                this.evaluateService.evaluateEnglish().subscribe();
                 break;
             default:
                 break;

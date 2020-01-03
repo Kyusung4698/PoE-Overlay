@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ExportedItem, Item, ItemSectionParserService, Language, Section } from '../../../type';
-import { ContextService } from '../../context.service';
-import { ItemSectionDescriptonParserService } from './item-section-descripton-parser.service';
+import { ExportedItem, Item, ItemSectionParserService, Section } from '../../../type';
 import { ItemSectionExplicitsParserService } from './item-section-explicits-parser.service';
 import { ItemSectionImplicitsParserService } from './item-section-implicits-parser.service';
 import { ItemSectionItemLevelParserService } from './item-section-item-level-parser.service';
@@ -18,7 +16,6 @@ export class ItemParserService {
     private readonly parsers: ItemSectionParserService[];
 
     constructor(
-        private readonly context: ContextService,
         itemSectionRarityParser: ItemSectionRarityParserService,
         itemSectionRequirementsParserService: ItemSectionRequirementsParserService,
         itemSectionNoteParserService: ItemSectionNoteParserService,
@@ -26,8 +23,7 @@ export class ItemParserService {
         itemSectionSocketsParserService: ItemSectionSocketsParserService,
         itemSectionPropertiesParserService: ItemSectionPropertiesParserService,
         itemSectionImplicitsParserService: ItemSectionImplicitsParserService,
-        itemSectionExplicitsParserService: ItemSectionExplicitsParserService,
-        itemSectionDescriptonParserService: ItemSectionDescriptonParserService) {
+        itemSectionExplicitsParserService: ItemSectionExplicitsParserService) {
         this.parsers = [
             itemSectionRarityParser,
             itemSectionRequirementsParserService,
@@ -36,14 +32,11 @@ export class ItemParserService {
             itemSectionSocketsParserService,
             itemSectionPropertiesParserService,
             itemSectionImplicitsParserService,
-            itemSectionExplicitsParserService,
-            // itemSectionDescriptonParserService, TODO: Disable for now
+            itemSectionExplicitsParserService
         ];
     }
 
-    public parse(stringifiedItem: string, language?: Language): Item {
-        language = language || this.context.get().language;
-
+    public parse(stringifiedItem: string): Item {
         const exportedItem: ExportedItem = {
             sections: stringifiedItem
                 .split('--------')
@@ -61,7 +54,7 @@ export class ItemParserService {
                 })
         };
 
-        const target: Item = { language };
+        const target: Item = {};
         for (const parser of this.parsers) {
             const section = parser.parse(exportedItem, target);
             if (!section) {

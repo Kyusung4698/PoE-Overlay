@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { LeaguesProvider } from '../provider/leagues.provider';
-import { Context, Language } from '../type';
+import { Context } from '../type';
 
 @Injectable({
     providedIn: 'root'
@@ -15,7 +15,6 @@ export class ContextFactory {
             map(leagues => {
                 const result: Context = {
                     leagueId: leagues[0].id,
-                    language: leagues[0].language,
                     ...context,
                 };
                 const selectedLeague = leagues.find(league => league.id === result.leagueId);

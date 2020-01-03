@@ -6,12 +6,15 @@ import { ContextService } from '../context.service';
 import { CurrencyService } from '../currency/currency.service';
 import { ItemSearchEvaluateService } from './item-search-evaluate.service';
 import { ItemSearchService } from './item-search.service';
+import { BaseItemTypeService } from '../base-item-type/base-item-type.service';
 
 describe('ItemSearchEvaluateService', () => {
     let sut: ItemSearchEvaluateService;
     let contextService: ContextService;
     let searchService: ItemSearchService;
     let currencyService: CurrencyService;
+    let baseItemTypeService: BaseItemTypeService;
+
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
@@ -28,14 +31,12 @@ describe('ItemSearchEvaluateService', () => {
 
         searchService = TestBed.get<ItemSearchService>(ItemSearchService);
         currencyService = TestBed.get<CurrencyService>(CurrencyService);
+        baseItemTypeService = TestBed.get<BaseItemTypeService>(BaseItemTypeService);
     }));
 
     it('should return items', (done) => {
         const requestedItem: Item = {
-            language: Language.English,
-            name: 'Horror Coil',
-            type: 'Topaz Ring',
-            nameType: 'Horror Coil Topaz Ring'
+            typeId: baseItemTypeService.search('Topaz Ring')
         };
 
         forkJoin(

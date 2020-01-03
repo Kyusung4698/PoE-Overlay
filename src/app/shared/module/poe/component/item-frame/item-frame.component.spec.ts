@@ -4,10 +4,7 @@ import { Item, ItemRarity, Language } from '../../type';
 import { ItemFrameComponent } from './item-frame.component';
 
 const gem: Item = {
-  language: Language.German,
   rarity: ItemRarity.Gem,
-  nameType: 'Lavaschilde',
-  type: 'Lavaschilde',
   requirements: {
     level: 58,
     str: 130,
@@ -40,6 +37,7 @@ describe('ItemFrameComponent', () => {
     fixture = TestBed.createComponent(ItemFrameComponent);
     component = fixture.componentInstance;
     component.item = gem;
+    component.language = Language.English;
     fixture.detectChanges();
   });
 

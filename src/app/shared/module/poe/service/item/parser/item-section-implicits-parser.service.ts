@@ -19,7 +19,7 @@ export class ItemSectionImplicitsParserService implements ItemSectionParserServi
         }
 
         const lines = implicitSection.lines.map(line => line.replace(this.phrase, ''));
-        const results = this.statsDescriptionService.searchMultiple(lines, target.language);
+        const results = this.statsDescriptionService.searchMultiple(lines);
         if (results.length > 0) {
             target.implicits = [];
             for (let index = 0; index < lines.length; index++) {

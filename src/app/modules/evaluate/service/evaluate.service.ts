@@ -20,9 +20,17 @@ export class EvaluateService {
         private readonly evaluateDialog: EvaluateDialogService) {
     }
 
-    public evaluate(language?: Language): Observable<void> {
-        let item: Item;
+    public evaluate(): Observable<void> {
+        return this.evaluateInternal();
+    }
+
+    public evaluateEnglish(): Observable<void> {
+        return this.evaluateInternal(Language.English);
+    }
+
+    private evaluateInternal(language?: Language): Observable<void> {
         let point: Point;
+        let item: Item;
         try {
             point = this.mouse.getCursorScreenPoint();
             this.keyboard.keyTap('c', ['control']);
@@ -34,9 +42,8 @@ export class EvaluateService {
         }
 
         if (!item) {
-            return this.snackbar.warning('Could not parse the copied text into a item.');
+            return this.snackbar.warning('Copied item could not be parsed. Make sure you have the correct language selected.');
         }
-
-        return this.evaluateDialog.open(item, point, language);
+        return this.evaluateDialog.open(point, item, language);
     }
 }

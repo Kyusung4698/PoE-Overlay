@@ -29,7 +29,6 @@ export class LeaguesProvider {
             .pipe(
                 map(leagues => leagues.result.map(league => {
                     const result: League = {
-                        language,
                         id: league.id,
                         text: league.text
                     };

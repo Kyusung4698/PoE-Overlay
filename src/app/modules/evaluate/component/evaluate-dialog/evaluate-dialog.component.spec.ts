@@ -30,7 +30,7 @@ describe('EvaluateDialogComponent', () => {
                     provide: MAT_DIALOG_DATA,
                     useValue: {
                         language: Language.English,
-                        type: '',
+                        item: {},
                     }
                 },
                 { provide: ElectronProvider, useClass: ElectronProviderFake }

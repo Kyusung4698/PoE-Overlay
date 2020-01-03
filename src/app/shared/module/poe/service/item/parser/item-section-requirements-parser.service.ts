@@ -11,7 +11,7 @@ export class ItemSectionRequirementsParserService implements ItemSectionParserSe
     public optional = true;
 
     public parse(item: ExportedItem, target: Item): Section {
-        const phrase = `${this.clientString.translate('ItemPopupRequirements', target.language)}:`;
+        const phrase = `${this.clientString.translate('ItemPopupRequirements')}:`;
 
         const requirementsSection = item.sections.find(x => x.content.indexOf(phrase) === 0);
         if (!requirementsSection) {
@@ -19,19 +19,19 @@ export class ItemSectionRequirementsParserService implements ItemSectionParserSe
         }
 
         const levelPhrases = [
-            `${this.clientString.translate('Level', target.language)}: `
+            `${this.clientString.translate('Level')}: `
         ];
         const strengthPhrases = [
-            `${this.clientString.translate('Strength', target.language)}: `,
-            `${this.clientString.translate('StrengthShort', target.language)}: `
+            `${this.clientString.translate('Strength')}: `,
+            `${this.clientString.translate('StrengthShort')}: `
         ];
         const dexterityPhrases = [
-            `${this.clientString.translate('Dexterity', target.language)}: `,
-            `${this.clientString.translate('DexterityShort', target.language)}: `
+            `${this.clientString.translate('Dexterity')}: `,
+            `${this.clientString.translate('DexterityShort')}: `
         ];
         const intelligencePhrases = [
-            `${this.clientString.translate('Intelligence', target.language)}: `,
-            `${this.clientString.translate('IntelligenceShort', target.language)}: `
+            `${this.clientString.translate('Intelligence')}: `,
+            `${this.clientString.translate('IntelligenceShort')}: `
         ];
 
         const req: ItemRequirements = {};

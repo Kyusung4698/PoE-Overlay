@@ -1,4 +1,4 @@
-<app-item-frame [item]="item" [separator]="true">
+<app-item-frame [item]="data.item" [language]="data.language" [separator]="true">
     <ng-container [ngSwitch]="result$ | async">
         <ng-container *ngSwitchCase="null">
             Loading...

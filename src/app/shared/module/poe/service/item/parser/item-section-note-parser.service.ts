@@ -11,7 +11,7 @@ export class ItemSectionNoteParserService implements ItemSectionParserService {
     public optional = true;
 
     public parse(item: ExportedItem, target: Item): Section {
-        const phrase = `${this.clientString.translate('ItemDisplayStringNote', target.language)}: `;
+        const phrase = `${this.clientString.translate('ItemDisplayStringNote')}: `;
 
         const noteSection = item.sections.find(x => x.content.indexOf(phrase) === 0);
         if (!noteSection) {
