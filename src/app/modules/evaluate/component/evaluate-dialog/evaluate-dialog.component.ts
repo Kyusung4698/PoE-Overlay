@@ -2,38 +2,41 @@ import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/cor
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { WindowService } from '@app/service';
 import { SnackBarService } from '@shared/module/material/service';
-import { CurrencyService } from '@shared/module/poe/service/currency/currency-service';
-import { ItemSearchEvaluateService } from '@shared/module/poe/service/item/item-search-evaluate.service';
-import { ItemSearchService } from '@shared/module/poe/service/item/item-search.service';
-import { Item, ItemSearchEvaluateResult } from '@shared/module/poe/type';
+import { ItemSearchEvaluateService, ItemSearchService } from '@shared/module/poe/service';
+import { CurrencyService } from '@shared/module/poe/service/currency/currency.service';
+import { Item, ItemSearchEvaluateResult, Language } from '@shared/module/poe/type';
 import { BehaviorSubject, forkJoin, of } from 'rxjs';
 import { flatMap } from 'rxjs/operators';
+
+export interface EvaluateDialogData {
+  item: Item;
+  language?: Language;
+}
 
 @Component({
   selector: 'app-evaluate-dialog',
   templateUrl: './evaluate-dialog.component.html',
-  styleUrls: ['./evaluate-dialog.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EvaluateDialogComponent implements OnInit {
   private url: string;
+
   public result$ = new BehaviorSubject<ItemSearchEvaluateResult>(null);
 
   constructor(
     @Inject(MAT_DIALOG_DATA)
-    public item: Item,
+    public data: EvaluateDialogData,
     private readonly itemSearchService: ItemSearchService,
     private readonly itemSearchEvaluateService: ItemSearchEvaluateService,
     private readonly currencyService: CurrencyService,
     private readonly window: WindowService,
     private readonly snackbar: SnackBarService) {
-
   }
 
   public ngOnInit(): void {
     forkJoin(
-      this.itemSearchService.search(this.item),
-      this.currencyService.getForId('chaos')
+      this.itemSearchService.search(this.data.item),
+      this.currencyService.get('chaos')
     ).pipe(
       flatMap(results => {
         this.url = results[0].url;
@@ -51,11 +54,11 @@ export class EvaluateDialogComponent implements OnInit {
       })
     ).subscribe(result => {
       this.result$.next(result);
-    }, () => {
+    }, (error) => {
       this.result$.next({
         items: null
       });
-      this.snackbar.error('An unexpected error occured while searching for the item. Please try again later.');
+      this.snackbar.error(`${typeof error === 'string' ? `${error}` : 'An unexpected error occured while searching for the item.'}`);
     });
   }
 

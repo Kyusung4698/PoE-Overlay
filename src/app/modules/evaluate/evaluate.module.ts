@@ -21,6 +21,10 @@ export class EvaluateModule implements FeatureModule {
             {
                 name: 'evaluate',
                 defaultShortcut: 'CommandOrControl+D'
+            },
+            {
+                name: 'evaluate-english',
+                defaultShortcut: 'CommandOrControl+T'
             }
         ];
     }
@@ -28,7 +32,10 @@ export class EvaluateModule implements FeatureModule {
     public run(feature: string): void {
         switch (feature) {
             case 'evaluate':
-                this.evaluateService.evaluate().toPromise();
+                this.evaluateService.evaluate().subscribe();
+                break;
+            case 'evaluate-english':
+                this.evaluateService.evaluateEnglish().subscribe();
                 break;
             default:
                 break;

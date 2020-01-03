@@ -1,4 +1,7 @@
+export * from './content.type';
 export * from './context.type';
-export * from './currency/currency.type';
-export * from './item/item.type';
-export * from './league/league.type';
+export * from './currency.type';
+export * from './item.type';
+export * from './language.type';
+export * from './league.type';
+

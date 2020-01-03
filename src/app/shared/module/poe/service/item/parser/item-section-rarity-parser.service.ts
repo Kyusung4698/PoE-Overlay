@@ -1,35 +1,92 @@
 import { Injectable } from '@angular/core';
 import { ExportedItem, Item, ItemRarity, ItemSectionParserService, Section } from '../../../type';
+import { BaseItemTypeService } from '../../base-item-type/base-item-type.service';
+import { ClientStringService } from '../../client-string/client-string.service';
+import { WordService } from '../../word/word.service';
 
 @Injectable({
     providedIn: 'root'
 })
 export class ItemSectionRarityParserService implements ItemSectionParserService {
-    private readonly phrase = 'Rarity: ';
+    constructor(
+        private readonly clientString: ClientStringService,
+        private readonly baseItemTypeService: BaseItemTypeService,
+        private readonly wordService: WordService) { }
 
     public optional = false;
 
     public parse(item: ExportedItem, target: Item): Section {
-        const raritySection = item.sections.find(x => x.content.indexOf(this.phrase) === 0);
+        const phrase = `${this.clientString.translate('ItemDisplayStringRarity')}: `;
+
+        const raritySection = item.sections.find(x => x.content.indexOf(phrase) === 0);
         if (!raritySection) {
             return null;
         }
 
         const lines = raritySection.lines;
+
+        const rarities = this.getRarities();
+        const rarityValue = lines[0].slice(phrase.length).trim();
+
+        const rarity = rarities.find(x => x.key === rarityValue);
+        if (!rarity) {
+            return null;
+        }
+
+        target.rarity = rarity.value;
+
         switch (lines.length) {
             case 2:
-                target.type = lines[1];
+                target.typeId = this.baseItemTypeService.search(lines[1]);
                 break;
             case 3:
-                target.name = lines[1];
-                target.type = lines[2];
+                target.nameId = this.wordService.search(lines[1]);
+                target.typeId = this.baseItemTypeService.search(lines[2]);
                 break;
             default:
                 return null;
         }
 
-        target.rarity = lines[0].slice(this.phrase.length).toLowerCase().split(' ').join('') as ItemRarity;
-        target.nameType = (`${target.name || ''} ${target.type || ''}`).trim();
+        if (!target.typeId) {
+            return null;
+        }
+
         return raritySection;
+    }
+
+    private getRarities(): {
+        key: string,
+        value: ItemRarity
+    }[] {
+        return [
+            {
+                key: this.clientString.translate('ItemDisplayStringNormal'),
+                value: ItemRarity.Normal,
+            },
+            {
+                key: this.clientString.translate('ItemDisplayStringMagic'),
+                value: ItemRarity.Magic,
+            },
+            {
+                key: this.clientString.translate('ItemDisplayStringRare'),
+                value: ItemRarity.Rare,
+            },
+            {
+                key: this.clientString.translate('ItemDisplayStringUnique'),
+                value: ItemRarity.Unique,
+            },
+            {
+                key: this.clientString.translate('ItemDisplayStringCurrency'),
+                value: ItemRarity.Currency,
+            },
+            {
+                key: this.clientString.translate('ItemDisplayStringGem'),
+                value: ItemRarity.Gem,
+            },
+            {
+                key: this.clientString.translate('ItemDisplayStringDivinationCard'),
+                value: ItemRarity.DivinationCard,
+            },
+        ];
     }
 }

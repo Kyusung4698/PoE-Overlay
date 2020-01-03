@@ -1,4 +1,4 @@
-<div class="content">
+<div class="content" *ngIf="currency">
     <span *ngIf="amount">{{amount}}&nbsp;x&nbsp;</span>
     <span>
         <img [src]="'https://web.poecdn.com' + currency.image">

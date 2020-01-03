@@ -1,11 +1,12 @@
 import { async, TestBed } from '@angular/core/testing';
+import { SharedModule } from '@shared/shared.module';
 import { forkJoin } from 'rxjs';
-import { AppModule } from 'src/app/app.module';
+import { Language } from '../../type';
 import { ContextService } from '../context.service';
 import { CurrencyConverterService } from './currency-converter.service';
-import { CurrencyService } from './currency-service';
+import { CurrencyService } from './currency.service';
 
-describe('CurrencyConverter', () => {
+describe('CurrencyConverterService', () => {
     let sut: CurrencyConverterService;
     let contextService: ContextService;
     let currencyService: CurrencyService;
@@ -13,19 +14,21 @@ describe('CurrencyConverter', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             imports: [
-                AppModule
+                SharedModule
             ],
         }).compileComponents();
         sut = TestBed.get<CurrencyConverterService>(CurrencyConverterService);
 
         contextService = TestBed.get<ContextService>(ContextService);
-        contextService.init();
+        contextService.init({
+            language: Language.English
+        });
 
         currencyService = TestBed.get<CurrencyService>(CurrencyService);
     }));
 
     it(`should convert 'Chaos Orb' to 'Chaos Orb' equals to 1`, (done) => {
-        currencyService.getForNameType('Chaos Orb').subscribe(currency => {
+        currencyService.get('chaos').subscribe(currency => {
             sut.convert(currency, currency).subscribe(factor => {
                 expect(factor).toBe(1);
                 done();
@@ -38,7 +41,7 @@ describe('CurrencyConverter', () => {
     });
 
     it(`should convert 'Perandus Coin' to 'Perandus Coin' equals to 1`, (done) => {
-        currencyService.getForNameType('Perandus Coin').subscribe(currency => {
+        currencyService.get('p').subscribe(currency => {
             sut.convert(currency, currency).subscribe(factor => {
                 expect(factor).toBe(1);
                 done();
@@ -52,8 +55,8 @@ describe('CurrencyConverter', () => {
 
     it(`should convert 'Ancient Orb' to 'Chaos Orb' greater than 1`, (done) => {
         forkJoin(
-            currencyService.getForNameType('Ancient Orb'),
-            currencyService.getForNameType('Chaos Orb'),
+            currencyService.get('ancient-orb'),
+            currencyService.get('chaos'),
         ).subscribe(currencies => {
             sut.convert(currencies[0], currencies[1]).subscribe(factor => {
                 expect(factor).toBeGreaterThan(1);
@@ -68,8 +71,8 @@ describe('CurrencyConverter', () => {
 
     it(`should convert 'Ancient Orb' to 'Perandus Coin' greater than 1`, (done) => {
         forkJoin(
-            currencyService.getForNameType('Ancient Orb'),
-            currencyService.getForNameType('Perandus Coin'),
+            currencyService.get('ancient-orb'),
+            currencyService.get('p'),
         ).subscribe(currencies => {
             sut.convert(currencies[0], currencies[1]).subscribe(factor => {
                 expect(factor).toBeGreaterThan(1);
@@ -84,8 +87,8 @@ describe('CurrencyConverter', () => {
 
     it(`should convert 'Perandus Coin' to 'Chaos Orb' less than 1`, (done) => {
         forkJoin(
-            currencyService.getForNameType('Perandus Coin'),
-            currencyService.getForNameType('Chaos Orb'),
+            currencyService.get('p'),
+            currencyService.get('chaos'),
         ).subscribe(currencies => {
             sut.convert(currencies[0], currencies[1]).subscribe(factor => {
                 expect(factor).toBeLessThan(1);
@@ -100,8 +103,8 @@ describe('CurrencyConverter', () => {
 
     it(`should convert 'Perandus Coin' to 'Ancient Orb' less than 1`, (done) => {
         forkJoin(
-            currencyService.getForNameType('Perandus Coin'),
-            currencyService.getForNameType('Ancient Orb'),
+            currencyService.get('p'),
+            currencyService.get('ancient-orb'),
         ).subscribe(currencies => {
             sut.convert(currencies[0], currencies[1]).subscribe(factor => {
                 expect(factor).toBeLessThan(1);

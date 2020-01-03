@@ -1,78 +1,108 @@
 <div [class]="'frame ' + (item.rarity || '')">
 
-    <div class="header" [class.double]="item.name && item.type">
-        <div class="name" *ngIf="item.name">
-            {{item.name}}
+    <div class="header" [class.double]="item.nameId && item.typeId">
+        <div class="name" *ngIf="item.nameId">
+            {{item.nameId | word:language}}
         </div>
-        <div class="name" *ngIf="item.type">
-            {{item.type}}
+        <div class="name" *ngIf="item.typeId">
+            {{item.typeId | baseItemType:language}}
         </div>
     </div>
 
     <div class="detail">
         <!-- properties -->
-        <ng-container *ngIf="item.properties && item.properties.length > 0">
-            <div *ngFor="let property of item.properties">
-                <span>{{property.text}}</span>
-                <span *ngIf="property.value" [class]="property.augmented ? 'purpel' : 'white'">&nbsp;{{property.value}}</span>
+        <ng-container *ngIf="item.properties">
+            <ng-container *ngFor="let property of properties">
+                <div *ngIf="item.properties[property] as prop">
+                    <ng-container [ngSwitch]="property">
+                        <span *ngSwitchCase="'weaponPhysicalDamage'">
+                            {{'ItemDisplayWeaponPhysicalDamage' | clientString:language}}</span>
+                        <span *ngSwitchCase="'weaponElementalDamage'">
+                            {{'ItemDisplayWeaponElementalDamage' | clientString:language}}</span>
+                        <span *ngSwitchCase="'weaponChaosDamage'">
+                            {{'ItemDisplayWeaponChaosDamage' | clientString:language}}</span>
+                        <span *ngSwitchCase="'weaponCriticalStrikeChance'">
+                            {{'ItemDisplayWeaponCriticalStrikeChance' | clientString:language}}</span>
+                        <span *ngSwitchCase="'weaponAttacksPerSecond'">
+                            {{'ItemDisplayWeaponAttacksPerSecond' | clientString:language}}</span>
+                        <span *ngSwitchCase="'weaponRange'">
+                            {{'ItemDisplayWeaponRange' | clientString:language}}</span>
+                        <span *ngSwitchCase="'shieldBlockChance'">
+                            {{'ItemDisplayShieldBlockChance' | clientString:language}}</span>
+                        <span *ngSwitchCase="'armourArmour'">
+                            {{'ItemDisplayArmourArmour' | clientString:language}}</span>
+                        <span *ngSwitchCase="'armourEvasionRating'">
+                            {{'ItemDisplayArmourEvasionRating' | clientString:language}}</span>
+                        <span *ngSwitchCase="'armourEnergyShield'">
+                            {{'ItemDisplayArmourEnergyShield' | clientString:language}}</span>
+                    </ng-container>
+                    <span [class]="prop.augmented ? 'purpel' : 'white'">&nbsp;{{prop.value}}</span>
+                </div>
+            </ng-container>
+            <div class="separator"
+                *ngIf="item.requirements || item.secondaryDescription || (item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.description || separator">
             </div>
-            <div class="separator" *ngIf="item.requirements || item.secondaryDescription || (item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.description"></div>
         </ng-container>
 
         <!-- requirements -->
         <ng-container *ngIf="item.requirements">
             <div>
-                Requires
+                <span>{{'ItemRequirementsLabel' | clientString:language}}&nbsp;</span>
                 <ng-container *ngIf="item.requirements.level">
-                    <span>Level&nbsp;</span>
+                    <span>{{'Level' | clientString:language}}&nbsp;</span>
                     <span class="white">{{item.requirements.level}}</span>
                     <span *ngIf="item.requirements.str || item.requirements.dex || item.requirements.int">,&nbsp;</span>
                 </ng-container>
                 <ng-container *ngIf="item.requirements.str">
                     <span class="white">{{item.requirements.str}}&nbsp;</span>
-                    <span>Str</span>
+                    <span>{{'StrengthShort' | clientString:language}}</span>
                     <span *ngIf="item.requirements.dex || item.requirements.int">,&nbsp;</span>
                 </ng-container>
                 <ng-container *ngIf="item.requirements.dex">
                     <span class="white">{{item.requirements.dex}}&nbsp;</span>
-                    <span>Dex</span>
+                    <span>{{'DexterityShort' | clientString:language}}</span>
                     <span *ngIf="item.requirements.int">,&nbsp;</span>
                 </ng-container>
                 <ng-container *ngIf="item.requirements.int">
                     <span class="white">{{item.requirements.int}}&nbsp;</span>
-                    <span>Int</span>
+                    <span>{{'IntelligenceShort' | clientString:language}}</span>
                 </ng-container>
             </div>
-            <div class="separator" *ngIf="item.secondaryDescription || (item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.description"></div>
+            <div class="separator"
+                *ngIf="item.secondaryDescription || (item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.description || separator">
+            </div>
         </ng-container>
 
         <ng-container *ngIf="item.secondaryDescription">
             <div class="secondary-description">
                 {{item.secondaryDescription}}
             </div>
-            <div class="separator" *ngIf="(item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.description"></div>
+            <div class="separator"
+                *ngIf="(item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.description || separator">
+            </div>
         </ng-container>
 
         <ng-container *ngIf="item.implicits && item.implicits.length > 0">
-            <div *ngFor="let implicit of item.implicits" class="implicit">
-                <span>{{implicit.text}}</span>
+            <div *ngFor="let implicit of item.implicits" >                
+                <span [class]="implicit.crafted ? 'blue' : 'purpel'">{{implicit | statsDescription:language}}</span>
             </div>
-            <div class="separator" *ngIf="(item.explicits && item.explicits.length > 0) || item.description"></div>
+            <div class="separator"
+                *ngIf="(item.explicits && item.explicits.length > 0) || item.description || separator"></div>
         </ng-container>
 
         <ng-container *ngIf="item.explicits && item.explicits.length > 0">
-            <div *ngFor="let explicit of item.explicits" class="explicit">
-                <span>{{explicit.text}}</span>
+            <div *ngFor="let explicit of item.explicits">
+                <span [class]="explicit.crafted ? 'blue' : 'purpel'">{{explicit | statsDescription:language}}</span>
             </div>
-            <div class="separator" *ngIf="item.description"></div>
+            <div class="separator" *ngIf="item.description || separator"></div>
         </ng-container>
 
         <ng-container *ngIf="item.description">
             <div class="description" [innerHTML]="item.description">
             </div>
+            <div class="separator" *ngIf="separator"></div>
         </ng-container>
 
-        <div class="separator" *ngIf="separator"></div>
         <ng-content></ng-content>
     </div>
 </div>

@@ -8,6 +8,7 @@
         "dist/**/*"
     ],
     "win": {
+        "icon": "dist/favicon.ico",
         "target": [
             "portable"
         ]

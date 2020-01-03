@@ -8,7 +8,7 @@
   "author": {
     "name": "Kyusung4698"
   },
-  "version": "0.1.0",
+  "version": "0.2.0",
   "scripts": {
     "postinstall": "electron-builder install-app-deps",
     "ng:serve": "ng serve",
@@ -38,6 +38,7 @@
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
+    "localforage": "^1.7.3",
     "robotjs": "^0.6.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",

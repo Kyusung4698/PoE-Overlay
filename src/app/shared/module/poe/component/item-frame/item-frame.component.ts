@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { Item, ItemRarity } from '../../type';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ContextService } from '../../service';
+import { Item, Language } from '../../type';
 
 @Component({
   selector: 'app-item-frame',
@@ -7,10 +8,33 @@ import { Item, ItemRarity } from '../../type';
   styleUrls: ['./item-frame.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ItemFrameComponent {
+export class ItemFrameComponent implements OnInit {
   @Input()
   public item: Item;
 
   @Input()
-  public separator: boolean;
+  public language?: Language;
+
+  @Input()
+  public separator = false;
+
+  // TODO: check if order is right
+  public properties = [
+    'weaponPhysicalDamage',
+    'weaponElementalDamage',
+    'weaponChaosDamage',
+    'weaponCriticalStrikeChance',
+    'weaponAttacksPerSecond',
+    'weaponRange',
+    'shieldBlockChance',
+    'armourArmour',
+    'armourEvasionRating',
+    'armourEnergyShield',
+  ];
+
+  constructor(private readonly context: ContextService) { }
+
+  public ngOnInit(): void {
+    this.language = this.language || this.context.get().language;
+  }
 }

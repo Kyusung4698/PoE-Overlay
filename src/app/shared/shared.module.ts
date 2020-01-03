@@ -1,13 +1,18 @@
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './module/material/material.module';
-import { ItemFrameComponent } from './module/poe/component/item-frame/item-frame.component';
 import { PoeModule } from './module/poe/poe.module';
 
 @NgModule({
     exports: [
         // default
         CommonModule,
+        HttpClientModule,
+        BrowserModule,
+        BrowserAnimationsModule,
 
         // modules
         MaterialModule,

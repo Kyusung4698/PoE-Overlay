@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as PoE from '@data/poe';
 import * as PoETrade from '@data/poe-trade';
-import { CurrenciesMap, Currency } from '@shared/module/poe/type';
+import { CurrenciesMap, Currency, Language, LanguageMap } from '@shared/module/poe/type';
 import { BehaviorSubject, forkJoin, Observable } from 'rxjs';
 import { filter, map, take, tap } from 'rxjs/operators';
 
@@ -9,26 +9,27 @@ import { filter, map, take, tap } from 'rxjs/operators';
     providedIn: 'root'
 })
 export class CurrenciesProvider {
-    private currencies: BehaviorSubject<CurrenciesMap[]>;
+    private readonly languageMap: LanguageMap<BehaviorSubject<CurrenciesMap[]>> = {};
 
     constructor(
         private readonly tradeHttpService: PoE.TradeHttpService,
         private readonly currencyHttpService: PoETrade.CurrencyHttpService) { }
 
-    public provide(): Observable<CurrenciesMap[]> {
-        if (this.currencies) {
-            return this.currencies.pipe(
-                filter(currencies => !!currencies),
+    public provide(language: Language): Observable<CurrenciesMap[]> {
+        const currencies = this.languageMap[language];
+        if (currencies) {
+            return currencies.pipe(
+                filter(result => !!result),
                 take(1));
         }
-        this.currencies = new BehaviorSubject<CurrenciesMap[]>(undefined);
-        return this.fetch();
+        this.languageMap[language] = new BehaviorSubject<CurrenciesMap[]>(undefined);
+        return this.fetch(language);
     }
 
-    private fetch(): Observable<CurrenciesMap[]> {
+    private fetch(language: Language): Observable<CurrenciesMap[]> {
         return forkJoin(
             this.currencyHttpService.get(),
-            this.tradeHttpService.getStatic()
+            this.tradeHttpService.getStatic(language)
         ).pipe(
             map(responses => {
                 const poeTradeResponse = responses[0];
@@ -71,7 +72,7 @@ export class CurrenciesProvider {
                     return currenciesMap;
                 });
             }),
-            tap(currencies => this.currencies.next(currencies))
+            tap(currencies => this.languageMap[language].next(currencies))
         );
     }
 }

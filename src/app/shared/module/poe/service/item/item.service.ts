@@ -1,45 +1,37 @@
 import { Injectable } from '@angular/core';
-import { ItemsProvider } from '@shared/module/poe/provider/item/items.provider';
-import { Item } from '@shared/module/poe/type';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Language } from '../../type';
+import { BaseItemTypeService } from '../base-item-type/base-item-type.service';
+import { ContextService } from '../context.service';
+import { WordService } from '../word/word.service';
 
 @Injectable({
     providedIn: 'root'
 })
 export class ItemService {
     constructor(
-        private readonly itemsProvider: ItemsProvider) { }
+        private readonly context: ContextService,
+        private readonly baseItemTypeService: BaseItemTypeService,
+        private readonly wordService: WordService) { }
 
-    public getLabels(): Observable<string[]> {
-        return this.itemsProvider.provide().pipe(
-            map(itemsMap => itemsMap.map(x => x.label))
-        );
+    public getNameType(nameId: string, typeId: string, language?: Language): string {
+        language = language || this.context.get().language;
+
+        return (`${this.getName(nameId, language) || ''} ${this.getType(typeId, language) || ''}`).trim();
     }
 
-    public getTypesForLabel(label: string): Observable<string[]> {
-        return this.itemsProvider.provide().pipe(
-            map(itemsMap => [...new Set(itemsMap.find(x => x.label === label).items.map(x => x.type))])
-        );
+    public getName(nameId: string, language?: Language): string {
+        language = language || this.context.get().language;
+
+        const name = nameId
+            ? this.wordService.translate(nameId, language) : '';
+        return name;
     }
 
-    public getByType(type: string): Observable<Item[]> {
-        return this.itemsProvider.provide().pipe(
-            map(itemsMap => itemsMap.reduce((a, b) => a.concat(b.items.filter(item => item.type === type)), []))
-        );
-    }
+    public getType(typeId: string, language?: Language): string {
+        language = language || this.context.get().language;
 
-    public getByNameType(nameType: string): Observable<Item> {
-        return this.itemsProvider.provide().pipe(
-            map(itemsMaps => {
-                for (const itemsMap of itemsMaps) {
-                    const item = itemsMap.items.find(x => x.nameType === nameType);
-                    if (item !== undefined) {
-                        return item;
-                    }
-                }
-                return undefined;
-            })
-        );
+        const type = typeId
+            ? this.baseItemTypeService.translate(typeId, language) : '';
+        return type;
     }
 }

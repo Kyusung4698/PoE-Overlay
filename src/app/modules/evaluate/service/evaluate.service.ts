@@ -1,31 +1,36 @@
 import { Injectable } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { ClipboardService, KeyboardService, MouseService, WindowService } from '@app/service';
+import { ClipboardService, KeyboardService, MouseService } from '@app/service';
 import { Point } from '@app/type';
-import { ItemParserService } from '@shared/module/poe';
-import { Item } from '@shared/module/poe/type';
-import { Observable, of } from 'rxjs';
-import { tap } from 'rxjs/operators';
-import { EvaluateDialogComponent } from '../component/evaluate-dialog/evaluate-dialog.component';
 import { SnackBarService } from '@shared/module/material/service';
+import { ItemParserService } from '@shared/module/poe/service';
+import { Item, Language } from '@shared/module/poe/type';
+import { Observable } from 'rxjs';
+import { EvaluateDialogService } from './evaluate-dialog.service';
 
 @Injectable({
     providedIn: 'root'
 })
 export class EvaluateService {
     constructor(
-        private readonly dialog: MatDialog,
         private readonly mouse: MouseService,
         private readonly keyboard: KeyboardService,
         private readonly clipboard: ClipboardService,
         private readonly itemParser: ItemParserService,
-        private readonly window: WindowService,
-        private readonly snackbar: SnackBarService) {
+        private readonly snackbar: SnackBarService,
+        private readonly evaluateDialog: EvaluateDialogService) {
     }
 
     public evaluate(): Observable<void> {
-        let item: Item;
+        return this.evaluateInternal();
+    }
+
+    public evaluateEnglish(): Observable<void> {
+        return this.evaluateInternal(Language.English);
+    }
+
+    private evaluateInternal(language?: Language): Observable<void> {
         let point: Point;
+        let item: Item;
         try {
             point = this.mouse.getCursorScreenPoint();
             this.keyboard.keyTap('c', ['control']);
@@ -37,31 +42,8 @@ export class EvaluateService {
         }
 
         if (!item) {
-            return this.snackbar.warning('Could not parse the copied text into a item.');
+            return this.snackbar.warning('Copied item could not be parsed. Make sure you have the correct language selected.');
         }
-
-        const width = 300;
-        const avgHeight = 200;
-
-        const bounds = this.window.getBounds();
-        const left = Math.min(Math.max(point.x - width * 0.5, bounds.x), bounds.x + bounds.width - width);
-        const top = Math.min(Math.max(point.y - avgHeight * 0.5, bounds.y), bounds.y + bounds.height - avgHeight);
-
-        this.window.enableInput();
-        return this.dialog.open(EvaluateDialogComponent, {
-            position: {
-                left: `${left}px`,
-                top: `${top}px`,
-            },
-            backdropClass: 'backdrop-clear',
-            data: item,
-            width: `${width}px`,
-        }).afterClosed().pipe(
-            tap(() => {
-                if (this.dialog.openDialogs.length === 0) {
-                    this.window.disableInput();
-                }
-            })
-        );
+        return this.evaluateDialog.open(point, item, language);
     }
 }

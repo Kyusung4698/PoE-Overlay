@@ -3,7 +3,11 @@ import { ShortcutService, WindowService } from '@app/service';
 import { FEATURE_MODULES } from '@app/token';
 import { FeatureModule } from '@app/type';
 import { ContextService } from '@shared/module/poe/service/context.service';
+import { Observable } from 'rxjs';
+import { finalize } from 'rxjs/operators';
 import { version } from '../../package.json';
+import { UserSettingsDialogService, UserSettingsService } from './layout/service';
+import { UserSettings } from './layout/type/index.js';
 
 @Component({
   selector: 'app-root',
@@ -12,12 +16,16 @@ import { version } from '../../package.json';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnInit, OnDestroy {
+  private settingsDialogOpen: Observable<UserSettings> = null;
+
   public version: string = version;
 
   constructor(
     @Inject(FEATURE_MODULES)
     private readonly modules: FeatureModule[],
     private readonly shortcut: ShortcutService,
+    private readonly userSettings: UserSettingsService,
+    private readonly userSettingsDialog: UserSettingsDialogService,
     private readonly context: ContextService,
     private readonly window: WindowService) {
   }
@@ -28,8 +36,13 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit(): void {
-    this.context.init();
-    this.register();
+    this.userSettings.get().subscribe(settings => {
+      this.context.init({
+        language: settings.language,
+        leagueId: settings.leagueId
+      });
+      this.register();
+    });
   }
 
   public ngOnDestroy(): void {
@@ -46,7 +59,23 @@ export class AppComponent implements OnInit, OnDestroy {
       });
     });
 
-    this.shortcut.register('F5').subscribe(() => {
+    this.shortcut.register('F7').subscribe(() => {
+      if (!this.settingsDialogOpen) {
+        this.settingsDialogOpen = this.userSettingsDialog.open().pipe(
+          finalize(() => this.settingsDialogOpen = null)
+        );
+        this.settingsDialogOpen.subscribe(settings => {
+          if (settings) {
+            this.context.update({
+              language: settings.language,
+              leagueId: settings.leagueId
+            });
+          }
+        });
+      }
+    });
+
+    this.shortcut.register('F8').subscribe(() => {
       this.window.quit();
     });
   }

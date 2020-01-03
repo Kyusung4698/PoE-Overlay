@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ExportedItem, Item, ItemSectionParserService, Section } from '../../../type';
-import { ItemSectionDescriptonParserService } from './item-section-descripton-parser.service';
+import { ItemSectionExplicitsParserService } from './item-section-explicits-parser.service';
 import { ItemSectionImplicitsParserService } from './item-section-implicits-parser.service';
 import { ItemSectionItemLevelParserService } from './item-section-item-level-parser.service';
 import { ItemSectionNoteParserService } from './item-section-note-parser.service';
@@ -21,18 +21,18 @@ export class ItemParserService {
         itemSectionNoteParserService: ItemSectionNoteParserService,
         itemSectionItemLevelParserService: ItemSectionItemLevelParserService,
         itemSectionSocketsParserService: ItemSectionSocketsParserService,
-        itemSectionImplicitsParserService: ItemSectionImplicitsParserService,
         itemSectionPropertiesParserService: ItemSectionPropertiesParserService,
-        itemSectionDescriptonParserService: ItemSectionDescriptonParserService) {
+        itemSectionImplicitsParserService: ItemSectionImplicitsParserService,
+        itemSectionExplicitsParserService: ItemSectionExplicitsParserService) {
         this.parsers = [
             itemSectionRarityParser,
             itemSectionRequirementsParserService,
             itemSectionNoteParserService,
             itemSectionItemLevelParserService,
             itemSectionSocketsParserService,
-            itemSectionImplicitsParserService,
             itemSectionPropertiesParserService,
-            // itemSectionDescriptonParserService, TODO: Disable for now
+            itemSectionImplicitsParserService,
+            itemSectionExplicitsParserService
         ];
     }
 
@@ -66,7 +66,6 @@ export class ItemParserService {
             }
             exportedItem.sections.splice(exportedItem.sections.indexOf(section), 1);
         }
-        console.log(exportedItem);
         return target;
     }
 }

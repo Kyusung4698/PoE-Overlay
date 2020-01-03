@@ -210,3 +210,20 @@ Trigger Word of Fury on Hit
 +19 to maximum Life
 6% increased Rarity of Items found
 +1 Mana gained on Kill
+
+Rarity: Rare
+Corpse Lash
+Leather Belt
+--------
+Requirements:
+Level: 24
+--------
+Item Level: 45
+--------
++33 to maximum Life (implicit)
+--------
++10 to maximum Energy Shield
++42 to maximum Life
++10% to Cold Resistance
+11% increased Stun and Block Recovery
++21% to Lightning Resistance (crafted)
