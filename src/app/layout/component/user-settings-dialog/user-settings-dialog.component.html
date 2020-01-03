@@ -5,7 +5,7 @@
                 <mat-form-field>
                     <mat-label>Language</mat-label>
                     <mat-select [(value)]="settings.language" (valueChange)="onLanguageChange()">
-                        <mat-option *ngFor="let language of languages.keys;trackBy:trackByKey" [value]="language">
+                        <mat-option *ngFor="let language of languages.keys" [value]="language">
                             {{languages.values[language]}}
                         </mat-option>
                     </mat-select>
