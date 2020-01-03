@@ -16,7 +16,7 @@ export class ItemService {
     public getNameType(nameId: string, typeId: string, language?: Language): string {
         language = language || this.context.get().language;
 
-        return (`${this.getName(nameId) || ''} ${this.getType(typeId) || ''}`).trim();
+        return (`${this.getName(nameId, language) || ''} ${this.getType(typeId, language) || ''}`).trim();
     }
 
     public getName(nameId: string, language?: Language): string {

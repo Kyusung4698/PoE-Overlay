@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ExportedItem, Item, ItemSectionParserService, Section } from '@shared/module/poe/type';
+import { ExportedItem, Item, ItemRarity, ItemSectionParserService, Section } from '@shared/module/poe/type';
 import { StatsDescriptionService } from '../../stats-description/stats-description.service';
 
 @Injectable({
@@ -13,6 +13,16 @@ export class ItemSectionImplicitsParserService implements ItemSectionParserServi
     public optional = true;
 
     public parse(item: ExportedItem, target: Item): Section {
+        switch (target.rarity) {
+            case ItemRarity.Normal:
+            case ItemRarity.Magic:
+            case ItemRarity.Rare:
+            case ItemRarity.Unique:
+                break;
+            default:
+                return null;
+        }
+
         const implicitSection = item.sections.find(x => x.content.indexOf(this.phrase) !== -1);
         if (!implicitSection) {
             return null;

@@ -17,7 +17,7 @@ export class EvaluateDialogService {
     }
 
     public open(point: Point, item: Item, language?: Language): Observable<void> {
-        const width = 300;
+        const width = 380;
         const avgHeight = 200;
 
         const bounds = this.window.getBounds();

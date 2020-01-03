@@ -73,7 +73,7 @@ These instructions will get you a executable to run and enjoy the overlay.
 |Shortcut   |Description
 |---        |---	    
 | `ctrl+d`  | Displays the item in a frame and evaluates the price. You can open poe.trade on click of the currency value.
-| `ctrl+f`  | '' same as above '' but displays the item translated in english.
+| `ctrl+t`  | '' same as above '' but displays the item translated in english.
 | `f7`      | Opens user settings
 | `f8`      | Exits overlay
 

@@ -15,7 +15,7 @@ export class CurrencyConverterService {
 
     public convert(currency: Currency, targetCurrency: Currency, leagueId?: string): Observable<number> {
         leagueId = leagueId || this.contextService.get().leagueId;
-        
+
         return this.currencyChaosEquivalentsProvider.provide(leagueId).pipe(
             map(equivalents => {
                 if (!equivalents[currency.nameType]) {
