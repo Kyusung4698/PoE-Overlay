@@ -1,13 +1,15 @@
 ## 0.2.0 (2020-01-03)
 
-* add user settings dialog
+* add favicon
+* add country specific trade api
+* add user settings dialog with league and language
 * add localforage to store user settings
 * add "client string", "words" and "base item type" from content.ggpk as service
-* add country specific trade api
-* add language to league, item and currency
+* add "stats-descriptions" to translate item mods
+* add "map" and "divination cards" translation support
+* add languages English, Portuguese, Russian, Thai, German, French, Spanish and Korean
 * update use translated item names for poe.trade
 * update theme based on poe color palette
-* remove TraditionalChinese and SimplifiedChinese from language enum
 
 ## 0.1.0 (2019-12-28)
 
