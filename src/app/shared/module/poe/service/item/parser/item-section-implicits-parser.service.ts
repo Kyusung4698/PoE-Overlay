@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
-import { ExportedItem, Item, ItemMod, ItemSectionParserService, Section } from '@shared/module/poe/type';
+import { ExportedItem, Item, ItemSectionParserService, Section } from '@shared/module/poe/type';
+import { StatsDescriptionService } from '../../stats-description/stats-description.service';
 
 @Injectable({
     providedIn: 'root'
 })
 export class ItemSectionImplicitsParserService implements ItemSectionParserService {
     private readonly phrase = ' (implicit)';
+
+    constructor(private readonly statsDescriptionService: StatsDescriptionService) { }
 
     public optional = true;
 
@@ -15,12 +18,21 @@ export class ItemSectionImplicitsParserService implements ItemSectionParserServi
             return null;
         }
 
-        target.implicits = implicitSection.lines.map(line => {
-            const implicit: ItemMod = {
-                text: line.replace(this.phrase, '')
-            };
-            return implicit;
-        });
+        const lines = implicitSection.lines.map(line => line.replace(this.phrase, ''));
+        const results = this.statsDescriptionService.searchMultiple(lines, target.language);
+        if (results.length > 0) {
+            target.implicits = [];
+            for (let index = 0; index < lines.length; index++) {
+                const result = results[index];
+                if (result) {
+                    target.implicits.push({
+                        key: result.key,
+                        predicate: result.predicate,
+                        values: result.values
+                    });
+                }
+            }
+        }
         return implicitSection;
     }
 }

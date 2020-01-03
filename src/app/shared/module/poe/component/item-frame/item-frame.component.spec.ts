@@ -19,26 +19,7 @@ const gem: Item = {
       Stärkung ausläuft oder verbraucht ist, verursacht die Fertigkeit bei Gegnern im Umkreis
       reflektierten Schaden, der auf dem Gesamtschaden basiert, der von der Stärkung absorbiert wurde.
       Teilt sich eine Abklingzeit mit anderen Wächter-Fertigkeiten.`,
-  explicits: [
-    {
-      text: 'Basisdauer beträgt 3.00 Sekunden',
-    },
-    {
-      text: '599 zusätzliche Rüstung',
-    },
-    {
-      text: 'Die Abklingzeit dieser Fertigkeit stellt sich während ihres Effekts nicht wieder her',
-    },
-    {
-      text: `75% des Trefferschadens werden zuerst von der Stärkung abgezogen
-          statt von Eurem Leben oder Energieschild Stärkung kann Schaden entsprechend 20% Eurer Rüstung
-          erleiden, bis zu einem Maximum von 10000`,
-    },
-    {
-      text: `Reflektiert 2040% des erlittenen Schadens der Stärkung als
-          Feuerschaden, wenn die Stärkung ausläuft oder verbraucht ist`,
-    }
-  ],
+  explicits: [],
   description: `Setze die Gemme in eine Fassung mit der richtigen Farbe ein,
                 um diese Fertigkeit zu erhalten. Entferne sie mit Rechtsklick aus der Fassung.`,
 };

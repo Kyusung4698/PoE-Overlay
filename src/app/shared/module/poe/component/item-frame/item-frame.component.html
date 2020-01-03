@@ -74,14 +74,14 @@
 
         <ng-container *ngIf="item.implicits && item.implicits.length > 0">
             <div *ngFor="let implicit of item.implicits" class="implicit">
-                <span>{{implicit.text}}</span>
+                <span>{{implicit | statsDescription:item.language}}</span>
             </div>
             <div class="separator" *ngIf="(item.explicits && item.explicits.length > 0) || item.description"></div>
         </ng-container>
 
         <ng-container *ngIf="item.explicits && item.explicits.length > 0">
             <div *ngFor="let explicit of item.explicits" class="explicit">
-                <span>{{explicit.text}}</span>
+                <span>{{explicit | statsDescription:item.language}}</span>
             </div>
             <div class="separator" *ngIf="item.description"></div>
         </ng-container>

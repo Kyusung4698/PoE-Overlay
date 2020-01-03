@@ -3,12 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CurrencyFrameComponent } from './component/currency-frame/currency-frame.component';
 import { ItemFrameComponent } from './component/item-frame/item-frame.component';
 import { ClientStringPipe } from './pipe/client-string.pipe';
+import { StatsDescriptionPipe } from './pipe/stats-description.pipe';
 
 @NgModule({
     declarations: [
         ItemFrameComponent,
         CurrencyFrameComponent,
-        ClientStringPipe
+        ClientStringPipe,
+        StatsDescriptionPipe
     ],
     imports: [
         BrowserModule
@@ -16,7 +18,8 @@ import { ClientStringPipe } from './pipe/client-string.pipe';
     exports: [
         ItemFrameComponent,
         CurrencyFrameComponent,
-        ClientStringPipe
+        ClientStringPipe,
+        StatsDescriptionPipe
     ]
 })
 export class PoeModule { }

@@ -57,7 +57,10 @@ export interface ItemAdditionalProperty extends ItemProperty {
 }
 
 export interface ItemMod {
-    text: string;
+    key: string;
+    predicate: string;
+    values: string[];
+    crafted?: boolean;
 }
 
 export interface ItemRequirements {

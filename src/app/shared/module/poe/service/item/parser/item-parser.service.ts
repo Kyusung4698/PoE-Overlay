@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ExportedItem, Item, ItemSectionParserService, Language, Section } from '../../../type';
 import { ContextService } from '../../context.service';
 import { ItemSectionDescriptonParserService } from './item-section-descripton-parser.service';
+import { ItemSectionExplicitsParserService } from './item-section-explicits-parser.service';
 import { ItemSectionImplicitsParserService } from './item-section-implicits-parser.service';
 import { ItemSectionItemLevelParserService } from './item-section-item-level-parser.service';
 import { ItemSectionNoteParserService } from './item-section-note-parser.service';
@@ -23,8 +24,9 @@ export class ItemParserService {
         itemSectionNoteParserService: ItemSectionNoteParserService,
         itemSectionItemLevelParserService: ItemSectionItemLevelParserService,
         itemSectionSocketsParserService: ItemSectionSocketsParserService,
-        itemSectionImplicitsParserService: ItemSectionImplicitsParserService,
         itemSectionPropertiesParserService: ItemSectionPropertiesParserService,
+        itemSectionImplicitsParserService: ItemSectionImplicitsParserService,
+        itemSectionExplicitsParserService: ItemSectionExplicitsParserService,
         itemSectionDescriptonParserService: ItemSectionDescriptonParserService) {
         this.parsers = [
             itemSectionRarityParser,
@@ -32,8 +34,9 @@ export class ItemParserService {
             itemSectionNoteParserService,
             itemSectionItemLevelParserService,
             itemSectionSocketsParserService,
-            // itemSectionImplicitsParserService, TODO: Disable for now
             itemSectionPropertiesParserService,
+            itemSectionImplicitsParserService,
+            itemSectionExplicitsParserService,
             // itemSectionDescriptonParserService, TODO: Disable for now
         ];
     }
