@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '@env/environment';
 import { Observable } from 'rxjs';
+import { retry } from 'rxjs/operators';
 import { CurrencyOverviewResponse } from '../schema/currency-overview';
 
 @Injectable({
@@ -23,6 +24,8 @@ export class CurrencyOverviewHttpService {
         });
         return this.httpClient.get<CurrencyOverviewResponse>(this.apiUrl, {
             params
-        });
+        }).pipe(
+            retry(3)
+        );
     }
 }

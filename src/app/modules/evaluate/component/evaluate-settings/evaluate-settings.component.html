@@ -1,0 +1,16 @@
+<mat-form-field>
+    <mat-label>Display Currency</mat-label>
+    <mat-select [(value)]="settings.currencyId">
+        <mat-option *ngFor="let currency of currencies$ | async" [value]="currency.id">
+            <span> {{currency.nameType}} </span>
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+<mat-form-field>
+    <mat-label>Translated Item Language</mat-label>
+    <mat-select [(value)]="settings.translatedItemLanguage">
+        <mat-option *ngFor="let language of languages.keys" [value]="language">
+            {{languages.values[language]}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>

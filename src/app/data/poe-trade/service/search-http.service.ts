@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '@env/environment';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, retry } from 'rxjs/operators';
 import { SearchForm, SearchResponse } from '../schema/search';
 
 @Injectable({
@@ -27,6 +27,7 @@ export class SearchHttpService {
             observe: 'response',
             headers
         }).pipe(
+            retry(3),
             map(response => {
                 const result: SearchResponse = {
                     items: [],

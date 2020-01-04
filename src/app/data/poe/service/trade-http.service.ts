@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '@env/environment';
 import { Language } from '@shared/module/poe/type';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, retry } from 'rxjs/operators';
 import { TradeItemsResult, TradeLeaguesResult, TradeResponse, TradeStaticResult, TradeStatsResult } from '../schema/trade';
 
 @Injectable({
@@ -37,6 +37,7 @@ export class TradeHttpService {
             responseType: 'text',
             observe: 'response'
         }).pipe(
+            retry(3),
             map(response => {
                 const result = response.body.replace(
                     /\\u[\dA-Fa-f]{4}/g,
@@ -75,7 +76,7 @@ export class TradeHttpService {
                 baseUrl = environment.poe.koreanUrl;
                 break;
             default:
-                throw new Error(`Could not map baseUrl to language: '${Language[language]}'.`);
+                throw new Error(`Could not map baseUrl to language: '${language}'.`);
         }
         return `${baseUrl}/trade/${postfix}`;
     }

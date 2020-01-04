@@ -37,15 +37,15 @@ describe('EvaluateDialogComponent', () => {
             ]
         })
             .compileComponents();
-    }));
-
-    beforeEach(() => {
-        fixture = TestBed.createComponent(EvaluateDialogComponent);
 
         contextService = TestBed.get<ContextService>(ContextService);
         contextService.init({
             language: Language.English
         });
+    }));
+
+    beforeEach(() => {
+        fixture = TestBed.createComponent(EvaluateDialogComponent);
 
         component = fixture.componentInstance;
 

@@ -2,12 +2,14 @@ import { NgModule } from '@angular/core';
 import { EvaluateModule } from '@modules/evaluate/evaluate.module';
 import { SharedModule } from '@shared/shared.module';
 import { AppComponent } from './app.component';
-import { UserSettingsDialogComponent } from './layout/component/user-settings-dialog/user-settings-dialog.component';
+import { UserSettingsComponent, UserSettingsDialogComponent, UserSettingsFeatureContainerComponent } from './layout/component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserSettingsDialogComponent
+    UserSettingsDialogComponent,
+    UserSettingsFeatureContainerComponent,
+    UserSettingsComponent
   ],
   entryComponents: [
     UserSettingsDialogComponent

@@ -6,7 +6,7 @@ import { ContextService } from '@shared/module/poe/service/context.service';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import { version } from '../../package.json';
-import { UserSettingsDialogService, UserSettingsService } from './layout/service';
+import { UserSettingsDialogService, UserSettingsFeatureService, UserSettingsService } from './layout/service';
 import { UserSettings } from './layout/type/index.js';
 
 @Component({
@@ -25,6 +25,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private readonly modules: FeatureModule[],
     private readonly shortcut: ShortcutService,
     private readonly userSettings: UserSettingsService,
+    private readonly userSettingsFeatureService: UserSettingsFeatureService,
     private readonly userSettingsDialog: UserSettingsDialogService,
     private readonly context: ContextService,
     private readonly window: WindowService) {
@@ -32,29 +33,47 @@ export class AppComponent implements OnInit, OnDestroy {
 
   @HostListener('window:beforeunload', [])
   public onWindowBeforeUnload(): void {
-    this.cleanup();
+    this.unregisterShorcuts();
   }
 
   public ngOnInit(): void {
-    this.userSettings.get().subscribe(settings => {
-      this.context.init({
-        language: settings.language,
-        leagueId: settings.leagueId
+    this.userSettings.get().subscribe(savedSettings => {
+      let mergedSettings: UserSettings = {};
+
+      this.modules.forEach(x => {
+        const featureSettings = x.getSettings();
+        mergedSettings = {
+          ...mergedSettings,
+          ...featureSettings.defaultSettings
+        };
+        this.userSettingsFeatureService.register(featureSettings);
       });
-      this.register();
+
+      mergedSettings = {
+        ...mergedSettings,
+        ...savedSettings
+      };
+
+      this.userSettings.save(mergedSettings).subscribe(settings => {
+        this.context.init({
+          language: settings.language,
+          leagueId: settings.leagueId
+        });
+        this.registerShortcuts(settings);
+      });
     });
   }
 
   public ngOnDestroy(): void {
-    this.cleanup();
+    this.unregisterShorcuts();
   }
 
-  private register(): void {
-    this.modules.forEach(x => {
-      const features = x.getFeatures();
+  private registerShortcuts(userSettings: UserSettings): void {
+    this.modules.forEach(mod => {
+      const features = mod.getFeatures(userSettings);
       features.forEach(feature => {
-        this.shortcut.register(feature.defaultShortcut).subscribe(() => {
-          x.run(feature.name);
+        this.shortcut.register(feature.shortcut).subscribe(() => {
+          mod.run(feature.name, userSettings);
         });
       });
     });
@@ -70,6 +89,8 @@ export class AppComponent implements OnInit, OnDestroy {
               language: settings.language,
               leagueId: settings.leagueId
             });
+            this.unregisterShorcuts();
+            this.registerShortcuts(settings);
           }
         });
       }
@@ -80,7 +101,7 @@ export class AppComponent implements OnInit, OnDestroy {
     });
   }
 
-  private cleanup(): void {
-    this.shortcut.cleanup();
+  private unregisterShorcuts(): void {
+    this.shortcut.unregisterAll();
   }
 }

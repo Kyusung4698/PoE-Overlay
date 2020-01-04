@@ -1,30 +1,35 @@
 import { Injectable } from '@angular/core';
 import * as PoENinja from '@data/poe-ninja';
 import { CurrencyChaosEquivalents } from '@shared/module/poe/type';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { filter, map, take, tap } from 'rxjs/operators';
+import { Observable, timer } from 'rxjs';
+import { map, shareReplay, switchMap, take } from 'rxjs/operators';
 
-interface EquivalentsPerLeague {
-    [leagueId: string]: BehaviorSubject<CurrencyChaosEquivalents>;
-}
+const REFRESH_INTERVAL = 1000 * 60 * 30;
+const CACHE_SIZE = 1;
 
 @Injectable({
     providedIn: 'root'
 })
 export class CurrencyChaosEquivalentsProvider {
-    private readonly equivalentsPerLeague: EquivalentsPerLeague = {};
+    private readonly equivalentsPerLeague: {
+        [leagueId: string]: Observable<CurrencyChaosEquivalents>
+    } = {};
 
     constructor(
         private readonly currencyOverviewHttpService: PoENinja.CurrencyOverviewHttpService) { }
 
     public provide(leagueId: string): Observable<CurrencyChaosEquivalents> {
-        if (this.equivalentsPerLeague[leagueId]) {
-            return this.equivalentsPerLeague[leagueId].pipe(
-                filter(equivalents => !!equivalents),
-                take(1));
+        if (!this.equivalentsPerLeague[leagueId]) {
+            const timer$ = timer(0, REFRESH_INTERVAL);
+
+            this.equivalentsPerLeague[leagueId] = timer$.pipe(
+                switchMap(_ => this.fetch(leagueId)),
+                shareReplay(CACHE_SIZE),
+            );
         }
-        this.equivalentsPerLeague[leagueId] = new BehaviorSubject<CurrencyChaosEquivalents>(undefined);
-        return this.fetch(leagueId);
+        return this.equivalentsPerLeague[leagueId].pipe(
+            take(1)
+        );
     }
 
     private fetch(leagueId: string): Observable<CurrencyChaosEquivalents> {
@@ -36,8 +41,7 @@ export class CurrencyChaosEquivalentsProvider {
                 });
                 currencyChaosEquivalents['Chaos Orb'] = 1;
                 return currencyChaosEquivalents;
-            }),
-            tap(equivalents => this.equivalentsPerLeague[leagueId].next(equivalents))
+            })
         );
     }
 }

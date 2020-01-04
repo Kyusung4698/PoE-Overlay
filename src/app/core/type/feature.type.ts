@@ -1,9 +1,12 @@
+import { UserSettings, UserSettingsFeature } from 'src/app/layout/type';
+
 export interface Feature {
     name: string;
-    defaultShortcut: string;
+    shortcut: string;
 }
 
 export interface FeatureModule {
-    getFeatures(): Feature[];
-    run(feature: string): void;
+    getSettings(): UserSettingsFeature;
+    getFeatures(settings: UserSettings): Feature[];
+    run(feature: string, settings: UserSettings): void;
 }

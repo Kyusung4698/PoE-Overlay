@@ -2,6 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ElectronProvider } from '@app/provider';
 import { SharedModule } from '@shared/shared.module';
+import { UserSettingsFeatureContainerComponent } from '../user-settings-feature-container/user-settings-feature-container.component';
+import { UserSettingsComponent } from '../user-settings/user-settings.component';
 import { UserSettingsDialogComponent } from './user-settings-dialog.component';
 
 class ElectronProviderFake {
@@ -21,7 +23,7 @@ describe('UserSettingsDialogComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [SharedModule],
-      declarations: [UserSettingsDialogComponent],
+      declarations: [UserSettingsDialogComponent, UserSettingsComponent, UserSettingsFeatureContainerComponent],
       providers: [
         {
           provide: MAT_DIALOG_DATA,

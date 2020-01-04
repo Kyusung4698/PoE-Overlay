@@ -27,7 +27,7 @@ export class ShortcutService {
         this.electron.globalShortcut.unregister(shortcut);
     }
 
-    public cleanup(): void {
+    public unregisterAll(): void {
         this.electron.globalShortcut.unregisterAll();
     }
 }

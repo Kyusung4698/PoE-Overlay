@@ -3,9 +3,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { WindowService } from '@app/service';
 import { Observable, of } from 'rxjs';
 import { flatMap, tap } from 'rxjs/operators';
-import { UserSettingsDialogComponent } from '../component/user-settings-dialog/user-settings-dialog.component';
 import { UserSettings } from '../type';
 import { UserSettingsService } from './user-settings.service';
+import { UserSettingsDialogComponent } from '../component/user-settings-dialog/user-settings-dialog.component';
 
 @Injectable({
     providedIn: 'root'

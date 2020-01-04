@@ -10,6 +10,7 @@ import { flatMap } from 'rxjs/operators';
 
 export interface EvaluateDialogData {
   item: Item;
+  currencyId: string;
   language?: Language;
 }
 
@@ -36,7 +37,7 @@ export class EvaluateDialogComponent implements OnInit {
   public ngOnInit(): void {
     forkJoin(
       this.itemSearchService.search(this.data.item),
-      this.currencyService.get('chaos')
+      this.currencyService.searchById(this.data.currencyId)
     ).pipe(
       flatMap(results => {
         this.url = results[0].url;

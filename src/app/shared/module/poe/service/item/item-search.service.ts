@@ -70,7 +70,7 @@ export class ItemSearchService {
         const currencyAmount = +(splittedValue[0].trim());
         const currencyId = splittedValue[1].trim();
 
-        return this.currencyService.get(currencyId).pipe(
+        return this.currencyService.searchByTradeId(currencyId, Language.English).pipe(
             map(currency => {
 
                 if (currency === undefined) {

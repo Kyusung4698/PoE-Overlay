@@ -41,7 +41,7 @@ describe('ItemSearchEvaluateService', () => {
 
         forkJoin(
             searchService.search(requestedItem),
-            currencyService.get('chaos')
+            currencyService.searchById('chaos')
         ).subscribe(results => {
             sut.evaluate(results[0], results[1]).subscribe(result => {
                 expect(result.targetCurrencyAvg).toBeGreaterThan(0);
