@@ -1,23 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommandModule } from '@modules/command/command.module';
 import { EvaluateModule } from '@modules/evaluate/evaluate.module';
-import { SharedModule } from '@shared/shared.module';
 import { AppComponent } from './app.component';
-import { UserSettingsComponent, UserSettingsDialogComponent, UserSettingsFeatureContainerComponent } from './layout/component';
+import { LayoutModule } from './layout/layout.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    UserSettingsDialogComponent,
-    UserSettingsFeatureContainerComponent,
-    UserSettingsComponent
-  ],
-  entryComponents: [
-    UserSettingsDialogComponent
-  ],
+  declarations: [AppComponent],
   imports: [
-    // shared
-    SharedModule,
+    // layout
+    LayoutModule,
 
     // app
     EvaluateModule,

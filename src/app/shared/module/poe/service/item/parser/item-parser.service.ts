@@ -56,15 +56,17 @@ export class ItemParserService {
 
         const target: Item = {};
         for (const parser of this.parsers) {
-            const section = parser.parse(exportedItem, target);
-            if (!section) {
+            const sectionOrSections = parser.parse(exportedItem, target);
+            if (!sectionOrSections) {
                 if (!parser.optional) {
                     return null;
                 } else {
                     continue;
                 }
             }
-            exportedItem.sections.splice(exportedItem.sections.indexOf(section), 1);
+            [].concat(sectionOrSections).forEach(section => {
+                exportedItem.sections.splice(exportedItem.sections.indexOf(section), 1);
+            });
         }
         return target;
     }

@@ -7,10 +7,11 @@ import { UserSettingsFeature } from 'src/app/layout/type';
 import { EvaluateDialogComponent } from './component/evaluate-dialog/evaluate-dialog.component';
 import { EvaluateSettingsComponent, EvaluateUserSettings } from './component/evaluate-settings/evaluate-settings.component';
 import { EvaluateService } from './service/evaluate.service';
+import { EvaluateChartComponent } from './component/evaluate-chart/evaluate-chart.component';
 
 @NgModule({
     providers: [{ provide: FEATURE_MODULES, useClass: EvaluateModule, multi: true }],
-    declarations: [EvaluateDialogComponent, EvaluateSettingsComponent],
+    declarations: [EvaluateDialogComponent, EvaluateSettingsComponent, EvaluateChartComponent],
     entryComponents: [EvaluateDialogComponent, EvaluateSettingsComponent],
     imports: [SharedModule]
 })

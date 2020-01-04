@@ -26,7 +26,7 @@ function createWindow(): BrowserWindow {
         frame: false,
         resizable: false,
         movable: false,
-        skipTaskbar: true,
+        focusable: false,
         webPreferences: {
             nodeIntegration: true,
             allowRunningInsecureContent: (serve) ? true : false,
@@ -34,7 +34,6 @@ function createWindow(): BrowserWindow {
         }
     });
     win.setIgnoreMouseEvents(true);
-    win.setFocusable(false);
     win.setAlwaysOnTop(true, 'screen-saver');
 
     if (serve) {

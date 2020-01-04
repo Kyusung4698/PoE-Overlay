@@ -28,10 +28,11 @@ export class ItemSearchEvaluateService {
             ));
         return forkJoin(items$).pipe(
             map(items => {
-                const shortenList = items.slice(0, Math.max(items.length * 0.6, 1));
+                // TODO: Should this be configureable?
+                const shortenList = items.slice(0, Math.max(items.length, 1));
                 const avg = shortenList.reduce((a, b) => a + b.targetCurrencyAmount, 0) / shortenList.length;
                 const result: ItemSearchEvaluateResult = {
-                    items,
+                    items: shortenList,
                     targetCurrency,
                     targetCurrencyAvg: Math.round(avg * 100) / 100
                 };

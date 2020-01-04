@@ -40,12 +40,10 @@ export class WindowService {
     public disableInput(): void {
         const window = this.electron.getCurrentWindow();
         window.setIgnoreMouseEvents(true);
-        window.setFocusable(false);
     }
 
     public enableInput(): void {
         const window = this.electron.getCurrentWindow();
         window.setIgnoreMouseEvents(false);
-        window.setFocusable(true);
     }
 }

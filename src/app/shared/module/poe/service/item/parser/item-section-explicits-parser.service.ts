@@ -12,7 +12,7 @@ export class ItemSectionExplicitsParserService implements ItemSectionParserServi
 
     public optional = true;
 
-    public parse(item: ExportedItem, target: Item): Section {
+    public parse(item: ExportedItem, target: Item): Section[] {
         switch (target.rarity) {
             case ItemRarity.Normal:
             case ItemRarity.Magic:
@@ -23,18 +23,13 @@ export class ItemSectionExplicitsParserService implements ItemSectionParserServi
                 return null;
         }
 
-        const explicitSection = item.sections.find(x => x.content.indexOf(this.phrase) !== -1);
-        if (explicitSection) {
-            this.parseSection(explicitSection, target);
-            return explicitSection;
-        }
-
+        const result: Section[] = [];
         for (const section of item.sections) {
             if (this.parseSection(section, target)) {
-                return section;
+                result.push(section);
             }
         }
-        return undefined;
+        return result;
     }
 
     private parseSection(section: Section, target: Item): boolean {
@@ -45,11 +40,16 @@ export class ItemSectionExplicitsParserService implements ItemSectionParserServi
             return false;
         }
 
-        target.explicits = [];
+        if (target.explicits) {
+            target.explicits.push([]);
+        } else {
+            target.explicits = [[]];
+        }
+
         for (let index = 0; index < lines.length; index++) {
             const result = results[index];
             if (result) {
-                target.explicits.push({
+                target.explicits[target.explicits.length - 1].push({
                     key: result.key,
                     predicate: result.predicate,
                     values: result.values,

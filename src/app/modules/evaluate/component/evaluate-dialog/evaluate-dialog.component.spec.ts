@@ -4,6 +4,7 @@ import { ElectronProvider } from '@app/provider';
 import { ContextService } from '@shared/module/poe/service';
 import { Language } from '@shared/module/poe/type';
 import { SharedModule } from '@shared/shared.module';
+import { EvaluateChartComponent } from '../evaluate-chart/evaluate-chart.component';
 import { EvaluateDialogComponent } from './evaluate-dialog.component';
 
 class ElectronProviderFake {
@@ -24,7 +25,7 @@ describe('EvaluateDialogComponent', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             imports: [SharedModule],
-            declarations: [EvaluateDialogComponent],
+            declarations: [EvaluateDialogComponent, EvaluateChartComponent],
             providers: [
                 {
                     provide: MAT_DIALOG_DATA,

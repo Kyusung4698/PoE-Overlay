@@ -10,7 +10,7 @@ export interface Item {
     requirements?: ItemRequirements;
     secondaryDescription?: string;
     implicits?: ItemMod[];
-    explicits?: ItemMod[];
+    explicits?: ItemMod[][];
     description?: string;
     note?: string;
 }
@@ -101,5 +101,5 @@ export interface Section {
 
 export interface ItemSectionParserService {
     optional: boolean;
-    parse(item: ExportedItem, target: Item): Section;
+    parse(item: ExportedItem, target: Item): Section | Section[];
 }

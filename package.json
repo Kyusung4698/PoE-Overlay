@@ -38,6 +38,7 @@
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
+    "@swimlane/ngx-charts": "^13.0.1",
     "localforage": "^1.7.3",
     "robotjs": "git+https://github.com/Kyusung4698/robotjs.git",
     "rxjs": "~6.4.0",

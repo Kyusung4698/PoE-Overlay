@@ -10,6 +10,7 @@
                         <app-currency-frame [amount]="result.targetCurrencyAvg" [currency]="result.targetCurrency">
                         </app-currency-frame>
                     </div>
+                    <app-evaluate-chart [result]="result"></app-evaluate-chart>
                 </ng-container>
                 <ng-container *ngIf="result.items && result.items.length === 0">
                     No matching items found.
