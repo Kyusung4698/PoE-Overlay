@@ -1,0 +1,16 @@
+<mat-card class="card" *ngFor="let command of settings.commands; let index = index">
+    <button class="remove" mat-icon-button (click)="onRemoveClick(index)">
+        <mat-icon>close</mat-icon>
+    </button>
+    <mat-form-field>
+        <mat-label>Command</mat-label>
+        <input matInput [(value)]="command.text">
+    </mat-form-field>
+    <app-accelerator label="Shortcut" [(value)]="command.shortcut">
+    </app-accelerator>
+</mat-card>
+<mat-card>
+    <div align="center">
+        <button mat-button (click)="onAddCommandClick()">Add Command</button>
+    </div>
+</mat-card>

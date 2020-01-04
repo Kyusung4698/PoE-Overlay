@@ -12,6 +12,10 @@ export class KeyboardService {
         this.ipcRenderer = electronProvider.provideIpcRenderer();
     }
 
+    public setKeyboardDelay(delay: number): void {
+        this.ipcRenderer.sendSync('setKeyboardDelay', delay);
+    }
+
     public keyTap(key: string, modifiers: string[] = []): void {
         this.ipcRenderer.sendSync('keyTap', key, modifiers);
     }

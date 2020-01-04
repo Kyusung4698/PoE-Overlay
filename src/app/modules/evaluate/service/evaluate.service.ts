@@ -25,6 +25,7 @@ export class EvaluateService {
         let item: Item;
         try {
             point = this.mouse.getCursorScreenPoint();
+            this.keyboard.setKeyboardDelay(50);
             this.keyboard.keyTap('c', ['control']);
 
             const text = this.clipboard.readText();

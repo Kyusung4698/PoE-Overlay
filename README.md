@@ -46,7 +46,7 @@ This project is currently in a ***pilot phase***. If you encounter any bugs or h
 | Shared | 100% | + item frame<br>+ currency frame<br>+ item parser in all languages<br>+ item parser mods
 | Evaluate         | 66%           | + Basic search implemented <br>+ User settings (display currency, translated language) <br>- Advanced search with filter on modifiers <br>- Chart to display values instead of avg       |
 | Trade      | 0%           | - Send messages<br>- Trade UI<br>- etc.       |
-| Command        | 0%            | - bind in-game commmands to shortcuts (like /dnd, /hideout) |
+| Command        | 100%            | + bind in-game commmands to shortcuts (/dnd, /hideout) |
 
 
 ## Enduser
@@ -64,7 +64,7 @@ These instructions will get you a executable to run and enjoy the overlay.
 1. Head over to [Releases](https://github.com/Kyusung4698/PoE-Overlay/releases) and download the latest zip
 2. Extract zip
 3. Run `poe-overlay.exe`
-4. Wait until you can see `POE Overlay 0.2.0` in the bottom left corner
+4. Wait until you can see `POE Overlay 0.3.0` in the bottom left corner
 5. Hit `f7` and set `Language` and `League` to meet your game settings
 6. Start PoE
 

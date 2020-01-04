@@ -8,6 +8,11 @@ ipcMain.on('keyTap', (event, key, modifier) => {
     event.returnValue = true;
 });
 
+ipcMain.on('setKeyboardDelay', (event, delay) => {
+    robot.setKeyboardDelay(delay);
+    event.returnValue = true;
+});
+
 let win: BrowserWindow = null;
 const args = process.argv.slice(1),
     serve = args.some(val => val === '--serve');
