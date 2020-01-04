@@ -48,3 +48,15 @@ body {
 .mat-form-field {
   width: 100%;
 }
+
+mat-label {
+  display: block;
+}
+
+mat-card {
+  margin-bottom: 12px;
+
+  > mat-label {
+    margin-bottom: 12px;
+  }
+}

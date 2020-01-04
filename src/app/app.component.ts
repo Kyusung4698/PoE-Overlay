@@ -3,8 +3,6 @@ import { ShortcutService, WindowService } from '@app/service';
 import { FEATURE_MODULES } from '@app/token';
 import { FeatureModule } from '@app/type';
 import { ContextService } from '@shared/module/poe/service/context.service';
-import { Observable } from 'rxjs';
-import { finalize } from 'rxjs/operators';
 import { version } from '../../package.json';
 import { UserSettingsDialogService, UserSettingsFeatureService, UserSettingsService } from './layout/service';
 import { UserSettings } from './layout/type/index.js';
@@ -16,8 +14,6 @@ import { UserSettings } from './layout/type/index.js';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnInit, OnDestroy {
-  private settingsDialogOpen: Observable<UserSettings> = null;
-
   public version: string = version;
 
   constructor(
@@ -72,28 +68,27 @@ export class AppComponent implements OnInit, OnDestroy {
     this.modules.forEach(mod => {
       const features = mod.getFeatures(userSettings);
       features.forEach(feature => {
-        this.shortcut.register(feature.shortcut).subscribe(() => {
-          mod.run(feature.name, userSettings);
-        });
+        if (feature.shortcut) {
+          this.shortcut.register(feature.shortcut).subscribe(() => {
+            mod.run(feature.name, userSettings);
+          });
+        }
       });
     });
 
     this.shortcut.register('F7').subscribe(() => {
-      if (!this.settingsDialogOpen) {
-        this.settingsDialogOpen = this.userSettingsDialog.open().pipe(
-          finalize(() => this.settingsDialogOpen = null)
-        );
-        this.settingsDialogOpen.subscribe(settings => {
-          if (settings) {
-            this.context.update({
-              language: settings.language,
-              leagueId: settings.leagueId
-            });
-            this.unregisterShorcuts();
-            this.registerShortcuts(settings);
-          }
-        });
-      }
+      this.unregisterShorcuts();
+      this.userSettingsDialog.open().subscribe(newSettings => {
+        if (newSettings) {
+          this.context.update({
+            language: newSettings.language,
+            leagueId: newSettings.leagueId
+          });
+          this.registerShortcuts(newSettings);
+        } else {
+          this.registerShortcuts(userSettings);
+        }
+      });
     });
 
     this.shortcut.register('F8').subscribe(() => {

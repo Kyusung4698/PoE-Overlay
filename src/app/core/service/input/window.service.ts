@@ -38,12 +38,14 @@ export class WindowService {
     }
 
     public disableInput(): void {
-        this.electron.getCurrentWindow().setIgnoreMouseEvents(true, {
-            forward: true
-        });
+        const window = this.electron.getCurrentWindow();
+        window.setIgnoreMouseEvents(true);
+        window.setFocusable(false);
     }
 
     public enableInput(): void {
-        this.electron.getCurrentWindow().setIgnoreMouseEvents(false);
+        const window = this.electron.getCurrentWindow();
+        window.setIgnoreMouseEvents(false);
+        window.setFocusable(true);
     }
 }

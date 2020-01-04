@@ -6,8 +6,10 @@ import { BehaviorSubject } from 'rxjs';
 import { UserSettings, UserSettingsComponent } from 'src/app/layout/type';
 
 export interface EvaluateUserSettings extends UserSettings {
-  currencyId: string;
-  translatedItemLanguage: Language;
+  evaluateCurrencyId: string;
+  evaluateKeybinding: string;
+  evaluateTranslatedItemLanguage: Language;
+  evaluateTranslatedKeybinding: string;
 }
 
 @Component({
@@ -31,9 +33,9 @@ export class EvaluateSettingsComponent implements UserSettingsComponent {
 
   private updateCurrencies(): void {
     this.currencyService.get(this.settings.language).subscribe(currencies => {
-      const selectedCurrency = currencies.find(currency => currency.id === this.settings.currencyId);
+      const selectedCurrency = currencies.find(currency => currency.id === this.settings.evaluateCurrencyId);
       if (!selectedCurrency) {
-        this.settings.currencyId = currencies[0].id;
+        this.settings.evaluateCurrencyId = currencies[0].id;
       }
       this.currencies$.next(currencies);
     });

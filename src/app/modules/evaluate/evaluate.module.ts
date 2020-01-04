@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { FEATURE_MODULES } from '@app/token';
 import { Feature, FeatureModule } from '@app/type';
+import { Language } from '@shared/module/poe/type';
 import { SharedModule } from '@shared/shared.module';
 import { UserSettingsFeature } from 'src/app/layout/type';
 import { EvaluateDialogComponent } from './component/evaluate-dialog/evaluate-dialog.component';
 import { EvaluateSettingsComponent, EvaluateUserSettings } from './component/evaluate-settings/evaluate-settings.component';
 import { EvaluateService } from './service/evaluate.service';
-import { Language } from '@shared/module/poe/type';
 
 @NgModule({
     providers: [{ provide: FEATURE_MODULES, useClass: EvaluateModule, multi: true }],
@@ -21,8 +21,10 @@ export class EvaluateModule implements FeatureModule {
 
     public getSettings(): UserSettingsFeature {
         const defaultSettings: EvaluateUserSettings = {
-            currencyId: 'chaos',
-            translatedItemLanguage: Language.English
+            evaluateCurrencyId: 'chaos',
+            evaluateKeybinding: 'Ctrl + D',
+            evaluateTranslatedItemLanguage: Language.English,
+            evaluateTranslatedKeybinding: 'Ctrl + T'
         };
         return {
             name: 'Evaluate',
@@ -35,11 +37,11 @@ export class EvaluateModule implements FeatureModule {
         return [
             {
                 name: 'evaluate',
-                shortcut: 'CommandOrControl+D'
+                shortcut: settings.evaluateKeybinding
             },
             {
                 name: 'evaluate-translate',
-                shortcut: 'CommandOrControl+T'
+                shortcut: settings.evaluateTranslatedKeybinding
             }
         ];
     }
@@ -47,10 +49,10 @@ export class EvaluateModule implements FeatureModule {
     public run(feature: string, settings: EvaluateUserSettings): void {
         switch (feature) {
             case 'evaluate':
-                this.evaluateService.evaluate(settings.currencyId).subscribe();
+                this.evaluateService.evaluate(settings.evaluateCurrencyId).subscribe();
                 break;
             case 'evaluate-translate':
-                this.evaluateService.evaluate(settings.currencyId, settings.translatedItemLanguage).subscribe();
+                this.evaluateService.evaluate(settings.evaluateCurrencyId, settings.evaluateTranslatedItemLanguage).subscribe();
                 break;
             default:
                 break;

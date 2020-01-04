@@ -1,16 +1,19 @@
-<mat-form-field>
-    <mat-label>Language</mat-label>
-    <mat-select [(value)]="settings.language" (valueChange)="onLanguageChange()">
-        <mat-option *ngFor="let language of languages.keys" [value]="language">
-            {{languages.values[language]}}
-        </mat-option>
-    </mat-select>
-</mat-form-field>
-<mat-form-field>
-    <mat-label>League</mat-label>
-    <mat-select [(value)]="settings.leagueId">
-        <mat-option *ngFor="let league of leagues$ | async" [value]="league.id">
-            {{league.text}}
-        </mat-option>
-    </mat-select>
-</mat-form-field>
+<mat-card>
+    <mat-label>Game Settings</mat-label>
+    <mat-form-field>
+        <mat-label>Language</mat-label>
+        <mat-select [(value)]="settings.language" (valueChange)="onLanguageChange()">
+            <mat-option *ngFor="let language of languages.keys" [value]="language">
+                {{languages.values[language]}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>League</mat-label>
+        <mat-select [(value)]="settings.leagueId">
+            <mat-option *ngFor="let league of leagues$ | async" [value]="league.id">
+                {{league.text}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</mat-card>

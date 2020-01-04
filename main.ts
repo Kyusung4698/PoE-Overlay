@@ -19,16 +19,17 @@ function createWindow(): BrowserWindow {
         fullscreen: true,
         transparent: true,
         frame: false,
-        focusable: false,
         resizable: false,
         movable: false,
+        skipTaskbar: true,
         webPreferences: {
             nodeIntegration: true,
             allowRunningInsecureContent: (serve) ? true : false,
             webSecurity: false
         }
     });
-    win.setIgnoreMouseEvents(true, { forward: true });
+    win.setIgnoreMouseEvents(true);
+    win.setFocusable(false);
     win.setAlwaysOnTop(true, 'screen-saver');
 
     if (serve) {
