@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, HostListener, Inject, OnDestroy, On
 import { ShortcutService, WindowService } from '@app/service';
 import { FEATURE_MODULES } from '@app/token';
 import { FeatureModule } from '@app/type';
+import { ReleasesHttpService } from '@data/github/index.js';
 import { ContextService } from '@shared/module/poe/service/context.service';
 import { version } from '../../package.json';
 import { UserSettingsDialogService, UserSettingsFeatureService, UserSettingsService } from './layout/service';
@@ -23,16 +24,36 @@ export class AppComponent implements OnInit, OnDestroy {
     private readonly userSettings: UserSettingsService,
     private readonly userSettingsFeatureService: UserSettingsFeatureService,
     private readonly userSettingsDialog: UserSettingsDialogService,
+    private readonly releasesHttpService: ReleasesHttpService,
     private readonly context: ContextService,
     private readonly window: WindowService) {
   }
 
   @HostListener('window:beforeunload', [])
   public onWindowBeforeUnload(): void {
-    this.unregisterShorcuts();
+    this.unregisterShortcuts();
   }
 
   public ngOnInit(): void {
+    this.checkVersion();
+    this.loadSettingsAndShortcuts();
+  }
+
+  public ngOnDestroy(): void {
+    this.unregisterShortcuts();
+  }
+
+  private checkVersion(): void {
+    this.releasesHttpService.getLatestRelease().subscribe(release => {
+      if (release && release.tag_name !== version && release.assets && release.assets[0].browser_download_url) {
+        if (confirm(`A new version: '${release.tag_name}' is available. Go to download Page?`)) {
+          this.window.open(release.html_url);
+        }
+      }
+    });
+  }
+
+  private loadSettingsAndShortcuts(): void {
     this.userSettings.get().subscribe(savedSettings => {
       let mergedSettings: UserSettings = {};
 
@@ -60,10 +81,6 @@ export class AppComponent implements OnInit, OnDestroy {
     });
   }
 
-  public ngOnDestroy(): void {
-    this.unregisterShorcuts();
-  }
-
   private registerShortcuts(userSettings: UserSettings): void {
     this.modules.forEach(mod => {
       const features = mod.getFeatures(userSettings);
@@ -77,7 +94,7 @@ export class AppComponent implements OnInit, OnDestroy {
     });
 
     this.shortcut.register('F7').subscribe(() => {
-      this.unregisterShorcuts();
+      this.unregisterShortcuts();
       this.userSettingsDialog.open().subscribe(newSettings => {
         if (newSettings) {
           this.context.update({
@@ -96,7 +113,7 @@ export class AppComponent implements OnInit, OnDestroy {
     });
   }
 
-  private unregisterShorcuts(): void {
+  private unregisterShortcuts(): void {
     this.shortcut.unregisterAll();
   }
 }
