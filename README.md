@@ -44,9 +44,9 @@ This project is currently in a ***pilot phase***. If you encounter any bugs or h
 | ------------- |-------------: | ------- |
 | Core | 100% | + overlay<br>+ global shortcuts<br>+ user settings (language, league)<br>+ custom shortcuts<br>+ ~~auto updating~~ version check
 | Shared | 100% | + item frame<br>+ currency frame<br>+ item parser in all languages<br>+ item parser mods
-| Evaluate         | 66%           | + Basic search implemented <br>+ User settings (display currency, translated language) <br>- Advanced search with filter on modifiers <br>- Chart to display values instead of avg       |
-| Trade      | 0%           | - Send messages<br>- Trade UI<br>- etc.       |
+| Evaluate         | 80%           | + Basic search implemented <br>+ User settings (display currency, translated language) <br>+ Chart to display values instead of avg <br>- Advanced search with filter on modifiers |
 | Command        | 100%            | + bind in-game commmands to shortcuts (/dnd, /hideout) |
+| Trade      | 0%           | - Send messages<br>- Trade UI<br>- etc.       |
 
 
 ## Enduser
@@ -76,6 +76,8 @@ You can change these shortcuts in the user settings menu.
 |---        |---	    
 | `ctrl+d`  | Displays the item in a frame and evaluates the price. You can open poe.trade on click of the currency value
 | `ctrl+t`  | '' same as above '' but displays the item translated in english
+| `f5`      | Go to Hideout
+| `f6`      | Toggle DND
 | `f7`      | Opens the user settings menu
 | `f8`      | Exits overlay
 

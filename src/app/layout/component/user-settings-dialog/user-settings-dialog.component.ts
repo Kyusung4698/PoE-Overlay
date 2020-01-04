@@ -1,9 +1,12 @@
-import { ChangeDetectionStrategy, Component, Inject, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, QueryList, ViewChildren } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MatTabChangeEvent } from '@angular/material/tabs';
-import { UserSettingsFeatureService } from '../../service/user-settings-feature.service';
 import { UserSettings, UserSettingsFeature } from '../../type';
 import { UserSettingsFeatureContainerComponent } from '../user-settings-feature-container/user-settings-feature-container.component';
+
+export interface UserSettingsDialogData {
+  settings: UserSettings;
+  features: UserSettingsFeature[];
+}
 
 @Component({
   selector: 'app-user-settings-dialog',
@@ -11,19 +14,16 @@ import { UserSettingsFeatureContainerComponent } from '../user-settings-feature-
   styleUrls: ['./user-settings-dialog.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UserSettingsDialogComponent implements OnInit {
+export class UserSettingsDialogComponent {
+  public settings: UserSettings;
   public features: UserSettingsFeature[];
 
   @ViewChildren(UserSettingsFeatureContainerComponent)
   public containers: QueryList<UserSettingsFeatureContainerComponent>;
 
-  constructor(
-    @Inject(MAT_DIALOG_DATA)
-    public settings: UserSettings,
-    private readonly featureService: UserSettingsFeatureService) { }
-
-  public ngOnInit() {
-    this.features = this.featureService.get();
+  constructor(@Inject(MAT_DIALOG_DATA) data: UserSettingsDialogData) {
+    this.settings = data.settings;
+    this.features = data.features;
   }
 
   public onSelectedIndexChange(index: number): void {

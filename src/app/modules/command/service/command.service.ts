@@ -11,7 +11,7 @@ export class CommandService {
         private readonly keyboard: KeyboardService) { }
 
     public command(command: string): void {
-        this.keyboard.setKeyboardDelay(0);
+        this.keyboard.setKeyboardDelay(5);
         this.keyboard.keyTap('enter');
         this.clipboard.writeText(command);
         this.keyboard.keyTap('v', ['control']);

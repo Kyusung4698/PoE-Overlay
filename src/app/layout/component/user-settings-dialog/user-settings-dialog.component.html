@@ -2,7 +2,7 @@
     <mat-tab-group mat-stretch-tabs [dynamicHeight]="true" (selectedIndexChange)="onSelectedIndexChange($event)">
         <mat-tab label="General">
             <div class="content">
-                <app-user-settings [settings]="settings"></app-user-settings>
+                <app-user-settings-form [settings]="settings"></app-user-settings-form>
             </div>
         </mat-tab>
         <mat-tab [label]="feature.name" *ngFor="let feature of features">

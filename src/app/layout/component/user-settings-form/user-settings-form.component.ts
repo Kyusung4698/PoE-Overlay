@@ -6,11 +6,11 @@ import { BehaviorSubject } from 'rxjs';
 import { UserSettings } from '../../type';
 
 @Component({
-  selector: 'app-user-settings',
-  templateUrl: './user-settings.component.html',
+  selector: 'app-user-settings-form',
+  templateUrl: './user-settings-form.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UserSettingsComponent implements OnInit {
+export class UserSettingsFormComponent implements OnInit {
   public languages = new EnumValues(Language);
 
   public leagues$ = new BehaviorSubject<League[]>([]);
