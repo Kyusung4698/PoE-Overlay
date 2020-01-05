@@ -1,9 +1,28 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParameterCodec, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '@env/environment';
 import { Observable } from 'rxjs';
 import { map, retry } from 'rxjs/operators';
 import { SearchForm, SearchResponse } from '../schema/search';
+
+// Angular replaces + with ' '
+class CustomEncoder implements HttpParameterCodec {
+    public encodeKey(key: string): string {
+        return encodeURIComponent(key);
+    }
+
+    public encodeValue(value: string): string {
+        return encodeURIComponent(value).split('+').join('%2B');
+    }
+
+    public decodeKey(key: string): string {
+        return decodeURIComponent(key);
+    }
+
+    public decodeValue(value: string): string {
+        return decodeURIComponent(value).split('%2B').join('+');
+    }
+}
 
 @Injectable({
     providedIn: 'root'
@@ -18,14 +37,11 @@ export class SearchHttpService {
     public search(form: SearchForm): Observable<SearchResponse> {
         const params = new HttpParams({
             fromObject: { ...form },
-        });
-        const headers = new HttpHeaders({
-            'Upgrade-Insecure-Requests': '1'
+            encoder: new CustomEncoder()
         });
         return this.httpClient.post(this.apiUrl, params, {
             responseType: 'text',
-            observe: 'response',
-            headers
+            observe: 'response'
         }).pipe(
             retry(3),
             map(response => {

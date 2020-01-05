@@ -19,6 +19,7 @@ describe('EvaluateChartComponent', () => {
     fixture = TestBed.createComponent(EvaluateChartComponent);
     component = fixture.componentInstance;
     component.result = {
+      url: '',
       items: []
     };
     fixture.detectChanges();

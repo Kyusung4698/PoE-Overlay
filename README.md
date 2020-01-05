@@ -32,9 +32,7 @@ This project is currently in a ***pilot phase***. If you encounter any bugs or h
 
 ## Features
 
-* Translating of item names from your client language into *any available* client language.
-* Evaluating of item prices from `poe.trade` in `Chaos Orbs` uses the values of the currency market from `poe.ninja` to convert the currencies.
-* Modal dialog to open the search result website *in game*.
+* TODO
 
 ![ctrl_d_preview](img/ctrl_d_preview.gif)
 
@@ -44,7 +42,7 @@ This project is currently in a ***pilot phase***. If you encounter any bugs or h
 | ------------- |-------------: | ------- |
 | Core | 100% | + overlay<br>+ global shortcuts<br>+ user settings (language, league)<br>+ custom shortcuts<br>+ ~~auto updating~~ version check
 | Shared | 100% | + item frame<br>+ currency frame<br>+ item parser in all languages<br>+ item parser mods
-| Evaluate         | 80%           | + Basic search implemented <br>+ User settings (display currency, translated language) <br>+ Chart to display values instead of avg <br>- Advanced search with filter on modifiers |
+| Evaluate         | 100%           | + Basic search implemented <br>+ User settings (display currency, translated language) <br>+ Chart to display values instead of avg <br>+ Advanced search with filter on modifiers |
 | Command        | 100%            | + bind in-game commmands to shortcuts (/dnd, /hideout) |
 | Trade      | 0%           | - Send messages<br>- Trade UI<br>- etc.       |
 

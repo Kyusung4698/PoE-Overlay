@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { CommandModule } from '@modules/command/command.module';
 import { EvaluateModule } from '@modules/evaluate/evaluate.module';
 import { AppComponent } from './app.component';
-import { UserSettingsDialogComponent } from './layout/component';
 import { LayoutModule } from './layout/layout.module';
-import { UserSettingsComponent } from './layout/page/user-settings/user-settings.component';
 import { OverlayComponent } from './layout/page/overlay/overlay.component';
+import { UserSettingsComponent } from './layout/page/user-settings/user-settings.component';
 
 const routes: Routes = [
   {

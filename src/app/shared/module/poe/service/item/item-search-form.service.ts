@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as PoETrade from '@data/poe-trade';
-import { Item, ItemRarity, Language } from '../../type';
+import { Item, ItemMod, ItemRarity, Language } from '../../type';
+import { StatsDescriptionService } from '../stats-description/stats-description.service';
 import { ItemService } from './item.service';
 
 @Injectable({
@@ -8,7 +9,9 @@ import { ItemService } from './item.service';
 })
 export class ItemSearchFormService {
 
-    constructor(private readonly itemNameService: ItemService) { }
+    constructor(
+        private readonly itemNameService: ItemService,
+        private readonly statsDescriptionService: StatsDescriptionService) { }
 
     public map(item: Item, form: PoETrade.SearchForm): void {
         this.mapName(item, form);
@@ -16,6 +19,8 @@ export class ItemSearchFormService {
         this.mapSockets(item, form);
         this.mapProperties(item, form);
         this.mapRequirements(item, form);
+        this.mapImplicits(item, form);
+        this.mapExplicits(item, form);
     }
 
     private mapName(item: Item, form: PoETrade.SearchForm): void {
@@ -107,5 +112,30 @@ export class ItemSearchFormService {
         if (req.int) {
             form.rint_min = `${req.int}`;
         }
+    }
+
+    private mapImplicits(item: Item, form: PoETrade.SearchForm): void {
+        (item.implicits || []).filter(x => !!x).forEach(mod => this.mapMod(mod, form));
+    }
+
+    private mapExplicits(item: Item, form: PoETrade.SearchForm): void {
+        (item.explicits || [])
+            .filter(group => !!group)
+            .reduce((a, group) => a.concat(group.filter(mod => !!mod)), [])
+            .forEach(mod => this.mapMod(mod, form));
+    }
+
+    private mapMod(mod: ItemMod, form: PoETrade.SearchForm): void {
+        const name = this.statsDescriptionService
+            .translate(mod.key, mod.predicate, mod.values.map(x => '#'), Language.English);
+
+        const index = form.mod_name.length;
+        form.mod_name[index] = `(pseudo) (total) ${name}`;
+        form.mod_min[index] = mod.values[0] || '';
+        form.mod_max[index] = '';
+        form.mod_weight[index] = '';
+
+        form.group_count = `${index + 1}`;
+        form.group_type = 'And';
     }
 }
