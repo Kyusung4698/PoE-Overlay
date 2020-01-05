@@ -10,6 +10,7 @@ body {
 
 .clickable {
   cursor: pointer;
+  user-select: none;
 }
 
 .mat-snack-bar-container.snack-bar-service {

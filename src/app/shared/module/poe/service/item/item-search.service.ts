@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import * as PoETrade from '@data/poe-trade';
-import { Item, ItemRarity, ItemSearchResult, Language, SearchItem } from '@shared/module/poe/type';
+import { Item, ItemSearchResult, Language, SearchItem } from '@shared/module/poe/type';
 import { forkJoin, Observable, of } from 'rxjs';
 import { flatMap, map } from 'rxjs/operators';
 import { ContextService } from '../context.service';
 import { CurrencyService } from '../currency/currency.service';
-import { ItemService } from './item.service';
+import { ItemSearchFormService } from './item-search-form.service';
 
 @Injectable({
     providedIn: 'root'
@@ -13,31 +13,18 @@ import { ItemService } from './item.service';
 export class ItemSearchService {
     constructor(
         private readonly context: ContextService,
-        private readonly itemNameService: ItemService,
         private readonly currencyService: CurrencyService,
+        private readonly searchFormService: ItemSearchFormService,
         private readonly searchHttpService: PoETrade.SearchHttpService) { }
 
     public search(requestedItem: Item, leagueId?: string): Observable<ItemSearchResult> {
         leagueId = leagueId || this.context.get().leagueId;
 
         const form = new PoETrade.SearchForm();
-        // poetrade only supports english names
-        form.name = this.itemNameService.getNameType(requestedItem.nameId, requestedItem.typeId, Language.English);
-
         form.league = leagueId;
         form.online = 'x';
         form.capquality = 'x';
-
-        switch (requestedItem.rarity) {
-            case ItemRarity.Normal:
-            case ItemRarity.Magic:
-            case ItemRarity.Rare:
-            case ItemRarity.Unique:
-                form.rarity = requestedItem.rarity;
-                break;
-            default:
-                break;
-        }
+        this.searchFormService.map(requestedItem, form);
 
         return this.searchHttpService.search(form).pipe(
             flatMap(response => {

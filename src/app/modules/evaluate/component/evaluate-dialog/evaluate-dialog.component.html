@@ -1,4 +1,5 @@
-<app-item-frame [item]="data.item" [language]="data.language" [separator]="true">
+<app-item-frame [item]="data.item" [language]="data.language" [queryItem]="queryItem"
+    (queryItemChange)="onQueryItemChange($event)" [separator]="true">
     <ng-container [ngSwitch]="result$ | async">
         <ng-container *ngSwitchCase="null">
             Loading...

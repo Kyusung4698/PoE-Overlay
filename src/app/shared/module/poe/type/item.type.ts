@@ -87,6 +87,7 @@ export type EvaluateItem = Item & {
 };
 
 export interface ItemSearchEvaluateResult {
+    url: string;
     items: EvaluateItem[];
     targetCurrency?: Currency;
     targetCurrencyAvg?: number;
