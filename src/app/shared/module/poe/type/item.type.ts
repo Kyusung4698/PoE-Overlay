@@ -5,7 +5,7 @@ export interface Item {
     nameId?: string;
     typeId?: string;
     level?: number;
-    sockets?: string;
+    sockets?: ItemSocket[];
     properties?: ItemProperties;
     requirements?: ItemRequirements;
     secondaryDescription?: string;
@@ -23,6 +23,18 @@ export enum ItemRarity {
     Currency = 'currency',
     Gem = 'gem',
     DivinationCard = 'divinationcard'
+}
+
+export enum ItemSocketColor {
+    Red = 'R',
+    Green = 'G',
+    Blue = 'B',
+    White = 'W'
+}
+
+export interface ItemSocket {
+    color: ItemSocketColor;
+    linked: boolean;
 }
 
 export interface ItemProperties {

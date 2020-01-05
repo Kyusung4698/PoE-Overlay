@@ -37,4 +37,17 @@ export class ItemFrameComponent implements OnInit {
   public ngOnInit(): void {
     this.language = this.language || this.context.get().language;
   }
+
+  public getSocketTop(index: number, offset: number = 0): string {
+    return `${Math.floor(index / 2) * 56 + offset}px`;
+  }
+
+  public getSocketHeight(): string {
+    const length = this.item.sockets.length;
+    const socketHeight = Math.floor((length + 1) / 2) * 34;
+    const linkHeight = length >= 3
+      ? Math.floor((length - 1) / 2) * 22
+      : 0;
+    return `${socketHeight + linkHeight}px`;
+  }
 }

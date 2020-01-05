@@ -9,6 +9,62 @@
     display: inline-block;
   }
 
+  .sockets {
+    position: relative;
+    width: 90px;
+    margin: 0 auto;
+
+    > .link {
+      position: absolute;
+      z-index: 1;
+      left: 9px;
+      margin-top: 20px;
+      width: 14px;
+      height: 30px;
+      background: url(../../../../../../assets/poe/item/link-vertical.png) no-repeat;
+
+      &.right {
+        left: 65px;
+      }
+
+      &.horizontal {
+        margin-top: 0;
+        left: 30px;
+        width: 30px;
+        height: 14px;
+        background: url(../../../../../../assets/poe/item/link-horizontal.png) no-repeat;
+      }
+    }
+
+    .socket {
+      position: absolute;
+      width: 34px;
+      height: 34px;
+      left: 0;
+      z-index: 2;
+
+      &.right {
+        left: 56px;
+      }
+
+      &.b {
+        background: url(../../../../../../assets/poe/item/socket-blue.png) no-repeat;
+      }
+
+      &.g {
+        background: url(../../../../../../assets/poe/item/socket-green.png) no-repeat;
+      }
+
+      &.r {
+        background: url(../../../../../../assets/poe/item/socket-red.png) no-repeat;
+      }
+
+      &.w {
+        background: url(../../../../../../assets/poe/item/socket-white.png) no-repeat;
+      }
+    }
+  }
+
   .header {
     font-size: 19px;
     line-height: 1em;

@@ -31,7 +31,15 @@ export class EvaluateChartComponent implements OnInit {
       return;
     }
     const sortedItems = this.result.items
-      .map(x => Math.round(x.targetCurrencyAmount * 4) / 4)
+      .map(x => {
+        const val = x.targetCurrencyAmount;
+        if (val <= 1) {
+          return Math.round(val * 4) / 4;
+        } else if (val <= 25) {
+          return Math.round(val);
+        }
+        return Math.round(val / 5) * 5;
+      })
       .sort((a, b) => a - b);
 
     this.items = [{ name: sortedItems[0], value: 1 }];

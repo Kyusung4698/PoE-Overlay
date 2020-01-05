@@ -40,7 +40,7 @@
                 </div>
             </ng-container>
             <div class="separator"
-                *ngIf="item.requirements || item.secondaryDescription || (item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.description || separator">
+                *ngIf="item.requirements || (item.sockets && item.sockets.length > 0) || item.secondaryDescription || (item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.description || separator">
             </div>
         </ng-container>
 
@@ -66,6 +66,24 @@
                 <ng-container *ngIf="item.requirements.int">
                     <span class="white">{{item.requirements.int}}&nbsp;</span>
                     <span>{{'IntelligenceShort' | clientString:language}}</span>
+                </ng-container>
+            </div>
+            <div class="separator"
+                *ngIf="(item.sockets && item.sockets.length > 0) || item.secondaryDescription || (item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.description || separator">
+            </div>
+        </ng-container>
+
+        <!-- sockets -->
+        <ng-container *ngIf="item.sockets && item.sockets.length > 0">
+            <div class="sockets" [style.height]="getSocketHeight()">
+                <div *ngFor="let socket of item.sockets; let index = index"
+                    [class]="'socket ' + (socket.color | lowercase)" [class.right]="index % 4 === 1 || index % 4 === 2"
+                    [style.top]="getSocketTop(index)">
+                </div>
+                <ng-container *ngFor="let socket of item.sockets; let index = index">
+                    <div *ngIf="socket.linked" class="link" [class.right]="index % 6 === 1 || index % 6 === 5"
+                        [class.horizontal]="index % 2 === 0" [style.top]="getSocketTop(index, 10)">
+                    </div>
                 </ng-container>
             </div>
             <div class="separator"
