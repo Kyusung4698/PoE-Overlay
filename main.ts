@@ -43,35 +43,50 @@ function createWindow(): BrowserWindow {
 
     win.on('closed', () => {
         win = null;
-    });
+    });    
 
     return win;
 }
 
 /* modal window */
 
+let childs: {
+    [key: string]: BrowserWindow
+} = {};
+
 ipcMain.on('open-route', (event, route) => {
     try {
-        // Create the child browser window.
-        let child = new BrowserWindow({
-            fullscreen: true,
-            transparent: true,
-            frame: false,
-            resizable: false,
-            movable: false,
-            webPreferences: {
-                nodeIntegration: true,
-                allowRunningInsecureContent: (serve) ? true : false,
-                webSecurity: false
-            },
-            modal: true,
-            parent: win,
-        });
+        if (!childs[route]) {
+            // Create the child browser window.
+            childs[route] = new BrowserWindow({
+                fullscreen: true,
+                transparent: true,
+                frame: false,
+                resizable: false,
+                movable: false,
+                webPreferences: {
+                    nodeIntegration: true,
+                    allowRunningInsecureContent: (serve) ? true : false,
+                    webSecurity: false
+                },
+                modal: true,
+                parent: win,
+                show: false
+            });
+            loadApp(childs[route], `#/${route}`);
 
-        loadApp(child, `#/${route}`);
+            childs[route].once('ready-to-show', () => {
+                childs[route].show()
+            });
 
-        child.on('closed', () => {
-            child = null;
+            childs[route].once('closed', () => {
+                childs[route] = null;
+            });
+        } else {
+            childs[route].show();
+        }
+
+        childs[route].once('hide', () => {
             event.reply('open-route-reply', 'closed');
         });
     }

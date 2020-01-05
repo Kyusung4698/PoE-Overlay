@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import * as PoENinja from '@data/poe-ninja';
 import { CurrencyChaosEquivalents } from '@shared/module/poe/type';
-import { Observable, timer } from 'rxjs';
-import { map, shareReplay, switchMap, take } from 'rxjs/operators';
+import { Observable, of, throwError, timer } from 'rxjs';
+import { flatMap, shareReplay, switchMap, take } from 'rxjs/operators';
 
 const REFRESH_INTERVAL = 1000 * 60 * 30;
 const CACHE_SIZE = 1;
@@ -34,13 +34,13 @@ export class CurrencyChaosEquivalentsProvider {
 
     private fetch(leagueId: string): Observable<CurrencyChaosEquivalents> {
         return this.currencyOverviewHttpService.get(leagueId).pipe(
-            map(response => {
+            flatMap(response => {
                 const currencyChaosEquivalents: CurrencyChaosEquivalents = {};
                 response.lines.forEach(line => {
                     currencyChaosEquivalents[line.currencyTypeName] = line.chaosEquivalent;
                 });
                 currencyChaosEquivalents['Chaos Orb'] = 1;
-                return currencyChaosEquivalents;
+                return of(currencyChaosEquivalents);
             })
         );
     }

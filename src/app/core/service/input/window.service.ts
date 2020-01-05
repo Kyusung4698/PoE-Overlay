@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { ElectronProvider } from '@app/provider';
 import { Rectangle } from '@app/type';
 import { IpcRenderer, Remote } from 'electron';
-import { from, Observable } from 'rxjs';
+import { from, Observable, Subject } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -12,9 +12,24 @@ export class WindowService {
     private readonly ipcRenderer: IpcRenderer;
 
     constructor(
+        private readonly ngZone: NgZone,
         electronProvider: ElectronProvider) {
         this.electron = electronProvider.provideRemote();
         this.ipcRenderer = electronProvider.provideIpcRenderer();
+    }
+
+    public on(event: 'show'): Observable<void> {
+        const window = this.electron.getCurrentWindow();
+        const callback = new Subject<void>();
+        window.on(event, () => {
+            this.ngZone.run(() => callback.next());
+        });
+        return callback;
+    }
+
+    public removeAllListeners(): void {
+        const window = this.electron.getCurrentWindow();
+        window.removeAllListeners();
     }
 
     public getBounds(): Rectangle {
@@ -22,8 +37,12 @@ export class WindowService {
         return bounds;
     }
 
+    public hide(): void {
+        this.electron.getCurrentWindow().hide();
+    }
+
     public close(): void {
-        return this.electron.getCurrentWindow().close();
+        this.electron.getCurrentWindow().close();
     }
 
     public quit(): void {
