@@ -4,7 +4,7 @@
     </button>
     <mat-form-field>
         <mat-label>Command</mat-label>
-        <input matInput [(value)]="command.text">
+        <input matInput [(ngModel)]="command.text">
     </mat-form-field>
     <app-accelerator label="Shortcut" [(value)]="command.shortcut">
     </app-accelerator>
