@@ -1,3 +1,4 @@
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -16,6 +17,7 @@ import { PoeModule } from './module/poe/poe.module';
         HttpClientModule,
         BrowserModule,
         BrowserAnimationsModule,
+        DragDropModule,
 
         // third party
         NgxChartsModule,

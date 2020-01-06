@@ -18,7 +18,7 @@ export class EvaluateDialogService {
 
     public open(point: Point, item: Item, currencyId: string, language?: Language): Observable<void> {
         const width = 380;
-        const avgHeight = 200;
+        const avgHeight = 400;
 
         const bounds = this.window.getBounds();
         const left = Math.min(Math.max(point.x - width * 0.5, bounds.x), bounds.x + bounds.width - width);

@@ -1,3 +1,17 @@
+## 0.3.0 (2020-01-06)
+
+* add basic filters
+* add advanced search
+* add evaluate chart
+* add sockets to item frame
+* add custom shortcuts
+* add command module with /hideout /dnd
+* add feature settings to layout
+* add version check against latest github release
+* add user settings window cache for faster display times
+* update user settings as own window to mask focusable
+* update evaluate dialog to be draggable
+
 ## 0.2.0 (2020-01-03)
 
 * add favicon
