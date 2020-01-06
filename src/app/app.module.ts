@@ -1,23 +1,37 @@
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { CommandModule } from '@modules/command/command.module';
 import { EvaluateModule } from '@modules/evaluate/evaluate.module';
-import { SharedModule } from '@shared/shared.module';
 import { AppComponent } from './app.component';
-import { UserSettingsDialogComponent } from './layout/component/user-settings-dialog/user-settings-dialog.component';
+import { LayoutModule } from './layout/layout.module';
+import { OverlayComponent } from './layout/page/overlay/overlay.component';
+import { UserSettingsComponent } from './layout/page/user-settings/user-settings.component';
+
+const routes: Routes = [
+  {
+    path: 'user-settings',
+    component: UserSettingsComponent,
+  },
+  {
+    path: '**',
+    component: OverlayComponent
+  }
+];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    UserSettingsDialogComponent
-  ],
-  entryComponents: [
-    UserSettingsDialogComponent
-  ],
+  declarations: [AppComponent],
   imports: [
-    // shared
-    SharedModule,
+    // routing
+    RouterModule.forRoot(routes, {
+      useHash: true
+    }),
+
+    // layout
+    LayoutModule,
 
     // app
     EvaluateModule,
+    CommandModule
   ],
   providers: [],
   bootstrap: [AppComponent]

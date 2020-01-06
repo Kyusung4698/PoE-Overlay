@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ExportedItem, Item, ItemSectionParserService, Section } from '@shared/module/poe/type';
+import { ExportedItem, Item, ItemSectionParserService, ItemSocket, ItemSocketColor, Section } from '@shared/module/poe/type';
 import { ClientStringService } from '../../client-string/client-string.service';
 
 @Injectable({
@@ -18,7 +18,17 @@ export class ItemSectionSocketsParserService implements ItemSectionParserService
             return null;
         }
 
-        target.sockets = socketsSection.lines[0].slice(phrase.length);
+        target.sockets = [];
+
+        // R-G-B-W R R
+        const sockets = socketsSection.lines[0].slice(phrase.length);
+        for (let index = 0; index < sockets.length; index += 2) {
+            const socket: ItemSocket = {
+                color: sockets[index] as ItemSocketColor,
+                linked: sockets[index + 1] === '-'
+            };
+            target.sockets.push(socket);
+        }
         return socketsSection;
     }
 }

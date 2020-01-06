@@ -16,9 +16,9 @@ export class EvaluateDialogService {
         private readonly window: WindowService) {
     }
 
-    public open(point: Point, item: Item, language?: Language): Observable<void> {
+    public open(point: Point, item: Item, currencyId: string, language?: Language): Observable<void> {
         const width = 380;
-        const avgHeight = 200;
+        const avgHeight = 400;
 
         const bounds = this.window.getBounds();
         const left = Math.min(Math.max(point.x - width * 0.5, bounds.x), bounds.x + bounds.width - width);
@@ -26,7 +26,8 @@ export class EvaluateDialogService {
 
         const data: EvaluateDialogData = {
             item,
-            language
+            currencyId,
+            language,
         };
 
         this.window.enableInput();

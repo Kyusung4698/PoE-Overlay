@@ -5,12 +5,12 @@ export interface Item {
     nameId?: string;
     typeId?: string;
     level?: number;
-    sockets?: string;
+    sockets?: ItemSocket[];
     properties?: ItemProperties;
     requirements?: ItemRequirements;
     secondaryDescription?: string;
     implicits?: ItemMod[];
-    explicits?: ItemMod[];
+    explicits?: ItemMod[][];
     description?: string;
     note?: string;
 }
@@ -23,6 +23,18 @@ export enum ItemRarity {
     Currency = 'currency',
     Gem = 'gem',
     DivinationCard = 'divinationcard'
+}
+
+export enum ItemSocketColor {
+    Red = 'R',
+    Green = 'G',
+    Blue = 'B',
+    White = 'W'
+}
+
+export interface ItemSocket {
+    color: ItemSocketColor;
+    linked: boolean;
 }
 
 export interface ItemProperties {
@@ -75,6 +87,7 @@ export type EvaluateItem = Item & {
 };
 
 export interface ItemSearchEvaluateResult {
+    url: string;
     items: EvaluateItem[];
     targetCurrency?: Currency;
     targetCurrencyAvg?: number;
@@ -101,5 +114,5 @@ export interface Section {
 
 export interface ItemSectionParserService {
     optional: boolean;
-    parse(item: ExportedItem, target: Item): Section;
+    parse(item: ExportedItem, target: Item): Section | Section[];
 }

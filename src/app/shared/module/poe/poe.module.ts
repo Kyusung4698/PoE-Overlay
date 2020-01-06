@@ -6,6 +6,7 @@ import { BaseItemTypePipe } from './pipe/base-item-type.pipe';
 import { ClientStringPipe } from './pipe/client-string.pipe';
 import { StatsDescriptionPipe } from './pipe/stats-description.pipe';
 import { WordPipe } from './pipe/word.pipe';
+import { ItemFrameQueryComponent } from './component/item-frame-query/item-frame-query.component';
 
 @NgModule({
     declarations: [
@@ -15,6 +16,7 @@ import { WordPipe } from './pipe/word.pipe';
         StatsDescriptionPipe,
         WordPipe,
         BaseItemTypePipe,
+        ItemFrameQueryComponent,
     ],
     imports: [
         BrowserModule

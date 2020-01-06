@@ -10,6 +10,7 @@ body {
 
 .clickable {
   cursor: pointer;
+  user-select: none;
 }
 
 .mat-snack-bar-container.snack-bar-service {
@@ -43,4 +44,24 @@ body {
     border-radius: 0;
     padding: 0;
   }
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+mat-label {
+  display: block;
+}
+
+mat-card {
+  margin-bottom: 12px;
+
+  > mat-label {
+    margin-bottom: 12px;
+  }
+}
+
+.tooltip-val {
+  padding: 2px !important;
 }

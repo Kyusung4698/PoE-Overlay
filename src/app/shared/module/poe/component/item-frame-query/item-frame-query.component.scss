@@ -1,0 +1,14 @@
+.container {
+  display: inline-block;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease-in-out;
+  border-radius: 2px;
+
+  &.query {
+    padding: 0 2px;
+    margin: 2px 0;
+    background-color: rgba(170, 158, 130, 0.3);
+    outline: auto;
+  }
+}

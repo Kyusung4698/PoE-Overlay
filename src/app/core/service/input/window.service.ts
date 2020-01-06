@@ -1,22 +1,48 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { ElectronProvider } from '@app/provider';
 import { Rectangle } from '@app/type';
-import { Remote } from 'electron';
+import { IpcRenderer, Remote } from 'electron';
+import { from, Observable, Subject } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
 })
 export class WindowService {
     private readonly electron: Remote;
+    private readonly ipcRenderer: IpcRenderer;
 
     constructor(
+        private readonly ngZone: NgZone,
         electronProvider: ElectronProvider) {
         this.electron = electronProvider.provideRemote();
+        this.ipcRenderer = electronProvider.provideIpcRenderer();
+    }
+
+    public on(event: 'show'): Observable<void> {
+        const window = this.electron.getCurrentWindow();
+        const callback = new Subject<void>();
+        window.on(event, () => {
+            this.ngZone.run(() => callback.next());
+        });
+        return callback;
+    }
+
+    public removeAllListeners(): void {
+        const window = this.electron.getCurrentWindow();
+        window.removeAllListeners();
     }
 
     public getBounds(): Rectangle {
         const bounds = this.electron.getCurrentWindow().getBounds();
         return bounds;
+    }
+
+    public hide(): void {
+        this.electron.getCurrentWindow().hide();
+    }
+
+    public close(): void {
+        this.electron.getCurrentWindow().close();
     }
 
     public quit(): void {
@@ -37,13 +63,28 @@ export class WindowService {
         win.loadURL(url);
     }
 
-    public disableInput(): void {
-        this.electron.getCurrentWindow().setIgnoreMouseEvents(true, {
-            forward: true
+    public openRoute(route: string): Observable<void> {
+        const promise = new Promise<void>((resolve, reject) => {
+            this.ipcRenderer.send('open-route', route);
+
+            this.ipcRenderer.once('open-route-reply', (_, result) => {
+                if (result === 'closed') {
+                    resolve();
+                } else {
+                    reject(result);
+                }
+            });
         });
+        return from(promise);
+    }
+
+    public disableInput(): void {
+        const window = this.electron.getCurrentWindow();
+        window.setIgnoreMouseEvents(true);
     }
 
     public enableInput(): void {
-        this.electron.getCurrentWindow().setIgnoreMouseEvents(false);
+        const window = this.electron.getCurrentWindow();
+        window.setIgnoreMouseEvents(false);
     }
 }

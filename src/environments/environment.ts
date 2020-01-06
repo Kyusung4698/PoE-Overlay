@@ -13,5 +13,8 @@ export const environment = {
   },
   poeNinja: {
     baseUrl: 'https://poe.ninja/api'
+  },
+  github: {
+    baseUrl: 'https://api.github.com/repos/Kyusung4698/PoE-Overlay'
   }
 };

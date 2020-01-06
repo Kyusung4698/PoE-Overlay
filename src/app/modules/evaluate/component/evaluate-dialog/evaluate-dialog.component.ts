@@ -5,11 +5,12 @@ import { SnackBarService } from '@shared/module/material/service';
 import { ItemSearchEvaluateService, ItemSearchService } from '@shared/module/poe/service';
 import { CurrencyService } from '@shared/module/poe/service/currency/currency.service';
 import { Item, ItemSearchEvaluateResult, Language } from '@shared/module/poe/type';
-import { BehaviorSubject, forkJoin, of } from 'rxjs';
-import { flatMap } from 'rxjs/operators';
+import { BehaviorSubject, forkJoin, Observable, of, Subject } from 'rxjs';
+import { debounceTime, flatMap, switchMap, takeUntil } from 'rxjs/operators';
 
 export interface EvaluateDialogData {
   item: Item;
+  currencyId: string;
   language?: Language;
 }
 
@@ -19,7 +20,8 @@ export interface EvaluateDialogData {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EvaluateDialogComponent implements OnInit {
-  private url: string;
+  private queryItemChange: Subject<Item>;
+  public queryItem: Item;
 
   public result$ = new BehaviorSubject<ItemSearchEvaluateResult>(null);
 
@@ -34,37 +36,80 @@ export class EvaluateDialogComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    forkJoin(
-      this.itemSearchService.search(this.data.item),
-      this.currencyService.get('chaos')
+    this.initQueryItem();
+    this.firstSearch();
+    this.registerSearchOnChange();
+  }
+
+  public onQueryItemChange(queryItem: Item): void {
+    this.queryItemChange.next(queryItem);
+  }
+
+  public onCurrencyClick(): void {
+    const result = this.result$.getValue();
+    if (result && result.url) {
+      this.window.open(result.url);
+    }
+  }
+
+  private initQueryItem(): void {
+    const item = this.data.item;
+    this.queryItem = {
+      nameId: item.nameId,
+      typeId: item.typeId,
+      rarity: item.rarity,
+      explicits: (item.explicits || []).map(x => []),
+      implicits: [],
+      properties: {},
+      requirements: {},
+      sockets: []
+    };
+    this.queryItemChange = new Subject<Item>();
+  }
+
+  private firstSearch(): void {
+    this.search(this.queryItem).pipe(
+      takeUntil(this.queryItemChange)
+    ).subscribe(result => this.result$.next(result), this.handleError);
+  }
+
+  private registerSearchOnChange(): void {
+    this.queryItemChange.pipe(
+      debounceTime(500),
+      switchMap(queryItem => {
+        this.result$.next(null);
+        return this.search(queryItem).pipe(
+          takeUntil(this.queryItemChange)
+        );
+      })
+    ).subscribe(result => this.result$.next(result), this.handleError);
+  }
+
+  private search(item: Item): Observable<ItemSearchEvaluateResult> {
+    return forkJoin(
+      this.itemSearchService.search(item),
+      this.currencyService.searchById(this.data.currencyId)
     ).pipe(
       flatMap(results => {
-        this.url = results[0].url;
-
         if (results[0].items.length <= 0) {
           const empty: ItemSearchEvaluateResult = {
+            url: null,
             items: [],
             targetCurrency: null,
             targetCurrencyAvg: null
           };
           return of(empty);
         }
-
         return this.itemSearchEvaluateService.evaluate(results[0], results[1]);
       })
-    ).subscribe(result => {
-      this.result$.next(result);
-    }, (error) => {
-      this.result$.next({
-        items: null
-      });
-      this.snackbar.error(`${typeof error === 'string' ? `${error}` : 'An unexpected error occured while searching for the item.'}`);
-    });
+    );
   }
 
-  public onCurrencyClick(): void {
-    if (this.url) {
-      this.window.open(this.url);
-    }
+  private handleError(error: any): void {
+    this.result$.next({
+      url: null,
+      items: null
+    });
+    this.snackbar.error(`${typeof error === 'string' ? `${error}` : 'An unexpected error occured while searching for the item.'}`);
   }
 }

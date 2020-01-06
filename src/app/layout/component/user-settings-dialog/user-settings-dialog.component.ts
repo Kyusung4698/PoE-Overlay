@@ -1,10 +1,12 @@
-import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, QueryList, ViewChildren } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { EnumValues } from '@app/class';
-import { LeaguesProvider } from '@shared/module/poe/provider';
-import { Language, League } from '@shared/module/poe/type';
-import { BehaviorSubject } from 'rxjs';
-import { UserSettings } from '../../type';
+import { UserSettings, UserSettingsFeature } from '../../type';
+import { UserSettingsFeatureContainerComponent } from '../user-settings-feature-container/user-settings-feature-container.component';
+
+export interface UserSettingsDialogData {
+  settings: UserSettings;
+  features: UserSettingsFeature[];
+}
 
 @Component({
   selector: 'app-user-settings-dialog',
@@ -12,33 +14,23 @@ import { UserSettings } from '../../type';
   styleUrls: ['./user-settings-dialog.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UserSettingsDialogComponent implements OnInit {
-  public languages = new EnumValues(Language);
-  public leagues$ = new BehaviorSubject<League[]>([]);
+export class UserSettingsDialogComponent {
+  public settings: UserSettings;
+  public features: UserSettingsFeature[];
 
-  constructor(
-    @Inject(MAT_DIALOG_DATA)
-    public settings: UserSettings,
-    private readonly leaguesProvider: LeaguesProvider) { }
+  @ViewChildren(UserSettingsFeatureContainerComponent)
+  public containers: QueryList<UserSettingsFeatureContainerComponent>;
 
-  public ngOnInit() {
-    if (this.settings.language) {
-      this.updateLeagues();
+  constructor(@Inject(MAT_DIALOG_DATA) data: UserSettingsDialogData) {
+    this.settings = data.settings;
+    this.features = data.features;
+  }
+
+  public onSelectedIndexChange(index: number): void {
+    const containerIndex = index - 1;
+    const container = this.containers.toArray()[containerIndex];
+    if (container) {
+      container.instance.load();
     }
   }
-
-  public onLanguageChange(): void {
-    this.updateLeagues();
-  }
-
-  private updateLeagues(): void {
-    this.leaguesProvider.provide(this.settings.language).subscribe(leagues => {
-      const selectedLeague = leagues.find(league => league.id === this.settings.leagueId);
-      if (!selectedLeague) {
-        this.settings.leagueId = leagues[0].id;
-      }
-      this.leagues$.next(leagues);
-    });
-  }
-
 }

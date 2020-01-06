@@ -20,21 +20,13 @@ export class EvaluateService {
         private readonly evaluateDialog: EvaluateDialogService) {
     }
 
-    public evaluate(): Observable<void> {
-        return this.evaluateInternal();
-    }
-
-    public evaluateEnglish(): Observable<void> {
-        return this.evaluateInternal(Language.English);
-    }
-
-    private evaluateInternal(language?: Language): Observable<void> {
+    public evaluate(currencyId: string, language?: Language): Observable<void> {
         let point: Point;
         let item: Item;
         try {
             point = this.mouse.getCursorScreenPoint();
+            this.keyboard.setKeyboardDelay(50);
             this.keyboard.keyTap('c', ['control']);
-
             const text = this.clipboard.readText();
             item = this.itemParser.parse(text);
         } catch (e) {
@@ -44,6 +36,6 @@ export class EvaluateService {
         if (!item) {
             return this.snackbar.warning('Copied item could not be parsed. Make sure you have the correct language selected.');
         }
-        return this.evaluateDialog.open(point, item, language);
+        return this.evaluateDialog.open(point, item, currencyId, language);
     }
 }

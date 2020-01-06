@@ -6,12 +6,11 @@ export type Currency = {
     image: string;
 }
 
-export type CurrenciesMap = {
-    label: string;
-    currencies: Currency[];
+export type CurrencyTrade = {
+    tradeId: string;
+    nameType: string;
 }
 
 export type CurrencyChaosEquivalents = {
-    // TODO: Use ids instead of nameType to be language unspecific
     [nameType: string]: number;
 }

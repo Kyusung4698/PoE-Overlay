@@ -44,10 +44,10 @@ export class SearchForm {
     rdex_max = '';
     rint_min = '';
     rint_max = '';
-    mod_name = '';
-    mod_min = '';
-    mod_max = '';
-    mod_weight = '';
+    mod_name = [];
+    mod_min = [];
+    mod_max = [];
+    mod_weight = [];
     group_type = '';
     group_min = '';
     group_max = '';

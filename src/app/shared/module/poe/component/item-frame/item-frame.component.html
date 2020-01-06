@@ -14,33 +14,36 @@
         <ng-container *ngIf="item.properties">
             <ng-container *ngFor="let property of properties">
                 <div *ngIf="item.properties[property] as prop">
-                    <ng-container [ngSwitch]="property">
-                        <span *ngSwitchCase="'weaponPhysicalDamage'">
-                            {{'ItemDisplayWeaponPhysicalDamage' | clientString:language}}</span>
-                        <span *ngSwitchCase="'weaponElementalDamage'">
-                            {{'ItemDisplayWeaponElementalDamage' | clientString:language}}</span>
-                        <span *ngSwitchCase="'weaponChaosDamage'">
-                            {{'ItemDisplayWeaponChaosDamage' | clientString:language}}</span>
-                        <span *ngSwitchCase="'weaponCriticalStrikeChance'">
-                            {{'ItemDisplayWeaponCriticalStrikeChance' | clientString:language}}</span>
-                        <span *ngSwitchCase="'weaponAttacksPerSecond'">
-                            {{'ItemDisplayWeaponAttacksPerSecond' | clientString:language}}</span>
-                        <span *ngSwitchCase="'weaponRange'">
-                            {{'ItemDisplayWeaponRange' | clientString:language}}</span>
-                        <span *ngSwitchCase="'shieldBlockChance'">
-                            {{'ItemDisplayShieldBlockChance' | clientString:language}}</span>
-                        <span *ngSwitchCase="'armourArmour'">
-                            {{'ItemDisplayArmourArmour' | clientString:language}}</span>
-                        <span *ngSwitchCase="'armourEvasionRating'">
-                            {{'ItemDisplayArmourEvasionRating' | clientString:language}}</span>
-                        <span *ngSwitchCase="'armourEnergyShield'">
-                            {{'ItemDisplayArmourEnergyShield' | clientString:language}}</span>
-                    </ng-container>
-                    <span [class]="prop.augmented ? 'purpel' : 'white'">&nbsp;{{prop.value}}</span>
+                    <app-item-frame-query [(property)]="queryItem.properties[property]"
+                        (propertyChange)="onPropertyChange()" [value]="prop">
+                        <ng-container [ngSwitch]="property">
+                            <span *ngSwitchCase="'weaponPhysicalDamage'">
+                                {{'ItemDisplayWeaponPhysicalDamage' | clientString:language}}</span>
+                            <span *ngSwitchCase="'weaponElementalDamage'">
+                                {{'ItemDisplayWeaponElementalDamage' | clientString:language}}</span>
+                            <span *ngSwitchCase="'weaponChaosDamage'">
+                                {{'ItemDisplayWeaponChaosDamage' | clientString:language}}</span>
+                            <span *ngSwitchCase="'weaponCriticalStrikeChance'">
+                                {{'ItemDisplayWeaponCriticalStrikeChance' | clientString:language}}</span>
+                            <span *ngSwitchCase="'weaponAttacksPerSecond'">
+                                {{'ItemDisplayWeaponAttacksPerSecond' | clientString:language}}</span>
+                            <span *ngSwitchCase="'weaponRange'">
+                                {{'ItemDisplayWeaponRange' | clientString:language}}</span>
+                            <span *ngSwitchCase="'shieldBlockChance'">
+                                {{'ItemDisplayShieldBlockChance' | clientString:language}}</span>
+                            <span *ngSwitchCase="'armourArmour'">
+                                {{'ItemDisplayArmourArmour' | clientString:language}}</span>
+                            <span *ngSwitchCase="'armourEvasionRating'">
+                                {{'ItemDisplayArmourEvasionRating' | clientString:language}}</span>
+                            <span *ngSwitchCase="'armourEnergyShield'">
+                                {{'ItemDisplayArmourEnergyShield' | clientString:language}}</span>
+                        </ng-container>
+                        <span [class]="prop.augmented ? 'purpel' : 'white'">&nbsp;{{prop.value}}</span>
+                    </app-item-frame-query>
                 </div>
             </ng-container>
             <div class="separator"
-                *ngIf="item.requirements || item.secondaryDescription || (item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.description || separator">
+                *ngIf="item.requirements || (item.sockets && item.sockets.length > 0) || item.secondaryDescription || (item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.description || separator">
             </div>
         </ng-container>
 
@@ -49,23 +52,57 @@
             <div>
                 <span>{{'ItemRequirementsLabel' | clientString:language}}&nbsp;</span>
                 <ng-container *ngIf="item.requirements.level">
-                    <span>{{'Level' | clientString:language}}&nbsp;</span>
-                    <span class="white">{{item.requirements.level}}</span>
+                    <app-item-frame-query [(property)]="queryItem.requirements.level"
+                        (propertyChange)="onPropertyChange()" [value]="item.requirements.level">
+                        <span>{{'Level' | clientString:language}}&nbsp;</span>
+                        <span class="white">{{item.requirements.level}}</span>
+                    </app-item-frame-query>
                     <span *ngIf="item.requirements.str || item.requirements.dex || item.requirements.int">,&nbsp;</span>
                 </ng-container>
                 <ng-container *ngIf="item.requirements.str">
-                    <span class="white">{{item.requirements.str}}&nbsp;</span>
-                    <span>{{'StrengthShort' | clientString:language}}</span>
+                    <app-item-frame-query [(property)]="queryItem.requirements.str"
+                        (propertyChange)="onPropertyChange()" [value]="item.requirements.str">
+                        <span class="white">{{item.requirements.str}}&nbsp;</span>
+                        <span>{{'StrengthShort' | clientString:language}}</span>
+                    </app-item-frame-query>
                     <span *ngIf="item.requirements.dex || item.requirements.int">,&nbsp;</span>
                 </ng-container>
                 <ng-container *ngIf="item.requirements.dex">
-                    <span class="white">{{item.requirements.dex}}&nbsp;</span>
-                    <span>{{'DexterityShort' | clientString:language}}</span>
+                    <app-item-frame-query [(property)]="queryItem.requirements.dex"
+                        (propertyChange)="onPropertyChange()" [value]="item.requirements.dex">
+                        <span class="white">{{item.requirements.dex}}&nbsp;</span>
+                        <span>{{'DexterityShort' | clientString:language}}</span>
+                    </app-item-frame-query>
                     <span *ngIf="item.requirements.int">,&nbsp;</span>
                 </ng-container>
                 <ng-container *ngIf="item.requirements.int">
-                    <span class="white">{{item.requirements.int}}&nbsp;</span>
-                    <span>{{'IntelligenceShort' | clientString:language}}</span>
+                    <app-item-frame-query [(property)]="queryItem.requirements.int"
+                        (propertyChange)="onPropertyChange()" [value]="item.requirements.int">
+                        <span class="white">{{item.requirements.int}}&nbsp;</span>
+                        <span>{{'IntelligenceShort' | clientString:language}}</span>
+                    </app-item-frame-query>
+                </ng-container>
+            </div>
+            <div class="separator"
+                *ngIf="(item.sockets && item.sockets.length > 0) || item.secondaryDescription || (item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.description || separator">
+            </div>
+        </ng-container>
+
+        <!-- sockets -->
+        <ng-container *ngIf="item.sockets && item.sockets.length > 0">
+            <div class="sockets" [style.height]="getSocketHeight()">
+                <div *ngFor="let socket of item.sockets; let index = index"
+                    [class]="'socket ' + (socket.color | lowercase)" [class.right]="index % 4 === 1 || index % 4 === 2"
+                    [style.top]="getSocketTop(index)"
+                    [class.query]="queryItem.sockets[index] && queryItem.sockets[index].color"
+                    (click)="toggleSocketColor(index, socket)">
+                </div>
+                <ng-container *ngFor="let socket of item.sockets; let index = index">
+                    <div *ngIf="socket.linked" class="link" [class.horizontal]="index % 2 === 0"
+                        [class.right]="index % 6 === 1 || index % 6 === 5" [style.top]="getSocketTop(index, 10)"
+                        [class.query]="queryItem.sockets[index] && queryItem.sockets[index].linked"
+                        (click)="toggleSocketLinked(index, socket)">
+                    </div>
                 </ng-container>
             </div>
             <div class="separator"
@@ -83,18 +120,28 @@
         </ng-container>
 
         <ng-container *ngIf="item.implicits && item.implicits.length > 0">
-            <div *ngFor="let implicit of item.implicits" >                
-                <span [class]="implicit.crafted ? 'blue' : 'purpel'">{{implicit | statsDescription:language}}</span>
+            <div *ngFor="let implicit of item.implicits; let index = index;">
+                <app-item-frame-query [(property)]="queryItem.implicits[index]" (propertyChange)="onPropertyChange()"
+                    [value]="implicit">
+                    <span [class]="implicit.crafted ? 'blue' : 'purpel'">{{implicit | statsDescription:language}}</span>
+                </app-item-frame-query>
             </div>
             <div class="separator"
                 *ngIf="(item.explicits && item.explicits.length > 0) || item.description || separator"></div>
         </ng-container>
 
         <ng-container *ngIf="item.explicits && item.explicits.length > 0">
-            <div *ngFor="let explicit of item.explicits">
-                <span [class]="explicit.crafted ? 'blue' : 'purpel'">{{explicit | statsDescription:language}}</span>
-            </div>
-            <div class="separator" *ngIf="item.description || separator"></div>
+            <ng-container *ngFor="let explicitGroup of item.explicits; let last = last; let groupIndex = index">
+                <div *ngFor="let explicit of explicitGroup; let index = index">
+                    <app-item-frame-query [(property)]="queryItem.explicits[groupIndex][index]"
+                        (propertyChange)="onPropertyChange()" [value]="explicit">
+                        <span [class]="explicit.crafted ? 'blue' : 'purpel'">
+                            {{explicit | statsDescription:language}}
+                        </span>
+                    </app-item-frame-query>
+                </div>
+                <div class="separator" *ngIf="!last || item.description || separator"></div>
+            </ng-container>
         </ng-container>
 
         <ng-container *ngIf="item.description">

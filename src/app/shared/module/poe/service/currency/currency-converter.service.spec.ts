@@ -28,7 +28,7 @@ describe('CurrencyConverterService', () => {
     }));
 
     it(`should convert 'Chaos Orb' to 'Chaos Orb' equals to 1`, (done) => {
-        currencyService.get('chaos').subscribe(currency => {
+        currencyService.searchById('chaos').subscribe(currency => {
             sut.convert(currency, currency).subscribe(factor => {
                 expect(factor).toBe(1);
                 done();
@@ -41,7 +41,7 @@ describe('CurrencyConverterService', () => {
     });
 
     it(`should convert 'Perandus Coin' to 'Perandus Coin' equals to 1`, (done) => {
-        currencyService.get('p').subscribe(currency => {
+        currencyService.searchById('p').subscribe(currency => {
             sut.convert(currency, currency).subscribe(factor => {
                 expect(factor).toBe(1);
                 done();
@@ -55,8 +55,8 @@ describe('CurrencyConverterService', () => {
 
     it(`should convert 'Ancient Orb' to 'Chaos Orb' greater than 1`, (done) => {
         forkJoin(
-            currencyService.get('ancient-orb'),
-            currencyService.get('chaos'),
+            currencyService.searchById('ancient-orb'),
+            currencyService.searchById('chaos'),
         ).subscribe(currencies => {
             sut.convert(currencies[0], currencies[1]).subscribe(factor => {
                 expect(factor).toBeGreaterThan(1);
@@ -71,8 +71,8 @@ describe('CurrencyConverterService', () => {
 
     it(`should convert 'Ancient Orb' to 'Perandus Coin' greater than 1`, (done) => {
         forkJoin(
-            currencyService.get('ancient-orb'),
-            currencyService.get('p'),
+            currencyService.searchById('ancient-orb'),
+            currencyService.searchById('p'),
         ).subscribe(currencies => {
             sut.convert(currencies[0], currencies[1]).subscribe(factor => {
                 expect(factor).toBeGreaterThan(1);
@@ -87,8 +87,8 @@ describe('CurrencyConverterService', () => {
 
     it(`should convert 'Perandus Coin' to 'Chaos Orb' less than 1`, (done) => {
         forkJoin(
-            currencyService.get('p'),
-            currencyService.get('chaos'),
+            currencyService.searchById('p'),
+            currencyService.searchById('chaos'),
         ).subscribe(currencies => {
             sut.convert(currencies[0], currencies[1]).subscribe(factor => {
                 expect(factor).toBeLessThan(1);
@@ -103,8 +103,8 @@ describe('CurrencyConverterService', () => {
 
     it(`should convert 'Perandus Coin' to 'Ancient Orb' less than 1`, (done) => {
         forkJoin(
-            currencyService.get('p'),
-            currencyService.get('ancient-orb'),
+            currencyService.searchById('p'),
+            currencyService.searchById('ancient-orb'),
         ).subscribe(currencies => {
             sut.convert(currencies[0], currencies[1]).subscribe(factor => {
                 expect(factor).toBeLessThan(1);

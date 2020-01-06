@@ -37,6 +37,7 @@ describe('ItemFrameComponent', () => {
     fixture = TestBed.createComponent(ItemFrameComponent);
     component = fixture.componentInstance;
     component.item = gem;
+    component.queryItem = component.item;
     component.language = Language.English;
     fixture.detectChanges();
   });

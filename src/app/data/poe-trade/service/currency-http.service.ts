@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '@env/environment';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, retry } from 'rxjs/operators';
 import { CurrencyResponse } from '../schema/currency';
 
 @Injectable({
@@ -19,6 +19,7 @@ export class CurrencyHttpService {
         return this.httpClient.get(this.apiUrl, {
             responseType: 'text',
         }).pipe(
+            retry(3),
             map(response => {
                 const result: CurrencyResponse = {
                     currencies: []
