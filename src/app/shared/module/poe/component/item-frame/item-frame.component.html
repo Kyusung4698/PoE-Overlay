@@ -47,6 +47,13 @@
             </div>
         </ng-container>
 
+        <div *ngIf="item.level">
+            <app-item-frame-query [(property)]="queryItem.level" (propertyChange)="onPropertyChange()" [value]="item.level">
+                <span>{{'ItemDisplayStringItemLevel' | clientString:language}}:&nbsp;</span>
+                <span class="white">{{item.level}}</span>
+            </app-item-frame-query>
+        </div>
+
         <!-- requirements -->
         <ng-container *ngIf="item.requirements">
             <div>

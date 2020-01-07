@@ -21,6 +21,7 @@ export class ItemSearchFormService {
         this.mapRequirements(item, form);
         this.mapImplicits(item, form);
         this.mapExplicits(item, form);
+        this.mapLevel(item, form);
     }
 
     private mapName(item: Item, form: PoETrade.SearchForm): void {
@@ -137,5 +138,12 @@ export class ItemSearchFormService {
 
         form.group_count = `${index + 1}`;
         form.group_type = 'And';
+  }
+
+    private mapLevel(item: Item, form: PoETrade.SearchForm): void {
+        if (item.level) {
+            form.ilvl_min = item.level.toString();
+            form.ilvl_max = item.level.toString();
+        }
     }
 }
