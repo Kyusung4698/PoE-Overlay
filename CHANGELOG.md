@@ -1,3 +1,10 @@
+## 0.4.0-alpha.0 (2020-01-07)
+
+* add offical poe trade api
+* add stats-id service maps text to id.
+* add item level to query #12
+* remove poe.trade
+
 ## 0.3.0 (2020-01-06)
 
 * add basic filters

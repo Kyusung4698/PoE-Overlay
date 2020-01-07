@@ -15,3 +15,7 @@ export interface StatsDescriptionMap {
         [predicate: string]: string;
     };
 }
+
+export interface StatsIdMap {
+    [id: string]: string;
+}

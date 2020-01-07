@@ -70,7 +70,7 @@ export class EvaluateDialogComponent implements OnInit {
   private firstSearch(): void {
     this.search(this.queryItem).pipe(
       takeUntil(this.queryItemChange)
-    ).subscribe(result => this.result$.next(result), this.handleError);
+    ).subscribe(result => this.result$.next(result), error => this.handleError(error));
   }
 
   private registerSearchOnChange(): void {
@@ -82,7 +82,7 @@ export class EvaluateDialogComponent implements OnInit {
           takeUntil(this.queryItemChange)
         );
       })
-    ).subscribe(result => this.result$.next(result), this.handleError);
+    ).subscribe(result => this.result$.next(result), error => this.handleError(error));
   }
 
   private search(item: Item): Observable<ItemSearchEvaluateResult> {
@@ -93,7 +93,7 @@ export class EvaluateDialogComponent implements OnInit {
       flatMap(results => {
         if (results[0].items.length <= 0) {
           const empty: ItemSearchEvaluateResult = {
-            url: null,
+            url: results[0].url,
             items: [],
             targetCurrency: null,
             targetCurrencyAvg: null

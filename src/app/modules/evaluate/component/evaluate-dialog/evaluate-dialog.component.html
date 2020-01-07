@@ -15,7 +15,9 @@
                         <app-evaluate-chart [result]="result"></app-evaluate-chart>
                     </ng-container>
                     <ng-container *ngIf="result.items && result.items.length === 0">
-                        No matching items found.
+                        <div class="clickable" (click)="onCurrencyClick()">
+                            No matching items found.
+                        </div>
                     </ng-container>
                     <ng-container *ngIf="!result.items">
                         An unexpected error occured.
