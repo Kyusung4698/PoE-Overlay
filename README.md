@@ -34,9 +34,9 @@ This project is currently in ***pilot phase***. If you encounter any bugs or hav
 
 * Evaluation of items
     * with chooseable currency and language
-    * with a graph to display the distribution<br> ![item](img/item.jpg)
-    * with a search filter on all supported properties on click<br> ![item_filter](img/item_filter.jpg)
-    * with an in game browser to display the created search<br> ![browser](img/item_browser.jpg)
+    * with a graph to display the distribution<br> ![item](img/item_0.4.0.jpg)
+    * with a search filter on all supported properties on click<br> ![item_filter](img/item_filter_0.4.0.jpg)
+    * with an in game browser to display the created search<br> ![browser](img/item_browser_0.4.0.jpg)
 * Binding in game commands to keybindings
     * premade /hideout on `F5` and /dnd on `F6`
 
