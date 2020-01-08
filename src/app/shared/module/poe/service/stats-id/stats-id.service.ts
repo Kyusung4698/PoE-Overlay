@@ -39,9 +39,9 @@ export class StatsIdService {
                     if (!result[index]) {
                         result[index] = {
                             ids: [id]
-                        }
+                        };
                     } else {
-                        result[index].ids.push(id)
+                        result[index].ids.push(id);
                     }
 
                     break;

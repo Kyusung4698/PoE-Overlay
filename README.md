@@ -1,4 +1,4 @@
-# PoE Overlay 0.4.0-alpha.0
+# PoE Overlay 0.4.0
 
 A Overlay for Path of Exile. The ***core aspect*** is to blend in game. Built with Electron and Angular. 
 
@@ -28,7 +28,7 @@ A Overlay for Path of Exile. The ***core aspect*** is to blend in game. Built wi
 
 ## Status
 
-This project is currently in a ***pilot phase***. If you encounter any bugs or have feature request please open up a issue on github. 
+This project is currently in ***pilot phase***. If you encounter any bugs or have feature request please open up an issue on github.
 
 ## Features
 
@@ -36,8 +36,8 @@ This project is currently in a ***pilot phase***. If you encounter any bugs or h
     * with chooseable currency and language
     * with a graph to display the distribution<br> ![item](img/item.jpg)
     * with a search filter on all supported properties on click<br> ![item_filter](img/item_filter.jpg)
-    * with a in game browser to display the created search<br> ![browser](img/item_browser.jpg)
-* Binding in game commands to a keybinding
+    * with an in game browser to display the created search<br> ![browser](img/item_browser.jpg)
+* Binding in game commands to keybindings
     * premade /hideout on `F5` and /dnd on `F6`
 
 ## Roadmap
@@ -65,8 +65,8 @@ These instructions will get you a executable to run and enjoy the overlay.
 
 1. Head over to [Releases](https://github.com/Kyusung4698/PoE-Overlay/releases) and download the latest zip
 2. Extract zip
-3. Run `poe-overlay 0.4.0-alpha.0.exe`
-4. Wait until you can see `POE Overlay 0.4.0-alpha.0` in the bottom left corner
+3. Run `poe-overlay 0.4.0.exe`
+4. Wait until you can see `POE Overlay 0.4.0` in the bottom left corner
 5. Hit `f7` and set `Language` and `League` to meet your game settings
 6. Start Path of Exile
 
@@ -162,5 +162,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 * [Grinding Gear Games](https://www.pathofexile.com/) the game
 * [PoE TradeMacro](https://github.com/PoE-TradeMacro/POE-TradeMacro) initial inspiration
 * [poe.ninja](https://poe.ninja/) currency values
-* [poe.trade](https://poe.trade/) item values
 * [libggpk](https://github.com/MuxaJIbI4/libggpk) parsing content.ggpk

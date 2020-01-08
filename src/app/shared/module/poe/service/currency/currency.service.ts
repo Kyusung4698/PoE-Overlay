@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CurrenciesProvider, CurrencyTradeCurrenciesProvider } from '@shared/module/poe/provider';
+import { CurrenciesProvider } from '@shared/module/poe/provider';
 import { Currency, Language } from '@shared/module/poe/type';
 import { Observable, of } from 'rxjs';
 import { flatMap, map, shareReplay } from 'rxjs/operators';
@@ -17,8 +17,7 @@ export class CurrencyService {
 
     constructor(
         private readonly context: ContextService,
-        private readonly currenciesProvider: CurrenciesProvider,
-        private readonly currencyTradeCurrenciesProvider: CurrencyTradeCurrenciesProvider) { }
+        private readonly currenciesProvider: CurrenciesProvider) { }
 
     public get(language?: Language): Observable<Currency[]> {
         language = language || this.context.get().language;
@@ -46,16 +45,6 @@ export class CurrencyService {
             ));
     }
 
-    public searchByTradeId(tradeId: string, language?: Language): Observable<Currency> {
-        language = language || this.context.get().language;
-
-        const key = this.getCacheKey(tradeId, language);
-        return this.cache$[key] || (
-            this.cache$[key] = this.searchByTradeIdInternal(tradeId, language).pipe(
-                shareReplay(CACHE_SIZE)
-            ));
-    }
-
     private getCacheKey(id: string, language: Language): string {
         return `${id}:${language}`;
     }
@@ -63,18 +52,6 @@ export class CurrencyService {
     private searchByPredicate(language: Language, predicate: (currency: Currency) => boolean): Observable<Currency> {
         return this.currenciesProvider.provide(language).pipe(
             map(currencies => currencies.find(predicate))
-        );
-    }
-
-    private searchByTradeIdInternal(tradeId: string, language: Language): Observable<Currency> {
-        return this.currencyTradeCurrenciesProvider.provide().pipe(
-            flatMap(tradeCurrencies => {
-                const tradeCurrency = tradeCurrencies.find(x => x.tradeId === tradeId);
-                if (!tradeCurrency) {
-                    return of(null);
-                }
-                return this.searchByNameType(tradeCurrency.nameType, language);
-            })
         );
     }
 }

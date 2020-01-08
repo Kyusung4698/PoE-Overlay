@@ -11,7 +11,7 @@
 
     <div class="detail">
         <!-- properties -->
-        <ng-container *ngIf="item.properties || item.level">
+        <ng-container *ngIf="item.properties">
             <ng-container *ngFor="let property of properties">
                 <div *ngIf="item.properties[property] as prop">
                     <app-item-frame-query [(property)]="queryItem.properties[property]"
@@ -37,13 +37,19 @@
                                 {{'ItemDisplayArmourEvasionRating' | clientString:language}}</span>
                             <span *ngSwitchCase="'armourEnergyShield'">
                                 {{'ItemDisplayArmourEnergyShield' | clientString:language}}</span>
+                            <span *ngSwitchCase="'gemLevel'">
+                                {{'Level' | clientString:language}}</span>
+                            <span *ngSwitchCase="'quality'">
+                                {{'Quality' | clientString:language}}</span>
+                            <span *ngSwitchCase="'gemExperience'">
+                                {{'Experience' | clientString:language}}</span>
                         </ng-container>
                         <span [class]="prop.augmented ? 'purpel' : 'white'">&nbsp;{{prop.value}}</span>
                     </app-item-frame-query>
                 </div>
             </ng-container>
             <div class="separator"
-                *ngIf="item.level || item.requirements || (item.sockets && item.sockets.length > 0) || item.secondaryDescription || (item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.description || separator">
+                *ngIf="item.level || item.requirements || (item.sockets && item.sockets.length > 0) || item.secondaryDescription || (item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.corrupted !== undefined || item.description || separator">
             </div>
         </ng-container>
 
@@ -91,7 +97,7 @@
                 </ng-container>
             </div>
             <div class="separator"
-                *ngIf="(item.sockets && item.sockets.length > 0) || item.secondaryDescription || (item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.description || separator">
+                *ngIf="(item.sockets && item.sockets.length > 0) || item.secondaryDescription || (item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.corrupted !== undefined || item.description || separator">
             </div>
         </ng-container>
 
@@ -113,7 +119,7 @@
                 </ng-container>
             </div>
             <div class="separator"
-                *ngIf="item.secondaryDescription || (item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.description || separator">
+                *ngIf="item.secondaryDescription || (item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.corrupted !== undefined || item.description || separator">
             </div>
         </ng-container>
 
@@ -122,7 +128,7 @@
                 {{item.secondaryDescription}}
             </div>
             <div class="separator"
-                *ngIf="(item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.description || separator">
+                *ngIf="(item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.corrupted !== undefined || item.description || separator">
             </div>
         </ng-container>
 
@@ -134,7 +140,7 @@
                 </app-item-frame-query>
             </div>
             <div class="separator"
-                *ngIf="(item.explicits && item.explicits.length > 0) || item.description || separator"></div>
+                *ngIf="(item.explicits && item.explicits.length > 0) || item.corrupted !== undefined || item.description || separator"></div>
         </ng-container>
 
         <ng-container *ngIf="item.explicits && item.explicits.length > 0">
@@ -147,8 +153,16 @@
                         </span>
                     </app-item-frame-query>
                 </div>
-                <div class="separator" *ngIf="!last || item.description || separator"></div>
+                <div class="separator" *ngIf="!last || item.corrupted !== undefined || item.description || separator"></div>
             </ng-container>
+        </ng-container>
+
+        <ng-container *ngIf="item.corrupted !== undefined">
+            <app-item-frame-query [(property)]="queryItem.corrupted" (propertyChange)="onPropertyChange()"
+                [value]="item.corrupted">
+                <div class="red">{{'ItemPopupCorrupted' | clientString:language}}</div>
+            </app-item-frame-query>
+            <div class="separator" *ngIf="item.description || separator"></div>
         </ng-container>
 
         <ng-container *ngIf="item.description">

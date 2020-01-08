@@ -1,21 +1,19 @@
 import { Injectable, NgZone } from '@angular/core';
 import { ElectronProvider } from '@app/provider';
 import { Rectangle } from '@app/type';
-import { IpcRenderer, Remote } from 'electron';
-import { from, Observable, Subject } from 'rxjs';
+import { Remote } from 'electron';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
 })
 export class WindowService {
     private readonly electron: Remote;
-    private readonly ipcRenderer: IpcRenderer;
 
     constructor(
         private readonly ngZone: NgZone,
         electronProvider: ElectronProvider) {
         this.electron = electronProvider.provideRemote();
-        this.ipcRenderer = electronProvider.provideIpcRenderer();
     }
 
     public on(event: 'show'): Observable<void> {
@@ -24,6 +22,7 @@ export class WindowService {
         window.on(event, () => {
             this.ngZone.run(() => callback.next());
         });
+
         return callback;
     }
 
@@ -49,33 +48,22 @@ export class WindowService {
         this.electron.app.quit();
     }
 
-    public open(url: string): void {
-        const BrowserWindow = this.electron.BrowserWindow;
-        const win = new BrowserWindow({
-            center: true,
-            modal: true,
-            parent: this.electron.getCurrentWindow(),
-            autoHideMenuBar: true,
-            width: 1000,
-            height: 800,
-            backgroundColor: '#0F0F0F'
-        });
-        win.loadURL(url);
-    }
-
-    public openRoute(route: string): Observable<void> {
-        const promise = new Promise<void>((resolve, reject) => {
-            this.ipcRenderer.send('open-route', route);
-
-            this.ipcRenderer.once('open-route-reply', (_, result) => {
-                if (result === 'closed') {
-                    resolve();
-                } else {
-                    reject(result);
-                }
+    public open(url: string, external: boolean = false): void {
+        if (external) {
+            this.electron.shell.openExternal(url);
+        } else {
+            const BrowserWindow = this.electron.BrowserWindow;
+            const win = new BrowserWindow({
+                center: true,
+                modal: true,
+                parent: this.electron.getCurrentWindow(),
+                autoHideMenuBar: true,
+                width: 1000,
+                height: 800,
+                backgroundColor: '#0F0F0F'
             });
-        });
-        return from(promise);
+            win.loadURL(url);
+        }
     }
 
     public disableInput(): void {

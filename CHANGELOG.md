@@ -1,9 +1,18 @@
-## 0.4.0-alpha.0 (2020-01-07)
+## 0.4.0 (2020-01-08)
 
 * add offical poe trade api
-* add stats-id service maps text to id.
+* add min, max, mode, mean and median to evaluate dialog (#9)
 * add item level to query (#12)
+* add gem level, gem experience to query (#8, #15)
+* add item quality to query (#8, #15)
+* add item corrupted to query (#8)
+* add already running check
+* add tray icon (exit, open settings) (#10)
+* add open settings keybinding and exit keybinding as user settings (#10)
+* add open search in external browser on CTRL + Click
+* add stats-id service maps text to id.
 * update base-item-types (#5)
+* update validation check for jewels and maps (#16)
 * remove poe.trade
 
 ## 0.3.0 (2020-01-06)

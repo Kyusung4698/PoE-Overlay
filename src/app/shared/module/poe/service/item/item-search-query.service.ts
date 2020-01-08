@@ -51,12 +51,12 @@ export class ItemSearchQueryService {
             case ItemRarity.Unique:
                 query.filters.type_filters.filters.rarity = {
                     option: item.rarity
-                }
+                };
                 break;
             case ItemRarity.Gem:
                 query.filters.type_filters.filters.category = {
                     option: item.rarity,
-                }
+                };
                 break;
             default:
                 break;
@@ -73,7 +73,7 @@ export class ItemSearchQueryService {
             filters: {}
         };
 
-        // ignore color for now. just count and linked count.    
+        // ignore color for now. just count and linked count.
 
         const sockets = validSockets.filter(x => !!x.color);
         if (sockets.length > 0) {
@@ -128,22 +128,22 @@ export class ItemSearchQueryService {
         if (prop.armourArmour) {
             query.filters.armour_filters.filters.ar = {
                 min: +prop.armourArmour.value
-            }
+            };
         }
         if (prop.armourEvasionRating) {
             query.filters.armour_filters.filters.ev = {
                 min: +prop.armourEvasionRating.value
-            }
+            };
         }
         if (prop.armourEnergyShield) {
             query.filters.armour_filters.filters.es = {
                 min: +prop.armourEnergyShield.value
-            }
+            };
         }
         if (prop.shieldBlockChance) {
             query.filters.armour_filters.filters.block = {
                 min: +prop.shieldBlockChance.value
-            }
+            };
         }
     }
 
@@ -180,19 +180,52 @@ export class ItemSearchQueryService {
     }
 
     private mapMiscsFilters(item: Item, query: Query): void {
-        if (!item.level) {
-            return;
-        }
-
         query.filters.misc_filters = {
             filters: {}
-        }
+        };
 
         if (item.level) {
             query.filters.misc_filters.filters.ilvl = {
                 min: item.level,
                 max: item.level,
             };
+        }
+
+        query.filters.misc_filters.filters.corrupted = {
+            option: `${!!item.corrupted}`
+        };
+
+        if (!item.properties) {
+            return;
+        }
+
+        const prop = item.properties;
+        if (prop.gemLevel) {
+            query.filters.misc_filters.filters.gem_level = {
+                min: +prop.gemLevel.value,
+                max: +prop.gemLevel.value
+            };
+        }
+
+        if (prop.gemExperience) {
+            const splittedExp = prop.gemExperience.value.split('/');
+            const exp = +(splittedExp[0] || '').split('.').join('');
+            const expMax = +(splittedExp[1] || '').split('.').join('');
+            if (!isNaN(exp) && !isNaN(expMax)) {
+                const expFactor = (exp / expMax) * 100;
+                query.filters.misc_filters.filters.gem_level_progress = {
+                    min: Math.round(expFactor * 100) / 100,
+                };
+            }
+        }
+
+        if (prop.quality) {
+            const quality = +prop.quality.value.replace('%', '').replace('+', '');
+            if (!isNaN(quality)) {
+                query.filters.misc_filters.filters.quality = {
+                    min: quality
+                };
+            }
         }
     }
 
@@ -236,7 +269,7 @@ export class ItemSearchQueryService {
                 if (!isNaN(min)) {
                     query.stats[0].filters.push({
                         disabled: false,
-                        id: id,
+                        id,
                         value: { min }
                     });
                 }

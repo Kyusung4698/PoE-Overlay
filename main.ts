@@ -1,7 +1,15 @@
-import { app, BrowserWindow, ipcMain } from 'electron';
+import { app, BrowserWindow, ipcMain, Menu, Tray } from 'electron';
 import * as path from 'path';
 import * as robot from 'robotjs';
 import * as url from 'url';
+import { version } from './package.json';
+
+if (!app.requestSingleInstanceLock()) {
+    app.quit();
+}
+
+const args = process.argv.slice(1),
+    serve = args.some(val => val === '--serve');
 
 /* robot js */
 
@@ -18,8 +26,6 @@ ipcMain.on('set-keyboard-delay', (event, delay) => {
 /* main window */
 
 let win: BrowserWindow = null;
-const args = process.argv.slice(1),
-    serve = args.some(val => val === '--serve');
 
 function createWindow(): BrowserWindow {
     // Create the browser window.
@@ -43,7 +49,7 @@ function createWindow(): BrowserWindow {
 
     win.on('closed', () => {
         win = null;
-    });    
+    });
 
     return win;
 }
@@ -116,8 +122,37 @@ function loadApp(win: BrowserWindow, route: string = '') {
     }
 }
 
+/* tray */
+
+let tray: Tray;
+
+function createTray(): Tray {
+    tray = serve
+        ? new Tray(path.join(__dirname, 'src/favicon.ico'))
+        : new Tray(path.join(__dirname, 'dist/favicon.ico'));
+
+    const menu = Menu.buildFromTemplate([
+        {
+            label: 'Open Settings',
+            type: 'normal',
+            click: () => win.webContents.send('show-user-settings'),
+        },
+        {
+            label: 'Exit',
+            type: 'normal',
+            click: () => app.quit()
+        }
+    ]);
+    tray.setToolTip(`PoE-Overlay: ${version}`);
+    tray.setContextMenu(menu);
+    return tray;
+}
+
 try {
-    app.on('ready', createWindow);
+    app.on('ready', () => {
+        createWindow();
+        createTray();
+    });
 
     app.on('window-all-closed', () => {
         if (process.platform !== 'darwin') {

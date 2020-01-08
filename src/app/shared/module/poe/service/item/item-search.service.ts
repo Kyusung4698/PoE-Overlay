@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { TradeFetchResult, TradeHttpService, TradeSearchRequest } from '@data/poe';
 import { Item, ItemSearchResult, Language, SearchItem } from '@shared/module/poe/type';
-import { forkJoin, Observable, of } from 'rxjs';
-import { flatMap, map } from 'rxjs/operators';
+import { forkJoin, from, Observable, of } from 'rxjs';
+import { flatMap, map, mergeMap, toArray } from 'rxjs/operators';
 import { ContextService } from '../context.service';
 import { CurrencyService } from '../currency/currency.service';
 import { ItemSearchQueryService } from './item-search-query.service';
 
 const MAX_FETCH_COUNT = 10;
+const MAX_FETCH_CONCURRENT_COUNT = 5;
 
 @Injectable({
     providedIn: 'root'
@@ -54,9 +55,9 @@ export class ItemSearchService {
                     itemIdsChunked.push(itemIds.slice(i, i + MAX_FETCH_COUNT));
                 }
 
-                const fetchs$ = itemIdsChunked.map(x => this.tradeService.fetch(x, response.id, language));
-
-                return forkJoin(fetchs$).pipe(
+                return from(itemIdsChunked).pipe(
+                    mergeMap(x => this.tradeService.fetch(x, response.id, language), MAX_FETCH_CONCURRENT_COUNT),
+                    toArray(),
                     flatMap(responses => {
                         const items = responses.filter(x => x.result && x.result.length).reduce((a, b) => a.concat(b.result), []);
                         if (items.length <= 0) {
@@ -71,9 +72,9 @@ export class ItemSearchService {
                             .map(item => this.createSearchItem(requestedItem, item));
 
                         return forkJoin(items$).pipe(
-                            map(items => {
+                            map(x => {
                                 const result: ItemSearchResult = {
-                                    items: items.filter(item => item !== undefined),
+                                    items: x.filter(item => item !== undefined),
                                     url: response.url
                                 };
                                 return result;
@@ -82,7 +83,7 @@ export class ItemSearchService {
                     })
                 );
             })
-        )
+        );
     }
 
     private createSearchItem(requestedItem: Item, result: TradeFetchResult): Observable<SearchItem> {

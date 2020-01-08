@@ -45,10 +45,10 @@ export class EvaluateDialogComponent implements OnInit {
     this.queryItemChange.next(queryItem);
   }
 
-  public onCurrencyClick(): void {
+  public onCurrencyClick(event: MouseEvent): void {
     const result = this.result$.getValue();
     if (result && result.url) {
-      this.window.open(result.url);
+      this.window.open(result.url, event.ctrlKey);
     }
   }
 
@@ -94,9 +94,7 @@ export class EvaluateDialogComponent implements OnInit {
         if (results[0].items.length <= 0) {
           const empty: ItemSearchEvaluateResult = {
             url: results[0].url,
-            items: [],
-            targetCurrency: null,
-            targetCurrencyAvg: null
+            items: []
           };
           return of(empty);
         }

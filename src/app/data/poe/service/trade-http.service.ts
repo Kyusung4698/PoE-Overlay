@@ -40,7 +40,7 @@ export class TradeHttpService {
             responseType: 'text',
             observe: 'response'
         }).pipe(retry(RETRY_COUNT), map(response => {
-            const result = <TradeSearchResponse>JSON.parse(response.body);
+            const result = JSON.parse(response.body) as TradeSearchResponse;
             result.url = `${url.replace('/api', '')}/${encodeURIComponent(result.id)}`;
             return result;
         }));
