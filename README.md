@@ -1,6 +1,6 @@
 # PoE Overlay 0.4.0
 
-A Overlay for Path of Exile. The ***core aspect*** is to blend in game. Built with Electron and Angular. 
+An Overlay for Path of Exile. The ***core aspect*** is to blend in with the game. Built with Electron and Angular. 
 
 <!-- TOC -->
 - [Status](#status)
@@ -28,16 +28,19 @@ A Overlay for Path of Exile. The ***core aspect*** is to blend in game. Built wi
 
 ## Status
 
-This project is currently in ***pilot phase***. If you encounter any bugs or have feature request please open up an issue on github.
+This project is currently in a ***pilot phase***. If you encounter any bugs or have feature requests please open up an issue on github. 
 
 ## Features
 
-* Evaluation of items
-    * with chooseable currency and language
-    * with a graph to display the distribution<br> ![item](img/item_0.4.0.jpg)
-    * with a search filter on all supported properties on click<br> ![item_filter](img/item_filter_0.4.0.jpg)
-    * with an in game browser to display the created search<br> ![browser](img/item_browser_0.4.0.jpg)
-* Binding in game commands to keybindings
+* Evaluation of items:
+    * select your preferred currency and language
+    * uses the official pathofexile.com/trade website
+    * a graphical display of the price distribution<br> ![item](img/item_0.4.0.jpg)
+    * filter your search on all supported properties on click<br> ![item_filter](img/item_filter_0.4.0.jpg)
+    * an in game browser to display the created search<br> ![browser](img/item_browser_0.4.0.jpg)
+
+* Customisable keybings:  
+    * bind in game commands to a custom hotkey
     * premade /hideout on `F5` and /dnd on `F6`
 
 ## Roadmap
@@ -55,7 +58,7 @@ This project is currently in ***pilot phase***. If you encounter any bugs or hav
 
 ### Getting Started
 
-These instructions will get you a executable to run and enjoy the overlay.
+These instructions will set you up to run and enjoy the overlay.
 
 #### Prerequisites
 
@@ -77,7 +80,7 @@ You can change these shortcuts in the user settings menu.
 |Shortcut   |Description
 |---        |---	    
 | `ctrl+d`  | Displays the item in a frame and evaluates the price. You can open poe.trade on click of the currency value
-| `ctrl+t`  | '' same as above '' but displays the item translated
+| `ctrl+t`  | As above - displays the item translated
 | `f5`      | Go to Hideout
 | `f6`      | Toggle DND
 | `f7`      | Opens the user settings menu
