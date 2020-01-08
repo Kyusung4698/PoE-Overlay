@@ -26,39 +26,16 @@ export class EvaluateChartComponent implements OnInit {
   public result: ItemSearchEvaluateResult;
 
   public ngOnInit(): void {
-    if (this.result.items.length <= 2) {
+    if (!this.result.itemsGrouped || this.result.itemsGrouped.length < 2) {
       this.display = 'none';
       return;
     }
-    const sortedItems = this.result.items
-      .map(x => {
-        const val = x.targetCurrencyAmount;
-        if (val <= 1) {
-          return Math.round(val * 4) / 4;
-        } else if (val <= 25) {
-          return Math.round(val);
-        }
-        return Math.round(val / 5) * 5;
-      })
-      .sort((a, b) => a - b);
 
-    this.items = [{ name: sortedItems[0], value: 1 }];
-
-    for (const item of sortedItems) {
-      const index = this.items.length - 1;
-      if (this.items[index].name === item) {
-        ++this.items[index].value;
-      } else {
-        this.items.push({
-          name: item,
-          value: 1
-        });
-      }
-    }
-
-    if (this.items.length <= 2) {
-      this.display = 'none';
-    }
+    this.items = this.result.itemsGrouped.map(x => {
+      return {
+        name: x.value,
+        value: x.items.length
+      };
+    });
   }
-
 }

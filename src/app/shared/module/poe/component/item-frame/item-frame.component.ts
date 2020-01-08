@@ -36,6 +36,9 @@ export class ItemFrameComponent implements OnInit {
     'armourArmour',
     'armourEvasionRating',
     'armourEnergyShield',
+    'gemLevel',
+    'quality',
+    'gemExperience',
   ];
 
   constructor(private readonly context: ContextService) { }

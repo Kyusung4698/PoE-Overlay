@@ -23,9 +23,9 @@ export class EvaluateModule implements FeatureModule {
     public getSettings(): UserSettingsFeature {
         const defaultSettings: EvaluateUserSettings = {
             evaluateCurrencyId: 'chaos',
-            evaluateKeybinding: 'Ctrl + D',
+            evaluateKeybinding: 'CmdOrCtrl + D',
             evaluateTranslatedItemLanguage: Language.English,
-            evaluateTranslatedKeybinding: 'Ctrl + T'
+            evaluateTranslatedKeybinding: 'CmdOrCtrl + T'
         };
         return {
             name: 'Evaluate',

@@ -24,7 +24,10 @@ export class UserSettingsService {
     public init(modules: FeatureModule[]): Observable<UserSettings> {
         return this.userSettingsStorageService.get().pipe(
             flatMap(savedSettings => {
-                let mergedSettings: UserSettings = {};
+                let mergedSettings: UserSettings = {
+                    openUserSettingsKeybinding: 'F7',
+                    exitAppKeybinding: 'F8'
+                };
 
                 modules.forEach(x => {
                     const featureSettings = x.getSettings();

@@ -85,6 +85,54 @@ Item Level: 47
 +6% to Fire Resistance
 +7% to Lightning Resistance
 
+Rarity: Gem
+Righteous Fire
+--------
+Vaal, Spell, AoE, Fire, Duration
+Level: 19
+Cooldown Time: 0.30 sec
+Cast Time: Instant
+Quality: +23% (augmented)
+Experience: 2.294.006/212.023.122
+--------
+Requirements:
+Level: 68
+Str: 66
+Int: 95
+--------
+Engulfs you in magical fire that rapidly burns you and nearby enemies. Your spell damage is substantially increased while under this effect. The effect ends when you have 1 life remaining.
+--------
+Deals 1363.3 Base Fire Damage per second
++4 to radius
+23% increased Burning Damage
+Deals 20% of your Maximum Life as Base Fire Damage per second
+Deals 20% of your Maximum Energy Shield as Base Fire Damage per second
+You Burn for 90% of your Maximum Life per second as Fire Damage
+You Burn for 70% of your Maximum Energy Shield per second as Fire Damage
+Grants 38% more Spell Damage
+--------
+Vaal Righteous Fire
+--------
+Cooldown Time: 0.50 sec
+Souls Per Use: 40
+Can Store 1 Use
+Soul Gain Prevention: 12 sec
+Cast Time: Instant
+--------
+Sacrifices a portion of your Life and Energy Shield to engulf you in magical fire that rapidly burns nearby enemies for a duration. Your spell damage is substantially increased while under this effect.
+--------
+Base duration is 4.00 seconds
+Sacrifices 30% of your total Energy Shield and Life
+Deals 179% of Sacrificed Energy Shield and Life as Fire Damage per second
+Modifiers to Skill Effect Duration also apply to this Skill's Soul Gain Prevention
+23% increased Burning Damage
+Grants 27% more Spell Damage
+--------
+Place into an item socket of the right colour to gain this skill. Right click to remove from a socket.
+--------
+Corrupted
+
+
 
 Rarity: Magic
 Hallowed Mana Flask of Heat

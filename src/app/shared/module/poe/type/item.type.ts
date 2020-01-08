@@ -5,6 +5,7 @@ export interface Item {
     nameId?: string;
     typeId?: string;
     level?: number;
+    corrupted?: boolean;
     sockets?: ItemSocket[];
     properties?: ItemProperties;
     requirements?: ItemRequirements;
@@ -48,6 +49,9 @@ export interface ItemProperties {
     armourArmour?: ItemProperty;
     armourEvasionRating?: ItemProperty;
     armourEnergyShield?: ItemProperty;
+    gemLevel?: ItemProperty;
+    quality?: ItemProperty;
+    gemExperience?: ItemProperty;
     additionals?: ItemProperty[];
 }
 
@@ -84,13 +88,24 @@ export type EvaluateItem = Item & {
     originalCurrencyAmount: number;
     targetCurrency: Currency;
     targetCurrencyAmount: number;
+    targetCurrencyAmountRounded: number;
 };
+
+export interface EvaluateItemGrouped {
+    value: number;
+    items: EvaluateItem[];
+}
 
 export interface ItemSearchEvaluateResult {
     url: string;
     items: EvaluateItem[];
+    itemsGrouped?: EvaluateItemGrouped[];
     targetCurrency?: Currency;
-    targetCurrencyAvg?: number;
+    targetCurrencyMin?: number;
+    targetCurrencyMax?: number;
+    targetCurrencyMode?: number;
+    targetCurrencyMedian?: number;
+    targetCurrencyMean?: number;
 }
 
 export type SearchItem = Item & {

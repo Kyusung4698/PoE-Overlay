@@ -8,14 +8,29 @@
             <ng-container *ngSwitchDefault>
                 <ng-container *ngIf="(result$ | async) as result">
                     <ng-container *ngIf="result.items && result.items.length > 0">
-                        <div class="clickable" (click)="onCurrencyClick()">
-                            <app-currency-frame [amount]="result.targetCurrencyAvg" [currency]="result.targetCurrency">
-                            </app-currency-frame>
+                        <div class="clickable" (click)="onCurrencyClick($event)">
+                            <div>
+                                <app-currency-frame label="Mean" [amount]="result.targetCurrencyMean">
+                                </app-currency-frame>
+                                <app-currency-frame label="Median" [amount]="result.targetCurrencyMedian">
+                                </app-currency-frame>
+                                <app-currency-frame label="Mode" [amount]="result.targetCurrencyMode">
+                                </app-currency-frame>
+                            </div>
+                            <div>
+                                <app-currency-frame label="Min" [amount]="result.targetCurrencyMin">
+                                </app-currency-frame>
+                                <app-currency-frame label="Max" [amount]="result.targetCurrencyMax"
+                                    [currency]="result.targetCurrency">
+                                </app-currency-frame>
+                            </div>
                         </div>
                         <app-evaluate-chart [result]="result"></app-evaluate-chart>
                     </ng-container>
                     <ng-container *ngIf="result.items && result.items.length === 0">
-                        No matching items found.
+                        <div class="clickable" (click)="onCurrencyClick($event)">
+                            No matching items found.
+                        </div>
                     </ng-container>
                     <ng-container *ngIf="!result.items">
                         An unexpected error occured.

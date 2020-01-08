@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ExportedItem, Item, ItemSectionParserService, Section } from '../../../type';
+import { ItemSectionCorruptedParserService } from './item-section-corrupted-parser.service';
 import { ItemSectionExplicitsParserService } from './item-section-explicits-parser.service';
 import { ItemSectionImplicitsParserService } from './item-section-implicits-parser.service';
 import { ItemSectionItemLevelParserService } from './item-section-item-level-parser.service';
@@ -22,6 +23,7 @@ export class ItemParserService {
         itemSectionItemLevelParserService: ItemSectionItemLevelParserService,
         itemSectionSocketsParserService: ItemSectionSocketsParserService,
         itemSectionPropertiesParserService: ItemSectionPropertiesParserService,
+        itemSectionCorruptedParserService: ItemSectionCorruptedParserService,
         itemSectionImplicitsParserService: ItemSectionImplicitsParserService,
         itemSectionExplicitsParserService: ItemSectionExplicitsParserService) {
         this.parsers = [
@@ -31,6 +33,7 @@ export class ItemParserService {
             itemSectionItemLevelParserService,
             itemSectionSocketsParserService,
             itemSectionPropertiesParserService,
+            itemSectionCorruptedParserService,
             itemSectionImplicitsParserService,
             itemSectionExplicitsParserService
         ];

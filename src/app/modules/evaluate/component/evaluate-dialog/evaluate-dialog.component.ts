@@ -45,10 +45,10 @@ export class EvaluateDialogComponent implements OnInit {
     this.queryItemChange.next(queryItem);
   }
 
-  public onCurrencyClick(): void {
+  public onCurrencyClick(event: MouseEvent): void {
     const result = this.result$.getValue();
     if (result && result.url) {
-      this.window.open(result.url);
+      this.window.open(result.url, event.ctrlKey);
     }
   }
 
@@ -70,7 +70,7 @@ export class EvaluateDialogComponent implements OnInit {
   private firstSearch(): void {
     this.search(this.queryItem).pipe(
       takeUntil(this.queryItemChange)
-    ).subscribe(result => this.result$.next(result), this.handleError);
+    ).subscribe(result => this.result$.next(result), error => this.handleError(error));
   }
 
   private registerSearchOnChange(): void {
@@ -82,7 +82,7 @@ export class EvaluateDialogComponent implements OnInit {
           takeUntil(this.queryItemChange)
         );
       })
-    ).subscribe(result => this.result$.next(result), this.handleError);
+    ).subscribe(result => this.result$.next(result), error => this.handleError(error));
   }
 
   private search(item: Item): Observable<ItemSearchEvaluateResult> {
@@ -93,10 +93,8 @@ export class EvaluateDialogComponent implements OnInit {
       flatMap(results => {
         if (results[0].items.length <= 0) {
           const empty: ItemSearchEvaluateResult = {
-            url: null,
-            items: [],
-            targetCurrency: null,
-            targetCurrencyAvg: null
+            url: results[0].url,
+            items: []
           };
           return of(empty);
         }

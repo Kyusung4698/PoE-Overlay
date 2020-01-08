@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component, HostListener, Inject, OnDestroy, OnInit } from '@angular/core';
-import { ShortcutService, WindowService } from '@app/service';
+import { RendererService, ShortcutService, WindowService } from '@app/service';
 import { FEATURE_MODULES } from '@app/token';
 import { FeatureModule } from '@app/type';
 import { ReleasesHttpService } from '@data/github';
 import { ContextService } from '@shared/module/poe/service';
 import { Context } from '@shared/module/poe/type';
+import { Observable } from 'rxjs';
 import { version } from '../../../../../package.json';
 import { UserSettingsService } from '../../service/user-settings.service';
 import { UserSettings } from '../../type';
@@ -16,6 +17,8 @@ import { UserSettings } from '../../type';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class OverlayComponent implements OnInit, OnDestroy {
+  private userSettingsOpen: Observable<void>;
+
   public version: string = version;
 
   constructor(
@@ -25,6 +28,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
     private readonly userSettingsService: UserSettingsService,
     private readonly context: ContextService,
     private readonly window: WindowService,
+    private readonly renderer: RendererService,
     private readonly shortcut: ShortcutService) { }
 
   @HostListener('window:beforeunload', [])
@@ -45,13 +49,16 @@ export class OverlayComponent implements OnInit, OnDestroy {
     this.userSettingsService.init(this.modules).subscribe(settings => {
       this.context.init(this.getContext(settings));
       this.registerShortcuts(settings);
+      this.renderer.on('show-user-settings').subscribe(() => {
+        this.openUserSettings();
+      });
     });
   }
 
   private registerShortcuts(settings: UserSettings): void {
     this.registerFeatures(settings);
-    this.registerSettings();
-    this.registerExit();
+    this.registerSettings(settings);
+    this.registerExit(settings);
   }
 
   private checkVersion(): void {
@@ -77,24 +84,34 @@ export class OverlayComponent implements OnInit, OnDestroy {
     });
   }
 
-  private registerSettings(): void {
-    this.shortcut.register('F7').subscribe(() => {
-      this.unregisterShortcuts();
-      this.window.openRoute('user-settings').subscribe(() => {
-        this.userSettingsService.get().subscribe(settings => {
-          this.context.update(this.getContext(settings));
-          this.registerShortcuts(settings);
-        });
-      });
-    });
+  private registerSettings(settings: UserSettings): void {
+    if (settings.openUserSettingsKeybinding) {
+      this.shortcut.register(settings.openUserSettingsKeybinding).subscribe(() => this.openUserSettings());
+    }
   }
 
-  private registerExit(): void {
-    this.shortcut.register('F8').subscribe(() => this.window.quit());
+  private registerExit(settings: UserSettings): void {
+    if (settings.exitAppKeybinding) {
+      this.shortcut.register(settings.exitAppKeybinding).subscribe(() => this.window.quit());
+    }
   }
 
   private unregisterShortcuts(): void {
     this.shortcut.unregisterAll();
+  }
+
+  private openUserSettings(): void {
+    if (!this.userSettingsOpen) {
+      this.unregisterShortcuts();
+      this.userSettingsOpen = this.renderer.open('user-settings');
+      this.userSettingsOpen.subscribe(() => {
+        this.userSettingsOpen = null;
+        this.userSettingsService.get().subscribe(settings => {
+          this.context.update(this.getContext(settings));
+          this.registerShortcuts(settings);
+        });
+      }, () => this.userSettingsOpen = null);
+    }
   }
 
   private getContext(settings: UserSettings): Context {

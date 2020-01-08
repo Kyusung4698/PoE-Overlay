@@ -33,6 +33,9 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
             props.armourArmour = this.parseProperty(line, phrases[7], props.armourArmour);
             props.armourEvasionRating = this.parseProperty(line, phrases[8], props.armourEvasionRating);
             props.armourEnergyShield = this.parseProperty(line, phrases[9], props.armourEnergyShield);
+            props.gemLevel = this.parseProperty(line, phrases[10], props.gemLevel);
+            props.quality = this.parseProperty(line, phrases[11], props.quality);
+            props.gemExperience = this.parseProperty(line, phrases[12], props.gemExperience);
         }
 
         target.properties = props;
@@ -68,6 +71,9 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
             `${this.clientString.translate('ItemDisplayArmourArmour')}: `,
             `${this.clientString.translate('ItemDisplayArmourEvasionRating')}: `,
             `${this.clientString.translate('ItemDisplayArmourEnergyShield')}: `,
+            `${this.clientString.translate('Level')}: `,
+            `${this.clientString.translate('Quality')}: `,
+            `${this.clientString.translate('Experience')}: `,
         ];
     }
 }

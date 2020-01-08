@@ -37,19 +37,32 @@
                                 {{'ItemDisplayArmourEvasionRating' | clientString:language}}</span>
                             <span *ngSwitchCase="'armourEnergyShield'">
                                 {{'ItemDisplayArmourEnergyShield' | clientString:language}}</span>
+                            <span *ngSwitchCase="'gemLevel'">
+                                {{'Level' | clientString:language}}</span>
+                            <span *ngSwitchCase="'quality'">
+                                {{'Quality' | clientString:language}}</span>
+                            <span *ngSwitchCase="'gemExperience'">
+                                {{'Experience' | clientString:language}}</span>
                         </ng-container>
                         <span [class]="prop.augmented ? 'purpel' : 'white'">&nbsp;{{prop.value}}</span>
                     </app-item-frame-query>
                 </div>
             </ng-container>
             <div class="separator"
-                *ngIf="item.requirements || (item.sockets && item.sockets.length > 0) || item.secondaryDescription || (item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.description || separator">
+                *ngIf="item.level || item.requirements || (item.sockets && item.sockets.length > 0) || item.secondaryDescription || (item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.corrupted !== undefined || item.description || separator">
             </div>
         </ng-container>
 
         <!-- requirements -->
-        <ng-container *ngIf="item.requirements">
-            <div>
+        <ng-container *ngIf="item.level || item.requirements">
+            <div *ngIf="item.level">
+                <app-item-frame-query [(property)]="queryItem.level" (propertyChange)="onPropertyChange()"
+                    [value]="item.level">
+                    <span>{{'ItemDisplayStringItemLevel' | clientString:language}}:&nbsp;</span>
+                    <span class="white">{{item.level}}</span>
+                </app-item-frame-query>
+            </div>
+            <div *ngIf="item.requirements">
                 <span>{{'ItemRequirementsLabel' | clientString:language}}&nbsp;</span>
                 <ng-container *ngIf="item.requirements.level">
                     <app-item-frame-query [(property)]="queryItem.requirements.level"
@@ -84,7 +97,7 @@
                 </ng-container>
             </div>
             <div class="separator"
-                *ngIf="(item.sockets && item.sockets.length > 0) || item.secondaryDescription || (item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.description || separator">
+                *ngIf="(item.sockets && item.sockets.length > 0) || item.secondaryDescription || (item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.corrupted !== undefined || item.description || separator">
             </div>
         </ng-container>
 
@@ -106,7 +119,7 @@
                 </ng-container>
             </div>
             <div class="separator"
-                *ngIf="item.secondaryDescription || (item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.description || separator">
+                *ngIf="item.secondaryDescription || (item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.corrupted !== undefined || item.description || separator">
             </div>
         </ng-container>
 
@@ -115,7 +128,7 @@
                 {{item.secondaryDescription}}
             </div>
             <div class="separator"
-                *ngIf="(item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.description || separator">
+                *ngIf="(item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.corrupted !== undefined || item.description || separator">
             </div>
         </ng-container>
 
@@ -127,7 +140,7 @@
                 </app-item-frame-query>
             </div>
             <div class="separator"
-                *ngIf="(item.explicits && item.explicits.length > 0) || item.description || separator"></div>
+                *ngIf="(item.explicits && item.explicits.length > 0) || item.corrupted !== undefined || item.description || separator"></div>
         </ng-container>
 
         <ng-container *ngIf="item.explicits && item.explicits.length > 0">
@@ -140,8 +153,16 @@
                         </span>
                     </app-item-frame-query>
                 </div>
-                <div class="separator" *ngIf="!last || item.description || separator"></div>
+                <div class="separator" *ngIf="!last || item.corrupted !== undefined || item.description || separator"></div>
             </ng-container>
+        </ng-container>
+
+        <ng-container *ngIf="item.corrupted !== undefined">
+            <app-item-frame-query [(property)]="queryItem.corrupted" (propertyChange)="onPropertyChange()"
+                [value]="item.corrupted">
+                <div class="red">{{'ItemPopupCorrupted' | clientString:language}}</div>
+            </app-item-frame-query>
+            <div class="separator" *ngIf="item.description || separator"></div>
         </ng-container>
 
         <ng-container *ngIf="item.description">

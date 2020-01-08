@@ -13,4 +13,7 @@ export class CurrencyFrameComponent {
 
   @Input()
   public amount: number;
+
+  @Input()
+  public label: string;
 }
