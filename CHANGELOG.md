@@ -2,7 +2,8 @@
 
 * add offical poe trade api
 * add stats-id service maps text to id.
-* add item level to query #12
+* add item level to query (#12)
+* update base-item-types (#5)
 * remove poe.trade
 
 ## 0.3.0 (2020-01-06)
