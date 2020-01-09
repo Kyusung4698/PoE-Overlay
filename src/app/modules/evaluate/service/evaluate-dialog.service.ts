@@ -38,7 +38,7 @@ export class EvaluateDialogService {
             },
             backdropClass: 'backdrop-clear',
             data,
-            width: `${width}px`,
+            width: `${width}px`
         }).afterClosed().pipe(
             tap(() => {
                 if (this.dialog.openDialogs.length === 0) {

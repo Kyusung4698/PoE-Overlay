@@ -24,19 +24,18 @@ export class ItemFrameComponent implements OnInit {
   @Input()
   public separator = false;
 
-  // TODO: check if order is right
   public properties = [
-    'weaponPhysicalDamage',
-    'weaponElementalDamage',
-    'weaponChaosDamage',
     'weaponCriticalStrikeChance',
     'weaponAttacksPerSecond',
-    'weaponRange',
     'shieldBlockChance',
     'armourArmour',
     'armourEvasionRating',
     'armourEnergyShield',
     'gemLevel',
+    'mapTier',
+    'mapQuantity',
+    'mapRarity',
+    'mapPacksize',
     'quality',
     'gemExperience',
   ];

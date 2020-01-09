@@ -6,12 +6,14 @@ export interface Item {
     typeId?: string;
     level?: number;
     corrupted?: boolean;
+    damage?: ItemWeaponDamage;
     sockets?: ItemSocket[];
     properties?: ItemProperties;
     requirements?: ItemRequirements;
     secondaryDescription?: string;
     implicits?: ItemMod[];
     explicits?: ItemMod[][];
+    influences?: ItemInfluences;
     description?: string;
     note?: string;
 }
@@ -24,6 +26,12 @@ export enum ItemRarity {
     Currency = 'currency',
     Gem = 'gem',
     DivinationCard = 'divinationcard'
+}
+
+export interface ItemWeaponDamage {
+    dps?: number;
+    edps?: number;
+    pdps?: number;
 }
 
 export enum ItemSocketColor {
@@ -40,7 +48,7 @@ export interface ItemSocket {
 
 export interface ItemProperties {
     weaponPhysicalDamage?: ItemProperty;
-    weaponElementalDamage?: ItemProperty;
+    weaponElementalDamage?: ItemProperty[];
     weaponChaosDamage?: ItemProperty;
     weaponCriticalStrikeChance?: ItemProperty;
     weaponAttacksPerSecond?: ItemProperty;
@@ -52,7 +60,10 @@ export interface ItemProperties {
     gemLevel?: ItemProperty;
     quality?: ItemProperty;
     gemExperience?: ItemProperty;
-    additionals?: ItemProperty[];
+    mapTier?: ItemProperty;
+    mapQuantity?: ItemProperty;
+    mapRarity?: ItemProperty;
+    mapPacksize?: ItemProperty;
 }
 
 export interface ItemProperty {
@@ -76,6 +87,15 @@ export interface ItemRequirements {
     int?: number;
     str?: number;
     dex?: number;
+}
+
+export interface ItemInfluences {
+    shaper?: boolean;
+    crusader?: boolean;
+    hunter?: boolean;
+    elder?: boolean;
+    redeemer?: boolean;
+    warlord?: boolean;
 }
 
 export interface ItemsMap {
@@ -130,4 +150,8 @@ export interface Section {
 export interface ItemSectionParserService {
     optional: boolean;
     parse(item: ExportedItem, target: Item): Section | Section[];
+}
+
+export interface ItemPostParserService {
+    process(item: Item): void;
 }

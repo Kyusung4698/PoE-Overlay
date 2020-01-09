@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import { ExportedItem, Item, ItemSectionParserService, Section } from '../../../type';
+import { ExportedItem, Item, ItemPostParserService, ItemSectionParserService, Section } from '../../../type';
+import { ItemPostParserDamageService } from './item-post-parser-damage.service';
 import { ItemSectionCorruptedParserService } from './item-section-corrupted-parser.service';
 import { ItemSectionExplicitsParserService } from './item-section-explicits-parser.service';
 import { ItemSectionImplicitsParserService } from './item-section-implicits-parser.service';
+import { ItemSectionInfluencesParserService } from './item-section-influences-parser.service';
 import { ItemSectionItemLevelParserService } from './item-section-item-level-parser.service';
 import { ItemSectionNoteParserService } from './item-section-note-parser.service';
 import { ItemSectionPropertiesParserService } from './item-section-properties-parser.service';
@@ -15,6 +17,7 @@ import { ItemSectionSocketsParserService } from './item-section-sockets-parser.s
 })
 export class ItemParserService {
     private readonly parsers: ItemSectionParserService[];
+    private readonly postParsers: ItemPostParserService[];
 
     constructor(
         itemSectionRarityParser: ItemSectionRarityParserService,
@@ -24,8 +27,10 @@ export class ItemParserService {
         itemSectionSocketsParserService: ItemSectionSocketsParserService,
         itemSectionPropertiesParserService: ItemSectionPropertiesParserService,
         itemSectionCorruptedParserService: ItemSectionCorruptedParserService,
+        itemSectionInfluencesParserService: ItemSectionInfluencesParserService,
         itemSectionImplicitsParserService: ItemSectionImplicitsParserService,
-        itemSectionExplicitsParserService: ItemSectionExplicitsParserService) {
+        itemSectionExplicitsParserService: ItemSectionExplicitsParserService,
+        itemPostParserDamageService: ItemPostParserDamageService) {
         this.parsers = [
             itemSectionRarityParser,
             itemSectionRequirementsParserService,
@@ -34,8 +39,12 @@ export class ItemParserService {
             itemSectionSocketsParserService,
             itemSectionPropertiesParserService,
             itemSectionCorruptedParserService,
+            itemSectionInfluencesParserService,
             itemSectionImplicitsParserService,
             itemSectionExplicitsParserService
+        ];
+        this.postParsers = [
+            itemPostParserDamageService
         ];
     }
 
@@ -70,6 +79,9 @@ export class ItemParserService {
             [].concat(sectionOrSections).forEach(section => {
                 exportedItem.sections.splice(exportedItem.sections.indexOf(section), 1);
             });
+        }
+        for (const postParser of this.postParsers) {
+            postParser.process(target);
         }
         return target;
     }

@@ -104,6 +104,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
     if (!this.userSettingsOpen) {
       this.unregisterShortcuts();
       this.userSettingsOpen = this.renderer.open('user-settings');
+
       this.userSettingsOpen.subscribe(() => {
         this.userSettingsOpen = null;
         this.userSettingsService.get().subscribe(settings => {

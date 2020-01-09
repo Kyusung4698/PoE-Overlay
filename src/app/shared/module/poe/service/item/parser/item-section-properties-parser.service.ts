@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ExportedItem, Item, ItemProperties, ItemProperty, ItemSectionParserService, Language, Section } from '@shared/module/poe/type';
+import { ExportedItem, Item, ItemProperties, ItemProperty, ItemSectionParserService, Section } from '@shared/module/poe/type';
 import { ClientStringService } from '../../client-string/client-string.service';
 
 @Injectable({
@@ -24,7 +24,7 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
         const lines = propertiesSection.lines;
         for (const line of lines) {
             props.weaponPhysicalDamage = this.parseProperty(line, phrases[0], props.weaponPhysicalDamage);
-            props.weaponElementalDamage = this.parseProperty(line, phrases[1], props.weaponElementalDamage);
+            props.weaponElementalDamage = this.parseProperties(line, phrases[1], props.weaponElementalDamage);
             props.weaponChaosDamage = this.parseProperty(line, phrases[2], props.weaponChaosDamage);
             props.weaponCriticalStrikeChance = this.parseProperty(line, phrases[3], props.weaponCriticalStrikeChance);
             props.weaponAttacksPerSecond = this.parseProperty(line, phrases[4], props.weaponAttacksPerSecond);
@@ -36,6 +36,10 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
             props.gemLevel = this.parseProperty(line, phrases[10], props.gemLevel);
             props.quality = this.parseProperty(line, phrases[11], props.quality);
             props.gemExperience = this.parseProperty(line, phrases[12], props.gemExperience);
+            props.mapTier = this.parseProperty(line, phrases[13], props.mapTier);
+            props.mapQuantity = this.parseProperty(line, phrases[14], props.mapQuantity);
+            props.mapRarity = this.parseProperty(line, phrases[15], props.mapRarity);
+            props.mapPacksize = this.parseProperty(line, phrases[16], props.mapPacksize);
         }
 
         target.properties = props;
@@ -43,20 +47,24 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
     }
 
     private parseProperty(line: string, phrase: string, prop: ItemProperty): ItemProperty {
+        return this.parseProperties(line, phrase, [prop])[0];
+    }
+
+    private parseProperties(line: string, phrase: string, props: ItemProperty[]): ItemProperty[] {
         if (line.indexOf(phrase) !== 0) {
-            return prop;
+            return props;
         }
-
-        const augmented = line.indexOf(' (augmented)') !== -1;
-        const text = line.replace(' (augmented)', '');
-
-        const value = text.slice(phrase.length);
-
-        const property: ItemProperty = {
-            augmented,
-            value
-        };
-        return property;
+        return line.slice(phrase.length)
+            .split(',')
+            .map(text => {
+                const max = this.clientString.translate('ItemDisplaySkillGemMaxLevel').replace('%1%', '');
+                text = text.replace(max, '');
+                const property: ItemProperty = {
+                    augmented: text.indexOf(' (augmented)') !== -1,
+                    value: text.replace(' (augmented)', '')
+                };
+                return property;
+            });
     }
 
     private getPhrases(): string[] {
@@ -74,6 +82,10 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
             `${this.clientString.translate('Level')}: `,
             `${this.clientString.translate('Quality')}: `,
             `${this.clientString.translate('Experience')}: `,
+            `${this.clientString.translate('ItemDisplayMapTier')}: `,
+            `${this.clientString.translate('ItemDisplayMapQuantityIncrease')}: `,
+            `${this.clientString.translate('ItemDisplayMapRarityIncrease')}: `,
+            `${this.clientString.translate('ItemDisplayMapPackSizeIncrease')}: `,
         ];
     }
 }

@@ -27,7 +27,13 @@ export class EvaluateService {
             point = this.mouse.getCursorScreenPoint();
             this.keyboard.setKeyboardDelay(50);
             this.keyboard.keyTap('c', ['control']);
-            const text = this.clipboard.readText();
+
+            const text = this.clipboard.readText() || '';
+            this.clipboard.writeText('');
+            if (text.length <= 0) {
+                return this.snackbar.error('Clipboard text was empty. Make sure the game is focused.');
+            }
+
             item = this.itemParser.parse(text);
         } catch (e) {
             return this.snackbar.error('An unexpected error occured while parsing the item.');

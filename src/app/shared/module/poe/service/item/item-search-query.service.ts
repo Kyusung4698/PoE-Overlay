@@ -5,6 +5,8 @@ import { StatsDescriptionService } from '../stats-description/stats-description.
 import { StatsIdService } from '../stats-id/stats-id.service';
 import { ItemService } from './item.service';
 
+// TODO: own service per filter type
+
 @Injectable({
     providedIn: 'root'
 })
@@ -22,7 +24,8 @@ export class ItemSearchQueryService {
         this.mapArmourFilters(item, query);
         this.mapRequirementsFilters(item, query);
         this.mapMiscsFilters(item, query);
-        this.mapStatsFilter(item, query);
+        this.mapMapFilters(item, query);
+        this.mapStatsFilters(item, query);
     }
 
     private mapNameAndType(item: Item, language: Language, query: Query): void {
@@ -78,41 +81,58 @@ export class ItemSearchQueryService {
         const sockets = validSockets.filter(x => !!x.color);
         if (sockets.length > 0) {
             query.filters.socket_filters.filters.sockets = {
-                min: sockets.length
+                min: sockets.length,
+                max: sockets.length
             };
         }
 
         const links = validSockets.filter(x => !!x.linked);
         if (links.length > 0) {
             query.filters.socket_filters.filters.links = {
-                min: links.length + 1
+                min: links.length + 1,
+                max: links.length + 1
             };
         }
     }
 
     private mapWeaponFilters(item: Item, query: Query): void {
-        const prop = item.properties;
-        if (!prop) {
-            return;
-        }
-
         query.filters.weapon_filters = {
             filters: {}
         };
 
-        if (prop.weaponAttacksPerSecond) {
-            query.filters.weapon_filters.filters.aps = {
-                min: +prop.weaponAttacksPerSecond.value
-            };
+        const damage = item.damage;
+        if (damage) {
+            if (damage.dps) {
+                query.filters.weapon_filters.filters.dps = {
+                    min: damage.dps
+                };
+            }
+            if (damage.edps) {
+                query.filters.weapon_filters.filters.edps = {
+                    min: damage.edps
+                };
+            }
+            if (damage.pdps) {
+                query.filters.weapon_filters.filters.pdps = {
+                    min: damage.pdps
+                };
+            }
         }
 
-        if (prop.weaponCriticalStrikeChance) {
-            query.filters.weapon_filters.filters.aps = {
-                min: +(prop.weaponCriticalStrikeChance.value.replace('%', ''))
-            };
-        }
+        const prop = item.properties;
+        if (prop) {
+            if (prop.weaponAttacksPerSecond) {
+                query.filters.weapon_filters.filters.aps = {
+                    min: +prop.weaponAttacksPerSecond.value
+                };
+            }
 
-        // TODO: Add other Dps if needed
+            if (prop.weaponCriticalStrikeChance) {
+                query.filters.weapon_filters.filters.aps = {
+                    min: +(prop.weaponCriticalStrikeChance.value.replace('%', ''))
+                };
+            }
+        }
     }
 
     private mapArmourFilters(item: Item, query: Query): void {
@@ -195,6 +215,8 @@ export class ItemSearchQueryService {
             option: `${!!item.corrupted}`
         };
 
+        this.mapInfluences(item, query);
+
         if (!item.properties) {
             return;
         }
@@ -229,7 +251,43 @@ export class ItemSearchQueryService {
         }
     }
 
-    private mapStatsFilter(item: Item, query: Query): void {
+    private mapMapFilters(item: Item, query: Query): void {
+        if (!item.properties) {
+            return;
+        }
+
+        query.filters.map_filters = {
+            filters: {}
+        };
+
+        const prop = item.properties;
+        if (prop.mapTier) {
+            query.filters.map_filters.filters.map_tier = {
+                min: +prop.mapTier.value,
+                max: +prop.mapTier.value
+            };
+        }
+
+        if (prop.mapQuantity) {
+            query.filters.map_filters.filters.map_iiq = {
+                min: +prop.mapQuantity.value.replace('%', '').replace('+', ''),
+            };
+        }
+
+        if (prop.mapRarity) {
+            query.filters.map_filters.filters.map_iir = {
+                min: +prop.mapRarity.value.replace('%', '').replace('+', ''),
+            };
+        }
+
+        if (prop.mapPacksize) {
+            query.filters.map_filters.filters.map_packsize = {
+                min: +prop.mapPacksize.value.replace('%', '').replace('+', ''),
+            };
+        }
+    }
+
+    private mapStatsFilters(item: Item, query: Query): void {
         const implicits = (item.implicits || []).filter(x => !!x);
         const explicits = (item.explicits || [])
             .filter(group => !!group)
@@ -275,5 +333,42 @@ export class ItemSearchQueryService {
                 }
             }
         });
+    }
+
+    private mapInfluences(item: Item, query: Query): void {
+        if (!item.influences) {
+            return;
+        }
+
+        if (item.influences.shaper) {
+            query.filters.misc_filters.filters.shaper_item = {
+                option: `${!!item.influences.shaper}`
+            };
+        }
+        if (item.influences.crusader) {
+            query.filters.misc_filters.filters.crusader_item = {
+                option: `${!!item.influences.crusader}`
+            };
+        }
+        if (item.influences.hunter) {
+            query.filters.misc_filters.filters.hunter_item = {
+                option: `${!!item.influences.hunter}`
+            };
+        }
+        if (item.influences.elder) {
+            query.filters.misc_filters.filters.elder_item = {
+                option: `${!!item.influences.elder}`
+            };
+        }
+        if (item.influences.redeemer) {
+            query.filters.misc_filters.filters.redeemer_item = {
+                option: `${!!item.influences.redeemer}`
+            };
+        }
+        if (item.influences.warlord) {
+            query.filters.misc_filters.filters.warlord_item = {
+                option: `${!!item.influences.warlord}`
+            };
+        }
     }
 }

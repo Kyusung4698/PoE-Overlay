@@ -4,7 +4,7 @@ import { WindowService } from '@app/service';
 import { SnackBarService } from '@shared/module/material/service';
 import { ItemSearchEvaluateService, ItemSearchService } from '@shared/module/poe/service';
 import { CurrencyService } from '@shared/module/poe/service/currency/currency.service';
-import { Item, ItemSearchEvaluateResult, Language } from '@shared/module/poe/type';
+import { Item, ItemRarity, ItemSearchEvaluateResult, Language } from '@shared/module/poe/type';
 import { BehaviorSubject, forkJoin, Observable, of, Subject } from 'rxjs';
 import { debounceTime, flatMap, switchMap, takeUntil } from 'rxjs/operators';
 
@@ -54,16 +54,26 @@ export class EvaluateDialogComponent implements OnInit {
 
   private initQueryItem(): void {
     const item = this.data.item;
-    this.queryItem = {
+    const prop = item.properties;
+    const queryItem: Item = {
       nameId: item.nameId,
       typeId: item.typeId,
       rarity: item.rarity,
+      corrupted: item.corrupted,
+      influences: item.influences || {},
+      level: (item.level && item.level > 80) ? item.level : undefined,
+      damage: {},
       explicits: (item.explicits || []).map(x => []),
       implicits: [],
-      properties: {},
+      properties: prop ? {
+        gemLevel: prop.gemLevel,
+        mapTier: prop.mapTier,
+        quality: item.rarity === ItemRarity.Gem ? prop.quality : undefined,
+      } : {},
       requirements: {},
-      sockets: []
+      sockets: item.sockets || [],
     };
+    this.queryItem = JSON.parse(JSON.stringify(queryItem));
     this.queryItemChange = new Subject<Item>();
   }
 

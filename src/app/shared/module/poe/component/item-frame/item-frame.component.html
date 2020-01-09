@@ -12,23 +12,38 @@
     <div class="detail">
         <!-- properties -->
         <ng-container *ngIf="item.properties">
+            <ng-container *ngIf="item.damage">
+                <div *ngIf="item.damage.dps">
+                    <app-item-frame-query [(property)]="queryItem.damage.dps" (propertyChange)="onPropertyChange()"
+                        [value]="item.damage.dps">
+                        <span> {{'DPS'}} </span>
+                        <span class="white">&nbsp;{{item.damage.dps | number : '1.2-2'}}</span>
+                    </app-item-frame-query>
+                </div>
+                <div *ngIf="item.damage.pdps">
+                    <app-item-frame-query [(property)]="queryItem.damage.pdps" (propertyChange)="onPropertyChange()"
+                        [value]="item.damage.pdps">
+                        <span> {{'Physical DPS'}} </span>
+                        <span class="white">&nbsp;{{item.damage.pdps | number : '1.2-2'}}</span>
+                    </app-item-frame-query>
+                </div>
+                <div *ngIf="item.damage.edps">
+                    <app-item-frame-query [(property)]="queryItem.damage.edps" (propertyChange)="onPropertyChange()"
+                        [value]="item.damage.edps">
+                        <span> {{'Elemental DPS'}} </span>
+                        <span class="white">&nbsp;{{item.damage.edps | number : '1.2-2'}}</span>
+                    </app-item-frame-query>
+                </div>
+            </ng-container>
             <ng-container *ngFor="let property of properties">
                 <div *ngIf="item.properties[property] as prop">
                     <app-item-frame-query [(property)]="queryItem.properties[property]"
                         (propertyChange)="onPropertyChange()" [value]="prop">
                         <ng-container [ngSwitch]="property">
-                            <span *ngSwitchCase="'weaponPhysicalDamage'">
-                                {{'ItemDisplayWeaponPhysicalDamage' | clientString:language}}</span>
-                            <span *ngSwitchCase="'weaponElementalDamage'">
-                                {{'ItemDisplayWeaponElementalDamage' | clientString:language}}</span>
-                            <span *ngSwitchCase="'weaponChaosDamage'">
-                                {{'ItemDisplayWeaponChaosDamage' | clientString:language}}</span>
                             <span *ngSwitchCase="'weaponCriticalStrikeChance'">
                                 {{'ItemDisplayWeaponCriticalStrikeChance' | clientString:language}}</span>
                             <span *ngSwitchCase="'weaponAttacksPerSecond'">
                                 {{'ItemDisplayWeaponAttacksPerSecond' | clientString:language}}</span>
-                            <span *ngSwitchCase="'weaponRange'">
-                                {{'ItemDisplayWeaponRange' | clientString:language}}</span>
                             <span *ngSwitchCase="'shieldBlockChance'">
                                 {{'ItemDisplayShieldBlockChance' | clientString:language}}</span>
                             <span *ngSwitchCase="'armourArmour'">
@@ -43,13 +58,21 @@
                                 {{'Quality' | clientString:language}}</span>
                             <span *ngSwitchCase="'gemExperience'">
                                 {{'Experience' | clientString:language}}</span>
+                            <span *ngSwitchCase="'mapTier'">
+                                {{'ItemDisplayMapTier' | clientString:language}}</span>
+                            <span *ngSwitchCase="'mapQuantity'">
+                                {{'ItemDisplayMapQuantityIncrease' | clientString:language}}</span>
+                            <span *ngSwitchCase="'mapRarity'">
+                                {{'ItemDisplayMapRarityIncrease' | clientString:language}}</span>
+                            <span *ngSwitchCase="'mapPacksize'">
+                                {{'ItemDisplayMapPackSizeIncrease' | clientString:language}}</span>
                         </ng-container>
                         <span [class]="prop.augmented ? 'purpel' : 'white'">&nbsp;{{prop.value}}</span>
                     </app-item-frame-query>
                 </div>
             </ng-container>
             <div class="separator"
-                *ngIf="item.level || item.requirements || (item.sockets && item.sockets.length > 0) || item.secondaryDescription || (item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.corrupted !== undefined || item.description || separator">
+                *ngIf="item.level || item.requirements || (item.sockets && item.sockets.length > 0) || item.secondaryDescription || (item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.corrupted !== undefined || item.description || separator || item.influences">
             </div>
         </ng-container>
 
@@ -97,7 +120,7 @@
                 </ng-container>
             </div>
             <div class="separator"
-                *ngIf="(item.sockets && item.sockets.length > 0) || item.secondaryDescription || (item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.corrupted !== undefined || item.description || separator">
+                *ngIf="(item.sockets && item.sockets.length > 0) || item.secondaryDescription || (item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.corrupted !== undefined || item.description || separator || item.influences">
             </div>
         </ng-container>
 
@@ -119,7 +142,7 @@
                 </ng-container>
             </div>
             <div class="separator"
-                *ngIf="item.secondaryDescription || (item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.corrupted !== undefined || item.description || separator">
+                *ngIf="item.secondaryDescription || (item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.corrupted !== undefined || item.description || separator || item.influences">
             </div>
         </ng-container>
 
@@ -128,7 +151,7 @@
                 {{item.secondaryDescription}}
             </div>
             <div class="separator"
-                *ngIf="(item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.corrupted !== undefined || item.description || separator">
+                *ngIf="(item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.corrupted !== undefined || item.description || separator || item.influences">
             </div>
         </ng-container>
 
@@ -140,7 +163,8 @@
                 </app-item-frame-query>
             </div>
             <div class="separator"
-                *ngIf="(item.explicits && item.explicits.length > 0) || item.corrupted !== undefined || item.description || separator"></div>
+                *ngIf="(item.explicits && item.explicits.length > 0) || item.corrupted !== undefined || item.description || separator || item.influences">
+            </div>
         </ng-container>
 
         <ng-container *ngIf="item.explicits && item.explicits.length > 0">
@@ -153,7 +177,9 @@
                         </span>
                     </app-item-frame-query>
                 </div>
-                <div class="separator" *ngIf="!last || item.corrupted !== undefined || item.description || separator"></div>
+                <div class="separator"
+                    *ngIf="!last || item.corrupted !== undefined || item.description || separator|| item.influences">
+                </div>
             </ng-container>
         </ng-container>
 
@@ -162,6 +188,54 @@
                 [value]="item.corrupted">
                 <div class="red">{{'ItemPopupCorrupted' | clientString:language}}</div>
             </app-item-frame-query>
+            <div class="separator" *ngIf="item.description || separator || item.influences"></div>
+        </ng-container>
+
+        <ng-container *ngIf="item.influences">
+            <ng-container *ngIf="item.influences.shaper">
+                <app-item-frame-query [(property)]="queryItem.influences.shaper" (propertyChange)="onPropertyChange()"
+                    [value]="item.influences.shaper">
+                    <span class="rose"> {{'ItemPopupShaperItem' | clientString:language}}</span>
+                </app-item-frame-query>
+                <span
+                    *ngIf="item.influences.crusader || item.influences.hunter || item.influences.elder || item.influences.redeemer || item.influences.warlord">,&nbsp;</span>
+            </ng-container>
+            <ng-container *ngIf="item.influences.crusader">
+                <app-item-frame-query [(property)]="queryItem.influences.crusader" (propertyChange)="onPropertyChange()"
+                    [value]="item.influences.crusader">
+                    <span class="rose"> {{'ItemPopupCrusaderItem' | clientString:language}}</span>
+                </app-item-frame-query>
+                <span
+                    *ngIf="item.influences.hunter || item.influences.elder || item.influences.redeemer || item.influences.warlord">,&nbsp;</span>
+            </ng-container>
+            <ng-container *ngIf="item.influences.hunter">
+                <app-item-frame-query [(property)]="queryItem.influences.hunter" (propertyChange)="onPropertyChange()"
+                    [value]="item.influences.hunter">
+                    <span class="rose"> {{'ItemPopupHunterItem' | clientString:language}}</span>
+                </app-item-frame-query>
+                <span
+                    *ngIf="item.influences.elder || item.influences.redeemer || item.influences.warlord">,&nbsp;</span>
+            </ng-container>
+            <ng-container *ngIf="item.influences.elder">
+                <app-item-frame-query [(property)]="queryItem.influences.elder" (propertyChange)="onPropertyChange()"
+                    [value]="item.influences.elder">
+                    <span class="rose"> {{'ItemPopupElderItem' | clientString:language}}</span>
+                </app-item-frame-query>
+                <span *ngIf="item.influences.redeemer || item.influences.warlord">,&nbsp;</span>
+            </ng-container>
+            <ng-container *ngIf="item.influences.redeemer">
+                <app-item-frame-query [(property)]="queryItem.influences.redeemer" (propertyChange)="onPropertyChange()"
+                    [value]="item.influences.redeemer">
+                    <span class="rose"> {{'ItemPopupRedeemerItem' | clientString:language}}</span>
+                </app-item-frame-query>
+                <span *ngIf="item.influences.warlord">,&nbsp;</span>
+            </ng-container>
+            <ng-container *ngIf="item.influences.warlord">
+                <app-item-frame-query [(property)]="queryItem.influences.warlord" (propertyChange)="onPropertyChange()"
+                    [value]="item.influences.warlord">
+                    <span class="rose"> {{'ItemPopupWarlordItem' | clientString:language}}</span>
+                </app-item-frame-query>
+            </ng-container>
             <div class="separator" *ngIf="item.description || separator"></div>
         </ng-container>
 

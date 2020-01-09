@@ -1,3 +1,13 @@
+## 0.4.1 (2020-01-09)
+
+* add weapon dps, pdps and edps as filter
+* add map tier, item quantity, item rarity and monster pack size as filter (#26)
+* add influenced shaper, crusader, hunter, elder, redeemer and warlord as filter (#28)
+* add auto-select for: corrupted, item level > 80, gem level, map tier, quality if gem, influenced and sockets (#33)
+* add clipboard clear after item copying
+* update gem level parser (#34)
+* update base-item-types (#23, #25)
+
 ## 0.4.0 (2020-01-08)
 
 * add offical poe trade api
