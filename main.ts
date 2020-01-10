@@ -24,10 +24,22 @@ ipcMain.on('set-keyboard-delay', (event, delay) => {
     event.returnValue = true;
 });
 
+/* hotkeys */
+
 ipcMain.on('register-shortcut', (event, shortcut) => {
   hotkeys.register(shortcut, () => {
     win.webContents.send('shortcut-' + shortcut);
   });
+  event.returnValue = true;
+});
+
+ipcMain.on('unregister-shortcut', (event, shortcut) => {
+  hotkeys.unregister(shortcut);
+  event.returnValue = true;
+});
+
+ipcMain.on('unregisterall-shortcut', (event) => {
+  hotkeys.unregisterall();
   event.returnValue = true;
 });
 
@@ -129,7 +141,7 @@ function loadApp(win: BrowserWindow, route: string = '') {
     }
 
     if (serve) {
-        // win.webContents.openDevTools();
+        win.webContents.openDevTools();
     }
 }
 

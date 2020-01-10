@@ -12,7 +12,7 @@ export class ShortcutService {
     constructor(
         private readonly ngZone: NgZone,
         electronProvider: ElectronProvider) {
-          this.ipcRenderer = electronProvider.provideIpcRenderer();
+        this.ipcRenderer = electronProvider.provideIpcRenderer();
     }
 
     public register(shortcut: string): Observable<void> {
@@ -27,10 +27,10 @@ export class ShortcutService {
     }
 
     public unregister(shortcut: string): void {
-        // this.electron.globalShortcut.unregister(shortcut);
+        this.ipcRenderer.sendSync('unregister-shortcut', shortcut);
     }
 
     public unregisterAll(): void {
-        // this.electron.globalShortcut.unregisterAll();
+        this.ipcRenderer.sendSync('unregisterall-shortcut');
     }
 }
