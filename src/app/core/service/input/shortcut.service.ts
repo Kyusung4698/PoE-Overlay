@@ -27,10 +27,16 @@ export class ShortcutService {
     }
 
     public unregister(shortcut: string): void {
+        this.ipcRenderer.removeAllListeners(shortcut);
         this.ipcRenderer.sendSync('unregister-shortcut', shortcut);
     }
 
     public unregisterAll(): void {
+        this.ipcRenderer.eventNames().forEach(n => {
+          if (n.toString().startsWith('shortcut-')) {
+            this.ipcRenderer.removeAllListeners(n.toString());
+          }
+        });
         this.ipcRenderer.sendSync('unregisterall-shortcut');
     }
 }
