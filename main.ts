@@ -1,6 +1,7 @@
 import { app, BrowserWindow, ipcMain, Menu, Tray } from 'electron';
 import * as path from 'path';
 import * as robot from 'robotjs';
+import * as hotkeys from 'hotkeys';
 import * as url from 'url';
 import { version } from './package.json';
 
@@ -21,6 +22,13 @@ ipcMain.on('key-tap', (event, key, modifier) => {
 ipcMain.on('set-keyboard-delay', (event, delay) => {
     robot.setKeyboardDelay(delay);
     event.returnValue = true;
+});
+
+ipcMain.on('register-shortcut', (event, shortcut) => {
+  hotkeys.register(shortcut, () => {
+    win.webContents.send('shortcut-' + shortcut);
+  });
+  event.returnValue = true;
 });
 
 /* main window */
@@ -45,9 +53,12 @@ function createWindow(): BrowserWindow {
     win.setIgnoreMouseEvents(true);
     win.setAlwaysOnTop(true, 'screen-saver');
 
+    hotkeys.beginListener();
+
     loadApp(win);
 
     win.on('closed', () => {
+        hotkeys.removeListener();
         win = null;
     });
 
@@ -118,7 +129,7 @@ function loadApp(win: BrowserWindow, route: string = '') {
     }
 
     if (serve) {
-        win.webContents.openDevTools();
+        // win.webContents.openDevTools();
     }
 }
 

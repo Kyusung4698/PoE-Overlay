@@ -19,7 +19,7 @@
     "build:dev": "npm run build",
     "build:prod": "npm run build -- -c production",
     "electron:serve-tsc": "tsc -p tsconfig.serve.json",
-    "electron:serve": "wait-on http-get://localhost:4200/ && npm run electron:serve-tsc && electron . --serve",
+    "electron:serve": "wait-on http-get://localhost:4200/ && npm run electron:serve-tsc && electron . --serve --inspect-brk",
     "electron:local": "npm run build:prod && electron .",
     "electron:windows": "npm run build:prod && electron-builder build --windows",
     "electron:version": "electron -v && electron -a",
@@ -41,6 +41,7 @@
     "@swimlane/ngx-charts": "^13.0.1",
     "localforage": "^1.7.3",
     "robotjs": "git+https://github.com/Kyusung4698/robotjs.git",
+    "hotkeys": "git+https://github.com/Calyx-/hotkeys.git",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
