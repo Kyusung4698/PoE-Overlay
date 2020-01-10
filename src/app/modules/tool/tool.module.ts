@@ -19,8 +19,8 @@ export class ToolModule implements FeatureModule {
 
     public getSettings(): UserSettingsFeature {
         const defaultSettings: ToolUserSettings = {
-            toolStorageLeft: 'CmdOrCtrl + MWHEELDOWN',
-            toolStorageRight: 'CmdOrCtrl + MWHEELUP',
+            toolStorageLeft: 'CmdOrCtrl + MWHEELUP',
+            toolStorageRight: 'CmdOrCtrl + MWHEELDOWN',
         };
         return {
             name: 'Tools',
