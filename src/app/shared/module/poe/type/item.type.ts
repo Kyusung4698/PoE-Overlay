@@ -1,7 +1,9 @@
+import { Query } from '@data/poe';
 import { Currency } from './currency.type';
 
 export interface Item {
     rarity?: ItemRarity;
+    category?: ItemCategory;
     nameId?: string;
     typeId?: string;
     level?: number;
@@ -26,6 +28,60 @@ export enum ItemRarity {
     Currency = 'currency',
     Gem = 'gem',
     DivinationCard = 'divinationcard'
+}
+
+export enum ItemCategory {
+    Weapon = 'weapon',
+    WeaponOne = 'weapon.one',
+    WeaponOneMelee = 'weapon.onemelee',
+    WeaponTwoMelee = 'weapon.twomelee',
+    WeaponBow = 'weapon.bow',
+    WeaponClaw = 'weapon.claw',
+    WeaponDagger = 'weapon.dagger',
+    WeaponRunedagger = 'weapon.runedagger',
+    WeaponOneAxe = 'weapon.oneaxe',
+    WeaponOneMace = 'weapon.onemace',
+    WeaponOneSword = 'weapon.onesword',
+    WeaponSceptre = 'weapon.sceptre',
+    WeaponStaff = 'weapon.staff',
+    WeaponWarstaff = 'weapon.warstaff',
+    WeaponTwoAxe = 'weapon.twoaxe',
+    WeaponTwoMace = 'weapon.twomace',
+    WeaponTwoSword = 'weapon.twosword',
+    WeaponWand = 'weapon.wand',
+    WeaponRod = 'weapon.rod',
+    Armour = 'armour',
+    ArmourChest = 'armour.chest',
+    ArmourBoots = 'armour.boots',
+    ArmourGloves = 'armour.gloves',
+    ArmourHelmet = 'armour.helmet',
+    ArmourShield = 'armour.shield',
+    ArmourQuiver = 'armour.quiver',
+    Accessory = 'accessory',
+    AccessoryAmulet = 'accessory.amulet',
+    AccessoryBelt = 'accessory.belt',
+    AccessoryRing = 'accessory.ring',
+    Gem = 'gem',
+    GemActivegem = 'gem.activegem',
+    GemSupportGem = 'gem.supportgem',
+    GemSupportGemplus = 'gem.supportgemplus',
+    Jewel = 'jewel',
+    JewelAbyss = 'jewel.abyss',
+    Flask = 'flask',
+    Map = 'map',
+    MapFragment = 'map.fragment',
+    MapScarab = 'map.scarab',
+    Watchstone = 'watchstone',
+    Leaguestone = 'leaguestone',
+    Prophecy = 'prophecy',
+    Card = 'card',
+    MonsterBeast = 'monster.beast',
+    MonsterSample = 'monster.sample',
+    Currency = 'currency',
+    CurrencyPiece = 'currency.piece',
+    CurrencyResonator = 'currency.resonator',
+    CurrencyFossil = 'currency.fossil',
+    CurrencyIncubator = 'currency.incubator',
 }
 
 export interface ItemWeaponDamage {
@@ -154,4 +210,8 @@ export interface ItemSectionParserService {
 
 export interface ItemPostParserService {
     process(item: Item): void;
+}
+
+export interface ItemSearchFiltersService {
+    add(item: Item, query: Query): void;
 }

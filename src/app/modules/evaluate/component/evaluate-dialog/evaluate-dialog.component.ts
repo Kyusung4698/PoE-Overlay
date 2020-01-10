@@ -58,6 +58,7 @@ export class EvaluateDialogComponent implements OnInit {
     const queryItem: Item = {
       nameId: item.nameId,
       typeId: item.typeId,
+      category: item.category,
       rarity: item.rarity,
       corrupted: item.corrupted,
       influences: item.influences || {},

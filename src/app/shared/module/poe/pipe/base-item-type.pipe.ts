@@ -1,15 +1,15 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { BaseItemTypeService } from '../service';
+import { BaseItemTypesService } from '../service/base-item-types/base-item-types.service';
 import { Language } from '../type';
 
 @Pipe({
     name: 'baseItemType'
 })
 export class BaseItemTypePipe implements PipeTransform {
-    constructor(private readonly baseItemTypeService: BaseItemTypeService) {
+    constructor(private readonly baseItemTypesService: BaseItemTypesService) {
     }
 
     public transform(value: string, language: Language) {
-        return this.baseItemTypeService.translate(value, language);
+        return this.baseItemTypesService.translate(value, language);
     }
 }

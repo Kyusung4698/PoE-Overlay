@@ -5,7 +5,7 @@ import { forkJoin, from, Observable, of } from 'rxjs';
 import { flatMap, map, mergeMap, toArray } from 'rxjs/operators';
 import { ContextService } from '../context.service';
 import { CurrencyService } from '../currency/currency.service';
-import { ItemSearchQueryService } from './item-search-query.service';
+import { ItemSearchQueryService } from './query/item-search-query.service';
 
 const MAX_FETCH_COUNT = 10;
 const MAX_FETCH_CONCURRENT_COUNT = 5;

@@ -2,19 +2,18 @@ import { async, TestBed } from '@angular/core/testing';
 import { Item, Language } from '@shared/module/poe/type';
 import { SharedModule } from '@shared/shared.module';
 import { forkJoin } from 'rxjs';
+import { BaseItemTypesService } from '../base-item-types/base-item-types.service';
 import { ContextService } from '../context.service';
 import { CurrencyService } from '../currency/currency.service';
 import { ItemSearchEvaluateService } from './item-search-evaluate.service';
 import { ItemSearchService } from './item-search.service';
-import { BaseItemTypeService } from '../base-item-type/base-item-type.service';
 
 describe('ItemSearchEvaluateService', () => {
     let sut: ItemSearchEvaluateService;
     let contextService: ContextService;
     let searchService: ItemSearchService;
     let currencyService: CurrencyService;
-    let baseItemTypeService: BaseItemTypeService;
-
+    let baseItemTypesService: BaseItemTypesService;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
@@ -31,12 +30,12 @@ describe('ItemSearchEvaluateService', () => {
 
         searchService = TestBed.get<ItemSearchService>(ItemSearchService);
         currencyService = TestBed.get<CurrencyService>(CurrencyService);
-        baseItemTypeService = TestBed.get<BaseItemTypeService>(BaseItemTypeService);
+        baseItemTypesService = TestBed.get<BaseItemTypesService>(BaseItemTypesService);
     }));
 
     it('should return items', (done) => {
         const requestedItem: Item = {
-            typeId: baseItemTypeService.search('Topaz Ring')
+            typeId: baseItemTypesService.search('Topaz Ring')
         };
 
         forkJoin(

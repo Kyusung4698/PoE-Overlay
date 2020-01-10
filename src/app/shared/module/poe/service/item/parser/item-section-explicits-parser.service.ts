@@ -23,13 +23,7 @@ export class ItemSectionExplicitsParserService implements ItemSectionParserServi
                 return null;
         }
 
-        const result: Section[] = [];
-        for (const section of item.sections) {
-            if (this.parseSection(section, target)) {
-                result.push(section);
-            }
-        }
-        return result;
+        return item.sections.filter(section => this.parseSection(section, target));
     }
 
     private parseSection(section: Section, target: Item): boolean {

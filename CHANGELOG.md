@@ -1,3 +1,9 @@
+## 0.4.2 (2020-01-xx)
+
+* add item category as filter (#11, #39)
+* add prophecies item type base (#37)
+* fix mods without values (#39)
+
 ## 0.4.1 (2020-01-09)
 
 * add weapon dps, pdps and edps as filter
