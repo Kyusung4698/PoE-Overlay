@@ -65,12 +65,9 @@ function createWindow(): BrowserWindow {
     win.setIgnoreMouseEvents(true);
     win.setAlwaysOnTop(true, 'screen-saver');
 
-    hotkeys.beginListener();
-
     loadApp(win);
 
     win.on('closed', () => {
-        hotkeys.removeListener();
         win = null;
     });
 
@@ -173,11 +170,13 @@ function createTray(): Tray {
 
 try {
     app.on('ready', () => {
+        hotkeys.beginListener();
         createWindow();
         createTray();
     });
 
     app.on('window-all-closed', () => {
+        hotkeys.removeListener();
         if (process.platform !== 'darwin') {
             app.quit();
         }
