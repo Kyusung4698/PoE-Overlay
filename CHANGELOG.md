@@ -1,3 +1,8 @@
+## 0.4.3 (2020-01-11)
+
+* add throttling to stash tab scrolling (#50)
+* fix item type used as term (#48)
+
 ## 0.4.2 (2020-01-11)
 
 * add item category as filter (#11, #39)

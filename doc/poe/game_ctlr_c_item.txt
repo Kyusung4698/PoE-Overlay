@@ -275,3 +275,116 @@ Item Level: 45
 +10% to Cold Resistance
 11% increased Stun and Block Recovery
 +21% to Lightning Resistance (crafted)
+
+Rarity: Unique
+Watcher's Eye
+Prismatic Jewel
+--------
+Limited to: 1
+--------
+Item Level: 85
+--------
+4% increased maximum Energy Shield
+6% increased maximum Life
+5% increased maximum Mana
+Unaffected by Burning Ground while affected by Purity of Fire
+Unaffected by Temporal Chains while affected by Haste
+--------
+One by one, they stood their ground against a creature 
+they had no hope of understanding, let alone defeating,
+and one by one, they became a part of it.
+--------
+Place into an allocated Jewel Socket on the Passive Skill Tree. Right click to remove from the Socket.
+
+Rarity: Normal
+Fragment of the Chimera
+--------
+Enter the crucible. The nexus of
+nothingness and equilibrium of eternity.
+--------
+Can be used in a personal Map Device.
+
+Rarity: Normal
+Gilded Bestiary Scarab
+--------
+Area contains Einhar
+Area contains 3 additional Red Beasts
+--------
+The Order was your clan in life, Agnar, Beastmaster, but the First Ones call
+back their favoured son. The gift of their Visions will pass to another.
+--------
+Can be used in a personal Map Device to add modifiers to a Map.
+
+Rarity: Normal
+Fire from the Sky
+--------
+Fire rains down across the land. Beware the path you take.
+--------
+You will discover an area with an Infernal Tempest
+--------
+Right-click to add this prophecy to your character.
+
+Rarity: Unique
+War Among the Stars
+Ivory Watchstone
+--------
+Item Level: 86
+--------
+Area contains 4 additional packs of Elder Fiends
+Area contains 6 additional packs of Shaper Creations
+2 uses remaining
+--------
+Conflict begets only suffering.
+For some, that is by design.
+
+Rarity: Unique
+Hephaeus, The Hammer's Brain
+--------
+Uses: Sunder
+--------
+Item Level: 77
+--------
+Drops additional Rare Armour
+Drops additional Unique Items
+Drops a Rare Weapon
+--------
+Combine this with four other different samples in Tane's Laboratory.
+--------
+Note: ~price 1 alch
+
+Rarity: Rare
+Crimsonraker
+Corrupted Arach
+--------
+Genus: Spiders
+Group: Arachnids
+Family: The Caverns
+--------
+Item Level: 80
+--------
+Incendiary Mite
+Allies have increased Accuracy and Critical Strike Chance
+Extra Life
+Extra Damage
+Uses Viper Strike
+--------
+Right-click to add this to your bestiary.
+
+
+Rarity: Rare
+Crimsongrowl
+Granite Eater
+--------
+Genus: Sand Spitters
+Group: Crustaceans
+Family: The Deep
+--------
+Item Level: 72
+--------
+Churning Claws
+Allies Deal Substantial Extra Physical Damage
+Extra Fire Damage
+Extra Cold Damage
+Extra Life
+--------
+Right-click to add this to your bestiary.

@@ -1,15 +1,29 @@
 import { Injectable } from '@angular/core';
 import { Query } from '@data/poe';
-import { Item, ItemCategory, ItemSearchFiltersService } from '@shared/module/poe/type';
+import { Item, ItemCategory, ItemSearchFiltersService, Language } from '@shared/module/poe/type';
+import { ItemService } from '../item.service';
 
 @Injectable({
     providedIn: 'root'
 })
 export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
-    public add(item: Item, query: Query): void {
+
+    constructor(private readonly itemNameService: ItemService) { }
+
+    public add(item: Item, language: Language, query: Query): void {
         query.filters.type_filters = {
             filters: {}
         };
+
+        const name = this.itemNameService.getName(item.nameId, language);
+        if (name) {
+            query.name = name;
+        }
+
+        const type = this.itemNameService.getType(item.typeId, language);
+        if (type) {
+            query.type = type;
+        }
 
         switch (item.category) {
             // weapon
@@ -66,11 +80,6 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
             case ItemCategory.GemSupportGemplus:
             case ItemCategory.Watchstone:
             case ItemCategory.Leaguestone:
-            case ItemCategory.Prophecy:
-            // divination card
-            case ItemCategory.Card:
-            case ItemCategory.MonsterBeast:
-            case ItemCategory.MonsterSample:
             // currency
             case ItemCategory.Currency:
             case ItemCategory.CurrencyPiece:
@@ -80,9 +89,22 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
             // map
             case ItemCategory.MapFragment:
             case ItemCategory.MapScarab:
+            // divination card
+            case ItemCategory.Card:
                 query.filters.type_filters.filters.category = {
                     option: item.category,
                 };
+                break;
+            // don't work yet
+            case ItemCategory.MonsterBeast:
+            case ItemCategory.MonsterSample:
+            // prophecy
+            case ItemCategory.Prophecy:
+                query.filters.type_filters.filters.category = {
+                    option: item.category,
+                };
+                query.term = query.type;
+                query.type = undefined;
                 break;
             default:
                 break;

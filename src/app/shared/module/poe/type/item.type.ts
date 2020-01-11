@@ -1,5 +1,6 @@
 import { Query } from '@data/poe';
 import { Currency } from './currency.type';
+import { Language } from './language.type';
 
 export interface Item {
     rarity?: ItemRarity;
@@ -213,5 +214,5 @@ export interface ItemPostParserService {
 }
 
 export interface ItemSearchFiltersService {
-    add(item: Item, query: Query): void;
+    add(item: Item, language: Language, query: Query): void;
 }

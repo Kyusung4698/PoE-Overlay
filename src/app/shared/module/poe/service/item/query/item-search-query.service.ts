@@ -19,7 +19,6 @@ export class ItemSearchQueryService {
     private readonly filters: ItemSearchFiltersService[];
 
     constructor(
-        private readonly itemNameService: ItemService,
         private readonly statsDescriptionService: StatsDescriptionService,
         private readonly statsIdService: StatsIdService,
         filtersTypeService: ItemSearchFiltersTypeService,
@@ -41,20 +40,7 @@ export class ItemSearchQueryService {
     }
 
     public map(item: Item, language: Language, query: Query) {
-        const name = this.itemNameService.getName(item.nameId, language);
-        const type = this.itemNameService.getType(item.typeId, language);
-        if (name) {
-            query.name = name;
-            if (type) {
-                query.type = type;
-            }
-        } else {
-            if (type) {
-                query.term = type;
-            }
-        }
-
-        this.filters.forEach(filter => filter.add(item, query));
+        this.filters.forEach(filter => filter.add(item, language, query));
 
         // TODO: will be replaced soon
         this.mapStatsFilters(item, query);
