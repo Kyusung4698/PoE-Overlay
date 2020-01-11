@@ -1,6 +1,5 @@
 <mat-card>
-  <mat-label>Storage Left</mat-label>
-</mat-card>
-<mat-card>
-  <mat-label>Storage Right</mat-label>
+  <mat-slide-toggle [checked]="settings.toolStorageNavigation" (change)="settings.toolStorageNavigation = $event.checked">
+    Storage Navigation (CTRL + SCROLL)
+  </mat-slide-toggle>
 </mat-card>

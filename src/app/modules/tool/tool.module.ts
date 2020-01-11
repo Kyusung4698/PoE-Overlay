@@ -7,10 +7,10 @@ import { ToolSettingsComponent, ToolUserSettings } from './component';
 import { ToolService } from './service/tool.service';
 
 @NgModule({
-  providers: [{ provide: FEATURE_MODULES, useClass: ToolModule, multi: true }],
-  declarations: [ToolSettingsComponent],
-  entryComponents: [ToolSettingsComponent],
-  imports: [SharedModule]
+    providers: [{ provide: FEATURE_MODULES, useClass: ToolModule, multi: true }],
+    declarations: [ToolSettingsComponent],
+    entryComponents: [ToolSettingsComponent],
+    imports: [SharedModule]
 })
 export class ToolModule implements FeatureModule {
 
@@ -19,8 +19,7 @@ export class ToolModule implements FeatureModule {
 
     public getSettings(): UserSettingsFeature {
         const defaultSettings: ToolUserSettings = {
-            toolStorageLeft: 'CmdOrCtrl + MWHEELUP',
-            toolStorageRight: 'CmdOrCtrl + MWHEELDOWN',
+            toolStorageNavigation: true,
         };
         return {
             name: 'Tools',
@@ -30,14 +29,17 @@ export class ToolModule implements FeatureModule {
     }
 
     public getFeatures(settings: ToolUserSettings): Feature[] {
+        if (!settings.toolStorageNavigation) {
+            return [];
+        }
         return [
             {
                 name: 'storage-left',
-                shortcut: settings.toolStorageLeft
+                shortcut: 'CmdOrCtrl + MouseWheelUp'
             },
             {
                 name: 'storage-right',
-                shortcut: settings.toolStorageRight
+                shortcut: 'CmdOrCtrl + MouseWheelDown'
             }
         ];
     }

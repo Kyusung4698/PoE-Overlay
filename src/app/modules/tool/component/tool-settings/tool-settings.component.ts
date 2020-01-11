@@ -2,8 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { UserSettings, UserSettingsComponent } from 'src/app/layout/type';
 
 export interface ToolUserSettings extends UserSettings {
-  toolStorageLeft: string;
-  toolStorageRight: string;
+  toolStorageNavigation: boolean;
 }
 
 @Component({
