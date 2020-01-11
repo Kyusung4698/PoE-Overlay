@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Query } from '@data/poe';
-import { Item, ItemSearchFiltersService } from '@shared/module/poe/type';
+import { Item, ItemSearchFiltersService, Language } from '@shared/module/poe/type';
 
 @Injectable({
     providedIn: 'root'
 })
 export class ItemSearchFiltersRequirementsService implements ItemSearchFiltersService {
-    public add(item: Item, query: Query): void {
+    public add(item: Item, language: Language, query: Query): void {
         const req = item.requirements;
         if (!req) {
             return;
