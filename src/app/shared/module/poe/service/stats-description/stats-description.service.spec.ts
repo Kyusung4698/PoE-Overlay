@@ -39,6 +39,8 @@ describe('StatsDescriptionService', () => {
         '+6% to all Elemental Resistances',
         '67% increased Projectile Damage',
         '20% increased Light Radius',
+        'Regenerate 0.9% of Life per second while moving',
+        '0.29% of Physical Attack Damage Leeched as Mana',
     ];
     it('should return search', () => {
         const result = sut.searchMultiple(modifiers, Language.English);
