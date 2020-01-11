@@ -1,6 +1,7 @@
 import { app, BrowserWindow, ipcMain, Menu, Tray } from 'electron';
 import * as path from 'path';
 import * as robot from 'robotjs';
+import * as hotkeys from 'hotkeys';
 import * as url from 'url';
 import { version } from './package.json';
 
@@ -21,6 +22,25 @@ ipcMain.on('key-tap', (event, key, modifier) => {
 ipcMain.on('set-keyboard-delay', (event, delay) => {
     robot.setKeyboardDelay(delay);
     event.returnValue = true;
+});
+
+/* hotkeys */
+
+ipcMain.on('register-shortcut', (event, shortcut) => {
+  hotkeys.register(shortcut, () => {
+    win.webContents.send('shortcut-' + shortcut);
+  });
+  event.returnValue = true;
+});
+
+ipcMain.on('unregister-shortcut', (event, shortcut) => {
+  hotkeys.unregister(shortcut);
+  event.returnValue = true;
+});
+
+ipcMain.on('unregisterall-shortcut', (event) => {
+  hotkeys.unregisterall();
+  event.returnValue = true;
 });
 
 /* main window */
@@ -150,11 +170,13 @@ function createTray(): Tray {
 
 try {
     app.on('ready', () => {
+        hotkeys.beginListener();
         createWindow();
         createTray();
     });
 
     app.on('window-all-closed', () => {
+        hotkeys.removeListener();
         if (process.platform !== 'darwin') {
             app.quit();
         }
