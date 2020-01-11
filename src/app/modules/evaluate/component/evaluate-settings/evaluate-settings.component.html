@@ -1,5 +1,9 @@
 <mat-card>
     <mat-label>Evaluate Settings</mat-label>
+    <mat-slide-toggle [checked]="settings.evaluateQueryDefault"
+        (change)="settings.evaluateQueryDefault = $event.checked">
+        Add Defaults to Query
+    </mat-slide-toggle>
     <mat-form-field>
         <mat-label>Display Currency</mat-label>
         <mat-select [(value)]="settings.evaluateCurrencyId">

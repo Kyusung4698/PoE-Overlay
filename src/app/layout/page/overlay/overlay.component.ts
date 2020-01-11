@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, HostListener, Inject, OnDestroy, OnInit } from '@angular/core';
 import { RendererService, ShortcutService, WindowService } from '@app/service';
+import { DialogShortcutService } from '@app/service/input/dialog-shortcut.service.js';
 import { FEATURE_MODULES } from '@app/token';
 import { FeatureModule } from '@app/type';
 import { ReleasesHttpService } from '@data/github';
@@ -29,7 +30,8 @@ export class OverlayComponent implements OnInit, OnDestroy {
     private readonly context: ContextService,
     private readonly window: WindowService,
     private readonly renderer: RendererService,
-    private readonly shortcut: ShortcutService) { }
+    private readonly shortcut: ShortcutService,
+    private readonly dialogShortcut: DialogShortcutService) { }
 
   @HostListener('window:beforeunload', [])
   public onWindowBeforeUnload(): void {
@@ -59,6 +61,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
     this.registerFeatures(settings);
     this.registerSettings(settings);
     this.registerExit(settings);
+    this.dialogShortcut.init();
   }
 
   private checkVersion(): void {

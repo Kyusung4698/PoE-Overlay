@@ -158,6 +158,11 @@ function createTray(): Tray {
             click: () => win.webContents.send('show-user-settings'),
         },
         {
+            label: 'Restore Focus',
+            type: 'normal',
+            click: () => win.setIgnoreMouseEvents(true),
+        },
+        {
             label: 'Exit',
             type: 'normal',
             click: () => app.quit()

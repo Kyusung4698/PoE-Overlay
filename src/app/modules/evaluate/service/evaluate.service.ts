@@ -20,7 +20,7 @@ export class EvaluateService {
         private readonly evaluateDialog: EvaluateDialogService) {
     }
 
-    public evaluate(currencyId: string, language?: Language): Observable<void> {
+    public evaluate(currencyId: string, queryDefault: boolean, language?: Language): Observable<void> {
         let point: Point;
         let item: Item;
         try {
@@ -42,6 +42,6 @@ export class EvaluateService {
         if (!item) {
             return this.snackbar.warning('Copied item could not be parsed. Make sure you have the correct language selected.');
         }
-        return this.evaluateDialog.open(point, item, currencyId, language);
+        return this.evaluateDialog.open(point, item, currencyId, queryDefault, language);
     }
 }

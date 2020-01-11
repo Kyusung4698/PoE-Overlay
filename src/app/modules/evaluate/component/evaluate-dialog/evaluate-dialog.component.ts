@@ -11,6 +11,7 @@ import { debounceTime, flatMap, switchMap, takeUntil } from 'rxjs/operators';
 export interface EvaluateDialogData {
   item: Item;
   currencyId: string;
+  queryDefault: boolean;
   language?: Language;
 }
 
@@ -54,7 +55,6 @@ export class EvaluateDialogComponent implements OnInit {
 
   private initQueryItem(): void {
     const item = this.data.item;
-    const prop = item.properties;
     const queryItem: Item = {
       nameId: item.nameId,
       typeId: item.typeId,
@@ -62,18 +62,29 @@ export class EvaluateDialogComponent implements OnInit {
       rarity: item.rarity,
       corrupted: item.corrupted,
       influences: item.influences || {},
-      level: (item.level && item.level > 80) ? item.level : undefined,
       damage: {},
       explicits: (item.explicits || []).map(x => []),
       implicits: [],
-      properties: prop ? {
-        gemLevel: prop.gemLevel,
-        mapTier: prop.mapTier,
-        quality: item.rarity === ItemRarity.Gem ? prop.quality : undefined,
-      } : {},
+      properties: {},
       requirements: {},
-      sockets: item.sockets || [],
+      sockets: [],
     };
+
+    if (this.data.queryDefault) {
+      if (item.level && item.level > 80) {
+        queryItem.level = item.level;
+      }
+
+      const prop = item.properties;
+      if (prop) {
+        queryItem.properties.gemLevel = prop.gemLevel;
+        queryItem.properties.mapTier = prop.mapTier;
+        queryItem.properties.quality = item.rarity === ItemRarity.Gem ? prop.quality : undefined;
+      }
+
+      queryItem.sockets = item.sockets;
+    }
+
     this.queryItem = JSON.parse(JSON.stringify(queryItem));
     this.queryItemChange = new Subject<Item>();
   }

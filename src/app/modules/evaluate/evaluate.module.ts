@@ -4,10 +4,10 @@ import { Feature, FeatureModule } from '@app/type';
 import { Language } from '@shared/module/poe/type';
 import { SharedModule } from '@shared/shared.module';
 import { UserSettingsFeature } from 'src/app/layout/type';
+import { EvaluateChartComponent } from './component/evaluate-chart/evaluate-chart.component';
 import { EvaluateDialogComponent } from './component/evaluate-dialog/evaluate-dialog.component';
 import { EvaluateSettingsComponent, EvaluateUserSettings } from './component/evaluate-settings/evaluate-settings.component';
 import { EvaluateService } from './service/evaluate.service';
-import { EvaluateChartComponent } from './component/evaluate-chart/evaluate-chart.component';
 
 @NgModule({
     providers: [{ provide: FEATURE_MODULES, useClass: EvaluateModule, multi: true }],
@@ -23,9 +23,10 @@ export class EvaluateModule implements FeatureModule {
     public getSettings(): UserSettingsFeature {
         const defaultSettings: EvaluateUserSettings = {
             evaluateCurrencyId: 'chaos',
+            evaluateQueryDefault: true,
             evaluateKeybinding: 'CmdOrCtrl + D',
             evaluateTranslatedItemLanguage: Language.English,
-            evaluateTranslatedKeybinding: 'CmdOrCtrl + T'
+            evaluateTranslatedKeybinding: 'CmdOrCtrl + T',
         };
         return {
             name: 'Evaluate',
@@ -50,10 +51,15 @@ export class EvaluateModule implements FeatureModule {
     public run(feature: string, settings: EvaluateUserSettings): void {
         switch (feature) {
             case 'evaluate':
-                this.evaluateService.evaluate(settings.evaluateCurrencyId).subscribe();
+                this.evaluateService.evaluate(
+                    settings.evaluateCurrencyId,
+                    settings.evaluateQueryDefault).subscribe();
                 break;
             case 'evaluate-translate':
-                this.evaluateService.evaluate(settings.evaluateCurrencyId, settings.evaluateTranslatedItemLanguage).subscribe();
+                this.evaluateService.evaluate(
+                    settings.evaluateCurrencyId,
+                    settings.evaluateQueryDefault,
+                    settings.evaluateTranslatedItemLanguage).subscribe();
                 break;
             default:
                 break;
