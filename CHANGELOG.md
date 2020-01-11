@@ -6,7 +6,7 @@
 * add esc to close dialogs (#30)
 * add defaults to query toggle (#45)
 * add active window check (#10)
-* update global hotkeys to be passive (#10)
+* update global hotkeys to be passive (#10) thanks to @Calyx-
 * fix mods without values (#39)
 
 ## 0.4.1 (2020-01-09)

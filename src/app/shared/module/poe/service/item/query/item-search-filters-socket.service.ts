@@ -21,16 +21,14 @@ export class ItemSearchFiltersSocketService implements ItemSearchFiltersService 
         const sockets = validSockets.filter(x => !!x.color);
         if (sockets.length > 0) {
             query.filters.socket_filters.filters.sockets = {
-                min: sockets.length,
-                max: sockets.length
+                min: sockets.length
             };
         }
 
         const links = validSockets.filter(x => !!x.linked);
         if (links.length > 0) {
             query.filters.socket_filters.filters.links = {
-                min: links.length + 1,
-                max: links.length + 1
+                min: links.length + 1
             };
         }
     }
