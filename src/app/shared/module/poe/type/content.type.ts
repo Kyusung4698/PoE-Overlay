@@ -1,6 +1,4 @@
-export interface BaseItemTypeMap {
-    [id: string]: string;
-}
+import { ItemCategory } from './item.type';
 
 export interface ClientStringMap {
     [id: string]: string;
@@ -18,4 +16,12 @@ export interface StatsDescriptionMap {
 
 export interface StatsIdMap {
     [id: string]: string;
+}
+
+export interface BaseItemTypeMap {
+    [id: string]: string;
+}
+
+export interface BaseItemTypeCategoryMap {
+    [id: string]: ItemCategory;
 }

@@ -1,3 +1,14 @@
+## 0.4.2 (2020-01-11)
+
+* add item category as filter (#11, #39)
+* add prophecies item type base (#37)
+* add ctrl + scroll as stash tab change (#31)
+* add esc to close dialogs (#30)
+* add defaults to query toggle (#45)
+* add active window check (#10)
+* update global hotkeys to be passive (#10)
+* fix mods without values (#39)
+
 ## 0.4.1 (2020-01-09)
 
 * add weapon dps, pdps and edps as filter

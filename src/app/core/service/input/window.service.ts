@@ -3,6 +3,7 @@ import { ElectronProvider } from '@app/provider';
 import { Rectangle } from '@app/type';
 import { Remote } from 'electron';
 import { Observable, Subject } from 'rxjs';
+import { DialogShortcutService } from './dialog-shortcut.service';
 
 @Injectable({
     providedIn: 'root'
@@ -12,6 +13,7 @@ export class WindowService {
 
     constructor(
         private readonly ngZone: NgZone,
+        private readonly dialogShortcut: DialogShortcutService,
         electronProvider: ElectronProvider) {
         this.electron = electronProvider.provideRemote();
     }
@@ -62,6 +64,9 @@ export class WindowService {
                 height: 800,
                 backgroundColor: '#0F0F0F'
             });
+            const close = win.close.bind(win);
+            this.dialogShortcut.register(close);
+            win.once('closed', () => this.dialogShortcut.unregister(close));
             win.loadURL(url);
         }
     }

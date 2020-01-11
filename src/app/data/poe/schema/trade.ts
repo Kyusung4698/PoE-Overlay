@@ -229,6 +229,7 @@ export interface Filters {
 export interface Query {
     status?: FilterOption;
     name?: string;
+    term?: string;
     type?: string;
     stats?: StatsGroup[];
     filters?: Filters;

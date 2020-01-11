@@ -10,6 +10,7 @@ export interface EvaluateUserSettings extends UserSettings {
   evaluateKeybinding: string;
   evaluateTranslatedItemLanguage: Language;
   evaluateTranslatedKeybinding: string;
+  evaluateQueryDefault: boolean;
 }
 
 @Component({

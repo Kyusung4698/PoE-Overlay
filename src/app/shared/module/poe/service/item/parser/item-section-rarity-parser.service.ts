@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ExportedItem, Item, ItemRarity, ItemSectionParserService, Section } from '../../../type';
-import { BaseItemTypeService } from '../../base-item-type/base-item-type.service';
+import { BaseItemCategoriesService } from '../../base-item-categories/base-item-categories.service';
+import { BaseItemTypesService } from '../../base-item-types/base-item-types.service';
 import { ClientStringService } from '../../client-string/client-string.service';
 import { WordService } from '../../word/word.service';
 
@@ -10,7 +11,8 @@ import { WordService } from '../../word/word.service';
 export class ItemSectionRarityParserService implements ItemSectionParserService {
     constructor(
         private readonly clientString: ClientStringService,
-        private readonly baseItemTypeService: BaseItemTypeService,
+        private readonly baseItemTypesService: BaseItemTypesService,
+        private readonly baseItemCategoriesService: BaseItemCategoriesService,
         private readonly wordService: WordService) { }
 
     public optional = false;
@@ -37,11 +39,11 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
 
         switch (lines.length) {
             case 2:
-                target.typeId = this.baseItemTypeService.search(lines[1]);
+                target.typeId = this.baseItemTypesService.search(lines[1]);
                 break;
             case 3:
                 target.nameId = this.wordService.search(lines[1]);
-                target.typeId = this.baseItemTypeService.search(lines[2]);
+                target.typeId = this.baseItemTypesService.search(lines[2]);
                 break;
             default:
                 return null;
@@ -51,6 +53,7 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
             return null;
         }
 
+        target.category = this.baseItemCategoriesService.get(target.typeId);
         return raritySection;
     }
 

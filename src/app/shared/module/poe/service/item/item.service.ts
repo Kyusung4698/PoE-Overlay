@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Language } from '../../type';
-import { BaseItemTypeService } from '../base-item-type/base-item-type.service';
+import { ItemCategory, Language } from '../../type';
+import { BaseItemCategoriesService } from '../base-item-categories/base-item-categories.service';
+import { BaseItemTypesService } from '../base-item-types/base-item-types.service';
 import { ContextService } from '../context.service';
 import { WordService } from '../word/word.service';
 
@@ -10,7 +11,8 @@ import { WordService } from '../word/word.service';
 export class ItemService {
     constructor(
         private readonly context: ContextService,
-        private readonly baseItemTypeService: BaseItemTypeService,
+        private readonly baseItemTypesService: BaseItemTypesService,
+        private readonly baseItemCategoriesService: BaseItemCategoriesService,
         private readonly wordService: WordService) { }
 
     public getNameType(nameId: string, typeId: string, language?: Language): string {
@@ -31,7 +33,11 @@ export class ItemService {
         language = language || this.context.get().language;
 
         const type = typeId
-            ? this.baseItemTypeService.translate(typeId, language) : '';
+            ? this.baseItemTypesService.translate(typeId, language) : '';
         return type;
+    }
+
+    public getCategory(typeId: string): ItemCategory {
+        return this.baseItemCategoriesService.get(typeId);
     }
 }

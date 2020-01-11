@@ -1,4 +1,4 @@
-# PoE Overlay 0.4.1
+# PoE Overlay 0.4.2
 
 An Overlay for Path of Exile. The ***core aspect*** is to blend in with the game. Built with Electron and Angular. 
 
@@ -39,9 +39,12 @@ This project is currently in a ***pilot phase***. If you encounter any bugs or h
     * filter your search on all supported properties on click<br> ![item_filter](img/item_filter_0.4.0.jpg)
     * an in game browser to display the created search<br> ![browser](img/item_browser_0.4.0.jpg)
 
-* Customisable keybings:  
+* Customisable keybindings:  
     * bind in game commands to a custom hotkey
     * premade /hideout on `F5` and /dnd on `F6`
+
+* Tools:
+    * Navigating storage by CTRL + WHEEL
 
 ## Roadmap
 
@@ -51,6 +54,7 @@ This project is currently in a ***pilot phase***. If you encounter any bugs or h
 | Shared | 100% | + item frame<br>+ currency frame<br>+ item parser in all languages<br>+ item parser mods
 | Evaluate         | 100%           | + Basic search implemented <br>+ User settings (display currency, translated language) <br>+ Chart to display values instead of avg <br>+ Advanced search with filter on modifiers |
 | Command        | 100%            | + bind in-game commmands to shortcuts (/dnd, /hideout) |
+| Tool        | 100%            | + navigating through storage by CTRL + WHEEL |
 | Trade      | 0%           | - Send messages<br>- Trade UI<br>- etc.       |
 
 

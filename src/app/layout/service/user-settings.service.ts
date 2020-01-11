@@ -7,6 +7,7 @@ import { UserSettings } from '../type';
 import { UserSettingsDialogService } from './user-settings-dialog.service';
 import { UserSettingsFeatureService } from './user-settings-feature.service';
 import { UserSettingsStorageService } from './user-settings-storage.service';
+import { Language } from '@shared/module/poe/type';
 
 @Injectable({
     providedIn: 'root'
@@ -26,7 +27,8 @@ export class UserSettingsService {
             flatMap(savedSettings => {
                 let mergedSettings: UserSettings = {
                     openUserSettingsKeybinding: 'F7',
-                    exitAppKeybinding: 'F8'
+                    exitAppKeybinding: 'F8',
+                    language: Language.English
                 };
 
                 modules.forEach(x => {

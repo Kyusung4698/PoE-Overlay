@@ -6,9 +6,11 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { AcceleratorComponent } from './component/accelerator/accelerator.component';
+
 
 @NgModule({
   imports: [
@@ -20,7 +22,8 @@ import { AcceleratorComponent } from './component/accelerator/accelerator.compon
     MatInputModule,
     MatSelectModule,
     MatDividerModule,
-    MatCardModule
+    MatCardModule,
+    MatSlideToggleModule
   ],
   exports: [
     MatButtonModule,
@@ -32,6 +35,7 @@ import { AcceleratorComponent } from './component/accelerator/accelerator.compon
     MatSelectModule,
     MatDividerModule,
     MatCardModule,
+    MatSlideToggleModule,
     // custom
     AcceleratorComponent
   ],

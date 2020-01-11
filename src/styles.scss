@@ -19,6 +19,10 @@ body {
   background-color: rgb(35, 35, 35);
 }
 
+.mat-slide-toggle {
+  margin-bottom: 12px;
+}
+
 .backdrop-fullsize + .cdk-global-overlay-wrapper {
   .mat-dialog-container {
     border-radius: 2px;
