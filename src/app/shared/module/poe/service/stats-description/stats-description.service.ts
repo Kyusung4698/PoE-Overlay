@@ -30,7 +30,7 @@ export class StatsDescriptionService {
         result = result.slice(1, result.length - 1);
         // replace values
         for (const value of values) {
-            result = result.replace('(-?[\\d]+)', value);
+            result = result.replace('(-?\\d*.?\\d+)', value);
         }
         // reverse escape string regex
         return result.replace(/\\[.*+?^${}()|[\]\\]/g, (value) => value.replace('\\', ''));

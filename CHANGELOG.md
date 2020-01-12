@@ -1,3 +1,10 @@
+## 0.4.4 (2020-01-12)
+
+* add splash icon (#51)
+* fix currency convert check (#66)
+* fix alt key not working as keybinding (#58)
+* fix decimal values not being parsed (#62)
+
 ## 0.4.3 (2020-01-11)
 
 * add throttling to stash tab scrolling (#50)

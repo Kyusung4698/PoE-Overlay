@@ -175,7 +175,7 @@ function createTray(): Tray {
 
 try {
     app.on('ready', () => {
-        hotkeys.beginListener();
+        hotkeys.beginListener(!serve);
         createWindow();
         createTray();
     });
