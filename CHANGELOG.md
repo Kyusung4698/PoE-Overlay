@@ -1,3 +1,10 @@
+## 0.5.0-alpha.0 (2020-01-12)
+
+* add stats type support for (explicit, implicit, crafted, fractured and enchant) (#27, #36, #59, #65)
+* add total count to chart (#9)
+* fix keybindings not working after tabbing (#76)
+* update query to use 1 week listed, only with prices and on/offline.
+
 ## 0.4.4 (2020-01-12)
 
 * add splash icon (#51)

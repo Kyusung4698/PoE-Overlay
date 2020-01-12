@@ -1,7 +1,7 @@
 <ngx-charts-bar-vertical [view]="view" [results]="items" [scheme]="scheme" [animations]="true" [xAxis]="true"
-    [yAxis]="false" [legend]="false" [showXAxisLabel]="false" [showYAxisLabel]="false" barPadding="4"
+    [yAxis]="false" [legend]="false" barPadding="4"
     [tooltipDisabled]="false" [roundDomains]="true" [roundEdges]="true" [showDataLabel]="false">
     <ng-template #tooltipTemplate let-model="model">
-        <span class="tooltip-val">{{model.value}}</span>
+        <span class="tooltip-val">{{model.value}}&nbsp;/&nbsp;{{result.total}}</span>
     </ng-template>
 </ngx-charts-bar-vertical>

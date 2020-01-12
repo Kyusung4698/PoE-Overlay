@@ -30,9 +30,20 @@ export class ItemSearchService {
             },
             query: {
                 status: {
-                    option: 'online',
+                    option: 'any',
                 },
-                filters: {},
+                filters: {
+                    trade_filters: {
+                        filters: {
+                            sale_type: {
+                                option: 'priced'
+                            },
+                            indexed: {
+                                option: '1week'
+                            }
+                        }
+                    }
+                },
                 stats: []
             },
         };
@@ -43,7 +54,8 @@ export class ItemSearchService {
                 if (response.total <= 0 || !response.result || !response.result.length) {
                     const result: ItemSearchResult = {
                         items: [],
-                        url: response.url
+                        url: response.url,
+                        total: response.total,
                     };
                     return of(result);
                 }
@@ -63,7 +75,8 @@ export class ItemSearchService {
                         if (items.length <= 0) {
                             const result: ItemSearchResult = {
                                 items: [],
-                                url: response.url
+                                url: response.url,
+                                total: response.total,
                             };
                             return of(result);
                         }
@@ -75,7 +88,8 @@ export class ItemSearchService {
                             map(x => {
                                 const result: ItemSearchResult = {
                                     items: x.filter(item => item !== undefined),
-                                    url: response.url
+                                    url: response.url,
+                                    total: response.total,
                                 };
                                 return result;
                             })
@@ -92,7 +106,12 @@ export class ItemSearchService {
         }
 
         const price = result.listing.price;
+
         const currencyAmount = price.amount;
+        if (currencyAmount <= 0) {
+            return of(undefined);
+        }
+
         const currencyId = price.currency;
         return this.currencyService.searchById(currencyId).pipe(
             map(currency => {

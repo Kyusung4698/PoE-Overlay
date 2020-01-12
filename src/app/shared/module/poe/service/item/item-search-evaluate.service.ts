@@ -39,6 +39,7 @@ export class ItemSearchEvaluateService {
                 if (items.length <= 0) {
                     const empty: ItemSearchEvaluateResult = {
                         url: itemSearchResult.url,
+                        total: itemSearchResult.total,
                         items,
                     };
                     return empty;
@@ -83,6 +84,7 @@ export class ItemSearchEvaluateService {
 
                 const result: ItemSearchEvaluateResult = {
                     url: itemSearchResult.url,
+                    total: itemSearchResult.total,
                     items,
                     itemsGrouped,
                     targetCurrency,

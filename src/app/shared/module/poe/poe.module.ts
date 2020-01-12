@@ -5,7 +5,8 @@ import { ItemFrameQueryComponent } from './component/item-frame-query/item-frame
 import { ItemFrameComponent } from './component/item-frame/item-frame.component';
 import { BaseItemTypePipe } from './pipe/base-item-type.pipe';
 import { ClientStringPipe } from './pipe/client-string.pipe';
-import { StatsDescriptionPipe } from './pipe/stats-description.pipe';
+import { StatGroupPipe } from './pipe/stat-group.pipe';
+import { StatPipe } from './pipe/stat.pipe';
 import { WordPipe } from './pipe/word.pipe';
 
 @NgModule({
@@ -13,7 +14,8 @@ import { WordPipe } from './pipe/word.pipe';
         ItemFrameComponent,
         CurrencyFrameComponent,
         ClientStringPipe,
-        StatsDescriptionPipe,
+        StatPipe,
+        StatGroupPipe,
         WordPipe,
         BaseItemTypePipe,
         ItemFrameQueryComponent,
@@ -25,7 +27,7 @@ import { WordPipe } from './pipe/word.pipe';
         ItemFrameComponent,
         CurrencyFrameComponent,
         ClientStringPipe,
-        StatsDescriptionPipe,
+        StatPipe,
         WordPipe,
         BaseItemTypePipe
     ]

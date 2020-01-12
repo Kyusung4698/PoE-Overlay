@@ -63,8 +63,7 @@ export class EvaluateDialogComponent implements OnInit {
       corrupted: item.corrupted,
       influences: item.influences || {},
       damage: {},
-      explicits: (item.explicits || []).map(x => []),
-      implicits: [],
+      stats: [],
       properties: {},
       requirements: {},
       sockets: [],
@@ -116,7 +115,8 @@ export class EvaluateDialogComponent implements OnInit {
         if (results[0].items.length <= 0) {
           const empty: ItemSearchEvaluateResult = {
             url: results[0].url,
-            items: []
+            items: [],
+            total: 0,
           };
           return of(empty);
         }
@@ -128,7 +128,8 @@ export class EvaluateDialogComponent implements OnInit {
   private handleError(error: any): void {
     this.result$.next({
       url: null,
-      items: null
+      items: null,
+      total: null
     });
     this.snackbar.error(`${typeof error === 'string' ? `${error}` : 'An unexpected error occured while searching for the item.'}`);
   }

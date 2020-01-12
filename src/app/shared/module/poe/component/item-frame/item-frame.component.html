@@ -72,7 +72,7 @@
                 </div>
             </ng-container>
             <div class="separator"
-                *ngIf="item.level || item.requirements || (item.sockets && item.sockets.length > 0) || item.secondaryDescription || (item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.corrupted !== undefined || item.description || separator || item.influences">
+                *ngIf="item.level || item.requirements || (item.sockets && item.sockets.length > 0) || item.secondaryDescription || (item.stats && item.stats.length > 0) || item.corrupted !== undefined || item.description || separator || item.influences">
             </div>
         </ng-container>
 
@@ -120,7 +120,7 @@
                 </ng-container>
             </div>
             <div class="separator"
-                *ngIf="(item.sockets && item.sockets.length > 0) || item.secondaryDescription || (item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.corrupted !== undefined || item.description || separator || item.influences">
+                *ngIf="(item.sockets && item.sockets.length > 0) || item.secondaryDescription || (item.stats && item.stats.length > 0) || item.corrupted !== undefined || item.description || separator || item.influences">
             </div>
         </ng-container>
 
@@ -142,7 +142,7 @@
                 </ng-container>
             </div>
             <div class="separator"
-                *ngIf="item.secondaryDescription || (item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.corrupted !== undefined || item.description || separator || item.influences">
+                *ngIf="item.secondaryDescription || (item.stats && item.stats.length > 0) || item.corrupted !== undefined || item.description || separator || item.influences">
             </div>
         </ng-container>
 
@@ -151,42 +151,76 @@
                 {{item.secondaryDescription}}
             </div>
             <div class="separator"
-                *ngIf="(item.implicits && item.implicits.length > 0) || (item.explicits && item.explicits.length > 0) || item.corrupted !== undefined || item.description || separator || item.influences">
+                *ngIf="(item.stats && item.stats.length > 0) || item.corrupted !== undefined || item.description || separator || item.influences">
             </div>
         </ng-container>
 
-        <ng-container *ngIf="item.implicits && item.implicits.length > 0">
-            <div *ngFor="let implicit of item.implicits; let index = index;">
-                <app-item-frame-query [(property)]="queryItem.implicits[index]" (propertyChange)="onPropertyChange()"
-                    [value]="implicit">
-                    <span [class]="implicit.crafted ? 'blue' : 'purpel'">{{implicit | statsDescription:language}}</span>
-                </app-item-frame-query>
-            </div>
-            <div class="separator"
-                *ngIf="(item.explicits && item.explicits.length > 0) || item.corrupted !== undefined || item.description || separator || item.influences">
-            </div>
-        </ng-container>
+        <ng-container *ngIf="item.stats && item.stats.length > 0">
+            <ng-container *ngIf="item.stats | statGroup as groups">
+                <ng-container *ngIf="groups.enchant">
+                    <ng-container *ngFor="let stat of groups.enchant; let last = last">
+                        <app-item-frame-query [(property)]="queryItem.stats[stat.index]"
+                            (propertyChange)="onPropertyChange()" [value]="stat">
+                            <div class="blue">{{stat|stat:language}} </div>
+                        </app-item-frame-query>
+                        <div class="separator" *ngIf="last"></div>
+                    </ng-container>
+                </ng-container>
+                <ng-container *ngIf="groups.implicit">
+                    <ng-container *ngFor="let stat of groups.implicit; let last = last">
+                        <div class="purpel">
+                            <app-item-frame-query [(property)]="queryItem.stats[stat.index]"
+                                (propertyChange)="onPropertyChange()" [value]="stat">
+                                {{stat|stat:language}}
+                            </app-item-frame-query>
+                        </div>
+                        <div class="separator" *ngIf="last"></div>
+                    </ng-container>
+                </ng-container>
+                <ng-container *ngIf="groups.fractured">
+                    <ng-container *ngFor="let stat of groups.fractured">
+                        <div class="blue">
+                            <app-item-frame-query [(property)]="queryItem.stats[stat.index]"
+                                (propertyChange)="onPropertyChange()" [value]="stat">
+                                {{stat|stat:language}}
+                            </app-item-frame-query>
+                        </div>
+                    </ng-container>
+                </ng-container>
+                <ng-container *ngIf="groups.explicit">
+                    <ng-container *ngFor="let stat of groups.explicit">
+                        <div class="purpel">
+                            <app-item-frame-query [(property)]="queryItem.stats[stat.index]"
+                                (propertyChange)="onPropertyChange()" [value]="stat">
+                                {{stat|stat:language}}
+                            </app-item-frame-query>
+                        </div>
+                    </ng-container>
+                </ng-container>
+                <ng-container *ngIf="groups.crafted">
+                    <ng-container *ngFor="let stat of groups.crafted">
+                        <div class="blue">
+                            <app-item-frame-query [(property)]="queryItem.stats[stat.index]"
+                                (propertyChange)="onPropertyChange()" [value]="stat">
+                                {{stat|stat:language}}
+                            </app-item-frame-query>
+                        </div>
+                    </ng-container>
+                </ng-container>
 
-        <ng-container *ngIf="item.explicits && item.explicits.length > 0">
-            <ng-container *ngFor="let explicitGroup of item.explicits; let last = last; let groupIndex = index">
-                <div *ngFor="let explicit of explicitGroup; let index = index">
-                    <app-item-frame-query [(property)]="queryItem.explicits[groupIndex][index]"
-                        (propertyChange)="onPropertyChange()" [value]="explicit">
-                        <span [class]="explicit.crafted ? 'blue' : 'purpel'">
-                            {{explicit | statsDescription:language}}
-                        </span>
-                    </app-item-frame-query>
-                </div>
-                <div class="separator"
-                    *ngIf="!last || item.corrupted !== undefined || item.description || separator|| item.influences">
-                </div>
+                <ng-container *ngIf="groups.fractured || groups.explicit || groups.crafted">
+                    <div class="separator"
+                        *ngIf="item.corrupted !== undefined || item.description || separator || item.influences">
+                    </div>
+                </ng-container>
             </ng-container>
         </ng-container>
 
         <ng-container *ngIf="item.corrupted !== undefined">
             <app-item-frame-query [(property)]="queryItem.corrupted" (propertyChange)="onPropertyChange()"
                 [value]="item.corrupted">
-                <div class="red">{{'ItemPopupCorrupted' | clientString:language}}</div>
+                <div class="red">{{'ItemPopupCorrupted' | clientString:language}}
+                </div>
             </app-item-frame-query>
             <div class="separator" *ngIf="item.description || separator || item.influences"></div>
         </ng-container>

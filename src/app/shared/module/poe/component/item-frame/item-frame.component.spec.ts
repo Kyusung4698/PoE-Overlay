@@ -16,7 +16,7 @@ const gem: Item = {
       Stärkung ausläuft oder verbraucht ist, verursacht die Fertigkeit bei Gegnern im Umkreis
       reflektierten Schaden, der auf dem Gesamtschaden basiert, der von der Stärkung absorbiert wurde.
       Teilt sich eine Abklingzeit mit anderen Wächter-Fertigkeiten.`,
-  explicits: [],
+  stats: [],
   description: `Setze die Gemme in eine Fassung mit der richtigen Farbe ein,
                 um diese Fertigkeit zu erhalten. Entferne sie mit Rechtsklick aus der Fassung.`,
 };
