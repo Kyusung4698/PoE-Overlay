@@ -16,6 +16,10 @@ export class ItemSearchEvaluateService {
         const items$ = itemSearchResult.items.map(item =>
             this.currencyConverterService.convert(item.currency, targetCurrency).pipe(
                 map(factor => {
+                    if (factor === undefined) {
+                        return undefined;
+                    }
+
                     const targetCurrencyAmount = item.currencyAmount * factor;
                     const evaluateItem: EvaluateItem = {
                         ...item,
@@ -29,7 +33,16 @@ export class ItemSearchEvaluateService {
                 })
             ));
         return forkJoin(items$).pipe(
+            map(items => items.filter(item => !!item)),
             map(items => {
+
+                if (items.length <= 0) {
+                    const empty: ItemSearchEvaluateResult = {
+                        url: itemSearchResult.url,
+                        items,
+                    };
+                    return empty;
+                }
 
                 const sortedByAmount = items.sort((a, b) => a.targetCurrencyAmount - b.targetCurrencyAmount);
                 const min = sortedByAmount[0].targetCurrencyAmount;
