@@ -5,7 +5,10 @@
             {{item.nameId | word:language}}
         </div>
         <div class="name" *ngIf="item.typeId">
-            {{item.typeId | baseItemType:language}}
+            <app-item-frame-query [(property)]="queryItem.typeId"
+                (propertyChange)="onPropertyChange()" [value]="item.typeId">
+                <span>{{item.typeId | baseItemType:language}}</span>
+            </app-item-frame-query>
         </div>
     </div>
 
