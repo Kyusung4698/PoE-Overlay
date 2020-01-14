@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ExportedItem, Item, ItemRarity, ItemSectionParserService, Section } from '@shared/module/poe/type';
-import { StatsService } from '../../stats/stats.service';
+import { StatsSearchText, StatsService } from '../../stats/stats.service';
 
 @Injectable({
     providedIn: 'root'
@@ -21,14 +21,20 @@ export class ItemSectionStatsParserService implements ItemSectionParserService {
                 return null;
         }
 
-        const stats = item.sections.reduce((a, b) => a.concat(b.lines), []);
+        const stats = item.sections.reduce((a, b, index) => a.concat(b.lines.map(line => {
+            const text: StatsSearchText = {
+                value: line,
+                section: index
+            };
+            return text;
+        })), <StatsSearchText[]>[]);
         if (stats.length === 0) {
             return null;
         }
 
         const result = this.statsService.searchMultiple(stats);
-        const keys = Object.getOwnPropertyNames(result);
-        target.stats = keys.sort((a, b) => stats.indexOf(a) - stats.indexOf(b)).map(key => result[key]);
+        const sorted = result.sort((a, b) => stats.indexOf(a.text) - stats.indexOf(b.text));
+        target.stats = sorted.map(x => x.stat);
     }
 }
 

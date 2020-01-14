@@ -20,3 +20,14 @@ export interface BaseItemTypeCategoryMap {
 export interface StatMap {
     [id: string]: Stat;
 }
+
+export interface ModValue {
+    min: number;
+    max: number;
+}
+
+export interface ModsMap {
+    [statId: string]: {
+        [modId: string]: ModValue[]
+    };
+}

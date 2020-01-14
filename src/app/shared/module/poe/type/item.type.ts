@@ -14,11 +14,15 @@ export interface Item {
     sockets?: ItemSocket[];
     properties?: ItemProperties;
     requirements?: ItemRequirements;
-    secondaryDescription?: string;
     stats?: ItemStat[];
     influences?: ItemInfluences;
-    description?: string;
     note?: string;
+}
+
+export interface ItemValue {
+    text: string;
+    min?: number;
+    max?: number;
 }
 
 export enum ItemRarity {
@@ -137,7 +141,7 @@ export interface ItemStat {
     tradeId: string;
     mod: string;
     type: StatType;
-    values: string[];
+    values: ItemValue[];
 }
 
 export interface ItemRequirements {

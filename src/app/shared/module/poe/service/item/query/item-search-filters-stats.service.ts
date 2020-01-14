@@ -7,7 +7,7 @@ import { Item, ItemSearchFiltersService, Language } from '@shared/module/poe/typ
 })
 export class ItemSearchFiltersStatsService implements ItemSearchFiltersService {
     public add(item: Item, language: Language, query: Query): void {
-        const stats = item.stats.filter(stat => !!stat);
+        const stats = (item.stats || []).filter(stat => !!stat);
         if (stats.length <= 0) {
             return;
         }
@@ -21,11 +21,24 @@ export class ItemSearchFiltersStatsService implements ItemSearchFiltersService {
                         disabled: false,
                         id
                     };
-                    if (stat.values.length > 0) {
-                        const min = +stat.values[0].replace('%', '');
-                        if (!isNaN(min)) {
-                            filter.value = { min };
-                        }
+
+
+                    const values = (stat.values || []).filter(x => x.min !== undefined && x.max !== undefined);
+                    if (values.length > 0) {
+                        let min = 0;
+                        let max = 0;
+
+                        values.forEach(value => {
+                            min += value.min;
+                            max += value.max;
+                        });
+                        min = Math.floor(min / values.length);
+                        max = Math.ceil(max / values.length);
+
+                        filter.value = {
+                            min: min > max ? max : min,
+                            max: max > min ? max : min
+                        };
                     }
                     return filter;
                 })

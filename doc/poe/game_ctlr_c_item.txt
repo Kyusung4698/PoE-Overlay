@@ -510,3 +510,37 @@ Map has 1 additional random Prefix
 18 uses remaining
 --------
 Nothing is more alluring than mystery.
+
+
+
+Rarity: Unique
+Irresistable Temptation
+Ivory Watchstone
+--------
+Item Level: 86
+--------
+Adds 10 to 17 Cold Damage to Wand Attacks
+--------
+Nothing is more alluring than mystery.
+
+Rarity: Unique
+Circle of Guilt
+Synthesised Iron Ring
+--------
+Requirements:
+Level: 52
+--------
+Item Level: 82
+--------
+6% increased Spell Damage per Power Charge (implicit)
+--------
++12 to all Attributes
+Adds 9 to 15 Physical Damage
++373 to Armour
+Herald of Purity has 31% reduced Mana Reservation
+48% increased Physical Damage while affected by Herald of Purity
+--------
+I feel the moral weight of what I must to do to protect Wraeclast.
+I accept my guilt without shame. It is my gift to humanity.
+--------
+Synthesised Item

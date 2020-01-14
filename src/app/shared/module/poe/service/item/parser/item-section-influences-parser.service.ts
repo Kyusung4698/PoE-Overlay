@@ -14,7 +14,7 @@ export class ItemSectionInfluencesParserService implements ItemSectionParserServ
         const phrases = this.getPhrases();
 
         const influencesSection = item.sections.find(section => phrases
-            .findIndex(prop => section.content.indexOf(prop) !== -1) !== -1);
+            .findIndex(prop => section.content.indexOf(prop) === 0) !== -1);
         if (!influencesSection) {
             return null;
         }

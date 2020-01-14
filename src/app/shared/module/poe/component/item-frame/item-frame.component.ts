@@ -50,6 +50,12 @@ export class ItemFrameComponent implements OnInit {
     this.queryItemChange.emit(this.queryItem);
   }
 
+  public onValueChange(value: any): void {
+    if (value !== undefined) {
+      this.queryItemChange.emit(this.queryItem);
+    }
+  }
+
   public toggleSocketColor(index: number, value: ItemSocket): void {
     this.queryItem.sockets[index] = this.toggleSocket(this.queryItem.sockets[index], value, 'color');
     this.queryItemChange.emit(this.queryItem);

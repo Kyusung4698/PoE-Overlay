@@ -1,0 +1,9 @@
+<span class="value" [class.changed]="default.min !== value.min || default.max !== value.max" (wheel)="onWheel($event)"
+    (mouseup)="onMouseUp($event)">
+    <span class="min" *ngIf="default.min !== value.min || default.max !== value.max"
+        (wheel)="onWheelMin($event)">{{value.min | number : '1.0-2'}}</span>
+    <span *ngIf="default.min !== value.min || default.max !== value.max">~</span>
+    <span *ngIf="default.min === value.min && default.max === value.max">{{value.text}}</span>
+    <span class="max" *ngIf="default.min !== value.min || default.max !== value.max"
+        (wheel)="onWheelMax($event)">{{value.max | number : '1.0-2'}}</span>
+</span>

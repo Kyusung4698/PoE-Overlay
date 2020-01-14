@@ -4,7 +4,13 @@ import { ItemStat, Language, StatType } from '../../type';
 import { ContextService } from '../context.service';
 
 export interface StatsSearchResult {
-    [text: string]: ItemStat;
+    stat: ItemStat;
+    text: StatsSearchText;
+}
+
+export interface StatsSearchText {
+    value: string;
+    section: number;
 }
 
 @Injectable({
@@ -28,68 +34,96 @@ export class StatsService {
         result = result.slice(1, result.length - 1);
         // replace values
         for (const value of stat.values) {
-            result = result.replace('(\\S*)', value);
+            result = result.replace('(\\S*)', value.text);
         }
         // reverse escape string regex
         return result.replace(/\\[.*+?^${}()|[\]\\]/g, (value) => value.replace('\\', ''));
     }
 
-    public search(text: string, language?: Language): ItemStat {
-        return this.searchMultiple([text], language)[text];
+    public transform(stat: ItemStat, language?: Language): string[] {
+        const stats = this.statsProvider.provide(stat.type);
+        if (!stats[stat.tradeId] || !stats[stat.tradeId].text[language]) {
+            return [`untranslated: '${stat.type}.${stat.tradeId}' for language: '${Language[language]}'`];
+        }
+
+        let result = stats[stat.tradeId].text[language];
+        return result
+            .slice(1, result.length - 1)
+            .split('(\\S*)')
+            .map(part => part.replace(/\\[.*+?^${}()|[\]\\]/g, (value) => value.replace('\\', '')))
     }
 
-    public searchMultiple(texts: string[], language?: Language): StatsSearchResult {
+    public search(text: StatsSearchText, language?: Language): StatsSearchResult {
+        return this.searchMultiple([text], language)[0];
+    }
+
+    public searchMultiple(texts: StatsSearchText[], language?: Language): StatsSearchResult[] {
         language = language || this.context.get().language;
 
-        const result: StatsSearchResult = {};
+        const results: StatsSearchResult[] = [];
 
-        const unspecific = [];
+        const unspecific: StatsSearchText[] = [];
+
+        // TODO: Local Thingies
 
         const implicitPhrase = ` (${StatType.Implicit})`;
-        const implicits = [];
+        const implicits: StatsSearchText[] = [];
         const craftedPhrase = ` (${StatType.Crafted})`;
-        const crafted = [];
+        const crafteds: StatsSearchText[] = [];
         const fracturedPhrase = ` (${StatType.Fractured})`;
-        const fractured = [];
+        const fractureds: StatsSearchText[] = [];
 
         for (const text of texts) {
-            if (text.indexOf(implicitPhrase) !== -1) {
-                implicits.push(text.replace(implicitPhrase, ''));
-            } else if (text.indexOf(craftedPhrase) !== -1) {
-                crafted.push(text.replace(craftedPhrase, ''));
-            } else if (text.indexOf(fracturedPhrase) !== -1) {
-                fractured.push(text.replace(fracturedPhrase, ''));
+            if (text.value.indexOf(implicitPhrase) !== -1) {
+                const implicit = { section: text.section, value: text.value.replace(implicitPhrase, '') };
+                implicits.push(implicit);
+            } else if (text.value.indexOf(craftedPhrase) !== -1) {
+                const crafted = { section: text.section, value: text.value.replace(craftedPhrase, '') };
+                crafteds.push(crafted);
+            } else if (text.value.indexOf(fracturedPhrase) !== -1) {
+                const fractured = { section: text.section, value: text.value.replace(fracturedPhrase, '') };
+                fractureds.push(fractured);
             } else {
                 unspecific.push(text);
             }
         }
 
         if (implicits.length > 0) {
-            this.searchForType(implicits, StatType.Implicit, language, result);
+            this.searchForType(implicits, StatType.Implicit, language, results);
         }
 
-        if (crafted.length > 0) {
-            this.searchForType(crafted, StatType.Crafted, language, result);
+        if (crafteds.length > 0) {
+            this.searchForType(crafteds, StatType.Crafted, language, results);
         }
 
-        if (fractured.length > 0) {
-            this.searchForType(fractured, StatType.Fractured, language, result);
+        if (fractureds.length > 0) {
+            this.searchForType(fractureds, StatType.Fractured, language, results);
         }
 
-        // TODO:
-        // fails if stat exists in enchant and explicit eg: uses remaining
+        // TODO: add tests for this
         if (unspecific.length > 0) {
-            this.searchForType(unspecific, StatType.Enchant, language, result);
+            const enchants: StatsSearchResult[] = [];
+            this.searchForType([...unspecific], StatType.Enchant, language, enchants);
+
+            const explicits: StatsSearchResult[] = [];
+            this.searchForType([...unspecific], StatType.Explicit, language, explicits);
+
+            const uniqueSections = [...new Set(unspecific.map(x => x.section))];
+            uniqueSections.forEach(section => {
+                const enchantsInSection = enchants.filter(x => x.text.section === section);
+                const explicitsInSection = explicits.filter(x => x.text.section === section);
+                if (enchantsInSection.length >= explicitsInSection.length) {
+                    enchantsInSection.forEach(x => results.push(x));
+                } else {
+                    explicitsInSection.forEach(x => results.push(x));
+                }
+            });
         }
 
-        if (unspecific.length > 0) {
-            this.searchForType(unspecific, StatType.Explicit, language, result);
-        }
-
-        return result;
+        return results;
     }
 
-    private searchForType(texts: string[], type: StatType, language: Language, result: StatsSearchResult): void {
+    private searchForType(texts: StatsSearchText[], type: StatType, language: Language, results: StatsSearchResult[]): void {
         const stats = this.statsProvider.provide(type);
         for (const id in stats) {
             if (!stats.hasOwnProperty(id)) {
@@ -104,24 +138,26 @@ export class StatsService {
             }
 
             const expr = new RegExp(value);
-            for (let index = 0; index < texts.length; index++) {
+            for (let index = texts.length - 1; index >= 0; --index) {
                 const text = texts[index];
 
-                const test = expr.exec(text);
+                const test = expr.exec(text.value);
                 if (!test) {
                     continue;
                 }
 
-                result[text] = {
-                    id: stat.id,
-                    mod: stat.mod,
-                    type,
-                    tradeId: id,
-                    values: test.slice(1)
-                };
+                results.push({
+                    text: text,
+                    stat: {
+                        id: stat.id,
+                        mod: stat.mod,
+                        type,
+                        tradeId: id,
+                        values: test.slice(1).map(x => { return { text: x } })
+                    }
+                });
 
                 texts.splice(index, 1);
-                break;
             }
 
             if (texts.length === 0) {

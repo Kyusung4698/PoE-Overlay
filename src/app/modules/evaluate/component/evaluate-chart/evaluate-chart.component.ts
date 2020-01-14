@@ -10,7 +10,7 @@ import { colorSets } from '@swimlane/ngx-charts';
 })
 export class EvaluateChartComponent implements OnInit {
   public items: any[];
-  public view = [376, 200];
+  public view = [376 + 20, 200];
   public scheme = colorSets.find(x => x.name === 'nightLights');
 
   @HostBinding('style.width')

@@ -11,14 +11,7 @@ const gem: Item = {
     dex: 90,
     int: 127
   },
-  secondaryDescription: `Wendet eine Stärkung an, die Eure Rüstung verstärkt und die einen Teil des
-      erlittenen Schadens von Treffern für Euch absorbieren kann, bevor sie verbraucht ist. Wenn die
-      Stärkung ausläuft oder verbraucht ist, verursacht die Fertigkeit bei Gegnern im Umkreis
-      reflektierten Schaden, der auf dem Gesamtschaden basiert, der von der Stärkung absorbiert wurde.
-      Teilt sich eine Abklingzeit mit anderen Wächter-Fertigkeiten.`,
   stats: [],
-  description: `Setze die Gemme in eine Fassung mit der richtigen Farbe ein,
-                um diese Fertigkeit zu erhalten. Entferne sie mit Rechtsklick aus der Fassung.`,
 };
 
 
