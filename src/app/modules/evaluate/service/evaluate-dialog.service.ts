@@ -7,6 +7,7 @@ import { Item, Language } from '@shared/module/poe/type';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { EvaluateDialogComponent, EvaluateDialogData } from '../component/evaluate-dialog/evaluate-dialog.component';
+import { EvaluateUserSettings } from '../component/evaluate-settings/evaluate-settings.component';
 
 @Injectable({
     providedIn: 'root'
@@ -18,7 +19,7 @@ export class EvaluateDialogService {
         private readonly dialogShortcut: DialogShortcutService) {
     }
 
-    public open(point: Point, item: Item, currencyId: string, queryDefault: boolean, language?: Language): Observable<void> {
+    public open(point: Point, item: Item, settings: EvaluateUserSettings, language?: Language): Observable<void> {
         const width = 400;
         const avgHeight = 500;
 
@@ -28,8 +29,7 @@ export class EvaluateDialogService {
 
         const data: EvaluateDialogData = {
             item,
-            currencyId,
-            queryDefault,
+            settings,
             language,
         };
 

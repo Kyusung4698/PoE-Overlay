@@ -11,7 +11,7 @@ export class ItemFrameValueComponent implements OnInit {
   public default: ItemValue;
 
   @Input()
-  public modifier: number = 0.1;
+  public modifier: number;
 
   @Input()
   public value: ItemValue;
@@ -29,8 +29,28 @@ export class ItemFrameValueComponent implements OnInit {
 
   public onMouseUp(event: MouseEvent): void {
     event.stopImmediatePropagation();
-    if (event.which === 2 || event.which === 3) {
-      this.reset();
+    if (event.which === 2) {
+      this.resetValue(true, true);
+    } else if (event.which === 3) {
+      this.toggleValue(true, true);
+    }
+  }
+
+  public onMouseUpMin(event: MouseEvent): void {
+    event.stopImmediatePropagation();
+    if (event.which === 2) {
+      this.resetValue(true, false);
+    } else if (event.which === 3) {
+      this.toggleValue(true, false);
+    }
+  }
+
+  public onMouseUpMax(event: MouseEvent): void {
+    event.stopImmediatePropagation();
+    if (event.which === 2) {
+      this.resetValue(false, true);
+    } else if (event.which === 3) {
+      this.toggleValue(false, true);
     }
   }
 
@@ -49,11 +69,39 @@ export class ItemFrameValueComponent implements OnInit {
     this.adjustValue(this.getStepFromEvent(event), false, true);
   }
 
-  public reset(): void {
+  public resetValue(isMin: boolean, isMax: boolean): void {
     const { min, max } = this.value;
-    this.value = {
-      ...this.default,
-    };
+    if (isMin) {
+      this.value.min = this.default.min;
+    }
+    if (isMax) {
+      this.value.max = this.default.max;
+    }
+    if (min !== this.value.min || max !== this.value.max) {
+      this.valueChange.emit(this.value);
+    }
+  }
+
+  public toggleValue(isMin: boolean, isMax: boolean): void {
+    const { min, max } = this.value;
+
+    if (isMin && isMax) {
+      if (this.value.min === undefined || this.value.max === undefined) {
+        this.value = {
+          ...this.default,
+        };
+      } else {
+        this.value.min = this.value.max = undefined;
+      }
+    } else {
+      if (isMin) {
+        this.value.min = this.value.min === undefined ? this.default.min : undefined;
+      }
+      if (isMax) {
+        this.value.max = this.value.max === undefined ? this.default.max : undefined;
+      }
+    }
+
     if (min !== this.value.min || max !== this.value.max) {
       this.valueChange.emit(this.value);
     }
@@ -61,10 +109,15 @@ export class ItemFrameValueComponent implements OnInit {
 
   public adjustValue(step: number, isMin: boolean, isMax: boolean): void {
     const { min, max } = this.value;
-    if (isMin) {
+
+    if (isMin && !isMax) {
+      step *= -1;
+    }
+
+    if (isMin && this.value.min !== undefined) {
       this.value.min -= step;
     }
-    if (isMax) {
+    if (isMax && this.value.max !== undefined) {
       this.value.max += step;
     }
 
@@ -101,12 +154,11 @@ export class ItemFrameValueComponent implements OnInit {
     let step = 1;
     if (event.altKey) {
       step = 0.1;
-    }
-    else if (event.shiftKey) {
+    } else if (event.shiftKey) {
       step = 5;
     }
 
-    if (event.deltaY < 0) {
+    if (event.deltaY > 0) {
       step *= -1;
     }
     return step;

@@ -22,23 +22,25 @@ export class ItemSearchFiltersStatsService implements ItemSearchFiltersService {
                         id
                     };
 
+                    const mins = stat.values.filter(x => x.min !== undefined);
+                    const maxs = stat.values.filter(x => x.max !== undefined);
 
-                    const values = (stat.values || []).filter(x => x.min !== undefined && x.max !== undefined);
-                    if (values.length > 0) {
-                        let min = 0;
-                        let max = 0;
+                    let min = mins.reduce((a, b) => a + b.min, 0);
+                    let max = maxs.reduce((a, b) => a + b.max, 0);
 
-                        values.forEach(value => {
-                            min += value.min;
-                            max += value.max;
-                        });
-                        min = Math.floor(min / values.length);
-                        max = Math.ceil(max / values.length);
-
+                    if (mins.length > 0 && maxs.length > 0) {
+                        min = Math.floor(min / mins.length);
+                        max = Math.ceil(max / maxs.length);
                         filter.value = {
                             min: min > max ? max : min,
                             max: max > min ? max : min
                         };
+                    } else if (mins.length > 0) {
+                        min = Math.floor(min / mins.length);
+                        filter.value = { min };
+                    } else if (maxs.length > 0) {
+                        max = Math.ceil(max / maxs.length);
+                        filter.value = { max };
                     }
                     return filter;
                 })

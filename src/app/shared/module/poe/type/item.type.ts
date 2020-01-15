@@ -10,6 +10,7 @@ export interface Item {
     typeId?: string;
     level?: number;
     corrupted?: boolean;
+    veiled?: boolean;
     damage?: ItemWeaponDamage;
     sockets?: ItemSocket[];
     properties?: ItemProperties;

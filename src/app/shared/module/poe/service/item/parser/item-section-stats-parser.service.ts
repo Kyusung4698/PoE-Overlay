@@ -27,7 +27,7 @@ export class ItemSectionStatsParserService implements ItemSectionParserService {
                 section: index
             };
             return text;
-        })), <StatsSearchText[]>[]);
+        })), [] as StatsSearchText[]);
         if (stats.length === 0) {
             return null;
         }

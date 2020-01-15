@@ -8,6 +8,7 @@ import { EvaluateChartComponent } from './component/evaluate-chart/evaluate-char
 import { EvaluateDialogComponent } from './component/evaluate-dialog/evaluate-dialog.component';
 import { EvaluateSettingsComponent, EvaluateUserSettings } from './component/evaluate-settings/evaluate-settings.component';
 import { EvaluateService } from './service/evaluate.service';
+import { ItemSearchIndexed } from '@shared/module/poe/type/search.type';
 
 @NgModule({
     providers: [{ provide: FEATURE_MODULES, useClass: EvaluateModule, multi: true }],
@@ -22,8 +23,11 @@ export class EvaluateModule implements FeatureModule {
 
     public getSettings(): UserSettingsFeature {
         const defaultSettings: EvaluateUserSettings = {
-            evaluateCurrencyId: 'chaos',
+            evaluateCurrencyIds: ['chaos', 'exa'],
             evaluateQueryDefault: true,
+            evaluateQueryIndexed: ItemSearchIndexed.UpTo2WeeksAgo,
+            evaluateQueryOnline: false,
+            evaluateModifierRange: 10,
             evaluateKeybinding: 'CmdOrCtrl + D',
             evaluateTranslatedItemLanguage: Language.English,
             evaluateTranslatedKeybinding: 'CmdOrCtrl + T',
@@ -51,15 +55,10 @@ export class EvaluateModule implements FeatureModule {
     public run(feature: string, settings: EvaluateUserSettings): void {
         switch (feature) {
             case 'evaluate':
-                this.evaluateService.evaluate(
-                    settings.evaluateCurrencyId,
-                    settings.evaluateQueryDefault).subscribe();
+                this.evaluateService.evaluate(settings).subscribe();
                 break;
             case 'evaluate-translate':
-                this.evaluateService.evaluate(
-                    settings.evaluateCurrencyId,
-                    settings.evaluateQueryDefault,
-                    settings.evaluateTranslatedItemLanguage).subscribe();
+                this.evaluateService.evaluate(settings, settings.evaluateTranslatedItemLanguage).subscribe();
                 break;
             default:
                 break;

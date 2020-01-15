@@ -47,7 +47,7 @@ describe('StatsService', () => {
             const text: StatsSearchText = {
                 section: 0,
                 value: x
-            }
+            };
             return text;
         });
         const result = sut.searchMultiple(texts, Language.English);

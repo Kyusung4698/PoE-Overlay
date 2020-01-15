@@ -22,6 +22,10 @@ export class ItemSearchFiltersMiscsService implements ItemSearchFiltersService {
             option: `${!!item.corrupted}`
         };
 
+        query.filters.misc_filters.filters.veiled = {
+            option: `${!!item.veiled}`
+        };
+
         this.mapInfluences(item, query);
 
         if (!item.properties) {

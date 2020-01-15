@@ -24,6 +24,9 @@ export class ItemFrameComponent implements OnInit {
   @Input()
   public separator = false;
 
+  @Input()
+  public modifier = 0.1;
+
   public properties = [
     'weaponCriticalStrikeChance',
     'weaponAttacksPerSecond',
@@ -56,13 +59,27 @@ export class ItemFrameComponent implements OnInit {
     }
   }
 
-  public toggleSocketColor(index: number, value: ItemSocket): void {
-    this.queryItem.sockets[index] = this.toggleSocket(this.queryItem.sockets[index], value, 'color');
+  public toggleSocketColor(event: MouseEvent, index: number, value: ItemSocket): void {
+    if (event.shiftKey) {
+      const enabled = this.queryItem.sockets.every(x => x.color !== undefined);
+      for (let i = 0; i < this.queryItem.sockets.length; i++) {
+        this.queryItem.sockets[i].color = enabled ? undefined : this.item.sockets[i].color;
+      }
+    } else {
+      this.queryItem.sockets[index] = this.toggleSocket(this.queryItem.sockets[index], value, 'color');
+    }
     this.queryItemChange.emit(this.queryItem);
   }
 
-  public toggleSocketLinked(index: number, value: ItemSocket): void {
-    this.queryItem.sockets[index] = this.toggleSocket(this.queryItem.sockets[index], value, 'linked');
+  public toggleSocketLinked(event: MouseEvent, index: number, value: ItemSocket): void {
+    if (event.shiftKey) {
+      const enabled = this.queryItem.sockets.every(x => x.linked !== undefined);
+      for (let i = 0; i < this.queryItem.sockets.length; i++) {
+        this.queryItem.sockets[i].linked = enabled ? undefined : this.item.sockets[i].linked;
+      }
+    } else {
+      this.queryItem.sockets[index] = this.toggleSocket(this.queryItem.sockets[index], value, 'linked');
+    }
     this.queryItemChange.emit(this.queryItem);
   }
 

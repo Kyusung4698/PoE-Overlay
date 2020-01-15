@@ -3,6 +3,7 @@ import { TradeFetchResult, TradeHttpService, TradeSearchRequest } from '@data/po
 import { Item, ItemSearchResult, Language, SearchItem } from '@shared/module/poe/type';
 import { forkJoin, from, Observable, of } from 'rxjs';
 import { flatMap, map, mergeMap, toArray } from 'rxjs/operators';
+import { ItemSearchIndexed, ItemSearchOptions } from '../../type/search.type';
 import { ContextService } from '../context.service';
 import { CurrencyService } from '../currency/currency.service';
 import { ItemSearchQueryService } from './query/item-search-query.service';
@@ -20,9 +21,11 @@ export class ItemSearchService {
         private readonly requestService: ItemSearchQueryService,
         private readonly tradeService: TradeHttpService) { }
 
-    public search(requestedItem: Item, language?: Language, leagueId?: string): Observable<ItemSearchResult> {
+    public search(requestedItem: Item, options?: ItemSearchOptions, language?: Language, leagueId?: string): Observable<ItemSearchResult> {
         leagueId = leagueId || this.context.get().leagueId;
         language = language || this.context.get().language;
+
+        options = options || {};
 
         const request: TradeSearchRequest = {
             sort: {
@@ -30,16 +33,13 @@ export class ItemSearchService {
             },
             query: {
                 status: {
-                    option: 'any',
+                    option: options.online ? 'online' : 'any',
                 },
                 filters: {
                     trade_filters: {
                         filters: {
                             sale_type: {
                                 option: 'priced'
-                            },
-                            indexed: {
-                                option: '1week'
                             }
                         }
                     }
@@ -47,6 +47,11 @@ export class ItemSearchService {
                 stats: []
             },
         };
+        if (options.indexed) {
+            request.query.filters.trade_filters.filters.indexed = {
+                option: options.indexed === ItemSearchIndexed.AnyTime ? null : options.indexed
+            };
+        }
         this.requestService.map(requestedItem, language, request.query);
 
         return this.tradeService.search(request, language, leagueId).pipe(

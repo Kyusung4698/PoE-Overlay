@@ -10,6 +10,7 @@ import { ItemSectionRarityParserService } from './item-section-rarity-parser.ser
 import { ItemSectionRequirementsParserService } from './item-section-requirements-parser.service';
 import { ItemSectionSocketsParserService } from './item-section-sockets-parser.service';
 import { ItemSectionStatsParserService } from './item-section-stats-parser.service';
+import { ItemSectionVeiledParserService } from './item-section-veiled-parser.service';
 
 @Injectable({
     providedIn: 'root'
@@ -27,6 +28,7 @@ export class ItemParserService {
         itemSectionPropertiesParserService: ItemSectionPropertiesParserService,
         itemSectionCorruptedParserService: ItemSectionCorruptedParserService,
         itemSectionInfluencesParserService: ItemSectionInfluencesParserService,
+        itemSectionVeiledParserService: ItemSectionVeiledParserService,
         itemSectionStatsParserService: ItemSectionStatsParserService,
         itemPostParserDamageService: ItemPostParserDamageService) {
         this.parsers = [
@@ -37,6 +39,7 @@ export class ItemParserService {
             itemSectionSocketsParserService,
             itemSectionPropertiesParserService,
             itemSectionCorruptedParserService,
+            itemSectionVeiledParserService,
             itemSectionInfluencesParserService,
             itemSectionStatsParserService,
         ];

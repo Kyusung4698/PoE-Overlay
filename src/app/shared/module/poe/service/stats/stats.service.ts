@@ -46,11 +46,11 @@ export class StatsService {
             return [`untranslated: '${stat.type}.${stat.tradeId}' for language: '${Language[language]}'`];
         }
 
-        let result = stats[stat.tradeId].text[language];
+        const result = stats[stat.tradeId].text[language];
         return result
             .slice(1, result.length - 1)
             .split('(\\S*)')
-            .map(part => part.replace(/\\[.*+?^${}()|[\]\\]/g, (value) => value.replace('\\', '')))
+            .map(part => part.replace(/\\[.*+?^${}()|[\]\\]/g, (value) => value.replace('\\', '')));
     }
 
     public search(text: StatsSearchText, language?: Language): StatsSearchResult {
@@ -147,13 +147,13 @@ export class StatsService {
                 }
 
                 results.push({
-                    text: text,
+                    text,
                     stat: {
                         id: stat.id,
                         mod: stat.mod,
                         type,
                         tradeId: id,
-                        values: test.slice(1).map(x => { return { text: x } })
+                        values: test.slice(1).map(x => ({ text: x }))
                     }
                 });
 
