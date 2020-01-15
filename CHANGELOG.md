@@ -5,11 +5,11 @@
 * add on uses remaining (#44)
 * add base type as filter (#74)
 * add mod ranges with ±10% (#54, #83)
-    * De/Increase value by `0.1` via `Alt + Wheel`
-    * De/Increase value by `1` via `Wheel`
-    * De/Increase value by `5` via `Shift + Wheel`
-    * De/Enable via `Right Click`
-    * Reset via `Wheel Click`
+    * de/increase value by `0.1` via `Alt + Wheel`
+    * de/increase value by `1` via `Wheel`
+    * de/increase value by `5` via `Shift + Wheel`
+    * de/enable via `Right Click`
+    * reset via `Wheel Click`
 * add select all sockets / links via `Shift + Click` (#57)
 * fix `Ctrl + Scroll` moving two tabs by checkin stash window (#77)
 * fix commands overwrite clipboard (#89)
