@@ -7,11 +7,11 @@ import { CurrencyService } from '@shared/module/poe/service/currency/currency.se
 import { Item, ItemRarity, ItemSearchEvaluateResult, Language } from '@shared/module/poe/type';
 import { BehaviorSubject, forkJoin, Observable, of, Subject } from 'rxjs';
 import { debounceTime, flatMap, switchMap, takeUntil } from 'rxjs/operators';
+import { EvaluateUserSettings } from '../evaluate-settings/evaluate-settings.component';
 
 export interface EvaluateDialogData {
   item: Item;
-  currencyId: string;
-  queryDefault: boolean;
+  settings: EvaluateUserSettings;
   language?: Language;
 }
 
@@ -61,16 +61,16 @@ export class EvaluateDialogComponent implements OnInit {
       category: item.category,
       rarity: item.rarity,
       corrupted: item.corrupted,
+      veiled: item.veiled,
       influences: item.influences || {},
       damage: {},
-      explicits: (item.explicits || []).map(x => []),
-      implicits: [],
+      stats: [],
       properties: {},
       requirements: {},
       sockets: [],
     };
 
-    if (this.data.queryDefault) {
+    if (this.data.settings.evaluateQueryDefault) {
       if (item.level && item.level > 80) {
         queryItem.level = item.level;
       }
@@ -108,15 +108,20 @@ export class EvaluateDialogComponent implements OnInit {
   }
 
   private search(item: Item): Observable<ItemSearchEvaluateResult> {
+    const currencies$ = this.data.settings.evaluateCurrencyIds.map(id => this.currencyService.searchById(id));
     return forkJoin(
-      this.itemSearchService.search(item),
-      this.currencyService.searchById(this.data.currencyId)
+      this.itemSearchService.search(item, {
+        indexed: this.data.settings.evaluateQueryIndexed,
+        online: this.data.settings.evaluateQueryOnline,
+      }),
+      forkJoin(currencies$)
     ).pipe(
       flatMap(results => {
         if (results[0].items.length <= 0) {
           const empty: ItemSearchEvaluateResult = {
             url: results[0].url,
-            items: []
+            items: [],
+            total: 0,
           };
           return of(empty);
         }
@@ -128,7 +133,8 @@ export class EvaluateDialogComponent implements OnInit {
   private handleError(error: any): void {
     this.result$.next({
       url: null,
-      items: null
+      items: null,
+      total: null
     });
     this.snackbar.error(`${typeof error === 'string' ? `${error}` : 'An unexpected error occured while searching for the item.'}`);
   }

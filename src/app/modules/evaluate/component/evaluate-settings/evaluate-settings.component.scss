@@ -1,0 +1,32 @@
+$label-color: rgba(200, 200, 200, 0.54);
+
+.toggle {
+  display: flex;
+  flex-wrap: nowrap;
+
+  > * {
+    width: 50%;
+  }
+}
+
+label {
+  display: block;
+  color: $label-color;
+  font-size: 12px;
+  transform: perspective(100px) translateZ(0.001px);
+}
+
+.range {
+  display: flex;
+  align-items: center;
+
+  .slider,
+  .mat-slider {
+    width: 100%;
+  }
+
+  .value {
+    width: 80px;
+    text-align: center;
+  }
+}

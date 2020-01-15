@@ -3,6 +3,7 @@ import { TradeFetchResult, TradeHttpService, TradeSearchRequest } from '@data/po
 import { Item, ItemSearchResult, Language, SearchItem } from '@shared/module/poe/type';
 import { forkJoin, from, Observable, of } from 'rxjs';
 import { flatMap, map, mergeMap, toArray } from 'rxjs/operators';
+import { ItemSearchIndexed, ItemSearchOptions } from '../../type/search.type';
 import { ContextService } from '../context.service';
 import { CurrencyService } from '../currency/currency.service';
 import { ItemSearchQueryService } from './query/item-search-query.service';
@@ -20,9 +21,11 @@ export class ItemSearchService {
         private readonly requestService: ItemSearchQueryService,
         private readonly tradeService: TradeHttpService) { }
 
-    public search(requestedItem: Item, language?: Language, leagueId?: string): Observable<ItemSearchResult> {
+    public search(requestedItem: Item, options?: ItemSearchOptions, language?: Language, leagueId?: string): Observable<ItemSearchResult> {
         leagueId = leagueId || this.context.get().leagueId;
         language = language || this.context.get().language;
+
+        options = options || {};
 
         const request: TradeSearchRequest = {
             sort: {
@@ -30,12 +33,25 @@ export class ItemSearchService {
             },
             query: {
                 status: {
-                    option: 'online',
+                    option: options.online ? 'online' : 'any',
                 },
-                filters: {},
+                filters: {
+                    trade_filters: {
+                        filters: {
+                            sale_type: {
+                                option: 'priced'
+                            }
+                        }
+                    }
+                },
                 stats: []
             },
         };
+        if (options.indexed) {
+            request.query.filters.trade_filters.filters.indexed = {
+                option: options.indexed === ItemSearchIndexed.AnyTime ? null : options.indexed
+            };
+        }
         this.requestService.map(requestedItem, language, request.query);
 
         return this.tradeService.search(request, language, leagueId).pipe(
@@ -43,7 +59,8 @@ export class ItemSearchService {
                 if (response.total <= 0 || !response.result || !response.result.length) {
                     const result: ItemSearchResult = {
                         items: [],
-                        url: response.url
+                        url: response.url,
+                        total: response.total,
                     };
                     return of(result);
                 }
@@ -63,7 +80,8 @@ export class ItemSearchService {
                         if (items.length <= 0) {
                             const result: ItemSearchResult = {
                                 items: [],
-                                url: response.url
+                                url: response.url,
+                                total: response.total,
                             };
                             return of(result);
                         }
@@ -75,7 +93,8 @@ export class ItemSearchService {
                             map(x => {
                                 const result: ItemSearchResult = {
                                     items: x.filter(item => item !== undefined),
-                                    url: response.url
+                                    url: response.url,
+                                    total: response.total,
                                 };
                                 return result;
                             })
@@ -92,7 +111,12 @@ export class ItemSearchService {
         }
 
         const price = result.listing.price;
+
         const currencyAmount = price.amount;
+        if (currencyAmount <= 0) {
+            return of(undefined);
+        }
+
         const currencyId = price.currency;
         return this.currencyService.searchById(currencyId).pipe(
             map(currency => {

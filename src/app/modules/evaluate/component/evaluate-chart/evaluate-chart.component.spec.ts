@@ -20,7 +20,8 @@ describe('EvaluateChartComponent', () => {
     component = fixture.componentInstance;
     component.result = {
       url: '',
-      items: []
+      items: [],
+      total: 0
     };
     fixture.detectChanges();
   });

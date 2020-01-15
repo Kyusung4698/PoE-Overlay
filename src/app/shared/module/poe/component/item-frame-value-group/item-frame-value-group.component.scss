@@ -1,0 +1,14 @@
+::ng-deep {
+  app-item-frame-value-group {
+    display: inline-block;
+
+    &:hover {
+      app-item-frame-value {
+        .value {
+          background-color: rgba(170, 158, 130, 0.3);
+          outline: auto;
+        }
+      }
+    }
+  }
+}

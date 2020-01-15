@@ -1,3 +1,26 @@
+## 0.5.0 (2020-01-15)
+
+* add veiled mod support (#38)
+* add smart multi-currency support (#82)
+* add on uses remaining (#44)
+* add base type as filter (#74)
+* add mod ranges with ±10% (#54, #83)
+    * de/increase value by `0.1` via `Alt + Wheel`
+    * de/increase value by `1` via `Wheel`
+    * de/increase value by `5` via `Shift + Wheel`
+    * de/enable via `Right Click`
+    * reset via `Wheel Click`
+* add select all sockets / links via `Shift + Click` (#57)
+* fix `Ctrl + Scroll` moving two tabs by checkin stash window (#77)
+* fix commands overwrite clipboard (#89)
+
+## 0.5.0-alpha.0 (2020-01-12)
+
+* add stats type support for (explicit, implicit, crafted, fractured and enchant) (#27, #36, #59, #65)
+* add total count to chart (#9)
+* fix keybindings not working after tabbing (#76)
+* update query to use 1 week listed, only with prices and on/offline.
+
 ## 0.4.4 (2020-01-12)
 
 * add splash icon (#51)

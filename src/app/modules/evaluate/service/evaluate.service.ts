@@ -5,6 +5,7 @@ import { SnackBarService } from '@shared/module/material/service';
 import { ItemParserService } from '@shared/module/poe/service';
 import { Item, Language } from '@shared/module/poe/type';
 import { Observable } from 'rxjs';
+import { EvaluateUserSettings } from '../component/evaluate-settings/evaluate-settings.component';
 import { EvaluateDialogService } from './evaluate-dialog.service';
 
 @Injectable({
@@ -20,7 +21,7 @@ export class EvaluateService {
         private readonly evaluateDialog: EvaluateDialogService) {
     }
 
-    public evaluate(currencyId: string, queryDefault: boolean, language?: Language): Observable<void> {
+    public evaluate(settings: EvaluateUserSettings, language?: Language): Observable<void> {
         let point: Point;
         let item: Item;
         try {
@@ -42,6 +43,6 @@ export class EvaluateService {
         if (!item) {
             return this.snackbar.warning('Copied item could not be parsed. Make sure you have the correct language selected.');
         }
-        return this.evaluateDialog.open(point, item, currencyId, queryDefault, language);
+        return this.evaluateDialog.open(point, item, settings, language);
     }
 }

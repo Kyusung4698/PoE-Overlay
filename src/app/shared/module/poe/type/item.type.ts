@@ -1,6 +1,7 @@
 import { Query } from '@data/poe';
 import { Currency } from './currency.type';
 import { Language } from './language.type';
+import { StatType } from './stat.type';
 
 export interface Item {
     rarity?: ItemRarity;
@@ -9,16 +10,20 @@ export interface Item {
     typeId?: string;
     level?: number;
     corrupted?: boolean;
+    veiled?: boolean;
     damage?: ItemWeaponDamage;
     sockets?: ItemSocket[];
     properties?: ItemProperties;
     requirements?: ItemRequirements;
-    secondaryDescription?: string;
-    implicits?: ItemMod[];
-    explicits?: ItemMod[][];
+    stats?: ItemStat[];
     influences?: ItemInfluences;
-    description?: string;
     note?: string;
+}
+
+export interface ItemValue {
+    text: string;
+    min?: number;
+    max?: number;
 }
 
 export enum ItemRarity {
@@ -132,11 +137,12 @@ export interface ItemAdditionalProperty extends ItemProperty {
     text: string;
 }
 
-export interface ItemMod {
-    key: string;
-    predicate: string;
-    values: string[];
-    crafted?: boolean;
+export interface ItemStat {
+    id: string;
+    tradeId: string;
+    mod: string;
+    type: StatType;
+    values: ItemValue[];
 }
 
 export interface ItemRequirements {
@@ -175,6 +181,7 @@ export interface EvaluateItemGrouped {
 
 export interface ItemSearchEvaluateResult {
     url: string;
+    total: number;
     items: EvaluateItem[];
     itemsGrouped?: EvaluateItemGrouped[];
     targetCurrency?: Currency;
@@ -192,6 +199,7 @@ export type SearchItem = Item & {
 
 export interface ItemSearchResult {
     items: SearchItem[];
+    total: number;
     url: string;
 }
 

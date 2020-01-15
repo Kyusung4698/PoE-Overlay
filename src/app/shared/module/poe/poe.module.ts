@@ -2,10 +2,14 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CurrencyFrameComponent } from './component/currency-frame/currency-frame.component';
 import { ItemFrameQueryComponent } from './component/item-frame-query/item-frame-query.component';
+import { ItemFrameValueGroupComponent } from './component/item-frame-value-group/item-frame-value-group.component';
+import { ItemFrameValueComponent } from './component/item-frame-value/item-frame-value.component';
 import { ItemFrameComponent } from './component/item-frame/item-frame.component';
 import { BaseItemTypePipe } from './pipe/base-item-type.pipe';
 import { ClientStringPipe } from './pipe/client-string.pipe';
-import { StatsDescriptionPipe } from './pipe/stats-description.pipe';
+import { StatGroupPipe } from './pipe/stat-group.pipe';
+import { StatTransformPipe } from './pipe/stat-transform.pipe';
+import { StatPipe } from './pipe/stat.pipe';
 import { WordPipe } from './pipe/word.pipe';
 
 @NgModule({
@@ -13,10 +17,14 @@ import { WordPipe } from './pipe/word.pipe';
         ItemFrameComponent,
         CurrencyFrameComponent,
         ClientStringPipe,
-        StatsDescriptionPipe,
+        StatPipe,
+        StatGroupPipe,
+        StatTransformPipe,
         WordPipe,
         BaseItemTypePipe,
         ItemFrameQueryComponent,
+        ItemFrameValueComponent,
+        ItemFrameValueGroupComponent,
     ],
     imports: [
         BrowserModule
@@ -25,7 +33,7 @@ import { WordPipe } from './pipe/word.pipe';
         ItemFrameComponent,
         CurrencyFrameComponent,
         ClientStringPipe,
-        StatsDescriptionPipe,
+        StatPipe,
         WordPipe,
         BaseItemTypePipe
     ]

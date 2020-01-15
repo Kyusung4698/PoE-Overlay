@@ -388,3 +388,159 @@ Extra Cold Damage
 Extra Life
 --------
 Right-click to add this to your bestiary.
+
+Rarity: Rare
+Rift Blast
+Long Bow
+--------
+Bow
+Quality: +9% (augmented)
+Physical Damage: 7-27 (augmented)
+Elemental Damage: 1-4 (augmented)
+Critical Strike Chance: 6.00%
+Attacks per Second: 1.30
+--------
+Requirements:
+Level: 9
+Dex: 38
+--------
+Sockets: B G-G 
+--------
+Item Level: 9
+--------
++12% to Global Critical Strike Multiplier (fractured)
+Adds 1 to 4 Fire Damage
++1 Mana gained on Kill
+14% increased Stun Duration on Enemies
+--------
+Fractured Item
+
+Rarity: Unique
+Mutewind Whispersteps
+Serpentscale Boots
+--------
+Quality: +20% (augmented)
+Armour: 91 (augmented)
+Evasion Rating: 192 (augmented)
+--------
+Requirements:
+Level: 52
+Str: 40
+Dex: 40
+--------
+Sockets: R-R-R-B 
+--------
+Item Level: 79
+--------
+Adds 33 to 50 Cold Damage if you've been Hit Recently
+--------
+Adds 25 to 41 Cold Damage to Spells
+52% increased Critical Strike Chance for Spells
+133% increased Evasion Rating
++23% to Cold Resistance
+25% increased Movement Speed
+Unaffected by Chilled Ground
+--------
+Corruption sweeps across this land,
+but our bloodline is clear.
+It is our duty to keep it so.
+--------
+Note: ~price 1 jew
+
+Rarity: Rare
+Grim Gnarl
+Searching Eye Jewel
+--------
+Abyss
+--------
+Requirements:
+Level: 30
+--------
+Item Level: 53
+--------
++31 to maximum Life
+Adds 10 to 17 Cold Damage to Wand Attacks
++2% Chance to Block Attack Damage if you were Damaged by a Hit Recently
+--------
+Place into an Abyssal Socket on an Item or into an allocated Jewel Socket on the Passive Skill Tree. Right click to remove from the Socket.
+--------
+Note: ~price 1 chrom
+
+Rarity: Unique
+Death's Oath
+Astral Plate
+--------
+Armour: 2012 (augmented)
+--------
+Requirements:
+Level: 62
+Str: 180 (unmet)
+--------
+Sockets: R-R-G-R-R-R 
+--------
+Item Level: 84
+--------
++2 to Level of Socketed Curse Gems (implicit)
+--------
+Grants Level 20 Death Aura Skill
++42 to all Attributes
+13% increased Attack Speed
+183% increased Armour
++67 to maximum Life
+1% of Attack Damage Leeched as Life
+You take 450 Chaos Damage per second for 3 seconds on Kill
+Gore Footprints
+--------
+Tears of blood, aching heart,
+My dear Isildria must depart.
+--------
+Corrupted
+
+Rarity: Unique
+Irresistable Temptation
+Ivory Watchstone
+--------
+Item Level: 86
+--------
+Areas contain 10 additional packs of Corrupted Vaal Monsters
+Items dropped by Corrupted Vaal Monsters in Areas have 25% chance to be Corrupted
+3 uses remaining
+--------
+Map has 1 additional random Prefix
+18 uses remaining
+--------
+Nothing is more alluring than mystery.
+
+
+
+Rarity: Unique
+Irresistable Temptation
+Ivory Watchstone
+--------
+Item Level: 86
+--------
+Adds 10 to 17 Cold Damage to Wand Attacks
+--------
+Nothing is more alluring than mystery.
+
+Rarity: Unique
+Circle of Guilt
+Synthesised Iron Ring
+--------
+Requirements:
+Level: 52
+--------
+Item Level: 82
+--------
+6% increased Spell Damage per Power Charge (implicit)
+--------
++12 to all Attributes
+Adds 9 to 15 Physical Damage
++373 to Armour
+Herald of Purity has 31% reduced Mana Reservation
+48% increased Physical Damage while affected by Herald of Purity
+--------
+I feel the moral weight of what I must to do to protect Wraeclast.
+I accept my guilt without shame. It is my gift to humanity.
+--------
+Synthesised Item

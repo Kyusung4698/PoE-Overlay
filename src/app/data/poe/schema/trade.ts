@@ -209,6 +209,8 @@ export interface MiscFilters {
 
 export interface TradeFilters {
     price?: FilterOption;
+    sale_type?: FilterOption;
+    indexed?: FilterOption;
 }
 
 export interface TradeFilterGroup extends FilterGroup<TradeFilters> {

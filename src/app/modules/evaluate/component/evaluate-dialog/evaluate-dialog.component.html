@@ -1,9 +1,9 @@
 <div cdkDrag cdkDragRootElement=".cdk-overlay-pane" cdkDragHandle>
     <app-item-frame [item]="data.item" [language]="data.language" [queryItem]="queryItem"
-        (queryItemChange)="onQueryItemChange($event)" [separator]="true">
+        (queryItemChange)="onQueryItemChange($event)" [separator]="true" [modifier]="data.settings.evaluateModifierRange / 100">
         <ng-container [ngSwitch]="result$ | async">
             <ng-container *ngSwitchCase="null">
-                Loading...
+                <div> Loading... </div>
             </ng-container>
             <ng-container *ngSwitchDefault>
                 <ng-container *ngIf="(result$ | async) as result">
@@ -33,7 +33,7 @@
                         </div>
                     </ng-container>
                     <ng-container *ngIf="!result.items">
-                        An unexpected error occured.
+                        <div> An unexpected error occured. </div>
                     </ng-container>
                 </ng-container>
             </ng-container>

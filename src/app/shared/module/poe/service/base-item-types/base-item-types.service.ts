@@ -29,7 +29,7 @@ export class BaseItemTypesService {
         }
 
         for (const key in map) {
-            if (map.hasOwnProperty(key) && !isNaN(+key)) {
+            if (map.hasOwnProperty(key)) {
                 const localizedText = map[key];
                 if (text.indexOf(localizedText) !== -1) {
                     return key;

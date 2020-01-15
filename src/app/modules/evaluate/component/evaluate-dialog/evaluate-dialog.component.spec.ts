@@ -32,6 +32,9 @@ describe('EvaluateDialogComponent', () => {
                     useValue: {
                         language: Language.English,
                         item: {},
+                        settings: {
+                            evaluateCurrencyIds: []
+                        }
                     }
                 },
                 { provide: ElectronProvider, useClass: ElectronProviderFake }

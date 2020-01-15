@@ -19,8 +19,8 @@ export class EvaluateDialogService {
         private readonly dialogShortcut: DialogShortcutService) {
     }
 
-    public open(point: Point, item: Item, currencyId: string, queryDefault: boolean, language?: Language): Observable<void> {
-        const width = 380;
+    public open(point: Point, item: Item, settings: EvaluateUserSettings, language?: Language): Observable<void> {
+        const width = 400;
         const avgHeight = 500;
 
         const bounds = this.window.getBounds();
@@ -29,8 +29,7 @@ export class EvaluateDialogService {
 
         const data: EvaluateDialogData = {
             item,
-            currencyId,
-            queryDefault,
+            settings,
             language,
         };
 
@@ -41,8 +40,7 @@ export class EvaluateDialogService {
                 top: `${top}px`,
             },
             backdropClass: 'backdrop-clear',
-            data,
-            width: `${width}px`
+            data
         });
         const close = dialogRef.close.bind(dialogRef);
         this.dialogShortcut.register(close);
