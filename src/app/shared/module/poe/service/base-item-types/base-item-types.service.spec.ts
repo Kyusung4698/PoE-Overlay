@@ -30,7 +30,7 @@ describe('BaseItemTypeService', () => {
     ];
     const texts = [
         'Orbe du chaos',
-        `Pierre à aiguiser de forgeron`
+        `Pierre à aiguiser de forgeron`,
     ];
     texts.forEach(text => {
         languages.forEach(language => {
@@ -41,5 +41,15 @@ describe('BaseItemTypeService', () => {
                 expect(localizedText.indexOf('untranslated') === -1).toBeTruthy();
             });
         });
+    });
+
+    it(`should find 'Blighted Port Map'`, () => {
+        const result = sut.search('Blighted Port Map', Language.English);
+        expect(result).toBe('MapAtlasQuay');
+    });
+
+    it(`should find 'Port Map'`, () => {
+        const result = sut.search('Port Map', Language.English);
+        expect(result).toBe('MapWorldsPort');
     });
 });

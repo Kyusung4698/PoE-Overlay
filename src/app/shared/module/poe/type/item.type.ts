@@ -139,6 +139,7 @@ export interface ItemAdditionalProperty extends ItemProperty {
 
 export interface ItemStat {
     id: string;
+    predicate: string;
     tradeId: string;
     mod: string;
     type: StatType;

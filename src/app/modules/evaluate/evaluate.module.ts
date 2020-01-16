@@ -28,6 +28,7 @@ export class EvaluateModule implements FeatureModule {
             evaluateQueryIndexed: ItemSearchIndexed.UpTo2WeeksAgo,
             evaluateQueryOnline: false,
             evaluateModifierRange: 10,
+            evaluateModifierMaxRange: true,
             evaluateKeybinding: 'CmdOrCtrl + D',
             evaluateTranslatedItemLanguage: Language.English,
             evaluateTranslatedKeybinding: 'CmdOrCtrl + T',

@@ -1,6 +1,6 @@
 <div cdkDrag cdkDragRootElement=".cdk-overlay-pane" cdkDragHandle>
     <app-item-frame [item]="data.item" [language]="data.language" [queryItem]="queryItem"
-        (queryItemChange)="onQueryItemChange($event)" [separator]="true" [modifier]="data.settings.evaluateModifierRange / 100">
+        (queryItemChange)="onQueryItemChange($event)" [separator]="true" [modifier]="data.settings.evaluateModifierRange / 100" [modifierMaxRange]="data.settings.evaluateModifierMaxRange">
         <ng-container [ngSwitch]="result$ | async">
             <ng-container *ngSwitchCase="null">
                 <div> Loading... </div>

@@ -25,11 +25,11 @@ export class StatsService {
         language = language || this.context.get().language;
 
         const stats = this.statsProvider.provide(stat.type);
-        if (!stats[stat.tradeId] || !stats[stat.tradeId].text[language]) {
+        if (!stats[stat.tradeId] || !stats[stat.tradeId].text[language] || !stats[stat.tradeId].text[language][stat.predicate]) {
             return `untranslated: '${stat.type}.${stat.tradeId}' for language: '${Language[language]}'`;
         }
 
-        let result = stats[stat.tradeId].text[language];
+        let result = stats[stat.tradeId].text[language][stat.predicate];
         // remove ^$
         result = result.slice(1, result.length - 1);
         // replace values
@@ -42,11 +42,11 @@ export class StatsService {
 
     public transform(stat: ItemStat, language?: Language): string[] {
         const stats = this.statsProvider.provide(stat.type);
-        if (!stats[stat.tradeId] || !stats[stat.tradeId].text[language]) {
+        if (!stats[stat.tradeId] || !stats[stat.tradeId].text[language] || !stats[stat.tradeId].text[language][stat.predicate]) {
             return [`untranslated: '${stat.type}.${stat.tradeId}' for language: '${Language[language]}'`];
         }
 
-        const result = stats[stat.tradeId].text[language];
+        const result = stats[stat.tradeId].text[language][stat.predicate];
         return result
             .slice(1, result.length - 1)
             .split('(\\S*)')
@@ -132,32 +132,40 @@ export class StatsService {
 
             const stat = stats[id];
 
-            const value = (stat.text[language] || stat.text[Language.English]) || '';
-            if (value.length <= 0) {
-                continue;
-            }
-
-            const expr = new RegExp(value);
-            for (let index = texts.length - 1; index >= 0; --index) {
-                const text = texts[index];
-
-                const test = expr.exec(text.value);
-                if (!test) {
-                    continue;
-                }
-
-                results.push({
-                    text,
-                    stat: {
-                        id: stat.id,
-                        mod: stat.mod,
-                        type,
-                        tradeId: id,
-                        values: test.slice(1).map(x => ({ text: x }))
+            const predicates = stat.text[language];
+            for (const predicate in predicates) {
+                if (predicates.hasOwnProperty(predicate)) {
+                    const value = predicates[predicate];
+                    if (value.length <= 0) {
+                        continue;
                     }
-                });
 
-                texts.splice(index, 1);
+                    const expr = new RegExp(value);
+                    for (let index = texts.length - 1; index >= 0; --index) {
+                        const text = texts[index];
+
+                        const test = expr.exec(text.value);
+                        if (!test) {
+                            continue;
+                        }
+
+                        results.push({
+                            text,
+                            stat: {
+                                id: stat.id,
+                                predicate,
+                                mod: stat.mod,
+                                type,
+                                tradeId: id,
+                                values: test.slice(1).map(x => ({ text: x }))
+                            }
+                        });
+
+                        texts.splice(index, 1);
+                    }
+
+
+                }
             }
 
             if (texts.length === 0) {

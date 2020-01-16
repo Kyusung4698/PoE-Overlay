@@ -25,6 +25,12 @@
 </mat-card>
 <mat-card>
     <mat-label> Modifier Settings </mat-label>
+    <div class="toggle">
+        <mat-slide-toggle [checked]="settings.evaluateModifierMaxRange"
+            (change)="settings.evaluateModifierMaxRange = $event.checked">
+            Max Range Enabled
+        </mat-slide-toggle>
+    </div>
     <label class="label"> Modifier Range ±{{settings.evaluateModifierRange}}% </label>
     <div class="range">
         <div class="slider">

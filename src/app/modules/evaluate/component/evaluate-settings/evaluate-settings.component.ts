@@ -15,6 +15,7 @@ export interface EvaluateUserSettings extends UserSettings {
   evaluateQueryOnline: boolean;
   evaluateQueryIndexed: ItemSearchIndexed;
   evaluateModifierRange: number;
+  evaluateModifierMaxRange: boolean;
 }
 
 @Component({

@@ -15,28 +15,36 @@ export class BaseItemTypesService {
         language = language || this.context.get().language;
 
         const map = this.baseItemTypeProvider.provide(language);
-        return map[id] || `untranslated: '${id}' for language: '${Language[language]}'`;
+        const name = map[id];
+        if (!name) {
+            return `untranslated: '${id}' for language: '${Language[language]}'`;
+        }
+
+        // remove \\b#\\b
+        const result = name.slice(2, name.length - 2);
+        // reverse escape string regex
+        return result.replace(/\\[.*+?^${}()|[\]\\]/g, (value) => value.replace('\\', ''));
     }
 
-    public search(text: string, language?: Language): string {
+    public search(name: string, language?: Language): string {
         language = language || this.context.get().language;
 
         const map = this.baseItemTypeProvider.provide(language);
 
-        const hashKey = map[text];
+        const hashKey = map[`\\b${name}\\b`];
         if (hashKey) {
             return hashKey;
         }
 
         for (const key in map) {
-            if (map.hasOwnProperty(key)) {
-                const localizedText = map[key];
-                if (text.indexOf(localizedText) !== -1) {
+            if (map.hasOwnProperty(key) && key[0] !== '\\') {
+                const text = map[key];
+                const expr = new RegExp(text);
+                if (expr.test(name)) {
                     return key;
                 }
             }
         }
-
         return undefined;
     }
 }

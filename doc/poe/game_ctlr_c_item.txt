@@ -544,3 +544,94 @@ I feel the moral weight of what I must to do to protect Wraeclast.
 I accept my guilt without shame. It is my gift to humanity.
 --------
 Synthesised Item
+
+Rarity: Rare
+Forbidden Remnant
+Blighted Port Map
+--------
+Map Tier: 6
+Item Quantity: +72% (augmented)
+Item Rarity: +31% (augmented)
+Monster Pack Size: +35% (augmented)
+Quality: +20% (augmented)
+--------
+Item Level: 76
+--------
+6 Blight Chests are Lucky
+--------
+Area is infested with Fungal Growths (implicit)
+Natural inhabitants of this area have been removed (implicit)
+--------
+Area is inhabited by 2 additional Rogue Exiles
+Monsters have 70% increased Area of Effect
+Monsters Poison on Hit
+Players have 25% less Armour
+Players have 30% reduced Chance to Block
+--------
+Travel to this Map by using it in a personal Map Device. Maps can only be used once.
+
+Rarity: Unique
+Hrimnor's Resolve
+Samite Helmet
+--------
+Armour: 602 (augmented)
+--------
+Requirements:
+Level: 55
+Str: 114
+--------
+Sockets: R 
+--------
+Item Level: 70
+--------
+40% increased Fire Damage
+118% increased Armour
++54 to maximum Life
++30% to Cold Resistance
+Cannot be Chilled or Frozen if you have used a Fire Skill Recently
+--------
+Hrimnor's presence was as cold as ice,
+but his heart burned for vengeance.
+
+Rarity: Rare
+Foe Lash
+Stygian Vise
+--------
+Requirements:
+Level: 68
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket (implicit)
+--------
++14 to Strength
++493 to Armour
++23 to maximum Energy Shield
++85 to maximum Life
++10% to Cold and Chaos Resistances (crafted)
+
+Rarity: Unique
+Brawn
+Crimson Jewel
+--------
+Requirements:
+Level: 48
+--------
+Item Level: 83
+--------
+You cannot be Cursed with Silence (implicit)
+--------
+6% increased Strength
+4% increased Dexterity
+13% reduced Intelligence
+--------
+"Take your time, make all your plans. 
+Then tell me which plan
+pulls my axe from your ribs."
+- Barkhul, the Butcher
+--------
+Place into an allocated Jewel Socket on the Passive Skill Tree. Right click to remove from the Socket.
+--------
+Corrupted

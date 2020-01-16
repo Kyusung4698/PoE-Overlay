@@ -280,7 +280,8 @@
             <ng-container *ngIf="(stat|statTransform:language) as parts">
                 <ng-container *ngFor="let part of parts; let index = index">{{part}}
                     <app-item-frame-value *ngIf="stat.values[index]" [(value)]="stat.values[index]"
-                        (valueChange)="onValueChange(queryItem.stats[stat.index])" [modifier]="modifier">
+                        (valueChange)="onValueChange(queryItem.stats[stat.index])" [modifier]="modifier"
+                        [modifierMaxRange]="modifierMaxRange">
                     </app-item-frame-value>
                 </ng-container>
             </ng-container>

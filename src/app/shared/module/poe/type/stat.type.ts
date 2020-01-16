@@ -14,6 +14,8 @@ export interface Stat {
     id?: string;
     mod?: string;
     text: {
-        [language: number]: string;
+        [language: number]: {
+            [predicate: string]: string;
+        };
     };
 }

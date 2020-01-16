@@ -14,6 +14,9 @@ export class ItemFrameValueComponent implements OnInit {
   public modifier: number;
 
   @Input()
+  public modifierMaxRange: boolean;
+
+  @Input()
   public value: ItemValue;
 
   @Output()
@@ -24,6 +27,9 @@ export class ItemFrameValueComponent implements OnInit {
     this.value.min = value;
     this.value.max = value;
     this.default = { ...this.value };
+    if (!this.modifierMaxRange) {
+      this.value.max = undefined;
+    }
     this.adjustValue(Math.round(value * this.modifier), true, true);
   }
 
