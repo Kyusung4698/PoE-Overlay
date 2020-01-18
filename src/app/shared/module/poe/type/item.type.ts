@@ -100,7 +100,8 @@ export enum ItemSocketColor {
     Red = 'R',
     Green = 'G',
     Blue = 'B',
-    White = 'W'
+    White = 'W',
+    Abyss = 'A'
 }
 
 export interface ItemSocket {
@@ -139,8 +140,10 @@ export interface ItemAdditionalProperty extends ItemProperty {
 
 export interface ItemStat {
     id: string;
+    predicate: string;
     tradeId: string;
     mod: string;
+    negated: boolean;
     type: StatType;
     values: ItemValue[];
 }

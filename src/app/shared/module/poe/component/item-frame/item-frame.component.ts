@@ -27,6 +27,9 @@ export class ItemFrameComponent implements OnInit {
   @Input()
   public modifier = 0.1;
 
+  @Input()
+  public modifierMaxRange: boolean;
+
   public properties = [
     'weaponCriticalStrikeChance',
     'weaponAttacksPerSecond',

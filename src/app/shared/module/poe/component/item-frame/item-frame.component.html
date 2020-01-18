@@ -196,6 +196,16 @@
                 </ng-container>
                 <ng-container *ngIf="groups.fractured || groups.explicit || groups.crafted">
                     <div class="separator"
+                        *ngIf="groups.pseudo || (item.corrupted !== undefined || item.veiled !== undefined) || item.influences || separator">
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="groups.pseudo">
+                    <ng-container *ngFor="let stat of groups.pseudo">
+                        <div>
+                            <ng-container *ngTemplateOutlet="statQuery, context: { stat: stat }"></ng-container>
+                        </div>
+                    </ng-container>
+                    <div class="separator"
                         *ngIf="(item.corrupted !== undefined || item.veiled !== undefined) || item.influences || separator">
                     </div>
                 </ng-container>
@@ -280,7 +290,8 @@
             <ng-container *ngIf="(stat|statTransform:language) as parts">
                 <ng-container *ngFor="let part of parts; let index = index">{{part}}
                     <app-item-frame-value *ngIf="stat.values[index]" [(value)]="stat.values[index]"
-                        (valueChange)="onValueChange(queryItem.stats[stat.index])" [modifier]="modifier">
+                        (valueChange)="onValueChange(queryItem.stats[stat.index])" [modifier]="modifier"
+                        [modifierMaxRange]="modifierMaxRange">
                     </app-item-frame-value>
                 </ng-container>
             </ng-container>

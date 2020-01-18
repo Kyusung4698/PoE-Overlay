@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { FEATURE_MODULES } from '@app/token';
 import { Feature, FeatureModule } from '@app/type';
 import { Language } from '@shared/module/poe/type';
+import { ItemSearchIndexed } from '@shared/module/poe/type/search.type';
 import { SharedModule } from '@shared/shared.module';
 import { UserSettingsFeature } from 'src/app/layout/type';
 import { EvaluateChartComponent } from './component/evaluate-chart/evaluate-chart.component';
 import { EvaluateDialogComponent } from './component/evaluate-dialog/evaluate-dialog.component';
 import { EvaluateSettingsComponent, EvaluateUserSettings } from './component/evaluate-settings/evaluate-settings.component';
 import { EvaluateService } from './service/evaluate.service';
-import { ItemSearchIndexed } from '@shared/module/poe/type/search.type';
 
 @NgModule({
     providers: [{ provide: FEATURE_MODULES, useClass: EvaluateModule, multi: true }],
@@ -28,6 +28,7 @@ export class EvaluateModule implements FeatureModule {
             evaluateQueryIndexed: ItemSearchIndexed.UpTo2WeeksAgo,
             evaluateQueryOnline: false,
             evaluateModifierRange: 10,
+            evaluateModifierDisableMaxRange: true,
             evaluateKeybinding: 'CmdOrCtrl + D',
             evaluateTranslatedItemLanguage: Language.English,
             evaluateTranslatedKeybinding: 'CmdOrCtrl + T',

@@ -14,6 +14,9 @@ export class ItemFrameValueComponent implements OnInit {
   public modifier: number;
 
   @Input()
+  public modifierMaxRange: boolean;
+
+  @Input()
   public value: ItemValue;
 
   @Output()
@@ -24,34 +27,43 @@ export class ItemFrameValueComponent implements OnInit {
     this.value.min = value;
     this.value.max = value;
     this.default = { ...this.value };
+    if (!this.modifierMaxRange) {
+      this.value.max = undefined;
+    }
     this.adjustValue(Math.round(value * this.modifier), true, true);
   }
 
   public onMouseUp(event: MouseEvent): void {
     event.stopImmediatePropagation();
+    /* tslint:disable */
     if (event.which === 2) {
       this.resetValue(true, true);
     } else if (event.which === 3) {
       this.toggleValue(true, true);
     }
+    /* tslint:enable */
   }
 
   public onMouseUpMin(event: MouseEvent): void {
     event.stopImmediatePropagation();
+    /* tslint:disable */
     if (event.which === 2) {
       this.resetValue(true, false);
     } else if (event.which === 3) {
       this.toggleValue(true, false);
     }
+    /* tslint:enable */
   }
 
   public onMouseUpMax(event: MouseEvent): void {
     event.stopImmediatePropagation();
+    /* tslint:disable */
     if (event.which === 2) {
       this.resetValue(false, true);
     } else if (event.which === 3) {
       this.toggleValue(false, true);
     }
+    /* tslint:enable */
   }
 
   public onWheel(event: WheelEvent): void {

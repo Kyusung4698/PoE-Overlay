@@ -1,0 +1,249 @@
+{
+	"explicit": {
+		"minimum_added_physical_damage maximum_added_physical_damage": {
+			"localId": "stat_1940865751",
+			"globalId": "stat_960081730"
+		},
+		"minimum_added_fire_damage maximum_added_fire_damage": {
+			"localId": "stat_709508406",
+			"globalId": "stat_321077055"
+		},
+		"minimum_added_cold_damage maximum_added_cold_damage": {
+			"localId": "stat_1037193709",
+			"globalId": "stat_2387423236"
+		},
+		"minimum_added_lightning_damage maximum_added_lightning_damage": {
+			"localId": "stat_3336890334",
+			"globalId": "stat_1334060246"
+		},
+		"minimum_added_chaos_damage maximum_added_chaos_damage": {
+			"localId": "stat_2223678961",
+			"globalId": "stat_3531280422"
+		},
+		"attack_speed_+%": {
+			"localId": "stat_210067635",
+			"globalId": "stat_681332047"
+		},
+		"base_physical_damage_reduction_rating": {
+			"localId": "stat_3484657501",
+			"globalId": "stat_809229260"
+		},
+		"physical_damage_reduction_rating_+%": {
+			"localId": "stat_1062208444",
+			"globalId": "stat_2866361420"
+		},
+		"base_evasion_rating": {
+			"localId": "stat_53045048",
+			"globalId": "stat_2144192055"
+		},
+		"evasion_rating_+%": {
+			"localId": "stat_124859000",
+			"globalId": "stat_2106365538"
+		},
+		"armour_and_energy_shield_+%": {
+			"localId": "stat_3321629045"
+		},
+		"armour_and_evasion_+%": {
+			"localId": "stat_2451402625"
+		},
+		"evasion_and_energy_shield_+%": {
+			"localId": "stat_1999113824"
+		},
+		"armour_and_evasion_and_energy_shield_+%": {
+			"localId": "stat_3523867985"
+		},
+		"energy_shield": {
+			"localId": "stat_4052037485"
+		},
+		"energy_shield_+%": {
+			"localId": "stat_4015621042"
+		},
+		"accuracy_rating": {
+			"localId": "stat_691932474",
+			"globalId": "stat_803737631"
+		},
+		"poison_on_hit_%": {
+			"localId": "stat_3885634897",
+			"globalId": "stat_795138349"
+		}
+	},
+	"implicit": {
+		"minimum_added_physical_damage maximum_added_physical_damage": {
+			"localId": "stat_1940865751"
+		},
+		"minimum_added_fire_damage maximum_added_fire_damage": {
+			"localId": "stat_709508406",
+			"globalId": "stat_321077055"
+		},
+		"minimum_added_cold_damage maximum_added_cold_damage": {
+			"localId": "stat_1037193709",
+			"globalId": "stat_2387423236"
+		},
+		"minimum_added_lightning_damage maximum_added_lightning_damage": {
+			"localId": "stat_3336890334",
+			"globalId": "stat_1334060246"
+		},
+		"minimum_added_chaos_damage maximum_added_chaos_damage": {
+			"localId": "stat_2223678961",
+			"globalId": "stat_3531280422"
+		},
+		"attack_speed_+%": {
+			"localId": "stat_210067635",
+			"globalId": "stat_681332047"
+		},
+		"base_physical_damage_reduction_rating": {
+			"localId": "stat_3484657501"
+		},
+		"physical_damage_reduction_rating_+%": {
+			"localId": "stat_1062208444",
+			"globalId": "stat_2866361420"
+		},
+		"base_evasion_rating": {
+			"localId": "stat_53045048"
+		},
+		"evasion_rating_+%": {
+			"localId": "stat_124859000",
+			"globalId": "stat_2106365538"
+		},
+		"energy_shield": {
+			"localId": "stat_4052037485"
+		},
+		"energy_shield_+%": {
+			"localId": "stat_4015621042"
+		},
+		"accuracy_rating": {
+			"localId": "stat_691932474",
+			"globalId": "stat_803737631"
+		}
+	},
+	"crafted": {
+		"minimum_added_physical_damage maximum_added_physical_damage": {
+			"localId": "stat_1940865751"
+		},
+		"minimum_added_fire_damage maximum_added_fire_damage": {
+			"localId": "stat_709508406",
+			"globalId": "stat_321077055"
+		},
+		"minimum_added_cold_damage maximum_added_cold_damage": {
+			"localId": "stat_1037193709",
+			"globalId": "stat_2387423236"
+		},
+		"minimum_added_lightning_damage maximum_added_lightning_damage": {
+			"localId": "stat_3336890334",
+			"globalId": "stat_1334060246"
+		},
+		"attack_speed_+%": {
+			"localId": "stat_210067635",
+			"globalId": "stat_681332047"
+		},
+		"base_physical_damage_reduction_rating": {
+			"localId": "stat_3484657501",
+			"globalId": "stat_809229260"
+		},
+		"physical_damage_reduction_rating_+%": {
+			"localId": "stat_1062208444",
+			"globalId": "stat_2866361420"
+		},
+		"base_evasion_rating": {
+			"localId": "stat_53045048",
+			"globalId": "stat_2144192055"
+		},
+		"evasion_rating_+%": {
+			"localId": "stat_124859000",
+			"globalId": "stat_2106365538"
+		},
+		"armour_and_energy_shield_+%": {
+			"localId": "stat_3321629045"
+		},
+		"armour_and_evasion_+%": {
+			"localId": "stat_2451402625"
+		},
+		"evasion_and_energy_shield_+%": {
+			"localId": "stat_1999113824"
+		},
+		"armour_and_evasion_and_energy_shield_+%": {
+			"localId": "stat_3523867985"
+		},
+		"energy_shield": {
+			"localId": "stat_4052037485"
+		},
+		"energy_shield_+%": {
+			"localId": "stat_4015621042"
+		},
+		"accuracy_rating": {
+			"localId": "stat_691932474",
+			"globalId": "stat_803737631"
+		},
+		"poison_on_hit_%": {
+			"localId": "stat_3885634897"
+		}
+	},
+	"fractured": {
+		"minimum_added_physical_damage maximum_added_physical_damage": {
+			"localId": "stat_1940865751"
+		},
+		"minimum_added_fire_damage maximum_added_fire_damage": {
+			"localId": "stat_709508406"
+		},
+		"minimum_added_cold_damage maximum_added_cold_damage": {
+			"localId": "stat_1037193709",
+			"globalId": "stat_3152982863"
+		},
+		"minimum_added_lightning_damage maximum_added_lightning_damage": {
+			"localId": "stat_3336890334",
+			"globalId": "stat_2930653471"
+		},
+		"minimum_added_chaos_damage maximum_added_chaos_damage": {
+			"localId": "stat_2223678961",
+			"globalId": "stat_2889601781"
+		},
+		"attack_speed_+%": {
+			"localId": "stat_210067635",
+			"globalId": "stat_681332047"
+		},
+		"base_physical_damage_reduction_rating": {
+			"localId": "stat_3484657501",
+			"globalId": "stat_809229260"
+		},
+		"physical_damage_reduction_rating_+%": {
+			"localId": "stat_1062208444",
+			"globalId": "stat_2866361420"
+		},
+		"base_evasion_rating": {
+			"localId": "stat_53045048",
+			"globalId": "stat_2144192055"
+		},
+		"evasion_rating_+%": {
+			"localId": "stat_124859000",
+			"globalId": "stat_2106365538"
+		},
+		"armour_and_energy_shield_+%": {
+			"localId": "stat_3321629045"
+		},
+		"armour_and_evasion_+%": {
+			"localId": "stat_2451402625"
+		},
+		"evasion_and_energy_shield_+%": {
+			"localId": "stat_1999113824"
+		},
+		"energy_shield": {
+			"localId": "stat_4052037485"
+		},
+		"energy_shield_+%": {
+			"localId": "stat_4015621042"
+		},
+		"accuracy_rating": {
+			"localId": "stat_691932474",
+			"globalId": "stat_803737631"
+		},
+		"poison_on_hit_%": {
+			"localId": "stat_3885634897",
+			"globalId": "stat_795138349"
+		}
+	},
+	"enchant": {},
+	"pseudo": {},
+	"veiled": {},
+	"monster": {},
+	"delve": {}
+}

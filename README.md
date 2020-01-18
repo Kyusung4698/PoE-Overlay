@@ -1,7 +1,7 @@
-# PoE Overlay 0.5.0
+# PoE Overlay 0.5.1
 
 An Overlay for Path of Exile. The ***core aspect*** is to blend in with the game. Built with Electron and Angular. 
-
+ 
 <!-- TOC -->
 - [Status](#status)
 - [Features](#features)
@@ -70,13 +70,14 @@ These instructions will set you up to run and enjoy the overlay.
 #### Prerequisites
 
 * Path of Exile ***must be*** in windowed fullscreen mode
+* PoE Overlay should run with privileged rights
 
 #### Installing
 
 1. Head over to [Releases](https://github.com/Kyusung4698/PoE-Overlay/releases) and download the latest zip
 2. Extract zip
-3. Run `poe-overlay 0.5.0.exe`
-4. Wait until you can see `POE Overlay 0.5.0` in the bottom left corner
+3. Run `poe-overlay 0.5.1.exe`
+4. Wait until you can see `POE Overlay 0.5.1` in the bottom left corner
 5. Hit `f7` and set `Language` and `League` to meet your game settings
 6. Start Path of Exile
 

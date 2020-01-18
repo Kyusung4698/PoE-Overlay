@@ -74,6 +74,10 @@
       &.w {
         background-image: url(../../../../../../assets/poe/item/socket-white.png);
       }
+
+      &.a {
+        background-image: url(../../../../../../assets/poe/item/socket-abyssal.png);
+      }
     }
   }
 
@@ -99,6 +103,8 @@
 
   .detail {
     padding: 2px;
+    min-width: 396px;
+    white-space: pre;
   }
 
   .separator {
@@ -120,7 +126,7 @@
   }
 
   .blue {
-    color: #b8daf2;
+    color: #b4b4ff;
   }
 
   .red {
