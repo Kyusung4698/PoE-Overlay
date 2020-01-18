@@ -9,7 +9,6 @@ import { BaseItemTypePipe } from './pipe/base-item-type.pipe';
 import { ClientStringPipe } from './pipe/client-string.pipe';
 import { StatGroupPipe } from './pipe/stat-group.pipe';
 import { StatTransformPipe } from './pipe/stat-transform.pipe';
-import { StatPipe } from './pipe/stat.pipe';
 import { WordPipe } from './pipe/word.pipe';
 
 @NgModule({
@@ -17,7 +16,6 @@ import { WordPipe } from './pipe/word.pipe';
         ItemFrameComponent,
         CurrencyFrameComponent,
         ClientStringPipe,
-        StatPipe,
         StatGroupPipe,
         StatTransformPipe,
         WordPipe,
@@ -33,7 +31,6 @@ import { WordPipe } from './pipe/word.pipe';
         ItemFrameComponent,
         CurrencyFrameComponent,
         ClientStringPipe,
-        StatPipe,
         WordPipe,
         BaseItemTypePipe
     ]

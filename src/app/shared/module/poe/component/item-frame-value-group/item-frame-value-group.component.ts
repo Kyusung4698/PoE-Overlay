@@ -19,11 +19,13 @@ export class ItemFrameValueGroupComponent implements AfterViewInit {
 
   public onMouseUp(event: MouseEvent): void {
     event.stopImmediatePropagation();
+    /* tslint:disable */
     if (event.which === 2) {
       this.children.forEach(x => x.resetValue(true, true));
     } else if (event.which === 3) {
       this.children.forEach(x => x.toggleValue(true, true));
     }
+    /* tslint:enable */
   }
 
   public onWheel(event: WheelEvent): void {

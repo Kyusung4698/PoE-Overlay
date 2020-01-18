@@ -21,6 +21,13 @@ export interface StatMap {
     [id: string]: Stat;
 }
 
+export interface StatLocalMap {
+    [statId: string]: {
+        localId: string;
+        globalId?: string;
+    };
+}
+
 export interface ModValue {
     min: number;
     max: number;

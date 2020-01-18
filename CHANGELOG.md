@@ -1,11 +1,13 @@
 ## 0.5.1 (2020-01-xx)
 
-* add alternative text versions of stats to support negate or plural cases (#55, #68, #88, #96)
-    * still requires some extra work - as some cases are not supported by the search. e.g. negated values need to be converted before searching.
+* add alternative text versions of stats to support negate or plural cases (#55, #68, #88, #96, #97)
+* add local stat support (#32)
+* add multiline stat support (#97)
 * add `Max Range Enabled` as settings (#83)
+* add regex caching for better parser performance
 * fix evaluate item frame changing size during loading (#83)
 * fix commands use wrong text (#95)
-* fix blighted map are searched as gem (#92)
+* fix blighted map searched as gem (#92)
 
 ## 0.5.0 (2020-01-15)
 

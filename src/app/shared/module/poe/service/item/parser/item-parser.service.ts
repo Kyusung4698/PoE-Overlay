@@ -54,7 +54,6 @@ export class ItemParserService {
                 .split('--------')
                 .map(section => section
                     .split(/\r?\n/)
-                    .map(line => line.trim())
                     .filter(line => line.length > 0))
                 .filter(lines => lines.length > 0)
                 .map(lines => {

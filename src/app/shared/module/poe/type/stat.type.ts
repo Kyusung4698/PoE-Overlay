@@ -13,6 +13,7 @@ export enum StatType {
 export interface Stat {
     id?: string;
     mod?: string;
+    negated?: boolean;
     text: {
         [language: number]: {
             [predicate: string]: string;

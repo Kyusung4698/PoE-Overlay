@@ -7,6 +7,10 @@ import { ContextService } from '../context.service';
     providedIn: 'root'
 })
 export class BaseItemTypesService {
+    private readonly cache: {
+        [key: string]: RegExp
+    } = {};
+
     constructor(
         private readonly context: ContextService,
         private readonly baseItemTypeProvider: BaseItemTypesProvider) { }
@@ -39,7 +43,8 @@ export class BaseItemTypesService {
         for (const key in map) {
             if (map.hasOwnProperty(key) && key[0] !== '\\') {
                 const text = map[key];
-                const expr = new RegExp(text);
+
+                const expr = this.cache[key] || (this.cache[key] = new RegExp(text));
                 if (expr.test(name)) {
                     return key;
                 }
