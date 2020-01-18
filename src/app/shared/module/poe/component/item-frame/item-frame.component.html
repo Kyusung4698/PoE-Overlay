@@ -196,6 +196,16 @@
                 </ng-container>
                 <ng-container *ngIf="groups.fractured || groups.explicit || groups.crafted">
                     <div class="separator"
+                        *ngIf="groups.pseudo || (item.corrupted !== undefined || item.veiled !== undefined) || item.influences || separator">
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="groups.pseudo">
+                    <ng-container *ngFor="let stat of groups.pseudo">
+                        <div>
+                            <ng-container *ngTemplateOutlet="statQuery, context: { stat: stat }"></ng-container>
+                        </div>
+                    </ng-container>
+                    <div class="separator"
                         *ngIf="(item.corrupted !== undefined || item.veiled !== undefined) || item.influences || separator">
                     </div>
                 </ng-container>

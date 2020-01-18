@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ExportedItem, Item, ItemPostParserService, ItemSectionParserService, Section } from '../../../type';
 import { ItemPostParserDamageService } from './item-post-parser-damage.service';
+import { ItemPostParserPseudoService } from './item-post-parser-pseudo.service';
 import { ItemSectionCorruptedParserService } from './item-section-corrupted-parser.service';
 import { ItemSectionInfluencesParserService } from './item-section-influences-parser.service';
 import { ItemSectionItemLevelParserService } from './item-section-item-level-parser.service';
@@ -30,7 +31,8 @@ export class ItemParserService {
         itemSectionInfluencesParserService: ItemSectionInfluencesParserService,
         itemSectionVeiledParserService: ItemSectionVeiledParserService,
         itemSectionStatsParserService: ItemSectionStatsParserService,
-        itemPostParserDamageService: ItemPostParserDamageService) {
+        itemPostParserDamageService: ItemPostParserDamageService,
+        itemPostParserPseudoService: ItemPostParserPseudoService) {
         this.parsers = [
             itemSectionRarityParser,
             itemSectionRequirementsParserService,
@@ -44,7 +46,8 @@ export class ItemParserService {
             itemSectionStatsParserService,
         ];
         this.postParsers = [
-            itemPostParserDamageService
+            itemPostParserDamageService,
+            itemPostParserPseudoService
         ];
     }
 
