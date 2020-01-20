@@ -7,6 +7,10 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ItemFrameQueryComponent {
+  /* tslint:disable */
+  private _value: any;
+  /* tslint:enable */
+
   @Input()
   public property: any;
 
@@ -14,13 +18,19 @@ export class ItemFrameQueryComponent {
   public propertyChange = new EventEmitter<any>();
 
   @Input()
-  public value: any;
+  public set value(value: any) {
+    this._value = value;
+    if (this.property) {
+      this.property = value;
+      this.propertyChange.emit(this.property);
+    }
+  }
 
   public onQueryToggleClick(): void {
     if (this.property) {
       this.property = undefined;
     } else {
-      this.property = this.value;
+      this.property = this._value;
     }
     this.propertyChange.emit(this.property);
   }

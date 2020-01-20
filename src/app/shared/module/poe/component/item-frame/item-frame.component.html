@@ -90,7 +90,9 @@
                 <app-item-frame-query [(property)]="queryItem.level" (propertyChange)="onPropertyChange()"
                     [value]="item.level">
                     <span>{{'ItemDisplayStringItemLevel' | clientString:language}}:&nbsp;</span>
-                    <span class="white">{{item.level}}</span>
+                    <app-item-frame-value [(value)]="item.level" (valueChange)="onValueChange(queryItem.level)"
+                        [modifier]="modifier" [modifierMaxRange]="modifierMaxRange">
+                    </app-item-frame-value>
                 </app-item-frame-query>
             </div>
             <div *ngIf="item.requirements">

@@ -18,7 +18,9 @@ export class ItemSectionItemLevelParserService implements ItemSectionParserServi
             return null;
         }
 
-        target.level = +itemLevelSection.lines[0].slice(phrase.length);
+        target.level = {
+            text: itemLevelSection.lines[0].slice(phrase.length)
+        };
         return itemLevelSection;
     }
 }

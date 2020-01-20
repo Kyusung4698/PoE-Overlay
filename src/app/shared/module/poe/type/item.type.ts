@@ -8,7 +8,7 @@ export interface Item {
     category?: ItemCategory;
     nameId?: string;
     typeId?: string;
-    level?: number;
+    level?: ItemValue;
     corrupted?: boolean;
     veiled?: boolean;
     damage?: ItemWeaponDamage;

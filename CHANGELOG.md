@@ -1,3 +1,14 @@
+## 0.5.2 (2020-01-20)
+
+* add faq to menu
+* add title to currency click
+* add settings to disable item level, item type and item socket as default (#101)
+* add config to pre-select stats
+* update item level to use ranged value instead of fixed value
+* fix local mod selector not working (#32)
+* fix link count (#100)
+* fix negated values use wrong range filter (#88)
+
 ## 0.5.1 (2020-01-18)
 
 * add alternative text versions of stats to support negate or plural cases (#55, #68, #88, #96, #97)

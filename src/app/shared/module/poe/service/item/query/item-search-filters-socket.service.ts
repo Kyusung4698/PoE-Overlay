@@ -25,10 +25,24 @@ export class ItemSearchFiltersSocketService implements ItemSearchFiltersService 
             };
         }
 
-        const links = validSockets.filter(x => !!x.linked);
-        if (links.length > 0) {
+
+        let count = 0;
+        let maxCount = 0;
+        validSockets.forEach(x => {
+            if (x.linked) {
+                ++count;
+            }
+            if (count > maxCount) {
+                maxCount = count;
+            }
+            if (!x.linked) {
+                count = 0;
+            }
+        });
+
+        if (maxCount > 0) {
             query.filters.socket_filters.filters.links = {
-                min: links.length + 1
+                min: maxCount + 1
             };
         }
     }
