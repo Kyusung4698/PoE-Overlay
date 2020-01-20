@@ -24,9 +24,20 @@ export class EvaluateModule implements FeatureModule {
     public getSettings(): UserSettingsFeature {
         const defaultSettings: EvaluateUserSettings = {
             evaluateCurrencyIds: ['chaos', 'exa'],
-            evaluateQueryDefault: true,
+            evaluateQueryDefaultItemLevel: false,
+            evaluateQueryDefaultSockets: false,
+            evaluateQueryDefaultMiscs: true,
+            evaluateQueryDefaultType: true,
+            evaluateQueryDefaultStats: {
+                'pseudo.pseudo_total_elemental_resistance': true,
+                'pseudo.pseudo_total_resistance': true,
+                'pseudo.pseudo_total_strength': true,
+                'pseudo.pseudo_total_life': true,
+                'explicit.stat_1479533453': true,
+                'enchant.stat_290368246': true
+            },
             evaluateQueryIndexed: ItemSearchIndexed.UpTo2WeeksAgo,
-            evaluateQueryOnline: false,
+            evaluateQueryOnline: true,
             evaluateModifierRange: 10,
             evaluateModifierDisableMaxRange: true,
             evaluateKeybinding: 'CmdOrCtrl + D',

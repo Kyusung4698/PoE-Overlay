@@ -1,4 +1,4 @@
-# PoE Overlay 0.5.1
+# PoE Overlay 0.5.2
 
 An Overlay for Path of Exile. The ***core aspect*** is to blend in with the game. Built with Electron and Angular. 
  
@@ -47,7 +47,7 @@ This project is currently in a ***pilot phase***. If you encounter any bugs or h
     * Navigating storage by CTRL + WHEEL
 
 * Menu:
-    * an in game menu to change all settings<br> ![menu](img/menu_0.5.0.jpg)
+    * an in game menu to change all settings<br> ![menu](img/menu_0.5.2.jpg)
 
 ## Roadmap
 
@@ -76,10 +76,10 @@ These instructions will set you up to run and enjoy the overlay.
 
 1. Head over to [Releases](https://github.com/Kyusung4698/PoE-Overlay/releases) and download the latest zip
 2. Extract zip
-3. Run `poe-overlay 0.5.1.exe`
-4. Wait until you can see `POE Overlay 0.5.1` in the bottom left corner
-5. Hit `f7` and set `Language` and `League` to meet your game settings
-6. Start Path of Exile
+3. Run `poe-overlay 0.5.2.exe`
+4. Wait until you can see `POE Overlay 0.5.2` in the bottom left corner
+5. Start Path of Exile
+6. Hit `f7` and set `Language` and `League` to meet your game settings
 
 #### Shortcuts
 
@@ -87,7 +87,7 @@ You can change these shortcuts in the user settings menu.
 
 |Shortcut   |Description
 |---        |---	    
-| `ctrl+d`  | Displays the item in a frame and evaluates the price. You can open poe.trade on click of the currency value
+| `ctrl+d`  | Displays the item in a frame and evaluates the price. You can open the offical trade site on click of the currency value
 | `ctrl+t`  | As above - displays the item translated
 | `f5`      | Go to Hideout
 | `f6`      | Toggle DND
@@ -125,7 +125,7 @@ npm run start
 
 ### Running the tests
 
-These are used to test for eg. the external APIs (poe.trade, poe.ninja, etc.). To run those:
+These are used to test for eg. the external APIs (poe.ninja, etc.). To run those:
 ```
 npm run ng:test
 ```

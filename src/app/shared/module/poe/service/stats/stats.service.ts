@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { StatsLocalProvider } from '../../provider/stats-local.provider';
 import { StatsProvider } from '../../provider/stats.provider';
-import { ItemStat, Language, StatType } from '../../type';
+import { ItemStat, Language, Stat, StatType } from '../../type';
 import { ContextService } from '../context.service';
 
 export interface StatsSearchResult {
@@ -10,24 +10,19 @@ export interface StatsSearchResult {
 }
 
 export interface StatsSearchOptions {
-    'minimum_added_physical_damage maximum_added_physical_damage'?: boolean;    // -
-    'minimum_added_fire_damage maximum_added_fire_damage'?: boolean;            // -
-    'minimum_added_cold_damage maximum_added_cold_damage'?: boolean;            // -
-    'minimum_added_lightning_damage maximum_added_lightning_damage'?: boolean;  // -
-    'minimum_added_chaos_damage maximum_added_chaos_damage'?: boolean;          // -
-    'attack_speed_+%'?: boolean;                                                // -
-    'base_physical_damage_reduction_rating'?: boolean;                          // -
-    'physical_damage_reduction_rating_+%'?: boolean;                            // -
-    'base_evasion_rating'?: boolean;                                            // -
-    'evasion_rating_+%'?: boolean;                                              // -
-    'evasion_and_energy_shield_+%'?: boolean;                                   // -
-    'armour_and_evasion_+%'?: boolean;                                          // -
-    'armour_and_evasion_and_energy_shield_+%'?: boolean;                        // -
-    'armour_and_energy_shield_+%'?: boolean;                                    // -
-    'energy_shield'?: boolean;                                                  // -
-    'energy_shield_+%'?: boolean;                                               // -
-    'accuracy_rating'?: boolean;                                                // -
-    'poison_on_hit_%'?: boolean;                                                // -
+    base_chance_to_poison_on_hit__?: boolean;
+    local_minimum_added_physical_damagelocal_maximum_added_physical_damage?: boolean;
+    local_minimum_added_fire_damagelocal_maximum_added_fire_damage?: boolean;
+    local_minimum_added_cold_damagelocal_maximum_added_cold_damage?: boolean;
+    local_minimum_added_lightning_damagelocal_maximum_added_lightning_damage?: boolean;
+    local_minimum_added_chaos_damagelocal_maximum_added_chaos_damage?: boolean;
+    local_attack_speed___?: boolean;
+    base_physical_damage_reduction_rating?: boolean;
+    local_physical_damage_reduction_rating___?: boolean;
+    base_evasion_rating?: boolean;
+    local_evasion_rating___?: boolean;
+    base_maximum_energy_shield?: boolean;
+    local_accuracy_rating?: boolean;
 }
 
 interface StatsSectionText {
@@ -42,6 +37,7 @@ interface StatsSectionsSearch {
 
 const REVERSE_REGEX = /\\[.*+?^${}()|[\]\\]/g;
 const VALUE_PLACEHOLDER = '(\\S+)';
+const TYPE_PLACEHOLDER_REGEX = / \(implicit\)| \(fractured\)| \(crafted\)/;
 
 @Injectable({
     providedIn: 'root'
@@ -56,7 +52,20 @@ export class StatsService {
         private readonly statsProvider: StatsProvider,
         private readonly statsLocalProvider: StatsLocalProvider) { }
 
+    public translate(stat: Stat, predicate: string, language?: Language): string {
+        language = language || this.context.get().language;
+
+        const result = stat.text[language][predicate];
+        return result
+            .slice(1, result.length - 1)
+            .split(VALUE_PLACEHOLDER)
+            .map(part => part.replace(REVERSE_REGEX, (value) => value.replace('\\', '')).replace(TYPE_PLACEHOLDER_REGEX, ''))
+            .join('#');
+    }
+
     public transform(stat: ItemStat, language?: Language): string[] {
+        language = language || this.context.get().language;
+
         const stats = this.statsProvider.provide(stat.type);
         if (!stats[stat.tradeId] || !stats[stat.tradeId].text[language] || !stats[stat.tradeId].text[language][stat.predicate]) {
             return [`untranslated: '${stat.type}.${stat.tradeId}' for language: '${Language[language]}'`];
@@ -66,7 +75,7 @@ export class StatsService {
         return result
             .slice(1, result.length - 1)
             .split(VALUE_PLACEHOLDER)
-            .map(part => part.replace(REVERSE_REGEX, (value) => value.replace('\\', '')));
+            .map(part => part.replace(REVERSE_REGEX, (value) => value.replace('\\', '')).replace(TYPE_PLACEHOLDER_REGEX, ''));
     }
 
     public search(text: string, options?: StatsSearchOptions, language?: Language): StatsSearchResult {
@@ -78,8 +87,6 @@ export class StatsService {
         options = options || {};
 
         const { implicitsSearch, enchantsSearch, explicitsSearch } = this.buildSearch(texts);
-
-        // TODO: Local Thingies
 
         const results: StatsSearchResult[] = [];
         if (implicitsSearch.sections.length > 0) {
@@ -138,17 +145,21 @@ export class StatsService {
                             continue;
                         }
 
-                        if (locals[stat.id]) {
+                        const getKey = (id: string) => {
+                            return id.split(' ').join('').split('%').join('_').split('+').join('_');
+                        };
+
+                        const localKey = getKey(stat.id);
+                        if (locals[localKey]) {
+                            let optId = locals[localKey];
+                            if (stat.mod === 'local') {
+                                // global to local optId
+                                optId = locals[optId];
+                            }
+
                             // item has local stat
-                            if (options[stat.id]) {
-                                if (stat.mod !== 'local' && !!locals[stat.id].localId) {
-                                    continue;
-                                }
-                            } else {
-                                // check if there even is a global stat if not then use this
-                                if (stat.mod === 'local' && !!locals[stat.id].globalId) {
-                                    continue;
-                                }
+                            if (options[optId] && stat.mod !== 'local') {
+                                continue;
                             }
                         }
 

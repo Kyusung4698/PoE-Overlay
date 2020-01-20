@@ -22,10 +22,7 @@ export interface StatMap {
 }
 
 export interface StatLocalMap {
-    [statId: string]: {
-        localId: string;
-        globalId?: string;
-    };
+    [id: string]: string;
 }
 
 export interface ModValue {

@@ -16,6 +16,46 @@ label {
   transform: perspective(100px) translateZ(0.001px);
 }
 
+.stat {
+  display: flex;
+  align-items: center;
+
+  > .text {
+    overflow: hidden;
+    max-height: 38px;
+  }
+
+  > .type {
+    display: inline-block;
+    padding: 3px;
+    margin-right: 6px;
+
+    &.explicit {
+      display: none;
+    }
+
+    &.pseudo {
+      background-color: #232420;
+    }
+
+    &.implicit {
+      background-color: #65621e;
+    }
+
+    &.crafted {
+      background-color: #0060bf;
+    }
+
+    &.enchant {
+      background-color: #8b579c;
+    }
+
+    &.fractured {
+      background-color: #a29162;
+    }
+  }
+}
+
 .range {
   display: flex;
   align-items: center;

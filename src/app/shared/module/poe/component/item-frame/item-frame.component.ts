@@ -57,7 +57,7 @@ export class ItemFrameComponent implements OnInit {
   }
 
   public onValueChange(value: any): void {
-    if (value !== undefined) {
+    if (value !== undefined && value !== null) {
       this.queryItemChange.emit(this.queryItem);
     }
   }

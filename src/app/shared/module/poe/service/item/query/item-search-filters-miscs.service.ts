@@ -13,8 +13,8 @@ export class ItemSearchFiltersMiscsService implements ItemSearchFiltersService {
 
         if (item.level) {
             query.filters.misc_filters.filters.ilvl = {
-                min: item.level,
-                max: item.level,
+                min: item.level.min,
+                max: item.level.max,
             };
         }
 

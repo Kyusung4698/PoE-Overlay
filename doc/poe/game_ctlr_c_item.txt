@@ -635,3 +635,66 @@ pulls my axe from your ribs."
 Place into an allocated Jewel Socket on the Passive Skill Tree. Right click to remove from the Socket.
 --------
 Corrupted
+
+Rarity: Rare
+Onslaught Grip
+Sorcerer Gloves
+--------
+Energy Shield: 150 (augmented)
+--------
+Requirements:
+Level: 69
+Int: 97
+--------
+Sockets: B-B-B-G 
+--------
+Item Level: 84
+--------
++35 to maximum Energy Shield
+
+
+Rarity: Rare
+Damnation Song
+Imperial Bow
+--------
+Bow
+Physical Damage: 144-381 (augmented)
+Critical Strike Chance: 5.00%
+Attacks per Second: 1.45
+--------
+Requirements:
+Level: 66
+Dex: 212 (unmet)
+--------
+Sockets: R-R R G 
+--------
+Item Level: 75
+--------
+20% increased Elemental Damage with Attack Skills (implicit)
+--------
++38 to Dexterity
+193% increased Physical Damage
+Adds 30 to 52 Physical Damage
+Gain 10% of Physical Damage as Extra Chaos Damage
++27 to Accuracy Rating
+
+
+Rarity: Rare
+Damnation March
+Titan Greaves
+--------
+Armour: 405 (augmented)
+--------
+Requirements:
+Level: 68
+Str: 120
+--------
+Sockets: R-R B-B R A
+--------
+Item Level: 71
+--------
+68% increased Armour
+Regenerate 3 Life per second
++7% to Cold Resistance
++41% to Lightning Resistance
+30% increased Movement Speed

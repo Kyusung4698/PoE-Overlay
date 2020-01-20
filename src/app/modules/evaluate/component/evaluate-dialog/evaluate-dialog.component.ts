@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { WindowService } from '@app/service';
 import { SnackBarService } from '@shared/module/material/service';
@@ -20,7 +20,7 @@ export interface EvaluateDialogData {
   templateUrl: './evaluate-dialog.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class EvaluateDialogComponent implements OnInit {
+export class EvaluateDialogComponent implements OnInit, AfterViewInit {
   private queryItemChange: Subject<Item>;
   public queryItem: Item;
 
@@ -38,6 +38,9 @@ export class EvaluateDialogComponent implements OnInit {
 
   public ngOnInit(): void {
     this.initQueryItem();
+  }
+
+  public ngAfterViewInit(): void {
     this.firstSearch();
     this.registerSearchOnChange();
   }
@@ -67,22 +70,37 @@ export class EvaluateDialogComponent implements OnInit {
       stats: [],
       properties: {},
       requirements: {},
-      sockets: [],
+      sockets: new Array((item.sockets || []).length).fill({}),
     };
 
-    if (this.data.settings.evaluateQueryDefault) {
-      if (item.level && item.level > 80) {
-        queryItem.level = item.level;
-      }
+    if (this.data.settings.evaluateQueryDefaultItemLevel) {
+      queryItem.level = item.level;
+    }
 
+    if (this.data.settings.evaluateQueryDefaultSockets) {
+      queryItem.sockets = item.sockets;
+    }
+
+    if (this.data.settings.evaluateQueryDefaultMiscs) {
       const prop = item.properties;
       if (prop) {
         queryItem.properties.gemLevel = prop.gemLevel;
         queryItem.properties.mapTier = prop.mapTier;
         queryItem.properties.quality = item.rarity === ItemRarity.Gem ? prop.quality : undefined;
       }
+    }
 
-      queryItem.sockets = item.sockets;
+    if (!this.data.settings.evaluateQueryDefaultType) {
+      if (!item.nameId && (item.rarity === ItemRarity.Magic || ItemRarity.Rare)) {
+        queryItem.typeId = undefined;
+      }
+    }
+
+    if (item.stats) {
+      queryItem.stats = item.stats.map(stat => {
+        const key = `${stat.type}.${stat.tradeId}`;
+        return this.data.settings.evaluateQueryDefaultStats[key] ? stat : undefined;
+      });
     }
 
     this.queryItem = JSON.parse(JSON.stringify(queryItem));

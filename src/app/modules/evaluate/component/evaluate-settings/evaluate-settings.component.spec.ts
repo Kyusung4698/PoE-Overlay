@@ -1,7 +1,17 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ElectronProvider } from '@app/provider';
 import { SharedModule } from '@shared/shared.module';
 import { EvaluateSettingsComponent } from './evaluate-settings.component';
 
+class ElectronProviderFake {
+  public provideRemote(): Electron.Remote {
+    return null;
+  }
+
+  public provideIpcRenderer(): Electron.IpcRenderer {
+    return null;
+  }
+}
 
 describe('EvaluateSettingsComponent', () => {
   let component: EvaluateSettingsComponent;
@@ -10,7 +20,10 @@ describe('EvaluateSettingsComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [EvaluateSettingsComponent],
-      imports: [SharedModule]
+      imports: [SharedModule],
+      providers: [
+        { provide: ElectronProvider, useClass: ElectronProviderFake }
+      ]
     })
       .compileComponents();
   }));

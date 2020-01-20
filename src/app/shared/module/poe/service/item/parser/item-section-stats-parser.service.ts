@@ -36,48 +36,33 @@ export class ItemSectionStatsParserService implements ItemSectionParserService {
         }
 
         if (item.properties.weaponPhysicalDamage) {
-            options['minimum_added_physical_damage maximum_added_physical_damage'] = true;
+            options.local_minimum_added_physical_damagelocal_maximum_added_physical_damage = true;
         }
         if (item.properties.weaponElementalDamage) {
-            options['minimum_added_fire_damage maximum_added_fire_damage'] = true;
-            options['minimum_added_cold_damage maximum_added_cold_damage'] = true;
-            options['minimum_added_lightning_damage maximum_added_lightning_damage'] = true;
+            options.local_minimum_added_fire_damagelocal_maximum_added_fire_damage = true;
+            options.local_minimum_added_cold_damagelocal_maximum_added_cold_damage = true;
+            options.local_minimum_added_lightning_damagelocal_maximum_added_lightning_damage = true;
         }
         if (item.properties.weaponChaosDamage) {
-            options['minimum_added_chaos_damage maximum_added_chaos_damage'] = true;
+            options.local_minimum_added_chaos_damagelocal_maximum_added_chaos_damage = true;
         }
 
         if (item.properties.weaponAttacksPerSecond) {
-            options['attack_speed_+%'] = true;
+            options.local_attack_speed___ = true;
         }
 
         if (item.properties.armourEvasionRating) {
             options.base_evasion_rating = true;
-            options['evasion_rating_+%'] = true;
-
-            if (item.properties.armourEnergyShield) {
-                options['evasion_and_energy_shield_+%'] = true;
-            }
+            options.local_evasion_rating___ = true;
         }
 
         if (item.properties.armourArmour) {
             options.base_physical_damage_reduction_rating = true;
-            options['physical_damage_reduction_rating_+%'] = true;
-
-            if (item.properties.armourEvasionRating) {
-                options['armour_and_evasion_+%'] = true;
-            }
-            if (item.properties.armourEvasionRating && item.properties.armourEnergyShield) {
-                options['armour_and_evasion_and_energy_shield_+%'] = true;
-            }
-            if (item.properties.armourEnergyShield) {
-                options['armour_and_energy_shield_+%'] = true;
-            }
+            options.local_physical_damage_reduction_rating___ = true;
         }
 
         if (item.properties.armourEnergyShield) {
-            options.energy_shield = true;
-            options['energy_shield_+%'] = true;
+            options.base_maximum_energy_shield = true;
         }
 
         if (item.properties.weaponAttacksPerSecond
@@ -86,8 +71,8 @@ export class ItemSectionStatsParserService implements ItemSectionParserService {
             || item.properties.weaponElementalDamage
             || item.properties.weaponPhysicalDamage
             || item.properties.weaponRange) {
-            options.accuracy_rating = true;
-            options['poison_on_hit_%'] = true;
+            options.local_accuracy_rating = true;
+            options.base_chance_to_poison_on_hit__ = true;
         }
 
         return options;
