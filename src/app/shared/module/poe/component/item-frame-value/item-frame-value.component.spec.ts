@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ItemFrameComponent } from '../item-frame/item-frame.component';
 import { ItemFrameValueComponent } from './item-frame-value.component';
+
 
 describe('ItemFrameValueComponent', () => {
   let component: ItemFrameValueComponent;
@@ -8,9 +9,16 @@ describe('ItemFrameValueComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ItemFrameValueComponent ]
+      declarations: [ItemFrameValueComponent],
+      providers: [
+        {
+          provide: ItemFrameComponent, useValue: {
+            onValueChange: () => { },
+          }
+        }
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

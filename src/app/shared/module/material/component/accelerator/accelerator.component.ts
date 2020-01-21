@@ -42,15 +42,18 @@ export class AcceleratorComponent {
         }
         /* tslint:enable */
 
+        const modifiers = [];
         if (event.ctrlKey) {
-          this.value = `CmdOrCtrl + ${key}`;
-        } else if (event.altKey) {
-          this.value = `Alt + ${key}`;
-        } else if (event.shiftKey) {
-          this.value = `Shift + ${key}`;
-        } else {
-          this.value = key;
+          modifiers.push('CmdOrCtrl');
         }
+        if (event.altKey) {
+          modifiers.push('Alt');
+        }
+        if (event.shiftKey) {
+          modifiers.push('Shift');
+        }
+        modifiers.push(key);
+        this.value = modifiers.join(' + ');
         this.valueChange.next(this.value);
       } else if (key === 'Esc' || key === 'Escape') {
         this.recording = false;

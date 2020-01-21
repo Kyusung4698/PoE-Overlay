@@ -35,3 +35,18 @@ export interface ModsMap {
         [modId: string]: ModValue[]
     };
 }
+
+export interface AtlasMap {
+    url?: string;
+    layoutRating?: string;
+    bossRating?: string;
+    bosses?: string[];
+    bossCount?: number;
+    items?: string[];
+    encounter?: string;
+    layout?: string;
+}
+
+export interface AtlasMapsMap {
+    [mapId: string]: AtlasMap;
+}

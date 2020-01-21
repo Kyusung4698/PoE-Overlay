@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ExportedItem, Item, ItemSectionParserService, Section, ItemRequirements } from '@shared/module/poe/type';
+import { ExportedItem, Item, ItemSectionParserService, Section, ItemRequirements, ItemSection } from '@shared/module/poe/type';
 import { ClientStringService } from '../../client-string/client-string.service';
 
 @Injectable({
@@ -9,6 +9,7 @@ export class ItemSectionRequirementsParserService implements ItemSectionParserSe
     constructor(private readonly clientString: ClientStringService) { }
 
     public optional = true;
+    public section = ItemSection.Requirements;
 
     public parse(item: ExportedItem, target: Item): Section {
         const phrase = `${this.clientString.translate('ItemPopupRequirements')}:`;

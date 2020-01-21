@@ -1,0 +1,61 @@
+<ng-container *ngIf="item.damage">
+    <div *ngIf="item.damage.dps">
+        <app-item-frame-query [(property)]="queryItem.damage.dps" [value]="item.damage.dps">
+            <span> {{'DPS'}} </span>
+            <span class="white">&nbsp;{{item.damage.dps | number : '1.2-2'}}</span>
+        </app-item-frame-query>
+    </div>
+    <div *ngIf="item.damage.pdps">
+        <app-item-frame-query [(property)]="queryItem.damage.pdps" [value]="item.damage.pdps">
+            <span> {{'Physical DPS'}} </span>
+            <span class="white">&nbsp;{{item.damage.pdps | number : '1.2-2'}}</span>
+        </app-item-frame-query>
+    </div>
+    <div *ngIf="item.damage.edps">
+        <app-item-frame-query [(property)]="queryItem.damage.edps" [value]="item.damage.edps">
+            <span> {{'Elemental DPS'}} </span>
+            <span class="white">&nbsp;{{item.damage.edps | number : '1.2-2'}}</span>
+        </app-item-frame-query>
+    </div>
+</ng-container>
+<ng-container *ngFor="let property of properties">
+    <div *ngIf="item.properties[property] as prop">
+        <app-item-frame-query [(property)]="queryItem.properties[property]" [value]="prop">
+            <ng-container [ngSwitch]="property">
+                <span *ngSwitchCase="'weaponCriticalStrikeChance'">
+                    {{'ItemDisplayWeaponCriticalStrikeChance' | clientString:language}}</span>
+                <span *ngSwitchCase="'weaponAttacksPerSecond'">
+                    {{'ItemDisplayWeaponAttacksPerSecond' | clientString:language}}</span>
+                <span *ngSwitchCase="'shieldBlockChance'">
+                    {{'ItemDisplayShieldBlockChance' | clientString:language}}</span>
+                <span *ngSwitchCase="'armourArmour'">
+                    {{'ItemDisplayArmourArmour' | clientString:language}}</span>
+                <span *ngSwitchCase="'armourEvasionRating'">
+                    {{'ItemDisplayArmourEvasionRating' | clientString:language}}</span>
+                <span *ngSwitchCase="'armourEnergyShield'">
+                    {{'ItemDisplayArmourEnergyShield' | clientString:language}}</span>
+                <span *ngSwitchCase="'gemLevel'">
+                    {{'Level' | clientString:language}}</span>
+                <span *ngSwitchCase="'quality'">
+                    <ng-container *ngIf="item.properties.qualityType">
+                        {{('Quality' + item.properties.qualityType)  | clientString:language}}
+                    </ng-container>
+                    <ng-container *ngIf="!item.properties.qualityType">
+                        {{'Quality' | clientString:language}}
+                    </ng-container>
+                </span>
+                <span *ngSwitchCase="'gemExperience'">
+                    {{'Experience' | clientString:language}}</span>
+                <span *ngSwitchCase="'mapTier'">
+                    {{'ItemDisplayMapTier' | clientString:language}}</span>
+                <span *ngSwitchCase="'mapQuantity'">
+                    {{'ItemDisplayMapQuantityIncrease' | clientString:language}}</span>
+                <span *ngSwitchCase="'mapRarity'">
+                    {{'ItemDisplayMapRarityIncrease' | clientString:language}}</span>
+                <span *ngSwitchCase="'mapPacksize'">
+                    {{'ItemDisplayMapPackSizeIncrease' | clientString:language}}</span>
+            </ng-container>
+            <span [class]="prop.augmented ? 'purpel' : 'white'">:&nbsp;{{prop.value}}</span>
+        </app-item-frame-query>
+    </div>    
+</ng-container>

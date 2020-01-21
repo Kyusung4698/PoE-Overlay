@@ -5,11 +5,8 @@ export const environment = {
     countryUrl: 'https://{country}.pathofexile.com/api',
     koreanUrl: 'https://poe.game.daum.net/api'
   },
-  poeTrade: {
-    baseUrl: 'https://poe.trade'
-  },
-  currencyPoeTrade: {
-    baseUrl: 'https://currency.poe.trade'
+  wiki: {
+    baseUrl: 'https://pathofexile.gamepedia.com',
   },
   poeNinja: {
     baseUrl: 'https://poe.ninja/api'

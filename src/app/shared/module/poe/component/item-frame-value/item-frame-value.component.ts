@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
 import { ItemValue } from '../../type';
+import { ItemFrameComponent } from '../item-frame/item-frame.component';
 
 @Component({
   selector: 'app-item-frame-value',
@@ -21,6 +22,11 @@ export class ItemFrameValueComponent implements OnInit {
 
   @Output()
   public valueChange = new EventEmitter<ItemValue>();
+
+  constructor(
+    @Inject(ItemFrameComponent)
+    private readonly itemFrame: ItemFrameComponent) {
+  }
 
   public ngOnInit(): void {
     const value = this.parseValue(this.value.text);
@@ -90,7 +96,7 @@ export class ItemFrameValueComponent implements OnInit {
       this.value.max = this.default.max;
     }
     if (min !== this.value.min || max !== this.value.max) {
-      this.valueChange.emit(this.value);
+      this.emitChange();
     }
   }
 
@@ -115,7 +121,7 @@ export class ItemFrameValueComponent implements OnInit {
     }
 
     if (min !== this.value.min || max !== this.value.max) {
-      this.valueChange.emit(this.value);
+      this.emitChange();
     }
   }
 
@@ -158,7 +164,7 @@ export class ItemFrameValueComponent implements OnInit {
     }
 
     if (min !== this.value.min || max !== this.value.max) {
-      this.valueChange.emit(this.value);
+      this.emitChange();
     }
   }
 
@@ -174,6 +180,11 @@ export class ItemFrameValueComponent implements OnInit {
       step *= -1;
     }
     return step;
+  }
+
+  private emitChange(): void {
+    this.valueChange.emit(this.value);
+    this.itemFrame.onValueChange(this.value);
   }
 
   private parseValue(text: string): number {

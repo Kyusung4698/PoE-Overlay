@@ -1,3 +1,5 @@
+import { ItemQualityType } from '../type';
+
 export enum ModifierType {
     Addition,
     Addition5Every10,
@@ -11,7 +13,7 @@ export interface Modifier {
 }
 
 export const PSEUDO_MODIFIERS: {
-    [id: string]: Modifier[]
+    [id: string]: Modifier[] | number
 } = {
     pseudo_total_strength: [
         { id: 'base_strength', type: ModifierType.Addition },

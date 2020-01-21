@@ -1,4 +1,4 @@
-# PoE Overlay 0.5.2
+# PoE Overlay 0.5.3
 
 An Overlay for Path of Exile. The ***core aspect*** is to blend in with the game. Built with Electron and Angular. 
  
@@ -43,8 +43,9 @@ This project is currently in a ***pilot phase***. If you encounter any bugs or h
     * bind in game commands to a custom hotkey
     * premade /hideout on `F5` and /dnd on `F6`
 
-* Tools:
+* Misc:
     * Navigating storage by CTRL + WHEEL
+    * Highlighting items by CTRL + F
 
 * Menu:
     * an in game menu to change all settings<br> ![menu](img/menu_0.5.2.jpg)
@@ -57,7 +58,8 @@ This project is currently in a ***pilot phase***. If you encounter any bugs or h
 | Shared | 100% | + item frame<br>+ currency frame<br>+ item parser in all languages<br>+ item parser mods
 | Evaluate         | 100%           | + Basic search implemented <br>+ User settings (display currency, translated language) <br>+ Chart to display values instead of avg <br>+ Advanced search with filter on modifiers |
 | Command        | 100%            | + bind in-game commmands to shortcuts (/dnd, /hideout) |
-| Tool        | 100%            | + navigating through storage by CTRL + WHEEL |
+| Map        | 75%            | + display map info (layout, bosses, ...) |
+| Misc        | 100%            | + navigating through storage by CTRL + WHEEL<br> + highlighting items by CTRL + F |
 | Trade      | 0%           | - Send messages<br>- Trade UI<br>- etc.       |
 
 
@@ -76,8 +78,8 @@ These instructions will set you up to run and enjoy the overlay.
 
 1. Head over to [Releases](https://github.com/Kyusung4698/PoE-Overlay/releases) and download the latest zip
 2. Extract zip
-3. Run `poe-overlay 0.5.2.exe`
-4. Wait until you can see `POE Overlay 0.5.2` in the bottom left corner
+3. Run `poe-overlay 0.5.3.exe`
+4. Wait until you can see `POE Overlay 0.5.3` in the bottom left corner
 5. Start Path of Exile
 6. Hit `f7` and set `Language` and `League` to meet your game settings
 
@@ -85,14 +87,19 @@ These instructions will set you up to run and enjoy the overlay.
 
 You can change these shortcuts in the user settings menu.
 
-|Shortcut   |Description
-|---        |---	    
-| `ctrl+d`  | Displays the item in a frame and evaluates the price. You can open the offical trade site on click of the currency value
-| `ctrl+t`  | As above - displays the item translated
-| `f5`      | Go to Hideout
-| `f6`      | Toggle DND
-| `f7`      | Opens the user settings menu
-| `f8`      | Exits overlay
+|Shortcut        |Description
+|---             |---	    
+| `ctrl+d`       | Displays the item in a frame and evaluates the price. You can open the offical trade site on click of the currency value
+| `ctrl+t`       | As above - displays the item translated
+| `alt+w`        | Opens item in wiki
+| `ctrl+alt+w`   | As above - but in external browser
+| `alt+q`        | Shows map info (layout, bosses)
+| `ctrl+f`       | Highlights item in stash
+| `ctrl+wheel`   | Navigates through stash tabs
+| `f5`           | Go to Hideout
+| `f6`           | Toggle DND
+| `f7`           | Opens the user settings menu
+| `f8`           | Exits overlay
 
 ## Developer
 

@@ -10,6 +10,14 @@ import { ClientStringPipe } from './pipe/client-string.pipe';
 import { StatGroupPipe } from './pipe/stat-group.pipe';
 import { StatTransformPipe } from './pipe/stat-transform.pipe';
 import { WordPipe } from './pipe/word.pipe';
+import { ItemFrameHeaderComponent } from './component/item-frame-header/item-frame-header.component';
+import { ItemFrameSeparatorComponent } from './component/item-frame-separator/item-frame-separator.component';
+import { ItemFrameInfluencesComponent } from './component/item-frame-influences/item-frame-influences.component';
+import { ItemFramePropertiesComponent } from './component/item-frame-properties/item-frame-properties.component';
+import { ItemFrameSocketsComponent } from './component/item-frame-sockets/item-frame-sockets.component';
+import { ItemFrameLevelRequirementsComponent } from './component/item-frame-level-requirements/item-frame-level-requirements.component';
+import { ItemFrameStatsComponent } from './component/item-frame-stats/item-frame-stats.component';
+import { ItemFrameStateComponent } from './component/item-frame-state/item-frame-state.component';
 
 @NgModule({
     declarations: [
@@ -23,6 +31,14 @@ import { WordPipe } from './pipe/word.pipe';
         ItemFrameQueryComponent,
         ItemFrameValueComponent,
         ItemFrameValueGroupComponent,
+        ItemFrameHeaderComponent,
+        ItemFrameSeparatorComponent,
+        ItemFrameInfluencesComponent,
+        ItemFramePropertiesComponent,
+        ItemFrameSocketsComponent,
+        ItemFrameLevelRequirementsComponent,
+        ItemFrameStatsComponent,
+        ItemFrameStateComponent,
     ],
     imports: [
         BrowserModule
@@ -32,7 +48,8 @@ import { WordPipe } from './pipe/word.pipe';
         CurrencyFrameComponent,
         ClientStringPipe,
         WordPipe,
-        BaseItemTypePipe
+        BaseItemTypePipe,
+        ItemFrameSeparatorComponent
     ]
 })
 export class PoeModule { }
