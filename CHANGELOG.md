@@ -1,3 +1,13 @@
+## 0.5.3 (2020-01-21)
+
+* add map info support (#18)
+* add beast support (#86)
+* add alternate quality support (#98)
+* add stash highlight (CTRL + F) (#106)
+* add open item in wiki (ALT + W; CTRL + ALT + W) (#72)
+* add support for multi-modifier key bindings
+* update tools to misc
+
 ## 0.5.2 (2020-01-20)
 
 * add faq to menu

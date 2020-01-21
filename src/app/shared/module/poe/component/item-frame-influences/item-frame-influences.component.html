@@ -1,0 +1,37 @@
+<ng-container *ngIf="item.influences.shaper">
+    <app-item-frame-query [(property)]="queryItem.influences.shaper" [value]="item.influences.shaper">
+        <span class="rose"> {{'ItemPopupShaperItem' | clientString:language}}</span>
+    </app-item-frame-query>
+    <span
+        *ngIf="item.influences.crusader || item.influences.hunter || item.influences.elder || item.influences.redeemer || item.influences.warlord">,&nbsp;</span>
+</ng-container>
+<ng-container *ngIf="item.influences.crusader">
+    <app-item-frame-query [(property)]="queryItem.influences.crusader" [value]="item.influences.crusader">
+        <span class="rose"> {{'ItemPopupCrusaderItem' | clientString:language}}</span>
+    </app-item-frame-query>
+    <span
+        *ngIf="item.influences.hunter || item.influences.elder || item.influences.redeemer || item.influences.warlord">,&nbsp;</span>
+</ng-container>
+<ng-container *ngIf="item.influences.hunter">
+    <app-item-frame-query [(property)]="queryItem.influences.hunter" [value]="item.influences.hunter">
+        <span class="rose"> {{'ItemPopupHunterItem' | clientString:language}}</span>
+    </app-item-frame-query>
+    <span *ngIf="item.influences.elder || item.influences.redeemer || item.influences.warlord">,&nbsp;</span>
+</ng-container>
+<ng-container *ngIf="item.influences.elder">
+    <app-item-frame-query [(property)]="queryItem.influences.elder" [value]="item.influences.elder">
+        <span class="rose"> {{'ItemPopupElderItem' | clientString:language}}</span>
+    </app-item-frame-query>
+    <span *ngIf="item.influences.redeemer || item.influences.warlord">,&nbsp;</span>
+</ng-container>
+<ng-container *ngIf="item.influences.redeemer">
+    <app-item-frame-query [(property)]="queryItem.influences.redeemer" [value]="item.influences.redeemer">
+        <span class="rose"> {{'ItemPopupRedeemerItem' | clientString:language}}</span>
+    </app-item-frame-query>
+    <span *ngIf="item.influences.warlord">,&nbsp;</span>
+</ng-container>
+<ng-container *ngIf="item.influences.warlord">
+    <app-item-frame-query [(property)]="queryItem.influences.warlord" [value]="item.influences.warlord">
+        <span class="rose"> {{'ItemPopupWarlordItem' | clientString:language}}</span>
+    </app-item-frame-query>
+</ng-container>

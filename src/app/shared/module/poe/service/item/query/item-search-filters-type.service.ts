@@ -66,6 +66,8 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
             case ItemCategory.Flask:
             // map
             case ItemCategory.Map:
+            // monster
+            case ItemCategory.MonsterBeast:
                 query.filters.type_filters.filters.rarity = {
                     option: item.rarity
                 };
@@ -96,7 +98,6 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
                 };
                 break;
             // don't work yet
-            case ItemCategory.MonsterBeast:
             case ItemCategory.MonsterSample:
             // prophecy
             case ItemCategory.Prophecy:

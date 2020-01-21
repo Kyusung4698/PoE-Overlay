@@ -15,19 +15,23 @@ export class ItemPostParserPseudoService implements ItemPostParserService {
         Object.getOwnPropertyNames(PSEUDO_MODIFIERS).forEach(id => {
             let values = [];
             let count = 0;
-            for (const mod of PSEUDO_MODIFIERS[id]) {
-                const stats = itemStats.filter(x => x.id === mod.id && x.values.length > 0);
-                if (stats.length <= 0) {
-                    if (mod.type === ModifierType.MinimumRequired) {
-                        values = [];
-                        break;
+
+            const mods = PSEUDO_MODIFIERS[id];
+            if (mods instanceof Array) {
+                for (const mod of PSEUDO_MODIFIERS[id]) {
+                    const stats = itemStats.filter(x => x.id === mod.id && x.values.length > 0);
+                    if (stats.length <= 0) {
+                        if (mod.type === ModifierType.MinimumRequired) {
+                            values = [];
+                            break;
+                        }
+                        continue;
                     }
-                    continue;
+                    stats.forEach(stat => {
+                        ++count;
+                        values = this.calculateValue(stat, mod.type, values);
+                    });
                 }
-                stats.forEach(stat => {
-                    ++count;
-                    values = this.calculateValue(stat, mod.type, values);
-                });
             }
             const itemStat: ItemStat = {
                 id, type: StatType.Pseudo,

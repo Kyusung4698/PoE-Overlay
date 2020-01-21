@@ -1,302 +1,57 @@
-<div [class]="'frame ' + (item.rarity || '')">
-
-    <div class="header" [class.double]="item.nameId && item.typeId">
-        <div class="name" *ngIf="item.nameId">
-            {{item.nameId | word:language}}
-        </div>
-        <div class="name" *ngIf="item.typeId">
-            <ng-container *ngIf="!item.nameId && (item.rarity === 'magic' || item.rarity === 'rare')">
-                <app-item-frame-query [(property)]="queryItem.typeId" (propertyChange)="onPropertyChange()"
-                    [value]="item.typeId">
-                    <span>{{item.typeId | baseItemType:language}}</span>
-                </app-item-frame-query>
-            </ng-container>
-            <ng-container *ngIf="!(!item.nameId && (item.rarity === 'magic' || item.rarity === 'rare'))">
-                <span>{{item.typeId | baseItemType:language}}</span>
-            </ng-container>
-        </div>
-    </div>
+<div class="frame">
+    <app-item-frame-header [item]="item" [queryItem]="queryItem"
+        [queryable]="!item.nameId && (item.rarity === 'magic' || item.rarity === 'rare')" [language]="language">
+    </app-item-frame-header>
 
     <div class="detail">
         <!-- properties -->
         <ng-container *ngIf="item.properties">
-            <ng-container *ngIf="item.damage">
-                <div *ngIf="item.damage.dps">
-                    <app-item-frame-query [(property)]="queryItem.damage.dps" (propertyChange)="onPropertyChange()"
-                        [value]="item.damage.dps">
-                        <span> {{'DPS'}} </span>
-                        <span class="white">&nbsp;{{item.damage.dps | number : '1.2-2'}}</span>
-                    </app-item-frame-query>
-                </div>
-                <div *ngIf="item.damage.pdps">
-                    <app-item-frame-query [(property)]="queryItem.damage.pdps" (propertyChange)="onPropertyChange()"
-                        [value]="item.damage.pdps">
-                        <span> {{'Physical DPS'}} </span>
-                        <span class="white">&nbsp;{{item.damage.pdps | number : '1.2-2'}}</span>
-                    </app-item-frame-query>
-                </div>
-                <div *ngIf="item.damage.edps">
-                    <app-item-frame-query [(property)]="queryItem.damage.edps" (propertyChange)="onPropertyChange()"
-                        [value]="item.damage.edps">
-                        <span> {{'Elemental DPS'}} </span>
-                        <span class="white">&nbsp;{{item.damage.edps | number : '1.2-2'}}</span>
-                    </app-item-frame-query>
-                </div>
-            </ng-container>
-            <ng-container *ngFor="let property of properties">
-                <div *ngIf="item.properties[property] as prop">
-                    <app-item-frame-query [(property)]="queryItem.properties[property]"
-                        (propertyChange)="onPropertyChange()" [value]="prop">
-                        <ng-container [ngSwitch]="property">
-                            <span *ngSwitchCase="'weaponCriticalStrikeChance'">
-                                {{'ItemDisplayWeaponCriticalStrikeChance' | clientString:language}}</span>
-                            <span *ngSwitchCase="'weaponAttacksPerSecond'">
-                                {{'ItemDisplayWeaponAttacksPerSecond' | clientString:language}}</span>
-                            <span *ngSwitchCase="'shieldBlockChance'">
-                                {{'ItemDisplayShieldBlockChance' | clientString:language}}</span>
-                            <span *ngSwitchCase="'armourArmour'">
-                                {{'ItemDisplayArmourArmour' | clientString:language}}</span>
-                            <span *ngSwitchCase="'armourEvasionRating'">
-                                {{'ItemDisplayArmourEvasionRating' | clientString:language}}</span>
-                            <span *ngSwitchCase="'armourEnergyShield'">
-                                {{'ItemDisplayArmourEnergyShield' | clientString:language}}</span>
-                            <span *ngSwitchCase="'gemLevel'">
-                                {{'Level' | clientString:language}}</span>
-                            <span *ngSwitchCase="'quality'">
-                                {{'Quality' | clientString:language}}</span>
-                            <span *ngSwitchCase="'gemExperience'">
-                                {{'Experience' | clientString:language}}</span>
-                            <span *ngSwitchCase="'mapTier'">
-                                {{'ItemDisplayMapTier' | clientString:language}}</span>
-                            <span *ngSwitchCase="'mapQuantity'">
-                                {{'ItemDisplayMapQuantityIncrease' | clientString:language}}</span>
-                            <span *ngSwitchCase="'mapRarity'">
-                                {{'ItemDisplayMapRarityIncrease' | clientString:language}}</span>
-                            <span *ngSwitchCase="'mapPacksize'">
-                                {{'ItemDisplayMapPackSizeIncrease' | clientString:language}}</span>
-                        </ng-container>
-                        <span [class]="prop.augmented ? 'purpel' : 'white'">&nbsp;{{prop.value}}</span>
-                    </app-item-frame-query>
-                </div>
-            </ng-container>
-            <div class="separator"
-                *ngIf="item.level || item.requirements || (item.sockets && item.sockets.length > 0) || (item.stats && item.stats.length > 0) || (item.corrupted !== undefined || item.veiled !== undefined) || item.influences || separator">
-            </div>
+            <app-item-frame-properties [item]="item" [queryItem]="queryItem" [language]="language" [properties]="properties">
+            </app-item-frame-properties>
+            <ng-content select="properties"></ng-content>
+            <app-item-frame-separator [item]="item" *ngIf="req || sockets || stats || state || influences || separator">
+            </app-item-frame-separator>
         </ng-container>
 
         <!-- requirements -->
-        <ng-container *ngIf="item.level || item.requirements">
-            <div *ngIf="item.level">
-                <app-item-frame-query [(property)]="queryItem.level" (propertyChange)="onPropertyChange()"
-                    [value]="item.level">
-                    <span>{{'ItemDisplayStringItemLevel' | clientString:language}}:&nbsp;</span>
-                    <app-item-frame-value [(value)]="item.level" (valueChange)="onValueChange(queryItem.level)"
-                        [modifier]="modifier" [modifierMaxRange]="modifierMaxRange">
-                    </app-item-frame-value>
-                </app-item-frame-query>
-            </div>
-            <div *ngIf="item.requirements">
-                <span>{{'ItemRequirementsLabel' | clientString:language}}&nbsp;</span>
-                <ng-container *ngIf="item.requirements.level">
-                    <app-item-frame-query [(property)]="queryItem.requirements.level"
-                        (propertyChange)="onPropertyChange()" [value]="item.requirements.level">
-                        <span>{{'Level' | clientString:language}}&nbsp;</span>
-                        <span class="white">{{item.requirements.level}}</span>
-                    </app-item-frame-query>
-                    <span *ngIf="item.requirements.str || item.requirements.dex || item.requirements.int">,&nbsp;</span>
-                </ng-container>
-                <ng-container *ngIf="item.requirements.str">
-                    <app-item-frame-query [(property)]="queryItem.requirements.str"
-                        (propertyChange)="onPropertyChange()" [value]="item.requirements.str">
-                        <span class="white">{{item.requirements.str}}&nbsp;</span>
-                        <span>{{'StrengthShort' | clientString:language}}</span>
-                    </app-item-frame-query>
-                    <span *ngIf="item.requirements.dex || item.requirements.int">,&nbsp;</span>
-                </ng-container>
-                <ng-container *ngIf="item.requirements.dex">
-                    <app-item-frame-query [(property)]="queryItem.requirements.dex"
-                        (propertyChange)="onPropertyChange()" [value]="item.requirements.dex">
-                        <span class="white">{{item.requirements.dex}}&nbsp;</span>
-                        <span>{{'DexterityShort' | clientString:language}}</span>
-                    </app-item-frame-query>
-                    <span *ngIf="item.requirements.int">,&nbsp;</span>
-                </ng-container>
-                <ng-container *ngIf="item.requirements.int">
-                    <app-item-frame-query [(property)]="queryItem.requirements.int"
-                        (propertyChange)="onPropertyChange()" [value]="item.requirements.int">
-                        <span class="white">{{item.requirements.int}}&nbsp;</span>
-                        <span>{{'IntelligenceShort' | clientString:language}}</span>
-                    </app-item-frame-query>
-                </ng-container>
-            </div>
-            <div class="separator"
-                *ngIf="(item.sockets && item.sockets.length > 0)  || (item.stats && item.stats.length > 0) || (item.corrupted !== undefined || item.veiled !== undefined) || item.influences || separator">
-            </div>
+        <ng-container *ngIf="req">
+            <app-item-frame-level-requirements [item]="item" [queryItem]="queryItem" [language]="language"
+                [modifier]="modifier" [modifierMaxRange]="modifierMaxRange">
+            </app-item-frame-level-requirements>
+            <app-item-frame-separator [item]="item" *ngIf="sockets || stats || state || influences || separator">
+            </app-item-frame-separator>
         </ng-container>
 
         <!-- sockets -->
-        <ng-container *ngIf="item.sockets && item.sockets.length > 0">
-            <div class="sockets" [style.height]="getSocketHeight()">
-                <div *ngFor="let socket of item.sockets; let index = index"
-                    [class]="'socket ' + (socket.color | lowercase)" [class.right]="index % 4 === 1 || index % 4 === 2"
-                    [style.top]="getSocketTop(index)"
-                    [class.query]="queryItem.sockets[index] && queryItem.sockets[index].color"
-                    (click)="toggleSocketColor($event, index, socket)">
-                </div>
-                <ng-container *ngFor="let socket of item.sockets; let index = index">
-                    <div *ngIf="socket.linked" class="link" [class.horizontal]="index % 2 === 0"
-                        [class.right]="index % 6 === 1 || index % 6 === 5" [style.top]="getSocketTop(index, 10)"
-                        [class.query]="queryItem.sockets[index] && queryItem.sockets[index].linked"
-                        (click)="toggleSocketLinked($event, index, socket)">
-                    </div>
-                </ng-container>
-            </div>
-            <div class="separator"
-                *ngIf="(item.stats && item.stats.length > 0) || (item.corrupted !== undefined || item.veiled !== undefined) || item.influences || separator">
-            </div>
+        <ng-container *ngIf="sockets">
+            <app-item-frame-sockets [item]="item" [queryItem]="queryItem"></app-item-frame-sockets>
+            <app-item-frame-separator [item]="item" *ngIf="stats || state || influences || separator">
+            </app-item-frame-separator>
         </ng-container>
 
         <!-- stats -->
-        <ng-container *ngIf="item.stats && item.stats.length > 0">
-            <ng-container *ngIf="item.stats | statGroup as groups">
-                <ng-container *ngIf="groups.enchant">
-                    <ng-container *ngFor="let stat of groups.enchant; let last = last">
-                        <div class="blue">
-                            <ng-container *ngTemplateOutlet="statQuery, context: { stat: stat }"></ng-container>
-                        </div>
-                        <div class="separator" *ngIf="last"></div>
-                    </ng-container>
-                </ng-container>
-                <ng-container *ngIf="groups.implicit">
-                    <ng-container *ngFor="let stat of groups.implicit; let last = last">
-                        <div class="purpel">
-                            <ng-container *ngTemplateOutlet="statQuery, context: { stat: stat }"></ng-container>
-                        </div>
-                        <div class="separator" *ngIf="last"></div>
-                    </ng-container>
-                </ng-container>
-                <ng-container *ngIf="groups.fractured">
-                    <ng-container *ngFor="let stat of groups.fractured">
-                        <div class="blue">
-                            <ng-container *ngTemplateOutlet="statQuery, context: { stat: stat }"></ng-container>
-                        </div>
-                    </ng-container>
-                </ng-container>
-                <ng-container *ngIf="groups.explicit">
-                    <ng-container *ngFor="let stat of groups.explicit">
-                        <div class="purpel">
-                            <ng-container *ngTemplateOutlet="statQuery, context: { stat: stat }"></ng-container>
-                        </div>
-                    </ng-container>
-                </ng-container>
-                <ng-container *ngIf="groups.crafted">
-                    <ng-container *ngFor="let stat of groups.crafted">
-                        <div class="blue">
-                            <ng-container *ngTemplateOutlet="statQuery, context: { stat: stat }"></ng-container>
-                        </div>
-                    </ng-container>
-                </ng-container>
-                <ng-container *ngIf="groups.fractured || groups.explicit || groups.crafted">
-                    <div class="separator"
-                        *ngIf="groups.pseudo || (item.corrupted !== undefined || item.veiled !== undefined) || item.influences || separator">
-                    </div>
-                </ng-container>
-                <ng-container *ngIf="groups.pseudo">
-                    <ng-container *ngFor="let stat of groups.pseudo">
-                        <div>
-                            <ng-container *ngTemplateOutlet="statQuery, context: { stat: stat }"></ng-container>
-                        </div>
-                    </ng-container>
-                    <div class="separator"
-                        *ngIf="(item.corrupted !== undefined || item.veiled !== undefined) || item.influences || separator">
-                    </div>
-                </ng-container>
-            </ng-container>
+        <ng-container *ngIf="stats">
+            <app-item-frame-stats [item]="item" [queryItem]="queryItem" [language]="language" [modifier]="modifier"
+                [modifierMaxRange]="modifierMaxRange"></app-item-frame-stats>
+            <app-item-frame-separator [item]="item" *ngIf="state || influences || separator">
+            </app-item-frame-separator>
         </ng-container>
 
         <!-- veiled / corrupted -->
-        <ng-container *ngIf="item.veiled !== undefined || (item.corrupted !== undefined || item.veiled !== undefined)">
-            <div *ngIf="item.veiled !== undefined">
-                <app-item-frame-query [(property)]="queryItem.veiled" (propertyChange)="onPropertyChange()"
-                    [value]="item.veiled">
-                    <div class="veiled"> </div>
-                </app-item-frame-query>
-            </div>
-            <ng-container *ngIf="item.corrupted !== undefined">
-                <app-item-frame-query [(property)]="queryItem.corrupted" (propertyChange)="onPropertyChange()"
-                    [value]="item.corrupted">
-                    <div class="red">{{'ItemPopupCorrupted' | clientString:language}} </div>
-                </app-item-frame-query>
-            </ng-container>
-            <div class="separator" *ngIf="item.influences || separator">
-            </div>
+        <ng-container *ngIf="state">
+            <app-item-frame-state [item]="item" [queryItem]="queryItem" [language]="language"></app-item-frame-state>
+            <app-item-frame-separator [item]="item" *ngIf="influences || separator">
+            </app-item-frame-separator>
         </ng-container>
 
-        <ng-container *ngIf="item.influences">
-            <ng-container *ngIf="item.influences.shaper">
-                <app-item-frame-query [(property)]="queryItem.influences.shaper" (propertyChange)="onPropertyChange()"
-                    [value]="item.influences.shaper">
-                    <span class="rose"> {{'ItemPopupShaperItem' | clientString:language}}</span>
-                </app-item-frame-query>
-                <span
-                    *ngIf="item.influences.crusader || item.influences.hunter || item.influences.elder || item.influences.redeemer || item.influences.warlord">,&nbsp;</span>
-            </ng-container>
-            <ng-container *ngIf="item.influences.crusader">
-                <app-item-frame-query [(property)]="queryItem.influences.crusader" (propertyChange)="onPropertyChange()"
-                    [value]="item.influences.crusader">
-                    <span class="rose"> {{'ItemPopupCrusaderItem' | clientString:language}}</span>
-                </app-item-frame-query>
-                <span
-                    *ngIf="item.influences.hunter || item.influences.elder || item.influences.redeemer || item.influences.warlord">,&nbsp;</span>
-            </ng-container>
-            <ng-container *ngIf="item.influences.hunter">
-                <app-item-frame-query [(property)]="queryItem.influences.hunter" (propertyChange)="onPropertyChange()"
-                    [value]="item.influences.hunter">
-                    <span class="rose"> {{'ItemPopupHunterItem' | clientString:language}}</span>
-                </app-item-frame-query>
-                <span
-                    *ngIf="item.influences.elder || item.influences.redeemer || item.influences.warlord">,&nbsp;</span>
-            </ng-container>
-            <ng-container *ngIf="item.influences.elder">
-                <app-item-frame-query [(property)]="queryItem.influences.elder" (propertyChange)="onPropertyChange()"
-                    [value]="item.influences.elder">
-                    <span class="rose"> {{'ItemPopupElderItem' | clientString:language}}</span>
-                </app-item-frame-query>
-                <span *ngIf="item.influences.redeemer || item.influences.warlord">,&nbsp;</span>
-            </ng-container>
-            <ng-container *ngIf="item.influences.redeemer">
-                <app-item-frame-query [(property)]="queryItem.influences.redeemer" (propertyChange)="onPropertyChange()"
-                    [value]="item.influences.redeemer">
-                    <span class="rose"> {{'ItemPopupRedeemerItem' | clientString:language}}</span>
-                </app-item-frame-query>
-                <span *ngIf="item.influences.warlord">,&nbsp;</span>
-            </ng-container>
-            <ng-container *ngIf="item.influences.warlord">
-                <app-item-frame-query [(property)]="queryItem.influences.warlord" (propertyChange)="onPropertyChange()"
-                    [value]="item.influences.warlord">
-                    <span class="rose"> {{'ItemPopupWarlordItem' | clientString:language}}</span>
-                </app-item-frame-query>
-            </ng-container>
-            <div class="separator" *ngIf="separator"></div>
+        <!-- influences -->
+        <ng-container *ngIf="influences">
+            <app-item-frame-influences [item]="item" [queryItem]="queryItem" [language]="language">
+            </app-item-frame-influences>
+            <app-item-frame-separator [item]="item" *ngIf="separator">
+            </app-item-frame-separator>
         </ng-container>
 
         <ng-content></ng-content>
     </div>
 </div>
-
-<!-- templates -->
-<ng-template #statQuery let-stat="stat">
-    <app-item-frame-query [(property)]="queryItem.stats[stat.index]" (propertyChange)="onPropertyChange()"
-        [value]="stat">
-        <app-item-frame-value-group>
-            <ng-container *ngIf="(stat|statTransform:language) as parts">
-                <ng-container *ngFor="let part of parts; let index = index">{{part}}
-                    <app-item-frame-value *ngIf="stat.values[index]" [(value)]="stat.values[index]"
-                        (valueChange)="onValueChange(queryItem.stats[stat.index])" [modifier]="modifier"
-                        [modifierMaxRange]="modifierMaxRange">
-                    </app-item-frame-value>
-                </ng-container>
-            </ng-container>
-        </app-item-frame-value-group>
-    </app-item-frame-query>
-</ng-template>

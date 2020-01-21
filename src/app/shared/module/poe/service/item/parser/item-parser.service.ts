@@ -51,7 +51,9 @@ export class ItemParserService {
         ];
     }
 
-    public parse(stringifiedItem: string): Item {
+    public parse(stringifiedItem: string, sections?: {
+        [section: number]: boolean
+    }): Item {
         const exportedItem: ExportedItem = {
             sections: stringifiedItem
                 .split('--------')
@@ -70,6 +72,9 @@ export class ItemParserService {
 
         const target: Item = {};
         for (const parser of this.parsers) {
+            if (sections && !sections[parser.section]) {
+                continue;
+            }
             const sectionOrSections = parser.parse(exportedItem, target);
             if (!sectionOrSections) {
                 if (!parser.optional) {

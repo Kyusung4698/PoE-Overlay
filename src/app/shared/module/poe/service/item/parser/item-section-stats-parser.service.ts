@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ExportedItem, Item, ItemRarity, ItemSectionParserService, Section } from '@shared/module/poe/type';
+import { ExportedItem, Item, ItemRarity, ItemSection, ItemSectionParserService, Section } from '@shared/module/poe/type';
 import { StatsSearchOptions, StatsService } from '../../stats/stats.service';
 
 @Injectable({
@@ -9,6 +9,7 @@ export class ItemSectionStatsParserService implements ItemSectionParserService {
     constructor(private readonly statsService: StatsService) { }
 
     public optional = true;
+    public section = ItemSection.Stats;
 
     public parse(item: ExportedItem, target: Item): Section {
         switch (target.rarity) {

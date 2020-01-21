@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
+import { ItemFrameComponent } from '../item-frame/item-frame.component';
 
 @Component({
   selector: 'app-item-frame-query',
@@ -6,10 +7,13 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
   styleUrls: ['./item-frame-query.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ItemFrameQueryComponent {
+export class ItemFrameQueryComponent implements OnInit {
   /* tslint:disable */
   private _value: any;
   /* tslint:enable */
+
+  @Input()
+  public disabled: boolean;
 
   @Input()
   public property: any;
@@ -17,12 +21,23 @@ export class ItemFrameQueryComponent {
   @Output()
   public propertyChange = new EventEmitter<any>();
 
+  constructor(
+    @Inject(ItemFrameComponent)
+    private readonly itemFrame: ItemFrameComponent) {
+  }
+
+  public ngOnInit(): void {
+    if (this.itemFrame.queryItemChange.observers.length <= 0) {
+      this.disabled = true;
+    }
+  }
+
   @Input()
   public set value(value: any) {
     this._value = value;
     if (this.property) {
       this.property = value;
-      this.propertyChange.emit(this.property);
+      this.emitChange();
     }
   }
 
@@ -32,6 +47,11 @@ export class ItemFrameQueryComponent {
     } else {
       this.property = this._value;
     }
+    this.emitChange();
+  }
+
+  private emitChange(): void {
     this.propertyChange.emit(this.property);
+    this.itemFrame.onPropertyChange();
   }
 }

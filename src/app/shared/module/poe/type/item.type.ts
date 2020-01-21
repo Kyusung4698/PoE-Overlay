@@ -7,7 +7,9 @@ export interface Item {
     rarity?: ItemRarity;
     category?: ItemCategory;
     nameId?: string;
+    name?: string;
     typeId?: string;
+    type?: string;
     level?: ItemValue;
     corrupted?: boolean;
     veiled?: boolean;
@@ -122,6 +124,7 @@ export interface ItemProperties {
     armourEnergyShield?: ItemProperty;
     gemLevel?: ItemProperty;
     quality?: ItemProperty;
+    qualityType?: ItemQualityType;
     gemExperience?: ItemProperty;
     mapTier?: ItemProperty;
     mapQuantity?: ItemProperty;
@@ -132,6 +135,17 @@ export interface ItemProperties {
 export interface ItemProperty {
     value: string;
     augmented: boolean;
+}
+
+export enum ItemQualityType {
+    Default = 0,
+    ElementalDamage = 1,
+    CasterModifiers = 2,
+    AttackModifiers = 3,
+    DefenceModifiers = 4,
+    LifeAndManaModifiers = 5,
+    ResistanceModifiers = 6,
+    AttributeModifiers = 7,
 }
 
 export interface ItemAdditionalProperty extends ItemProperty {
@@ -215,7 +229,21 @@ export interface Section {
     lines: string[];
 }
 
+export enum ItemSection {
+    Corrupted,
+    Influences,
+    ItemLevel,
+    Note,
+    Properties,
+    Rartiy,
+    Requirements,
+    Sockets,
+    Stats,
+    Veiled
+}
+
 export interface ItemSectionParserService {
+    section: ItemSection;
     optional: boolean;
     parse(item: ExportedItem, target: Item): Section | Section[];
 }

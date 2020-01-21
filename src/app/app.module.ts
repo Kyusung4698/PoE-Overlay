@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommandModule } from '@modules/command/command.module';
 import { EvaluateModule } from '@modules/evaluate/evaluate.module';
-import { ToolModule } from '@modules/tool/tool.module';
+import { MapModule } from '@modules/map/map.module';
+import { MiscModule } from '@modules/misc/misc.module';
 import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { OverlayComponent } from './layout/page/overlay/overlay.component';
@@ -33,7 +34,8 @@ const routes: Routes = [
     // app
     EvaluateModule,
     CommandModule,
-    ToolModule
+    MapModule,
+    MiscModule
   ],
   providers: [],
   bootstrap: [AppComponent]

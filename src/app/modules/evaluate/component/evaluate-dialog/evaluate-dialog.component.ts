@@ -68,7 +68,9 @@ export class EvaluateDialogComponent implements OnInit, AfterViewInit {
       influences: item.influences || {},
       damage: {},
       stats: [],
-      properties: {},
+      properties: {
+        qualityType: (item.properties || {}).qualityType
+      },
       requirements: {},
       sockets: new Array((item.sockets || []).length).fill({}),
     };
@@ -86,7 +88,9 @@ export class EvaluateDialogComponent implements OnInit, AfterViewInit {
       if (prop) {
         queryItem.properties.gemLevel = prop.gemLevel;
         queryItem.properties.mapTier = prop.mapTier;
-        queryItem.properties.quality = item.rarity === ItemRarity.Gem ? prop.quality : undefined;
+        if (item.rarity === ItemRarity.Gem || prop.qualityType > 0) {
+          queryItem.properties.quality = prop.quality;
+        }
       }
     }
 

@@ -183,7 +183,14 @@
 		"ItemPopupCrusaderItem": "Crusader Item",
 		"ItemPopupRedeemerItem": "Redeemer Item",
 		"ItemPopupHunterItem": "Hunter Item",
-		"ItemPopupWarlordItem": "Warlord Item"
+		"ItemPopupWarlordItem": "Warlord Item",
+		"Quality1": "Quality (Elemental Damage)",
+		"Quality2": "Quality (Caster Modifiers)",
+		"Quality3": "Quality (Attack Modifiers)",
+		"Quality4": "Quality (Defence Modifiers)",
+		"Quality5": "Quality (Life and Mana Modifiers)",
+		"Quality6": "Quality (Resistance Modifiers)",
+		"Quality7": "Quality (Attribute Modifiers)"
 	},
 	"French": {
 		"Level": "Niveau",
@@ -369,7 +376,14 @@
 		"ItemPopupCrusaderItem": "Objet du Croisé",
 		"ItemPopupRedeemerItem": "Objet de la Rédemptrice",
 		"ItemPopupHunterItem": "Objet du Chasseur",
-		"ItemPopupWarlordItem": "Objet du Seigneur de guerre"
+		"ItemPopupWarlordItem": "Objet du Seigneur de guerre",
+		"Quality1": "Qualité (Dégâts élémentaires)",
+		"Quality2": "Qualité (Modificateurs de Sorts)",
+		"Quality3": "Qualité (Modificateurs d'Attaque)",
+		"Quality4": "Qualité (Modificateurs de Défenses)",
+		"Quality5": "Qualité (Modificateurs de Vie et de Mana)",
+		"Quality6": "Qualité (Modificateurs de Résistances)",
+		"Quality7": "Qualité (Modificateurs d'Attributs)"
 	},
 	"German": {
 		"Level": "Stufe",
@@ -555,7 +569,14 @@
 		"ItemPopupCrusaderItem": "Kreuzritter-Gegenstand",
 		"ItemPopupRedeemerItem": "Erlöserin-Gegenstand",
 		"ItemPopupHunterItem": "Jäger-Gegenstand",
-		"ItemPopupWarlordItem": "Kriegsherr-Gegenstand"
+		"ItemPopupWarlordItem": "Kriegsherr-Gegenstand",
+		"Quality1": "Qualität (Elementarschaden)",
+		"Quality2": "Qualität (Zaubermodifikatoren)",
+		"Quality3": "Qualität (Angriffsmodifikatoren)",
+		"Quality4": "Qualität (Defensiv-Modifikatoren)",
+		"Quality5": "Qualität (Lebens- und Mana-Modifikatoren)",
+		"Quality6": "Qualität (Widerstands-Modifikatoren)",
+		"Quality7": "Qualität (Attributs-Modifikatoren)"
 	},
 	"Korean": {
 		"Level": "레벨",
@@ -741,7 +762,14 @@
 		"ItemPopupCrusaderItem": "십자군 아이템",
 		"ItemPopupRedeemerItem": "대속자 아이템",
 		"ItemPopupHunterItem": "사냥꾼 아이템",
-		"ItemPopupWarlordItem": "전쟁군주 아이템"
+		"ItemPopupWarlordItem": "전쟁군주 아이템",
+		"Quality1": "퀄리티 (원소 피해)",
+		"Quality2": "퀄리티 (시전 속성 부여)",
+		"Quality3": "퀄리티 (공격 속성 부여)",
+		"Quality4": "퀄리티 (방어 속성 부여)",
+		"Quality5": "퀄리티 (생명력과 마나 속성 부여)",
+		"Quality6": "퀄리티 (저항 속성 부여)",
+		"Quality7": "퀄리티 (능력치 속성 부여)"
 	},
 	"Portuguese": {
 		"Level": "Nível",
@@ -927,7 +955,14 @@
 		"ItemPopupCrusaderItem": "Item do Cruzado",
 		"ItemPopupRedeemerItem": "Item do Redentor",
 		"ItemPopupHunterItem": "Item do Caçador",
-		"ItemPopupWarlordItem": "Item do Senhor da Guerra"
+		"ItemPopupWarlordItem": "Item do Senhor da Guerra",
+		"Quality1": "Qualidade (Dano Elemental)",
+		"Quality2": "Qualidade (Modificadores de Conjuração)",
+		"Quality3": "Qualidade (Modificadores de Ataque)",
+		"Quality4": "Qualidade (Modificadores Defensivos)",
+		"Quality5": "Qualidade (Modificadores de Vida e Mana)",
+		"Quality6": "Qualidade (Modificadores de Resistências)",
+		"Quality7": "Qualidade (Modificadores de Atributos)"
 	},
 	"Russian": {
 		"Level": "Уровень",
@@ -1113,7 +1148,14 @@
 		"ItemPopupCrusaderItem": "Предмет Крестоносца",
 		"ItemPopupRedeemerItem": "Предмет Избавительницы",
 		"ItemPopupHunterItem": "Предмет Охотника",
-		"ItemPopupWarlordItem": "Предмет Вождя"
+		"ItemPopupWarlordItem": "Предмет Вождя",
+		"Quality1": "Качество (урон от стихий)",
+		"Quality2": "Качество (чародейские свойства)",
+		"Quality3": "Качество (свойства атак)",
+		"Quality4": "Качество (защитные свойства)",
+		"Quality5": "Качество (свойства здоровья и маны)",
+		"Quality6": "Качество (свойства сопротивлений)",
+		"Quality7": "Качество (свойства характеристик)"
 	},
 	"Spanish": {
 		"Level": "Nivel",
@@ -1299,7 +1341,14 @@
 		"ItemPopupCrusaderItem": "Objeto del Cruzado",
 		"ItemPopupRedeemerItem": "Objeto de la Redentora",
 		"ItemPopupHunterItem": "Objeto del Cazador",
-		"ItemPopupWarlordItem": "Objeto del Jefe de guerra"
+		"ItemPopupWarlordItem": "Objeto del Jefe de guerra",
+		"Quality1": "Calidad (daño elemental)",
+		"Quality2": "Calidad (mods. de lanzamiento de hechizos)",
+		"Quality3": "Calidad (mods. de ataque)",
+		"Quality4": "Calidad (mods. de defensa)",
+		"Quality5": "Calidad (mods. de vida y maná)",
+		"Quality6": "Calidad (mods. de resistencia)",
+		"Quality7": "Calidad (mods. de atributos)"
 	},
 	"Thai": {
 		"Level": "เลเวล",
@@ -1485,6 +1534,13 @@
 		"ItemPopupCrusaderItem": "ไอเทม Crusader",
 		"ItemPopupRedeemerItem": "ไอเทม Redeemer",
 		"ItemPopupHunterItem": "ไอเทม Hunter",
-		"ItemPopupWarlordItem": "ไอเทม Warlord"
+		"ItemPopupWarlordItem": "ไอเทม Warlord",
+		"Quality1": "คุณภาพ (ความเสียหายธาตุ)",
+		"Quality2": "คุณภาพ (ม็อดนักเวทย์)",
+		"Quality3": "คุณภาพ (ม็อดโจมตี)",
+		"Quality4": "คุณภาพ (ม็อดป้องกัน)",
+		"Quality5": "คุณภาพ (ม็อดพลังชีวิตและมานา)",
+		"Quality6": "คุณภาพ (ม็อดต้านทาน)",
+		"Quality7": "คุณภาพ (ม็อดคุณสมบัติ)"
 	}
 }

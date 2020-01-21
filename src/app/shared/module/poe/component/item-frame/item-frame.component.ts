@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ContextService } from '../../service';
-import { Item, ItemSocket, Language } from '../../type';
+import { Item, Language } from '../../type';
 
 @Component({
   selector: 'app-item-frame',
@@ -30,26 +30,32 @@ export class ItemFrameComponent implements OnInit {
   @Input()
   public modifierMaxRange: boolean;
 
-  public properties = [
-    'weaponCriticalStrikeChance',
-    'weaponAttacksPerSecond',
-    'shieldBlockChance',
-    'armourArmour',
-    'armourEvasionRating',
-    'armourEnergyShield',
-    'gemLevel',
-    'mapTier',
-    'mapQuantity',
-    'mapRarity',
-    'mapPacksize',
-    'quality',
-    'gemExperience',
-  ];
+  @Input()
+  public properties: [];
+
+  public req: boolean;
+  public sockets: boolean;
+  public stats: boolean;
+  public state: boolean;
+  public influences: boolean;
 
   constructor(private readonly context: ContextService) { }
 
   public ngOnInit(): void {
     this.language = this.language || this.context.get().language;
+    this.queryItem = this.queryItem || {
+      influences: {},
+      damage: {},
+      stats: [],
+      properties: {},
+      requirements: {},
+      sockets: new Array((this.item.sockets || []).length).fill({})
+    };
+    this.req = !!(this.item.level || this.item.requirements);
+    this.sockets = !!(this.item.sockets && this.item.sockets.length > 0);
+    this.stats = !!(this.item.stats && this.item.stats.length > 0);
+    this.state = !!(this.item.corrupted !== undefined || this.item.veiled !== undefined);
+    this.influences = !!this.item.influences;
   }
 
   public onPropertyChange(): void {
@@ -60,49 +66,5 @@ export class ItemFrameComponent implements OnInit {
     if (value !== undefined && value !== null) {
       this.queryItemChange.emit(this.queryItem);
     }
-  }
-
-  public toggleSocketColor(event: MouseEvent, index: number, value: ItemSocket): void {
-    if (event.shiftKey) {
-      const enabled = this.queryItem.sockets.every(x => x.color !== undefined);
-      for (let i = 0; i < this.queryItem.sockets.length; i++) {
-        this.queryItem.sockets[i].color = enabled ? undefined : this.item.sockets[i].color;
-      }
-    } else {
-      this.queryItem.sockets[index] = this.toggleSocket(this.queryItem.sockets[index], value, 'color');
-    }
-    this.queryItemChange.emit(this.queryItem);
-  }
-
-  public toggleSocketLinked(event: MouseEvent, index: number, value: ItemSocket): void {
-    if (event.shiftKey) {
-      const enabled = this.queryItem.sockets.every(x => x.linked !== undefined);
-      for (let i = 0; i < this.queryItem.sockets.length; i++) {
-        this.queryItem.sockets[i].linked = enabled ? undefined : this.item.sockets[i].linked;
-      }
-    } else {
-      this.queryItem.sockets[index] = this.toggleSocket(this.queryItem.sockets[index], value, 'linked');
-    }
-    this.queryItemChange.emit(this.queryItem);
-  }
-
-  public getSocketTop(index: number, offset: number = 0): string {
-    return `${Math.floor(index / 2) * 56 + offset}px`;
-  }
-
-  public getSocketHeight(): string {
-    const length = this.item.sockets.length;
-    const socketHeight = Math.floor((length + 1) / 2) * 34;
-    const linkHeight = length >= 3
-      ? Math.floor((length - 1) / 2) * 22
-      : 0;
-    return `${socketHeight + linkHeight}px`;
-  }
-
-  private toggleSocket(socket: ItemSocket, value: ItemSocket, property: string): ItemSocket {
-    if (!socket || !socket[property]) {
-      return { ...socket, [property]: value[property] };
-    }
-    return { ...socket, [property]: null };
   }
 }

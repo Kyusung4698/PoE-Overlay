@@ -1,0 +1,10 @@
+<div [class]="'header ' + (item.rarity || '')" [class.double]="item.nameId && item.typeId">
+    <div class="name" *ngIf="item.nameId">
+        {{item.nameId | word:language}}
+    </div>
+    <div class="name" *ngIf="item.typeId">
+        <app-item-frame-query [(property)]="queryItem.typeId" [value]="item.typeId" [disabled]="!queryable">
+            <span>{{item.typeId | baseItemType:language}}</span>
+        </app-item-frame-query>
+    </div>
+</div>

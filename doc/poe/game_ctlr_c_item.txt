@@ -570,6 +570,16 @@ Players have 30% reduced Chance to Block
 --------
 Travel to this Map by using it in a personal Map Device. Maps can only be used once.
 
+Rarity: Normal
+Graveyard Map
+--------
+Map Tier: 2
+--------
+Item Level: 69
+--------
+Travel to this Map by using it in a personal Map Device. Maps can only be used once.
+
+
 Rarity: Unique
 Hrimnor's Resolve
 Samite Helmet
@@ -684,6 +694,7 @@ Damnation March
 Titan Greaves
 --------
 Armour: 405 (augmented)
+Quality (Attribute Modifiers): +20%
 --------
 Requirements:
 Level: 68
@@ -698,3 +709,25 @@ Regenerate 3 Life per second
 +7% to Cold Resistance
 +41% to Lightning Resistance
 30% increased Movement Speed
+
+Rarity: Rare
+Demon Lash
+Heavy Belt
+--------
+Quality (Attack Modifiers): +20% (augmented)
+--------
+Requirements:
+Level: 64
+--------
+Item Level: 84
+--------
++35 to Strength (implicit)
+--------
+13% increased Flask Effect Duration
+10% increased Attack Speed during any Flask Effect
+46% increased Elemental Damage with Attack Skills
+39% increased Projectile Attack Damage during any Flask Effect
+Regenerate 11 Life per second (crafted)
++31 to maximum Mana (crafted)
+--------
+Redeemer Item
