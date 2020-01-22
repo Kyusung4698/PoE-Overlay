@@ -7,6 +7,7 @@ import { MapUserSettings } from '../map-settings/map-settings.component';
 
 export interface MapDialogData {
   item: Item;
+  settings: MapUserSettings;
 }
 
 @Component({
@@ -40,6 +41,8 @@ export class MapDialogComponent implements OnInit {
     private readonly mapsService: MapsService) { }
 
   public ngOnInit(): void {
+    this.data.item.stats = (this.data.item.stats || []).filter(stat =>
+      stat.id && this.data.settings.mapInfoWarningStats[stat.id]);
     this.map = this.mapsService.get(this.data.item.typeId);
   }
 

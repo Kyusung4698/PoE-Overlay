@@ -1,3 +1,11 @@
+## 0.5.4 (2020-01-22)
+
+* add map mod warnings (#120, #18)
+* update pseudo mods for quality type to be toggleable pseudo mods (#98)
+* remove `CTRL + C` and `CTRL + V` as possible keybindings (#117)
+* fix `CTRL + W` closes the application (#116)
+* fix item type not set as filter if default item type toggle is off (#113)
+
 ## 0.5.3 (2020-01-21)
 
 * add map info support (#18)

@@ -8,7 +8,7 @@ import { Item, ItemPostParserService, ItemStat, StatType } from '@shared/module/
 export class ItemPostParserPseudoService implements ItemPostParserService {
     public process(item: Item): void {
         if (!item.stats) {
-            return;
+            item.stats = [];
         }
 
         const itemStats = [...item.stats];
@@ -16,9 +16,9 @@ export class ItemPostParserPseudoService implements ItemPostParserService {
             let values = [];
             let count = 0;
 
-            const mods = PSEUDO_MODIFIERS[id];
-            if (mods instanceof Array) {
-                for (const mod of PSEUDO_MODIFIERS[id]) {
+            const pseudo = PSEUDO_MODIFIERS[id];
+            if (pseudo.mods) {
+                for (const mod of pseudo.mods) {
                     const stats = itemStats.filter(x => x.id === mod.id && x.values.length > 0);
                     if (stats.length <= 0) {
                         if (mod.type === ModifierType.MinimumRequired) {
@@ -32,15 +32,24 @@ export class ItemPostParserPseudoService implements ItemPostParserService {
                         values = this.calculateValue(stat, mod.type, values);
                     });
                 }
+            } else if (pseudo.prop) {
+                const prop = pseudo.prop(item);
+                if (prop !== undefined) {
+                    values.push(this.parseValue(prop));
+                }
             }
+
             const itemStat: ItemStat = {
-                id, type: StatType.Pseudo,
-                predicate: '#', tradeId: id,
+                id,
+                type: StatType.Pseudo,
+                predicate: '#',
+                tradeId: id,
                 values: values.map((x: number) => ({ text: `${+x.toFixed(2)}` })),
-                negated: false, mod: undefined
+                negated: false,
+                mod: undefined
             };
             itemStats.push(itemStat);
-            if (values.length > 0 && count > 1) {
+            if (values.length > 0 && (!pseudo.count || count >= pseudo.count)) {
                 item.stats.push(itemStat);
             }
         });

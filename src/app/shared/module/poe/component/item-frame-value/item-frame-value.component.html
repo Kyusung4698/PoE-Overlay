@@ -1,4 +1,4 @@
-<span class="value" [class.changed]="default.min !== value.min || default.max !== value.max" (wheel)="onWheel($event)"
+<span [class.value]="!disabled" [class.changed]="default.min !== value.min || default.max !== value.max" (wheel)="onWheel($event)"
     (mouseup)="onMouseUp($event)">
     <ng-container *ngIf="value.min === undefined && value.max === undefined">
         <span>#</span>

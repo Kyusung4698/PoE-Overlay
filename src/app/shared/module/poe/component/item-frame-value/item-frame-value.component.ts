@@ -12,6 +12,9 @@ export class ItemFrameValueComponent implements OnInit {
   public default: ItemValue;
 
   @Input()
+  public disabled: boolean;
+
+  @Input()
   public modifier: number;
 
   @Input()
@@ -29,14 +32,10 @@ export class ItemFrameValueComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    const value = this.parseValue(this.value.text);
-    this.value.min = value;
-    this.value.max = value;
-    this.default = { ...this.value };
-    if (!this.modifierMaxRange) {
-      this.value.max = undefined;
+    if (this.itemFrame.queryItemChange.observers.length <= 0) {
+      this.disabled = true;
     }
-    this.adjustValue(Math.round(value * this.modifier), true, true);
+    this.init();
   }
 
   public onMouseUp(event: MouseEvent): void {
@@ -88,6 +87,10 @@ export class ItemFrameValueComponent implements OnInit {
   }
 
   public resetValue(isMin: boolean, isMax: boolean): void {
+    if (this.disabled) {
+      return;
+    }
+
     const { min, max } = this.value;
     if (isMin) {
       this.value.min = this.default.min;
@@ -101,6 +104,10 @@ export class ItemFrameValueComponent implements OnInit {
   }
 
   public toggleValue(isMin: boolean, isMax: boolean): void {
+    if (this.disabled) {
+      return;
+    }
+
     const { min, max } = this.value;
 
     if (isMin && isMax) {
@@ -126,6 +133,10 @@ export class ItemFrameValueComponent implements OnInit {
   }
 
   public adjustValue(step: number, isMin: boolean, isMax: boolean): void {
+    if (this.disabled) {
+      return;
+    }
+
     const { min, max } = this.value;
 
     if (isMin && !isMax) {
@@ -180,6 +191,17 @@ export class ItemFrameValueComponent implements OnInit {
       step *= -1;
     }
     return step;
+  }
+
+  private init(): void {
+    const value = this.parseValue(this.value.text);
+    this.value.min = value;
+    this.value.max = value;
+    this.default = { ...this.value };
+    if (!this.modifierMaxRange) {
+      this.value.max = undefined;
+    }
+    this.adjustValue(Math.round(value * this.modifier), true, true);
   }
 
   private emitChange(): void {

@@ -28,6 +28,8 @@ export class AcceleratorComponent {
   }
 
   public onKeydown(event: KeyboardEvent): void {
+    event.preventDefault();
+
     if (this.recording) {
       let key = event.key || '';
       if (key.length === 1) {
@@ -53,8 +55,13 @@ export class AcceleratorComponent {
           modifiers.push('Shift');
         }
         modifiers.push(key);
-        this.value = modifiers.join(' + ');
-        this.valueChange.next(this.value);
+        const value = modifiers.join(' + ');
+        if (value !== 'CmdOrCtrl + C' && value !== 'CmdOrCtrl + V') {
+          this.value = value;
+          this.valueChange.next(this.value);
+        } else {
+          this.recording = true;
+        }
       } else if (key === 'Esc' || key === 'Escape') {
         this.recording = false;
         this.value = undefined;

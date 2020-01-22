@@ -21,6 +21,25 @@ export class MapModule implements FeatureModule {
     public getSettings(): UserSettingsFeature {
         const defaultSettings: MapUserSettings = {
             mapInfoKeybinding: 'Alt + Q',
+            mapInfoWarningStats: {
+                map_player_base_chaos_damage_taken_per_minute: true,
+                map_player_has_level_X_temporal_chains: true,
+                map_player_no_regeneration: true,
+                'map_monsters_life_leech_resistance_%': true,
+                'map_monsters_mana_leech_resistance_%': true,
+                'map_monsters_reflect_%_physical_damage': true,
+                'map_monsters_reflect_%_elemental_damage': true,
+                'map_monsters_%_physical_damage_to_add_as_fire': true,
+                'map_monsters_%_physical_damage_to_add_as_cold': true,
+                'map_monsters_%_physical_damage_to_add_as_lightning': true,
+                map_monsters_reflect_curses: true,
+                map_players_no_regeneration_including_es: true,
+                'map_players_and_monsters_chaos_damage_taken_+%': true,
+                'map_players_and_monsters_cold_damage_taken_+%': true,
+                'map_players_and_monsters_fire_damage_taken_+%': true,
+                'map_players_and_monsters_lightning_damage_taken_+%': true,
+                'map_players_and_monsters_physical_damage_taken_+%': true
+            },
         };
         return {
             name: 'Map',
@@ -39,10 +58,10 @@ export class MapModule implements FeatureModule {
         return features;
     }
 
-    public run(feature: string, _: MapUserSettings): void {
+    public run(feature: string, settings: MapUserSettings): void {
         switch (feature) {
             case 'info':
-                this.mapService.info().subscribe();
+                this.mapService.info(settings).subscribe();
                 break;
             default:
                 break;

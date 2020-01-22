@@ -1,4 +1,16 @@
 <mat-card>
     <app-accelerator label="Info" [(value)]="settings.mapInfoKeybinding">
     </app-accelerator>
+    <label class="label"> Stats Warning </label>
+    <app-select-list [items]="stats$ | async" (itemsChange)="onStatsChange($event)">
+        <ng-template let-item>
+            <span class="stat" [title]="item.text">
+                <span class="text"> {{item.text}} </span>
+            </span>
+        </ng-template>
+    </app-select-list>
+    <div align="end">
+        <button mat-button (click)="onImportStats()">Import Stats Warning from Clipboard</button>
+        <button mat-button (click)="onExportStats()">Export Stats Warning to Clipboard</button>
+    </div>
 </mat-card>

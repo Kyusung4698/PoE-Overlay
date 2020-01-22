@@ -7,6 +7,7 @@ import { Item } from '@shared/module/poe/type';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { MapDialogComponent, MapDialogData } from '../component/map-dialog/map-dialog.component';
+import { MapUserSettings } from '../component/map-settings/map-settings.component';
 
 // TODO: base class for common logic
 
@@ -20,7 +21,7 @@ export class MapDialogService {
         private readonly dialogShortcut: DialogShortcutService) {
     }
 
-    public open(point: Point, item: Item): Observable<void> {
+    public open(point: Point, item: Item, settings: MapUserSettings): Observable<void> {
         const width = 250;
         const avgHeight = 300;
 
@@ -29,7 +30,8 @@ export class MapDialogService {
         const top = Math.min(Math.max(point.y - avgHeight * 0.5, bounds.y), bounds.y + bounds.height - avgHeight);
 
         const data: MapDialogData = {
-            item
+            item,
+            settings
         };
 
         this.window.enableInput();

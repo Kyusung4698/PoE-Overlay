@@ -579,6 +579,28 @@ Item Level: 69
 --------
 Travel to this Map by using it in a personal Map Device. Maps can only be used once.
 
+Rarity: Rare
+Terror Cradle
+Conservatory Map
+--------
+Map Tier: 4
+Item Quantity: +52% (augmented)
+Item Rarity: +30% (augmented)
+Monster Pack Size: +20% (augmented)
+--------
+Item Level: 74
+--------
+Monsters have 30% chance to Avoid Elemental Ailments
+Monsters reflect 13% of Elemental Damage
+Monsters Poison on Hit
+Unique Boss deals 15% increased Damage
+Unique Boss has 20% increased Attack and Cast Speed
+--------
+Travel to this Map by using it in a personal Map Device. Maps can only be used once.
+--------
+Note: ~b/o 1 jew
+
+
 
 Rarity: Unique
 Hrimnor's Resolve

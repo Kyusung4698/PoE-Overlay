@@ -16,18 +16,19 @@ export class MapService {
         private readonly dialogService: MapDialogService) {
     }
 
-    public info(): Observable<void> {
+    public info(settings: MapUserSettings): Observable<void> {
         const result = this.itemClipboard.copy({
             [ItemSection.Rartiy]: true,
             [ItemSection.ItemLevel]: true,
-            [ItemSection.Properties]: true
+            [ItemSection.Properties]: true,
+            [ItemSection.Stats]: true,
         });
         switch (result.code) {
             case ItemClipboardResultCode.Success:
                 if (result.item.category !== ItemCategory.Map) {
                     return this.snackbar.warning('Item was not a map.');
                 }
-                return this.dialogService.open(result.point, result.item);
+                return this.dialogService.open(result.point, result.item, settings);
             case ItemClipboardResultCode.Empty:
                 return this.snackbar.warning('Clipboard text was empty. Make sure the game is focused.');
             case ItemClipboardResultCode.ParserError:

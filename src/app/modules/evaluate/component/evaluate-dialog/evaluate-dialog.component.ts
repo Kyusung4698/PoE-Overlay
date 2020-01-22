@@ -95,7 +95,7 @@ export class EvaluateDialogComponent implements OnInit, AfterViewInit {
     }
 
     if (!this.data.settings.evaluateQueryDefaultType) {
-      if (!item.nameId && (item.rarity === ItemRarity.Magic || ItemRarity.Rare)) {
+      if (!item.nameId && (item.rarity === ItemRarity.Magic || item.rarity === ItemRarity.Rare)) {
         queryItem.typeId = undefined;
       }
     }

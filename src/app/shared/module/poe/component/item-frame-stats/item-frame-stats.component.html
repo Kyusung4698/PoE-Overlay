@@ -56,7 +56,8 @@
     <app-item-frame-query [(property)]="queryItem.stats[stat.index]" [value]="stat">
         <app-item-frame-value-group>
             <ng-container *ngIf="(stat|statTransform:language) as parts">
-                <ng-container *ngFor="let part of parts; let index = index">{{part}}
+                <ng-container *ngFor="let part of parts; let index = index">
+                    <span>{{part}}</span>
                     <app-item-frame-value *ngIf="stat.values[index]" [(value)]="stat.values[index]"
                         [modifier]="modifier" [modifierMaxRange]="modifierMaxRange">
                     </app-item-frame-value>
