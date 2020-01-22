@@ -1,5 +1,5 @@
 <div cdkDrag cdkDragRootElement=".cdk-overlay-pane" cdkDragHandle>
-    <app-item-frame [item]="data.item" [properties]="properties" [separator]="true" modifier="0"
+    <app-item-frame class="map-frame" [item]="data.item" [properties]="properties" [separator]="true" modifier="0"
         modifierMaxRange="true">
         <ng-container ngProjectAs="properties">
             <div [title]="layoutRatingText">Layout Rating: <span class="white">{{(map || {}).layoutRating || '-'}}</span></div>

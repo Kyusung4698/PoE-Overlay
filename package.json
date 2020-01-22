@@ -8,7 +8,7 @@
   "author": {
     "name": "Kyusung4698"
   },
-  "version": "0.5.3",
+  "version": "0.5.4",
   "scripts": {
     "postinstall": "electron-builder install-app-deps",
     "ng:serve": "ng serve",

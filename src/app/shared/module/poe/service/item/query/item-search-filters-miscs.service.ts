@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Query } from '@data/poe';
-import { Item, ItemProperties, ItemQualityType, ItemSearchFiltersService, Language, StatType } from '@shared/module/poe/type';
+import { Item, ItemProperties, ItemSearchFiltersService, Language } from '@shared/module/poe/type';
 
 @Injectable({
     providedIn: 'root'
@@ -59,6 +59,7 @@ export class ItemSearchFiltersMiscsService implements ItemSearchFiltersService {
         if (!prop.quality) {
             return;
         }
+
         const quality = +prop.quality.value.replace('%', '').replace('+', '');
         if (isNaN(quality)) {
             return;
@@ -67,42 +68,6 @@ export class ItemSearchFiltersMiscsService implements ItemSearchFiltersService {
         query.filters.misc_filters.filters.quality = {
             min: quality
         };
-
-        let pseudoId = '';
-        switch (prop.qualityType) {
-            case ItemQualityType.Default:
-                break;
-            case ItemQualityType.ElementalDamage:
-                pseudoId = 'pseudo_jewellery_elemental_quality';
-                break;
-            case ItemQualityType.CasterModifiers:
-                pseudoId = 'pseudo_jewellery_caster_quality';
-                break;
-            case ItemQualityType.AttackModifiers:
-                pseudoId = 'pseudo_jewellery_attack_quality';
-                break;
-            case ItemQualityType.DefenceModifiers:
-                pseudoId = 'pseudo_jewellery_defense_quality';
-                break;
-            case ItemQualityType.LifeAndManaModifiers:
-                pseudoId = 'pseudo_jewellery_resource_quality';
-                break;
-            case ItemQualityType.ResistanceModifiers:
-                pseudoId = 'pseudo_jewellery_resistance_quality';
-                break;
-            case ItemQualityType.AttributeModifiers:
-                pseudoId = 'pseudo_jewellery_attribute_quality';
-                break;
-        }
-
-        if (pseudoId.length > 0) {
-            query.stats.push({
-                type: 'and', filters: [{
-                    id: `${StatType.Pseudo}.${pseudoId}`,
-                    disabled: false
-                }]
-            });
-        }
     }
 
     private mapInfluences(item: Item, query: Query): void {

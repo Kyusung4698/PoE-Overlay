@@ -62,6 +62,7 @@ function createWindow(): BrowserWindow {
         },
         focusable: false,
     });
+    win.removeMenu();
     win.setIgnoreMouseEvents(true);
     win.setAlwaysOnTop(true, 'screen-saver');
 
@@ -99,6 +100,8 @@ ipcMain.on('open-route', (event, route) => {
                 parent: win,
                 show: false
             });
+            childs[route].removeMenu();
+            
             loadApp(childs[route], `#/${route}`);
 
             childs[route].once('ready-to-show', () => {

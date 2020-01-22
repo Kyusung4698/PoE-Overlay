@@ -1,10 +1,13 @@
 <div *ngIf="item.level">
     <app-item-frame-query [(property)]="queryItem.level" [value]="item.level">
-        <span>{{'ItemDisplayStringItemLevel' | clientString:language}}:&nbsp;</span>
-        <span class="white">
-            <app-item-frame-value [(value)]="item.level" [modifier]="modifier" [modifierMaxRange]="modifierMaxRange">
-            </app-item-frame-value>
-        </span>
+        <app-item-frame-value-group>
+            <span>{{'ItemDisplayStringItemLevel' | clientString:language}}:&nbsp;</span>
+            <span class="white">
+                <app-item-frame-value [(value)]="item.level" [modifier]="modifier"
+                    [modifierMaxRange]="modifierMaxRange">
+                </app-item-frame-value>
+            </span>
+        </app-item-frame-value-group>
     </app-item-frame-query>
 </div>
 <div *ngIf="item.requirements">

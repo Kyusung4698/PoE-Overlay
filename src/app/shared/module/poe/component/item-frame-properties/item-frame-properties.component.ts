@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { Item, Language } from '../../type';
 
 @Component({
@@ -7,7 +7,7 @@ import { Item, Language } from '../../type';
   styleUrls: ['./item-frame-properties.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ItemFramePropertiesComponent {
+export class ItemFramePropertiesComponent implements OnInit {
   @Input()
   public item: Item;
 
@@ -18,19 +18,23 @@ export class ItemFramePropertiesComponent {
   public language: Language;
 
   @Input()
-  public properties = [
-    'weaponCriticalStrikeChance',
-    'weaponAttacksPerSecond',
-    'shieldBlockChance',
-    'armourArmour',
-    'armourEvasionRating',
-    'armourEnergyShield',
-    'gemLevel',
-    'mapTier',
-    'mapQuantity',
-    'mapRarity',
-    'mapPacksize',
-    'quality',
-    'gemExperience',
-  ];
+  public properties: string[];
+
+  public ngOnInit(): void {
+    this.properties = this.properties || [
+      'weaponCriticalStrikeChance',
+      'weaponAttacksPerSecond',
+      'shieldBlockChance',
+      'armourArmour',
+      'armourEvasionRating',
+      'armourEnergyShield',
+      'gemLevel',
+      'mapTier',
+      'mapQuantity',
+      'mapRarity',
+      'mapPacksize',
+      'quality',
+      'gemExperience',
+    ];
+  }
 }
