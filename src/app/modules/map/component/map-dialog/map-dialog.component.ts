@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { WindowService } from '@app/service';
+import { WindowService, BrowserService } from '@app/service';
 import { MapsService } from '@shared/module/poe/service/maps/maps.service';
 import { AtlasMap, Item } from '@shared/module/poe/type';
 import { MapUserSettings } from '../map-settings/map-settings.component';
@@ -37,7 +37,7 @@ export class MapDialogComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA)
     public data: MapDialogData,
-    private readonly window: WindowService,
+    private readonly browser: BrowserService,
     private readonly mapsService: MapsService) { }
 
   public ngOnInit(): void {
@@ -48,7 +48,7 @@ export class MapDialogComponent implements OnInit {
 
   public onMapClick(event: MouseEvent): void {
     if (this.map && this.map.url) {
-      this.window.open(this.map.url, event.ctrlKey);
+      this.browser.open(this.map.url, event.ctrlKey);
     }
   }
 }

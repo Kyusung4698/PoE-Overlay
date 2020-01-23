@@ -77,7 +77,7 @@ export class MiscModule implements FeatureModule {
                 break;
             case 'wiki-open':
             case 'wiki-open-external':
-                this.wiki.open(feature === 'wiki-open-external');
+                this.wiki.open(feature === 'wiki-open-external').subscribe();
                 break;
             default:
                 break;

@@ -753,3 +753,24 @@ Regenerate 11 Life per second (crafted)
 +31 to maximum Mana (crafted)
 --------
 Redeemer Item
+
+Rarity: Rare
+Whispering Sphere
+Ghastly Eye Jewel
+--------
+Abyss
+--------
+Requirements:
+Level: 26
+--------
+Item Level: 84
+--------
+Corrupted Blood cannot be inflicted on you (implicit)
+--------
++21 to maximum Life
+Minions deal 18% increased Damage if you've used a Minion Skill Recently
+Minions deal 1 to 5 additional Chaos Damage
+--------
+Place into an Abyssal Socket on an Item or into an allocated Jewel Socket on the Passive Skill Tree. Right click to remove from the Socket.
+--------
+Corrupted

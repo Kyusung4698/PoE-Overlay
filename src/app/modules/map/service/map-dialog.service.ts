@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { WindowService } from '@app/service';
-import { DialogShortcutService } from '@app/service/input/dialog-shortcut.service';
+import { DialogsService } from '@app/service/input/dialogs.service';
 import { Point } from '@app/type';
 import { Item } from '@shared/module/poe/type';
 import { Observable } from 'rxjs';
@@ -18,7 +18,7 @@ export class MapDialogService {
     constructor(
         private readonly dialog: MatDialog,
         private readonly window: WindowService,
-        private readonly dialogShortcut: DialogShortcutService) {
+        private readonly dialogs: DialogsService) {
     }
 
     public open(point: Point, item: Item, settings: MapUserSettings): Observable<void> {
@@ -44,12 +44,12 @@ export class MapDialogService {
             data
         });
         const close = dialogRef.close.bind(dialogRef);
-        this.dialogShortcut.register(close);
+        this.dialogs.add(close);
         return dialogRef.afterClosed().pipe(tap(() => {
             if (this.dialog.openDialogs.length === 0) {
                 this.window.disableInput();
             }
-            this.dialogShortcut.unregister(close);
+            this.dialogs.remove(close);
         }));
     }
 }

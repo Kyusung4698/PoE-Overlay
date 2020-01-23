@@ -4,7 +4,7 @@ import { SnackBarService } from '@shared/module/material/service';
 import { ItemClipboardResultCode, ItemClipboardService } from '@shared/module/poe/service';
 import { ItemSection } from '@shared/module/poe/type';
 import { Subject } from 'rxjs';
-import { filter, map, throttleTime } from 'rxjs/operators';
+import { filter, flatMap, map, throttleTime } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'
@@ -37,23 +37,27 @@ export class StashService {
     }
 
     private initHighlightQueue(): void {
-        this.highlightCommandQueue$.pipe(throttleTime(150), map(() => {
-            const result = this.itemClipboard.copy({
+        this.highlightCommandQueue$.pipe(
+            throttleTime(150),
+            flatMap(() => this.itemClipboard.copy({
                 [ItemSection.Rartiy]: true
-            });
-            switch (result.code) {
-                case ItemClipboardResultCode.Success:
-                    return result.item.type;
-                case ItemClipboardResultCode.ParserError:
-                    this.snackbar.warning('Clipboard could not be parsed. Make sure you have cleared (ESC) the previous highlight.');
-                    break;
-            }
-            return null;
-        }), filter(value => (value || '').length > 0), map(value => {
-            this.clipboard.writeText(`"${value}"`);
-            this.keyboard.setKeyboardDelay(5);
-            this.keyboard.keyTap('v', ['control']);
-        })).subscribe();
+            })),
+            map(result => {
+                switch (result.code) {
+                    case ItemClipboardResultCode.Success:
+                        return result.item.type;
+                    case ItemClipboardResultCode.ParserError:
+                        this.snackbar.warning('Clipboard could not be parsed. Make sure you have cleared (ESC) the previous highlight.');
+                        break;
+                    default:
+                        break;
+                }
+                return null;
+            }), filter(value => (value || '').length > 0), map(value => {
+                this.clipboard.writeText(`"${value}"`);
+                this.keyboard.setKeyboardDelay(5);
+                this.keyboard.keyTap('v', ['control']);
+            })).subscribe();
     }
 
     private initNavigateQueue(): void {

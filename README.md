@@ -1,4 +1,4 @@
-# PoE Overlay 0.5.4
+# PoE Overlay 0.5.5
 
 An Overlay for Path of Exile. The ***core aspect*** is to blend in with the game. Built with Electron and Angular. 
  
@@ -58,7 +58,7 @@ This project is currently in a ***pilot phase***. If you encounter any bugs or h
 | Shared | 100% | + item frame<br>+ currency frame<br>+ item parser in all languages<br>+ item parser mods
 | Evaluate         | 100%           | + Basic search implemented <br>+ User settings (display currency, translated language) <br>+ Chart to display values instead of avg <br>+ Advanced search with filter on modifiers |
 | Command        | 100%            | + bind in-game commmands to shortcuts (/dnd, /hideout) |
-| Map        | 75%            | + display map info (layout, bosses, ...) |
+| Map        | 100%            | + display map info (layout, bosses, ...)<br>+ customisable mod warnings |
 | Misc        | 100%            | + navigating through storage by CTRL + WHEEL<br> + highlighting items by CTRL + F |
 | Trade      | 0%           | - Send messages<br>- Trade UI<br>- etc.       |
 
@@ -78,9 +78,9 @@ These instructions will set you up to run and enjoy the overlay.
 
 1. Head over to [Releases](https://github.com/Kyusung4698/PoE-Overlay/releases) and download the latest zip
 2. Extract zip
-3. Run `poe-overlay 0.5.4.exe`
-4. Wait until you can see `POE Overlay 0.5.4` in the bottom left corner
-5. Start Path of Exile
+3. Run `poe-overlay 0.5.5.exe`
+4. Start Path of Exile
+5. Wait until you can see `POE Overlay 0.5.5` in the bottom left corner
 6. Hit `f7` and set `Language` and `League` to meet your game settings
 
 #### Shortcuts

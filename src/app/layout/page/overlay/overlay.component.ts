@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, HostListener, Inject, OnDestroy, OnInit } from '@angular/core';
-import { RendererService, ShortcutService, WindowService } from '@app/service';
-import { DialogShortcutService } from '@app/service/input/dialog-shortcut.service.js';
+import { AppService, BrowserService, RendererService, ShortcutService, WindowService } from '@app/service';
+import { DialogsService } from '@app/service/input/dialogs.service.js';
 import { FEATURE_MODULES } from '@app/token';
 import { FeatureModule } from '@app/type';
 import { ReleasesHttpService } from '@data/github';
@@ -28,10 +28,12 @@ export class OverlayComponent implements OnInit, OnDestroy {
     private readonly releasesHttpService: ReleasesHttpService,
     private readonly userSettingsService: UserSettingsService,
     private readonly context: ContextService,
+    private readonly app: AppService,
     private readonly window: WindowService,
+    private readonly browser: BrowserService,
     private readonly renderer: RendererService,
     private readonly shortcut: ShortcutService,
-    private readonly dialogShortcut: DialogShortcutService) { }
+    private readonly dialogs: DialogsService) { }
 
   @HostListener('window:beforeunload', [])
   public onWindowBeforeUnload(): void {
@@ -39,6 +41,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit(): void {
+    this.registerAutoHide();
     this.checkVersion();
     this.initSettings();
   }
@@ -61,17 +64,21 @@ export class OverlayComponent implements OnInit, OnDestroy {
     this.registerFeatures(settings);
     this.registerSettings(settings);
     this.registerExit(settings);
-    this.dialogShortcut.init();
+    this.dialogs.registerShortcuts();
   }
 
   private checkVersion(): void {
     this.releasesHttpService.getLatestRelease().subscribe(release => {
       if (release && release.tag_name !== version && release.assets && release.assets[0].browser_download_url) {
         if (confirm(`A new version: '${release.tag_name}' is available. Go to download Page?`)) {
-          this.window.open(release.html_url);
+          this.browser.open(release.html_url);
         }
       }
     });
+  }
+
+  private registerAutoHide(): void {
+    this.app.visibleChange().subscribe(visible => visible ? this.window.show() : this.window.hide());
   }
 
   private registerFeatures(settings: UserSettings): void {
@@ -95,7 +102,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
 
   private registerExit(settings: UserSettings): void {
     if (settings.exitAppKeybinding) {
-      this.shortcut.register(settings.exitAppKeybinding).subscribe(() => this.window.quit());
+      this.shortcut.register(settings.exitAppKeybinding).subscribe(() => this.app.quit());
     }
   }
 

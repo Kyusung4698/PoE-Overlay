@@ -1,6 +1,6 @@
 import { AfterViewInit, ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { WindowService } from '@app/service';
+import { BrowserService } from '@app/service';
 import { SnackBarService } from '@shared/module/material/service';
 import { ItemSearchEvaluateService, ItemSearchService } from '@shared/module/poe/service';
 import { CurrencyService } from '@shared/module/poe/service/currency/currency.service';
@@ -32,7 +32,7 @@ export class EvaluateDialogComponent implements OnInit, AfterViewInit {
     private readonly itemSearchService: ItemSearchService,
     private readonly itemSearchEvaluateService: ItemSearchEvaluateService,
     private readonly currencyService: CurrencyService,
-    private readonly window: WindowService,
+    private readonly browser: BrowserService,
     private readonly snackbar: SnackBarService) {
   }
 
@@ -52,7 +52,7 @@ export class EvaluateDialogComponent implements OnInit, AfterViewInit {
   public onCurrencyClick(event: MouseEvent): void {
     const result = this.result$.getValue();
     if (result && result.url) {
-      this.window.open(result.url, event.ctrlKey);
+      this.browser.open(result.url, event.ctrlKey);
     }
   }
 
