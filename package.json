@@ -8,7 +8,7 @@
   "author": {
     "name": "Kyusung4698"
   },
-  "version": "0.5.4",
+  "version": "0.5.5",
   "scripts": {
     "postinstall": "electron-builder install-app-deps",
     "ng:serve": "ng serve",
@@ -40,7 +40,7 @@
     "@angular/router": "~8.2.14",
     "@swimlane/ngx-charts": "^13.0.1",
     "hammerjs": "^2.0.8",
-    "hotkeys": "git+https://github.com/Kyusung4698/hotkeys.git#eefeb19dce84819ae953c2983622751bbd955b25",
+    "hotkeys": "git+https://github.com/Kyusung4698/hotkeys.git#80fa26af5abf8b5b7b31ac54b39a95b912ba0714",
     "localforage": "^1.7.3",
     "robotjs": "git+https://github.com/Kyusung4698/robotjs.git",
     "rxjs": "~6.4.0",

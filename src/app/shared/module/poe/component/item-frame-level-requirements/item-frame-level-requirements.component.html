@@ -3,8 +3,8 @@
         <app-item-frame-value-group>
             <span>{{'ItemDisplayStringItemLevel' | clientString:language}}:&nbsp;</span>
             <span class="white">
-                <app-item-frame-value [(value)]="item.level" [modifier]="modifier"
-                    [modifierMaxRange]="modifierMaxRange">
+                <app-item-frame-value [(value)]="item.level" [modifier]="0"
+                    [modifierMaxRange]="false">
                 </app-item-frame-value>
             </span>
         </app-item-frame-value-group>

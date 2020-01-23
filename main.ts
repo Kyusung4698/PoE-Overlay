@@ -1,7 +1,7 @@
 import { app, BrowserWindow, ipcMain, Menu, Tray } from 'electron';
+import * as hotkeys from 'hotkeys';
 import * as path from 'path';
 import * as robot from 'robotjs';
-import * as hotkeys from 'hotkeys';
 import * as url from 'url';
 import { version } from './package.json';
 
@@ -27,20 +27,27 @@ ipcMain.on('set-keyboard-delay', (event, delay) => {
 /* hotkeys */
 
 ipcMain.on('register-shortcut', (event, shortcut) => {
-  hotkeys.register(shortcut, () => {
-    win.webContents.send('shortcut-' + shortcut);
-  });
-  event.returnValue = true;
+    hotkeys.register(shortcut, () => {
+        win.webContents.send('shortcut-' + shortcut);
+    });
+    event.returnValue = true;
 });
 
 ipcMain.on('unregister-shortcut', (event, shortcut) => {
-  hotkeys.unregister(shortcut);
-  event.returnValue = true;
+    hotkeys.unregister(shortcut);
+    event.returnValue = true;
 });
 
 ipcMain.on('unregisterall-shortcut', (event) => {
-  hotkeys.unregisterall();
-  event.returnValue = true;
+    hotkeys.unregisterall();
+    event.returnValue = true;
+});
+
+ipcMain.on('register-active-change', (event) => {
+    hotkeys.on(active => {
+        win.webContents.send('active-change', active);
+    });
+    event.returnValue = true;
 });
 
 /* main window */
@@ -61,6 +68,7 @@ function createWindow(): BrowserWindow {
             webSecurity: false
         },
         focusable: false,
+        show: false,
     });
     win.removeMenu();
     win.setIgnoreMouseEvents(true);

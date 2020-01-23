@@ -1,3 +1,9 @@
+## 0.5.5 (2020-01-23)
+
+* add autohide overlay if poe is not active (#60, #61, #122)
+* update item level to be unmodified by the modifer settings and uncapped by default (#118)
+* fix `Corrupted Blood cannot be inflicted on you (implicit)` mismatched with `Corrupted` (#124)
+
 ## 0.5.4 (2020-01-22)
 
 * add map mod warnings (#120, #18)

@@ -12,9 +12,9 @@ export class ItemSectionCorruptedParserService implements ItemSectionParserServi
     public section = ItemSection.Corrupted;
 
     public parse(item: ExportedItem, target: Item): Section {
-        const phrase = `${this.clientString.translate('ItemPopupCorrupted')}`;
+        const phrase = new RegExp(`^${this.clientString.translate('ItemPopupCorrupted')}$`);
 
-        const corruptedSection = item.sections.find(x => x.content.indexOf(phrase) === 0);
+        const corruptedSection = item.sections.find(x => phrase.test(x.content));
         if (!corruptedSection) {
             return null;
         }

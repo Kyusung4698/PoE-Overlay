@@ -24,7 +24,7 @@ describe('StatsService', () => {
     [
         [
             // implicit
-            '+2 to Level of Socketed Curse Gems (implicit)\n',
+            '+2 to Level of Socketed Curse Gems (implicit)',
             // explicit
             'Grants Level 20 Death Aura Skill\n' +
             '+42 to all Attributes\n' +
@@ -33,13 +33,21 @@ describe('StatsService', () => {
             '+67 to maximum Life\n' +
             '1% of Attack Damage Leeched as Life\n' +
             'You take 450 Chaos Damage per second for 3 seconds on Kill\n' +
-            'Gore Footprints\n'
+            'Gore Footprints'
+        ],
+        [
+            // implicit
+            'Corrupted Blood cannot be inflicted on you (implicit)',
+            // explicit
+            `+21 to maximum Life\n` +
+            `Minions deal 18% increased Damage if you've used a Minion Skill Recently\n` +
+            `Minions deal 1 to 5 additional Chaos Damage`
         ]
     ].forEach((texts, index) => {
         it(`should return search for item: '${index}'`, () => {
             const result = sut.searchMultiple(texts, {}, Language.English);
             // console.log(JSON.stringify(result, null, '\t'));
-            expect(result.length).toBe(9);
+            expect(result.length).toBe(texts.reduce((a, b) => a + b.split('\n').filter(x => x.trim().length > 0).length, 0));
         });
     });
 });

@@ -1,3 +1,5 @@
+export * from './input/app.service';
+export * from './input/browser.service';
 export * from './input/clipboard.service';
 export * from './input/keyboard.service';
 export * from './input/mouse.service';

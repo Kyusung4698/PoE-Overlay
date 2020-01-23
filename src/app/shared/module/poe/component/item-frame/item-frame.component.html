@@ -15,8 +15,7 @@
 
         <!-- requirements -->
         <ng-container *ngIf="req">
-            <app-item-frame-level-requirements [item]="item" [queryItem]="queryItem" [language]="language"
-                [modifier]="modifier" [modifierMaxRange]="modifierMaxRange">
+            <app-item-frame-level-requirements [item]="item" [queryItem]="queryItem" [language]="language">
             </app-item-frame-level-requirements>
             <app-item-frame-separator [item]="item" *ngIf="sockets || stats || state || influences || separator">
             </app-item-frame-separator>

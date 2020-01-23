@@ -16,10 +16,4 @@ export class ItemFrameLevelRequirementsComponent {
 
   @Input()
   public language: Language;
-
-  @Input()
-  public modifier: number;
-
-  @Input()
-  public modifierMaxRange: boolean;
 }

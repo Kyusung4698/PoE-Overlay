@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { ClipboardService, KeyboardService, MouseService } from '@app/service';
 import { Point } from '@app/type';
+import { Observable, of, throwError } from 'rxjs';
+import { delay, flatMap, map, retryWhen, take, tap, catchError, concatMap } from 'rxjs/operators';
 import { Item } from '../../type';
 import { ItemParserService } from './parser/item-parser.service';
 
 export enum ItemClipboardResultCode {
     Success,
     Empty,
-    ParserError,
-    Error
+    ParserError
 }
 
 export class ItemClipboardResult {
@@ -29,33 +30,45 @@ export class ItemClipboardService {
 
     public copy(sections?: {
         [section: number]: boolean
-    }): ItemClipboardResult {
-        let point: Point;
-        let item: Item;
-        try {
-            point = this.mouse.getCursorScreenPoint();
-            this.keyboard.setKeyboardDelay(50);
-            this.keyboard.keyTap('c', ['control']);
+    }): Observable<ItemClipboardResult> {
+        return of(null).pipe(
+            flatMap(() => {
+                const point = this.mouse.getCursorScreenPoint();
+                this.keyboard.setKeyboardDelay(5);
+                this.keyboard.keyTap('c', ['control']);
 
-            const text = this.clipboard.readText() || '';
-            this.clipboard.writeText('');
-            if (text.length <= 0) {
-                return { code: ItemClipboardResultCode.Empty };
-            }
+                return of(null).pipe(
+                    flatMap(() => {
+                        const text = this.clipboard.readText() || '';
+                        if (text.length <= 0) {
+                            return throwError('empty');
+                        }
+                        return of(text);
+                    }),
+                    retryWhen(errors => errors.pipe(
+                        delay(25),
+                        take(6),
+                        concatMap(() => throwError('empty')))),
+                    catchError(() => of('')),
+                    tap(() => this.clipboard.writeText('')),
+                    map(text => {
+                        if (text.length <= 0) {
+                            return { code: ItemClipboardResultCode.Empty };
+                        }
 
-            item = this.itemParser.parse(text, sections);
-        } catch (e) {
-            return { code: ItemClipboardResultCode.Error };
-        }
+                        const item = this.itemParser.parse(text, sections);
+                        if (!item) {
+                            return { code: ItemClipboardResultCode.ParserError };
+                        }
 
-        if (!item) {
-            return { code: ItemClipboardResultCode.ParserError };
-        }
-
-        return {
-            code: ItemClipboardResultCode.Success,
-            item,
-            point
-        };
+                        return {
+                            code: ItemClipboardResultCode.Success,
+                            item,
+                            point
+                        };
+                    })
+                );
+            })
+        );
     }
 }
