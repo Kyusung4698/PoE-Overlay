@@ -109,7 +109,7 @@ ipcMain.on('open-route', (event, route) => {
                 show: false
             });
             childs[route].removeMenu();
-            
+
             loadApp(childs[route], `#/${route}`);
 
             childs[route].once('ready-to-show', () => {
@@ -149,7 +149,7 @@ function loadApp(win: BrowserWindow, route: string = '') {
     }
 
     if (serve) {
-        win.webContents.openDevTools();
+        win.webContents.openDevTools({mode: 'undocked'});
     }
 }
 
