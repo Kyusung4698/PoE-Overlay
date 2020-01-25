@@ -1,3 +1,8 @@
+## 0.5.7 (2020-01-25)
+
+* update map mods to use negated text version if default (#138)
+* fix overlay not showing on non steam version (#139)
+
 ## 0.5.6 (2020-01-25)
 
 * add vaal support (#134)
