@@ -97,7 +97,8 @@ export class MapSettingsComponent implements UserSettingsComponent {
 
         itemsContains[key] = true;
 
-        const predicate = Object.getOwnPropertyNames(stat.text[this.settings.language])[0];
+        const predicates = Object.getOwnPropertyNames(stat.text[this.settings.language]);
+        const predicate = predicates.find(x => (x[0] === 'N' && stat.negated) || !stat.negated);
         const item: SelectListItem = {
           key,
           text: this.statsService.translate(stat, predicate, this.settings.language),
