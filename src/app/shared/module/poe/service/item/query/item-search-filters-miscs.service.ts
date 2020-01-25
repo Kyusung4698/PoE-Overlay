@@ -35,8 +35,8 @@ export class ItemSearchFiltersMiscsService implements ItemSearchFiltersService {
         const prop = item.properties;
         if (prop.gemLevel) {
             query.filters.misc_filters.filters.gem_level = {
-                min: +prop.gemLevel.value,
-                max: +prop.gemLevel.value
+                min: prop.gemLevel.value.min,
+                max: prop.gemLevel.value.max
             };
         }
 
@@ -60,13 +60,9 @@ export class ItemSearchFiltersMiscsService implements ItemSearchFiltersService {
             return;
         }
 
-        const quality = +prop.quality.value.replace('%', '').replace('+', '');
-        if (isNaN(quality)) {
-            return;
-        }
-
         query.filters.misc_filters.filters.quality = {
-            min: quality
+            min: prop.quality.value.min,
+            max: prop.quality.value.max
         };
     }
 

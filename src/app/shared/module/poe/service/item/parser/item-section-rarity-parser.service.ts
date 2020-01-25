@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ExportedItem, Item, ItemRarity, ItemSection, ItemSectionParserService, Section } from '../../../type';
+import { ExportedItem, Item, ItemCategory, ItemRarity, ItemSection, ItemSectionParserService, Section } from '../../../type';
 import { BaseItemCategoriesService } from '../../base-item-categories/base-item-categories.service';
 import { BaseItemTypesService } from '../../base-item-types/base-item-types.service';
 import { ClientStringService } from '../../client-string/client-string.service';
@@ -58,6 +58,29 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
         }
 
         target.category = this.baseItemCategoriesService.get(target.typeId);
+
+        if (target.category === ItemCategory.Gem || target.category.indexOf(`${ItemCategory.Gem}.`) === 0) {
+            for (const section of item.sections) {
+                if (section.lines.length !== 1) {
+                    continue;
+                }
+
+                if (section.lines[0].length <= target.type.length) {
+                    continue;
+                }
+
+                const type = section.lines[0];
+                const id = this.baseItemTypesService.search(type);
+                if (id === undefined || id.indexOf('Vaal') === -1) {
+                    continue;
+                }
+
+                target.typeId = id;
+                target.type = type;
+                break;
+            }
+        }
+
         return raritySection;
     }
 

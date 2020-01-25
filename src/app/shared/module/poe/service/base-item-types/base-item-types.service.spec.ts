@@ -52,4 +52,9 @@ describe('BaseItemTypeService', () => {
         const result = sut.search('Port Map', Language.English);
         expect(result).toBe('MapWorldsPort');
     });
+
+    it(`should find 'Vaal Summon Skeletons'`, () => {
+        const result = sut.search('Vaal Summon Skeletons', Language.English);
+        expect(result).toBe('SkillGemVaalSummonSkeletons');
+    });
 });
