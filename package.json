@@ -40,7 +40,7 @@
     "@angular/router": "~8.2.14",
     "@swimlane/ngx-charts": "^13.0.1",
     "hammerjs": "^2.0.8",
-    "hotkeys": "git+https://github.com/Kyusung4698/hotkeys.git#275a368fb1443a7d1ef741e5c2b7f48b82c68ab2",
+    "hotkeys": "git+https://github.com/Kyusung4698/hotkeys.git#14c3c03c6d8eab10a9d6e7dcdedabe159b3269c3",
     "localforage": "^1.7.3",
     "robotjs": "git+https://github.com/Kyusung4698/robotjs.git#81ca63005b48acb7b4fdb495d90cd17ac1a48e49",
     "rxjs": "~6.4.0",
