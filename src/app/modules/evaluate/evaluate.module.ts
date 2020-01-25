@@ -33,10 +33,11 @@ export class EvaluateModule implements FeatureModule {
                 'pseudo.pseudo_total_resistance': true,
                 'pseudo.pseudo_total_strength': true,
                 'pseudo.pseudo_total_life': true,
+                'pseudo.pseudo_total_energy_shield': true,
                 'explicit.stat_1479533453': true,
                 'enchant.stat_290368246': true
             },
-            evaluateQueryIndexed: ItemSearchIndexed.UpTo2WeeksAgo,
+            evaluateQueryIndexedRange: ItemSearchIndexed.UpTo3DaysAgo,
             evaluateQueryOnline: true,
             evaluateModifierRange: 10,
             evaluateModifierDisableMaxRange: true,

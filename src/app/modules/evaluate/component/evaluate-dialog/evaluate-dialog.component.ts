@@ -133,7 +133,7 @@ export class EvaluateDialogComponent implements OnInit, AfterViewInit {
     const currencies$ = this.data.settings.evaluateCurrencyIds.map(id => this.currencyService.searchById(id));
     return forkJoin(
       this.itemSearchService.search(item, {
-        indexed: this.data.settings.evaluateQueryIndexed,
+        indexed: this.data.settings.evaluateQueryIndexedRange,
         online: this.data.settings.evaluateQueryOnline,
       }),
       forkJoin(currencies$)

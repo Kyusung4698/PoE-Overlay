@@ -23,37 +23,37 @@ export const PSEUDO_MODIFIERS: {
 } = {
     pseudo_jewellery_elemental_quality: {
         prop: item => item.properties && item.properties.qualityType === ItemQualityType.ElementalDamage
-            ? item.properties.quality.value
+            ? item.properties.quality.value.text
             : undefined
     },
     pseudo_jewellery_caster_quality: {
         prop: item => item.properties && item.properties.qualityType === ItemQualityType.CasterModifiers
-            ? item.properties.quality.value
+            ? item.properties.quality.value.text
             : undefined
     },
     pseudo_jewellery_attack_quality: {
         prop: item => item.properties && item.properties.qualityType === ItemQualityType.AttackModifiers
-            ? item.properties.quality.value
+            ? item.properties.quality.value.text
             : undefined
     },
     pseudo_jewellery_defense_quality: {
         prop: item => item.properties && item.properties.qualityType === ItemQualityType.DefenceModifiers
-            ? item.properties.quality.value
+            ? item.properties.quality.value.text
             : undefined
     },
     pseudo_jewellery_resource_quality: {
         prop: item => item.properties && item.properties.qualityType === ItemQualityType.LifeAndManaModifiers
-            ? item.properties.quality.value
+            ? item.properties.quality.value.text
             : undefined
     },
     pseudo_jewellery_resistance_quality: {
         prop: item => item.properties && item.properties.qualityType === ItemQualityType.ResistanceModifiers
-            ? item.properties.quality.value
+            ? item.properties.quality.value.text
             : undefined
     },
     pseudo_jewellery_attribute_quality: {
         prop: item => item.properties && item.properties.qualityType === ItemQualityType.AttributeModifiers
-            ? item.properties.quality.value
+            ? item.properties.quality.value.text
             : undefined
     },
     pseudo_total_strength: {
@@ -101,6 +101,18 @@ export const PSEUDO_MODIFIERS: {
         mods: [
             { id: 'base_maximum_mana', type: ModifierType.Addition },
             { id: 'pseudo_total_intelligence', type: ModifierType.Addition1Every2 },
+        ]
+    },
+    pseudo_total_energy_shield: {
+        mods: [
+            { id: 'base_maximum_energy_shield', type: ModifierType.Addition },
+            { id: 'local_energy_shield', type: ModifierType.Addition },
+        ]
+    },
+    pseudo_increased_energy_shield: {
+        mods: [
+            { id: 'maximum_energy_shield_+%', type: ModifierType.Addition },
+            { id: 'local_energy_shield_+%', type: ModifierType.Addition },
         ]
     },
     pseudo_total_fire_resistance: {

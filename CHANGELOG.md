@@ -1,3 +1,14 @@
+## 0.5.6 (2020-01-25)
+
+* add vaal support (#134)
+* add value range support for quality and gem level (#129)
+* add pseudo total energy shield and increased energy shield (#135)
+* update evaluate dialog position calculation to be based on actual item values (#131)
+* update active check to use executable name instead of window name (#132)
+* update poe assets to patch `3.9.2c`
+* update default indexed range to 3 days
+* fix `clipboard empty...` even though the game is focused (#133)
+
 ## 0.5.5 (2020-01-23)
 
 * add autohide overlay if poe is not active (#60, #61, #122)

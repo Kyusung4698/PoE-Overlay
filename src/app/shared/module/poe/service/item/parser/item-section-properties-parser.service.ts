@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { ExportedItem, Item, ItemProperties, ItemProperty, ItemSection, ItemSectionParserService, Section } from '@shared/module/poe/type';
+import { ExportedItem, Item, ItemProperties, ItemProperty, ItemSection, ItemSectionParserService, Section, ItemValueProperty } from '@shared/module/poe/type';
 import { ClientStringService } from '../../client-string/client-string.service';
+
+const AUGMENTED_PHRASE = ' (augmented)';
 
 @Injectable({
     providedIn: 'root'
@@ -34,7 +36,7 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
             props.armourArmour = this.parseProperty(line, phrases[7], props.armourArmour);
             props.armourEvasionRating = this.parseProperty(line, phrases[8], props.armourEvasionRating);
             props.armourEnergyShield = this.parseProperty(line, phrases[9], props.armourEnergyShield);
-            props.gemLevel = this.parseProperty(line, phrases[10], props.gemLevel);
+            props.gemLevel = this.parseValueProperty(line, phrases[10], props.gemLevel);
             props.gemExperience = this.parseProperty(line, phrases[11], props.gemExperience);
             props.mapTier = this.parseProperty(line, phrases[12], props.mapTier);
             props.mapQuantity = this.parseProperty(line, phrases[13], props.mapQuantity);
@@ -42,7 +44,7 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
             props.mapPacksize = this.parseProperty(line, phrases[15], props.mapPacksize);
             for (let quality = 0; quality < 8; quality++) {
                 const old = props.quality;
-                props.quality = this.parseProperty(line, phrases[16 + quality], old);
+                props.quality = this.parseValueProperty(line, phrases[16 + quality], old);
                 if (props.quality !== old) {
                     props.qualityType = quality;
                 }
@@ -67,8 +69,31 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
                 const max = this.clientString.translate('ItemDisplaySkillGemMaxLevel').replace('%1%', '');
                 text = text.replace(max, '');
                 const property: ItemProperty = {
-                    augmented: text.indexOf(' (augmented)') !== -1,
-                    value: text.replace(' (augmented)', '')
+                    augmented: text.indexOf(AUGMENTED_PHRASE) !== -1,
+                    value: text.replace(AUGMENTED_PHRASE, '')
+                };
+                return property;
+            });
+    }
+
+    private parseValueProperty(line: string, phrase: string, prop: ItemValueProperty): ItemValueProperty {
+        return this.parseValueProperties(line, phrase, [prop])[0];
+    }
+
+    private parseValueProperties(line: string, phrase: string, props: ItemValueProperty[]): ItemValueProperty[] {
+        if (line.indexOf(phrase) !== 0) {
+            return props;
+        }
+        return line.slice(phrase.length)
+            .split(',')
+            .map(text => {
+                const max = this.clientString.translate('ItemDisplaySkillGemMaxLevel').replace('%1%', '');
+                text = text.replace(max, '');
+                const property: ItemValueProperty = {
+                    augmented: text.indexOf(AUGMENTED_PHRASE) !== -1,
+                    value: {
+                        text: text.replace(AUGMENTED_PHRASE, '')
+                    }
                 };
                 return property;
             });

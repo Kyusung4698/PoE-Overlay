@@ -122,8 +122,8 @@ export interface ItemProperties {
     armourArmour?: ItemProperty;
     armourEvasionRating?: ItemProperty;
     armourEnergyShield?: ItemProperty;
-    gemLevel?: ItemProperty;
-    quality?: ItemProperty;
+    gemLevel?: ItemValueProperty;
+    quality?: ItemValueProperty;
     qualityType?: ItemQualityType;
     gemExperience?: ItemProperty;
     mapTier?: ItemProperty;
@@ -137,6 +137,11 @@ export interface ItemProperty {
     augmented: boolean;
 }
 
+export interface ItemValueProperty {
+    value: ItemValue;
+    augmented: boolean;
+}
+
 export enum ItemQualityType {
     Default = 0,
     ElementalDamage = 1,
@@ -146,10 +151,6 @@ export enum ItemQualityType {
     LifeAndManaModifiers = 5,
     ResistanceModifiers = 6,
     AttributeModifiers = 7,
-}
-
-export interface ItemAdditionalProperty extends ItemProperty {
-    text: string;
 }
 
 export interface ItemStat {

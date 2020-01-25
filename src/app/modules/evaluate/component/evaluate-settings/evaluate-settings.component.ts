@@ -23,7 +23,7 @@ export interface EvaluateUserSettings extends UserSettings {
   evaluateQueryDefaultType: boolean;
   evaluateQueryDefaultStats: any;
   evaluateQueryOnline: boolean;
-  evaluateQueryIndexed: ItemSearchIndexed;
+  evaluateQueryIndexedRange: ItemSearchIndexed;
   evaluateModifierRange: number;
   evaluateModifierDisableMaxRange: boolean;
 }

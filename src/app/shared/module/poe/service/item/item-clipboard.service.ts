@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ClipboardService, KeyboardService, MouseService } from '@app/service';
 import { Point } from '@app/type';
-import { Observable, of, throwError } from 'rxjs';
-import { delay, flatMap, map, retryWhen, take, tap, catchError, concatMap } from 'rxjs/operators';
+import { iif, Observable, of, throwError } from 'rxjs';
+import { catchError, concatMap, delay, flatMap, map, retryWhen, tap } from 'rxjs/operators';
 import { Item } from '../../type';
 import { ItemParserService } from './parser/item-parser.service';
 
@@ -46,9 +46,10 @@ export class ItemClipboardService {
                         return of(text);
                     }),
                     retryWhen(errors => errors.pipe(
-                        delay(25),
-                        take(6),
-                        concatMap(() => throwError('empty')))),
+                        concatMap((error, retry) => iif(() => retry >= 8,
+                            throwError(error),
+                            of(error).pipe(delay(25))))
+                    )),
                     catchError(() => of('')),
                     tap(() => this.clipboard.writeText('')),
                     map(text => {
