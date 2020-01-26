@@ -8,9 +8,7 @@ import { ItemFrameComponent } from '../item-frame/item-frame.component';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ItemFrameQueryComponent implements OnInit {
-  /* tslint:disable */
   private _value: any;
-  /* tslint:enable */
 
   @Input()
   public disabled: boolean;

@@ -1,0 +1,24 @@
+.options {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+
+  .popover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.97);
+    z-index: 1;
+    color: #c8c8c8;
+    border-radius: 5px;
+    padding: 3px;
+
+    .indexed {
+      &:hover {
+        background-color: rgba(170, 158, 130, 0.3);
+        outline: auto;
+      }
+    }
+  }
+}

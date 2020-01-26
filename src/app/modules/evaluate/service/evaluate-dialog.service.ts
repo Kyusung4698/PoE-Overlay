@@ -158,6 +158,10 @@ export class EvaluateDialogService {
         // price / graph
         height += DIALOG_DIVIDER_HEIGHT;
 
+        const value = 45;
+        height += value;
+        height += DIALOG_DIVIDER_HEIGHT;
+
         const price = 64;
         height += price;
 

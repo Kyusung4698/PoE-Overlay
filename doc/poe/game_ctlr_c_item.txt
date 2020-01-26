@@ -625,25 +625,6 @@ Cannot be Chilled or Frozen if you have used a Fire Skill Recently
 Hrimnor's presence was as cold as ice,
 but his heart burned for vengeance.
 
-Rarity: Rare
-Foe Lash
-Stygian Vise
---------
-Requirements:
-Level: 68
---------
-Sockets: A 
---------
-Item Level: 86
---------
-Has 1 Abyssal Socket (implicit)
---------
-+14 to Strength
-+493 to Armour
-+23 to maximum Energy Shield
-+85 to maximum Life
-+10% to Cold and Chaos Resistances (crafted)
-
 Rarity: Unique
 Brawn
 Crimson Jewel
@@ -774,3 +755,83 @@ Minions deal 1 to 5 additional Chaos Damage
 Place into an Abyssal Socket on an Item or into an allocated Jewel Socket on the Passive Skill Tree. Right click to remove from the Socket.
 --------
 Corrupted
+
+Rarity: Rare
+Foe Lash
+Stygian Vise
+--------
+Requirements:
+Level: 68
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket (implicit)
+--------
++14 to Strength
++493 to Armour
++23 to maximum Energy Shield
++85 to maximum Life
++10% to Cold and Chaos Resistances (crafted)
+
+Rarity: Normal
+The Corrupt
+--------
+To plow a field, you need a tool. To harvest grain, you need a tool. To spread corruption, you need a tool.
+--------
+You will slay a powerful enemy in a Vaal side area and it will drop a Vaal Orb.
+--------
+Right-click to add this prophecy to your character.
+--------
+Note: ~b/o 1 p
+
+Rarity: Currency
+Exalted Orb
+--------
+Stack Size: 9/10
+--------
+Enchants a rare item with a new random modifier
+--------
+Right click this item then left click a rare item to apply it. Rare items can have up to six random modifiers. The item's Catalyst quality increases the chance of applying a modifier which matches the quality type. Removes 20% Quality applied by Catalysts on use.
+Shift click to unstack.
+
+Rarity: Currency
+Orb of Alchemy
+--------
+Stack Size: 10/10
+--------
+Upgrades a normal item to a rare item
+--------
+Right click this item then left click a normal item to apply it.
+Shift click to unstack.
+--------
+Note: ~price 2 chance
+
+Rarity: Unique
+Yriel's Fostering
+Exquisite Leather
+--------
+Evasion Rating: 1683 (augmented)
+--------
+Requirements:
+Level: 62
+Dex: 170
+--------
+Sockets: G-G 
+--------
+Item Level: 77
+--------
+Grants Level 20 Summon Bestial Ursa Skill
++391 to Accuracy Rating
+139% increased Evasion Rating
++92 to maximum Life
+Projectile Attack Skills have 56% increased Critical Strike Chance
+Projectiles from Attacks have 20% chance to inflict Bleeding on Hit while
+you have a Bestial Minion
+Adds 15-21 Physical Damage to Attacks while you have a Bestial Minion
+--------
+Feed a beast and it will not hunt.
+Protect it and it will not fight.
+Ferocity must be learned, not taught.
+It is suffering that forges the greatest warriors.

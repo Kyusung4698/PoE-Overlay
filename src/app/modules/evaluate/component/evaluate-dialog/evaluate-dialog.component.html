@@ -3,44 +3,12 @@
         (queryItemChange)="onQueryItemChange($event)" [separator]="true"
         [modifier]="data.settings.evaluateModifierRange / 100"
         [modifierMaxRange]="!data.settings.evaluateModifierDisableMaxRange">
-        <ng-container [ngSwitch]="result$ | async">
-            <ng-container *ngSwitchCase="null">
-                <div> Loading... </div>
-            </ng-container>
-            <ng-container *ngSwitchDefault>
-                <ng-container *ngIf="(result$ | async) as result">
-                    <ng-container *ngIf="result.items && result.items.length > 0">
-                        <div class="clickable" (click)="onCurrencyClick($event)"
-                            title="'Click' = In-Game Browser, 'CTRL + Click' Default Browser">
-                            <div>
-                                <app-currency-frame label="Mean" [amount]="result.targetCurrencyMean">
-                                </app-currency-frame>
-                                <app-currency-frame label="Median" [amount]="result.targetCurrencyMedian">
-                                </app-currency-frame>
-                                <app-currency-frame label="Mode" [amount]="result.targetCurrencyMode">
-                                </app-currency-frame>
-                            </div>
-                            <div>
-                                <app-currency-frame label="Min" [amount]="result.targetCurrencyMin">
-                                </app-currency-frame>
-                                <app-currency-frame label="Max" [amount]="result.targetCurrencyMax"
-                                    [currency]="result.targetCurrency">
-                                </app-currency-frame>
-                            </div>
-                        </div>
-                        <app-evaluate-chart [result]="result"></app-evaluate-chart>
-                    </ng-container>
-                    <ng-container *ngIf="result.items && result.items.length === 0">
-                        <div class="clickable" (click)="onCurrencyClick($event)"
-                            title="'Click' = In-Game Browser, 'CTRL + Click' Default Browser">
-                            No matching items found.
-                        </div>
-                    </ng-container>
-                    <ng-container *ngIf="!result.items">
-                        <div> An unexpected error occured. </div>
-                    </ng-container>
-                </ng-container>
-            </ng-container>
+        <ng-container *ngIf="(currencies$ | async) as currencies">
+            <app-evaluate [item]="data.item" [currencies]="currencies"></app-evaluate>
+            <app-item-frame-separator [item]="data.item"></app-item-frame-separator>
+            <app-evaluate-search [settings]="data.settings" [defaultItem]="defaultItem" [queryItem]="queryItem"
+                [queryItemChange]="queryItemChange" [currencies]="currencies" (update)="onQueryItemChange($event)">
+            </app-evaluate-search>
         </ng-container>
     </app-item-frame>
 </div>

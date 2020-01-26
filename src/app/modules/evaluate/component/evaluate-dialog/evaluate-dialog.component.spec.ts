@@ -4,7 +4,10 @@ import { ElectronProvider } from '@app/provider';
 import { ContextService } from '@shared/module/poe/service';
 import { Language } from '@shared/module/poe/type';
 import { SharedModule } from '@shared/shared.module';
+import { EvaluateAreaChartComponent } from '../evaluate-area-chart/evaluate-area-chart.component';
 import { EvaluateChartComponent } from '../evaluate-chart/evaluate-chart.component';
+import { EvaluateSearchComponent } from '../evaluate-search/evaluate-search.component';
+import { EvaluateComponent } from '../evaluate/evaluate.component';
 import { EvaluateDialogComponent } from './evaluate-dialog.component';
 
 class ElectronProviderFake {
@@ -25,7 +28,13 @@ describe('EvaluateDialogComponent', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             imports: [SharedModule],
-            declarations: [EvaluateDialogComponent, EvaluateChartComponent],
+            declarations: [
+                EvaluateDialogComponent,
+                EvaluateComponent,
+                EvaluateSearchComponent,
+                EvaluateAreaChartComponent,
+                EvaluateChartComponent
+            ],
             providers: [
                 {
                     provide: MAT_DIALOG_DATA,

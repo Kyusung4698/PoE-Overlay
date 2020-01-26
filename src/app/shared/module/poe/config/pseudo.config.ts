@@ -150,8 +150,7 @@ export const PSEUDO_MODIFIERS: {
             { id: 'pseudo_total_fire_resistance', type: ModifierType.Addition },
             { id: 'pseudo_total_lightning_resistance', type: ModifierType.Addition },
             { id: 'pseudo_total_cold_resistance', type: ModifierType.Addition },
-        ],
-        count: 2
+        ]
     },
     pseudo_total_all_elemental_resistances: {
         mods: [

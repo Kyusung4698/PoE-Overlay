@@ -149,7 +149,7 @@ export class StatsService {
                             return id.split(' ').join('').split('%').join('_').split('+').join('_');
                         };
 
-                        const localKey = getKey(stat.id);
+                        const localKey = getKey(stat.id || '');
                         if (locals[localKey]) {
                             let optId = locals[localKey];
                             if (stat.mod === 'local') {
@@ -158,7 +158,8 @@ export class StatsService {
                             }
 
                             // item has local stat
-                            if (options[optId] && stat.mod !== 'local') {
+                            if ((options[optId] && stat.mod !== 'local') ||
+                                (!options[optId] && stat.mod === 'local')) {
                                 continue;
                             }
                         }

@@ -1,3 +1,11 @@
+## 0.5.8 (2020-01-26)
+
+* add item base values with 7 day history (#84)
+* add online/offline toggle (#104)
+* add clear selected button (#105)
+* fix undefined id check (#144)
+* fix local mod is used instead of global if local is infront of the global (#143)
+
 ## 0.5.7 (2020-01-25)
 
 * update map mods to use negated text version if default (#138)

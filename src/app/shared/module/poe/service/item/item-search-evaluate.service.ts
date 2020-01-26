@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Currency, EvaluateItem, EvaluateItemGrouped, ItemSearchEvaluateResult, ItemSearchResult } from '@shared/module/poe/type';
-import { forkJoin, Observable, of } from 'rxjs';
-import { filter, flatMap, map } from 'rxjs/operators';
+import { forkJoin, Observable } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 import { CurrencyConverterService } from '../currency/currency-converter.service';
+import { CurrencySelectService, CurrencySelectStrategy } from '../currency/currency-select.service';
 
 @Injectable({
     providedIn: 'root'
@@ -10,11 +11,11 @@ import { CurrencyConverterService } from '../currency/currency-converter.service
 export class ItemSearchEvaluateService {
 
     constructor(
-        private readonly currencyConverterService: CurrencyConverterService) { }
+        private readonly currencyConverterService: CurrencyConverterService,
+        private readonly currencySelectService: CurrencySelectService) { }
 
-    public evaluate(itemSearchResult: ItemSearchResult, targetCurrencies: Currency[]): Observable<ItemSearchEvaluateResult> {
-        return of(targetCurrencies).pipe(
-            flatMap(currencies => this.convertIntoCurrencies(currencies, itemSearchResult)),
+    public evaluate(itemSearchResult: ItemSearchResult, currencies: Currency[]): Observable<ItemSearchEvaluateResult> {
+        return this.convertIntoCurrencies(currencies, itemSearchResult).pipe(
             map(converted => this.findMinCurrencyWithAtleast1(converted)),
             map(items => {
                 if (!items || items.length <= 0) {
@@ -36,17 +37,17 @@ export class ItemSearchEvaluateService {
         const min = sortedByAmount[0].targetCurrencyAmount;
         const max = sortedByAmount[sortedByAmount.length - 1].targetCurrencyAmount;
 
-        const sortedByAmoundRounded = items.sort((a, b) => a.targetCurrencyAmountRounded - b.targetCurrencyAmountRounded);
+        const sortedByAmountRounded = items.sort((a, b) => a.targetCurrencyAmountRounded - b.targetCurrencyAmountRounded);
         const itemsGrouped: EvaluateItemGrouped[] = [
             {
-                value: sortedByAmoundRounded[0].targetCurrencyAmountRounded,
+                value: sortedByAmountRounded[0].targetCurrencyAmountRounded,
                 items: []
             }
         ];
 
         let mode = 0;
         let modeCount = 0;
-        for (const item of sortedByAmoundRounded) {
+        for (const item of sortedByAmountRounded) {
             const index = itemsGrouped.length - 1;
             if (itemsGrouped[index].value === item.targetCurrencyAmountRounded) {
                 itemsGrouped[index].items.push(item);
@@ -108,36 +109,9 @@ export class ItemSearchEvaluateService {
         if (converted.length === 1) {
             return converted[0];
         }
-
-        let groupMinIndex = -1;
-        let groupMaxIndex = -1;
-        let groupMin = Number.MAX_SAFE_INTEGER;
-        let groupMax = Number.MIN_SAFE_INTEGER;
-        for (let i = 0; i < converted.length; i++) {
-            let itemMin = Number.MAX_SAFE_INTEGER;
-            let itemMax = Number.MIN_SAFE_INTEGER;
-            for (const item of converted[i]) {
-                if (item.targetCurrencyAmount < itemMin) {
-                    itemMin = item.targetCurrencyAmount;
-                }
-                if (item.targetCurrencyAmount > itemMax) {
-                    itemMax = item.targetCurrencyAmount;
-                }
-            }
-            if (itemMin >= 1) { // atleast 1
-                if (itemMin < groupMin) { // sort by lowest value
-                    groupMinIndex = i;
-                    groupMin = itemMin;
-                }
-            } else {
-                if (itemMax > groupMax) { // sort by highest value
-                    groupMaxIndex = i;
-                    groupMax = itemMax;
-                }
-            }
-        }
-        // use highest value if no value is > 1
-        const index = groupMinIndex === -1 ? groupMaxIndex : groupMinIndex;
+        const values = converted.map(x => x.map(y => y.targetCurrencyAmount));
+        const index = this.currencySelectService
+            .select(values, CurrencySelectStrategy.MinWithAtleast1);
         return converted[index];
     }
 
