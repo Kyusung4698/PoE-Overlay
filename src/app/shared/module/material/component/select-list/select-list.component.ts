@@ -18,9 +18,7 @@ export interface SelectListItem {
 })
 export class SelectListComponent implements OnInit {
   private items$ = new BehaviorSubject<SelectListItem[]>([]);
-  /* tslint:disable */
   private _items: SelectListItem[];
-  /* tslint:enable */
 
   @Input()
   public set items(items: SelectListItem[]) {
