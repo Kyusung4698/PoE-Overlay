@@ -1,11 +1,12 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { BrowserService } from '@app/service';
+import { EvaluateResult } from '@modules/evaluate/type/evaluate.type';
 import { SnackBarService } from '@shared/module/material/service';
 import { ItemSearchEvaluateService, ItemSearchService } from '@shared/module/poe/service';
 import { Currency, Item, ItemSearchEvaluateResult } from '@shared/module/poe/type';
 import { ItemSearchIndexed } from '@shared/module/poe/type/search.type';
 import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
-import { debounceTime, flatMap, switchMap, takeUntil } from 'rxjs/operators';
+import { debounceTime, flatMap, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { EvaluateUserSettings } from '../evaluate-settings/evaluate-settings.component';
 
 const SEARCH_DEBOUNCE_TIME = 500;
@@ -16,7 +17,7 @@ const SEARCH_DEBOUNCE_TIME = 500;
   styleUrls: ['./evaluate-search.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class EvaluateSearchComponent implements OnInit, AfterViewInit {
+export class EvaluateSearchComponent implements OnInit {
   public options$ = new BehaviorSubject<boolean>(false);
   public online$: BehaviorSubject<boolean>;
   public indexed$: BehaviorSubject<ItemSearchIndexed>;
@@ -41,6 +42,9 @@ export class EvaluateSearchComponent implements OnInit, AfterViewInit {
   @Output()
   public update = new EventEmitter<Item>();
 
+  @Output()
+  public evaluate = new EventEmitter<EvaluateResult>();
+
   constructor(
     private readonly itemSearchService: ItemSearchService,
     private readonly itemSearchEvaluateService: ItemSearchEvaluateService,
@@ -50,10 +54,9 @@ export class EvaluateSearchComponent implements OnInit, AfterViewInit {
   public ngOnInit() {
     this.online$ = new BehaviorSubject(this.settings.evaluateQueryOnline);
     this.indexed$ = new BehaviorSubject(this.settings.evaluateQueryIndexedRange);
-  }
-
-  public ngAfterViewInit(): void {
-    this.firstSearch();
+    this.search(this.queryItem).pipe(
+      takeUntil(this.queryItemChange)
+    ).subscribe(result => this.result$.next(result), error => this.handleError(error));
     this.registerSearchOnChange();
   }
 
@@ -89,21 +92,18 @@ export class EvaluateSearchComponent implements OnInit, AfterViewInit {
     }
   }
 
-  private firstSearch(): void {
-    this.search(this.queryItem).pipe(
-      takeUntil(this.queryItemChange)
-    ).subscribe(result => this.result$.next(result), error => this.handleError(error));
+  public onAmountSelect(amount: number): void {
+    const currency = this.result$.value.targetCurrency;
+    this.evaluate.next({ amount, currency });
   }
 
   private registerSearchOnChange(): void {
     this.queryItemChange.pipe(
       debounceTime(SEARCH_DEBOUNCE_TIME),
-      switchMap(queryItem => {
-        this.result$.next(null);
-        return this.search(queryItem).pipe(
-          takeUntil(this.queryItemChange)
-        );
-      })
+      tap(() => this.result$.next(null)),
+      switchMap(queryItem => this.search(queryItem).pipe(
+        takeUntil(this.queryItemChange)
+      ))
     ).subscribe(result => this.result$.next(result), error => this.handleError(error));
   }
 

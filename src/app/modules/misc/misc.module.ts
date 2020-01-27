@@ -4,8 +4,8 @@ import { Feature, FeatureModule } from '@app/type';
 import { SharedModule } from '@shared/shared.module';
 import { UserSettingsFeature } from 'src/app/layout/type';
 import { MiscSettingsComponent, MiscUserSettings } from './component';
-import { StashService } from './service/stash.service';
-import { WikiService } from './service/wiki.service';
+import { MiscStashService } from './service/misc-stash.service';
+import { MiscWikiService } from './service/misc-wiki.service';
 
 @NgModule({
     providers: [{ provide: FEATURE_MODULES, useClass: MiscModule, multi: true }],
@@ -16,8 +16,8 @@ import { WikiService } from './service/wiki.service';
 export class MiscModule implements FeatureModule {
 
     constructor(
-        private readonly stash: StashService,
-        private readonly wiki: WikiService) { }
+        private readonly stash: MiscStashService,
+        private readonly wiki: MiscWikiService) { }
 
     public getSettings(): UserSettingsFeature {
         const defaultSettings: MiscUserSettings = {

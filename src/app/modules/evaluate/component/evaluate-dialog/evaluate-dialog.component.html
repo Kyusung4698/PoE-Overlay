@@ -6,8 +6,9 @@
         <ng-container *ngIf="(currencies$ | async) as currencies">
             <app-evaluate [item]="data.item" [currencies]="currencies"></app-evaluate>
             <app-item-frame-separator [item]="data.item"></app-item-frame-separator>
-            <app-evaluate-search [settings]="data.settings" [defaultItem]="defaultItem" [queryItem]="queryItem"
-                [queryItemChange]="queryItemChange" [currencies]="currencies" (update)="onQueryItemChange($event)">
+            <app-evaluate-search *ngIf="init$ | async" [settings]="data.settings" [defaultItem]="defaultItem"
+                [queryItem]="queryItem" [queryItemChange]="queryItemChange" [currencies]="currencies"
+                (update)="onQueryItemChange($event)" (evaluate)="onEvaluate($event)">
             </app-evaluate-search>
         </ng-container>
     </app-item-frame>

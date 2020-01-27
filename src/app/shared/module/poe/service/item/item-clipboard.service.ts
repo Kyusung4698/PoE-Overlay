@@ -33,7 +33,7 @@ export class ItemClipboardService {
     }): Observable<ItemClipboardResult> {
         return of(null).pipe(
             flatMap(() => {
-                const point = this.mouse.getCursorScreenPoint();
+                const point = this.mouse.position();
                 this.keyboard.setKeyboardDelay(5);
                 this.keyboard.keyTap('c', ['control']);
 

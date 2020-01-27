@@ -835,3 +835,36 @@ Feed a beast and it will not hunt.
 Protect it and it will not fight.
 Ferocity must be learned, not taught.
 It is suffering that forges the greatest warriors.
+
+Rarity: Rare
+Foe Bane
+Vaal Greatsword
+--------
+Two Handed Sword
+Physical Damage: 55-113
+Elemental Damage: 58-109 (augmented), 18-35 (augmented)
+Critical Strike Chance: 5.00%
+Attacks per Second: 1.30
+Weapon Range: 13
+--------
+Requirements:
+Level: 68
+Str: 122
+Dex: 104 (unmet)
+--------
+Sockets: R-R 
+--------
+Item Level: 86
+--------
+40% increased Global Accuracy Rating (implicit)
+--------
++10 to Dexterity
+Adds 58 to 109 Fire Damage
+Adds 18 to 35 Cold Damage
++48% to Cold Resistance
+25% chance to gain Onslaught for 4 seconds on Kill
+Attacks with this Weapon Penetrate 5% Cold Resistance
+99% increased Elemental Damage with Attack Skills
+--------
+Redeemer Item
+--------

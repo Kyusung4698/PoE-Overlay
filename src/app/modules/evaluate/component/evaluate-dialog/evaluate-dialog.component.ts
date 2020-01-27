@@ -1,9 +1,10 @@
 import { AfterViewInit, ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { EvaluateQueryItemProvider } from '@modules/evaluate/provider/evaluate-query-item.provider';
+import { EvaluateResult } from '@modules/evaluate/type/evaluate.type';
 import { CurrencyService } from '@shared/module/poe/service/currency/currency.service';
 import { Currency, Item, Language } from '@shared/module/poe/type';
-import { forkJoin, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, forkJoin, Observable, Subject } from 'rxjs';
 import { shareReplay } from 'rxjs/operators';
 import { EvaluateUserSettings } from '../evaluate-settings/evaluate-settings.component';
 
@@ -21,16 +22,17 @@ const CURRENCIES_CACHE_SIZE = 1;
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EvaluateDialogComponent implements OnInit, AfterViewInit {
-  private init = false;
-
   public defaultItem: Item;
   public queryItem: Item;
   public queryItemChange: Subject<Item>;
   public currencies$: Observable<Currency[]>;
 
+  public init$ = new BehaviorSubject<boolean>(false);
+
   constructor(
     @Inject(MAT_DIALOG_DATA)
     public data: EvaluateDialogData,
+    private readonly ref: MatDialogRef<EvaluateDialogComponent>,
     private readonly evaluateQueryItemProvider: EvaluateQueryItemProvider,
     private readonly currencyService: CurrencyService) {
   }
@@ -44,14 +46,18 @@ export class EvaluateDialogComponent implements OnInit, AfterViewInit {
   }
 
   public ngAfterViewInit(): void {
-    this.init = true;
+    setTimeout(() => {
+      this.init$.next(true);
+    }, 1);
   }
 
   public onQueryItemChange(queryItem: Item): void {
-    if (this.init) {
-      this.queryItem = queryItem;
-      this.queryItemChange.next(queryItem);
-    }
+    this.queryItem = queryItem;
+    this.queryItemChange.next(queryItem);
+  }
+
+  public onEvaluate(result: EvaluateResult): void {
+    this.ref.close(result);
   }
 
   private getCurrencies(): Observable<Currency[]> {

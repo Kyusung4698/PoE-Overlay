@@ -1,20 +1,26 @@
 import { Injectable } from '@angular/core';
 import { ElectronProvider } from '@app/provider';
 import { Point } from '@app/type';
-import { Remote } from 'electron';
+import { IpcRenderer, Remote } from 'electron';
 
 @Injectable({
     providedIn: 'root'
 })
 export class MouseService {
     private readonly electron: Remote;
+    private readonly ipcRenderer: IpcRenderer;
 
     constructor(
         electronProvider: ElectronProvider) {
         this.electron = electronProvider.provideRemote();
+        this.ipcRenderer = electronProvider.provideIpcRenderer();
     }
 
-    public getCursorScreenPoint(): Point {
+    public click(button: 'left' | 'right' | 'middle', position?: Point): void {
+        this.ipcRenderer.sendSync('click-at', button, position);
+    }
+
+    public position(): Point {
         return this.electron.screen.getCursorScreenPoint();
     }
 }

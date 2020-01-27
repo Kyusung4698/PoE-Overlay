@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { SnackBarService } from '@shared/module/material/service';
-import { ItemClipboardResultCode, ItemClipboardService } from '@shared/module/poe/service';
+import { ItemClipboardResultCode, ItemClipboardService, StashService } from '@shared/module/poe/service';
 import { Language } from '@shared/module/poe/type';
-import { Observable, throwError } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 import { catchError, flatMap } from 'rxjs/operators';
 import { EvaluateUserSettings } from '../component/evaluate-settings/evaluate-settings.component';
 import { EvaluateDialogService } from './evaluate-dialog.service';
@@ -12,17 +12,38 @@ import { EvaluateDialogService } from './evaluate-dialog.service';
 })
 export class EvaluateService {
     constructor(
-        private readonly itemClipboard: ItemClipboardService,
+        private readonly item: ItemClipboardService,
+        private readonly stash: StashService,
         private readonly snackbar: SnackBarService,
         private readonly evaluateDialog: EvaluateDialogService) {
     }
 
     public evaluate(settings: EvaluateUserSettings, language?: Language): Observable<void> {
-        return this.itemClipboard.copy().pipe(
+        return this.item.copy().pipe(
             flatMap(result => {
                 switch (result.code) {
                     case ItemClipboardResultCode.Success:
-                        return this.evaluateDialog.open(result.point, result.item, settings, language);
+                        const point = result.point;
+                        return this.evaluateDialog.open(point, result.item, settings, language).pipe(
+                            flatMap(evaluate => {
+                                if (!evaluate) {
+                                    return of(null);
+                                }
+
+                                if (!this.stash.hovering(point)) {
+                                    this.stash.copyPrice(evaluate.amount, evaluate.currency);
+                                    return this.snackbar.info(
+                                        'Only items inside the stash can be fast tagged. Note has been copied instead.');
+                                }
+
+                                if ((result.item.note || '').length > 0) {
+                                    this.stash.copyPrice(evaluate.amount, evaluate.currency);
+                                    return this.snackbar.info(
+                                        'Only items without an existing note can be fast tagged. Note has been copied instead.');
+                                }
+                                return this.stash.tagPrice(evaluate.amount, evaluate.currency, point);
+                            })
+                        );
                     case ItemClipboardResultCode.Empty:
                         return this.snackbar.warning('Clipboard text was empty. Make sure the game is focused.');
                     case ItemClipboardResultCode.ParserError:

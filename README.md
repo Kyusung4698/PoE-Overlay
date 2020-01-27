@@ -1,4 +1,4 @@
-# PoE Overlay 0.5.8
+# PoE Overlay 0.5.9
 
 An Overlay for Path of Exile. The ***core aspect*** is to blend in with the game. Built with Electron and Angular. 
  
@@ -38,6 +38,7 @@ This project is currently in a ***pilot phase***. If you encounter any bugs or h
     * a graphical display of the price distribution<br> ![item](img/item_0.5.8.jpg)
     * filter your search on all supported properties on click<br> ![item_filter](img/item_filter_0.5.8.jpg)
     * an in game browser to display the created search<br> ![browser](img/item_browser_0.5.8.jpg)
+    * lets you price tag the item by clicking the desired bar/value
 
 * Customisable keybindings:  
     * bind in game commands to a custom hotkey
@@ -78,9 +79,9 @@ These instructions will set you up to run and enjoy the overlay.
 
 1. Head over to [Releases](https://github.com/Kyusung4698/PoE-Overlay/releases) and download the latest zip
 2. Extract zip
-3. Run `poe-overlay 0.5.8.exe`
+3. Run `poe-overlay 0.5.9.exe`
 4. Start Path of Exile
-5. Wait until you can see `POE Overlay 0.5.8` in the bottom left corner
+5. Wait until you can see `POE Overlay 0.5.9` in the bottom left corner
 6. Hit `f7` and set `Language` and `League` to meet your game settings
 
 #### Shortcuts
