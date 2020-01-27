@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, HostBinding, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, OnInit, Output } from '@angular/core';
 import { ItemSearchEvaluateResult } from '@shared/module/poe/type';
 import { colorSets } from '@swimlane/ngx-charts';
 
@@ -25,6 +25,9 @@ export class EvaluateChartComponent implements OnInit {
   @Input()
   public result: ItemSearchEvaluateResult;
 
+  @Output()
+  public amountSelect = new EventEmitter<number>();
+
   public ngOnInit(): void {
     if (!this.result.itemsGrouped || this.result.itemsGrouped.length < 2) {
       this.display = 'none';
@@ -37,5 +40,9 @@ export class EvaluateChartComponent implements OnInit {
         value: x.items.length
       };
     });
+  }
+
+  public onSelect(event: { name: number }): void {
+    this.amountSelect.emit(event.name);
   }
 }

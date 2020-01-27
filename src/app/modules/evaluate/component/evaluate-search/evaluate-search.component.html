@@ -40,7 +40,7 @@
                 </app-currency-frame>
             </div>
         </div>
-        <app-evaluate-chart [result]="result"></app-evaluate-chart>
+        <app-evaluate-chart [result]="result" (amountSelect)="onAmountSelect($event)"></app-evaluate-chart>
     </ng-container>
     <ng-container *ngIf="result.items && result.items.length === 0">
         <div class="clickable" (click)="onCurrencyClick($event)"

@@ -14,6 +14,14 @@ const args = process.argv.slice(1),
 
 /* robot js */
 
+ipcMain.on('click-at', (event, button, position) => {
+    if (position) {
+        robot.moveMouse(position.x, position.y);
+    }
+    robot.mouseClick(button, false);
+    event.returnValue = true;
+});
+
 ipcMain.on('key-tap', (event, key, modifier) => {
     robot.keyTap(key, modifier);
     event.returnValue = true;
@@ -149,7 +157,7 @@ function loadApp(win: BrowserWindow, route: string = '') {
     }
 
     if (serve) {
-        win.webContents.openDevTools({mode: 'undocked'});
+        win.webContents.openDevTools({ mode: 'undocked' });
     }
 }
 

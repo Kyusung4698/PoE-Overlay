@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { EvaluateDialogComponent, EvaluateDialogData } from '../component/evaluate-dialog/evaluate-dialog.component';
 import { EvaluateUserSettings } from '../component/evaluate-settings/evaluate-settings.component';
+import { EvaluateResult } from '../type/evaluate.type';
 
 const DIALOG_MIN_WIDTH = 400;
 const DIALOG_LINE_HEIGHT = 19;
@@ -27,7 +28,7 @@ export class EvaluateDialogService {
         private readonly stats: StatsService) {
     }
 
-    public open(point: Point, item: Item, settings: EvaluateUserSettings, language?: Language): Observable<void> {
+    public open(point: Point, item: Item, settings: EvaluateUserSettings, language?: Language): Observable<EvaluateResult> {
         const { width, height } = this.estimateBounds(item, language);
 
         const bounds = this.window.getBounds();
@@ -41,7 +42,7 @@ export class EvaluateDialogService {
         };
 
         this.window.enableInput();
-        const dialogRef = this.dialog.open(EvaluateDialogComponent, {
+        const dialogRef = this.dialog.open<EvaluateDialogComponent, EvaluateDialogData, EvaluateResult>(EvaluateDialogComponent, {
             position: {
                 left: `${left}px`,
                 top: `${top}px`,

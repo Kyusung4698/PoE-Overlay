@@ -3,6 +3,7 @@ export * from './item/item-clipboard.service';
 export * from './item/item-evaluate.service';
 export * from './item/item-search-evaluate.service';
 export * from './item/item-search.service';
+export * from './stash/stash.service';
 export * from './stats/stats.service';
 export * from './word/word.service';
 

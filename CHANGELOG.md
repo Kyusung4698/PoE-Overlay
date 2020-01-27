@@ -1,3 +1,11 @@
+## 0.5.9 (2020-01-27)
+
+* add fast price tagging by clicking the desired bar (#147)
+    * only works if the item has no note
+    * only works if the item is inside a premium stash tab
+* fix default values are not added as query parameter (#151)
+* fix minion stat is recognized as local stat (#149)
+
 ## 0.5.8 (2020-01-26)
 
 * add item base values with 7 day history (#84)
