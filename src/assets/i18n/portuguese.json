@@ -1,0 +1,20 @@
+{
+	"command.name": "Comando",
+	"evaluate.name": "Avalie",
+	"help.bug": "Criar um problema",
+	"help.bugTitle": "Encontrou um bug? Ou tem uma sugestão? Por favor, crie um problema no GitHub",
+	"help.donate": "Doe via PayPal",
+	"help.donateTitle": "Ame o projeto? Sinta-se livre para deixar uma doação. Obrigado por seu apoio!",
+	"help.faq": "Perguntas frequentes",
+	"help.name": "Socorro",
+	"map.name": "Mapa",
+	"misc.name": "Misc",
+	"settings.cancel": "Cancelar",
+	"settings.exitApp": "Sair do aplicativo",
+	"settings.gameSettings": "Configurações do jogo",
+	"settings.general": "Geral",
+	"settings.language": "Língua",
+	"settings.league": "Liga",
+	"settings.openSettings": "Abrir configurações",
+	"settings.save": "Salve "
+}

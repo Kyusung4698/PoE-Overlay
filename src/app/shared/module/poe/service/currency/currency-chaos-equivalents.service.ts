@@ -16,10 +16,14 @@ export class CurrencyChaosEquivalentsService {
         private readonly context: ContextService) {
     }
 
-    public getById(currency: Currency, leagueId?: string): Observable<number> {
+    public get(currency: Currency, leagueId?: string): Observable<number> {
+        return this.getById(currency.id, leagueId);
+    }
+
+    public getById(currencyId: string, leagueId?: string): Observable<number> {
         leagueId = leagueId || this.context.get().leagueId;
 
-        return this.currencyService.searchById(currency.id, Language.English).pipe(
+        return this.currencyService.searchById(currencyId, Language.English).pipe(
             flatMap(englishCurrency => {
                 if (!englishCurrency) {
                     return of(undefined);

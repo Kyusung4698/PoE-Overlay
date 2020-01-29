@@ -1,0 +1,20 @@
+{
+	"command.name": "Befehl",
+	"evaluate.name": "Bewerten",
+	"help.bug": "Erstellen Sie ein Problem",
+	"help.bugTitle": "Einen Fehler gefunden? Oder haben Sie einen Vorschlag? Bitte erstellen Sie ein Problem auf GitHub",
+	"help.donate": "Spende über PayPal",
+	"help.donateTitle": "Lieben Sie das Projekt? Fühlen Sie sich frei, eine Spende zu hinterlassen. Danke für Ihre Unterstützung!",
+	"help.faq": "FAQ",
+	"help.name": "Hilfe",
+	"map.name": "Karte",
+	"misc.name": "Sonstiges",
+	"settings.cancel": "Abbrechen",
+	"settings.exitApp": "App beenden",
+	"settings.gameSettings": "Spieleinstellungen",
+	"settings.general": "Allgemeines",
+	"settings.language": "Sprache",
+	"settings.league": "Liga",
+	"settings.openSettings": "Einstellungen öffnen",
+	"settings.save": "Speichern"
+}

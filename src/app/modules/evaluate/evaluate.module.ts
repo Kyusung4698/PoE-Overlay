@@ -56,7 +56,7 @@ export class EvaluateModule implements FeatureModule {
             evaluateTranslatedKeybinding: 'CmdOrCtrl + T',
         };
         return {
-            name: 'Evaluate',
+            name: 'evaluate.name',
             component: EvaluateSettingsComponent,
             defaultSettings
         };

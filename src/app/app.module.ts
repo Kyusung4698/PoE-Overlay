@@ -4,6 +4,8 @@ import { CommandModule } from '@modules/command/command.module';
 import { EvaluateModule } from '@modules/evaluate/evaluate.module';
 import { MapModule } from '@modules/map/map.module';
 import { MiscModule } from '@modules/misc/misc.module';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { AppTranslationsLoader } from './app-translations.loader';
 import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { OverlayComponent } from './layout/page/overlay/overlay.component';
@@ -28,9 +30,13 @@ const routes: Routes = [
       useHash: true
     }),
 
+    // translate
+    TranslateModule.forRoot({
+      loader: { provide: TranslateLoader, useClass: AppTranslationsLoader }
+    }),
+
     // layout
     LayoutModule,
-
     // app
     EvaluateModule,
     CommandModule,

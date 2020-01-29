@@ -1,0 +1,20 @@
+{
+	"command.name": "команда",
+	"evaluate.name": "оценивать",
+	"help.bug": "Создать проблему",
+	"help.bugTitle": "Нашли ошибку? Или есть предложение? Пожалуйста, создайте проблему на GitHub",
+	"help.donate": "Пожертвовать через PayPal",
+	"help.donateTitle": "Любите проект? Не стесняйтесь оставить пожертвование. Спасибо за поддержку!",
+	"help.faq": "Часто задаваемые вопросы",
+	"help.name": "Помогите",
+	"map.name": "Карта",
+	"misc.name": "РАЗНОЕ",
+	"settings.cancel": "отменить",
+	"settings.exitApp": "Выход из приложения",
+	"settings.gameSettings": "Игровые настройки",
+	"settings.general": "генеральный",
+	"settings.language": "язык",
+	"settings.league": "лига",
+	"settings.openSettings": "Открыть настройки",
+	"settings.save": "Сохранить"
+}

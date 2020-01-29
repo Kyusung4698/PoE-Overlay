@@ -1,0 +1,20 @@
+{
+	"command.name": "คำสั่ง",
+	"evaluate.name": "ประเมินผล",
+	"help.bug": "สร้างปัญหา",
+	"help.bugTitle": "พบข้อบกพร่อง? หรือมีข้อเสนอแนะ? โปรดสร้างปัญหาใน GitHub",
+	"help.donate": "บริจาคผ่าน PayPal",
+	"help.donateTitle": "ชอบโครงการหรือไม่ อย่าลังเลที่จะออกจากการบริจาค ขอบคุณสำหรับการสนับสนุน!",
+	"help.faq": "คำถามที่พบบ่อย",
+	"help.name": "ช่วยด้วย",
+	"map.name": "แผนที่",
+	"misc.name": "อื่น ๆ",
+	"settings.cancel": "ยกเลิก",
+	"settings.exitApp": "ออกจากแอป",
+	"settings.gameSettings": "ตั้งค่าเกม",
+	"settings.general": "ทั่วไป",
+	"settings.language": "ภาษา",
+	"settings.league": "พันธมิตร",
+	"settings.openSettings": "เปิดการตั้งค่า",
+	"settings.save": "บันทึก"
+}

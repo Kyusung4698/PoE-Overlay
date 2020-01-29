@@ -42,7 +42,7 @@ export class MapModule implements FeatureModule {
             },
         };
         return {
-            name: 'Map',
+            name: 'map.name',
             component: MapSettingsComponent,
             defaultSettings
         };

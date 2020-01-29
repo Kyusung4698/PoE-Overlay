@@ -8,7 +8,7 @@
   "author": {
     "name": "Kyusung4698"
   },
-  "version": "0.5.9",
+  "version": "0.5.10",
   "scripts": {
     "postinstall": "electron-builder install-app-deps",
     "ng:serve": "ng serve",
@@ -38,6 +38,7 @@
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
+    "@ngx-translate/core": "^11.0.1",
     "@swimlane/ngx-charts": "^13.0.1",
     "hammerjs": "^2.0.8",
     "hotkeys": "git+https://github.com/Kyusung4698/hotkeys.git#14c3c03c6d8eab10a9d6e7dcdedabe159b3269c3",
@@ -48,7 +49,7 @@
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.803.21",
+    "@angular-devkit/build-angular": "^0.803.23",
     "@angular/cli": "~8.3.21",
     "@angular/compiler-cli": "~8.2.14",
     "@angular/language-service": "~8.2.14",

@@ -4,8 +4,9 @@ import { DialogsService } from '@app/service/input/dialogs.service.js';
 import { FEATURE_MODULES } from '@app/token';
 import { FeatureModule } from '@app/type';
 import { ReleasesHttpService } from '@data/github';
+import { TranslateService } from '@ngx-translate/core';
 import { ContextService } from '@shared/module/poe/service';
-import { Context } from '@shared/module/poe/type';
+import { Context, Language } from '@shared/module/poe/type';
 import { Observable } from 'rxjs';
 import { version } from '../../../../../package.json';
 import { UserSettingsService } from '../../service/user-settings.service';
@@ -33,7 +34,10 @@ export class OverlayComponent implements OnInit, OnDestroy {
     private readonly browser: BrowserService,
     private readonly renderer: RendererService,
     private readonly shortcut: ShortcutService,
-    private readonly dialogs: DialogsService) { }
+    private readonly dialogs: DialogsService,
+    private readonly translate: TranslateService) {
+    this.translate.setDefaultLang(`${Language.English}`);
+  }
 
   @HostListener('window:beforeunload', [])
   public onWindowBeforeUnload(): void {
@@ -52,6 +56,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
 
   private initSettings(): void {
     this.userSettingsService.init(this.modules).subscribe(settings => {
+      this.translate.use(`${settings.language}`);
       this.context.init(this.getContext(settings));
       this.registerShortcuts(settings);
       this.renderer.on('show-user-settings').subscribe(() => {
@@ -118,6 +123,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
       this.userSettingsOpen.subscribe(() => {
         this.userSettingsOpen = null;
         this.userSettingsService.get().subscribe(settings => {
+          this.translate.use(`${settings.language}`);
           this.context.update(this.getContext(settings));
           this.registerShortcuts(settings);
         });

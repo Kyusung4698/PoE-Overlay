@@ -93,7 +93,7 @@ export class EvaluateSearchComponent implements OnInit {
   }
 
   public onAmountSelect(amount: number): void {
-    const currency = this.result$.value.targetCurrency;
+    const currency = this.result$.value.currency;
     this.evaluate.next({ amount, currency });
   }
 

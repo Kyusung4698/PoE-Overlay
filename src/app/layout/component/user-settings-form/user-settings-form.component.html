@@ -1,7 +1,7 @@
 <mat-card>
-    <mat-label>Game Settings</mat-label>
+    <mat-label>{{'settings.gameSettings' | translate}}</mat-label>
     <mat-form-field>
-        <mat-label>Language</mat-label>
+        <mat-label>{{'settings.language' | translate}}</mat-label>
         <mat-select [(value)]="settings.language" (valueChange)="onLanguageChange()">
             <mat-option *ngFor="let language of languages.keys" [value]="language">
                 {{languages.values[language]}}
@@ -9,7 +9,7 @@
         </mat-select>
     </mat-form-field>
     <mat-form-field>
-        <mat-label>League</mat-label>
+        <mat-label>{{'settings.league' | translate}}</mat-label>
         <mat-select [(value)]="settings.leagueId">
             <mat-option *ngFor="let league of leagues$ | async" [value]="league.id">
                 {{league.text}}
@@ -18,8 +18,8 @@
     </mat-form-field>
 </mat-card>
 <mat-card>
-    <app-accelerator label="Open User-Settings" [(value)]="settings.openUserSettingsKeybinding">
+    <app-accelerator [label]="'settings.openSettings' | translate" [(value)]="settings.openUserSettingsKeybinding">
     </app-accelerator>
-    <app-accelerator label="Exit App" [(value)]="settings.exitAppKeybinding">
+    <app-accelerator [label]="'settings.exitApp' | translate" [(value)]="settings.exitAppKeybinding">
     </app-accelerator>
 </mat-card>

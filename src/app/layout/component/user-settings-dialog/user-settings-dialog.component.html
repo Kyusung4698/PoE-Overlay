@@ -1,19 +1,19 @@
 <div mat-dialog-content>
     <mat-tab-group mat-stretch-tabs [dynamicHeight]="true" (selectedIndexChange)="onSelectedIndexChange($event)">
-        <mat-tab label="General">
+        <mat-tab [label]="'settings.general' | translate">
             <div class="content">
                 <app-user-settings-form [settings]="settings"></app-user-settings-form>
             </div>
         </mat-tab>
-        <mat-tab [label]="feature.name" *ngFor="let feature of features">
+        <mat-tab [label]="feature.name | translate" *ngFor="let feature of features">
             <div class="content">
                 <app-user-settings-feature-container [component]="feature.component" [settings]="settings">
                 </app-user-settings-feature-container>
             </div>
         </mat-tab>
-        <mat-tab label="Help">
+        <mat-tab [label]="'help.name' | translate">
             <mat-card>
-                <mat-label>FAQ</mat-label>
+                <mat-label>{{'help.faq' | translate}}</mat-label>
                 <mat-accordion>
                     <mat-expansion-panel>
                         <mat-expansion-panel-header>
@@ -53,31 +53,23 @@
                             Please run 'run-without-gpu.bat' in order to start the overlay without gpu support (hardware
                             acceleration). </p>
                     </mat-expansion-panel>
-                    <!-- <mat-expansion-panel>
-                        <mat-expansion-panel-header>
-                            <mat-panel-title> Further information can be found in the user wiki </mat-panel-title>
-                        </mat-expansion-panel-header>
-                        <button mat-button (click)="openUrl('https://github.com/Kyusung4698/PoE-Overlay/wiki')">Open
-                            Wiki</button>
-                    </mat-expansion-panel> -->
                     <mat-expansion-panel>
                         <mat-expansion-panel-header>
-                            <mat-panel-title> Found a Bug? Or have a Suggestion? Please create an issue on GitHub
+                            <mat-panel-title> {{'help.bugTitle' | translate}}
                             </mat-panel-title>
                         </mat-expansion-panel-header>
-                        <button mat-button (click)="openUrl('https://github.com/Kyusung4698/PoE-Overlay/issues')">Create
-                            an
-                            Issue</button>
+                        <button mat-button
+                            (click)="openUrl('https://github.com/Kyusung4698/PoE-Overlay/issues')">{{'help.bug' | translate}}</button>
                     </mat-expansion-panel>
                     <mat-expansion-panel>
                         <mat-expansion-panel-header>
-                            <mat-panel-title> Love the project? Feel free to leave a donation. Thanks for your support!
+                            <mat-panel-title> {{'help.donateTitle' | translate}}
                             </mat-panel-title>
                         </mat-expansion-panel-header>
                         <button mat-button
                             (click)="openUrl('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4S7UYESYQ6UHU&source=url')">
                             <mat-icon style="color: #ea4aaa">favorite</mat-icon>
-                            Donate via PayPal
+                            {{'help.donate' | translate}}
                         </button>
                     </mat-expansion-panel>
                 </mat-accordion>
@@ -87,9 +79,9 @@
 </div>
 <div mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>
-        Cancel
+        {{'settings.cancel' | translate}}
     </button>
     <button mat-button [mat-dialog-close]="settings">
-        Save
+        {{'settings.save' | translate}}
     </button>
 </div>

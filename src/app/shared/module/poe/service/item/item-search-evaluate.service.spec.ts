@@ -43,7 +43,7 @@ describe('ItemSearchEvaluateService', () => {
             currencyService.searchById('chaos')
         ).subscribe(results => {
             sut.evaluate(results[0], [results[1]]).subscribe(result => {
-                expect(result.targetCurrencyMedian).toBeGreaterThan(0);
+                expect(result.median).toBeGreaterThan(0);
                 done();
             }, error => {
                 done.fail(error);

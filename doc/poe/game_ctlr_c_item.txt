@@ -868,3 +868,34 @@ Attacks with this Weapon Penetrate 5% Cold Resistance
 --------
 Redeemer Item
 --------
+
+Rarity: Unique
+Voltaxic Rift
+Spine Bow
+--------
+Bow
+Quality: +20% (augmented)
+Physical Damage: 31-94 (augmented)
+Elemental Damage: 1-279 (augmented)
+Critical Strike Chance: 6.50%
+Attacks per Second: 1.58 (augmented)
+--------
+Requirements:
+Level: 64
+Dex: 212
+--------
+Sockets: G-G-B-G-R G 
+--------
+Item Level: 72
+--------
+Adds 1 to 279 Lightning Damage
+13% increased Attack Speed
+60% of Lightning Damage Converted to Chaos Damage
+10% chance to Shock
+Your Chaos Damage can Shock
+Shock Enemies as though dealing 300% more Damage
+Your Shocks can increase Damage taken by up to a maximum of 100%
+--------
+The eldritch storm descended upon us, and bruised lightning
+rained down. Metal withered and flesh melted before its
+arcane power. There was no escape, no shelter. Only despair.

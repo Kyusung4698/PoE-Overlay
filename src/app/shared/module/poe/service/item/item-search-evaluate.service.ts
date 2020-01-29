@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Currency, EvaluateItem, EvaluateItemGrouped, ItemSearchEvaluateResult, ItemSearchResult } from '@shared/module/poe/type';
 import { forkJoin, Observable } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { CurrencyConverterService } from '../currency/currency-converter.service';
 import { CurrencySelectService, CurrencySelectStrategy } from '../currency/currency-select.service';
 
@@ -32,15 +32,15 @@ export class ItemSearchEvaluateService {
     }
 
     private calculateMetrics(items: EvaluateItem[], itemSearchResult: ItemSearchResult): ItemSearchEvaluateResult {
-        const sortedByAmount = items.sort((a, b) => a.targetCurrencyAmount - b.targetCurrencyAmount);
+        const sortedByAmount = items.sort((a, b) => a.targetAmount - b.targetAmount);
 
-        const min = sortedByAmount[0].targetCurrencyAmount;
-        const max = sortedByAmount[sortedByAmount.length - 1].targetCurrencyAmount;
+        const min = sortedByAmount[0].targetAmount;
+        const max = sortedByAmount[sortedByAmount.length - 1].targetAmount;
 
-        const sortedByAmountRounded = items.sort((a, b) => a.targetCurrencyAmountRounded - b.targetCurrencyAmountRounded);
+        const sortedByAmountRounded = items.sort((a, b) => a.targetAmountRounded - b.targetAmountRounded);
         const itemsGrouped: EvaluateItemGrouped[] = [
             {
-                value: sortedByAmountRounded[0].targetCurrencyAmountRounded,
+                value: sortedByAmountRounded[0].targetAmountRounded,
                 items: []
             }
         ];
@@ -49,7 +49,7 @@ export class ItemSearchEvaluateService {
         let modeCount = 0;
         for (const item of sortedByAmountRounded) {
             const index = itemsGrouped.length - 1;
-            if (itemsGrouped[index].value === item.targetCurrencyAmountRounded) {
+            if (itemsGrouped[index].value === item.targetAmountRounded) {
                 itemsGrouped[index].items.push(item);
                 if (itemsGrouped[index].items.length > modeCount) {
                     modeCount = itemsGrouped[index].items.length;
@@ -57,47 +57,56 @@ export class ItemSearchEvaluateService {
                 }
             } else {
                 itemsGrouped.push({
-                    value: item.targetCurrencyAmountRounded,
+                    value: item.targetAmountRounded,
                     items: [item]
                 });
             }
         }
 
-        const mean = items.reduce((a, b) => a + b.targetCurrencyAmount, 0) / items.length;
+        const mean = items.reduce((a, b) => a + b.targetAmount, 0) / items.length;
         const center = Math.floor(sortedByAmount.length / 2);
         const median = sortedByAmount.length % 2
-            ? sortedByAmount[center].targetCurrencyAmount
-            : (sortedByAmount[center - 1].targetCurrencyAmount + sortedByAmount[center].targetCurrencyAmount) / 2;
+            ? sortedByAmount[center].targetAmount
+            : (sortedByAmount[center - 1].targetAmount + sortedByAmount[center].targetAmount) / 2;
 
         const result: ItemSearchEvaluateResult = {
             url: itemSearchResult.url,
             total: itemSearchResult.total,
             items,
             itemsGrouped,
-            targetCurrency: items[0].targetCurrency,
-            targetCurrencyMin: Math.round(min * 100) / 100,
-            targetCurrencyMax: Math.round(max * 100) / 100,
-            targetCurrencyMode: Math.round(mode * 100) / 100,
-            targetCurrencyMean: Math.round(mean * 100) / 100,
-            targetCurrencyMedian: Math.round(median * 100) / 100
+            currency: items[0].target,
+            min: Math.round(min * 100) / 100,
+            max: Math.round(max * 100) / 100,
+            mode: Math.round(mode * 100) / 100,
+            mean: Math.round(mean * 100) / 100,
+            median: Math.round(median * 100) / 100
         };
         return result;
     }
 
     private convertIntoCurrencies(currencies: Currency[], itemSearchResult: ItemSearchResult): Observable<EvaluateItem[][]> {
-        const converted = currencies.map(targetCurrency => forkJoin(itemSearchResult.items
-            .map(item => this.currencyConverterService.convert(item.currency, targetCurrency).pipe(
-                filter(factor => factor !== undefined),
-                map(factor => {
-                    const targetCurrencyAmount = item.currencyAmount * factor;
+        const converted = currencies.map(target => forkJoin(itemSearchResult.items
+            .map(item => forkJoin(
+                this.currencyConverterService.convert(item.currency, 'chaos'),
+                this.currencyConverterService.convert(item.currency, target),
+                this.currencyConverterService.convert('chaos', target),
+            ).pipe(
+                map(factors => {
+                    const chaosAmount = item.currencyAmount * factors[0];
+                    const chaosAmountRounded = this.round(chaosAmount);
+
+                    const targetAmount = item.currencyAmount * factors[1];
+                    const targetAmountRounded = chaosAmountRounded * factors[2];
+
                     const evaluateItem: EvaluateItem = {
                         ...item,
-                        originalCurrency: item.currency,
-                        originalCurrencyAmount: item.currencyAmount,
-                        targetCurrency,
-                        targetCurrencyAmount,
-                        targetCurrencyAmountRounded: this.round(targetCurrencyAmount)
+                        original: item.currency,
+                        originalAmount: item.currencyAmount,
+                        target,
+                        targetAmount,
+                        targetAmountRounded: Math.round(targetAmountRounded * 10) / 10
                     };
+
                     return evaluateItem;
                 })
             ))
@@ -109,7 +118,7 @@ export class ItemSearchEvaluateService {
         if (converted.length === 1) {
             return converted[0];
         }
-        const values = converted.map(x => x.map(y => y.targetCurrencyAmount));
+        const values = converted.map(x => x.map(y => y.targetAmount));
         const index = this.currencySelectService
             .select(values, CurrencySelectStrategy.MinWithAtleast1);
         return converted[index];
