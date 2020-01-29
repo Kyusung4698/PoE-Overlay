@@ -57,4 +57,14 @@ describe('BaseItemTypeService', () => {
         const result = sut.search('Vaal Summon Skeletons', Language.English);
         expect(result).toBe('SkillGemVaalSummonSkeletons');
     });
+
+    it(`should find 'Fingerless Silk Gloves'`, () => {
+        const result = sut.search('Fingerless Silk Gloves of Expulsion', Language.English);
+        expect(result).toBe('GlovesAtlasInt');
+    });
+
+    it(`should find 'Silk Gloves'`, () => {
+        const result = sut.search('Silk Gloves', Language.English);
+        expect(result).toBe('GlovesInt3');
+    });
 });

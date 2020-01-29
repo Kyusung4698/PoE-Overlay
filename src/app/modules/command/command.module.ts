@@ -30,7 +30,7 @@ export class CommandModule implements FeatureModule {
       ]
     };
     return {
-      name: 'Command',
+      name: 'command.name',
       component: CommandSettingsComponent,
       defaultSettings
     };

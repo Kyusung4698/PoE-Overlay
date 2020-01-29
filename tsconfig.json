@@ -7,10 +7,12 @@
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
     "module": "es2015",
     "target": "es5",
     "moduleResolution": "node",
     "resolveJsonModule": true,
+    "esModuleInterop": true,
     "importHelpers": true,
     "typeRoots": [
       "node_modules/@types"

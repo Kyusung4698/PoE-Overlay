@@ -6,6 +6,8 @@
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "resolveJsonModule": true,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
         "target": "es5",
         "types": [
             "node"

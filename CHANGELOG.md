@@ -1,3 +1,11 @@
+## 0.5.10 (2020-01-29)
+
+* add space as hotkey to close all dialogs (#160)
+* add translations files (#158)
+* update graph value to be grouped by chaos equivalent (#145)
+* update stash width calculation (#159)
+* fix `fingerless silk gloves` recognized as `silk gloves` (#157)
+
 ## 0.5.9 (2020-01-27)
 
 * add fast price tagging by clicking the desired bar (#147)

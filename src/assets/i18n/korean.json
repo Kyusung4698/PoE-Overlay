@@ -1,0 +1,20 @@
+{
+	"command.name": "명령",
+	"evaluate.name": "평가",
+	"help.bug": "이슈 만들기",
+	"help.bugTitle": "버그를 찾았습니까? 아니면 제안이 있습니까? GitHub에서 이슈를 작성하십시오",
+	"help.donate": "PayPal을 통해 기부",
+	"help.donateTitle": "프로젝트가 마음에 드십니까? 기부금을 남기십시오. 당신의 지원에 감사드립니다!",
+	"help.faq": "자주하는 질문",
+	"help.name": "도움",
+	"map.name": "지도",
+	"misc.name": "기타",
+	"settings.cancel": "취소",
+	"settings.exitApp": "앱 종료",
+	"settings.gameSettings": "게임 설정",
+	"settings.general": "일반",
+	"settings.language": "언어",
+	"settings.league": "리그",
+	"settings.openSettings": "설정 열기",
+	"settings.save": "구하다"
+}

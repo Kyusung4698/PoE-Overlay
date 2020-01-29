@@ -44,18 +44,28 @@ export class DialogsService {
         if (this.dialogs.length > 0) {
             this.remote.globalShortcut.register('escape', () => {
                 if (this.dialogs.length > 0) {
-                    this.ngZone.run(() => {
-                        this.dialogs.pop()();
-                        this.dialogCountChange$.next(this.dialogs.length);
-                    });
+                    this.close();
+                }
+            });
+            this.remote.globalShortcut.register('space', () => {
+                while (this.dialogs.length > 0) {
+                    this.close();
                 }
             });
         } else {
             this.remote.globalShortcut.unregister('escape');
+            this.remote.globalShortcut.unregister('space');
         }
 
         if (this.dialogCountChange$.value !== this.dialogs.length) {
             this.dialogCountChange$.next(this.dialogs.length);
         }
+    }
+
+    private close(): void {
+        this.ngZone.run(() => {
+            this.dialogs.pop()();
+            this.dialogCountChange$.next(this.dialogs.length);
+        });
     }
 }

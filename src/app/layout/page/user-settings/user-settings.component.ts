@@ -2,7 +2,9 @@ import { ChangeDetectionStrategy, Component, HostListener, Inject, OnDestroy, On
 import { WindowService } from '@app/service';
 import { FEATURE_MODULES } from '@app/token';
 import { FeatureModule } from '@app/type';
+import { TranslateService } from '@ngx-translate/core';
 import { ContextService } from '@shared/module/poe/service';
+import { Language } from '@shared/module/poe/type';
 import { flatMap, tap } from 'rxjs/operators';
 import { UserSettingsService } from '../../service';
 
@@ -18,7 +20,10 @@ export class UserSettingsComponent implements OnInit, OnDestroy {
     private readonly modules: FeatureModule[],
     private readonly userSettingsService: UserSettingsService,
     private readonly window: WindowService,
-    private readonly context: ContextService) { }
+    private readonly context: ContextService,
+    private readonly translate: TranslateService) {
+    this.translate.setDefaultLang(`${Language.English}`);
+  }
 
   @HostListener('window:beforeunload', [])
   public onWindowBeforeUnload(): void {
@@ -27,11 +32,15 @@ export class UserSettingsComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.userSettingsService.init(this.modules).subscribe(settings => {
+      this.translate.use(`${settings.language}`);
       this.context.init({
         language: settings.language,
         leagueId: settings.leagueId
       });
-      this.userSettingsService.edit(settings).subscribe(() => {
+      this.userSettingsService.edit(settings).subscribe((saved) => {
+        if (saved) {
+          this.translate.use(`${saved.language}`);
+        }
         this.window.hide();
         this.registerShow();
       });
@@ -50,7 +59,10 @@ export class UserSettingsComponent implements OnInit, OnDestroy {
           leagueId: settings.leagueId
         })),
         flatMap(settings => this.userSettingsService.edit(settings))
-      ).subscribe(() => {
+      ).subscribe((settings) => {
+        if (settings) {
+          this.translate.use(`${settings.language}`);
+        }
         this.window.hide();
       });
     });

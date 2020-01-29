@@ -37,10 +37,9 @@ export class ItemEvaluateService {
         return this.getValue(leagueId, item).pipe(
             flatMap(value => iif(() => !value,
                 of(undefined),
-                this.currencyService.searchById('chaos').pipe(
-                    flatMap(chaos => forkJoin(currencies.map(currency =>
-                        this.currencyConverterService.convert(chaos, currency))
-                    )),
+                forkJoin(currencies.map(currency =>
+                    this.currencyConverterService.convert('chaos', currency.id))
+                ).pipe(
                     map(factors => {
                         const values = factors.map(factor => [value.chaosAmount * factor]);
                         const index = this.currencySelectService.select(values, CurrencySelectStrategy.MinWithAtleast1);

@@ -8,7 +8,12 @@ import { ContextService } from '../context.service';
 })
 export class BaseItemTypesService {
     private readonly cache: {
-        [key: string]: RegExp
+        [language: string]: {
+            [key: string]: RegExp
+        }
+    } = {};
+    private keys: {
+        [language: string]: string[]
     } = {};
 
     constructor(
@@ -40,14 +45,22 @@ export class BaseItemTypesService {
             return hashKey;
         }
 
-        for (const key in map) {
-            if (map.hasOwnProperty(key) && key[0] !== '\\') {
-                const text = map[key];
+        if (!this.cache[language]) {
+            this.cache[language] = {};
+        }
 
-                const expr = this.cache[key] || (this.cache[key] = new RegExp(text));
-                if (expr.test(name)) {
-                    return key;
-                }
+        if (!this.keys[language]) {
+            this.keys[language] = Object.getOwnPropertyNames(map)
+                .filter(key => key[0] !== `\\`)
+                .sort((a, b) => map[b].length - map[a].length);
+        }
+
+        const cache = this.cache[language];
+        const keys = this.keys[language];
+        for (const key of keys) {
+            const expr = cache[key] || (cache[key] = new RegExp(map[key]));
+            if (expr.test(name)) {
+                return key;
             }
         }
         return undefined;

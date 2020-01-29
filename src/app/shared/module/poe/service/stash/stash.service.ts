@@ -10,6 +10,8 @@ export enum StashNavigationDirection {
     Right
 }
 
+const GAME_HEIGHT_TO_STASH_WIDTH_RATIO = 1.622;
+
 @Injectable({
     providedIn: 'root'
 })
@@ -26,7 +28,7 @@ export class StashService {
 
         const gameBounds = this.window.getBounds();
 
-        const stashWidth = gameBounds.width / 2.88;
+        const stashWidth = Math.round(gameBounds.height / GAME_HEIGHT_TO_STASH_WIDTH_RATIO);
         const relativePointX = point.x - gameBounds.x;
 
         return relativePointX >= 0 && relativePointX <= stashWidth;
@@ -58,7 +60,7 @@ export class StashService {
         this.copyPrice(amount, currency);
         return of(null).pipe(
             tap(() => this.mouse.click('right', point)),
-            delay(50),
+            delay(100),
             tap(() => {
                 this.keyboard.setKeyboardDelay(5);
                 this.keyboard.keyTap('v', ['control']);

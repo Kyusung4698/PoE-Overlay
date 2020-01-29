@@ -27,7 +27,7 @@ export class MiscModule implements FeatureModule {
             miscWikiExternalKeybinding: 'CmdOrCtrl + Alt + W',
         };
         return {
-            name: 'Misc',
+            name: 'misc.name',
             component: MiscSettingsComponent,
             defaultSettings
         };

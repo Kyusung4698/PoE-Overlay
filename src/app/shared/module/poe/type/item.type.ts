@@ -185,11 +185,11 @@ export interface ItemsMap {
 }
 
 export type EvaluateItem = Item & {
-    originalCurrency: Currency;
-    originalCurrencyAmount: number;
-    targetCurrency: Currency;
-    targetCurrencyAmount: number;
-    targetCurrencyAmountRounded: number;
+    original: Currency;
+    originalAmount: number;
+    target: Currency;
+    targetAmount: number;
+    targetAmountRounded: number;
 };
 
 export interface EvaluateItemGrouped {
@@ -202,12 +202,12 @@ export interface ItemSearchEvaluateResult {
     total: number;
     items: EvaluateItem[];
     itemsGrouped?: EvaluateItemGrouped[];
-    targetCurrency?: Currency;
-    targetCurrencyMin?: number;
-    targetCurrencyMax?: number;
-    targetCurrencyMode?: number;
-    targetCurrencyMedian?: number;
-    targetCurrencyMean?: number;
+    currency?: Currency;
+    min?: number;
+    max?: number;
+    mode?: number;
+    median?: number;
+    mean?: number;
 }
 
 export type SearchItem = Item & {
