@@ -16,6 +16,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { AcceleratorComponent } from './component/accelerator/accelerator.component';
 import { SelectListComponent } from './component/select-list/select-list.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -33,7 +34,10 @@ import { SelectListComponent } from './component/select-list/select-list.compone
     MatSlideToggleModule,
     MatSliderModule,
     MatListModule,
-    MatExpansionModule
+    MatExpansionModule,
+
+    // third party
+    TranslateModule,
   ],
   exports: [
     MatButtonModule,

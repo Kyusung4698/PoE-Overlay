@@ -24,7 +24,7 @@ export class AcceleratorComponent {
   public onKeyboardClick(el: HTMLElement): void {
     this.recording = true;
     el.focus();
-    this.value = 'Press any key';
+    this.value = 'material.accelerator.any';
   }
 
   public onKeydown(event: KeyboardEvent): void {
@@ -67,7 +67,7 @@ export class AcceleratorComponent {
         this.value = undefined;
         this.valueChange.next(this.value);
       } else {
-        this.value = 'Press any key';
+        this.value = 'material.accelerator.any';
       }
     }
   }

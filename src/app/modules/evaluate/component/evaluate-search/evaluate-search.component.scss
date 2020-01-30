@@ -22,3 +22,13 @@
     }
   }
 }
+
+.values {
+  &:hover {
+    .currency {
+      background-color: rgba(170, 158, 130, 0.3);
+      outline: auto;
+      display: inline-flex;
+    }
+  }
+}

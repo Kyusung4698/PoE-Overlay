@@ -58,27 +58,27 @@ export const PSEUDO_MODIFIERS: {
     },
     pseudo_total_strength: {
         mods: [
-            { id: 'base_strength', type: ModifierType.Addition },
-            { id: 'base_strength_and_dexterity', type: ModifierType.Addition },
-            { id: 'base_strength_and_intelligence', type: ModifierType.Addition },
+            { id: 'additional_strength', type: ModifierType.Addition },
+            { id: 'additional_strength_and_dexterity', type: ModifierType.Addition },
+            { id: 'additional_strength_and_intelligence', type: ModifierType.Addition },
             { id: 'additional_all_attributes', type: ModifierType.Addition },
         ],
         count: 2
     },
     pseudo_total_dexterity: {
         mods: [
-            { id: 'base_dexterity', type: ModifierType.Addition },
-            { id: 'base_strength_and_dexterity', type: ModifierType.Addition },
-            { id: 'base_dexterity_and_intelligence', type: ModifierType.Addition },
+            { id: 'additional_dexterity', type: ModifierType.Addition },
+            { id: 'additional_strength_and_dexterity', type: ModifierType.Addition },
+            { id: 'additional_dexterity_and_intelligence', type: ModifierType.Addition },
             { id: 'additional_all_attributes', type: ModifierType.Addition },
         ],
         count: 2
     },
     pseudo_total_intelligence: {
         mods: [
-            { id: 'base_intelligence', type: ModifierType.Addition },
-            { id: 'base_strength_and_intelligence', type: ModifierType.Addition },
-            { id: 'base_dexterity_and_intelligence', type: ModifierType.Addition },
+            { id: 'additional_intelligence', type: ModifierType.Addition },
+            { id: 'additional_strength_and_intelligence', type: ModifierType.Addition },
+            { id: 'additional_dexterity_and_intelligence', type: ModifierType.Addition },
             { id: 'additional_all_attributes', type: ModifierType.Addition },
         ],
         count: 2

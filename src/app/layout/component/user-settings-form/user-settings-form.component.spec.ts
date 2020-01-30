@@ -1,15 +1,24 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslateFakeLoader, TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from '@shared/shared.module';
 import { UserSettingsFormComponent } from './user-settings-form.component';
 
 
-describe('UserSettingsComponent', () => {
+describe('UserSettingsFormComponent', () => {
   let component: UserSettingsFormComponent;
   let fixture: ComponentFixture<UserSettingsFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [SharedModule],
+      imports: [
+        SharedModule,
+        TranslateModule.forRoot({
+          loader: {
+            provide: TranslateLoader,
+            useFactory: () => new TranslateFakeLoader()
+          }
+        })
+      ],
       declarations: [UserSettingsFormComponent]
     })
       .compileComponents();

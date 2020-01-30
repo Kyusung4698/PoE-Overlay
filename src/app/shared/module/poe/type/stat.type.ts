@@ -19,4 +19,5 @@ export interface Stat {
             [predicate: string]: string;
         };
     };
+    option: boolean;
 }

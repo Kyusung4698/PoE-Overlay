@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
 import { ItemSearchEvaluateResult } from '@shared/module/poe/type';
 import { colorSets } from '@swimlane/ngx-charts';
 
@@ -8,8 +8,9 @@ import { colorSets } from '@swimlane/ngx-charts';
   styleUrls: ['./evaluate-chart.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class EvaluateChartComponent implements OnInit {
+export class EvaluateChartComponent {
   public items: any[];
+  public total: number;
   public view = [376 + 20, 200];
   public scheme = colorSets.find(x => x.name === 'nightLights');
 
@@ -23,26 +24,30 @@ export class EvaluateChartComponent implements OnInit {
   public display = 'block';
 
   @Input()
-  public result: ItemSearchEvaluateResult;
+  public set result(result: ItemSearchEvaluateResult) {
+    this.update(result);
+  }
 
   @Output()
   public amountSelect = new EventEmitter<number>();
 
-  public ngOnInit(): void {
-    if (!this.result.itemsGrouped || this.result.itemsGrouped.length < 2) {
-      this.display = 'none';
-      return;
-    }
-
-    this.items = this.result.itemsGrouped.map(x => {
-      return {
-        name: x.value,
-        value: x.items.length
-      };
-    });
-  }
-
   public onSelect(event: { name: number }): void {
     this.amountSelect.emit(event.name);
+  }
+
+  private update(result: ItemSearchEvaluateResult): void {
+    if (!result.itemsGrouped) {
+      this.display = 'none';
+      this.items = [];
+    } else {
+      this.display = 'block';
+      this.total = result.total;
+      this.items = result.itemsGrouped.map(x => {
+        return {
+          name: x.value,
+          value: x.items.length
+        };
+      });
+    }
   }
 }

@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslateFakeLoader, TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from '@shared/shared.module';
 import { AcceleratorComponent } from './accelerator.component';
 
@@ -9,7 +10,15 @@ describe('AcceleratorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [SharedModule]
+      imports: [
+        SharedModule,
+        TranslateModule.forRoot({
+          loader: {
+            provide: TranslateLoader,
+            useFactory: () => new TranslateFakeLoader()
+          }
+        })
+      ],
     })
       .compileComponents();
   }));

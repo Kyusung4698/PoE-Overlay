@@ -1,5 +1,5 @@
 <mat-card>
-    <mat-label>{{'settings.gameSettings' | translate}}</mat-label>
+    <mat-label>{{'settings.game-settings' | translate}}</mat-label>
     <mat-form-field>
         <mat-label>{{'settings.language' | translate}}</mat-label>
         <mat-select [(value)]="settings.language" (valueChange)="onLanguageChange()">
@@ -18,8 +18,8 @@
     </mat-form-field>
 </mat-card>
 <mat-card>
-    <app-accelerator [label]="'settings.openSettings' | translate" [(value)]="settings.openUserSettingsKeybinding">
+    <app-accelerator [label]="'settings.open-settings' | translate" [(value)]="settings.openUserSettingsKeybinding">
     </app-accelerator>
-    <app-accelerator [label]="'settings.exitApp' | translate" [(value)]="settings.exitAppKeybinding">
+    <app-accelerator [label]="'settings.exit-app' | translate" [(value)]="settings.exitAppKeybinding">
     </app-accelerator>
 </mat-card>

@@ -161,6 +161,7 @@ export interface ItemStat {
     negated: boolean;
     type: StatType;
     values: ItemValue[];
+    option: boolean;
 }
 
 export interface ItemRequirements {

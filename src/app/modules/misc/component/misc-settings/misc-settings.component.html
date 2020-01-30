@@ -1,18 +1,18 @@
 <mat-card>
-  <mat-label>Wiki</mat-label>
-  <app-accelerator label="Open Wiki" [(value)]="settings.miscWikiKeybinding">
+  <mat-label>{{'misc.wiki' | translate}}</mat-label>
+  <app-accelerator [label]="'misc.open-wiki' | translate" [(value)]="settings.miscWikiKeybinding">
   </app-accelerator>
-  <app-accelerator label="Open Wiki External" [(value)]="settings.miscWikiExternalKeybinding">
+  <app-accelerator [label]="'misc.open-wiki-external' | translate" [(value)]="settings.miscWikiExternalKeybinding">
   </app-accelerator>
 </mat-card>
 <mat-card>
-  <mat-label>Stash</mat-label>
+  <mat-label>{{'misc.stash' | translate}}</mat-label>
   <div class="toggle">
     <mat-slide-toggle [checked]="settings.miscStashNavigation" (change)="settings.miscStashNavigation = $event.checked">
-      Navigation (CTRL + SCROLL)
+      {{'misc.navigation' | translate}} (CTRL + SCROLL)
     </mat-slide-toggle>
     <mat-slide-toggle [checked]="settings.miscStashHighlight" (change)="settings.miscStashHighlight = $event.checked">
-      Highlight (CTRL + F)
+      {{'misc.highlight' | translate}} (CTRL + F)
     </mat-slide-toggle>
   </div>
 </mat-card>

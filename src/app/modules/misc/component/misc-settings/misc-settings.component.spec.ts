@@ -1,15 +1,24 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslateFakeLoader, TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from '@shared/shared.module';
 import { MiscSettingsComponent } from './misc-settings.component';
 
 
-describe('CommandSettingsComponent', () => {
+describe('MiscSettingsComponent', () => {
   let component: MiscSettingsComponent;
   let fixture: ComponentFixture<MiscSettingsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [SharedModule],
+      imports: [
+        SharedModule,
+        TranslateModule.forRoot({
+          loader: {
+            provide: TranslateLoader,
+            useFactory: () => new TranslateFakeLoader()
+          }
+        })
+      ],
       declarations: [MiscSettingsComponent]
     })
       .compileComponents();

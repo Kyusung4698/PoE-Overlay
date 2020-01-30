@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { SharedModule } from '@shared/shared.module';
 import { EvaluateComponent } from './evaluate.component';
 import { EvaluateAreaChartComponent } from '../evaluate-area-chart/evaluate-area-chart.component';
+import { TranslateModule, TranslateLoader, TranslateFakeLoader } from '@ngx-translate/core';
 
 
 describe('EvaluateComponent', () => {
@@ -10,7 +11,15 @@ describe('EvaluateComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [SharedModule],
+      imports: [
+        SharedModule,
+        TranslateModule.forRoot({
+          loader: {
+            provide: TranslateLoader,
+            useFactory: () => new TranslateFakeLoader()
+          }
+        })
+      ],
       declarations: [EvaluateComponent, EvaluateAreaChartComponent]
     })
       .compileComponents();

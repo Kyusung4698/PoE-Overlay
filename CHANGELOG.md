@@ -1,3 +1,14 @@
+## 0.5.11 (2020-01-30)
+
+* add option based stat support (#110)
+    * influenced by #
+    * occupied by #
+* add currency selector for evaluate (#145)
+* update translations
+* fix resonators not recognized as currency (#166)
+* fix attributes not recognized in pseudo parser (#163)
+* fix space closing window outside of the game (#162)
+
 ## 0.5.10 (2020-01-29)
 
 * add space as hotkey to close all dialogs (#160)

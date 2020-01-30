@@ -2,6 +2,6 @@
     [yAxis]="false" [legend]="false" barPadding="4"
     [tooltipDisabled]="false" [roundDomains]="true" [roundEdges]="true" [showDataLabel]="false" (select)="onSelect($event)">
     <ng-template #tooltipTemplate let-model="model">
-        <span class="tooltip-val">{{model.value}}&nbsp;/&nbsp;{{result.total}}</span>
+        <span class="tooltip-val">{{model.value}}&nbsp;/&nbsp;{{total}}</span>
     </ng-template>
 </ngx-charts-bar-vertical>

@@ -3,13 +3,16 @@
         (queryItemChange)="onQueryItemChange($event)" [separator]="true"
         [modifier]="data.settings.evaluateModifierRange / 100"
         [modifierMaxRange]="!data.settings.evaluateModifierDisableMaxRange">
-        <ng-container *ngIf="(currencies$ | async) as currencies">
+        <ng-container *ngIf="(currencies$ | async) as currencies; else loading">
             <app-evaluate [item]="data.item" [currencies]="currencies"></app-evaluate>
             <app-item-frame-separator [item]="data.item"></app-item-frame-separator>
-            <app-evaluate-search *ngIf="init$ | async" [settings]="data.settings" [defaultItem]="defaultItem"
+            <app-evaluate-search *ngIf="init$ | async; else loading" [settings]="data.settings" [defaultItem]="defaultItem"
                 [queryItem]="queryItem" [queryItemChange]="queryItemChange" [currencies]="currencies"
-                (update)="onQueryItemChange($event)" (evaluate)="onEvaluate($event)">
+                (update)="onQueryItemChange($event)" (evaluateResult)="onEvaluateResult($event)">
             </app-evaluate-search>
         </ng-container>
+        <ng-template #loading>
+            <div> {{'evaluate.loading' | translate}} </div>
+        </ng-template>
     </app-item-frame>
 </div>

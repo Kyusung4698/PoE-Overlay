@@ -5,7 +5,7 @@
                 <div *ngIf="(inverse$ | async) === false; else inverse">
                     <div class="factor">
                         <span class="amount">1.00&nbsp;</span>
-                        <mat-icon class="clickable switch" title="switch amount"
+                        <mat-icon class="clickable switch" [title]="'evaluate.switch' | translate"
                             (click)="inverse$.next(!inverse$.value)">compare_arrows
                         </mat-icon>
                         <span class="currency">
@@ -17,7 +17,7 @@
                 <ng-template #inverse>
                     <div class="factor">
                         <span class="amount">{{result.evaluate.inverseAmount | number:'1.2-2'}}&nbsp;</span>
-                        <mat-icon class="clickable switch" title="switch amount"
+                        <mat-icon class="clickable switch" [title]="'evaluate.switch' | translate"
                             (click)="inverse$.next(!inverse$.value)">compare_arrows
                         </mat-icon>
                         <span class="currency">
@@ -37,7 +37,7 @@
                         <mat-icon *ngIf="result.evaluate.change > 0">trending_up</mat-icon>
                         <span> {{result.evaluate.change}}%</span>
                     </span>
-                    <span class="info">Last 7 days</span>
+                    <span class="info">{{'evaluate.days' | translate}}</span>
                 </div>
                 <div>
                     <app-evaluate-area-chart [result]="result.evaluate" [inverse]="inverse$ | async">
@@ -47,12 +47,12 @@
         </div>
     </ng-container>
     <ng-template #notfound>
-        <div> No matching data found. </div>
+        <div> {{'evaluate.not-found' | translate}} </div>
     </ng-template>
     <ng-container *ngIf="result.error">
-        <div> An unexpected error occured. </div>
+        <div> {{'evaluate.error' | translate}} </div>
     </ng-container>
 </ng-container>
 <ng-template #loading>
-    <div> Loading... </div>
+    <div> {{'evaluate.loading' | translate}} </div>
 </ng-template>

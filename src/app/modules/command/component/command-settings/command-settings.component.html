@@ -3,14 +3,14 @@
         <mat-icon>close</mat-icon>
     </button>
     <mat-form-field>
-        <mat-label>Command</mat-label>
+        <mat-label>{{'command.name' | translate}}</mat-label>
         <input matInput [(ngModel)]="command.text">
     </mat-form-field>
-    <app-accelerator label="Shortcut" [(value)]="command.shortcut">
+    <app-accelerator [label]="'command.shortcut' | translate" [(value)]="command.shortcut">
     </app-accelerator>
 </mat-card>
 <mat-card>
     <div align="center">
-        <button mat-button (click)="onAddCommandClick()">Add Command</button>
+        <button mat-button (click)="onAddCommandClick()">{{'command.add' | translate}}</button>
     </div>
 </mat-card>

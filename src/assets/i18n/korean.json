@@ -1,20 +1,116 @@
 {
-	"command.name": "명령",
-	"evaluate.name": "평가",
-	"help.bug": "이슈 만들기",
-	"help.bugTitle": "버그를 찾았습니까? 아니면 제안이 있습니까? GitHub에서 이슈를 작성하십시오",
-	"help.donate": "PayPal을 통해 기부",
-	"help.donateTitle": "프로젝트가 마음에 드십니까? 기부금을 남기십시오. 당신의 지원에 감사드립니다!",
-	"help.faq": "자주하는 질문",
-	"help.name": "도움",
-	"map.name": "지도",
-	"misc.name": "기타",
-	"settings.cancel": "취소",
-	"settings.exitApp": "앱 종료",
-	"settings.gameSettings": "게임 설정",
-	"settings.general": "일반",
-	"settings.language": "언어",
-	"settings.league": "리그",
-	"settings.openSettings": "설정 열기",
-	"settings.save": "구하다"
+	"clipboard": {
+		"empty": "클립 보드가 비어있었습니다. 게임이 집중되어 있는지 확인하십시오.",
+		"error": "항목을 구문 분석하는 중에 오류가 발생했습니다.",
+		"parser-error": "항목을 파싱하지 못했습니다. 올바른 언어를 선택했는지 확인하십시오."
+	},
+	"command": {
+		"add": "명령 추가",
+		"name": "명령",
+		"shortcut": "지름길"
+	},
+	"evaluate": {
+		"currency": "표시된 통화",
+		"days": "최근 7 일",
+		"error": "오류가 발생했습니다.",
+		"loading": "로드 중 ...",
+		"name": "평가",
+		"not-found": "데이터가 없습니다.",
+		"search": {
+			"default": "기본 검색 설정",
+			"disable-max-range": "최대 범위 비활성화",
+			"filter": "검색 필터",
+			"gem": "보석 레벨,지도 등급 및 품질",
+			"item-level": "아이템 레벨",
+			"item-sockets": "소켓",
+			"item-type": "항목 형식",
+			"max-age": {
+				"any": "언제든지",
+				"day": "하루 전",
+				"days": "최대 3 일 전",
+				"month": "최대 1 개월 전",
+				"months": "최대 2 개월 전",
+				"title": "최대 연령 나열",
+				"week": "최대 일주일 전",
+				"weeks": "최대 2 주 전"
+			},
+			"modifier": "수정 자 검색 설정",
+			"modifier-range": "수정 자 범위",
+			"online-only": "온라인에서만 가능합니다"
+		},
+		"settings": "설정 평가",
+		"stats": "통계",
+		"stats-export": "통계를 클립 보드로 내보내기",
+		"stats-import": "클립 보드에서 통계 가져 오기",
+		"switch": "스위치 금액",
+		"tag": {
+			"note": "기존 메모가없는 항목 만 빠른 태그를 지정할 수 있습니다. 대신 메모가 복사되었습니다.",
+			"outside-stash": "숨김 안에있는 항목 만 빠르게 태그를 지정할 수 있습니다. 대신 메모가 복사되었습니다."
+		},
+		"translate": "번역 평가",
+		"translate-language": "번역 된 항목 언어",
+		"translate-settings": "번역 설정 평가"
+	},
+	"help": {
+		"browser": "클릭하는 동안 CTRL을 누르고 있으면 기본 브라우저에서 링크가 열립니다.",
+		"browser-title": "기본 브라우저에서 검색을 열려면 어떻게합니까?",
+		"bug": "이슈 만들기",
+		"bug-title": "버그를 찾았습니까? 아니면 제안이 있습니까? GitHub에서 이슈를 작성하십시오",
+		"donate": "PayPal을 통해 기부",
+		"donate-title": "프로젝트가 마음에 드십니까? 기부금을 남기십시오. 당신의 지원에 감사드립니다!",
+		"dwm": "이는 대부분 Aero / DWM이 비활성화되어 있기 때문입니다. 따라서이 창 기능을 활성화하십시오.<br> 투명 창을 만들어야합니다.",
+		"dwm-title": "기능을 전환 한 후 왜 화면이 흑백으로 변합니까?",
+		"faq": "자주하는 질문",
+		"graph": "막대는 품목 값의 분포를 나타냅니다. 기본적으로 값을 값으로 그룹화하고 계산합니다.<br> 가장 높은 막대는 모드입니다. '가장 일반적인 가치'라고도합니다. 평균은 평균입니다. 중앙값은 모든 값의 중심 값입니다.",
+		"graph-title": "그래프는 무엇을 나타 냅니까? 모드 / 평균 / 중간이란 무엇입니까?",
+		"graph-url": "'academy.datawrapper.de'에서 '히스토그램 최소 최대 평균값을 읽는 방법'을 엽니 다.",
+		"graphic": "현재 크롬 버전의 호환되지 않는 그래픽 드라이버로 인해 발생합니다.<br> GPU 지원 (하드웨어 가속)없이 오버레이를 시작하려면 'run-without-gpu.bat'를 실행하십시오.",
+		"graphic-title": "그래픽이 흐릿하거나 그래픽 버그입니까?",
+		"name": "도움"
+	},
+	"map": {
+		"boss": "사장님",
+		"boss-rating": "보스 등급",
+		"bosses": "보스",
+		"info": "정보",
+		"layout-rating": "레이아웃 등급",
+		"name": "지도",
+		"no-map": "항목이지도가 아닙니다.",
+		"not-found": "지도를 찾을 수 없습니다.",
+		"stats-warning": "통계 경고",
+		"stats-warning-export": "통계 경고를 클립 보드로 내보내기",
+		"stats-warning-import": "클립 보드에서 통계 경고 가져 오기"
+	},
+	"material": {
+		"accelerator": {
+			"any": "아무 키나 누르십시오",
+			"unbound": "매여 있지 않은"
+		},
+		"select-list": {
+			"add": "선택한 항목에 추가",
+			"remove": "선택된 항목에서 제거",
+			"selected": "선택된",
+			"unselected": "선택하지 않은"
+		}
+	},
+	"misc": {
+		"highlight": "가장 밝은 부분",
+		"name": "기타",
+		"navigation": "항해",
+		"open-wiki": "위키 열기",
+		"open-wiki-external": "위키 외부 열기",
+		"parser-error": "클립 보드를 파싱하지 못했습니다. 이전 하이라이트를 지웠는 지 확인하십시오 (ESC).",
+		"stash": "숨기는 장소",
+		"wiki": "위키"
+	},
+	"settings": {
+		"cancel": "취소",
+		"exit-app": "앱 종료",
+		"game-settings": "게임 설정",
+		"general": "일반",
+		"language": "언어",
+		"league": "리그",
+		"open-settings": "설정 열기",
+		"save": "구하다"
+	}
 }

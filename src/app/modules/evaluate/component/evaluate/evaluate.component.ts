@@ -71,6 +71,6 @@ export class EvaluateComponent {
 
   private handleEvaluateError(error: any): void {
     this.result$.next({ error: true });
-    this.snackbar.error(`${typeof error === 'string' ? `${error}` : 'An unexpected error occured while evaluating the item.'}`);
+    this.snackbar.error(`${typeof error === 'string' ? `${error}` : 'evaluate.error'}`);
   }
 }

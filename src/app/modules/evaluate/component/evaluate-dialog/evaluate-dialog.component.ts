@@ -56,7 +56,7 @@ export class EvaluateDialogComponent implements OnInit, AfterViewInit {
     this.queryItemChange.next(queryItem);
   }
 
-  public onEvaluate(result: EvaluateResult): void {
+  public onEvaluateResult(result: EvaluateResult): void {
     this.ref.close(result);
   }
 

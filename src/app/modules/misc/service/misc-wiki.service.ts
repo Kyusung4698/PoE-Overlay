@@ -34,15 +34,15 @@ export class MiscWikiService {
                         this.browser.open(`${environment.wiki.baseUrl}/index.php?search=${encodeURIComponent(search)}`, external);
                         return of(null);
                     case ItemClipboardResultCode.Empty:
-                        return this.snackbar.warning('Clipboard text was empty. Make sure the game is focused.');
+                        return this.snackbar.warning('clipboard.empty');
                     case ItemClipboardResultCode.ParserError:
-                        return this.snackbar.warning('Copied item could not be parsed. Make sure you have the correct language selected.');
+                        return this.snackbar.warning('clipboard.parser-error');
                     default:
                         return throwError(`code: '${result.code}' out of range`);
                 }
             }),
             catchError(() => {
-                return this.snackbar.error('An unexpected error occured while parsing the item.');
+                return this.snackbar.error('clipboard.parser-error');
             })
         );
     }

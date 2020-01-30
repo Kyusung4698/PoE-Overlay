@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ElectronProvider } from '@app/provider';
+import { TranslateFakeLoader, TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { ContextService } from '@shared/module/poe/service';
 import { Language } from '@shared/module/poe/type';
 import { SharedModule } from '@shared/shared.module';
@@ -24,7 +25,15 @@ describe('EvaluateSearchComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [SharedModule],
+      imports: [
+        SharedModule,
+        TranslateModule.forRoot({
+          loader: {
+            provide: TranslateLoader,
+            useFactory: () => new TranslateFakeLoader()
+          }
+        })
+      ],
       declarations: [EvaluateSearchComponent, EvaluateChartComponent],
       providers: [
         { provide: ElectronProvider, useClass: ElectronProviderFake }
