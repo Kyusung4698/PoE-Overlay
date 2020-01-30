@@ -20,7 +20,13 @@ export class DialogsService {
     }
 
     public registerShortcuts(): void {
-        this.check();
+        if (this.dialogs.length > 0) {
+            this.register();
+        }
+    }
+
+    public unregisterShortcuts(): void {
+        this.unregister();
     }
 
     public dialogCountChange(): Observable<number> {
@@ -42,24 +48,32 @@ export class DialogsService {
 
     private check(): void {
         if (this.dialogs.length > 0) {
-            this.remote.globalShortcut.register('escape', () => {
-                if (this.dialogs.length > 0) {
-                    this.close();
-                }
-            });
-            this.remote.globalShortcut.register('space', () => {
-                while (this.dialogs.length > 0) {
-                    this.close();
-                }
-            });
+            this.register();
         } else {
-            this.remote.globalShortcut.unregister('escape');
-            this.remote.globalShortcut.unregister('space');
+            this.unregister();
         }
 
         if (this.dialogCountChange$.value !== this.dialogs.length) {
             this.dialogCountChange$.next(this.dialogs.length);
         }
+    }
+
+    private register(): void {
+        this.remote.globalShortcut.register('escape', () => {
+            if (this.dialogs.length > 0) {
+                this.close();
+            }
+        });
+        this.remote.globalShortcut.register('space', () => {
+            while (this.dialogs.length > 0) {
+                this.close();
+            }
+        });
+    }
+
+    private unregister(): void {
+        this.remote.globalShortcut.unregister('escape');
+        this.remote.globalShortcut.unregister('space');
     }
 
     private close(): void {

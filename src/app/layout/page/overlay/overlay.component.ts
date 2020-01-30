@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, HostListener, Inject, OnDestroy, OnInit } from '@angular/core';
-import { AppService, BrowserService, RendererService, ShortcutService, WindowService } from '@app/service';
+import { AppService, BrowserService, RendererService, ShortcutService, VisibleFlag, WindowService } from '@app/service';
 import { DialogsService } from '@app/service/input/dialogs.service.js';
 import { FEATURE_MODULES } from '@app/token';
 import { FeatureModule } from '@app/type';
@@ -83,7 +83,19 @@ export class OverlayComponent implements OnInit, OnDestroy {
   }
 
   private registerAutoHide(): void {
-    this.app.visibleChange().subscribe(visible => visible ? this.window.show() : this.window.hide());
+    this.app.visibleChange().subscribe(flag => {
+      if (flag === VisibleFlag.None) {
+        this.window.hide();
+      } else {
+        this.window.show();
+      }
+
+      if ((flag & VisibleFlag.Game) !== VisibleFlag.Game) {
+        this.dialogs.unregisterShortcuts();
+      } else {
+        this.dialogs.registerShortcuts();
+      }
+    });
   }
 
   private registerFeatures(settings: UserSettings): void {

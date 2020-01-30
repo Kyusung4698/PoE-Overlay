@@ -2,11 +2,11 @@
     <app-item-frame class="map-frame" [item]="data.item" [properties]="properties" [separator]="true" modifier="0"
         modifierMaxRange="true">
         <ng-container ngProjectAs="properties">
-            <div [title]="layoutRatingText">Layout Rating: <span class="white">{{(map || {}).layoutRating || '-'}}</span></div>
-            <div [title]="bossRatingText">Boss Rating: <span class="white">{{(map || {}).bossRating || '-'}}/5</span></div>
+            <div [title]="layoutRatingText">{{'map.layout-rating' | translate}}: <span class="white">{{(map || {}).layoutRating || '-'}}</span></div>
+            <div [title]="bossRatingText">{{'map.boss-rating' | translate}}: <span class="white">{{(map || {}).bossRating || '-'}}/5</span></div>
         </ng-container>
         <ng-container *ngIf="!map">
-            <div>No matching map found.</div>
+            <div>{{'map.not-found' | translate}}</div>
         </ng-container>
         <ng-container *ngIf="map">
             <div class="clickable" (click)="onMapClick($event)"
@@ -21,8 +21,8 @@
                 </ng-container>
                 <ng-container *ngIf="map.bossCount > 0 || (map.bosses && map.bosses.length > 0)">
                     <div class="description">
-                        <div *ngIf="map.bossCount > 1"> Bosses ({{map.bossCount}}) </div>
-                        <div *ngIf="map.bossCount <= 1"> Boss </div>
+                        <div *ngIf="map.bossCount > 1"> {{'map.bosses' | translate}} ({{map.bossCount}}) </div>
+                        <div *ngIf="map.bossCount <= 1"> {{'map.boss' | translate}} </div>
                         <ul class="bosses" *ngIf="map.bosses && map.bosses.length > 0">
                             <li *ngFor="let boss of map.bosses">{{boss}}</li>
                         </ul>

@@ -58,6 +58,9 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
         }
 
         target.category = this.baseItemCategoriesService.get(target.typeId);
+        if (!target.category) {
+            return null;
+        }
 
         if (target.category === ItemCategory.Gem || target.category.indexOf(`${ItemCategory.Gem}.`) === 0) {
             for (const section of item.sections) {

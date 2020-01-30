@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ElectronProvider } from '@app/provider';
+import { TranslateFakeLoader, TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from '@shared/shared.module';
 import { EvaluateSettingsComponent } from './evaluate-settings.component';
 
@@ -20,7 +21,15 @@ describe('EvaluateSettingsComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [EvaluateSettingsComponent],
-      imports: [SharedModule],
+      imports: [
+        SharedModule,
+        TranslateModule.forRoot({
+          loader: {
+            provide: TranslateLoader,
+            useFactory: () => new TranslateFakeLoader()
+          }
+        })
+      ],
       providers: [
         { provide: ElectronProvider, useClass: ElectronProviderFake }
       ]

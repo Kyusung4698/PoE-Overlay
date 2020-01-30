@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { StatsLocalProvider } from '../../provider/stats-local.provider';
 import { StatsProvider } from '../../provider/stats.provider';
-import { ItemStat, Language, Stat, StatType } from '../../type';
+import { ItemStat, ItemValue, Language, Stat, StatType } from '../../type';
 import { ContextService } from '../context.service';
 
 export interface StatsSearchResult {
@@ -165,14 +165,17 @@ export class StatsService {
                         }
 
                         const text = test[0];
+                        const itemStat: ItemStat = {
+                            id: stat.id, mod: stat.mod,
+                            option: stat.option,
+                            negated: stat.negated,
+                            predicate,
+                            type, tradeId,
+                            values: test.slice(1).map(x => ({ text: x }))
+                        };
                         results.push({
+                            stat: itemStat,
                             match: { index: section.index, text },
-                            stat: {
-                                id: stat.id, predicate,
-                                mod: stat.mod, negated: stat.negated,
-                                type, tradeId,
-                                values: test.slice(1).map(x => ({ text: x }))
-                            }
                         });
 
                         const length = section.text.length;

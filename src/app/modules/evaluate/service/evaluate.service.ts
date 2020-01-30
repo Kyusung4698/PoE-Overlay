@@ -32,28 +32,26 @@ export class EvaluateService {
 
                                 if (!this.stash.hovering(point)) {
                                     this.stash.copyPrice(evaluate.amount, evaluate.currency);
-                                    return this.snackbar.info(
-                                        'Only items inside the stash can be fast tagged. Note has been copied instead.');
+                                    return this.snackbar.info('evaluate.tag.outside-stash');
                                 }
 
                                 if ((result.item.note || '').length > 0) {
                                     this.stash.copyPrice(evaluate.amount, evaluate.currency);
-                                    return this.snackbar.info(
-                                        'Only items without an existing note can be fast tagged. Note has been copied instead.');
+                                    return this.snackbar.info('evaluate.tag.note');
                                 }
                                 return this.stash.tagPrice(evaluate.amount, evaluate.currency, point);
                             })
                         );
                     case ItemClipboardResultCode.Empty:
-                        return this.snackbar.warning('Clipboard text was empty. Make sure the game is focused.');
+                        return this.snackbar.warning('clipboard.empty');
                     case ItemClipboardResultCode.ParserError:
-                        return this.snackbar.warning('Copied item could not be parsed. Make sure you have the correct language selected.');
+                        return this.snackbar.warning('clipboard.parser-error');
                     default:
                         return throwError(`code: '${result.code}' out of range`);
                 }
             }),
             catchError(() => {
-                return this.snackbar.error('An unexpected error occured while parsing the item.');
+                return this.snackbar.error('clipboard.error');
             })
         );
     }

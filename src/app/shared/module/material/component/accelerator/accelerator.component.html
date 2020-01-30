@@ -1,6 +1,6 @@
 <mat-form-field>
     <mat-label>{{label}}</mat-label>
-    <input matInput [value]="value || 'Unbound'" [disabled]="!recording" (keydown)="onKeydown($event)" #input>
+    <input matInput [value]="(value || 'material.accelerator.unbound') | translate" [disabled]="!recording" (keydown)="onKeydown($event)" #input>
     <button matSuffix mat-button (click)="onKeyboardClick(input)">
         <mat-icon> keyboard </mat-icon>
     </button>

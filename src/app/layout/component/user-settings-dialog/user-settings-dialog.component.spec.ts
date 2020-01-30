@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ElectronProvider } from '@app/provider';
+import { TranslateFakeLoader, TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from '@shared/shared.module';
 import { UserSettingsFeatureContainerComponent } from '../user-settings-feature-container/user-settings-feature-container.component';
 import { UserSettingsFormComponent } from '../user-settings-form/user-settings-form.component';
@@ -22,14 +23,23 @@ describe('UserSettingsDialogComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [SharedModule],
+      imports: [
+        SharedModule,
+        TranslateModule.forRoot({
+          loader: {
+            provide: TranslateLoader,
+            useFactory: () => new TranslateFakeLoader()
+          }
+        })
+      ],
       declarations: [UserSettingsDialogComponent, UserSettingsFormComponent, UserSettingsFeatureContainerComponent],
       providers: [
         {
           provide: MAT_DIALOG_DATA,
           useValue: {}
         },
-        { provide: ElectronProvider, useClass: ElectronProviderFake }
+        { provide: ElectronProvider, useClass: ElectronProviderFake },
+
       ]
     })
       .compileComponents();

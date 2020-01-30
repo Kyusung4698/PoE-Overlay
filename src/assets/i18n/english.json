@@ -1,20 +1,116 @@
 {
-	"command.name": "Command",
-	"evaluate.name": "Evaluate",
-	"help.bug": "Create an Issue",
-	"help.bugTitle": "Found a Bug? Or have a Suggestion? Please create an issue on GitHub",
-	"help.donate": "Donate via PayPal",
-	"help.donateTitle": "Love the project? Feel free to leave a donation. Thanks for your support!",
-	"help.faq": "FAQ",
-	"help.name": "Help",
-	"map.name": "Map",
-	"misc.name": "Misc",
-	"settings.cancel": "Cancel",
-	"settings.exitApp": "Exit App",
-	"settings.gameSettings": "Game Settings",
-	"settings.general": "General",
-	"settings.language": "Language",
-	"settings.league": "League",
-	"settings.openSettings": "Open Settings",
-	"settings.save": "Save"
+	"clipboard": {
+		"empty": "Clipboard was empty. Please make sure the game is focused.",
+		"error": "An error occurred while parsing the item.",
+		"parser-error": "Item could not be parsed. Please make sure you have the correct language selected."
+	},
+	"command": {
+		"add": "Add Command",
+		"name": "Command",
+		"shortcut": "Shortcut"
+	},
+	"evaluate": {
+		"currency": "Displayed Currency",
+		"days": "Last 7 days",
+		"error": "An error occured.",
+		"loading": "Loading...",
+		"name": "Evaluate",
+		"not-found": "No data found.",
+		"search": {
+			"default": "Default Search Settings",
+			"disable-max-range": "Disable Max Range",
+			"filter": "Search Filter",
+			"gem": "Gem Level, Map Tier & Quality",
+			"item-level": "Item Level",
+			"item-sockets": "Sockets",
+			"item-type": "Item Type",
+			"max-age": {
+				"any": "Any Time",
+				"day": "Up to a day ago",
+				"days": "Up to 3 days ago",
+				"month": "Up to 1 month ago",
+				"months": "Up to 2 months ago",
+				"title": "Listing Max Age",
+				"week": "Up to a week ago",
+				"weeks": "Up to 2 weeks ago"
+			},
+			"modifier": "Modifier Search Settings",
+			"modifier-range": "Modifier Range",
+			"online-only": "Online Only"
+		},
+		"settings": "Evaluate Settings",
+		"stats": "Stats",
+		"stats-export": "Export Stats to Clipboard",
+		"stats-import": "Import Stats from Clipboard",
+		"switch": "switch amount",
+		"tag": {
+			"note": "Only items without an existing note can be fast tagged. Note has been copied instead.",
+			"outside-stash": "Only items inside the stash can be fast tagged. Note has been copied instead."
+		},
+		"translate": "Evaluate Translate",
+		"translate-language": "Translated Item Language",
+		"translate-settings": "Evaluate Translate Settings"
+	},
+	"help": {
+		"browser": "Holding CTRL while clicking will open the link in the default browser.",
+		"browser-title": "How do i open the search in my default browser?",
+		"bug": "Create an Issue",
+		"bug-title": "Found a Bug? Or have a Suggestion? Please create an issue on GitHub",
+		"donate": "Donate via PayPal",
+		"donate-title": "Love the project? Feel free to leave a donation. Thanks for your support!",
+		"dwm": "This is mostly caused by an disabled Aero / DWM. Therefore try enabling this windows feature.<br> As it's required to create transparent windows.",
+		"dwm-title": "Why is my screen turning black/white after toggling any feature?",
+		"faq": "FAQ",
+		"graph": "The bar indicates the distribution of the item value. It basically groups the values by value and counts them.<br> The highest bar is the Mode. Also named 'most common value'. Mean is the average. Median is the centered value of all values.",
+		"graph-title": "What does the graph represent? What is mode/mean/median?",
+		"graph-url": "Open 'How to read a Histogram Min Max Median Mean' by 'academy.datawrapper.de'",
+		"graphic": "This is mostly caused by incompatible graphic drivers for the current chromium version.<br> Please run 'run-without-gpu.bat' in order to start the overlay without gpu support (hardware acceleration).",
+		"graphic-title": "The graphics are blurry/ graphic bug?",
+		"name": "Help"
+	},
+	"map": {
+		"boss": "Boss",
+		"boss-rating": "Boss Rating",
+		"bosses": "Bosses",
+		"info": "Info",
+		"layout-rating": "Layout Rating",
+		"name": "Map",
+		"no-map": "Item is not a map.",
+		"not-found": "Map not found.",
+		"stats-warning": "Stats Warnings",
+		"stats-warning-export": "Export Stats Warnings to Clipboard",
+		"stats-warning-import": "Import Stats Warnings from Clipboard"
+	},
+	"material": {
+		"accelerator": {
+			"any": "Press any key",
+			"unbound": "Unbound"
+		},
+		"select-list": {
+			"add": "add to selected",
+			"remove": "remove from selected",
+			"selected": "Selected",
+			"unselected": "Unselected"
+		}
+	},
+	"misc": {
+		"highlight": "Highlight",
+		"name": "Misc",
+		"navigation": "Navigation",
+		"open-wiki": "Open Wiki",
+		"open-wiki-external": "Open Wiki External",
+		"parser-error": "Clipboard could not be parsed. Please make sure you have cleared (ESC) the previous highlight.",
+		"stash": "Stash",
+		"wiki": "Wiki"
+	},
+	"settings": {
+		"cancel": "Cancel",
+		"exit-app": "Exit App",
+		"game-settings": "Game Settings",
+		"general": "General",
+		"language": "Language",
+		"league": "League",
+		"open-settings": "Open Settings",
+		"save": "Save"
+	}
 }

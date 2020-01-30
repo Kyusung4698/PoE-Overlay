@@ -5,6 +5,12 @@ import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import { DialogsService } from './dialogs.service';
 
+export enum VisibleFlag {
+    None = 0,
+    Game = 1 << 0,
+    Dialog = 1 << 1
+}
+
 @Injectable({
     providedIn: 'root'
 })
@@ -21,7 +27,7 @@ export class AppService {
         this.ipcRenderer = electronProvider.provideIpcRenderer();
     }
 
-    public visibleChange(): Observable<boolean> {
+    public visibleChange(): Observable<VisibleFlag> {
         this.ipcRenderer.on('active-change', (event, arg) => {
             this.ngZone.run(() => this.activeChange$.next(arg));
         });
@@ -30,7 +36,16 @@ export class AppService {
             this.activeChange$,
             this.dialogs.dialogCountChange()
         ).pipe(
-            map(results => results[0] || results[1] > 0),
+            map(([game, dialogCount]) => {
+                let result = VisibleFlag.None;
+                if (game) {
+                    result |= VisibleFlag.Game;
+                }
+                if (dialogCount > 0) {
+                    result |= VisibleFlag.Dialog;
+                }
+                return result;
+            }),
             debounceTime(250),
             distinctUntilChanged());
     }

@@ -3,7 +3,7 @@
 </mat-form-field>
 <div class="content">
     <div class="list">        
-        <mat-label>Unselected</mat-label>
+        <mat-label>{{'material.select-list.unselected' | translate}}</mat-label>
         <mat-selection-list #deselected>
             <cdk-virtual-scroll-viewport class="viewport" itemSize="48" minBufferPx="200" maxBufferPx="400">
                 <mat-list-option class="item"
@@ -16,16 +16,16 @@
     </div>
     <div class="control">
         <div class="buttons">
-            <button mat-icon-button (click)="selectOptions(deselected.selectedOptions.selected)" title="add to selected">
+            <button mat-icon-button (click)="selectOptions(deselected.selectedOptions.selected)" [title]="'material.select-list.add' | translate">
                 <mat-icon>keyboard_arrow_right</mat-icon>
             </button>
-            <button mat-icon-button (click)="deselectOptions(selected.selectedOptions.selected)" title="remove from selected">
+            ,<button mat-icon-button (click)="deselectOptions(selected.selectedOptions.selected)" [title]="'material.select-list.remove' | translate">
                 <mat-icon>keyboard_arrow_left</mat-icon>
             </button>
         </div>
     </div>
     <div class="list">
-        <mat-label>Selected</mat-label>
+        <mat-label>{{'material.select-list.selected' | translate}}</mat-label>
         <mat-selection-list #selected>
             <cdk-virtual-scroll-viewport class="viewport" itemSize="48" minBufferPx="200" maxBufferPx="400">
                 <mat-list-option class="item"

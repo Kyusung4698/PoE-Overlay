@@ -43,7 +43,7 @@ export class MiscStashService {
                     case ItemClipboardResultCode.Success:
                         return result.item.type;
                     case ItemClipboardResultCode.ParserError:
-                        this.snackbar.warning('Clipboard could not be parsed. Make sure you have cleared (ESC) the previous highlight.');
+                        this.snackbar.warning('misc.parser-error');
                         break;
                     default:
                         break;

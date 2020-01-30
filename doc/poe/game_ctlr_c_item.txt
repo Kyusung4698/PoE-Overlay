@@ -899,3 +899,77 @@ Your Shocks can increase Damage taken by up to a maximum of 100%
 The eldritch storm descended upon us, and bruised lightning
 rained down. Metal withered and flesh melted before its
 arcane power. There was no escape, no shelter. Only despair.
+
+
+Rarity: Rare
+Haunted Shelter
+Pit of the Chimera Map
+--------
+Map Tier: 16
+Item Quantity: +110% (augmented)
+Item Rarity: +57% (augmented)
+Monster Pack Size: +37% (augmented)
+Quality: +15% (augmented)
+--------
+Item Level: 82
+--------
+Area is influenced by The Shaper (implicit)
+--------
+Corrupted
+
+Rarity: Rare
+Maelström Hold
+Unset Ring
+--------
+Requirements:
+Level: 33
+--------
+Sockets: R 
+--------
+Item Level: 49
+--------
+Has 1 Socket (implicit)
+--------
++26 to Strength
++16 to Dexterity
++45 to Evasion Rating
++48 to maximum Mana
++25% to Cold Resistance
++25 to maximum Life (crafted)
+
+Rarity: Currency
+Primitive Chaotic Resonator
+--------
+Stack Size: 1/10
+Requires 1 Socketed Fossil
+--------
+Sockets: D 
+--------
+Reforges a rare item with new random modifiers
+--------
+All sockets must be filled with Fossils before this item can be used.
+
+Rarity: Rare
+Morbid Trap
+Acid Caverns Map
+--------
+Map Tier: 15
+Atlas Region: New Vastir
+Item Quantity: +87% (augmented)
+Item Rarity: +41% (augmented)
+Monster Pack Size: +26% (augmented)
+Quality: +19% (augmented)
+--------
+Item Level: 82
+--------
+Area is influenced by The Elder (implicit)
+Map is occupied by The Enslaver (implicit)
+--------
+Players are Cursed with Temporal Chains
+25% more Monster Life
+Monsters cannot be Stunned
+Monsters deal 102% extra Damage as Lightning
+Monsters gain an Endurance Charge on Hit
+Monsters have a 20% chance to cause Elemental Ailments on Hit
+--------
+Travel to this Map by using it in a personal Map Device. Maps can only be used once.

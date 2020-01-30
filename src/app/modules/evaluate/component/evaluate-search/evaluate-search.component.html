@@ -23,7 +23,7 @@
 </div>
 <ng-container *ngIf="(result$ | async) as result; else loading">
     <ng-container *ngIf="result.items && result.items.length > 0">
-        <div class="clickable" (click)="onCurrencyClick($event)"
+        <div class="clickable values" (click)="onCurrencyClick($event)" (wheel)="onCurrencyWheel($event)"
             title="'Click' = In-Game Browser, 'CTRL + Click' Default Browser">
             <div>
                 <app-currency-frame label="Mean" [amount]="result.mean">
@@ -36,8 +36,10 @@
             <div>
                 <app-currency-frame label="Min" [amount]="result.min">
                 </app-currency-frame>
-                <app-currency-frame label="Max" [amount]="result.max" [currency]="result.currency">
-                </app-currency-frame>
+                <span class="currency">
+                    <app-currency-frame label="Max" [amount]="result.max" [currency]="result.currency">
+                    </app-currency-frame>
+                </span>
             </div>
         </div>
         <app-evaluate-chart [result]="result" (amountSelect)="onAmountSelect($event)"></app-evaluate-chart>
@@ -45,13 +47,13 @@
     <ng-container *ngIf="result.items && result.items.length === 0">
         <div class="clickable" (click)="onCurrencyClick($event)"
             title="'Click' = In-Game Browser, 'CTRL + Click' Default Browser">
-            No matching items found.
+            {{'evaluate.not-found' | translate}}
         </div>
     </ng-container>
     <ng-container *ngIf="!result.items">
-        <div> An unexpected error occured. </div>
+        <div> {{'evaluate.error' | translate}} </div>
     </ng-container>
 </ng-container>
 <ng-template #loading>
-    <div> Loading... </div>
+    <div> {{'evaluate.loading' | translate}} </div>
 </ng-template>

@@ -17,45 +17,37 @@
                 <mat-accordion>
                     <mat-expansion-panel>
                         <mat-expansion-panel-header>
-                            <mat-panel-title> Q.: How do i open the search in my default browser? </mat-panel-title>
+                            <mat-panel-title> Q.: {{'help.browser-title' | translate}} </mat-panel-title>
                         </mat-expansion-panel-header>
-                        <p>A.: Holding ctrl while clicking will open the link in the default browser.</p>
+                        <p>A.: <span [innerHTML]="'help.browser' | translate"></span></p>
                     </mat-expansion-panel>
                     <mat-expansion-panel>
                         <mat-expansion-panel-header>
-                            <mat-panel-title> Q.: What does the graph represent? What is mode/mean/median?
+                            <mat-panel-title> Q.: {{'help.graph-title' | translate}}
                             </mat-panel-title>
                         </mat-expansion-panel-header>
-                        <p>A.: The bar indicates the distribution of the item value. It basically groups the values by
-                            value and counts them.<br>
-                            The highest bar is the Mode. Also named 'most common value'. Mean is
-                            the average. Median is the centered value of all values.</p>
+                        <p>A.: <span [innerHTML]="'help.graph' | translate"></span></p>
                         <button mat-button
                             (click)="openUrl('https://academy.datawrapper.de/article/136-histogram-min-max-median-mean')">
-                            Open 'How to read a Histogram Min Max Median Mean' by 'academy.datawrapper.de' </button>
+                            {{'help.graph-url' | translate}} </button>
                     </mat-expansion-panel>
                     <mat-expansion-panel>
                         <mat-expansion-panel-header>
-                            <mat-panel-title> Q.: My screen turns black/white after toggling any feature. Why?
+                            <mat-panel-title> Q.: {{'help.dwm-title' | translate}}
                             </mat-panel-title>
                         </mat-expansion-panel-header>
-                        <p>A.: This is mostly caused by an disabled Aero / DWM. Therefore try enabling this windows
-                            feature.<br>
-                            As it's required to create transparent windows.</p>
+                        <p>A.: <span [innerHTML]="'help.dwm' | translate"></span></p>
                     </mat-expansion-panel>
                     <mat-expansion-panel>
                         <mat-expansion-panel-header>
-                            <mat-panel-title> Q.: The graphics are blurry/ graphic bug?
+                            <mat-panel-title> Q.: {{'help.graphic-title' | translate}}
                             </mat-panel-title>
                         </mat-expansion-panel-header>
-                        <p>A.: This is mostly caused by incompatible graphic drivers for the current chromium
-                            version.<br>
-                            Please run 'run-without-gpu.bat' in order to start the overlay without gpu support (hardware
-                            acceleration). </p>
+                        <p>A.: <span [innerHTML]="'help.graphic' | translate"></span> </p>
                     </mat-expansion-panel>
                     <mat-expansion-panel>
                         <mat-expansion-panel-header>
-                            <mat-panel-title> {{'help.bugTitle' | translate}}
+                            <mat-panel-title> {{'help.bug-title' | translate}}
                             </mat-panel-title>
                         </mat-expansion-panel-header>
                         <button mat-button
@@ -63,7 +55,7 @@
                     </mat-expansion-panel>
                     <mat-expansion-panel>
                         <mat-expansion-panel-header>
-                            <mat-panel-title> {{'help.donateTitle' | translate}}
+                            <mat-panel-title> {{'help.donate-title' | translate}}
                             </mat-panel-title>
                         </mat-expansion-panel-header>
                         <button mat-button

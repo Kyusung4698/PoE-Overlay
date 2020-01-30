@@ -46,6 +46,7 @@ export class ItemPostParserPseudoService implements ItemPostParserService {
                 tradeId: id,
                 values: values.map((x: number) => ({ text: `${+x.toFixed(2)}` })),
                 negated: false,
+                option: false,
                 mod: undefined
             };
             itemStats.push(itemStat);

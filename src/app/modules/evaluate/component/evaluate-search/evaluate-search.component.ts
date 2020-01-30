@@ -3,10 +3,10 @@ import { BrowserService } from '@app/service';
 import { EvaluateResult } from '@modules/evaluate/type/evaluate.type';
 import { SnackBarService } from '@shared/module/material/service';
 import { ItemSearchEvaluateService, ItemSearchService } from '@shared/module/poe/service';
-import { Currency, Item, ItemSearchEvaluateResult } from '@shared/module/poe/type';
-import { ItemSearchIndexed } from '@shared/module/poe/type/search.type';
-import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
-import { debounceTime, flatMap, switchMap, takeUntil, tap } from 'rxjs/operators';
+import { Currency, Item, ItemSearchEvaluateResult, ItemSearchResult } from '@shared/module/poe/type';
+import { ItemSearchIndexed, ItemSearchOptions } from '@shared/module/poe/type/search.type';
+import { BehaviorSubject, Subject } from 'rxjs';
+import { debounceTime, takeUntil, tap } from 'rxjs/operators';
 import { EvaluateUserSettings } from '../evaluate-settings/evaluate-settings.component';
 
 const SEARCH_DEBOUNCE_TIME = 500;
@@ -18,6 +18,8 @@ const SEARCH_DEBOUNCE_TIME = 500;
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EvaluateSearchComponent implements OnInit {
+  private search$ = new BehaviorSubject<ItemSearchResult>(null);
+
   public options$ = new BehaviorSubject<boolean>(false);
   public online$: BehaviorSubject<boolean>;
   public indexed$: BehaviorSubject<ItemSearchIndexed>;
@@ -43,7 +45,7 @@ export class EvaluateSearchComponent implements OnInit {
   public update = new EventEmitter<Item>();
 
   @Output()
-  public evaluate = new EventEmitter<EvaluateResult>();
+  public evaluateResult = new EventEmitter<EvaluateResult>();
 
   constructor(
     private readonly itemSearchService: ItemSearchService,
@@ -54,9 +56,8 @@ export class EvaluateSearchComponent implements OnInit {
   public ngOnInit() {
     this.online$ = new BehaviorSubject(this.settings.evaluateQueryOnline);
     this.indexed$ = new BehaviorSubject(this.settings.evaluateQueryIndexedRange);
-    this.search(this.queryItem).pipe(
-      takeUntil(this.queryItemChange)
-    ).subscribe(result => this.result$.next(result), error => this.handleError(error));
+
+    this.search(this.queryItem);
     this.registerSearchOnChange();
   }
 
@@ -92,38 +93,67 @@ export class EvaluateSearchComponent implements OnInit {
     }
   }
 
+  public onCurrencyWheel(event: WheelEvent): void {
+    if (!this.search$.value || !this.result$.value) {
+      return;
+    }
+
+    const factor = event.deltaY > 0 ? -1 : 1;
+    let index = this.currencies.findIndex(x => x.id === this.result$.value.currency.id);
+    index += factor;
+    if (index >= this.currencies.length) {
+      index = 0;
+    } else if (index < 0) {
+      index = this.currencies.length - 1;
+    }
+    this.result$.next(null);
+    this.evaluate(this.search$.value, this.currencies[index]);
+  }
+
   public onAmountSelect(amount: number): void {
     const currency = this.result$.value.currency;
-    this.evaluate.next({ amount, currency });
+    this.evaluateResult.next({ amount, currency });
   }
 
   private registerSearchOnChange(): void {
     this.queryItemChange.pipe(
       debounceTime(SEARCH_DEBOUNCE_TIME),
       tap(() => this.result$.next(null)),
-      switchMap(queryItem => this.search(queryItem).pipe(
-        takeUntil(this.queryItemChange)
-      ))
-    ).subscribe(result => this.result$.next(result), error => this.handleError(error));
+    ).subscribe(item => this.search(item));
   }
 
-  private search(item: Item): Observable<ItemSearchEvaluateResult> {
-    return this.itemSearchService.search(item, {
+  private search(item: Item): void {
+    const options: ItemSearchOptions = {
       indexed: this.indexed$.value,
       online: this.online$.value,
-    }).pipe(
-      flatMap(searchResult => {
-        if (searchResult.items.length <= 0) {
-          const empty: ItemSearchEvaluateResult = {
-            url: searchResult.url,
-            items: [],
-            total: 0,
-          };
-          return of(empty);
-        }
-        return this.itemSearchEvaluateService.evaluate(searchResult, this.currencies);
-      })
+    };
+    this.itemSearchService.search(item, options).pipe(
+      takeUntil(this.queryItemChange)
+    ).subscribe(
+      search => {
+        this.search$.next(search);
+        this.evaluate(search);
+      },
+      error => this.handleError(error)
     );
+  }
+
+  private evaluate(search: ItemSearchResult, currency?: Currency): void {
+    if (search.items.length <= 0) {
+      const empty: ItemSearchEvaluateResult = {
+        url: search.url,
+        items: [],
+        total: 0,
+      };
+      this.result$.next(empty);
+    } else {
+      this.itemSearchEvaluateService
+        .evaluate(search, currency ? [currency] : this.currencies)
+        .subscribe(
+          result => this.result$.next(result),
+          error => this.handleError(error)
+        );
+    }
   }
 
   private handleError(error: any): void {
@@ -132,6 +162,6 @@ export class EvaluateSearchComponent implements OnInit {
       items: null,
       total: null
     });
-    this.snackbar.error(`${typeof error === 'string' ? `${error}` : 'An unexpected error occured while searching for the item.'}`);
+    this.snackbar.error(`${typeof error === 'string' ? `${error}` : 'evaluate.error'}`);
   }
 }
