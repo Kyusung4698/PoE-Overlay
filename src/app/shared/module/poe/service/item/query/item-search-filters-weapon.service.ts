@@ -39,7 +39,7 @@ export class ItemSearchFiltersWeaponService implements ItemSearchFiltersService 
             }
 
             if (prop.weaponCriticalStrikeChance) {
-                query.filters.weapon_filters.filters.aps = {
+                query.filters.weapon_filters.filters.crit = {
                     min: +(prop.weaponCriticalStrikeChance.value.replace('%', ''))
                 };
             }
