@@ -50,7 +50,7 @@ describe('BaseItemTypeService', () => {
 
     it(`should find 'Port Map'`, () => {
         const result = sut.search('Port Map', Language.English);
-        expect(result).toBe('MapWorldsPort');
+        expect(result).toBe('MapAtlasQuay');
     });
 
     it(`should find 'Vaal Summon Skeletons'`, () => {

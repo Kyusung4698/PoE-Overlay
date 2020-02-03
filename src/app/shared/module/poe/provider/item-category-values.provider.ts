@@ -59,7 +59,7 @@ export class ItemCategoryValuesProvider {
                 ).pipe(map(([currencies, essences]) => {
                     return {
                         values: currencies.values.concat(essences.values)
-                    };                    
+                    };
                 }));
             }
             case ItemCategory.MapFragment: {
