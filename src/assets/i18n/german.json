@@ -66,7 +66,9 @@
 		"graph-url": "\"So lesen Sie einen Histogramm-Min-Max-Median-Mittelwert\" von \"academy.datawrapper.de\" öffnen",
 		"graphic": "Dies wird hauptsächlich durch inkompatible Grafiktreiber für die aktuelle Chrom-Version verursacht.<br> Führen Sie 'run-without-gpu.bat' aus, um das Overlay ohne GPU-Unterstützung (Hardwarebeschleunigung) zu starten.",
 		"graphic-title": "Die Grafiken sind verschwommen / Grafikfehler?",
-		"name": "Hilfe"
+		"name": "Hilfe",
+		"wiki": "Projekt-Wiki öffnen",
+		"wiki-title": "Weitere Dokumentation finden Sie im Projekt-Wiki"
 	},
 	"map": {
 		"boss": "Boss",

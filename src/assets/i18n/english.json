@@ -66,7 +66,9 @@
 		"graph-url": "Open 'How to read a Histogram Min Max Median Mean' by 'academy.datawrapper.de'",
 		"graphic": "This is mostly caused by incompatible graphic drivers for the current chromium version.<br> Please run 'run-without-gpu.bat' in order to start the overlay without gpu support (hardware acceleration).",
 		"graphic-title": "The graphics are blurry/ graphic bug?",
-		"name": "Help"
+		"name": "Help",
+		"wiki": "Open Project Wiki",
+		"wiki-title": "See the project wiki for further documentation"
 	},
 	"map": {
 		"boss": "Boss",

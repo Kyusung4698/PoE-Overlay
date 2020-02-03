@@ -66,7 +66,9 @@
 		"graph-url": "Ouvrez 'Comment lire un histogramme Min Max Median Mean' par 'academy.datawrapper.de'",
 		"graphic": "Cela est principalement dû à des pilotes graphiques incompatibles pour la version actuelle de chrome.<br> Veuillez exécuter 'run-without-gpu.bat' afin de démarrer la superposition sans support gpu (accélération matérielle).",
 		"graphic-title": "Les graphismes sont flous / bug graphique?",
-		"name": "Aidez-moi"
+		"name": "Aidez-moi",
+		"wiki": "Ouvrir le Wiki du projet",
+		"wiki-title": "Voir le wiki du projet pour plus de documentation"
 	},
 	"map": {
 		"boss": "Patron",

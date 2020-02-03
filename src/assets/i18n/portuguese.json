@@ -66,7 +66,9 @@
 		"graph-url": "Abra 'Como ler uma média média máxima do histograma' por 'academy.datawrapper.de'",
 		"graphic": "Isso é causado principalmente por drivers gráficos incompatíveis para a versão atual do cromo.<br> Execute 'run-without-gpu.bat' para iniciar a sobreposição sem o suporte da gpu (aceleração de hardware).",
 		"graphic-title": "Os gráficos estão embaçados / bug gráfico?",
-		"name": "Socorro"
+		"name": "Socorro",
+		"wiki": "Abrir Wiki do Projeto",
+		"wiki-title": "Consulte o wiki do projeto para obter mais documentação"
 	},
 	"map": {
 		"boss": "Patrão",

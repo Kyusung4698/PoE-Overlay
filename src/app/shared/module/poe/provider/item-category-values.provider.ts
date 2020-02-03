@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CurrencyOverviewHttpService, CurrencyOverviewType, ItemOverviewHttpService, ItemOverviewType } from '@data/poe-ninja';
-import { Observable, of, timer } from 'rxjs';
+import { merge, Observable, of, timer, forkJoin } from 'rxjs';
 import { map, shareReplay, switchMap, take } from 'rxjs/operators';
 import { ItemCategory, ItemRarity } from '../type';
 
@@ -53,7 +53,14 @@ export class ItemCategoryValuesProvider {
             }
             case ItemCategory.Currency: {
                 const key = `${leagueId}_${ItemCategory.Currency}`;
-                return this.fetch(key, () => this.fetchCurrency(leagueId, CurrencyOverviewType.Currency));
+                return forkJoin(
+                    this.fetch(key, () => this.fetchCurrency(leagueId, CurrencyOverviewType.Currency)),
+                    this.fetch(`${key}_essence`, () => this.fetchItem(leagueId, ItemOverviewType.Essence))
+                ).pipe(map(([currencies, essences]) => {
+                    return {
+                        values: currencies.values.concat(essences.values)
+                    };                    
+                }));
             }
             case ItemCategory.MapFragment: {
                 const key = `${leagueId}_${ItemCategory.MapFragment}`;

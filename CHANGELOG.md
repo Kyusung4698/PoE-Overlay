@@ -1,3 +1,13 @@
+## 0.5.12 (2020-02-03)
+
+* add kakao client support (#181)
+* add essence support (#180)
+* add [project wiki](https://github.com/Kyusung4698/PoE-Overlay/wiki) to faq
+* increase keyboard delay (#177)
+* remove `restore focus` (#177)
+* fix `herald of thunder` wrong item category (#176)
+* fix atps instead of crit (#183)
+
 ## 0.5.11 (2020-01-30)
 
 * add option based stat support (#110)

@@ -1,4 +1,4 @@
-import { app, BrowserWindow, ipcMain, Menu, Tray } from 'electron';
+import { app, BrowserWindow, ipcMain, Menu, MenuItemConstructorOptions, Tray } from 'electron';
 import * as hotkeys from 'hotkeys';
 import * as path from 'path';
 import * as robot from 'robotjs';
@@ -170,23 +170,22 @@ function createTray(): Tray {
         ? new Tray(path.join(__dirname, 'src/favicon.ico'))
         : new Tray(path.join(__dirname, 'dist/favicon.ico'));
 
-    const menu = Menu.buildFromTemplate([
-        {
-            label: 'Open Settings',
-            type: 'normal',
-            click: () => win.webContents.send('show-user-settings'),
-        },
-        {
-            label: 'Restore Focus',
-            type: 'normal',
+    const items: MenuItemConstructorOptions[] = [{
+        label: 'Settings', type: 'normal',
+        click: () => win.webContents.send('show-user-settings'),
+    }, {
+        label: 'Exit', type: 'normal',
+        click: () => app.quit()
+    }];
+
+    if (serve) {
+        items.splice(1, 0, {
+            label: 'Ignore Mouse Events', type: 'normal',
             click: () => win.setIgnoreMouseEvents(true),
-        },
-        {
-            label: 'Exit',
-            type: 'normal',
-            click: () => app.quit()
-        }
-    ]);
+        });
+    };
+
+    const menu = Menu.buildFromTemplate(items);
     tray.setToolTip(`PoE-Overlay: ${version}`);
     tray.setContextMenu(menu);
     return tray;

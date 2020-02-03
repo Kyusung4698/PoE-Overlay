@@ -10,6 +10,7 @@ export enum ItemOverviewType {
     DivinationCard = 'DivinationCard',
     Watchstone = 'Watchstone',
     Incubator = 'Incubator',
+    Essence = 'Essence',
     Resonator = 'Resonator',
     UniqueJewel = 'UniqueJewel',
     UniqueFlask = 'UniqueFlask',

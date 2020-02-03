@@ -47,6 +47,13 @@
                     </mat-expansion-panel>
                     <mat-expansion-panel>
                         <mat-expansion-panel-header>
+                            <mat-panel-title> {{'help.wiki-title' | translate}} </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <button mat-button
+                            (click)="openUrl('https://github.com/Kyusung4698/PoE-Overlay/wiki')">{{'help.wiki' | translate}}</button>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
                             <mat-panel-title> {{'help.bug-title' | translate}}
                             </mat-panel-title>
                         </mat-expansion-panel-header>
