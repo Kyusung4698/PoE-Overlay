@@ -21,7 +21,7 @@ export class CommandService {
 
     private init(): void {
         this.command$.pipe(
-            throttleTime(150),
+            throttleTime(350),
             map(command => {
                 const text = this.clipboard.readText();
                 this.clipboard.writeText(command);
@@ -31,7 +31,7 @@ export class CommandService {
                 this.keyboard.keyTap('enter');
                 return text;
             }),
-            delay(50),
+            delay(200),
             tap(text => {
                 this.clipboard.writeText(text);
             })

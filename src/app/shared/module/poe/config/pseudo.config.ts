@@ -10,6 +10,7 @@ export enum ModifierType {
 export interface Modifier {
     id: string;
     type: ModifierType;
+    count?: number;
 }
 
 export interface PseudoModifier {
@@ -58,30 +59,27 @@ export const PSEUDO_MODIFIERS: {
     },
     pseudo_total_strength: {
         mods: [
-            { id: 'additional_strength', type: ModifierType.Addition },
-            { id: 'additional_strength_and_dexterity', type: ModifierType.Addition },
-            { id: 'additional_strength_and_intelligence', type: ModifierType.Addition },
-            { id: 'additional_all_attributes', type: ModifierType.Addition },
-        ],
-        count: 2
+            { id: 'additional_strength', type: ModifierType.Addition, count: 1 },
+            { id: 'additional_strength_and_dexterity', type: ModifierType.Addition, count: 2 },
+            { id: 'additional_strength_and_intelligence', type: ModifierType.Addition, count: 2 },
+            { id: 'additional_all_attributes', type: ModifierType.Addition, count: 2 },
+        ]
     },
     pseudo_total_dexterity: {
         mods: [
-            { id: 'additional_dexterity', type: ModifierType.Addition },
-            { id: 'additional_strength_and_dexterity', type: ModifierType.Addition },
-            { id: 'additional_dexterity_and_intelligence', type: ModifierType.Addition },
-            { id: 'additional_all_attributes', type: ModifierType.Addition },
-        ],
-        count: 2
+            { id: 'additional_dexterity', type: ModifierType.Addition, count: 1 },
+            { id: 'additional_strength_and_dexterity', type: ModifierType.Addition, count: 2 },
+            { id: 'additional_dexterity_and_intelligence', type: ModifierType.Addition, count: 2 },
+            { id: 'additional_all_attributes', type: ModifierType.Addition, count: 2 },
+        ]
     },
     pseudo_total_intelligence: {
         mods: [
-            { id: 'additional_intelligence', type: ModifierType.Addition },
-            { id: 'additional_strength_and_intelligence', type: ModifierType.Addition },
-            { id: 'additional_dexterity_and_intelligence', type: ModifierType.Addition },
-            { id: 'additional_all_attributes', type: ModifierType.Addition },
-        ],
-        count: 2
+            { id: 'additional_intelligence', type: ModifierType.Addition, count: 1 },
+            { id: 'additional_strength_and_intelligence', type: ModifierType.Addition, count: 2 },
+            { id: 'additional_dexterity_and_intelligence', type: ModifierType.Addition, count: 2 },
+            { id: 'additional_all_attributes', type: ModifierType.Addition, count: 2 },
+        ]
     },
     pseudo_total_all_attributes: {
         mods: [
@@ -117,33 +115,30 @@ export const PSEUDO_MODIFIERS: {
     },
     pseudo_total_fire_resistance: {
         mods: [
-            { id: 'base_fire_damage_resistance_%', type: ModifierType.Addition },
-            { id: 'base_resist_all_elements_%', type: ModifierType.Addition },
-            { id: 'fire_and_chaos_damage_resistance_%', type: ModifierType.Addition },
-            { id: 'fire_and_cold_damage_resistance_%', type: ModifierType.Addition },
-            { id: 'fire_and_lightning_damage_resistance_%', type: ModifierType.Addition },
-        ],
-        count: 2
+            { id: 'base_fire_damage_resistance_%', type: ModifierType.Addition, count: 1 },
+            { id: 'base_resist_all_elements_%', type: ModifierType.Addition, count: 2 },
+            { id: 'fire_and_chaos_damage_resistance_%', type: ModifierType.Addition, count: 2 },
+            { id: 'fire_and_cold_damage_resistance_%', type: ModifierType.Addition, count: 2 },
+            { id: 'fire_and_lightning_damage_resistance_%', type: ModifierType.Addition, count: 2 },
+        ]
     },
     pseudo_total_lightning_resistance: {
         mods: [
-            { id: 'base_lightning_damage_resistance_%', type: ModifierType.Addition },
-            { id: 'base_resist_all_elements_%', type: ModifierType.Addition },
-            { id: 'lightning_and_chaos_damage_resistance_%', type: ModifierType.Addition },
-            { id: 'fire_and_lightning_damage_resistance_%', type: ModifierType.Addition },
-            { id: 'cold_and_lightning_damage_resistance_%', type: ModifierType.Addition },
-        ],
-        count: 2
+            { id: 'base_lightning_damage_resistance_%', type: ModifierType.Addition, count: 1 },
+            { id: 'base_resist_all_elements_%', type: ModifierType.Addition, count: 2 },
+            { id: 'lightning_and_chaos_damage_resistance_%', type: ModifierType.Addition, count: 2 },
+            { id: 'fire_and_lightning_damage_resistance_%', type: ModifierType.Addition, count: 2 },
+            { id: 'cold_and_lightning_damage_resistance_%', type: ModifierType.Addition, count: 2 },
+        ]
     },
     pseudo_total_cold_resistance: {
         mods: [
-            { id: 'base_cold_damage_resistance_%', type: ModifierType.Addition },
-            { id: 'base_resist_all_elements_%', type: ModifierType.Addition },
-            { id: 'cold_and_chaos_damage_resistance_%', type: ModifierType.Addition },
-            { id: 'fire_and_cold_damage_resistance_%', type: ModifierType.Addition },
-            { id: 'cold_and_lightning_damage_resistance_%', type: ModifierType.Addition },
-        ],
-        count: 2
+            { id: 'base_cold_damage_resistance_%', type: ModifierType.Addition, count: 1 },
+            { id: 'base_resist_all_elements_%', type: ModifierType.Addition, count: 2 },
+            { id: 'cold_and_chaos_damage_resistance_%', type: ModifierType.Addition, count: 2 },
+            { id: 'fire_and_cold_damage_resistance_%', type: ModifierType.Addition, count: 2 },
+            { id: 'cold_and_lightning_damage_resistance_%', type: ModifierType.Addition, count: 2 },
+        ]
     },
     pseudo_total_elemental_resistance: {
         mods: [
@@ -162,12 +157,11 @@ export const PSEUDO_MODIFIERS: {
     },
     pseudo_total_chaos_resistance: {
         mods: [
-            { id: 'base_chaos_damage_resistance_%', type: ModifierType.Addition },
-            { id: 'fire_and_chaos_damage_resistance_%', type: ModifierType.Addition },
-            { id: 'lightning_and_chaos_damage_resistance_%', type: ModifierType.Addition },
-            { id: 'cold_and_chaos_damage_resistance_%', type: ModifierType.Addition },
-        ],
-        count: 2
+            { id: 'base_chaos_damage_resistance_%', type: ModifierType.Addition, count: 1 },
+            { id: 'fire_and_chaos_damage_resistance_%', type: ModifierType.Addition, count: 2 },
+            { id: 'lightning_and_chaos_damage_resistance_%', type: ModifierType.Addition, count: 2 },
+            { id: 'cold_and_chaos_damage_resistance_%', type: ModifierType.Addition, count: 2 },
+        ]
     },
     pseudo_total_resistance: {
         mods: [

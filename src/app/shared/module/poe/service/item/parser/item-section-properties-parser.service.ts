@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ExportedItem, Item, ItemProperties, ItemProperty, ItemSection, ItemSectionParserService, Section, ItemValueProperty } from '@shared/module/poe/type';
+import { ExportedItem, Item, ItemProperties, ItemProperty, ItemRarity, ItemSection, ItemSectionParserService, ItemValueProperty, Section } from '@shared/module/poe/type';
 import { ClientStringService } from '../../client-string/client-string.service';
 
 const AUGMENTED_PHRASE = ' (augmented)';
@@ -14,8 +14,11 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
     public section = ItemSection.Properties;
 
     public parse(item: ExportedItem, target: Item): Section {
-        const phrases = this.getPhrases();
+        if (target.rarity === ItemRarity.DivinationCard) {
+            return null;
+        }
 
+        const phrases = this.getPhrases();
         const propertiesSection = item.sections.find(section => phrases
             .findIndex(prop => section.content.indexOf(prop) !== -1) !== -1);
         if (!propertiesSection) {
@@ -125,6 +128,7 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
             `${this.clientString.translate('Quality5')}: `,
             `${this.clientString.translate('Quality6')}: `,
             `${this.clientString.translate('Quality7')}: `,
+            `${this.clientString.translate('ItemDisplayStackSize')}: `
         ];
     }
 }

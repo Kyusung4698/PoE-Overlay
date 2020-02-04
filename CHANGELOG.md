@@ -1,3 +1,14 @@
+## 0.5.13 (2020-02-04)
+
+* add divination card header
+* add delay before registering hotkeys after showing window (#177)
+* update pseudo mod behaviour
+    * use pseudo value instead of single value (#182)
+    * remove stat from list if used as pseudo stat (#175)
+* increase command throttle time (#188)
+* fix authenticated request hitting rate limit (#185)
+* fix exchange rate using 6L if no links are present (#187)
+
 ## 0.5.12 (2020-02-03)
 
 * add kakao client support (#181)
