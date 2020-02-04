@@ -1,12 +1,13 @@
-import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpParams, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '@env/environment';
 import { Language } from '@shared/module/poe/type';
-import { Observable } from 'rxjs';
-import { map, retry } from 'rxjs/operators';
+import { Observable, of, throwError } from 'rxjs';
+import { delay, flatMap, map, retry, retryWhen } from 'rxjs/operators';
 import { TradeFetchResult, TradeItemsResult, TradeLeaguesResult, TradeResponse, TradeSearchRequest, TradeSearchResponse, TradeStaticResult, TradeStatsResult } from '../schema/trade';
 
 const RETRY_COUNT = 3;
+const RETRY_LIMIT_DELAY = 100;
 
 @Injectable({
     providedIn: 'root'
@@ -54,7 +55,14 @@ export class TradeHttpService {
                     query: queryId
                 }
             })
-        }).pipe(retry(RETRY_COUNT));
+        }).pipe(retryWhen(errors => errors.pipe(
+            flatMap((error: HttpErrorResponse) => {
+                if (error.status === 429) {
+                    return of(error).pipe(delay(RETRY_LIMIT_DELAY));
+                }
+                return throwError(error);
+            })
+        )));
     }
 
     private getApiUrl(postfix: string, language: Language): string {

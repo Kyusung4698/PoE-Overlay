@@ -79,6 +79,16 @@
     }
   }
 
+  &.divinationcard {
+    background: url(../../../../../../assets/poe/item/header-card-left.png) top left no-repeat,
+      url(../../../../../../assets/poe/item/header-card-right.png) top right no-repeat,
+      url(../../../../../../assets/poe/item/header-card-middle.png) top center repeat-x;
+
+    > .name {
+      color: #000;
+    }
+  }
+
   &.gem {
     background: url(../../../../../../assets/poe/item/header-gem-left.png) top left no-repeat,
       url(../../../../../../assets/poe/item/header-gem-right.png) top right no-repeat,

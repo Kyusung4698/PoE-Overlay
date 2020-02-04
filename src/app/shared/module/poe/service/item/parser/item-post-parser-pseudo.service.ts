@@ -13,10 +13,11 @@ export class ItemPostParserPseudoService implements ItemPostParserService {
 
         const itemStats = [...item.stats];
         Object.getOwnPropertyNames(PSEUDO_MODIFIERS).forEach(id => {
+            const pseudo = PSEUDO_MODIFIERS[id];
             let values = [];
             let count = 0;
+            let minCount = pseudo.count;
 
-            const pseudo = PSEUDO_MODIFIERS[id];
             if (pseudo.mods) {
                 for (const mod of pseudo.mods) {
                     const stats = itemStats.filter(x => x.id === mod.id && x.values.length > 0);
@@ -27,9 +28,18 @@ export class ItemPostParserPseudoService implements ItemPostParserService {
                         }
                         continue;
                     }
+
+                    if (mod.count && (!minCount || mod.count > minCount)) {
+                        minCount = mod.count;
+                    }
+
                     stats.forEach(stat => {
                         ++count;
                         values = this.calculateValue(stat, mod.type, values);
+
+                        if (stat.type !== StatType.Pseudo) {
+                            item.stats = item.stats.filter(y => y !== stat);
+                        }
                     });
                 }
             } else if (pseudo.prop) {
@@ -50,7 +60,7 @@ export class ItemPostParserPseudoService implements ItemPostParserService {
                 mod: undefined
             };
             itemStats.push(itemStat);
-            if (values.length > 0 && (!pseudo.count || count >= pseudo.count)) {
+            if (values.length > 0 && (!minCount || count >= minCount)) {
                 item.stats.push(itemStat);
             }
         });

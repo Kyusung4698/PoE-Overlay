@@ -73,10 +73,14 @@ export class ItemEvaluateService {
         });
 
         const filterLinks = (x: ItemCategoryValue) => {
+            if (x.links === undefined) {
+                return true;
+            }
+
             if (links > 4) {
                 return x.links === links;
             }
-            if (links > 0) {
+            if (links >= 0) {
                 return x.links === 0;
             }
             return true;

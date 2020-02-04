@@ -8,6 +8,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { ContextService } from '@shared/module/poe/service';
 import { Context, Language } from '@shared/module/poe/type';
 import { Observable } from 'rxjs';
+import { delay, distinctUntilChanged, filter, map } from 'rxjs/operators';
 import { version } from '../../../../../package.json';
 import { UserSettingsService } from '../../service/user-settings.service';
 import { UserSettings } from '../../type';
@@ -45,31 +46,12 @@ export class OverlayComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit(): void {
-    this.registerAutoHide();
     this.checkVersion();
     this.initSettings();
   }
 
   public ngOnDestroy(): void {
     this.unregisterShortcuts();
-  }
-
-  private initSettings(): void {
-    this.userSettingsService.init(this.modules).subscribe(settings => {
-      this.translate.use(`${settings.language}`);
-      this.context.init(this.getContext(settings));
-      this.registerShortcuts(settings);
-      this.renderer.on('show-user-settings').subscribe(() => {
-        this.openUserSettings();
-      });
-    });
-  }
-
-  private registerShortcuts(settings: UserSettings): void {
-    this.registerFeatures(settings);
-    this.registerSettings(settings);
-    this.registerExit(settings);
-    this.dialogs.registerShortcuts();
   }
 
   private checkVersion(): void {
@@ -82,20 +64,68 @@ export class OverlayComponent implements OnInit, OnDestroy {
     });
   }
 
-  private registerAutoHide(): void {
-    this.app.visibleChange().subscribe(flag => {
-      if (flag === VisibleFlag.None) {
-        this.window.hide();
-      } else {
-        this.window.show();
-      }
-
-      if ((flag & VisibleFlag.Game) !== VisibleFlag.Game) {
-        this.dialogs.unregisterShortcuts();
-      } else {
-        this.dialogs.registerShortcuts();
-      }
+  private initSettings(): void {
+    this.userSettingsService.init(this.modules).subscribe(settings => {
+      this.translate.use(`${settings.language}`);
+      this.context.init(this.getContext(settings));
+      this.registerVisibleChange();
+      this.renderer.on('show-user-settings').subscribe(() => {
+        this.openUserSettings();
+      });
     });
+  }
+
+  private registerVisibleChange(): void {
+    this.app.visibleChange().pipe(
+      map(flag => {
+        if (flag === VisibleFlag.None) {
+          this.window.hide();
+        } else {
+          this.window.show();
+        }
+
+        const visible = (flag & VisibleFlag.Game) === VisibleFlag.Game;
+        if (!visible) {
+          this.unregisterShortcuts();
+        }
+        return visible;
+      }),
+      distinctUntilChanged(),
+      filter(x => x),
+      delay(500)
+    ).subscribe(() => {
+      this.registerShortcuts();
+    });
+  }
+
+  private openUserSettings(): void {
+    if (!this.userSettingsOpen) {
+      this.unregisterShortcuts();
+      this.userSettingsOpen = this.renderer.open('user-settings');
+
+      this.userSettingsOpen.subscribe(() => {
+        this.userSettingsOpen = null;
+        this.userSettingsService.get().subscribe(settings => {
+          this.translate.use(`${settings.language}`);
+          this.context.update(this.getContext(settings));
+          this.registerShortcuts();
+        });
+      }, () => this.userSettingsOpen = null);
+    }
+  }
+
+  private registerShortcuts(): void {
+    this.userSettingsService.get().subscribe(settings => {
+      this.registerFeatures(settings);
+      this.registerSettings(settings);
+      this.registerExit(settings);
+      this.dialogs.registerShortcuts();
+    });
+  }
+
+  private unregisterShortcuts(): void {
+    this.shortcut.unregisterAll();
+    this.dialogs.unregisterShortcuts();
   }
 
   private registerFeatures(settings: UserSettings): void {
@@ -120,26 +150,6 @@ export class OverlayComponent implements OnInit, OnDestroy {
   private registerExit(settings: UserSettings): void {
     if (settings.exitAppKeybinding) {
       this.shortcut.register(settings.exitAppKeybinding).subscribe(() => this.app.quit());
-    }
-  }
-
-  private unregisterShortcuts(): void {
-    this.shortcut.unregisterAll();
-  }
-
-  private openUserSettings(): void {
-    if (!this.userSettingsOpen) {
-      this.unregisterShortcuts();
-      this.userSettingsOpen = this.renderer.open('user-settings');
-
-      this.userSettingsOpen.subscribe(() => {
-        this.userSettingsOpen = null;
-        this.userSettingsService.get().subscribe(settings => {
-          this.translate.use(`${settings.language}`);
-          this.context.update(this.getContext(settings));
-          this.registerShortcuts(settings);
-        });
-      }, () => this.userSettingsOpen = null);
     }
   }
 
