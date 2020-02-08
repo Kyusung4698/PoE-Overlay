@@ -6,6 +6,7 @@
 * add alternate evaluate list view (#196)
 * add oil exchange rate support (#192)
 * update data to 3.9.2e
+* remove pseudo count filter (#197)
 * fix exchange rate using wrong link count (#187)
 * fix using wrong mouse position with scaled os (#195)
 
