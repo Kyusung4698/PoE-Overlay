@@ -8,7 +8,7 @@
   "author": {
     "name": "Kyusung4698"
   },
-  "version": "0.5.13",
+  "version": "0.5.14",
   "scripts": {
     "postinstall": "electron-builder install-app-deps",
     "ng:serve": "ng serve",
@@ -43,6 +43,7 @@
     "hammerjs": "^2.0.8",
     "hotkeys": "git+https://github.com/Kyusung4698/hotkeys.git#4fe60fd9cf629d32bb2363de0b1047056953a4c3",
     "localforage": "^1.7.3",
+    "moment": "^2.24.0",
     "robotjs": "git+https://github.com/Kyusung4698/robotjs.git#81ca63005b48acb7b4fdb495d90cd17ac1a48e49",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",

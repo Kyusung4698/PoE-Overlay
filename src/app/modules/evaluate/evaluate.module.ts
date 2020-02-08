@@ -5,23 +5,25 @@ import { Language } from '@shared/module/poe/type';
 import { ItemSearchIndexed } from '@shared/module/poe/type/search.type';
 import { SharedModule } from '@shared/shared.module';
 import { UserSettingsFeature } from 'src/app/layout/type';
-import { EvaluateAreaChartComponent } from './component/evaluate-area-chart/evaluate-area-chart.component';
-import { EvaluateChartComponent } from './component/evaluate-chart/evaluate-chart.component';
+import { EvaluateExchangeRateChartComponent } from './component/evaluate-exchange-rate-chart/evaluate-exchange-rate-chart.component';
+import { EvaluateSearchChartComponent } from './component/evaluate-search-chart/evaluate-search-chart.component';
 import { EvaluateDialogComponent } from './component/evaluate-dialog/evaluate-dialog.component';
 import { EvaluateSearchComponent } from './component/evaluate-search/evaluate-search.component';
 import { EvaluateSettingsComponent, EvaluateUserSettings } from './component/evaluate-settings/evaluate-settings.component';
-import { EvaluateComponent } from './component/evaluate/evaluate.component';
+import { EvaluateExchangeRateComponent } from './component/evaluate-exchange-rate/evaluate-exchange-rate.component';
 import { EvaluateService } from './service/evaluate.service';
+import { EvaluateSearchTableComponent } from './component/evaluate-search-table/evaluate-search-table.component';
 
 @NgModule({
     providers: [{ provide: FEATURE_MODULES, useClass: EvaluateModule, multi: true }],
     declarations: [
         EvaluateDialogComponent,
         EvaluateSettingsComponent,
-        EvaluateChartComponent,
-        EvaluateAreaChartComponent,
-        EvaluateComponent,
-        EvaluateSearchComponent
+        EvaluateSearchChartComponent,
+        EvaluateExchangeRateChartComponent,
+        EvaluateExchangeRateComponent,
+        EvaluateSearchComponent,
+        EvaluateSearchTableComponent
     ],
     entryComponents: [EvaluateDialogComponent, EvaluateSettingsComponent],
     imports: [SharedModule]

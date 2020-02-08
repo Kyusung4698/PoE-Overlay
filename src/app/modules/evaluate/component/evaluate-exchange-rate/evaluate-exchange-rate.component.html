@@ -1,0 +1,58 @@
+<ng-container *ngIf="(result$ | async) as result; else loading">
+    <ng-container *ngIf="result.rate !== undefined; else notfound">
+        <div class="exchange-rate" (wheel)="onEvaluateWheel($event)">
+            <div class="factors">
+                <div *ngIf="(inverse$ | async) === false; else inverse">
+                    <div class="factor">
+                        <span class="amount">1.00&nbsp;</span>
+                        <mat-icon class="clickable switch" [title]="'evaluate.switch' | translate"
+                            (click)="inverse$.next(!inverse$.value)">compare_arrows
+                        </mat-icon>
+                        <span class="currency">
+                            <app-currency-frame [amount]="result.rate.amount" [currency]="result.rate.currency">
+                            </app-currency-frame>
+                        </span>
+                    </div>
+                </div>
+                <ng-template #inverse>
+                    <div class="factor">
+                        <span class="amount">{{result.rate.inverseAmount | number:'1.2-2'}}&nbsp;</span>
+                        <mat-icon class="clickable switch" [title]="'evaluate.switch' | translate"
+                            (click)="inverse$.next(!inverse$.value)">compare_arrows
+                        </mat-icon>
+                        <span class="currency">
+                            <app-currency-frame [amount]="1" [currency]="result.rate.currency">
+                            </app-currency-frame>
+                        </span>
+                    </div>
+                </ng-template>
+            </div>
+            <div class="spacer"></div>
+            <div class="chart">
+                <div class="values">
+                    <span class="value" [class.negative]="result.rate.change < 0"
+                        [class.positive]="result.rate.change > 0">
+                        <mat-icon *ngIf="result.rate.change < 0">trending_down</mat-icon>
+                        <mat-icon *ngIf="result.rate.change === 0">trending_flat</mat-icon>
+                        <mat-icon *ngIf="result.rate.change > 0">trending_up</mat-icon>
+                        <span> {{result.rate.change}}%</span>
+                    </span>
+                    <span class="info">{{'evaluate.days' | translate}}</span>
+                </div>
+                <div>
+                    <app-evaluate-exchange-rate-chart [result]="result.rate" [inverse]="inverse$ | async">
+                    </app-evaluate-exchange-rate-chart>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <ng-template #notfound>
+        <div> {{'evaluate.not-found' | translate}} </div>
+    </ng-template>
+    <ng-container *ngIf="result.error">
+        <div> {{'evaluate.error' | translate}} </div>
+    </ng-container>
+</ng-container>
+<ng-template #loading>
+    <div> {{'evaluate.loading' | translate}} </div>
+</ng-template>

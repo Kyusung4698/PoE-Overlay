@@ -166,6 +166,9 @@ export class EvaluateDialogService {
         const price = 64;
         height += price;
 
+        const toggles = 35;
+        height += toggles;
+
         const graph = 200;
         height += graph;
 

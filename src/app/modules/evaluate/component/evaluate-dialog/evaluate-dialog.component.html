@@ -4,11 +4,12 @@
         [modifier]="data.settings.evaluateModifierRange / 100"
         [modifierMaxRange]="!data.settings.evaluateModifierDisableMaxRange">
         <ng-container *ngIf="(currencies$ | async) as currencies; else loading">
-            <app-evaluate [item]="data.item" [currencies]="currencies"></app-evaluate>
+            <app-evaluate-exchange-rate [item]="data.item" [currencies]="currencies"></app-evaluate-exchange-rate>
             <app-item-frame-separator [item]="data.item"></app-item-frame-separator>
-            <app-evaluate-search *ngIf="init$ | async; else loading" [settings]="data.settings" [defaultItem]="defaultItem"
-                [queryItem]="queryItem" [queryItemChange]="queryItemChange" [currencies]="currencies"
-                (update)="onQueryItemChange($event)" (evaluateResult)="onEvaluateResult($event)">
+            <app-evaluate-search *ngIf="init$ | async; else loading" [settings]="data.settings"
+                [defaultItem]="defaultItem" [queryItem]="queryItem" [queryItemChange]="queryItemChange"
+                [currencies]="currencies" (update)="onQueryItemChange($event)"
+                (evaluateResult)="onEvaluateResult($event)">
             </app-evaluate-search>
         </ng-container>
         <ng-template #loading>

@@ -20,7 +20,9 @@ export class MouseService {
         this.ipcRenderer.sendSync('click-at', button, position);
     }
 
-    public position(): Point {
-        return this.electron.screen.getCursorScreenPoint();
+    public position(raw: boolean = false): Point {
+        return raw
+            ? this.ipcRenderer.sendSync('mouse-pos')
+            : this.electron.screen.getCursorScreenPoint();
     }
 }

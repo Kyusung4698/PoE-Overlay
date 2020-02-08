@@ -1,0 +1,32 @@
+table {
+  width: 100%;
+
+  th,
+  td {
+    padding: 0;
+  }
+
+  &.header {
+    border-bottom: 1px solid #7f7f7f;
+  }
+
+  .seller {
+    width: 100%;
+  }
+
+  .amount {
+    min-width: 70px;
+
+    .value {
+      color: #c8c8c8;
+    }
+  }
+
+  .age {
+    min-width: 90px;
+  }
+
+  .fixer {
+    color: #b00;
+  }
+}

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { TradeFetchResult, TradeHttpService, TradeSearchRequest } from '@data/poe';
-import { Item, ItemSearchResult, Language, SearchItem } from '@shared/module/poe/type';
+import { Currency, Item, Language } from '@shared/module/poe/type';
+import moment from 'moment';
 import { forkJoin, from, Observable, of } from 'rxjs';
 import { flatMap, map, mergeMap, toArray } from 'rxjs/operators';
 import { ItemSearchIndexed, ItemSearchOptions } from '../../type/search.type';
@@ -10,6 +11,20 @@ import { ItemSearchQueryService } from './query/item-search-query.service';
 
 const MAX_FETCH_COUNT = 10;
 const MAX_FETCH_CONCURRENT_COUNT = 5;
+
+export interface SearchListing {
+    seller: string;
+    indexed: moment.Moment;
+    age: string;
+    currency: Currency;
+    amount: number;
+}
+
+export interface ItemSearchResult {
+    items: SearchListing[];
+    total: number;
+    url: string;
+}
 
 @Injectable({
     providedIn: 'root'
@@ -45,7 +60,7 @@ export class ItemSearchService {
                     }
                 },
                 stats: []
-            },
+            }
         };
         if (options.indexed) {
             request.query.filters.trade_filters.filters.indexed = {
@@ -60,41 +75,44 @@ export class ItemSearchService {
                     const result: ItemSearchResult = {
                         items: [],
                         url: response.url,
-                        total: response.total,
+                        total: response.total
                     };
                     return of(result);
                 }
 
-                const itemIds = response.result;
-                const itemIdsChunked = [];
+                const resultIds = response.result;
+                const resultIdsChunked: string[][] = [];
 
-                for (let i = 0, j = Math.min(100, itemIds.length); i < j; i += MAX_FETCH_COUNT) {
-                    itemIdsChunked.push(itemIds.slice(i, i + MAX_FETCH_COUNT));
+                for (let i = 0, j = Math.min(100, resultIds.length); i < j; i += MAX_FETCH_COUNT) {
+                    resultIdsChunked.push(resultIds.slice(i, i + MAX_FETCH_COUNT));
                 }
 
-                return from(itemIdsChunked).pipe(
-                    mergeMap(x => this.tradeService.fetch(x, response.id, language), MAX_FETCH_CONCURRENT_COUNT),
+                return from(resultIdsChunked).pipe(
+                    mergeMap(chunk => this.tradeService.fetch(chunk, response.id, language), MAX_FETCH_CONCURRENT_COUNT),
                     toArray(),
                     flatMap(responses => {
-                        const items = responses.filter(x => x.result && x.result.length).reduce((a, b) => a.concat(b.result), []);
-                        if (items.length <= 0) {
+                        const results = responses
+                            .filter(x => x.result && x.result.length)
+                            .reduce((a, b) => a.concat(b.result), []);
+
+                        if (results.length <= 0) {
                             const result: ItemSearchResult = {
                                 items: [],
                                 url: response.url,
-                                total: response.total,
+                                total: response.total
                             };
                             return of(result);
                         }
 
-                        const items$ = items
-                            .map(item => this.createSearchItem(requestedItem, item));
+                        const listings$ = results
+                            .map(item => this.mapListing(item));
 
-                        return forkJoin(items$).pipe(
-                            map(x => {
+                        return forkJoin(listings$).pipe(
+                            map(listings => {
                                 const result: ItemSearchResult = {
-                                    items: x.filter(item => item !== undefined),
+                                    items: listings.filter(listing => listing !== undefined),
                                     url: response.url,
-                                    total: response.total,
+                                    total: response.total
                                 };
                                 return result;
                             })
@@ -105,15 +123,30 @@ export class ItemSearchService {
         );
     }
 
-    private createSearchItem(requestedItem: Item, result: TradeFetchResult): Observable<SearchItem> {
-        if (!result || !result.listing || !result.listing.price) {
+    private mapListing(result: TradeFetchResult): Observable<SearchListing> {
+        if (!result || !result.listing || !result.listing.price || !result.listing.account || !result.listing.indexed) {
+            console.warn(`Result was invalid.`, result);
             return of(undefined);
         }
 
-        const price = result.listing.price;
+        const { listing } = result;
+        const { price } = listing;
 
-        const currencyAmount = price.amount;
-        if (currencyAmount <= 0) {
+        const { amount } = price;
+        if (amount <= 0) {
+            console.warn(`Amount was less or equal zero.`);
+            return of(undefined);
+        }
+
+        const indexed = moment(listing.indexed);
+        if (!indexed.isValid()) {
+            console.warn(`Indexed value: '${listing.indexed}' was not a valid date.`);
+            return of(undefined);
+        }
+
+        const seller = listing.account.name || '';
+        if (seller.length <= 0) {
+            console.warn(`Seller: '${seller}' was empty or undefined.`);
             return of(undefined);
         }
 
@@ -124,14 +157,13 @@ export class ItemSearchService {
                     console.warn(`Could not parse '${currencyId}' as currency.`);
                     return undefined;
                 }
-
-                const item: SearchItem = {
-                    ...requestedItem,
-                    currency,
-                    currencyAmount
+                return {
+                    seller, indexed,
+                    currency, amount,
+                    age: indexed.fromNow(),
                 };
-                return item;
             })
         );
     }
 }
+

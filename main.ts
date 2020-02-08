@@ -19,7 +19,12 @@ ipcMain.on('click-at', (event, button, position) => {
         robot.moveMouse(position.x, position.y);
     }
     robot.mouseClick(button, false);
+    
     event.returnValue = true;
+});
+
+ipcMain.on('mouse-pos', (event) => {
+    event.returnValue = robot.getMousePos()
 });
 
 ipcMain.on('key-tap', (event, key, modifier) => {

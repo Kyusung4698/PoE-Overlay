@@ -185,42 +185,7 @@ export interface ItemsMap {
     items: Item[];
 }
 
-export type EvaluateItem = Item & {
-    original: Currency;
-    originalAmount: number;
-    target: Currency;
-    targetAmount: number;
-    targetAmountRounded: number;
-};
 
-export interface EvaluateItemGrouped {
-    value: number;
-    items: EvaluateItem[];
-}
-
-export interface ItemSearchEvaluateResult {
-    url: string;
-    total: number;
-    items: EvaluateItem[];
-    itemsGrouped?: EvaluateItemGrouped[];
-    currency?: Currency;
-    min?: number;
-    max?: number;
-    mode?: number;
-    median?: number;
-    mean?: number;
-}
-
-export type SearchItem = Item & {
-    currency: Currency;
-    currencyAmount: number;
-};
-
-export interface ItemSearchResult {
-    items: SearchItem[];
-    total: number;
-    url: string;
-}
 
 export interface ExportedItem {
     sections: Section[];

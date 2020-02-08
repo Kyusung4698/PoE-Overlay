@@ -805,7 +805,8 @@
 			],
 			"bossRating": "3",
 			"bossCount": 1,
-			"url": "https://pathofexile.gamepedia.com/Spider_Lair_Map"
+			"url": "https://pathofexile.gamepedia.com/Spider_Lair_Map",
+			"encounter": "Thraxia (based on The Bone Queen)"
 		},
 		"Sulphur Vents Map": {
 			"items": [
@@ -1226,7 +1227,8 @@
 			"bossRating": "2",
 			"bossCount": 1,
 			"url": "https://pathofexile.gamepedia.com/Gardens_Map",
-			"encounter": "Sallazzang"
+			"encounter": "Sallazzang, a unique Plumed Chimeral.",
+			"layout": "The layout is similar to the Imperial Gardens (or the removed area The Hedge Maze) of Act 3, as well as some areas of The Lord's Labyrinth."
 		},
 		"Lava Chamber Map": {
 			"items": [
@@ -1365,7 +1367,12 @@
 			"url": "https://pathofexile.gamepedia.com/Courtyard_Map"
 		},
 		"The Vinktar Square": {
-			"items": [],
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Iron Bard",
+				"Monochrome"
+			],
 			"layoutRating": "C",
 			"bosses": [
 				"Avatar of Thunder",

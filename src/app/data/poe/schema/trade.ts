@@ -259,8 +259,14 @@ export interface TradeFetchResultPrice {
     currency: string;
 }
 
+export interface TradeFetchResultAccount {
+    name: string;
+}
+
 export interface TradeFetchResultListing {
+    indexed: string;
     price: TradeFetchResultPrice;
+    account: TradeFetchResultAccount;
 }
 
 export interface TradeFetchResult {

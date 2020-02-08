@@ -23,6 +23,12 @@
   }
 }
 
+.active {
+  color: #c8c8c8;
+  background-color: rgba(170, 158, 130, 0.3);
+  outline: auto;
+}
+
 .values {
   &:hover {
     .currency {

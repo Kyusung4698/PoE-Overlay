@@ -1,0 +1,17 @@
+::ng-deep {
+  app-evaluate-exchange-rate-chart {
+    .ngx-charts {
+      height: 40px;
+      width: 140px;
+      overflow: hidden;
+      
+      .area-chart {
+        transform: translate(0, 0);
+      }
+
+      text {
+        fill: #fff;
+      }
+    }
+  }
+}

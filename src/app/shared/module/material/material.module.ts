@@ -40,6 +40,8 @@ import { TranslateModule } from '@ngx-translate/core';
     TranslateModule,
   ],
   exports: [
+    CommonModule,
+    ScrollingModule,
     MatButtonModule,
     MatDialogModule,
     MatSnackBarModule,
@@ -51,6 +53,7 @@ import { TranslateModule } from '@ngx-translate/core';
     MatCardModule,
     MatSlideToggleModule,
     MatSliderModule,
+    MatListModule,
     MatExpansionModule,
     // custom
     AcceleratorComponent,

@@ -5,10 +5,11 @@ import { TranslateFakeLoader, TranslateLoader, TranslateModule } from '@ngx-tran
 import { ContextService } from '@shared/module/poe/service';
 import { Language } from '@shared/module/poe/type';
 import { SharedModule } from '@shared/shared.module';
-import { EvaluateAreaChartComponent } from '../evaluate-area-chart/evaluate-area-chart.component';
-import { EvaluateChartComponent } from '../evaluate-chart/evaluate-chart.component';
+import { EvaluateExchangeRateChartComponent } from '../evaluate-exchange-rate-chart/evaluate-exchange-rate-chart.component';
+import { EvaluateExchangeRateComponent } from '../evaluate-exchange-rate/evaluate-exchange-rate.component';
+import { EvaluateSearchChartComponent } from '../evaluate-search-chart/evaluate-search-chart.component';
+import { EvaluateSearchTableComponent } from '../evaluate-search-table/evaluate-search-table.component';
 import { EvaluateSearchComponent } from '../evaluate-search/evaluate-search.component';
-import { EvaluateComponent } from '../evaluate/evaluate.component';
 import { EvaluateDialogComponent } from './evaluate-dialog.component';
 
 class ElectronProviderFake {
@@ -39,10 +40,11 @@ describe('EvaluateDialogComponent', () => {
             ],
             declarations: [
                 EvaluateDialogComponent,
-                EvaluateComponent,
+                EvaluateExchangeRateComponent,
+                EvaluateExchangeRateChartComponent,
+                EvaluateSearchChartComponent,
+                EvaluateSearchTableComponent,
                 EvaluateSearchComponent,
-                EvaluateAreaChartComponent,
-                EvaluateChartComponent
             ],
             providers: [
                 {
