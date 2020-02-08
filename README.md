@@ -1,4 +1,4 @@
-# PoE Overlay 0.5.13
+# PoE Overlay 0.5.14
 
 An Overlay for Path of Exile. The ***core aspect*** is to blend in with the game. Built with Electron and Angular. 
  
