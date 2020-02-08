@@ -42,7 +42,12 @@
                 </span>
             </div>
         </div>
-        <app-evaluate-chart [result]="result" (amountSelect)="onAmountSelect($event)"></app-evaluate-chart>
+        <div class="clickable" align="end">
+            <mat-icon [class.active]="chart" (click)="chart = true">bar_chart</mat-icon>
+            <mat-icon [class.active]="!chart" (click)="chart = false">list</mat-icon>
+        </div>
+        <app-evaluate-search-chart *ngIf="chart" [result]="result" (amountSelect)="onAmountSelect($event)"></app-evaluate-search-chart>
+        <app-evaluate-search-table *ngIf="!chart" [result]="result" (amountSelect)="onAmountSelect($event)"></app-evaluate-search-table>
     </ng-container>
     <ng-container *ngIf="result.items && result.items.length === 0">
         <div class="clickable" (click)="onCurrencyClick($event)"

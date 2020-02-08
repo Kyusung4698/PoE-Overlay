@@ -2,8 +2,8 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output
 import { BrowserService } from '@app/service';
 import { EvaluateResult } from '@modules/evaluate/type/evaluate.type';
 import { SnackBarService } from '@shared/module/material/service';
-import { ItemSearchEvaluateService, ItemSearchService } from '@shared/module/poe/service';
-import { Currency, Item, ItemSearchEvaluateResult, ItemSearchResult } from '@shared/module/poe/type';
+import { ItemSearchAnalyzeResult, ItemSearchAnalyzeService, ItemSearchResult, ItemSearchService } from '@shared/module/poe/service';
+import { Currency, Item } from '@shared/module/poe/type';
 import { ItemSearchIndexed, ItemSearchOptions } from '@shared/module/poe/type/search.type';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { debounceTime, takeUntil, tap } from 'rxjs/operators';
@@ -24,7 +24,9 @@ export class EvaluateSearchComponent implements OnInit {
   public online$: BehaviorSubject<boolean>;
   public indexed$: BehaviorSubject<ItemSearchIndexed>;
 
-  public result$ = new BehaviorSubject<ItemSearchEvaluateResult>(null);
+  public chart = true;
+
+  public result$ = new BehaviorSubject<ItemSearchAnalyzeResult>(null);
 
   @Input()
   public settings: EvaluateUserSettings;
@@ -49,7 +51,7 @@ export class EvaluateSearchComponent implements OnInit {
 
   constructor(
     private readonly itemSearchService: ItemSearchService,
-    private readonly itemSearchEvaluateService: ItemSearchEvaluateService,
+    private readonly itemSearchEvaluateService: ItemSearchAnalyzeService,
     private readonly browser: BrowserService,
     private readonly snackbar: SnackBarService) { }
 
@@ -140,7 +142,7 @@ export class EvaluateSearchComponent implements OnInit {
 
   private evaluate(search: ItemSearchResult, currency?: Currency): void {
     if (search.items.length <= 0) {
-      const empty: ItemSearchEvaluateResult = {
+      const empty: ItemSearchAnalyzeResult = {
         url: search.url,
         items: [],
         total: 0,
@@ -148,7 +150,7 @@ export class EvaluateSearchComponent implements OnInit {
       this.result$.next(empty);
     } else {
       this.itemSearchEvaluateService
-        .evaluate(search, currency ? [currency] : this.currencies)
+        .analyze(search, currency ? [currency] : this.currencies)
         .subscribe(
           result => this.result$.next(result),
           error => this.handleError(error)

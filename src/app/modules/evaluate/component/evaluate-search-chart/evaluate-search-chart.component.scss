@@ -1,0 +1,11 @@
+::ng-deep {
+  app-evaluate-search-chart {
+    margin: 0 auto;
+
+    .ngx-charts {
+      text {
+        fill: #fff;
+      }
+    }
+  }
+}

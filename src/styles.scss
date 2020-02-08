@@ -8,6 +8,11 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
 .clickable {
   cursor: pointer;
   user-select: none;

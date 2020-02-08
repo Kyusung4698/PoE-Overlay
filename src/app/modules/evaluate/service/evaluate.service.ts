@@ -39,7 +39,7 @@ export class EvaluateService {
                                     this.stash.copyPrice(evaluate.amount, evaluate.currency);
                                     return this.snackbar.info('evaluate.tag.note');
                                 }
-                                return this.stash.tagPrice(evaluate.amount, evaluate.currency, point);
+                                return this.stash.tagPrice(evaluate.amount, evaluate.currency, result.rawPoint);
                             })
                         );
                     case ItemClipboardResultCode.Empty:

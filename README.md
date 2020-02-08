@@ -79,9 +79,9 @@ These instructions will set you up to run and enjoy the overlay.
 
 1. Head over to [Releases](https://github.com/Kyusung4698/PoE-Overlay/releases) and download the latest zip
 2. Extract zip
-3. Run `poe-overlay 0.5.13.exe`
+3. Run `poe-overlay 0.5.14.exe`
 4. Start Path of Exile
-5. Wait until you can see `POE Overlay 0.5.13` in the bottom left corner
+5. Wait until you can see `POE Overlay 0.5.14` in the bottom left corner
 6. Hit `f7` and set `Language` and `League` to meet your game settings
 
 #### Shortcuts

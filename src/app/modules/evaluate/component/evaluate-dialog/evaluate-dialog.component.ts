@@ -8,13 +8,13 @@ import { BehaviorSubject, forkJoin, Observable, Subject } from 'rxjs';
 import { shareReplay } from 'rxjs/operators';
 import { EvaluateUserSettings } from '../evaluate-settings/evaluate-settings.component';
 
+const CURRENCIES_CACHE_SIZE = 1;
+
 export interface EvaluateDialogData {
   item: Item;
   settings: EvaluateUserSettings;
   language?: Language;
 }
-
-const CURRENCIES_CACHE_SIZE = 1;
 
 @Component({
   selector: 'app-evaluate-dialog',

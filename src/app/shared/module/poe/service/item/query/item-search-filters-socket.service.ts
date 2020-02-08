@@ -1,11 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Query } from '@data/poe';
 import { Item, ItemSearchFiltersService, Language } from '@shared/module/poe/type';
+import { ItemSocketService } from '../item-socket.service';
 
 @Injectable({
     providedIn: 'root'
 })
 export class ItemSearchFiltersSocketService implements ItemSearchFiltersService {
+
+    constructor(
+        private readonly socket: ItemSocketService) {
+    }
+
     public add(item: Item, language: Language, query: Query): void {
         const validSockets = (item.sockets || []).filter(x => !!x);
         if (validSockets.length <= 0) {
@@ -25,25 +31,9 @@ export class ItemSearchFiltersSocketService implements ItemSearchFiltersService 
             };
         }
 
-
-        let count = 0;
-        let maxCount = 0;
-        validSockets.forEach(x => {
-            if (x.linked) {
-                ++count;
-            }
-            if (count > maxCount) {
-                maxCount = count;
-            }
-            if (!x.linked) {
-                count = 0;
-            }
-        });
-
-        if (maxCount > 0) {
-            query.filters.socket_filters.filters.links = {
-                min: maxCount + 1
-            };
+        const links = this.socket.getLinkCount(validSockets);
+        if (links > 0) {
+            query.filters.socket_filters.filters.links = { min: links };
         }
     }
 }

@@ -973,3 +973,13 @@ Monsters gain an Endurance Charge on Hit
 Monsters have a 20% chance to cause Elemental Ailments on Hit
 --------
 Travel to this Map by using it in a personal Map Device. Maps can only be used once.
+
+Rarity: Currency
+Clear Oil
+--------
+Stack Size: 9/10
+--------
+Can be combined with other Oils at Cassia to Enchant Rings or Amulets, or to modify Blighted Maps.
+Shift click to unstack.
+--------
+Note: ~price 1 jew

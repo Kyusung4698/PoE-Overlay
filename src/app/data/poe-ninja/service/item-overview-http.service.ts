@@ -11,6 +11,7 @@ export enum ItemOverviewType {
     Watchstone = 'Watchstone',
     Incubator = 'Incubator',
     Essence = 'Essence',
+    Oil = 'Oil',
     Resonator = 'Resonator',
     UniqueJewel = 'UniqueJewel',
     UniqueFlask = 'UniqueFlask',

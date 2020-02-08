@@ -1,0 +1,24 @@
+<ng-container *ngIf="rows.length > 0">
+    <table class="header">
+        <tr>
+            <th class="amount">Amount</th>
+            <th class="seller">Seller</th>
+            <th class="age">Age</th>
+        </tr>
+    </table>
+    <cdk-virtual-scroll-viewport class="viewport" [style.height.px]="rows.length > 20 ? 20 * 20 : (rows.length + 1) * 20" itemSize="19" minBufferPx="200" maxBufferPx="400">
+        <table>
+            <tr *cdkVirtualFor="let row of rows;templateCacheSize: 0" class="clickable" [class.fixer]="row.count >= 3"
+                (click)="onRowClick(row.amount)">
+                <td class="amount">
+                    <span class="value">{{row.amount}}</span>
+                    <span *ngIf="row.count > 1">
+                        <small>&nbsp;x&nbsp;{{row.count}}</small>
+                    </span>
+                </td>
+                <td class="seller"> {{row.seller}} </td>
+                <td class="age"> <small>{{row.age}}</small> </td>
+            </tr>
+        </table>
+    </cdk-virtual-scroll-viewport>
+</ng-container>

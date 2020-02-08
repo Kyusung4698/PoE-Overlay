@@ -5,7 +5,8 @@ import { ContextService } from '@shared/module/poe/service';
 import { Language } from '@shared/module/poe/type';
 import { SharedModule } from '@shared/shared.module';
 import { BehaviorSubject } from 'rxjs';
-import { EvaluateChartComponent } from '../evaluate-chart/evaluate-chart.component';
+import { EvaluateSearchChartComponent } from '../evaluate-search-chart/evaluate-search-chart.component';
+import { EvaluateSearchTableComponent } from '../evaluate-search-table/evaluate-search-table.component';
 import { EvaluateSearchComponent } from './evaluate-search.component';
 
 class ElectronProviderFake {
@@ -34,7 +35,11 @@ describe('EvaluateSearchComponent', () => {
           }
         })
       ],
-      declarations: [EvaluateSearchComponent, EvaluateChartComponent],
+      declarations: [
+        EvaluateSearchComponent,
+        EvaluateSearchChartComponent,
+        EvaluateSearchTableComponent
+      ],
       providers: [
         { provide: ElectronProvider, useClass: ElectronProviderFake }
       ]
