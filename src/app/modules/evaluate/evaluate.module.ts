@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Injectable } from '@angular/core';
 import { FEATURE_MODULES } from '@app/token';
 import { Feature, FeatureModule } from '@app/type';
 import { Language } from '@shared/module/poe/type';
@@ -14,6 +14,7 @@ import { EvaluateExchangeRateComponent } from './component/evaluate-exchange-rat
 import { EvaluateService } from './service/evaluate.service';
 import { EvaluateSearchTableComponent } from './component/evaluate-search-table/evaluate-search-table.component';
 
+@Injectable()
 @NgModule({
     providers: [{ provide: FEATURE_MODULES, useClass: EvaluateModule, multi: true }],
     declarations: [

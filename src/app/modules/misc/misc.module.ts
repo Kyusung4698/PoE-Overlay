@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Injectable } from '@angular/core';
 import { FEATURE_MODULES } from '@app/token';
 import { Feature, FeatureModule } from '@app/type';
 import { SharedModule } from '@shared/shared.module';
@@ -7,6 +7,7 @@ import { MiscSettingsComponent, MiscUserSettings } from './component';
 import { MiscStashService } from './service/misc-stash.service';
 import { MiscWikiService } from './service/misc-wiki.service';
 
+@Injectable()
 @NgModule({
     providers: [{ provide: FEATURE_MODULES, useClass: MiscModule, multi: true }],
     declarations: [MiscSettingsComponent],

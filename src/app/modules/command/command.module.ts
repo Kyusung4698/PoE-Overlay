@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Injectable } from '@angular/core';
 import { FEATURE_MODULES } from '@app/token';
 import { Feature, FeatureModule } from '@app/type';
 import { SharedModule } from '@shared/shared.module';
@@ -6,6 +6,7 @@ import { UserSettingsFeature } from 'src/app/layout/type';
 import { CommandSettingsComponent, CommandUserSettings } from './component';
 import { CommandService } from './service/command.service';
 
+@Injectable()
 @NgModule({
   providers: [{ provide: FEATURE_MODULES, useClass: CommandModule, multi: true }],
   declarations: [CommandSettingsComponent],
