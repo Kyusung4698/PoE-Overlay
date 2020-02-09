@@ -7,11 +7,9 @@ import { MapDialogComponent } from './component/map-dialog/map-dialog.component'
 import { MapSettingsComponent, MapUserSettings } from './component/map-settings/map-settings.component';
 import { MapService } from './service/map.service';
 
-@Injectable()
 @NgModule({
     providers: [{ provide: FEATURE_MODULES, useClass: MapModule, multi: true }],
     declarations: [MapDialogComponent, MapSettingsComponent],
-    entryComponents: [MapDialogComponent, MapSettingsComponent],
     imports: [SharedModule]
 })
 export class MapModule implements FeatureModule {

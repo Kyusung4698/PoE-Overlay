@@ -6,11 +6,9 @@ import { UserSettingsFeature } from 'src/app/layout/type';
 import { CommandSettingsComponent, CommandUserSettings } from './component';
 import { CommandService } from './service/command.service';
 
-@Injectable()
 @NgModule({
   providers: [{ provide: FEATURE_MODULES, useClass: CommandModule, multi: true }],
   declarations: [CommandSettingsComponent],
-  entryComponents: [CommandSettingsComponent],
   imports: [SharedModule]
 })
 export class CommandModule implements FeatureModule {

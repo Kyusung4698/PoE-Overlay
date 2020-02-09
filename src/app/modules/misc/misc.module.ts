@@ -7,11 +7,9 @@ import { MiscSettingsComponent, MiscUserSettings } from './component';
 import { MiscStashService } from './service/misc-stash.service';
 import { MiscWikiService } from './service/misc-wiki.service';
 
-@Injectable()
 @NgModule({
     providers: [{ provide: FEATURE_MODULES, useClass: MiscModule, multi: true }],
     declarations: [MiscSettingsComponent],
-    entryComponents: [MiscSettingsComponent],
     imports: [SharedModule]
 })
 export class MiscModule implements FeatureModule {

@@ -1,3 +1,8 @@
+## 0.5.15 (2020-02-09)
+
+* update angular to 9.0.0
+* update electron to 8.0.0
+
 ## 0.5.14 (2020-02-08)
 
 * add account listing count threshold (#196)

@@ -14,7 +14,6 @@ import { EvaluateExchangeRateComponent } from './component/evaluate-exchange-rat
 import { EvaluateService } from './service/evaluate.service';
 import { EvaluateSearchTableComponent } from './component/evaluate-search-table/evaluate-search-table.component';
 
-@Injectable()
 @NgModule({
     providers: [{ provide: FEATURE_MODULES, useClass: EvaluateModule, multi: true }],
     declarations: [
@@ -26,7 +25,6 @@ import { EvaluateSearchTableComponent } from './component/evaluate-search-table/
         EvaluateSearchComponent,
         EvaluateSearchTableComponent
     ],
-    entryComponents: [EvaluateDialogComponent, EvaluateSettingsComponent],
     imports: [SharedModule]
 })
 export class EvaluateModule implements FeatureModule {

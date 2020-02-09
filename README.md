@@ -1,4 +1,4 @@
-# PoE Overlay 0.5.13
+# PoE Overlay 0.5.14
 
 An Overlay for Path of Exile. The ***core aspect*** is to blend in with the game. Built with Electron and Angular. 
  
@@ -124,7 +124,7 @@ npm install --global --production windows-build-tools
 1. Clone the repository. 
 2. Open up the folder with your editor.
 3. Run ```npm install``` to install all required npm packages.
-4. Run ```npm run robotjs:rebuild``` to generate a executable [robotjs](https://github.com/octalmage/robotjs) version.
+4. Run ```npm run electron:rebuild``` to generate a executable [robotjs](https://github.com/octalmage/robotjs) version.
 
 That's it. Your Project should now be ready to run:
 ```
