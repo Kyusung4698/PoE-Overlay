@@ -25,7 +25,7 @@
     "electron:windows": "npm run build:prod && electron-builder build --windows",
     "electron:version": "electron -v && electron -a",
     "electron:deps": "electron-builder install-app-deps",
-    "electron:rebuild": "npm rebuild --runtime=electron --target=7.1.11 --disturl=https://atom.io/download/atom-shell --abi=75"
+    "electron:rebuild": "npm rebuild hotkeys robotjs --runtime=electron --target=8.0.0 --disturl=https://atom.io/download/atom-shell --abi=76"
   },
   "main": "main.js",
   "private": true,
@@ -59,8 +59,8 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.12.26",
     "codelyzer": "^5.1.2",
-    "electron": "^7.1.11",
-    "electron-builder": "^21.2.0",
+    "electron": "^8.0.0",
+    "electron-builder": "^22.3.2",
     "electron-reload": "^1.5.0",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
