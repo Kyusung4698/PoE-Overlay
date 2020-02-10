@@ -16,6 +16,7 @@
 		"loading": "Carregando...",
 		"name": "Avalie",
 		"not-found": "Nenhum dado encontrado.",
+		"result-view": "Visualização de resultados",
 		"search": {
 			"default": "Configurações de pesquisa padrão",
 			"disable-max-range": "Desativar intervalo máximo",
@@ -99,14 +100,18 @@
 		"highlight": "Realçar",
 		"name": "Misc",
 		"navigation": "Navegação",
+		"open-poedb": "Abrir PoE DB",
+		"open-poedb-external": "Abrir PoE DB External",
 		"open-wiki": "Abrir Wiki",
 		"open-wiki-external": "Abrir Wiki Externo",
 		"parser-error": "Não foi possível analisar a área de transferência. Verifique se você apagou (ESC) o destaque anterior.",
+		"poedb": "PoE DB",
 		"stash": "Esconderijo",
 		"wiki": "Wiki"
 	},
 	"settings": {
 		"cancel": "Cancelar",
+		"display-version": "Versão de exibição",
 		"exit-app": "Sair do aplicativo",
 		"game-settings": "Configurações do jogo",
 		"general": "Geral",

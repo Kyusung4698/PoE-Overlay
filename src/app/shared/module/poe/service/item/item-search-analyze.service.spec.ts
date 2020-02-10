@@ -21,16 +21,16 @@ describe('ItemSearchAnalyzeService', () => {
                 SharedModule
             ],
         }).compileComponents();
-        sut = TestBed.get<ItemSearchAnalyzeService>(ItemSearchAnalyzeService);
+        sut = TestBed.inject<ItemSearchAnalyzeService>(ItemSearchAnalyzeService);
 
-        contextService = TestBed.get<ContextService>(ContextService);
+        contextService = TestBed.inject<ContextService>(ContextService);
         contextService.init({
             language: Language.English
         });
 
-        searchService = TestBed.get<ItemSearchService>(ItemSearchService);
-        currencyService = TestBed.get<CurrencyService>(CurrencyService);
-        baseItemTypesService = TestBed.get<BaseItemTypesService>(BaseItemTypesService);
+        searchService = TestBed.inject<ItemSearchService>(ItemSearchService);
+        currencyService = TestBed.inject<CurrencyService>(CurrencyService);
+        baseItemTypesService = TestBed.inject<BaseItemTypesService>(BaseItemTypesService);
     }));
 
     it('should return items', (done) => {
@@ -38,10 +38,10 @@ describe('ItemSearchAnalyzeService', () => {
             typeId: baseItemTypesService.search('Topaz Ring')
         };
 
-        forkJoin(
+        forkJoin([
             searchService.search(requestedItem),
             currencyService.searchById('chaos')
-        ).subscribe(results => {
+        ]).subscribe(results => {
             sut.analyze(results[0], [results[1]]).subscribe(result => {
                 expect(result.median).toBeGreaterThan(0);
                 done();

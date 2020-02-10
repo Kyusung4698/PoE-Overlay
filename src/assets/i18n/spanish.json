@@ -16,6 +16,7 @@
 		"loading": "Cargando...",
 		"name": "Evaluar",
 		"not-found": "Datos no encontrados.",
+		"result-view": "Vista de resultados",
 		"search": {
 			"default": "Configuración de búsqueda predeterminada",
 			"disable-max-range": "Deshabilitar rango máximo",
@@ -99,14 +100,18 @@
 		"highlight": "Realce",
 		"name": "Misceláneos",
 		"navigation": "Navegación",
+		"open-poedb": "Abrir PoE DB",
+		"open-poedb-external": "Abrir PoE DB Externo",
 		"open-wiki": "Wiki abierto",
 		"open-wiki-external": "Abrir Wiki Externo",
 		"parser-error": "El portapapeles no se pudo analizar. Asegúrese de haber borrado (ESC) el resaltado anterior.",
+		"poedb": "PoE DB",
 		"stash": "RESERVA",
 		"wiki": "Wiki"
 	},
 	"settings": {
 		"cancel": "Cancelar",
+		"display-version": "Versión de pantalla",
 		"exit-app": "Salir de la aplicacion",
 		"game-settings": "Configuraciones de juego",
 		"general": "general",

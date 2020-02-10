@@ -8,8 +8,11 @@ export const environment = {
   wiki: {
     baseUrl: 'https://pathofexile.gamepedia.com',
   },
+  poedb: {
+    baseUrl: 'https://poedb.tw/us',
+  },
   poeNinja: {
-    baseUrl: 'https://poe.ninja/api'
+    baseUrl: 'https://poe.ninja'
   },
   github: {
     baseUrl: 'https://api.github.com/repos/Kyusung4698/PoE-Overlay'

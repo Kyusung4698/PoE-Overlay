@@ -145,11 +145,11 @@ export class ItemSearchAnalyzeService {
 
     private convert(currencies: Currency[], itemSearchResult: ItemSearchResult): Observable<SearchAnalyzeEntry[][]> {
         const converted = currencies.map(target => forkJoin(itemSearchResult.items
-            .map(listing => forkJoin(
+            .map(listing => forkJoin([
                 this.currencyConverterService.convert(listing.currency, 'chaos'),
                 this.currencyConverterService.convert(listing.currency, target),
                 this.currencyConverterService.convert('chaos', target),
-            ).pipe(
+            ]).pipe(
                 map(factors => {
                     const chaosAmount = listing.amount * factors[0];
                     const chaosAmountRounded = this.round(chaosAmount);

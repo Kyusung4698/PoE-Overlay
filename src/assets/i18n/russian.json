@@ -16,6 +16,7 @@
 		"loading": "Loading ...",
 		"name": "оценивать",
 		"not-found": "Данные не найдены.",
+		"result-view": "Просмотр результатов",
 		"search": {
 			"default": "Настройки поиска по умолчанию",
 			"disable-max-range": "Отключить максимальный диапазон",
@@ -99,14 +100,18 @@
 		"highlight": "основной момент",
 		"name": "РАЗНОЕ",
 		"navigation": "навигация",
+		"open-poedb": "Открыть PoE DB",
+		"open-poedb-external": "Open PoE DB External",
 		"open-wiki": "Открытая вики",
 		"open-wiki-external": "Open Wiki External",
 		"parser-error": "Буфер обмена не может быть проанализирован. Пожалуйста, убедитесь, что вы очистили (ESC) предыдущее выделение.",
+		"poedb": "PoE DB",
 		"stash": "копить",
 		"wiki": "Wiki"
 	},
 	"settings": {
 		"cancel": "отменить",
+		"display-version": "Версия дисплея",
 		"exit-app": "Выход из приложения",
 		"game-settings": "Игровые настройки",
 		"general": "генеральный",

@@ -46,7 +46,7 @@ describe('EvaluateSearchComponent', () => {
     })
       .compileComponents();
 
-    contextService = TestBed.get<ContextService>(ContextService);
+    contextService = TestBed.inject<ContextService>(ContextService);
     contextService.init({
       language: Language.English
     });

@@ -6,6 +6,8 @@ export interface MiscUserSettings extends UserSettings {
   miscStashHighlight: boolean;
   miscWikiKeybinding: string;
   miscWikiExternalKeybinding: string;
+  miscPoedbKeybinding: string;
+  miscPoedbExternalKeybinding: string;
 }
 
 @Component({

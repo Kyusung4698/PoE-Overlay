@@ -13,9 +13,9 @@ describe('ItemParserService', () => {
                 SharedModule
             ],
         }).compileComponents();
-        sut = TestBed.get<ItemParserService>(ItemParserService);
+        sut = TestBed.inject<ItemParserService>(ItemParserService);
 
-        contextService = TestBed.get<ContextService>(ContextService);
+        contextService = TestBed.inject<ContextService>(ContextService);
         contextService.init({
             language: Language.English
         });

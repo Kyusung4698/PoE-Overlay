@@ -8,7 +8,7 @@ import { Item, Language, StatType } from '@shared/module/poe/type';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { EvaluateDialogComponent, EvaluateDialogData } from '../component/evaluate-dialog/evaluate-dialog.component';
-import { EvaluateUserSettings } from '../component/evaluate-settings/evaluate-settings.component';
+import { EvaluateResultView, EvaluateUserSettings } from '../component/evaluate-settings/evaluate-settings.component';
 import { EvaluateResult } from '../type/evaluate.type';
 
 const DIALOG_MIN_WIDTH = 400;
@@ -29,7 +29,7 @@ export class EvaluateDialogService {
     }
 
     public open(point: Point, item: Item, settings: EvaluateUserSettings, language?: Language): Observable<EvaluateResult> {
-        const { width, height } = this.estimateBounds(item, language);
+        const { width, height } = this.estimateBounds(item, settings, language);
 
         const bounds = this.window.getBounds();
         const left = Math.min(Math.max(point.x - width * 0.5, bounds.x), bounds.x + bounds.width - width);
@@ -60,7 +60,7 @@ export class EvaluateDialogService {
         }));
     }
 
-    private estimateBounds(item: Item, language: Language): { width: number, height: number } {
+    private estimateBounds(item: Item, settings: EvaluateUserSettings, language: Language): { width: number, height: number } {
         let width = 4;  // padding
         let height = 4; // padding
 
@@ -169,8 +169,13 @@ export class EvaluateDialogService {
         const toggles = 35;
         height += toggles;
 
-        const graph = 200;
-        height += graph;
+        if (settings.evaluateResultView === EvaluateResultView.Graph) {
+            const graph = 200;
+            height += graph;
+        } else {
+            const list = 424;
+            height += list;
+        }
 
         return {
             width: Math.max(width, DIALOG_MIN_WIDTH),

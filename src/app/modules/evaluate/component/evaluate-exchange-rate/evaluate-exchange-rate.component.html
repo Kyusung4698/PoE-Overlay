@@ -29,7 +29,8 @@
             </div>
             <div class="spacer"></div>
             <div class="chart">
-                <div class="values">
+                <div class="values clickable" (click)="onClick($event)"
+                    title="'Click' = In-Game Browser, 'CTRL + Click' Default Browser">
                     <span class="value" [class.negative]="result.rate.change < 0"
                         [class.positive]="result.rate.change > 0">
                         <mat-icon *ngIf="result.rate.change < 0">trending_down</mat-icon>
@@ -47,7 +48,7 @@
         </div>
     </ng-container>
     <ng-template #notfound>
-        <div> {{'evaluate.not-found' | translate}} </div>
+        {{'evaluate.not-found' | translate}}
     </ng-template>
     <ng-container *ngIf="result.error">
         <div> {{'evaluate.error' | translate}} </div>

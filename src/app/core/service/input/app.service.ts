@@ -32,10 +32,10 @@ export class AppService {
             this.ngZone.run(() => this.activeChange$.next(arg));
         });
         this.ipcRenderer.sendSync('register-active-change');
-        return combineLatest(
+        return combineLatest([
             this.activeChange$,
             this.dialogs.dialogCountChange()
-        ).pipe(
+        ]).pipe(
             map(([game, dialogCount]) => {
                 let result = VisibleFlag.None;
                 if (game) {

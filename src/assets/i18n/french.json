@@ -16,6 +16,7 @@
 		"loading": "Chargement...",
 		"name": "Évaluer",
 		"not-found": "Aucune donnée disponible.",
+		"result-view": "Affichage des résultats",
 		"search": {
 			"default": "Paramètres de recherche par défaut",
 			"disable-max-range": "Désactiver la plage maximale",
@@ -99,14 +100,18 @@
 		"highlight": "Surligner",
 		"name": "Misc",
 		"navigation": "La navigation",
+		"open-poedb": "Ouvrir PoE DB",
+		"open-poedb-external": "Open PoE DB External",
 		"open-wiki": "Ouvrir le wiki",
 		"open-wiki-external": "Ouvrir le wiki externe",
 		"parser-error": "Le presse-papiers n'a pas pu être analysé. Veuillez vous assurer que vous avez désactivé (ESC) la surbrillance précédente.",
+		"poedb": "PoE DB",
 		"stash": "Planque",
 		"wiki": "wiki"
 	},
 	"settings": {
 		"cancel": "annuler",
+		"display-version": "Version d'affichage",
 		"exit-app": "Quitter l'application",
 		"game-settings": "Paramètres de jeu",
 		"general": "Général",

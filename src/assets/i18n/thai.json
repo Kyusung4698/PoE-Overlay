@@ -16,6 +16,7 @@
 		"loading": "กำลังโหลด ...",
 		"name": "ประเมินผล",
 		"not-found": "ไม่พบข้อมูล.",
+		"result-view": "ดูผลลัพธ์",
 		"search": {
 			"default": "การตั้งค่าการค้นหาเริ่มต้น",
 			"disable-max-range": "ปิดการใช้งาน Max Range",
@@ -99,14 +100,18 @@
 		"highlight": "ไฮไลท์",
 		"name": "อื่น ๆ",
 		"navigation": "การเดินเรือ",
+		"open-poedb": "เปิด PoE DB",
+		"open-poedb-external": "เปิด PoE DB ภายนอก",
 		"open-wiki": "เปิด Wiki",
 		"open-wiki-external": "เปิด Wiki ภายนอก",
 		"parser-error": "ไม่สามารถแยกวิเคราะห์คลิปบอร์ด โปรดตรวจสอบให้แน่ใจว่าคุณได้ล้าง (ESC) ไฮไลต์ก่อนหน้า",
+		"poedb": "PoE DB",
 		"stash": "ซ่อน",
 		"wiki": "วิกิพีเดีย"
 	},
 	"settings": {
 		"cancel": "ยกเลิก",
+		"display-version": "แสดงเวอร์ชั่น",
 		"exit-app": "ออกจากแอป",
 		"game-settings": "ตั้งค่าเกม",
 		"general": "ทั่วไป",

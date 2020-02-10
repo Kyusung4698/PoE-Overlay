@@ -28,7 +28,8 @@ export class UserSettingsService {
                 let mergedSettings: UserSettings = {
                     openUserSettingsKeybinding: 'F7',
                     exitAppKeybinding: 'F8',
-                    language: Language.English
+                    language: Language.English,
+                    displayVersion: true
                 };
 
                 modules.forEach(x => {

@@ -18,10 +18,10 @@ export class CurrencyConverterService {
 
         const currencyId = (currencyOrId as Currency).id || currencyOrId as string;
         const targetCurrencyId = (targetCurrencyOrId as Currency).id || targetCurrencyOrId as string;
-        return forkJoin(
+        return forkJoin([
             this.currencyChaosEquivalentsService.getById(currencyId, leagueId),
             this.currencyChaosEquivalentsService.getById(targetCurrencyId, leagueId),
-        ).pipe(
+        ]).pipe(
             map(chaosEquivalents => {
                 if (!chaosEquivalents[0]) {
                     return undefined;

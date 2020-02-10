@@ -16,6 +16,7 @@
 		"loading": "Wird geladen...",
 		"name": "Bewerten",
 		"not-found": "Keine Daten gefunden.",
+		"result-view": "Ergebnisansicht",
 		"search": {
 			"default": "Standardsucheinstellungen",
 			"disable-max-range": "Maximalen Wertebereich deaktivieren",
@@ -99,14 +100,18 @@
 		"highlight": "Markieren",
 		"name": "Sonstiges",
 		"navigation": "Navigation",
+		"open-poedb": "Öffne PoE DB",
+		"open-poedb-external": "Öffne PoE DB External",
 		"open-wiki": "Wiki öffnen",
 		"open-wiki-external": "Wiki im Browser öffnen",
 		"parser-error": "Zwischenablage konnte nicht geparst werden. Bitte stellen Sie sicher, dass Sie die vorherige Markierung gelöscht haben (ESC).",
+		"poedb": "PoE DB",
 		"stash": "Truhe",
 		"wiki": "Wiki"
 	},
 	"settings": {
 		"cancel": "Abbrechen",
+		"display-version": "Version anzeigen",
 		"exit-app": "App beenden",
 		"game-settings": "Spieleinstellungen",
 		"general": "Allgemeines",

@@ -1,5 +1,6 @@
 export interface ItemOverviewResponse {
     lines: ItemOverviewLine[];
+    url: string;
 }
 
 export interface ItemOverviewLine {

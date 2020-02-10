@@ -1,4 +1,4 @@
-# PoE Overlay 0.5.14
+# PoE Overlay 0.5.15
 
 An Overlay for Path of Exile. The ***core aspect*** is to blend in with the game. Built with Electron and Angular. 
  
@@ -79,9 +79,9 @@ These instructions will set you up to run and enjoy the overlay.
 
 1. Head over to [Releases](https://github.com/Kyusung4698/PoE-Overlay/releases) and download the latest zip
 2. Extract zip
-3. Run `poe-overlay 0.5.14.exe`
+3. Run `poe-overlay 0.5.15.exe`
 4. Start Path of Exile
-5. Wait until you can see `POE Overlay 0.5.14` in the bottom left corner
+5. Wait until you can see `POE Overlay 0.5.15` in the bottom left corner
 6. Hit `f7` and set `Language` and `League` to meet your game settings
 
 #### Shortcuts
@@ -94,6 +94,8 @@ You can change these shortcuts in the user settings menu.
 | `ctrl+t`       | As above - displays the item translated
 | `alt+w`        | Opens item in wiki
 | `ctrl+alt+w`   | As above - but in external browser
+| `alt+g`        | Opens item in poedb
+| `ctrl+alt+g`   | As above - but in external browser
 | `alt+q`        | Shows map info (layout, bosses)
 | `ctrl+f`       | Highlights item in stash
 | `ctrl+wheel`   | Navigates through stash tabs

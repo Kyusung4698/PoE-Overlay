@@ -31,10 +31,10 @@ export class SnackBarService {
 
     private show(message: string, panelClass: string, action?: string): Observable<void> {
         return from(
-            forkJoin(
+            forkJoin([
                 this.translate.get(message),
                 action ? this.translate.get(action) : of(undefined)
-            ).pipe(
+            ]).pipe(
                 flatMap(([translatedMessage, translatedAction]) => this.matSnackBar.open(translatedMessage, translatedAction, {
                     duration: 5 * 1000,
                     verticalPosition: 'bottom',

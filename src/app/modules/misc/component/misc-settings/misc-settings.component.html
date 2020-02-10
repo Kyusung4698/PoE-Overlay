@@ -6,6 +6,13 @@
   </app-accelerator>
 </mat-card>
 <mat-card>
+  <mat-label>{{'misc.poedb' | translate}}</mat-label>
+  <app-accelerator [label]="'misc.open-poedb' | translate" [(value)]="settings.miscPoedbKeybinding">
+  </app-accelerator>
+  <app-accelerator [label]="'misc.open-poedb-external' | translate" [(value)]="settings.miscPoedbExternalKeybinding">
+  </app-accelerator>
+</mat-card>
+<mat-card>
   <mat-label>{{'misc.stash' | translate}}</mat-label>
   <div class="toggle">
     <mat-slide-toggle [checked]="settings.miscStashNavigation" (change)="settings.miscStashNavigation = $event.checked">
