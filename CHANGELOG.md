@@ -2,7 +2,7 @@
 
 * add version toggle (#205)
 * add result view select (Graph, List) (#204)
-* add poe db (#199)
+* add poe db (ALT + G) (#199)
 * add poe ninja by clicking the exchange rate (#206)
 * update angular to 9.0.0
 * update electron to 8.0.0
