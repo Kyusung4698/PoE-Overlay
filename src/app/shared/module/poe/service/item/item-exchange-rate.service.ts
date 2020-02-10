@@ -16,6 +16,7 @@ export class ItemExchangeRateResult {
     inverseAmount?: number;
     change?: number;
     history?: number[];
+    url?: string;
 }
 
 @Injectable({
@@ -49,6 +50,7 @@ export class ItemExchangeRateService {
                             currency: currencies[index],
                             change: value.change,
                             history: value.history || [],
+                            url: value.url,
                         };
                         return result;
                     })

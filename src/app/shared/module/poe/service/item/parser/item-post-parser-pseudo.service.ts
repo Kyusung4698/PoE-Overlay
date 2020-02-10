@@ -20,7 +20,8 @@ export class ItemPostParserPseudoService implements ItemPostParserService {
 
             if (pseudo.mods) {
                 for (const mod of pseudo.mods) {
-                    const stats = itemStats.filter(x => x.id === mod.id && x.values.length > 0);
+                    // TODO: local and nonlocal share the same id
+                    const stats = itemStats.filter(x => x.id === mod.id && x.values.length > 0 && x.mod !== 'local');
                     if (stats.length <= 0) {
                         if (mod.type === ModifierType.MinimumRequired) {
                             values = [];

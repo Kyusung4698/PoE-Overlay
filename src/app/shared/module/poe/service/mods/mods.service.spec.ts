@@ -10,7 +10,7 @@ import { ModsService } from './mods.service';
 //                 SharedModule
 //             ],
 //         }).compileComponents();
-//         sut = TestBed.get<ModsService>(ModsService);
+//         sut = TestBed.inject<ModsService>(ModsService);
 //     }));
 
 //     const modifiers = [

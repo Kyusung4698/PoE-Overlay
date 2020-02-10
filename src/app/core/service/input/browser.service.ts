@@ -25,7 +25,7 @@ export class BrowserService {
                 modal: true,
                 parent: this.electron.getCurrentWindow(),
                 autoHideMenuBar: true,
-                width: 1000,
+                width: 1400,
                 height: 800,
                 backgroundColor: '#0F0F0F'
             });

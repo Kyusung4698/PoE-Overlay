@@ -16,6 +16,7 @@
 		"loading": "Loading...",
 		"name": "Evaluate",
 		"not-found": "No data found.",
+		"result-view": "Result View",
 		"search": {
 			"default": "Default Search Settings",
 			"disable-max-range": "Disable Max Range",
@@ -99,14 +100,18 @@
 		"highlight": "Highlight",
 		"name": "Misc",
 		"navigation": "Navigation",
+		"open-poedb": "Open PoE DB",
+		"open-poedb-external": "Open PoE DB External",
 		"open-wiki": "Open Wiki",
 		"open-wiki-external": "Open Wiki External",
 		"parser-error": "Clipboard could not be parsed. Please make sure you have cleared (ESC) the previous highlight.",
+		"poedb": "PoE DB",
 		"stash": "Stash",
 		"wiki": "Wiki"
 	},
 	"settings": {
 		"cancel": "Cancel",
+		"display-version": "Display Version",
 		"exit-app": "Exit App",
 		"game-settings": "Game Settings",
 		"general": "General",

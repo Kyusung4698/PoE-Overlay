@@ -4,20 +4,21 @@ import { Feature, FeatureModule } from '@app/type';
 import { SharedModule } from '@shared/shared.module';
 import { UserSettingsFeature } from 'src/app/layout/type';
 import { MiscSettingsComponent, MiscUserSettings } from './component';
+import { MiscPoedbService } from './service/misc-poedb.service';
 import { MiscStashService } from './service/misc-stash.service';
 import { MiscWikiService } from './service/misc-wiki.service';
 
 @NgModule({
     providers: [{ provide: FEATURE_MODULES, useClass: MiscModule, multi: true }],
     declarations: [MiscSettingsComponent],
-    entryComponents: [MiscSettingsComponent],
     imports: [SharedModule]
 })
 export class MiscModule implements FeatureModule {
 
     constructor(
         private readonly stash: MiscStashService,
-        private readonly wiki: MiscWikiService) { }
+        private readonly wiki: MiscWikiService,
+        private readonly poedb: MiscPoedbService) { }
 
     public getSettings(): UserSettingsFeature {
         const defaultSettings: MiscUserSettings = {
@@ -25,6 +26,8 @@ export class MiscModule implements FeatureModule {
             miscStashHighlight: true,
             miscWikiKeybinding: 'Alt + W',
             miscWikiExternalKeybinding: 'CmdOrCtrl + Alt + W',
+            miscPoedbKeybinding: 'Alt + G',
+            miscPoedbExternalKeybinding: 'CmdOrCtrl + Alt + G',
         };
         return {
             name: 'misc.name',
@@ -42,6 +45,14 @@ export class MiscModule implements FeatureModule {
             {
                 name: 'wiki-open-external',
                 shortcut: settings.miscWikiExternalKeybinding,
+            },
+            {
+                name: 'poedb-open',
+                shortcut: settings.miscPoedbKeybinding,
+            },
+            {
+                name: 'poedb-open-external',
+                shortcut: settings.miscPoedbExternalKeybinding,
             },
         ];
 
@@ -78,6 +89,10 @@ export class MiscModule implements FeatureModule {
             case 'wiki-open':
             case 'wiki-open-external':
                 this.wiki.open(feature === 'wiki-open-external').subscribe();
+                break;
+            case 'poedb-open':
+            case 'poedb-open-external':
+                this.poedb.open(feature === 'poedb-open-external').subscribe();
                 break;
             default:
                 break;

@@ -17,13 +17,13 @@ describe('ItemExchangeRateService', () => {
                 SharedModule
             ],
         }).compileComponents();
-        sut = TestBed.get<ItemExchangeRateService>(ItemExchangeRateService);
+        sut = TestBed.inject<ItemExchangeRateService>(ItemExchangeRateService);
 
-        contextService = TestBed.get<ContextService>(ContextService);
+        contextService = TestBed.inject<ContextService>(ContextService);
         contextService.init({
             language: Language.English
         });
-        currencyService = TestBed.get<CurrencyService>(CurrencyService);
+        currencyService = TestBed.inject<CurrencyService>(CurrencyService);
     }));
 
     it('should get rate for item', (done) => {

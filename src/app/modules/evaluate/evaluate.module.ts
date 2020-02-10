@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Injectable } from '@angular/core';
 import { FEATURE_MODULES } from '@app/token';
 import { Feature, FeatureModule } from '@app/type';
 import { Language } from '@shared/module/poe/type';
@@ -9,7 +9,7 @@ import { EvaluateExchangeRateChartComponent } from './component/evaluate-exchang
 import { EvaluateSearchChartComponent } from './component/evaluate-search-chart/evaluate-search-chart.component';
 import { EvaluateDialogComponent } from './component/evaluate-dialog/evaluate-dialog.component';
 import { EvaluateSearchComponent } from './component/evaluate-search/evaluate-search.component';
-import { EvaluateSettingsComponent, EvaluateUserSettings } from './component/evaluate-settings/evaluate-settings.component';
+import { EvaluateSettingsComponent, EvaluateUserSettings, EvaluateResultView } from './component/evaluate-settings/evaluate-settings.component';
 import { EvaluateExchangeRateComponent } from './component/evaluate-exchange-rate/evaluate-exchange-rate.component';
 import { EvaluateService } from './service/evaluate.service';
 import { EvaluateSearchTableComponent } from './component/evaluate-search-table/evaluate-search-table.component';
@@ -25,7 +25,6 @@ import { EvaluateSearchTableComponent } from './component/evaluate-search-table/
         EvaluateSearchComponent,
         EvaluateSearchTableComponent
     ],
-    entryComponents: [EvaluateDialogComponent, EvaluateSettingsComponent],
     imports: [SharedModule]
 })
 export class EvaluateModule implements FeatureModule {
@@ -36,6 +35,7 @@ export class EvaluateModule implements FeatureModule {
     public getSettings(): UserSettingsFeature {
         const defaultSettings: EvaluateUserSettings = {
             evaluateCurrencyIds: ['chaos', 'exa'],
+            evaluateResultView: EvaluateResultView.Graph,
             evaluateQueryDefaultItemLevel: false,
             evaluateQueryDefaultSockets: false,
             evaluateQueryDefaultMiscs: true,

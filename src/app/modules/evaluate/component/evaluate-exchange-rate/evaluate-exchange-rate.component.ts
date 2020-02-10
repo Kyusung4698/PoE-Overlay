@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { BrowserService } from '@app/service';
 import { SnackBarService } from '@shared/module/material/service';
 import { ItemExchangeRateResult, ItemExchangeRateService } from '@shared/module/poe/service';
 import { Currency, Item, ItemRarity } from '@shared/module/poe/type';
@@ -36,6 +37,7 @@ export class EvaluateExchangeRateComponent {
 
   constructor(
     private readonly exchangeRateService: ItemExchangeRateService,
+    private readonly browser: BrowserService,
     private readonly snackbar: SnackBarService) { }
 
   public onEvaluateWheel(event: WheelEvent): void {
@@ -53,6 +55,13 @@ export class EvaluateExchangeRateComponent {
     }
     this.result$.next(null);
     this.evaluate(this.item, this.currencies[index]);
+  }
+
+  public onClick(event: MouseEvent): void {
+    const result = this.result$.getValue();
+    if (result?.rate?.url) {
+      this.browser.open(result.rate.url, event.ctrlKey);
+    }
   }
 
   private evaluate(item: Item, currency?: Currency): void {

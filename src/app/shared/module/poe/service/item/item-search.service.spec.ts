@@ -16,13 +16,13 @@ describe('ItemSearchService', () => {
                 SharedModule
             ],
         }).compileComponents();
-        sut = TestBed.get<ItemSearchService>(ItemSearchService);
+        sut = TestBed.inject<ItemSearchService>(ItemSearchService);
 
-        contextService = TestBed.get<ContextService>(ContextService);
+        contextService = TestBed.inject<ContextService>(ContextService);
         contextService.init({
             language: Language.English
         });
-        baseItemTypesService = TestBed.get<BaseItemTypesService>(BaseItemTypesService);
+        baseItemTypesService = TestBed.inject<BaseItemTypesService>(BaseItemTypesService);
     }));
 
     it('should return items', (done) => {

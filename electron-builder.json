@@ -5,7 +5,15 @@
     },
     "files": [
         "main.js",
-        "dist/**/*"
+        "dist/**/*",
+        "!node_modules/@angular/**/*",
+        "!node_modules/@swimlane/**/*",
+        "!node_modules/rxjs/**/*",
+        "!node_modules/moment/**/*",
+        "!node_modules/zone.js/**/*",
+        "!node_modules/localforage/**/*",
+        "!node_modules/@ngx-translate/**/*",
+        "!node_modules/d3-*/**/*"
     ],
     "win": {
         "icon": "dist/favicon.ico",

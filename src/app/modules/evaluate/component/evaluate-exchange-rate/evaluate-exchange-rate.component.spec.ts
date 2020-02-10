@@ -1,9 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ElectronProvider } from '@app/provider';
+import { TranslateFakeLoader, TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from '@shared/shared.module';
-import { EvaluateExchangeRateComponent } from './evaluate-exchange-rate.component';
 import { EvaluateExchangeRateChartComponent } from '../evaluate-exchange-rate-chart/evaluate-exchange-rate-chart.component';
-import { TranslateModule, TranslateLoader, TranslateFakeLoader } from '@ngx-translate/core';
+import { EvaluateExchangeRateComponent } from './evaluate-exchange-rate.component';
 
+class ElectronProviderFake {
+  public provideRemote(): Electron.Remote {
+    return null;
+  }
+
+  public provideIpcRenderer(): Electron.IpcRenderer {
+    return null;
+  }
+}
 
 describe('EvaluateExchangeRateComponent', () => {
   let component: EvaluateExchangeRateComponent;
@@ -20,7 +30,10 @@ describe('EvaluateExchangeRateComponent', () => {
           }
         })
       ],
-      declarations: [EvaluateExchangeRateComponent, EvaluateExchangeRateChartComponent]
+      declarations: [EvaluateExchangeRateComponent, EvaluateExchangeRateChartComponent],
+      providers: [
+        { provide: ElectronProvider, useClass: ElectronProviderFake }
+      ]
     })
       .compileComponents();
   }));

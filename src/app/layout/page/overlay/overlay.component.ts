@@ -7,7 +7,7 @@ import { ReleasesHttpService } from '@data/github';
 import { TranslateService } from '@ngx-translate/core';
 import { ContextService } from '@shared/module/poe/service';
 import { Context, Language } from '@shared/module/poe/type';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { delay, distinctUntilChanged, filter, map } from 'rxjs/operators';
 import { version } from '../../../../../package.json';
 import { UserSettingsService } from '../../service/user-settings.service';
@@ -22,7 +22,8 @@ import { UserSettings } from '../../type';
 export class OverlayComponent implements OnInit, OnDestroy {
   private userSettingsOpen: Observable<void>;
 
-  public version: string = version;
+  public version = version;
+  public displayVersion$ = new BehaviorSubject(true);
 
   constructor(
     @Inject(FEATURE_MODULES)
@@ -67,6 +68,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
   private initSettings(): void {
     this.userSettingsService.init(this.modules).subscribe(settings => {
       this.translate.use(`${settings.language}`);
+      this.displayVersion$.next(settings.displayVersion);
       this.context.init(this.getContext(settings));
       this.registerVisibleChange();
       this.renderer.on('show-user-settings').subscribe(() => {
@@ -107,6 +109,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
         this.userSettingsOpen = null;
         this.userSettingsService.get().subscribe(settings => {
           this.translate.use(`${settings.language}`);
+          this.displayVersion$.next(settings.displayVersion);
           this.context.update(this.getContext(settings));
           this.registerShortcuts();
         });

@@ -1,3 +1,14 @@
+## 0.5.15 (2020-02-10)
+
+* add version toggle (#205)
+* add result view select (Graph, List) (#204)
+* add poe db (ALT + G) (#199)
+* add poe ninja by clicking the exchange rate (#206)
+* update angular to 9.0.0
+* update electron to 8.0.0
+* fix local mod used as pseudo (#201)
+* fix xml tags in copied item info
+
 ## 0.5.14 (2020-02-08)
 
 * add account listing count threshold (#196)

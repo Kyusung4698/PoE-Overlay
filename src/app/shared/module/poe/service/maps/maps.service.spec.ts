@@ -10,7 +10,7 @@ describe('MapsService', () => {
                 SharedModule
             ],
         }).compileComponents();
-        sut = TestBed.get<MapsService>(MapsService);
+        sut = TestBed.inject<MapsService>(MapsService);
     }));
 
     it('should get map', () => {

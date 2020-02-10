@@ -1,5 +1,6 @@
 export interface CurrencyOverviewResponse {
     lines: CurrencyOverviewLine[];
+    url: string;
 }
 
 export interface CurrencyOverviewLine {

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Injectable } from '@angular/core';
 import { FEATURE_MODULES } from '@app/token';
 import { Feature, FeatureModule } from '@app/type';
 import { SharedModule } from '@shared/shared.module';
@@ -10,7 +10,6 @@ import { MapService } from './service/map.service';
 @NgModule({
     providers: [{ provide: FEATURE_MODULES, useClass: MapModule, multi: true }],
     declarations: [MapDialogComponent, MapSettingsComponent],
-    entryComponents: [MapDialogComponent, MapSettingsComponent],
     imports: [SharedModule]
 })
 export class MapModule implements FeatureModule {

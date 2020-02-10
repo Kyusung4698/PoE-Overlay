@@ -11,6 +11,7 @@ export class ItemCategoryValue {
     chaosAmount: number;
     change: number;
     history: number[];
+    url: string;
 }
 
 export class ItemCategoryValues {
@@ -53,11 +54,11 @@ export class ItemCategoryValuesProvider {
             }
             case ItemCategory.Currency: {
                 const key = `${leagueId}_${ItemCategory.Currency}`;
-                return forkJoin(
+                return forkJoin([
                     this.fetch(key, () => this.fetchCurrency(leagueId, CurrencyOverviewType.Currency)),
                     this.fetch(`${key}_essence`, () => this.fetchItem(leagueId, ItemOverviewType.Essence)),
                     this.fetch(`${key}_oil`, () => this.fetchItem(leagueId, ItemOverviewType.Oil))
-                ).pipe(map(([currencies, essences, oil]) => {
+                ]).pipe(map(([currencies, essences, oil]) => {
                     return {
                         values: currencies.values.concat(essences.values.concat(oil.values))
                     };
@@ -183,7 +184,8 @@ export class ItemCategoryValuesProvider {
                         links: undefined,
                         change: sparkLine.totalChange,
                         history: sparkLine.data,
-                        chaosAmount: line.chaosEquivalent
+                        chaosAmount: line.chaosEquivalent,
+                        url: response.url
                     };
                     return value;
                 })
@@ -206,7 +208,8 @@ export class ItemCategoryValuesProvider {
                         links: line.links,
                         change: sparkLine.totalChange,
                         history: sparkLine.data,
-                        chaosAmount: line.chaosValue
+                        chaosAmount: line.chaosValue,
+                        url: response.url
                     };
                     return value;
                 })

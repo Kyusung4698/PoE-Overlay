@@ -9,6 +9,8 @@ if (!app.requestSingleInstanceLock()) {
     app.quit();
 }
 
+app.allowRendererProcessReuse = true;
+
 const args = process.argv.slice(1),
     serve = args.some(val => val === '--serve');
 

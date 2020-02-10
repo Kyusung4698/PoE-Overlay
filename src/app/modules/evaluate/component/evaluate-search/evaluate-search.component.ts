@@ -7,7 +7,7 @@ import { Currency, Item } from '@shared/module/poe/type';
 import { ItemSearchIndexed, ItemSearchOptions } from '@shared/module/poe/type/search.type';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { debounceTime, takeUntil, tap } from 'rxjs/operators';
-import { EvaluateUserSettings } from '../evaluate-settings/evaluate-settings.component';
+import { EvaluateUserSettings, EvaluateResultView } from '../evaluate-settings/evaluate-settings.component';
 
 const SEARCH_DEBOUNCE_TIME = 500;
 
@@ -24,7 +24,7 @@ export class EvaluateSearchComponent implements OnInit {
   public online$: BehaviorSubject<boolean>;
   public indexed$: BehaviorSubject<ItemSearchIndexed>;
 
-  public chart = true;
+  public graph: boolean;
 
   public result$ = new BehaviorSubject<ItemSearchAnalyzeResult>(null);
 
@@ -58,6 +58,7 @@ export class EvaluateSearchComponent implements OnInit {
   public ngOnInit() {
     this.online$ = new BehaviorSubject(this.settings.evaluateQueryOnline);
     this.indexed$ = new BehaviorSubject(this.settings.evaluateQueryIndexedRange);
+    this.graph = this.settings.evaluateResultView === EvaluateResultView.Graph;
 
     this.search(this.queryItem);
     this.registerSearchOnChange();

@@ -10,7 +10,7 @@ import { ItemFrameValueComponent } from '../item-frame-value/item-frame-value.co
 export class ItemFrameValueGroupComponent implements AfterViewInit {
   private children: ItemFrameValueComponent[];
 
-  @ContentChildren(ItemFrameValueComponent)
+  @ContentChildren(ItemFrameValueComponent, { descendants: true })
   public values: QueryList<ItemFrameValueComponent>;
 
   public ngAfterViewInit(): void {

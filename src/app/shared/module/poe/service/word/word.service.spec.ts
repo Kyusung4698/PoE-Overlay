@@ -13,9 +13,9 @@ describe('WordService', () => {
                 SharedModule
             ],
         }).compileComponents();
-        sut = TestBed.get<WordService>(WordService);
+        sut = TestBed.inject<WordService>(WordService);
 
-        contextService = TestBed.get<ContextService>(ContextService);
+        contextService = TestBed.inject<ContextService>(ContextService);
         contextService.init({
             language: Language.English
         });

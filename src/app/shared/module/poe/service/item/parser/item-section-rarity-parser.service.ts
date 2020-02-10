@@ -40,13 +40,13 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
 
         switch (lines.length) {
             case 2:
-                target.type = lines[1];
+                target.type = lines[1].replace(/<<[^>>]*>>/g, '');
                 target.typeId = this.baseItemTypesService.search(target.type);
                 break;
             case 3:
-                target.name = lines[1];
+                target.name = lines[1].replace(/<<[^>>]*>>/g, '');
                 target.nameId = this.wordService.search(target.name);
-                target.type = lines[2];
+                target.type = lines[2].replace(/<<[^>>]*>>/g, '');
                 target.typeId = this.baseItemTypesService.search(target.type);
                 break;
             default:

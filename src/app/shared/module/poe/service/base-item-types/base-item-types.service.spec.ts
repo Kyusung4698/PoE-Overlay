@@ -13,9 +13,9 @@ describe('BaseItemTypeService', () => {
                 SharedModule
             ],
         }).compileComponents();
-        sut = TestBed.get<BaseItemTypesService>(BaseItemTypesService);
+        sut = TestBed.inject<BaseItemTypesService>(BaseItemTypesService);
 
-        contextService = TestBed.get<ContextService>(ContextService);
+        contextService = TestBed.inject<ContextService>(ContextService);
         contextService.init({
             language: Language.English
         });

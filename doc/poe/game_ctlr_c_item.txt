@@ -983,3 +983,52 @@ Can be combined with other Oils at Cassia to Enchant Rings or Amulets, or to mod
 Shift click to unstack.
 --------
 Note: ~price 1 jew
+
+Rarity: Unique
+Sallazzang's Brain
+--------
+Uses: Iguana Blades
+--------
+Item Level: 76
+--------
+Drops a Map Item
+Drops a Rare Weapon
+Drops additional Rare Jewellery
+Drops additional Perandus Coins
+Drops additional Rare Armour
+--------
+Combine this with four other different samples in Tane's Laboratory.
+--------
+Note: ~price 1 alt
+
+Rarity: Unique
+<<set:MS>><<set:M>><<set:S>>The Saviour
+Legion Sword
+--------
+One Handed Sword
+Quality: +20% (augmented)
+Physical Damage: 124-232 (augmented)
+Critical Strike Chance: 5.40% (augmented)
+Attacks per Second: 1.35 (augmented)
+Weapon Range: 11
+--------
+Requirements:
+Level: 62
+Str: 122
+Dex: 104
+--------
+Sockets: R-R-G
+Item Level: 86
+--------
+40% increased Global Accuracy Rating (implicit)
+--------
+Triggers Level 20 Reflection when Equipped
+48% increased Physical Damage
+Adds 21 to 40 Physical Damage
+12% increased Attack Speed
+8% increased Critical Strike Chance
+--------
+On the mirrored edge of infinity,
+one man sinks forever into darkness,
+one man rises into light.
+But which one am I?

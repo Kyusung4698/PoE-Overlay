@@ -14,7 +14,6 @@ import { UserSettingsComponent } from './page/user-settings/user-settings.compon
         OverlayComponent,
         UserSettingsComponent
     ],
-    entryComponents: [UserSettingsDialogComponent],
     imports: [SharedModule],
 })
 export class LayoutModule { }

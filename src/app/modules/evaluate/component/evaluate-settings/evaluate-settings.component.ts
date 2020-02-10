@@ -12,9 +12,15 @@ import { ItemSearchIndexed } from '@shared/module/poe/type/search.type';
 import { BehaviorSubject } from 'rxjs';
 import { UserSettings, UserSettingsComponent } from 'src/app/layout/type';
 
+export enum EvaluateResultView {
+  Graph = 1,
+  List = 2
+}
+
 export interface EvaluateUserSettings extends UserSettings {
   evaluateCurrencyIds: string[];
   evaluateKeybinding: string;
+  evaluateResultView: EvaluateResultView;
   evaluateTranslatedItemLanguage: Language;
   evaluateTranslatedKeybinding: string;
   evaluateQueryDefaultItemLevel: boolean;
@@ -40,6 +46,7 @@ interface StatSelectListItem extends SelectListItem {
 })
 export class EvaluateSettingsComponent implements UserSettingsComponent {
   public languages = new EnumValues(Language);
+  public views = new EnumValues(EvaluateResultView);
   public settings: EvaluateUserSettings;
 
   public currencies$ = new BehaviorSubject<Currency[]>([]);

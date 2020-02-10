@@ -16,6 +16,7 @@
 		"loading": "로드 중 ...",
 		"name": "평가",
 		"not-found": "데이터가 없습니다.",
+		"result-view": "결과보기",
 		"search": {
 			"default": "기본 검색 설정",
 			"disable-max-range": "최대 범위 비활성화",
@@ -99,14 +100,18 @@
 		"highlight": "가장 밝은 부분",
 		"name": "기타",
 		"navigation": "항해",
+		"open-poedb": "PoE DB 열기",
+		"open-poedb-external": "PoE DB 외부 열기",
 		"open-wiki": "위키 열기",
 		"open-wiki-external": "위키 외부 열기",
 		"parser-error": "클립 보드를 파싱하지 못했습니다. 이전 하이라이트를 지웠는 지 확인하십시오 (ESC).",
+		"poedb": "PoE DB",
 		"stash": "숨기는 장소",
 		"wiki": "위키"
 	},
 	"settings": {
 		"cancel": "취소",
+		"display-version": "디스플레이 버전",
 		"exit-app": "앱 종료",
 		"game-settings": "게임 설정",
 		"general": "일반",

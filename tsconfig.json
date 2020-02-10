@@ -8,7 +8,7 @@
     "downlevelIteration": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    "module": "es2015",
+    "module": "esnext",
     "target": "es5",
     "moduleResolution": "node",
     "resolveJsonModule": true,
