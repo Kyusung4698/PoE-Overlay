@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { Currency } from '../../type';
+import { Currency, CurrencyRange } from '../../type';
 
 @Component({
   selector: 'app-currency-frame',
@@ -16,4 +16,10 @@ export class CurrencyFrameComponent {
 
   @Input()
   public label: string;
+
+  @Input()
+  range: CurrencyRange;
+
+  @Input()
+  count: number;
 }
