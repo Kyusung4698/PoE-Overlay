@@ -14,3 +14,8 @@ export type CurrencyTrade = {
 export type CurrencyChaosEquivalents = {
     [nameType: string]: number;
 }
+
+export type CurrencyRange = {
+  min: number;
+  max: number;
+}

@@ -1,70 +1,72 @@
 <div class="options">
-    <mat-icon class="clickable" (click)="options$.next(!options$.value)">filter_list</mat-icon>
-    <div class="popover" *ngIf="options$ | async">
-        <ng-container *ngIf="online$ | async; else offline">
-            <span class="clickable" title="online" (click)="onToggleOnlineClick()">
-                <mat-icon>wifi</mat-icon>
-            </span>
-        </ng-container>
-        <ng-template #offline>
-            <span class="clickable" title="offline" (click)="onToggleOnlineClick()">
-                <mat-icon>wifi_off</mat-icon>
-            </span>
-        </ng-template>
-        <ng-container *ngIf="indexed$ | async as indexed">
-            <span class="indexed" (wheel)="onIndexedWheel($event)">
-                {{indexed}}
-            </span>
-        </ng-container>
-        <span class="clickable" title="reset" (click)="onResetClick()">
-            <mat-icon>restore</mat-icon>
-        </span>
-    </div>
+  <mat-icon class="clickable" (click)="options$.next(!options$.value)">filter_list</mat-icon>
+  <div class="popover" *ngIf="options$ | async">
+    <ng-container *ngIf="online$ | async; else offline">
+      <span class="clickable" title="online" (click)="onToggleOnlineClick()">
+        <mat-icon>wifi</mat-icon>
+      </span>
+    </ng-container>
+    <ng-template #offline>
+      <span class="clickable" title="offline" (click)="onToggleOnlineClick()">
+        <mat-icon>wifi_off</mat-icon>
+      </span>
+    </ng-template>
+    <ng-container *ngIf="indexed$ | async as indexed">
+      <span class="indexed" (wheel)="onIndexedWheel($event)">
+        {{ indexed }}
+      </span>
+    </ng-container>
+    <span class="clickable" title="reset" (click)="onResetClick()">
+      <mat-icon>restore</mat-icon>
+    </span>
+  </div>
 </div>
-<ng-container *ngIf="(result$ | async) as result; else loading">
-    <ng-container *ngIf="result.items && result.items.length > 0">
-        <div class="clickable values" (click)="onCurrencyClick($event)" (wheel)="onCurrencyWheel($event)"
-            title="'Click' = In-Game Browser, 'CTRL + Click' Default Browser">
-            <div>
-                <app-currency-frame label="Mean" [amount]="result.mean">
-                </app-currency-frame>
-                <app-currency-frame label="Median" [amount]="result.median">
-                </app-currency-frame>
-                <app-currency-frame label="Mode" [amount]="result.mode">
-                </app-currency-frame>
-            </div>
-            <div>
-                <app-currency-frame label="Min" [amount]="result.min">
-                </app-currency-frame>
-                <app-currency-frame label="Max" [amount]="result.max" [currency]="result.currency">
-                </app-currency-frame>
-            </div>
-        </div>
-        <div class="tools">
-            <span>
-                {{result.items.length}}/{{result.total}}
-            </span>
-            <span class="spacer"></span>
-            <span class="clickable">
-                <mat-icon [class.active]="graph" (click)="graph = true">bar_chart</mat-icon>
-                <mat-icon [class.active]="!graph" (click)="graph = false">list</mat-icon>
-            </span>
-        </div>
-        <app-evaluate-search-chart *ngIf="graph" [result]="result" (amountSelect)="onAmountSelect($event)">
-        </app-evaluate-search-chart>
-        <app-evaluate-search-table *ngIf="!graph" [result]="result" (amountSelect)="onAmountSelect($event)">
-        </app-evaluate-search-table>
-    </ng-container>
-    <ng-container *ngIf="result.items && result.items.length === 0">
-        <div class="clickable" (click)="onCurrencyClick($event)"
-            title="'Click' = In-Game Browser, 'CTRL + Click' Default Browser">
-            {{'evaluate.not-found' | translate}}
-        </div>
-    </ng-container>
-    <ng-container *ngIf="!result.items">
-        <div> {{'evaluate.error' | translate}} </div>
-    </ng-container>
+<ng-container *ngIf="result$ | async as result; else loading">
+  <ng-container *ngIf="result.items && result.items.length > 0">
+    <div class="clickable values" (click)="onCurrencyClick($event)" (wheel)="onCurrencyWheel($event)"
+      title="'Click' = In-Game Browser, 'CTRL + Click' Default Browser">
+      <div>
+        <app-currency-frame label="Mean" [amount]="result.mean">
+        </app-currency-frame>
+        <app-currency-frame label="Median" [amount]="result.median">
+        </app-currency-frame>
+        <app-currency-frame label="Mode" [amount]="result.mode">
+        </app-currency-frame>
+      </div>
+      <div>
+        <app-currency-frame label="Count" [count]="result.total">
+        </app-currency-frame>
+        <span class="currency">
+          <app-currency-frame label="Range" [currency]="result.currency" [range]="{ min: result.min, max: result.max }">
+          </app-currency-frame>
+        </span>
+      </div>
+    </div>
+    <div class="tools">
+      <span>
+        {{result.items.length}}/{{result.total}}
+      </span>
+      <span class="spacer"></span>
+      <span class="clickable">
+        <mat-icon [class.active]="graph" (click)="graph = true">bar_chart</mat-icon>
+        <mat-icon [class.active]="!graph" (click)="graph = false">list</mat-icon>
+      </span>
+    </div>
+    <app-evaluate-search-chart *ngIf="graph" [result]="result" (amountSelect)="onAmountSelect($event)">
+    </app-evaluate-search-chart>
+    <app-evaluate-search-table *ngIf="!graph" [result]="result" (amountSelect)="onAmountSelect($event)">
+    </app-evaluate-search-table>
+  </ng-container>
+  <ng-container *ngIf="result.items && result.items.length === 0">
+    <div class="clickable" (click)="onCurrencyClick($event)"
+      title="'Click' = In-Game Browser, 'CTRL + Click' Default Browser">
+      {{ 'evaluate.not-found' | translate }}
+    </div>
+  </ng-container>
+  <ng-container *ngIf="!result.items">
+    <div>{{ 'evaluate.error' | translate }}</div>
+  </ng-container>
 </ng-container>
 <ng-template #loading>
-    <div> {{'evaluate.loading' | translate}} </div>
+  <div>{{ 'evaluate.loading' | translate }}</div>
 </ng-template>
