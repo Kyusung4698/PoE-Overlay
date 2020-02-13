@@ -119,6 +119,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
 
   private registerShortcuts(): void {
     this.userSettingsService.get().subscribe(settings => {
+      this.unregisterShortcuts();
       this.registerFeatures(settings);
       this.registerSettings(settings);
       this.registerExit(settings);
