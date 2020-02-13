@@ -1,3 +1,5 @@
+@import "./../../../../../styles/variables";
+
 .exchange-rate {
   display: flex;
   align-items: center;
@@ -8,14 +10,6 @@
   max-width: 340px;
   margin: 0 auto;
 
-  &:hover {
-    .currency {
-      background-color: rgba(170, 158, 130, 0.3);
-      outline: auto;
-      display: inline-flex;
-    }
-  }
-
   .spacer {
     flex-grow: 1;
   }
@@ -25,7 +19,7 @@
     align-items: center;
 
     .amount {
-      color: #c8c8c8;
+      color: $light-grey;
     }
   }
 
@@ -55,6 +49,21 @@
       .info {
         font-size: 12px;
         line-height: 12px;
+      }
+    }
+  }
+}
+
+::ng-deep {
+  app-evaluate-exchange-rate {
+    .exchange-rate {
+      &:hover {
+        app-currency-frame {
+          .currency {
+            background-color: rgba(170, 158, 130, 0.3);
+            outline: auto;
+          }
+        }
       }
     }
   }

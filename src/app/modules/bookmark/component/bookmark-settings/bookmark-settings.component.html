@@ -1,0 +1,16 @@
+<mat-card class="card" *ngFor="let bookmark of settings.bookmarks; let index = index">
+    <button class="remove" mat-icon-button (click)="onRemoveClick(index)">
+        <mat-icon>close</mat-icon>
+    </button>
+    <mat-form-field>
+        <mat-label>{{'bookmark.url' | translate}}</mat-label>
+        <input matInput [(ngModel)]="bookmark.url">
+    </mat-form-field>
+    <app-accelerator [label]="'bookmark.shortcut' | translate" [(value)]="bookmark.shortcut">
+    </app-accelerator>
+</mat-card>
+<mat-card>
+    <div align="center">
+        <button mat-button (click)="onAddClick()">{{'bookmark.add' | translate}}</button>
+    </div>
+</mat-card>

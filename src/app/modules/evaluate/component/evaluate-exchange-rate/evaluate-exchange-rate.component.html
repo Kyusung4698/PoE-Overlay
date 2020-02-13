@@ -8,10 +8,8 @@
                         <mat-icon class="clickable switch" [title]="'evaluate.switch' | translate"
                             (click)="inverse$.next(!inverse$.value)">compare_arrows
                         </mat-icon>
-                        <span class="currency">
-                            <app-currency-frame [amount]="result.rate.amount" [currency]="result.rate.currency">
-                            </app-currency-frame>
-                        </span>
+                        <app-currency-frame class="clickable" (click)="onAmountClick()" [amount]="result.rate.amount" [currency]="result.rate.currency">
+                        </app-currency-frame>
                     </div>
                 </div>
                 <ng-template #inverse>
@@ -20,10 +18,8 @@
                         <mat-icon class="clickable switch" [title]="'evaluate.switch' | translate"
                             (click)="inverse$.next(!inverse$.value)">compare_arrows
                         </mat-icon>
-                        <span class="currency">
-                            <app-currency-frame [amount]="1" [currency]="result.rate.currency">
-                            </app-currency-frame>
-                        </span>
+                        <app-currency-frame [amount]="1" [currency]="result.rate.currency">
+                        </app-currency-frame>
                     </div>
                 </ng-template>
             </div>

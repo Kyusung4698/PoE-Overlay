@@ -8,7 +8,7 @@
   "author": {
     "name": "Kyusung4698"
   },
-  "version": "0.5.15",
+  "version": "0.5.16",
   "scripts": {
     "postinstall": "npm run ng:cc && npm run electron:deps",
     "ng:cc": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",

@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { BrowserService } from '@app/service';
+import { EvaluateResult } from '@modules/evaluate/type/evaluate.type';
 import { SnackBarService } from '@shared/module/material/service';
 import { ItemExchangeRateResult, ItemExchangeRateService } from '@shared/module/poe/service';
 import { Currency, Item, ItemRarity } from '@shared/module/poe/type';
@@ -35,6 +36,9 @@ export class EvaluateExchangeRateComponent {
     return this._currencies;
   }
 
+  @Output()
+  public evaluateResult = new EventEmitter<EvaluateResult>();
+
   constructor(
     private readonly exchangeRateService: ItemExchangeRateService,
     private readonly browser: BrowserService,
@@ -62,6 +66,13 @@ export class EvaluateExchangeRateComponent {
     if (result?.rate?.url) {
       this.browser.open(result.rate.url, event.ctrlKey);
     }
+  }
+
+  public onAmountClick(): void {
+    this.evaluateResult.next({
+      amount: this.result$.value.rate.amount,
+      currency: this.result$.value.rate.currency,
+    });
   }
 
   private evaluate(item: Item, currency?: Currency): void {

@@ -1,4 +1,10 @@
 {
+	"bookmark": {
+		"add": "Adicionar marcador",
+		"name": "marca páginas",
+		"shortcut": "Atalho",
+		"url": "URL"
+	},
 	"clipboard": {
 		"empty": "A área de transferência estava vazia. Por favor, verifique se o jogo está focado.",
 		"error": "Ocorreu um erro ao analisar o item.",

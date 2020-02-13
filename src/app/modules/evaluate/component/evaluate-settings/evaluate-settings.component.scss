@@ -1,3 +1,5 @@
+@import './../../../../../styles/variables';
+
 $label-color: rgba(200, 200, 200, 0.54);
 
 .toggle {
@@ -29,29 +31,30 @@ label {
     display: inline-block;
     padding: 3px;
     margin-right: 6px;
+    border-radius: 4px;
 
     &.explicit {
       display: none;
     }
 
     &.pseudo {
-      background-color: #232420;
+      background-color: $pseudo;
     }
 
     &.implicit {
-      background-color: #65621e;
+      background-color: $implicit;
     }
 
     &.crafted {
-      background-color: #0060bf;
+      background-color: $crafted;
     }
 
     &.enchant {
-      background-color: #8b579c;
+      background-color: $enchant;
     }
 
     &.fractured {
-      background-color: #a29162;
+      background-color: $fractured;
     }
   }
 }

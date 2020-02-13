@@ -21,7 +21,7 @@ ipcMain.on('click-at', (event, button, position) => {
         robot.moveMouse(position.x, position.y);
     }
     robot.mouseClick(button, false);
-    
+
     event.returnValue = true;
 });
 

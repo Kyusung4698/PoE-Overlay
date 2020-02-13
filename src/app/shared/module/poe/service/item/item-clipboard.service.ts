@@ -36,7 +36,7 @@ export class ItemClipboardService {
             flatMap(() => {
                 const point = this.mouse.position();
                 const rawPoint = this.mouse.position(true);
-                this.keyboard.setKeyboardDelay(15);
+                this.keyboard.setKeyboardDelay(25);
                 this.keyboard.keyTap('c', ['control']);
 
                 return of(null).pipe(

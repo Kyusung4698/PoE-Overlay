@@ -58,9 +58,11 @@
             <ng-container *ngIf="(stat|statTransform:language) as parts">
                 <ng-container *ngFor="let part of parts; let index = index">
                     <span>{{part}}</span>
-                    <app-item-frame-value *ngIf="stat.values[index]" [(value)]="stat.values[index]"
-                        [modifier]="modifier" [modifierMaxRange]="modifierMaxRange">
-                    </app-item-frame-value>
+                    <span [class]="getValueClass(stat.id)">
+                        <app-item-frame-value *ngIf="stat.values[index]" [(value)]="stat.values[index]"
+                            [modifier]="modifier" [modifierMaxRange]="modifierMaxRange">
+                        </app-item-frame-value>
+                    </span>
                 </ng-container>
             </ng-container>
         </app-item-frame-value-group>

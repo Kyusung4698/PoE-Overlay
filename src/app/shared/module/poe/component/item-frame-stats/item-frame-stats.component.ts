@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Item, Language } from '../../type';
 
 @Component({
@@ -22,4 +22,25 @@ export class ItemFrameStatsComponent {
 
   @Input()
   public modifierMaxRange: boolean;
+
+  public getValueClass(id: string): string {
+    if (!id || id.length === 0) {
+      return '';
+    }
+
+    if (id.includes('fire_')) {
+      return 'fire';
+    }
+    if (id.includes('cold_')) {
+      return 'cold';
+    }
+    if (id.includes('lightning_')) {
+      return 'lightning';
+    }
+    if (id.includes('chaos_')) {
+      return 'chaos';
+    }
+
+    return '';
+  }
 }

@@ -1032,3 +1032,76 @@ On the mirrored edge of infinity,
 one man sinks forever into darkness,
 one man rises into light.
 But which one am I?
+
+Rarity: Rare
+Woe Veil
+Siege Helmet
+--------
+Quality: +20% (augmented)
+Armour: 332 (augmented)
+--------
+Requirements:
+Level: 69
+Str: 101
+Int: 134
+--------
+Sockets: B-R-R-B 
+--------
+Item Level: 85
+--------
+Scourge Arrow creates an additional spore pod at Maximum Stages
+--------
++95 to maximum Life
++25% to Chaos Resistance
+Regenerate 1% of Life per second
+Nearby Enemies have -9% to Chaos Resistance
+20% increased Armour (crafted)
++16 to maximum Life (crafted)
+
+Rarity: Rare
+Woe Veil
+Siege Helmet
+--------
+Quality: +20% (augmented)
+Armour: 332 (augmented)
+--------
+Requirements:
+Level: 69
+Str: 101
+Int: 134
+--------
+Sockets: B-R-R-B 
+--------
+Item Level: 85
+--------
+Scourge Arrow creates an additional spore pod at Maximum Stages
+--------
+Nearby Enemies have -9% to Chaos Resistance
+
+Rarity: Unique
+The Saviour
+Legion Sword
+--------
+Critical Strike Chance: 5.40% (augmented)
+--------
+8% increased Critical Strike Chance
+
+Rarity: Rare
+Foe Bane
+Vaal Greatsword
+--------
+Two Handed Sword
+Physical Damage: 55-113
+Elemental Damage: 58-109 (augmented), 18-35 (augmented)
+Critical Strike Chance: 5.00%
+Attacks per Second: 1.30
+Weapon Range: 13
+--------
+Requirements:
+Level: 68
+Str: 122
+Dex: 104 (unmet)
+--------
+Sockets: R-R 
+--------
+Adds 58 to 109 Fire Damage

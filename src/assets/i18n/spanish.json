@@ -1,4 +1,10 @@
 {
+	"bookmark": {
+		"add": "Añadir marcador",
+		"name": "Marcador",
+		"shortcut": "Atajo",
+		"url": "Url"
+	},
 	"clipboard": {
 		"empty": "El portapapeles estaba vacío. Asegúrate de que el juego esté enfocado.",
 		"error": "Se produjo un error al analizar el elemento.",
