@@ -1,3 +1,5 @@
+@import './../../../../../styles/variables';
+
 ::ng-deep {
   app-evaluate-exchange-rate-chart {
     .ngx-charts {
@@ -10,7 +12,7 @@
       }
 
       text {
-        fill: #fff;
+        fill: $white;
       }
     }
   }

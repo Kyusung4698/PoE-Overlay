@@ -1,4 +1,10 @@
 {
+	"bookmark": {
+		"add": "Lesezeichen hinzufügen",
+		"name": "Lesezeichen",
+		"shortcut": "Tastaturkürzel",
+		"url": "Url"
+	},
 	"clipboard": {
 		"empty": "Zwischenablage war leer. Bitte stellen Sie sicher, dass das Spiel fokussiert ist.",
 		"error": "Beim Parsen des Gegenstandes ist ein Fehler aufgetreten.",

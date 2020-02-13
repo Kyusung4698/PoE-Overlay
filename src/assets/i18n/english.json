@@ -1,4 +1,10 @@
 {
+	"bookmark": {
+		"add": "Add Bookmark",
+		"name": "Bookmark",
+		"shortcut": "Shortcut",
+		"url": "Url"
+	},
 	"clipboard": {
 		"empty": "Clipboard was empty. Please make sure the game is focused.",
 		"error": "An error occurred while parsing the item.",

@@ -1,7 +1,7 @@
 <div class="content">
     <span *ngIf="label">{{label}}:&nbsp;</span>
     <span *ngIf="amount !== undefined && amount !== null" class="amount"> {{amount | number : '1.2-2'}}&nbsp; </span>
-    <span *ngIf="currency">
+    <span *ngIf="currency" class="currency">
         <img [src]="'https://web.poecdn.com' + currency.image">
     </span>
 </div>

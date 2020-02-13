@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { OverlayComponent } from './layout/page/overlay/overlay.component';
 import { UserSettingsComponent } from './layout/page/user-settings/user-settings.component';
+import { BookmarkModule } from '@modules/bookmark/bookmark.module';
 
 const routes: Routes = [
   {
@@ -41,7 +42,8 @@ const routes: Routes = [
     EvaluateModule,
     CommandModule,
     MapModule,
-    MiscModule
+    MiscModule,
+    BookmarkModule
   ],
   providers: [],
   bootstrap: [AppComponent]

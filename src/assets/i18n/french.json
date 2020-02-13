@@ -1,4 +1,10 @@
 {
+	"bookmark": {
+		"add": "Ajouter un marque-page",
+		"name": "Signet",
+		"shortcut": "raccourci",
+		"url": "URL"
+	},
 	"clipboard": {
 		"empty": "Le presse-papiers était vide. Veuillez vous assurer que le jeu est ciblé.",
 		"error": "Une erreur s'est produite lors de l'analyse de l'élément.",

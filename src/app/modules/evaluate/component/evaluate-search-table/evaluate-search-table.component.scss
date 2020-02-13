@@ -1,3 +1,5 @@
+@import './../../../../../styles/variables';
+
 table {
   width: 100%;
 
@@ -7,7 +9,7 @@ table {
   }
 
   &.header {
-    border-bottom: 1px solid #7f7f7f;
+    border-bottom: 1px solid $light-dark-grey;
   }
 
   .seller {
@@ -18,7 +20,7 @@ table {
     min-width: 70px;
 
     .value {
-      color: #c8c8c8;
+      color: $light-grey;
     }
   }
 
@@ -27,6 +29,6 @@ table {
   }
 
   .fixer {
-    color: #b00;
+    color: $red;
   }
 }

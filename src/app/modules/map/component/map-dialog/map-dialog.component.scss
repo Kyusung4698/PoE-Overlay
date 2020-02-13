@@ -1,14 +1,16 @@
+@import "./../../../../../styles/variables";
+
 ::ng-deep {
   .map-frame {
     .purpel,
     .blue {
-      color: #d20000 !important;
+      color: $red !important;
     }
   }
 }
 
 .white {
-  color: #fff;
+  color: $white;
 }
 
 .description {

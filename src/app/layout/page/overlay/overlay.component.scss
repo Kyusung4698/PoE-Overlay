@@ -1,11 +1,12 @@
+@import "./../../../../styles/variables";
+
 .version {
-    color: #ff7;
-    position: fixed;
-    bottom: 2px;
-    left: 2px;
-    font-size: 9px;
-    opacity: 0.5;
-    text-shadow: #000;
-    font-family: FontinSmallCaps;
-  }
-  
+  color: $yellow;
+  position: fixed;
+  bottom: 2px;
+  left: 2px;
+  font-size: 9px;
+  opacity: 0.5;
+  text-shadow: $black;
+  font-family: FontinSmallCaps;
+}

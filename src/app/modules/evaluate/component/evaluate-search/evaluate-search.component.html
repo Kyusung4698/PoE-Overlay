@@ -36,18 +36,24 @@
             <div>
                 <app-currency-frame label="Min" [amount]="result.min">
                 </app-currency-frame>
-                <span class="currency">
-                    <app-currency-frame label="Max" [amount]="result.max" [currency]="result.currency">
-                    </app-currency-frame>
-                </span>
+                <app-currency-frame label="Max" [amount]="result.max" [currency]="result.currency">
+                </app-currency-frame>
             </div>
         </div>
-        <div class="clickable" align="end">
-            <mat-icon [class.active]="graph" (click)="graph = true">bar_chart</mat-icon>
-            <mat-icon [class.active]="!graph" (click)="graph = false">list</mat-icon>
+        <div class="tools">
+            <span>
+                {{result.items.length}}/{{result.total}}
+            </span>
+            <span class="spacer"></span>
+            <span class="clickable">
+                <mat-icon [class.active]="graph" (click)="graph = true">bar_chart</mat-icon>
+                <mat-icon [class.active]="!graph" (click)="graph = false">list</mat-icon>
+            </span>
         </div>
-        <app-evaluate-search-chart *ngIf="graph" [result]="result" (amountSelect)="onAmountSelect($event)"></app-evaluate-search-chart>
-        <app-evaluate-search-table *ngIf="!graph" [result]="result" (amountSelect)="onAmountSelect($event)"></app-evaluate-search-table>
+        <app-evaluate-search-chart *ngIf="graph" [result]="result" (amountSelect)="onAmountSelect($event)">
+        </app-evaluate-search-chart>
+        <app-evaluate-search-table *ngIf="!graph" [result]="result" (amountSelect)="onAmountSelect($event)">
+        </app-evaluate-search-table>
     </ng-container>
     <ng-container *ngIf="result.items && result.items.length === 0">
         <div class="clickable" (click)="onCurrencyClick($event)"

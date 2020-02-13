@@ -1,3 +1,18 @@
+## 0.5.16 (2020-02-13)
+
+* add fast-tag support to exchange rate (#228)
+* add count statistic (#220)
+* add missing pseudo mods (#230)
+* add elemental color to mods
+* add bookmark module (#206)
+    * `https://www.poelab.com/` on `num1`
+    * `https://wraeclast.com/` on `num2`
+* update ux design (#211)
+    * new accent color
+    * menu keeps height after tab change
+    * custom scrollbar
+* fix nearby enemies counted as chaos resistance (#213)
+
 ## 0.5.15 (2020-02-10)
 
 * add version toggle (#205)

@@ -1,5 +1,6 @@
 @import "./styles/fonts";
 @import "./styles/theme";
+@import "./styles/scrollbar";
 
 html,
 body {
@@ -8,10 +9,6 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-::-webkit-scrollbar {
-  width: 0px;
-  background: transparent;
-}
 
 .clickable {
   cursor: pointer;

@@ -1,3 +1,5 @@
+@import "./../../../../../../styles/variables";
+
 .content {
   display: inline-flex;
   justify-content: center;
@@ -5,10 +7,14 @@
   height: 32px;
 
   .amount {
-    color: #c8c8c8;
+    color: $light-grey;
   }
 
   img {
     height: 32px;
+  }
+
+  .currency {
+    display: inline-flex;
   }
 }

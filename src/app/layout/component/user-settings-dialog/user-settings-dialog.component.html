@@ -1,5 +1,5 @@
-<div mat-dialog-content>
-    <mat-tab-group mat-stretch-tabs [dynamicHeight]="true" (selectedIndexChange)="onSelectedIndexChange($event)">
+<div class="dialog-content" mat-dialog-content>
+    <mat-tab-group mat-stretch-tabs animationDuration="0ms" (selectedIndexChange)="onSelectedIndexChange($event)">
         <mat-tab [label]="'settings.general' | translate">
             <div class="content">
                 <app-user-settings-form [settings]="settings"></app-user-settings-form>

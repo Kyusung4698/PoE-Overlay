@@ -1,3 +1,5 @@
+@import "./../../../../../../styles/variables";
+
 .header {
   font-size: 19px;
   line-height: 1em;
@@ -23,7 +25,7 @@
       url(../../../../../../assets/poe/item/header-normal-middle.png) top center repeat-x;
 
     > .name {
-      color: #c8c8c8;
+      color: $light-grey;
     }
   }
 
@@ -33,7 +35,7 @@
       url(../../../../../../assets/poe/item/header-magic-middle.png) top center repeat-x;
 
     > .name {
-      color: #88f;
+      color: $purple;
     }
   }
 
@@ -49,7 +51,7 @@
     }
 
     > .name {
-      color: #ff7;
+      color: $yellow;
     }
   }
 
@@ -65,7 +67,7 @@
     }
 
     > .name {
-      color: #af6025;
+      color: $orange;
     }
   }
 
@@ -75,7 +77,7 @@
       url(../../../../../../assets/poe/item/header-currency-middle.png) top center repeat-x;
 
     > .name {
-      color: #aa9e82;
+      color: $light-orange;
     }
   }
 
@@ -85,7 +87,7 @@
       url(../../../../../../assets/poe/item/header-card-middle.png) top center repeat-x;
 
     > .name {
-      color: #000;
+      color: $black;
     }
   }
 
@@ -95,7 +97,7 @@
       url(../../../../../../assets/poe/item/header-gem-middle.png) top center repeat-x;
 
     > .name {
-      color: #1ba29b;
+      color: $aqua;
     }
   }
 }

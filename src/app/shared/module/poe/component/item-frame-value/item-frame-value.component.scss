@@ -1,5 +1,7 @@
+@import "./../../../../../../styles/variables";
+
 .value {
   &.changed {
-    color: #c8c8c8;
+    color: $light-grey;
   }
 }

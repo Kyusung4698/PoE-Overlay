@@ -1,0 +1,11 @@
+@import 'variables';
+
+::-webkit-scrollbar {
+  width: 6px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $light-dark-grey;
+  border-radius: 3px;
+}

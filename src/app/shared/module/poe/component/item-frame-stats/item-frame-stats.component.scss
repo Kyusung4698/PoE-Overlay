@@ -1,7 +1,41 @@
+@import "./../../../../../../styles/variables";
+
 .purpel {
-  color: #88f;
+  color: $purple;
 }
 
 .blue {
-  color: #b4b4ff;
+  color: $blue;
+}
+
+::ng-deep {
+  app-item-frame-stats {
+    .cold {
+      .value,
+      .value.changed {
+        color: #366492;
+      }
+    }
+
+    .lightning {
+      .value,
+      .value.changed {
+        color: #ffd700;
+      }
+    }
+
+    .chaos {
+      .value,
+      .value.changed {
+        color: #d02090;
+      }
+    }
+
+    .fire {
+      .value,
+      .value.changed {
+        color: #960000;
+      }
+    }
+  }
 }
