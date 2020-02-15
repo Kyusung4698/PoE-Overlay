@@ -200,7 +200,8 @@ function createTray(): Tray {
 
 try {
     app.on('ready', () => {
-        hotkeys.beginListener(!serve);
+        // hotkeys.beginListener(!serve);
+        hotkeys.beginListener(true);
         createWindow();
         createTray();
     });

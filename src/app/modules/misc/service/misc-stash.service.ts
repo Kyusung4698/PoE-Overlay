@@ -34,7 +34,7 @@ export class MiscStashService {
 
     private initHighlightQueue(): void {
         this.highlightCommandQueue$.pipe(
-            throttleTime(150),
+            throttleTime(500),
             flatMap(() => this.itemClipboard.copy({
                 [ItemSection.Rartiy]: true
             })),

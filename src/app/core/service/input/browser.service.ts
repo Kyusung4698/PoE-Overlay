@@ -19,18 +19,33 @@ export class BrowserService {
         if (external) {
             this.electron.shell.openExternal(url);
         } else {
+            const parent = this.electron.getCurrentWindow();
+
             const BrowserWindow = this.electron.BrowserWindow;
             const win = new BrowserWindow({
                 center: true,
-                modal: true,
-                parent: this.electron.getCurrentWindow(),
+                parent: parent,
                 autoHideMenuBar: true,
                 width: 1400,
                 height: 800,
                 backgroundColor: '#0F0F0F'
             });
+
             const close = win.close.bind(win);
+                        
+            parent.setEnabled(false);
             this.dialogs.add(close);
+            win.on('minimize', () => {
+                parent.setEnabled(true);
+                this.dialogs.remove(close);
+            });
+            const restore = () => {
+                parent.setEnabled(false);
+                this.dialogs.remove(close);
+                this.dialogs.add(close);
+            };
+            win.on('restore', () => restore());
+            win.on('maximize', () => restore());
             win.once('closed', () => this.dialogs.remove(close));
             win.loadURL(url);
         }

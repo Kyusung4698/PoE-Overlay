@@ -38,9 +38,10 @@ export class StashService {
         const text = this.clipboard.readText();
         this.clipboard.writeText(`"${term}"`);
         this.keyboard.setKeyboardDelay(5);
-        this.keyboard.keyTap('f', ['control']);
-        this.keyboard.keyTap('v', ['control']);
         return of(null).pipe(
+            tap(() => this.keyboard.keyTap('f', ['control'])),
+            delay(175),
+            tap(() => this.keyboard.keyTap('v', ['control'])),
             delay(75),
             tap(() => this.clipboard.writeText(text))
         );

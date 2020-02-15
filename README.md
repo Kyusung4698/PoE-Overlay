@@ -46,7 +46,7 @@ This project is currently in a ***pilot phase***. If you encounter any bugs or h
 
 * Misc:
     * Navigating storage by CTRL + WHEEL
-    * Highlighting items by CTRL + F
+    * Highlighting items by ALT + F
 
 * Menu:
     * an in game menu to change all settings<br> ![menu](img/menu_0.5.2.jpg)
@@ -60,7 +60,7 @@ This project is currently in a ***pilot phase***. If you encounter any bugs or h
 | Evaluate         | 100%           | + Basic search implemented <br>+ User settings (display currency, translated language) <br>+ Chart to display values instead of avg <br>+ Advanced search with filter on modifiers |
 | Command        | 100%            | + bind in-game commmands to shortcuts (/dnd, /hideout) |
 | Map        | 100%            | + display map info (layout, bosses, ...)<br>+ customisable mod warnings |
-| Misc        | 100%            | + navigating through storage by CTRL + WHEEL<br> + highlighting items by CTRL + F |
+| Misc        | 100%            | + navigating through storage by CTRL + WHEEL<br> + highlighting items by ALT + F |
 | Trade      | 0%           | - Send messages<br>- Trade UI<br>- etc.       |
 
 

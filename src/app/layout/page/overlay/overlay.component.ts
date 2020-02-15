@@ -1,14 +1,13 @@
 import { ChangeDetectionStrategy, Component, HostListener, Inject, OnDestroy, OnInit } from '@angular/core';
-import { AppService, BrowserService, RendererService, ShortcutService, VisibleFlag, WindowService } from '@app/service';
-import { DialogsService } from '@app/service/input/dialogs.service.js';
+import { AppService, BrowserService, DialogsService, RendererService, ShortcutService, WindowService } from '@app/service';
 import { FEATURE_MODULES } from '@app/token';
-import { FeatureModule } from '@app/type';
+import { FeatureModule, VisibleFlag } from '@app/type';
 import { ReleasesHttpService } from '@data/github';
 import { TranslateService } from '@ngx-translate/core';
 import { ContextService } from '@shared/module/poe/service';
 import { Context, Language } from '@shared/module/poe/type';
-import { Observable, BehaviorSubject } from 'rxjs';
-import { delay, distinctUntilChanged, filter, map } from 'rxjs/operators';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { flatMap } from 'rxjs/operators';
 import { version } from '../../../../../package.json';
 import { UserSettingsService } from '../../service/user-settings.service';
 import { UserSettings } from '../../type';
@@ -43,7 +42,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
 
   @HostListener('window:beforeunload', [])
   public onWindowBeforeUnload(): void {
-    this.unregisterShortcuts();
+    this.reset();
   }
 
   public ngOnInit(): void {
@@ -52,7 +51,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy(): void {
-    this.unregisterShortcuts();
+    this.reset();
   }
 
   private checkVersion(): void {
@@ -70,7 +69,10 @@ export class OverlayComponent implements OnInit, OnDestroy {
       this.translate.use(`${settings.language}`);
       this.displayVersion$.next(settings.displayVersion);
       this.context.init(this.getContext(settings));
+
+      this.register(settings);
       this.registerVisibleChange();
+
       this.renderer.on('show-user-settings').subscribe(() => {
         this.openUserSettings();
       });
@@ -78,66 +80,52 @@ export class OverlayComponent implements OnInit, OnDestroy {
   }
 
   private registerVisibleChange(): void {
-    this.app.visibleChange().pipe(
-      map(flag => {
-        if (flag === VisibleFlag.None) {
-          this.window.hide();
-        } else {
-          this.window.show();
-        }
-
-        const visible = (flag & VisibleFlag.Game) === VisibleFlag.Game;
-        if (!visible) {
-          this.unregisterShortcuts();
-        }
-        return visible;
-      }),
-      distinctUntilChanged(),
-      filter(x => x),
-      delay(500)
-    ).subscribe(() => {
-      this.registerShortcuts();
+    this.app.visibleChange().subscribe(flag => {
+      if (flag === VisibleFlag.None) {
+        this.window.hide();
+      } else {
+        this.window.show();
+      }
+      this.shortcut.check(flag);
     });
   }
 
   private openUserSettings(): void {
     if (!this.userSettingsOpen) {
-      this.unregisterShortcuts();
       this.userSettingsOpen = this.renderer.open('user-settings');
-
-      this.userSettingsOpen.subscribe(() => {
+      this.userSettingsOpen.pipe(
+        flatMap(() => this.userSettingsService.get())
+      ).subscribe(settings => {
         this.userSettingsOpen = null;
-        this.userSettingsService.get().subscribe(settings => {
-          this.translate.use(`${settings.language}`);
-          this.displayVersion$.next(settings.displayVersion);
-          this.context.update(this.getContext(settings));
-          this.registerShortcuts();
-        });
+
+        this.translate.use(`${settings.language}`);
+        this.displayVersion$.next(settings.displayVersion);
+        this.context.update(this.getContext(settings));
+
+        this.register(settings);
+        this.app.triggerVisibleChange();
       }, () => this.userSettingsOpen = null);
+      this.reset();
     }
   }
 
-  private registerShortcuts(): void {
-    this.userSettingsService.get().subscribe(settings => {
-      this.unregisterShortcuts();
-      this.registerFeatures(settings);
-      this.registerSettings(settings);
-      this.registerExit(settings);
-      this.dialogs.registerShortcuts();
-    });
+  private reset(): void {
+    this.dialogs.reset();
+    this.shortcut.reset();
   }
 
-  private unregisterShortcuts(): void {
-    this.shortcut.unregisterAll();
-    this.dialogs.unregisterShortcuts();
+  private register(settings: UserSettings): void {
+    this.registerFeatures(settings);
+    this.registerSettings(settings);
+    this.dialogs.register();
   }
 
   private registerFeatures(settings: UserSettings): void {
     this.modules.forEach(mod => {
       const features = mod.getFeatures(settings);
       features.forEach(feature => {
-        if (feature.shortcut) {
-          this.shortcut.register(feature.shortcut).subscribe(() => {
+        if (feature.accelerator) {
+          this.shortcut.add(feature.accelerator, !!feature.passive).subscribe(() => {
             mod.run(feature.name, settings);
           });
         }
@@ -147,13 +135,10 @@ export class OverlayComponent implements OnInit, OnDestroy {
 
   private registerSettings(settings: UserSettings): void {
     if (settings.openUserSettingsKeybinding) {
-      this.shortcut.register(settings.openUserSettingsKeybinding).subscribe(() => this.openUserSettings());
+      this.shortcut.add(settings.openUserSettingsKeybinding).subscribe(() => this.openUserSettings());
     }
-  }
-
-  private registerExit(settings: UserSettings): void {
     if (settings.exitAppKeybinding) {
-      this.shortcut.register(settings.exitAppKeybinding).subscribe(() => this.app.quit());
+      this.shortcut.add(settings.exitAppKeybinding).subscribe(() => this.app.quit());
     }
   }
 

@@ -1,19 +1,19 @@
 {
 	"bookmark": {
-		"add": "Ajouter un marque-page",
+		"add": "Ajouter un signet",
 		"name": "Signet",
-		"shortcut": "raccourci",
+		"shortcut": "Raccourci",
 		"url": "URL"
 	},
 	"clipboard": {
-		"empty": "Le presse-papiers était vide. Veuillez vous assurer que le jeu est ciblé.",
+		"empty": "Le presse-papiers était vide. Veuillez vous assurer que la fenêtre du jeu est active.",
 		"error": "Une erreur s'est produite lors de l'analyse de l'élément.",
 		"parser-error": "L'élément n'a pas pu être analysé. Veuillez vous assurer d'avoir sélectionné la bonne langue."
 	},
 	"command": {
 		"add": "Ajouter une commande",
-		"name": "Commander",
-		"shortcut": "raccourci"
+		"name": "Commande",
+		"shortcut": "Raccourci"
 	},
 	"evaluate": {
 		"currency": "Monnaie affichée",
@@ -27,50 +27,50 @@
 			"default": "Paramètres de recherche par défaut",
 			"disable-max-range": "Désactiver la plage maximale",
 			"filter": "Filtre de recherche",
-			"gem": "Niveau de gemme, niveau de carte et qualité",
+			"gem": "Niveau de gemme, pallier de carte et qualité",
 			"item-level": "Niveau d'objet",
-			"item-sockets": "Douilles",
-			"item-type": "Type d'élément",
+			"item-sockets": "Châsses",
+			"item-type": "Type d'objet",
 			"max-age": {
 				"any": "à tout moment",
-				"day": "Il y a jusqu'à un jour",
-				"days": "Il y a jusqu'à 3 jours",
-				"month": "Il y a jusqu'à 1 mois",
+				"day": "Jusqu'à un jour",
+				"days": "Jusqu'à 3 jours",
+				"month": "Jusqu'à 1 mois",
 				"months": "Jusqu'à 2 mois",
-				"title": "Liste Max Age",
-				"week": "Il y a jusqu'à une semaine",
-				"weeks": "Il y a jusqu'à 2 semaines"
+				"title": "Âge de l'offre maximum",
+				"week": "Jusqu'à une semaine",
+				"weeks": "Jusqu'à 2 semaines"
 			},
-			"modifier": "Paramètres de recherche des modificateurs",
+			"modifier": "Paramètres de recherche pour les modificateurs",
 			"modifier-range": "Plage de modificateurs",
 			"online-only": "En ligne seulement"
 		},
-		"settings": "Évaluer les paramètres",
-		"stats": "statistiques",
+		"settings": "Paramètres d'évaluation",
+		"stats": "Statistiques",
 		"stats-export": "Exporter les statistiques vers le presse-papiers",
 		"stats-import": "Importer des statistiques depuis le presse-papiers",
-		"switch": "montant de substitution",
+		"switch": "inverser les valeurs",
 		"tag": {
-			"note": "Seuls les éléments sans note existante peuvent être marqués rapidement. La note a été copiée à la place.",
-			"outside-stash": "Seuls les articles à l'intérieur de la cachette peuvent être marqués rapidement. La note a été copiée à la place."
+			"note": "Seuls les éléments sans note existante peuvent être taggés. La note a été copiée à la place.",
+			"outside-stash": "Seuls les objets à l'intérieur de la réserve peuvent être taggés. La note a été copiée à la place."
 		},
-		"translate": "Évaluer Traduire",
-		"translate-language": "Langue de l'article traduit",
-		"translate-settings": "Évaluer les paramètres de traduction"
+		"translate": "Évaluation traduite",
+		"translate-language": "Langue de l'objet traduit",
+		"translate-settings": "Paramètres de l'évaluation traduuite"
 	},
 	"help": {
 		"browser": "Maintenir CTRL tout en cliquant ouvrira le lien dans le navigateur par défaut.",
 		"browser-title": "Comment ouvrir la recherche dans mon navigateur par défaut?",
-		"bug": "Créer un problème",
-		"bug-title": "Vous avez trouvé un bug? Ou avez-vous une suggestion? Veuillez créer un problème sur GitHub",
+		"bug": "Remonter un problème",
+		"bug-title": "Vous avez trouvé un bug? Ou avez-vous une suggestion? Veuillez ouvrir un ticket sur GitHub",
 		"donate": "Faire un don via PayPal",
-		"donate-title": "Vous aimez le projet? N'hésitez pas à laisser un don. Merci pour votre aide!",
-		"dwm": "Cela est principalement dû à un Aero / DWM désactivé. Essayez donc d'activer cette fonctionnalité Windows.<br> Comme il est requis pour créer des fenêtres transparentes.",
-		"dwm-title": "Pourquoi mon écran devient-il noir / blanc après avoir basculé une fonction?",
+		"donate-title": "Vous aimez le projet ? N'hésitez pas à laisser un don. Merci pour votre aide !",
+		"dwm": "Cela est principalement dû à Aero / DWM qui est désactivé. Essayez d'activer cette fonctionnalité Windows.<br> Elle est requise pour créer des fenêtres transparentes.",
+		"dwm-title": "Pourquoi mon écran devient-il noir / blanc quand j'utilise une fonctionnalité ?",
 		"faq": "FAQ",
-		"graph": "La barre indique la distribution de la valeur de l'article. Il regroupe essentiellement les valeurs par valeur et les compte.<br> La barre la plus haute est le Mode. Aussi appelé «valeur la plus courante». La moyenne est la moyenne. La médiane est la valeur centrée de toutes les valeurs.",
-		"graph-title": "Que représente le graphique? Qu'est-ce que le mode / moyenne / médiane?",
-		"graph-url": "Ouvrez 'Comment lire un histogramme Min Max Median Mean' par 'academy.datawrapper.de'",
+		"graph": "La barre indique la distribution de la valeur de l'objet. Il regroupe essentiellement les valeurs par valeur et les compte.<br> La barre la plus haute est le Mode. Aussi appelé «valeur la plus représenté». La moyenne est la moyenne arithmétique. La médiane est la valeur centrée des valeurs.",
+		"graph-title": "Que représente le graphique? Qu'est-ce que le mode / la moyenne / médiane?",
+		"graph-url": "Ouvrez 'Comment lire un histogramme' par 'fr.wikihow.com/lire-un-histogramme'",
 		"graphic": "Cela est principalement dû à des pilotes graphiques incompatibles pour la version actuelle de chrome.<br> Veuillez exécuter 'run-without-gpu.bat' afin de démarrer la superposition sans support gpu (accélération matérielle).",
 		"graphic-title": "Les graphismes sont flous / bug graphique?",
 		"name": "Aidez-moi",
@@ -78,52 +78,52 @@
 		"wiki-title": "Voir le wiki du projet pour plus de documentation"
 	},
 	"map": {
-		"boss": "Patron",
+		"boss": "Boss",
 		"boss-rating": "Évaluation du boss",
-		"bosses": "Patrons",
+		"bosses": "Boss",
 		"info": "Info",
-		"layout-rating": "Évaluation de la mise en page",
+		"layout-rating": "Disposition de la fenêtre d'évaluation",
 		"name": "Carte",
-		"no-map": "L'élément n'est pas une carte.",
+		"no-map": "L'objet n'est pas une carte.",
 		"not-found": "Carte introuvable.",
-		"stats-warning": "Avertissements concernant les statistiques",
-		"stats-warning-export": "Exporter les avertissements de statistiques vers le presse-papiers",
-		"stats-warning-import": "Importer les avertissements de statistiques depuis le presse-papiers"
+		"stats-warning": "Avertissements concernant les mods",
+		"stats-warning-export": "Exporter les avertissements de mods vers le presse-papiers",
+		"stats-warning-import": "Importer les avertissements de mods depuis le presse-papiers"
 	},
 	"material": {
 		"accelerator": {
-			"any": "appuyez sur une touche",
+			"any": "Appuyez sur une touche",
 			"unbound": "Non lié"
 		},
 		"select-list": {
 			"add": "Ajouter à la sélection",
 			"remove": "Supprimer de la sélection",
-			"selected": "Choisi",
+			"selected": "Sélectionné",
 			"unselected": "Non séléctionné"
 		}
 	},
 	"misc": {
-		"highlight": "Surligner",
-		"name": "Misc",
-		"navigation": "La navigation",
+		"highlight": "Surbrillance",
+		"name": "Divers",
+		"navigation": "Défilement",
 		"open-poedb": "Ouvrir PoE DB",
-		"open-poedb-external": "Open PoE DB External",
+		"open-poedb-external": "Ouvrir PoE DB dans une nouvelle fenêtre",
 		"open-wiki": "Ouvrir le wiki",
-		"open-wiki-external": "Ouvrir le wiki externe",
-		"parser-error": "Le presse-papiers n'a pas pu être analysé. Veuillez vous assurer que vous avez désactivé (ESC) la surbrillance précédente.",
+		"open-wiki-external": "Ouvrir le wiki dans une nouvelle fenêtre",
+		"parser-error": "Le presse-papiers n'a pas pu être analysé. Veuillez vous assurer que vous avez nettoyé (ESC) la sélection précédente.",
 		"poedb": "PoE DB",
-		"stash": "Planque",
-		"wiki": "wiki"
+		"stash": "Réserve",
+		"wiki": "Wiki"
 	},
 	"settings": {
-		"cancel": "annuler",
-		"display-version": "Version d'affichage",
+		"cancel": "Annuler",
+		"display-version": "Afficher la version",
 		"exit-app": "Quitter l'application",
 		"game-settings": "Paramètres de jeu",
 		"general": "Général",
-		"language": "La langue",
+		"language": "Langue",
 		"league": "Ligue",
-		"open-settings": "Paramètres ouverts",
-		"save": "sauvegarder"
+		"open-settings": "Ouvrir les paramètres",
+		"save": "Sauvegarder"
 	}
 }

@@ -40,37 +40,39 @@ export class MiscModule implements FeatureModule {
         const features: Feature[] = [
             {
                 name: 'wiki-open',
-                shortcut: settings.miscWikiKeybinding,
+                accelerator: settings.miscWikiKeybinding,
             },
             {
                 name: 'wiki-open-external',
-                shortcut: settings.miscWikiExternalKeybinding,
+                accelerator: settings.miscWikiExternalKeybinding,
             },
             {
                 name: 'poedb-open',
-                shortcut: settings.miscPoedbKeybinding,
+                accelerator: settings.miscPoedbKeybinding,
             },
             {
                 name: 'poedb-open-external',
-                shortcut: settings.miscPoedbExternalKeybinding,
+                accelerator: settings.miscPoedbExternalKeybinding,
             },
         ];
 
         if (settings.miscStashNavigation) {
             features.push({
                 name: 'stash-left',
-                shortcut: 'CmdOrCtrl + MouseWheelUp'
+                accelerator: 'CmdOrCtrl + MouseWheelUp',
+                passive: true
             });
             features.push({
                 name: 'stash-right',
-                shortcut: 'CmdOrCtrl + MouseWheelDown'
+                accelerator: 'CmdOrCtrl + MouseWheelDown',
+                passive: true
             });
         }
 
         if (settings.miscStashHighlight) {
             features.push({
                 name: 'stash-highlight',
-                shortcut: 'CmdOrCtrl + F'
+                accelerator: 'Alt + F'
             });
         }
 

@@ -1,7 +1,7 @@
-import { Injectable, NgZone } from '@angular/core';
-import { ElectronProvider } from '@app/provider';
-import { Remote } from 'electron';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { VisibleFlag } from '@app/type/app.type';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
+import { ShortcutService } from './shortcut.service';
 
 export type DialogCloseFn = () => void;
 
@@ -9,24 +9,32 @@ export type DialogCloseFn = () => void;
     providedIn: 'root'
 })
 export class DialogsService {
-    private readonly remote: Remote;
-    private readonly dialogs: DialogCloseFn[] = [];
+    private readonly dialogCloseFns: DialogCloseFn[] = [];
     private readonly dialogCountChange$ = new BehaviorSubject<number>(0);
 
-    constructor(
-        private readonly ngZone: NgZone,
-        electronProvider: ElectronProvider) {
-        this.remote = electronProvider.provideRemote();
+    private escapeSubscription: Subscription;
+    private spaceSubscription: Subscription;
+
+    constructor(private readonly shortcutService: ShortcutService) { }
+
+    public register(): void {
+        this.escapeSubscription = this.shortcutService
+            .add('escape', false, VisibleFlag.Dialog)
+            .subscribe(() => this.close());
+
+        this.spaceSubscription = this.shortcutService
+            .add('space', false, VisibleFlag.Game | VisibleFlag.Dialog)
+            .subscribe(() => this.closeAll());
     }
 
-    public registerShortcuts(): void {
-        if (this.dialogs.length > 0) {
-            this.register();
+    public reset(): void {
+        if (this.escapeSubscription) {
+            this.escapeSubscription.unsubscribe();
         }
-    }
-
-    public unregisterShortcuts(): void {
-        this.unregister();
+        if (this.spaceSubscription) {
+            this.spaceSubscription.unsubscribe();
+        }
+        this.closeAll();
     }
 
     public dialogCountChange(): Observable<number> {
@@ -34,52 +42,28 @@ export class DialogsService {
     }
 
     public add(close: DialogCloseFn): void {
-        this.dialogs.push(close);
-        this.check();
+        this.dialogCloseFns.push(close);
+        this.dialogCountChange$.next(this.dialogCloseFns.length);
     }
 
     public remove(close: DialogCloseFn): void {
-        const index = this.dialogs.indexOf(close);
+        const index = this.dialogCloseFns.indexOf(close);
         if (index !== -1) {
-            this.dialogs.splice(index, 1);
+            this.dialogCloseFns.splice(index, 1);
+            this.dialogCountChange$.next(this.dialogCloseFns.length);
         }
-        this.check();
-    }
-
-    private check(): void {
-        if (this.dialogs.length > 0) {
-            this.register();
-        } else {
-            this.unregister();
-        }
-
-        if (this.dialogCountChange$.value !== this.dialogs.length) {
-            this.dialogCountChange$.next(this.dialogs.length);
-        }
-    }
-
-    private register(): void {
-        this.remote.globalShortcut.register('escape', () => {
-            if (this.dialogs.length > 0) {
-                this.close();
-            }
-        });
-        this.remote.globalShortcut.register('space', () => {
-            while (this.dialogs.length > 0) {
-                this.close();
-            }
-        });
-    }
-
-    private unregister(): void {
-        this.remote.globalShortcut.unregister('escape');
-        this.remote.globalShortcut.unregister('space');
     }
 
     private close(): void {
-        this.ngZone.run(() => {
-            this.dialogs.pop()();
-            this.dialogCountChange$.next(this.dialogs.length);
-        });
+        if (this.dialogCloseFns.length > 0) {
+            this.dialogCloseFns.pop()();
+            this.dialogCountChange$.next(this.dialogCloseFns.length);
+        }
+    }
+
+    private closeAll(): void {
+        while (this.dialogCloseFns.length > 0) {
+            this.close();
+        }
     }
 }

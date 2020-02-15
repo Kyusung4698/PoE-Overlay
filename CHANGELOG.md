@@ -1,3 +1,12 @@
+## 0.5.17 (2020-02-XX)
+
+- add `escape` to close browser (#222)
+- update highlight hotkey `CTRL + F` to `ALT + F`
+- update hotkeys to be non-passive
+- update elemental colors (#241)
+- update french translations (thanks to vindoq)
+- remove modal flag after minimizing browser (#219, #236)
+
 ## 0.5.16 (2020-02-13)
 
 - add fast-tag support to exchange rate (#228)

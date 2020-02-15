@@ -51,7 +51,7 @@ export class MapModule implements FeatureModule {
         const features: Feature[] = [
             {
                 name: 'info',
-                shortcut: settings.mapInfoKeybinding
+                accelerator: settings.mapInfoKeybinding
             },
         ];
         return features;
