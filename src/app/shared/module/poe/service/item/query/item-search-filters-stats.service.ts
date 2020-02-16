@@ -53,7 +53,7 @@ export class ItemSearchFiltersStatsService implements ItemSearchFiltersService {
                             max = tmp;
                         }
                     } else if (min !== undefined) {
-                        if (min >= 0) {
+                        if (min >= 0 || !stat.negated) {
                             max = 999;
                         } else {
                             max = min;

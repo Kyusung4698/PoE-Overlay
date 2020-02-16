@@ -7,6 +7,7 @@
 - update hotkeys to be non-passive
 - update elemental colors (#241)
 - update french translations (thanks to vindoq)
+- fix non negated negative mods flipped (#239)
 - remove modal flag after minimizing browser (#219, #236)
 
 ## 0.5.16 (2020-02-13)
