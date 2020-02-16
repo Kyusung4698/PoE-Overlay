@@ -1,3 +1,15 @@
+## 0.5.17 (2020-02-16)
+
+- add `escape` to close browser (#222)
+- add ui scaling (#214)
+- update modifier range clamp function to reset to 0 (#237)
+- update highlight hotkey `CTRL + F` to `ALT + F`
+- update hotkeys to be non-passive
+- update elemental colors (#241)
+- update french translations (thanks to vindoq)
+- fix non negated negative mods flipped (#239)
+- remove modal flag after minimizing browser (#219, #236)
+
 ## 0.5.16 (2020-02-13)
 
 - add fast-tag support to exchange rate (#228)

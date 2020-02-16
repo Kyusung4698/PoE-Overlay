@@ -41,7 +41,7 @@ export class CommandModule implements FeatureModule {
       .map(command => {
         const feature: Feature = {
           name: command.text,
-          shortcut: command.shortcut
+          accelerator: command.shortcut
         };
         return feature;
       });

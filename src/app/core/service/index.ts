@@ -6,4 +6,5 @@ export * from './input/mouse.service';
 export * from './input/renderer.service';
 export * from './input/shortcut.service';
 export * from './input/window.service';
+export * from './input/dialogs.service';
 

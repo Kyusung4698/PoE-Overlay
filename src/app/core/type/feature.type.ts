@@ -2,7 +2,8 @@ import { UserSettings, UserSettingsFeature } from 'src/app/layout/type';
 
 export interface Feature {
     name: string;
-    shortcut: string;
+    accelerator: string;
+    passive?: boolean;
 }
 
 export interface FeatureModule {

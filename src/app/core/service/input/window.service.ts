@@ -46,6 +46,14 @@ export class WindowService {
         this.window.close();
     }
 
+    public getZoom(): number {
+        return this.window.webContents.zoomFactor;
+    }
+
+    public setZoom(zoom: number): void {
+        this.window.webContents.zoomFactor = zoom;
+    }
+
     public disableInput(): void {
         this.window.setIgnoreMouseEvents(true);
     }

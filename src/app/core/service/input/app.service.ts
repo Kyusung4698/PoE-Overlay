@@ -1,15 +1,10 @@
 import { Injectable, NgZone } from '@angular/core';
 import { ElectronProvider } from '@app/provider';
+import { VisibleFlag } from '@app/type/app.type';
 import { IpcRenderer, Remote } from 'electron';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import { DialogsService } from './dialogs.service';
-
-export enum VisibleFlag {
-    None = 0,
-    Game = 1 << 0,
-    Dialog = 1 << 1
-}
 
 @Injectable({
     providedIn: 'root'
@@ -46,8 +41,11 @@ export class AppService {
                 }
                 return result;
             }),
-            debounceTime(250),
-            distinctUntilChanged());
+            debounceTime(250));
+    }
+
+    public triggerVisibleChange(): void {
+        this.activeChange$.next(this.activeChange$.value);
     }
 
     public quit(): void {

@@ -57,7 +57,7 @@ Item Level: 80
 Socketed Gems fire 4 additional Projectiles
 Socketed Gems fire Projectiles in a circle
 +17 to all Attributes
-+6% to all Elemental Resistances
+-6% to all Elemental Resistances
 67% increased Projectile Damage
 20% increased Light Radius
 --------
@@ -233,7 +233,7 @@ Stack Size: 1/3
 --------
 Vaal Orb
 --------
-Simple actions can lead the world to an early grave.
+Simple actions can lead the world to an early grave. 
 
 Rarity: Rare
 Onslaught Hand

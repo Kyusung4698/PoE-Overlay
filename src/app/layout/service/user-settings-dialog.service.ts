@@ -18,6 +18,8 @@ export class UserSettingsDialogService {
         return this.dialog.open(UserSettingsDialogComponent, {
             disableClose: true,
             backdropClass: 'backdrop-fullsize',
+            maxWidth: '1210px',
+            maxHeight: '700px',
             data
         }).afterClosed();
     }

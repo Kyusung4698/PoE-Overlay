@@ -160,18 +160,18 @@ export class ItemFrameValueComponent implements OnInit {
 
     // if positive - stay positive!
     if (min >= 0 && this.value.min < 0) {
-      this.value.min = min;
+      this.value.min = 0;
     }
     if (max > 0 && this.value.max < 0) {
-      this.value.max = max;
+      this.value.max = 0;
     }
 
     // if negative - stay negative!
     if (min < 0 && this.value.min > 0) {
-      this.value.min = min;
+      this.value.min = 0;
     }
     if (max <= 0 && this.value.max > 0) {
-      this.value.max = max;
+      this.value.max = 0;
     }
 
     if (min !== this.value.min || max !== this.value.max) {
@@ -201,7 +201,8 @@ export class ItemFrameValueComponent implements OnInit {
     if (!this.modifierMaxRange) {
       this.value.max = undefined;
     }
-    this.adjustValue(Math.round(value * this.modifier), true, true);
+    const newValue = value * this.modifier;
+    this.adjustValue(Math.round(newValue * 10) / 10, true, true);
   }
 
   private emitChange(): void {

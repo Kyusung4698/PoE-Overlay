@@ -13,28 +13,28 @@
     .cold {
       .value,
       .value.changed {
-        color: #366492;
+        color: $aqua;
       }
     }
 
     .lightning {
       .value,
       .value.changed {
-        color: #ffd700;
+        color: $yellow;
       }
     }
 
     .chaos {
       .value,
       .value.changed {
-        color: #d02090;
+        color: $pink;
       }
     }
 
     .fire {
       .value,
       .value.changed {
-        color: #960000;
+        color: $red;
       }
     }
   }

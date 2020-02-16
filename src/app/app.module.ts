@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BookmarkModule } from '@modules/bookmark/bookmark.module';
 import { CommandModule } from '@modules/command/command.module';
 import { EvaluateModule } from '@modules/evaluate/evaluate.module';
 import { MapModule } from '@modules/map/map.module';
@@ -10,7 +11,6 @@ import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { OverlayComponent } from './layout/page/overlay/overlay.component';
 import { UserSettingsComponent } from './layout/page/user-settings/user-settings.component';
-import { BookmarkModule } from '@modules/bookmark/bookmark.module';
 
 const routes: Routes = [
   {

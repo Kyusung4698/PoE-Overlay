@@ -68,11 +68,11 @@ export class EvaluateModule implements FeatureModule {
         return [
             {
                 name: 'evaluate',
-                shortcut: settings.evaluateKeybinding
+                accelerator: settings.evaluateKeybinding
             },
             {
                 name: 'evaluate-translate',
-                shortcut: settings.evaluateTranslatedKeybinding
+                accelerator: settings.evaluateTranslatedKeybinding
             }
         ];
     }
