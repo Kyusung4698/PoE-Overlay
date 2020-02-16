@@ -1,6 +1,8 @@
 ## 0.5.17 (2020-02-XX)
 
 - add `escape` to close browser (#222)
+- add ui zoom (#214)
+- update modifier range clamp function to reset to 0 (#237)
 - update highlight hotkey `CTRL + F` to `ALT + F`
 - update hotkeys to be non-passive
 - update elemental colors (#241)

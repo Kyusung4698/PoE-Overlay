@@ -19,11 +19,18 @@
 </mat-card>
 <mat-card>
     <div>
-        <mat-slide-toggle [checked]="settings.displayVersion"
-            (change)="settings.displayVersion = $event.checked">
+        <mat-slide-toggle [checked]="settings.displayVersion" (change)="settings.displayVersion = $event.checked">
             {{'settings.display-version' | translate}}
         </mat-slide-toggle>
     </div>
+    <mat-form-field>
+        <mat-label>{{'settings.zoom' | translate}}</mat-label>
+        <mat-select [(value)]="settings.zoom">
+            <mat-option *ngFor="let value of [25,33,50,67,75,80,90,100,110,125,150,175,200,250,300]" [value]="value">
+                {{value}}%
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
     <app-accelerator [label]="'settings.open-settings' | translate" [(value)]="settings.openUserSettingsKeybinding">
     </app-accelerator>
     <app-accelerator [label]="'settings.exit-app' | translate" [(value)]="settings.exitAppKeybinding">

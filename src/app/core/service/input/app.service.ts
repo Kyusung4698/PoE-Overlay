@@ -41,8 +41,7 @@ export class AppService {
                 }
                 return result;
             }),
-            debounceTime(250),
-            distinctUntilChanged());
+            debounceTime(250));
     }
 
     public triggerVisibleChange(): void {

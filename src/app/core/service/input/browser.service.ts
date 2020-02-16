@@ -46,7 +46,10 @@ export class BrowserService {
             };
             win.on('restore', () => restore());
             win.on('maximize', () => restore());
-            win.once('closed', () => this.dialogs.remove(close));
+            win.once('closed', () => {                
+                parent.setEnabled(true);
+                this.dialogs.remove(close);
+            });
             win.loadURL(url);
         }
     }

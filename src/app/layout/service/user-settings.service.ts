@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { FeatureModule } from '@app/type';
+import { Language } from '@shared/module/poe/type';
 import { Observable, of } from 'rxjs';
-import { flatMap } from 'rxjs/operators';
-import { UserSettingsDialogData } from '../component';
+import { flatMap, map } from 'rxjs/operators';
 import { UserSettings } from '../type';
 import { UserSettingsDialogService } from './user-settings-dialog.service';
 import { UserSettingsFeatureService } from './user-settings-feature.service';
 import { UserSettingsStorageService } from './user-settings-storage.service';
-import { Language } from '@shared/module/poe/type';
 
 @Injectable({
     providedIn: 'root'
@@ -29,6 +28,7 @@ export class UserSettingsService {
                     openUserSettingsKeybinding: 'F7',
                     exitAppKeybinding: 'F8',
                     language: Language.English,
+                    zoom: 100,
                     displayVersion: true
                 };
 
@@ -55,6 +55,13 @@ export class UserSettingsService {
         const features = this.userSettingsFeatureService.get();
         return this.userSettingsDialogService.open(settings, features).pipe(
             flatMap(result => result ? this.userSettingsStorageService.save(result) : of(null))
+        );
+    }
+
+    public update(updateFn: (settings: UserSettings) => UserSettings): Observable<UserSettings> {
+        return this.userSettingsStorageService.get().pipe(
+            map(settings => updateFn(settings)),
+            flatMap(settings => this.userSettingsStorageService.save(settings))
         );
     }
 }

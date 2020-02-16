@@ -11,6 +11,9 @@ if (!app.requestSingleInstanceLock()) {
 
 app.allowRendererProcessReuse = true;
 
+app.commandLine.appendSwitch('high-dpi-support', 'true');
+app.commandLine.appendSwitch('force-device-scale-factor', '1');
+
 const args = process.argv.slice(1),
     serve = args.some(val => val === '--serve');
 
@@ -177,16 +180,23 @@ function createTray(): Tray {
         ? new Tray(path.join(__dirname, 'src/favicon.ico'))
         : new Tray(path.join(__dirname, 'dist/favicon.ico'));
 
-    const items: MenuItemConstructorOptions[] = [{
-        label: 'Settings', type: 'normal',
-        click: () => win.webContents.send('show-user-settings'),
-    }, {
-        label: 'Exit', type: 'normal',
-        click: () => app.quit()
-    }];
+    const items: MenuItemConstructorOptions[] = [
+        {
+            label: 'Settings', type: 'normal',
+            click: () => win.webContents.send('show-user-settings'),
+        },
+        {
+            label: 'Reset Zoom', type: 'normal',
+            click: () => win.webContents.send('reset-zoom'),
+        },
+        {
+            label: 'Exit', type: 'normal',
+            click: () => app.quit()
+        }
+    ];
 
     if (serve) {
-        items.splice(1, 0, {
+        items.splice(2, 0, {
             label: 'Ignore Mouse Events', type: 'normal',
             click: () => win.setIgnoreMouseEvents(true),
         });
@@ -200,8 +210,8 @@ function createTray(): Tray {
 
 try {
     app.on('ready', () => {
-        // hotkeys.beginListener(!serve);
-        hotkeys.beginListener(true);
+        hotkeys.beginListener(!serve);
+        // hotkeys.beginListener(true);
         createWindow();
         createTray();
     });

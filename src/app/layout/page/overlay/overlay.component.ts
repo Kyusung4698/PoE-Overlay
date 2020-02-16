@@ -7,7 +7,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { ContextService } from '@shared/module/poe/service';
 import { Context, Language } from '@shared/module/poe/type';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { flatMap } from 'rxjs/operators';
+import { distinctUntilChanged, flatMap, tap } from 'rxjs/operators';
 import { version } from '../../../../../package.json';
 import { UserSettingsService } from '../../service/user-settings.service';
 import { UserSettings } from '../../type';
@@ -68,6 +68,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
     this.userSettingsService.init(this.modules).subscribe(settings => {
       this.translate.use(`${settings.language}`);
       this.displayVersion$.next(settings.displayVersion);
+      this.window.setZoom(settings.zoom / 100);
       this.context.init(this.getContext(settings));
 
       this.register(settings);
@@ -76,18 +77,29 @@ export class OverlayComponent implements OnInit, OnDestroy {
       this.renderer.on('show-user-settings').subscribe(() => {
         this.openUserSettings();
       });
+      this.renderer.on('reset-zoom').subscribe(() => {
+        this.userSettingsService.update(x => {
+          x.zoom = 100;
+          return x;
+        }).subscribe(x => {
+          this.window.setZoom(x.zoom / 100);
+        });
+      })
     });
   }
 
   private registerVisibleChange(): void {
-    this.app.visibleChange().subscribe(flag => {
+    this.app.visibleChange().pipe(
+      tap(flag => this.shortcut.check(flag)),
+      distinctUntilChanged()
+    ).subscribe(flag => {
       if (flag === VisibleFlag.None) {
         this.window.hide();
       } else {
         this.window.show();
       }
-      this.shortcut.check(flag);
     });
+    this.app.triggerVisibleChange();
   }
 
   private openUserSettings(): void {
@@ -99,6 +111,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
         this.userSettingsOpen = null;
 
         this.translate.use(`${settings.language}`);
+        this.window.setZoom(settings.zoom / 100);
         this.displayVersion$.next(settings.displayVersion);
         this.context.update(this.getContext(settings));
 

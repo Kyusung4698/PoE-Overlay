@@ -5,5 +5,6 @@ export interface UserSettings {
     language?: Language;
     openUserSettingsKeybinding?: string;
     exitAppKeybinding?: string;
+    zoom?: number;
     displayVersion?: boolean;
 }
