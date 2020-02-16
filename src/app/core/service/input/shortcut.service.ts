@@ -52,7 +52,7 @@ export class ShortcutService {
     }
 
     public check(flag: VisibleFlag): void {
-        this.shortcuts.forEach(shortcut => {            
+        this.shortcuts.forEach(shortcut => {
             this.unregisterShortcut(shortcut);
             if ((flag & shortcut.active) === shortcut.active) {
                 this.registerShortcut(shortcut);

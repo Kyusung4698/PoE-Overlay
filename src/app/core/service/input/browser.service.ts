@@ -24,7 +24,7 @@ export class BrowserService {
             const BrowserWindow = this.electron.BrowserWindow;
             const win = new BrowserWindow({
                 center: true,
-                parent: parent,
+                parent,
                 autoHideMenuBar: true,
                 width: 1400,
                 height: 800,
@@ -32,7 +32,7 @@ export class BrowserService {
             });
 
             const close = win.close.bind(win);
-                        
+
             parent.setEnabled(false);
             this.dialogs.add(close);
             win.on('minimize', () => {
@@ -46,7 +46,7 @@ export class BrowserService {
             };
             win.on('restore', () => restore());
             win.on('maximize', () => restore());
-            win.once('closed', () => {                
+            win.once('closed', () => {
                 parent.setEnabled(true);
                 this.dialogs.remove(close);
             });

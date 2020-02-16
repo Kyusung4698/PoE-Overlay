@@ -201,7 +201,7 @@ export class ItemFrameValueComponent implements OnInit {
     if (!this.modifierMaxRange) {
       this.value.max = undefined;
     }
-    const newValue = value * this.modifier;    
+    const newValue = value * this.modifier;
     this.adjustValue(Math.round(newValue * 10) / 10, true, true);
   }
 
