@@ -17,6 +17,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { AcceleratorComponent } from './component/accelerator/accelerator.component';
 import { SelectListComponent } from './component/select-list/select-list.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { DragDirective } from './directive/drag.directive';
 
 @NgModule({
   imports: [
@@ -57,8 +58,9 @@ import { TranslateModule } from '@ngx-translate/core';
     MatExpansionModule,
     // custom
     AcceleratorComponent,
-    SelectListComponent
+    SelectListComponent,
+    DragDirective
   ],
-  declarations: [AcceleratorComponent, SelectListComponent]
+  declarations: [AcceleratorComponent, SelectListComponent, DragDirective]
 })
 export class MaterialModule { }

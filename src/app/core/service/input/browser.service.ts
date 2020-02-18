@@ -28,7 +28,8 @@ export class BrowserService {
                 autoHideMenuBar: true,
                 width: 1400,
                 height: 800,
-                backgroundColor: '#0F0F0F'
+                backgroundColor: '#0F0F0F',
+                show: false
             });
 
             const close = win.close.bind(win);
@@ -49,6 +50,10 @@ export class BrowserService {
             win.once('closed', () => {
                 parent.setEnabled(true);
                 this.dialogs.remove(close);
+            });
+            win.once('ready-to-show', () => {
+                win.webContents.zoomFactor = parent.webContents.zoomFactor;
+                win.show();
             });
             win.loadURL(url);
         }

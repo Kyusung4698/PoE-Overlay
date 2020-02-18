@@ -204,7 +204,8 @@ function createTray(): Tray {
 
     const menu = Menu.buildFromTemplate(items);
     tray.setToolTip(`PoE-Overlay: ${version}`);
-    tray.setContextMenu(menu);
+    tray.setContextMenu(menu);    
+    tray.on('double-click', () => win.webContents.send('show-user-settings'))
     return tray;
 }
 
