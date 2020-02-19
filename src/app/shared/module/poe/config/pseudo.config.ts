@@ -172,13 +172,13 @@ export const PSEUDO_MODIFIERS: {
     pseudo_total_attack_speed: {
         mods: [
             { id: 'attack_speed_+%', type: ModifierType.Addition },
-            { id: 'attack_and_cast_speed_+%', type: ModifierType.Addition },
+            // { id: 'attack_and_cast_speed_+%', type: ModifierType.Addition }, 230 -> trade site seems to ignore this
         ]
     },
     pseudo_total_cast_speed: {
         mods: [
             { id: 'base_cast_speed_+%', type: ModifierType.Addition },
-            { id: 'attack_and_cast_speed_+%', type: ModifierType.Addition },
+            // { id: 'attack_and_cast_speed_+%', type: ModifierType.Addition }, 230 -> trade site seems to ignore this
         ]
     },
     pseudo_increased_movement_speed: {
@@ -198,6 +198,7 @@ export const PSEUDO_MODIFIERS: {
     },
     pseudo_critical_strike_chance_for_spells: {
         mods: [
+            { id: 'pseudo_global_critical_strike_chance', type: ModifierType.Addition },
             { id: 'spell_critical_strike_chance_+%', type: ModifierType.Addition },
         ]
     },
@@ -393,19 +394,22 @@ export const PSEUDO_MODIFIERS: {
     },
     pseudo_increased_lightning_damage_with_attack_skills: {
         mods: [
-            { id: 'elemental_damage_with_attack_skills_+%', type: ModifierType.Addition },
+            { id: 'pseudo_increased_elemental_damage_with_attack_skills', type: ModifierType.Addition },
+            { id: 'pseudo_increased_lightning_damage', type: ModifierType.Addition },
             { id: 'lightning_damage_with_attack_skills_+%', type: ModifierType.Addition },
         ]
     },
     pseudo_increased_cold_damage_with_attack_skills: {
         mods: [
-            { id: 'elemental_damage_with_attack_skills_+%', type: ModifierType.Addition },
+            { id: 'pseudo_increased_elemental_damage_with_attack_skills', type: ModifierType.Addition },
+            { id: 'pseudo_increased_cold_damage', type: ModifierType.Addition },
             { id: 'cold_damage_with_attack_skills_+%', type: ModifierType.Addition },
         ]
     },
     pseudo_increased_fire_damage_with_attack_skills: {
         mods: [
-            { id: 'elemental_damage_with_attack_skills_+%', type: ModifierType.Addition },
+            { id: 'pseudo_increased_elemental_damage_with_attack_skills', type: ModifierType.Addition },
+            { id: 'pseudo_increased_fire_damage', type: ModifierType.Addition },
             { id: 'fire_damage_with_attack_skills_+%', type: ModifierType.Addition },
         ]
     },

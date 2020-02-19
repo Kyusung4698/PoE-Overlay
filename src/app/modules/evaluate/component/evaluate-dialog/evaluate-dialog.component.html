@@ -1,4 +1,4 @@
-<div cdkDrag cdkDragRootElement=".cdk-overlay-pane" cdkDragHandle>
+<div appDrag=".cdk-overlay-pane">
     <app-item-frame [item]="data.item" [language]="data.language" [queryItem]="queryItem"
         (queryItemChange)="onQueryItemChange($event)" [separator]="true"
         [modifier]="data.settings.evaluateModifierRange / 100"

@@ -2895,7 +2895,9 @@
 				"Amalgam of Nightmares"
 			],
 			"bossCount": 1,
-			"url": "https://pathofexile.gamepedia.com/Carcass_Map"
+			"url": "https://pathofexile.gamepedia.com/Carcass_Map",
+			"encounter": "The boss is the Amalgam of Nightmares, based on the Act 9 boss The Depraved Trinity.",
+			"layout": "The Tileset is based The Rotting Core in Act 9. The Layout is a linear path with two branches that connect in a circle, with a path in the middle splitting the map, with a few offshoots."
 		},
 		"Lava Lake Map": {
 			"items": [

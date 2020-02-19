@@ -122,6 +122,7 @@ export interface ItemProperties {
     armourArmour?: ItemProperty;
     armourEvasionRating?: ItemProperty;
     armourEnergyShield?: ItemProperty;
+    stackSize?: ItemProperty;
     gemLevel?: ItemValueProperty;
     quality?: ItemValueProperty;
     qualityType?: ItemQualityType;

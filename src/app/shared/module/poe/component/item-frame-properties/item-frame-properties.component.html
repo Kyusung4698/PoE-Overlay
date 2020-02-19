@@ -19,82 +19,103 @@
     </div>
 </ng-container>
 <ng-container *ngFor="let property of properties">
-    <div *ngIf="item.properties[property] as prop">
-        <app-item-frame-query [(property)]="queryItem.properties[property]" [value]="prop">
-            <ng-container [ngSwitch]="property">
-                <ng-container *ngSwitchCase="'weaponCriticalStrikeChance'">
-                    <ng-container *ngTemplateOutlet="default; context: { prop: prop, key: 'ItemDisplayWeaponCriticalStrikeChance'}">
-                    </ng-container>
-                </ng-container>
-                <ng-container *ngSwitchCase="'weaponAttacksPerSecond'">
-                    <ng-container *ngTemplateOutlet="default; context: { prop: prop, key: 'ItemDisplayWeaponAttacksPerSecond'}">
-                    </ng-container>
-                </ng-container>
-                <ng-container *ngSwitchCase="'shieldBlockChance'">
-                    <ng-container *ngTemplateOutlet="default; context: { prop: prop, key: 'ItemDisplayShieldBlockChance'}">
-                    </ng-container>
-                </ng-container>
-                <ng-container *ngSwitchCase="'armourArmour'">
-                    <ng-container *ngTemplateOutlet="default; context: { prop: prop, key: 'ItemDisplayArmourArmour'}">
-                    </ng-container>
-                </ng-container>
-                <ng-container *ngSwitchCase="'armourEvasionRating'">
-                    <ng-container *ngTemplateOutlet="default; context: { prop: prop, key: 'ItemDisplayArmourEvasionRating'}">
-                    </ng-container>
-                </ng-container>
-                <ng-container *ngSwitchCase="'armourEnergyShield'">
-                    <ng-container *ngTemplateOutlet="default; context: { prop: prop, key: 'ItemDisplayArmourEnergyShield'}">
-                    </ng-container>
-                </ng-container>
-                <ng-container *ngSwitchCase="'gemLevel'">
-                    <app-item-frame-value-group>
-                        <span>{{'Level' | clientString:language}}:&nbsp;</span>
-                        <span [class]="prop.augmented ? 'purpel' : 'white'">
-                            <app-item-frame-value [(value)]="prop.value" [modifier]="0" [modifierMaxRange]="false">
-                            </app-item-frame-value>
-                        </span>
-                    </app-item-frame-value-group>
-                </ng-container>
-                <ng-container *ngSwitchCase="'mapTier'">
-                    <ng-container *ngTemplateOutlet="default; context: { prop: prop, key: 'ItemDisplayMapTier'}">
-                    </ng-container>
-                </ng-container>
-                <ng-container *ngSwitchCase="'mapQuantity'">
-                    <ng-container *ngTemplateOutlet="default; context: { prop: prop, key: 'ItemDisplayMapQuantityIncrease'}">
-                    </ng-container>
-                </ng-container>
-                <ng-container *ngSwitchCase="'mapRarity'">
-                    <ng-container *ngTemplateOutlet="default; context: { prop: prop, key: 'ItemDisplayMapRarityIncrease'}">
-                    </ng-container>
-                </ng-container>
-                <ng-container *ngSwitchCase="'mapPacksize'">
-                    <ng-container *ngTemplateOutlet="default; context: { prop: prop, key: 'ItemDisplayMapPackSizeIncrease'}">
-                    </ng-container>
-                </ng-container>
-                <ng-container *ngSwitchCase="'quality'">
-                    <app-item-frame-value-group>
-                        <ng-container *ngIf="item.properties.qualityType">
-                            <span> {{('Quality' + item.properties.qualityType) | clientString:language}}:&nbsp;</span>
-                        </ng-container>
-                        <ng-container *ngIf="!item.properties.qualityType">
-                            <span>{{'Quality' | clientString:language}}:&nbsp;</span>
-                        </ng-container>
-                        <span [class]="prop.augmented ? 'purpel' : 'white'">
-                            <app-item-frame-value [(value)]="prop.value" [modifier]="0" [modifierMaxRange]="false">
-                            </app-item-frame-value>
-                        </span>
-                    </app-item-frame-value-group>
-                </ng-container>
-                <ng-container *ngSwitchCase="'gemExperience'">
-                    <ng-container *ngTemplateOutlet="default; context: { prop: prop, key: 'Experience'}">
-                    </ng-container>
-                </ng-container>
+    <div *ngIf="item.properties[property] as prop" [ngSwitch]="property">
+        <ng-container *ngSwitchCase="'weaponCriticalStrikeChance'">
+            <ng-container
+                *ngTemplateOutlet="query; context: { prop: prop, name: property, key: 'ItemDisplayWeaponCriticalStrikeChance'}">
             </ng-container>
-        </app-item-frame-query>
+        </ng-container>
+        <ng-container *ngSwitchCase="'weaponAttacksPerSecond'">
+            <ng-container
+                *ngTemplateOutlet="query; context: { prop: prop, name: property, key: 'ItemDisplayWeaponAttacksPerSecond'}">
+            </ng-container>
+        </ng-container>
+        <ng-container *ngSwitchCase="'shieldBlockChance'">
+            <ng-container
+                *ngTemplateOutlet="query; context: { prop: prop, name: property, key: 'ItemDisplayShieldBlockChance'}">
+            </ng-container>
+        </ng-container>
+        <ng-container *ngSwitchCase="'armourArmour'">
+            <ng-container
+                *ngTemplateOutlet="query; context: { prop: prop, name: property, key: 'ItemDisplayArmourArmour'}">
+            </ng-container>
+        </ng-container>
+        <ng-container *ngSwitchCase="'armourEvasionRating'">
+            <ng-container
+                *ngTemplateOutlet="query; context: { prop: prop, name: property, key: 'ItemDisplayArmourEvasionRating'}">
+            </ng-container>
+        </ng-container>
+        <ng-container *ngSwitchCase="'armourEnergyShield'">
+            <ng-container
+                *ngTemplateOutlet="query; context: { prop: prop, name: property, key: 'ItemDisplayArmourEnergyShield'}">
+            </ng-container>
+        </ng-container>
+        <ng-container *ngSwitchCase="'stackSize'">
+            <ng-container
+                *ngTemplateOutlet="static; context: { prop: prop, name: property, key: 'ItemDisplayStackSize'}">
+            </ng-container>
+        </ng-container>
+        <ng-container *ngSwitchCase="'gemLevel'">
+            <app-item-frame-query [(property)]="queryItem.properties[property]" [value]="prop">
+                <app-item-frame-value-group>
+                    <span>{{'Level' | clientString:language}}:&nbsp;</span>
+                    <span [class]="prop.augmented ? 'purpel' : 'white'">
+                        <app-item-frame-value [(value)]="prop.value" [modifier]="0" [modifierMaxRange]="false">
+                        </app-item-frame-value>
+                    </span>
+                </app-item-frame-value-group>
+            </app-item-frame-query>
+        </ng-container>
+        <ng-container *ngSwitchCase="'mapTier'">
+            <ng-container *ngTemplateOutlet="query; context: { prop: prop, name: property, key: 'ItemDisplayMapTier'}">
+            </ng-container>
+        </ng-container>
+        <ng-container *ngSwitchCase="'mapQuantity'">
+            <ng-container
+                *ngTemplateOutlet="query; context: { prop: prop, name: property, key: 'ItemDisplayMapQuantityIncrease'}">
+            </ng-container>
+        </ng-container>
+        <ng-container *ngSwitchCase="'mapRarity'">
+            <ng-container
+                *ngTemplateOutlet="query; context: { prop: prop, name: property, key: 'ItemDisplayMapRarityIncrease'}">
+            </ng-container>
+        </ng-container>
+        <ng-container *ngSwitchCase="'mapPacksize'">
+            <ng-container
+                *ngTemplateOutlet="query; context: { prop: prop, name: property, key: 'ItemDisplayMapPackSizeIncrease'}">
+            </ng-container>
+        </ng-container>
+        <ng-container *ngSwitchCase="'quality'">
+            <app-item-frame-query [(property)]="queryItem.properties[property]" [value]="prop">
+                <app-item-frame-value-group>
+                    <ng-container *ngIf="item.properties.qualityType">
+                        <span>
+                            {{('Quality' + item.properties.qualityType) | clientString:language}}:&nbsp;</span>
+                    </ng-container>
+                    <ng-container *ngIf="!item.properties.qualityType">
+                        <span>{{'Quality' | clientString:language}}:&nbsp;</span>
+                    </ng-container>
+                    <span [class]="prop.augmented ? 'purpel' : 'white'">
+                        <app-item-frame-value [(value)]="prop.value" [modifier]="0" [modifierMaxRange]="false">
+                        </app-item-frame-value>
+                    </span>
+                </app-item-frame-value-group>
+            </app-item-frame-query>
+        </ng-container>
+        <ng-container *ngSwitchCase="'gemExperience'">
+            <ng-container *ngTemplateOutlet="query; context: { prop: prop, name: property, key: 'Experience'}">
+            </ng-container>
+        </ng-container>
     </div>
 </ng-container>
 
-<ng-template #default let-prop="prop" let-key="key">
+<ng-template #query let-prop="prop" let-name="name" let-key="key">
+    <app-item-frame-query [(property)]="queryItem.properties[name]" [value]="prop">
+        <ng-container *ngTemplateOutlet="static; context: {prop: prop, key: key}"></ng-container>
+    </app-item-frame-query>
+</ng-template>
+
+<ng-template #static let-prop="prop" let-key="key">
     <span>{{key | clientString:language}}:&nbsp;</span>
     <span [class]="prop.augmented ? 'purpel' : 'white'">{{prop.value}}</span>
 </ng-template>

@@ -1,7 +1,7 @@
 import { Injectable, NgZone } from '@angular/core';
 import { ElectronProvider } from '@app/provider';
 import { VisibleFlag } from '@app/type/app.type';
-import { GlobalShortcut, IpcRenderer } from 'electron';
+import { IpcRenderer, Remote } from 'electron';
 import { Observable, Subject } from 'rxjs';
 
 export interface Shortcut {
@@ -16,7 +16,7 @@ export interface Shortcut {
 })
 export class ShortcutService {
     private readonly ipcRenderer: IpcRenderer;
-    private readonly globalShortcut: GlobalShortcut;
+    private readonly remote: Remote;
     private readonly shortcuts: Shortcut[] = [];
 
     constructor(
@@ -24,8 +24,7 @@ export class ShortcutService {
         electronProvider: ElectronProvider) {
         this.ipcRenderer = electronProvider.provideIpcRenderer();
 
-        const remote = electronProvider.provideRemote();
-        this.globalShortcut = remote.globalShortcut;
+        this.remote = electronProvider.provideRemote();
     }
 
     public add(accelerator: string, passive: boolean = false, active: VisibleFlag = VisibleFlag.Game): Observable<void> {
@@ -74,7 +73,7 @@ export class ShortcutService {
             });
             this.ipcRenderer.sendSync('register-shortcut', shortcut.accelerator);
         } else {
-            this.globalShortcut.register(shortcut.accelerator, () => {
+            this.remote.globalShortcut.register(shortcut.accelerator, () => {
                 this.ngZone.run(() => shortcut.callback.next());
             });
         }
@@ -85,7 +84,7 @@ export class ShortcutService {
             this.ipcRenderer.removeAllListeners(`shortcut-${shortcut.accelerator}`);
             this.ipcRenderer.sendSync('unregister-shortcut', shortcut.accelerator);
         } else {
-            this.globalShortcut.unregister(shortcut.accelerator);
+            this.remote.globalShortcut.unregister(shortcut.accelerator);
         }
     }
 }

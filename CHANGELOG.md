@@ -1,3 +1,12 @@
+## 0.5.18 (2020-02-19)
+
+- add double click tray to open settings (#247)
+- add browser use same scale as app (#214)
+- add stack size amount to exchange rate (#227)
+- update pseudo config (#230)
+- update data to 3.9.2f
+- fix blurry text after drag-drop (#214)
+
 ## 0.5.17 (2020-02-16)
 
 - add `escape` to close browser (#222)

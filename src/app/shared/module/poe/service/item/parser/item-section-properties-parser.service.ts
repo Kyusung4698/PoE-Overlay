@@ -39,15 +39,16 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
             props.armourArmour = this.parseProperty(line, phrases[7], props.armourArmour);
             props.armourEvasionRating = this.parseProperty(line, phrases[8], props.armourEvasionRating);
             props.armourEnergyShield = this.parseProperty(line, phrases[9], props.armourEnergyShield);
-            props.gemLevel = this.parseValueProperty(line, phrases[10], props.gemLevel);
-            props.gemExperience = this.parseProperty(line, phrases[11], props.gemExperience);
-            props.mapTier = this.parseProperty(line, phrases[12], props.mapTier);
-            props.mapQuantity = this.parseProperty(line, phrases[13], props.mapQuantity);
-            props.mapRarity = this.parseProperty(line, phrases[14], props.mapRarity);
-            props.mapPacksize = this.parseProperty(line, phrases[15], props.mapPacksize);
+            props.stackSize = this.parseProperty(line, phrases[10], props.stackSize);
+            props.gemLevel = this.parseValueProperty(line, phrases[11], props.gemLevel);
+            props.gemExperience = this.parseProperty(line, phrases[12], props.gemExperience);
+            props.mapTier = this.parseProperty(line, phrases[13], props.mapTier);
+            props.mapQuantity = this.parseProperty(line, phrases[14], props.mapQuantity);
+            props.mapRarity = this.parseProperty(line, phrases[15], props.mapRarity);
+            props.mapPacksize = this.parseProperty(line, phrases[16], props.mapPacksize);
             for (let quality = 0; quality < 8; quality++) {
                 const old = props.quality;
-                props.quality = this.parseValueProperty(line, phrases[16 + quality], old);
+                props.quality = this.parseValueProperty(line, phrases[17 + quality], old);
                 if (props.quality !== old) {
                     props.qualityType = quality;
                 }
@@ -114,6 +115,7 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
             `${this.clientString.translate('ItemDisplayArmourArmour')}: `,
             `${this.clientString.translate('ItemDisplayArmourEvasionRating')}: `,
             `${this.clientString.translate('ItemDisplayArmourEnergyShield')}: `,
+            `${this.clientString.translate('ItemDisplayStackSize')}: `,
             `${this.clientString.translate('Level')}: `,
             `${this.clientString.translate('Experience')}: `,
             `${this.clientString.translate('ItemDisplayMapTier')}: `,
@@ -128,7 +130,6 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
             `${this.clientString.translate('Quality5')}: `,
             `${this.clientString.translate('Quality6')}: `,
             `${this.clientString.translate('Quality7')}: `,
-            `${this.clientString.translate('ItemDisplayStackSize')}: `
         ];
     }
 }

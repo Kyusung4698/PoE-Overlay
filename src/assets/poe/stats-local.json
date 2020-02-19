@@ -1,6 +1,5 @@
 {
 	"explicit": {
-		"base_chance_to_poison_on_hit__": "base_chance_to_poison_on_hit__",
 		"local_minimum_added_physical_damagelocal_maximum_added_physical_damage": "global_minimum_added_physical_damageglobal_maximum_added_physical_damage",
 		"global_minimum_added_physical_damageglobal_maximum_added_physical_damage": "local_minimum_added_physical_damagelocal_maximum_added_physical_damage",
 		"local_minimum_added_fire_damagelocal_maximum_added_fire_damage": "global_minimum_added_fire_damageglobal_maximum_added_fire_damage",
@@ -21,7 +20,8 @@
 		"evasion_rating___": "local_evasion_rating___",
 		"base_maximum_energy_shield": "base_maximum_energy_shield",
 		"local_accuracy_rating": "accuracy_rating",
-		"accuracy_rating": "local_accuracy_rating"
+		"accuracy_rating": "local_accuracy_rating",
+		"base_chance_to_poison_on_hit__": "base_chance_to_poison_on_hit__"
 	},
 	"implicit": {
 		"local_minimum_added_fire_damagelocal_maximum_added_fire_damage": "global_minimum_added_fire_damageglobal_maximum_added_fire_damage",
@@ -62,7 +62,6 @@
 		"accuracy_rating": "local_accuracy_rating"
 	},
 	"fractured": {
-		"base_chance_to_poison_on_hit__": "base_chance_to_poison_on_hit__",
 		"local_attack_speed___": "attack_speed___",
 		"attack_speed___": "local_attack_speed___",
 		"base_physical_damage_reduction_rating": "base_physical_damage_reduction_rating",
@@ -73,7 +72,8 @@
 		"evasion_rating___": "local_evasion_rating___",
 		"base_maximum_energy_shield": "base_maximum_energy_shield",
 		"local_accuracy_rating": "accuracy_rating",
-		"accuracy_rating": "local_accuracy_rating"
+		"accuracy_rating": "local_accuracy_rating",
+		"base_chance_to_poison_on_hit__": "base_chance_to_poison_on_hit__"
 	},
 	"enchant": {},
 	"pseudo": {},
