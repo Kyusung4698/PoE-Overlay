@@ -14,6 +14,7 @@ export class ItemExchangeRateResult {
     currency?: Currency;
     amount?: number;
     inverseAmount?: number;
+    factor?: number;
     change?: number;
     history?: number[];
     url?: string;
@@ -46,6 +47,7 @@ export class ItemExchangeRateService {
                         const index = this.currencySelectService.select(values, CurrencySelectStrategy.MinWithAtleast1);
                         const result: ItemExchangeRateResult = {
                             amount: values[index][0],
+                            factor: +(item.properties?.stackSize?.value?.split('/') || [1])[0],
                             inverseAmount: 1 / values[index][0],
                             currency: currencies[index],
                             change: value.change,

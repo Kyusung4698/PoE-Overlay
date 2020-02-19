@@ -10,6 +10,11 @@ export enum StashNavigationDirection {
     Right
 }
 
+export enum PriceTagType {
+    Exact = '~price',
+    Negotiable = '~b/o'
+}
+
 const GAME_HEIGHT_TO_STASH_WIDTH_RATIO = 1.622;
 
 @Injectable({
@@ -52,13 +57,13 @@ export class StashService {
         this.keyboard.keyTap(dir === StashNavigationDirection.Left ? 'left' : 'right');
     }
 
-    public copyPrice(amount: number, currency: Currency): void {
-        this.clipboard.writeText(`~price ${amount} ${currency.id}`);
+    public copyPrice(amount: number, currency: Currency, type: PriceTagType): void {
+        this.clipboard.writeText(`${type} ${amount} ${currency.id}`);
     }
 
-    public tagPrice(amount: number, currency: Currency, point: Point): Observable<void> {
+    public tagPrice(amount: number, currency: Currency, point: Point, type: PriceTagType): Observable<void> {
         const text = this.clipboard.readText();
-        this.copyPrice(amount, currency);
+        this.copyPrice(amount, currency, type);
         return of(null).pipe(
             tap(() => this.mouse.click('right', point)),
             delay(100),

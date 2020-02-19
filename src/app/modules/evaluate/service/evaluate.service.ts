@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { SnackBarService } from '@shared/module/material/service';
-import { ItemClipboardResultCode, ItemClipboardService, StashService } from '@shared/module/poe/service';
+import { ItemClipboardResultCode, ItemClipboardService, StashService, PriceTagType } from '@shared/module/poe/service';
 import { Language } from '@shared/module/poe/type';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, flatMap } from 'rxjs/operators';
@@ -31,15 +31,15 @@ export class EvaluateService {
                                 }
 
                                 if (!this.stash.hovering(point)) {
-                                    this.stash.copyPrice(evaluate.amount, evaluate.currency);
+                                    this.stash.copyPrice(evaluate.amount, evaluate.currency, evaluate.type);
                                     return this.snackbar.info('evaluate.tag.outside-stash');
                                 }
 
                                 if ((result.item.note || '').length > 0) {
-                                    this.stash.copyPrice(evaluate.amount, evaluate.currency);
+                                    this.stash.copyPrice(evaluate.amount, evaluate.currency, evaluate.type);
                                     return this.snackbar.info('evaluate.tag.note');
                                 }
-                                return this.stash.tagPrice(evaluate.amount, evaluate.currency, result.rawPoint);
+                                return this.stash.tagPrice(evaluate.amount, evaluate.currency, result.rawPoint, evaluate.type);
                             })
                         );
                     case ItemClipboardResultCode.Empty:

@@ -28,6 +28,7 @@ export class ItemFramePropertiesComponent implements OnInit {
       'armourArmour',
       'armourEvasionRating',
       'armourEnergyShield',
+      'stackSize',
       'gemLevel',
       'mapTier',
       'mapQuantity',

@@ -18,8 +18,14 @@
     display: flex;
     align-items: center;
 
-    .amount {
-      color: $light-grey;
+    .amount-column {
+      display: flex;
+      flex-direction: column;
+
+      .amount {
+        color: $light-grey;
+        line-height: 15px;
+      }
     }
   }
 
