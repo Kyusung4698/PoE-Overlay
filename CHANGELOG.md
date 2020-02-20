@@ -1,3 +1,9 @@
+## 0.5.19 (2020-02-20)
+
+- add browser use 70% of primary monitor size (#214)
+- add negotiable pricing on double click (#191)
+- update russian translations (thanks to S1ROZHA)
+
 ## 0.5.18 (2020-02-19)
 
 - add double click tray to open settings (#247)

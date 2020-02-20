@@ -33,6 +33,7 @@ export class UserSettingsComponent implements OnInit, OnDestroy {
   public ngOnInit(): void {
     this.userSettingsService.init(this.modules).subscribe(settings => {
       this.translate.use(`${settings.language}`);
+      this.window.setZoom(settings.zoom / 100);
       this.context.init({
         language: settings.language,
         leagueId: settings.leagueId
@@ -62,6 +63,7 @@ export class UserSettingsComponent implements OnInit, OnDestroy {
       ).subscribe((settings) => {
         if (settings) {
           this.translate.use(`${settings.language}`);
+          this.window.setZoom(settings.zoom / 100);
         }
         this.window.hide();
       });
