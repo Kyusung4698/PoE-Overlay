@@ -1,13 +1,15 @@
-@import './../../../../../styles/variables';
+@import "./../../../../../styles/variables";
 
 $label-color: rgba(200, 200, 200, 0.54);
 
 .toggle {
   display: flex;
   flex-wrap: nowrap;
+  align-items: center;
 
   > * {
-    width: 50%;
+    width: 25%;
+    padding-right: 15px;
   }
 }
 
@@ -63,9 +65,13 @@ label {
   display: flex;
   align-items: center;
 
-  .slider,
-  .mat-slider {
+  .slider {
+    display: flex;
     width: 100%;
+
+    .mat-slider {
+      width: 50%;
+    }
   }
 
   .value {

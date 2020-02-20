@@ -2,19 +2,19 @@
     <div *ngIf="item.damage.dps">
         <app-item-frame-query [(property)]="queryItem.damage.dps" [value]="item.damage.dps">
             <span> {{'DPS'}}</span>
-            <span class="white">&nbsp;{{item.damage.dps | number : '1.2-2'}}</span>
+            <span class="white">&nbsp;{{item.damage.dps | number : '1.1-1'}}</span>
         </app-item-frame-query>
     </div>
     <div *ngIf="item.damage.pdps">
         <app-item-frame-query [(property)]="queryItem.damage.pdps" [value]="item.damage.pdps">
             <span> {{'Physical DPS'}}</span>
-            <span class="white">&nbsp;{{item.damage.pdps | number : '1.2-2'}}</span>
+            <span class="white">&nbsp;{{item.damage.pdps | number : '1.1-1'}}</span>
         </app-item-frame-query>
     </div>
     <div *ngIf="item.damage.edps">
         <app-item-frame-query [(property)]="queryItem.damage.edps" [value]="item.damage.edps">
             <span> {{'Elemental DPS'}}</span>
-            <span class="white">&nbsp;{{item.damage.edps | number : '1.2-2'}}</span>
+            <span class="white">&nbsp;{{item.damage.edps | number : '1.1-1'}}</span>
         </app-item-frame-query>
     </div>
 </ng-container>
@@ -60,7 +60,7 @@
                 <app-item-frame-value-group>
                     <span>{{'Level' | clientString:language}}:&nbsp;</span>
                     <span [class]="prop.augmented ? 'purpel' : 'white'">
-                        <app-item-frame-value [(value)]="prop.value" [modifier]="0" [modifierMaxRange]="false">
+                        <app-item-frame-value [(value)]="prop.value" [modifierMinRange]="0" [modifierMaxRange]="0.5">
                         </app-item-frame-value>
                     </span>
                 </app-item-frame-value-group>
@@ -96,7 +96,7 @@
                         <span>{{'Quality' | clientString:language}}:&nbsp;</span>
                     </ng-container>
                     <span [class]="prop.augmented ? 'purpel' : 'white'">
-                        <app-item-frame-value [(value)]="prop.value" [modifier]="0" [modifierMaxRange]="false">
+                        <app-item-frame-value [(value)]="prop.value" [modifierMinRange]="0" [modifierMaxRange]="0.5">
                         </app-item-frame-value>
                     </span>
                 </app-item-frame-value-group>

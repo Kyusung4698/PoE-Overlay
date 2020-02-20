@@ -4,7 +4,8 @@
             <div class="blue">
                 <ng-container *ngTemplateOutlet="statQuery, context: { stat: stat }"></ng-container>
             </div>
-            <app-item-frame-separator [item]="item" *ngIf="last">
+            <app-item-frame-separator [item]="item"
+                *ngIf="last && (groups.implicit || groups.fractured || groups.explicit || groups.crafted)">
             </app-item-frame-separator>
         </ng-container>
     </ng-container>
@@ -13,7 +14,8 @@
             <div class="purpel">
                 <ng-container *ngTemplateOutlet="statQuery, context: { stat: stat }"></ng-container>
             </div>
-            <app-item-frame-separator [item]="item" *ngIf="last">
+            <app-item-frame-separator [item]="item"
+                *ngIf="last && (groups.fractured || groups.explicit || groups.crafted)">
             </app-item-frame-separator>
         </ng-container>
     </ng-container>
@@ -60,7 +62,7 @@
                     <span>{{part}}</span>
                     <span [class]="getValueClass(stat.id)">
                         <app-item-frame-value *ngIf="stat.values[index]" [(value)]="stat.values[index]"
-                            [modifier]="modifier" [modifierMaxRange]="modifierMaxRange">
+                            [modifierMinRange]="modifierMinRange" [modifierMaxRange]="modifierMaxRange">
                         </app-item-frame-value>
                     </span>
                 </ng-container>

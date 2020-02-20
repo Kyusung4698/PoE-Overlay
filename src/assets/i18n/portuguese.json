@@ -28,7 +28,12 @@
 			"disable-max-range": "Desativar intervalo máximo",
 			"filter": "Filtro de pesquisa",
 			"gem": "Nível da gema, nível do mapa e qualidade",
+			"item-default-links": "Link do item",
 			"item-level": "Nível do Item",
+			"item-links": {
+				"always": "Sempre",
+				"never": "Nunca"
+			},
 			"item-sockets": "tomadas",
 			"item-type": "Tipo de item",
 			"max-age": {

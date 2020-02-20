@@ -24,14 +24,14 @@ export interface EvaluateUserSettings extends UserSettings {
   evaluateTranslatedItemLanguage: Language;
   evaluateTranslatedKeybinding: string;
   evaluateQueryDefaultItemLevel: boolean;
-  evaluateQueryDefaultSockets: boolean;
+  evaluateQueryDefaultLinks: number;
   evaluateQueryDefaultMiscs: boolean;
   evaluateQueryDefaultType: boolean;
   evaluateQueryDefaultStats: any;
   evaluateQueryOnline: boolean;
   evaluateQueryIndexedRange: ItemSearchIndexed;
-  evaluateModifierRange: number;
-  evaluateModifierDisableMaxRange: boolean;
+  evaluateModifierMinRange: number;
+  evaluateModifierMaxRange: number;
 }
 
 interface StatSelectListItem extends SelectListItem {
@@ -45,12 +45,6 @@ interface StatSelectListItem extends SelectListItem {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EvaluateSettingsComponent implements UserSettingsComponent {
-  public languages = new EnumValues(Language);
-  public views = new EnumValues(EvaluateResultView);
-  public settings: EvaluateUserSettings;
-
-  public currencies$ = new BehaviorSubject<Currency[]>([]);
-  public stats$ = new BehaviorSubject<StatSelectListItem[]>([]);
 
   constructor(
     private readonly currencyService: CurrencyService,
@@ -58,6 +52,14 @@ export class EvaluateSettingsComponent implements UserSettingsComponent {
     private readonly statsService: StatsService,
     private readonly clipboard: ClipboardService,
     private readonly snackbar: SnackBarService) { }
+  public languages = new EnumValues(Language);
+  public views = new EnumValues(EvaluateResultView);
+  public settings: EvaluateUserSettings;
+
+  public currencies$ = new BehaviorSubject<Currency[]>([]);
+  public stats$ = new BehaviorSubject<StatSelectListItem[]>([]);
+
+  public displayWith = (value: number) => value === 50 ? '#' : value;
 
   public load(): void {
     if (this.settings.language) {

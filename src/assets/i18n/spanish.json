@@ -28,7 +28,12 @@
 			"disable-max-range": "Deshabilitar rango máximo",
 			"filter": "Filtro de búsqueda",
 			"gem": "Nivel de gema, nivel de mapa y calidad",
+			"item-default-links": "Enlace de artículo",
 			"item-level": "Nivel de objeto",
+			"item-links": {
+				"always": "siempre",
+				"never": "Nunca"
+			},
 			"item-sockets": "Enchufes",
 			"item-type": "Tipo de artículo",
 			"max-age": {

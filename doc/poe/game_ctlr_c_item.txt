@@ -966,7 +966,7 @@ Area is influenced by The Elder (implicit)
 Map is occupied by The Enslaver (implicit)
 --------
 Players are Cursed with Temporal Chains
-25% more Monster Life
+25.1% more Monster Life
 Monsters cannot be Stunned
 Monsters deal 102% extra Damage as Lightning
 Monsters gain an Endurance Charge on Hit
@@ -1017,7 +1017,7 @@ Level: 62
 Str: 122
 Dex: 104
 --------
-Sockets: R-R-G
+Sockets: R-R-G-R-R-R
 Item Level: 86
 --------
 40% increased Global Accuracy Rating (implicit)

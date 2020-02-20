@@ -898,6 +898,47 @@
                                 </translations>
                             </concept_node>
                             <concept_node>
+                                <name>item-default-links</name>
+                                <definition_loaded>false</definition_loaded>
+                                <description></description>
+                                <comment></comment>
+                                <default_text></default_text>
+                                <translations>
+                                    <translation>
+                                        <language>de-DE</language>
+                                        <approved>false</approved>
+                                    </translation>
+                                    <translation>
+                                        <language>en-US</language>
+                                        <approved>false</approved>
+                                    </translation>
+                                    <translation>
+                                        <language>es-ES</language>
+                                        <approved>false</approved>
+                                    </translation>
+                                    <translation>
+                                        <language>fr-FR</language>
+                                        <approved>false</approved>
+                                    </translation>
+                                    <translation>
+                                        <language>ko-KR</language>
+                                        <approved>false</approved>
+                                    </translation>
+                                    <translation>
+                                        <language>pt-BR</language>
+                                        <approved>false</approved>
+                                    </translation>
+                                    <translation>
+                                        <language>ru-RU</language>
+                                        <approved>false</approved>
+                                    </translation>
+                                    <translation>
+                                        <language>th-TH</language>
+                                        <approved>false</approved>
+                                    </translation>
+                                </translations>
+                            </concept_node>
+                            <concept_node>
                                 <name>item-level</name>
                                 <definition_loaded>false</definition_loaded>
                                 <description></description>
@@ -938,6 +979,93 @@
                                     </translation>
                                 </translations>
                             </concept_node>
+                            <folder_node>
+                                <name>item-links</name>
+                                <children>
+                                    <concept_node>
+                                        <name>always</name>
+                                        <definition_loaded>false</definition_loaded>
+                                        <description></description>
+                                        <comment></comment>
+                                        <default_text></default_text>
+                                        <translations>
+                                            <translation>
+                                                <language>de-DE</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                            <translation>
+                                                <language>en-US</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                            <translation>
+                                                <language>es-ES</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                            <translation>
+                                                <language>fr-FR</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                            <translation>
+                                                <language>ko-KR</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                            <translation>
+                                                <language>pt-BR</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                            <translation>
+                                                <language>ru-RU</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                            <translation>
+                                                <language>th-TH</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                        </translations>
+                                    </concept_node>
+                                    <concept_node>
+                                        <name>never</name>
+                                        <definition_loaded>false</definition_loaded>
+                                        <description></description>
+                                        <comment></comment>
+                                        <default_text></default_text>
+                                        <translations>
+                                            <translation>
+                                                <language>de-DE</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                            <translation>
+                                                <language>en-US</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                            <translation>
+                                                <language>es-ES</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                            <translation>
+                                                <language>fr-FR</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                            <translation>
+                                                <language>ko-KR</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                            <translation>
+                                                <language>pt-BR</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                            <translation>
+                                                <language>ru-RU</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                            <translation>
+                                                <language>th-TH</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                        </translations>
+                                    </concept_node>
+                                </children>
+                            </folder_node>
                             <concept_node>
                                 <name>item-sockets</name>
                                 <definition_loaded>false</definition_loaded>

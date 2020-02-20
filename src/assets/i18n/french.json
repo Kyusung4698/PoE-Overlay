@@ -28,7 +28,12 @@
 			"disable-max-range": "Désactiver la plage maximale",
 			"filter": "Filtre de recherche",
 			"gem": "Niveau de gemme, pallier de carte et qualité",
+			"item-default-links": "Lien d'objet",
 			"item-level": "Niveau d'objet",
+			"item-links": {
+				"always": "Toujours",
+				"never": "jamais"
+			},
 			"item-sockets": "Châsses",
 			"item-type": "Type d'objet",
 			"max-age": {
