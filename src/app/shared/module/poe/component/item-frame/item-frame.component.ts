@@ -25,10 +25,10 @@ export class ItemFrameComponent implements OnInit {
   public separator = false;
 
   @Input()
-  public modifier = 0.1;
+  public modifierMinRange = 0.1;
 
   @Input()
-  public modifierMaxRange: boolean;
+  public modifierMaxRange = 0.1;
 
   @Input()
   public properties: [];

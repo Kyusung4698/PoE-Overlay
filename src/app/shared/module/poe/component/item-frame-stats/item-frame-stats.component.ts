@@ -18,10 +18,10 @@ export class ItemFrameStatsComponent {
   public language: Language;
 
   @Input()
-  public modifier: number;
+  public modifierMinRange: number;
 
   @Input()
-  public modifierMaxRange: boolean;
+  public modifierMaxRange: number;
 
   public getValueClass(id: string): string {
     if (!id || id.length === 0) {

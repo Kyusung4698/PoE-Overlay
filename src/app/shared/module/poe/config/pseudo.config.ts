@@ -112,13 +112,13 @@ export const PSEUDO_MODIFIERS: {
             { id: 'maximum_energy_shield_+%', type: ModifierType.Addition },
         ]
     },
-    pseudo_total_lightning_resistance: {
+    pseudo_total_fire_resistance: {
         mods: [
-            { id: 'base_lightning_damage_resistance_%', type: ModifierType.Addition },
+            { id: 'base_fire_damage_resistance_%', type: ModifierType.Addition },
             { id: 'base_resist_all_elements_%', type: ModifierType.Addition },
-            { id: 'lightning_and_chaos_damage_resistance_%', type: ModifierType.Addition },
+            { id: 'fire_and_chaos_damage_resistance_%', type: ModifierType.Addition },
+            { id: 'fire_and_cold_damage_resistance_%', type: ModifierType.Addition },
             { id: 'fire_and_lightning_damage_resistance_%', type: ModifierType.Addition },
-            { id: 'cold_and_lightning_damage_resistance_%', type: ModifierType.Addition },
         ]
     },
     pseudo_total_cold_resistance: {
@@ -130,13 +130,13 @@ export const PSEUDO_MODIFIERS: {
             { id: 'cold_and_lightning_damage_resistance_%', type: ModifierType.Addition },
         ]
     },
-    pseudo_total_fire_resistance: {
+    pseudo_total_lightning_resistance: {
         mods: [
-            { id: 'base_fire_damage_resistance_%', type: ModifierType.Addition },
+            { id: 'base_lightning_damage_resistance_%', type: ModifierType.Addition },
             { id: 'base_resist_all_elements_%', type: ModifierType.Addition },
-            { id: 'fire_and_chaos_damage_resistance_%', type: ModifierType.Addition },
-            { id: 'fire_and_cold_damage_resistance_%', type: ModifierType.Addition },
+            { id: 'lightning_and_chaos_damage_resistance_%', type: ModifierType.Addition },
             { id: 'fire_and_lightning_damage_resistance_%', type: ModifierType.Addition },
+            { id: 'cold_and_lightning_damage_resistance_%', type: ModifierType.Addition },
         ]
     },
     pseudo_total_elemental_resistance: {
@@ -213,9 +213,9 @@ export const PSEUDO_MODIFIERS: {
             { id: 'global_minimum_added_physical_damage global_maximum_added_physical_damage', type: ModifierType.Addition },
         ]
     },
-    pseudo_adds_lightning_damage: {
+    pseudo_adds_fire_damage: {
         mods: [
-            { id: 'global_minimum_added_lightning_damage global_maximum_added_lightning_damage', type: ModifierType.Addition },
+            { id: 'global_minimum_added_fire_damage global_maximum_added_fire_damage', type: ModifierType.Addition },
         ]
     },
     pseudo_adds_cold_damage: {
@@ -223,9 +223,9 @@ export const PSEUDO_MODIFIERS: {
             { id: 'global_minimum_added_cold_damage global_maximum_added_cold_damage', type: ModifierType.Addition },
         ]
     },
-    pseudo_adds_fire_damage: {
+    pseudo_adds_lightning_damage: {
         mods: [
-            { id: 'global_minimum_added_fire_damage global_maximum_added_fire_damage', type: ModifierType.Addition },
+            { id: 'global_minimum_added_lightning_damage global_maximum_added_lightning_damage', type: ModifierType.Addition },
         ]
     },
     pseudo_adds_elemental_damage: {
@@ -255,11 +255,11 @@ export const PSEUDO_MODIFIERS: {
             { id: 'local_minimum_added_physical_damage local_maximum_added_physical_damage', type: ModifierType.Addition },
         ]
     },
-    pseudo_adds_lightning_damage_to_attacks: {
+    pseudo_adds_fire_damage_to_attacks: {
         mods: [
-            { id: 'attack_minimum_added_lightning_damage attack_maximum_added_lightning_damage', type: ModifierType.Addition },
-            { id: 'spell_and_attack_minimum_added_lightning_damage spell_and_attack_maximum_added_lightning_damage', type: ModifierType.Addition },
-            { id: 'local_minimum_added_lightning_damage local_maximum_added_lightning_damage', type: ModifierType.Addition },
+            { id: 'attack_minimum_added_fire_damage attack_maximum_added_fire_damage', type: ModifierType.Addition },
+            { id: 'spell_and_attack_minimum_added_fire_damage spell_and_attack_maximum_added_fire_damage', type: ModifierType.Addition },
+            { id: 'local_minimum_added_fire_damage local_maximum_added_fire_damage', type: ModifierType.Addition },
         ]
     },
     pseudo_adds_cold_damage_to_attacks: {
@@ -269,11 +269,11 @@ export const PSEUDO_MODIFIERS: {
             { id: 'local_minimum_added_cold_damage local_maximum_added_cold_damage', type: ModifierType.Addition },
         ]
     },
-    pseudo_adds_fire_damage_to_attacks: {
+    pseudo_adds_lightning_damage_to_attacks: {
         mods: [
-            { id: 'attack_minimum_added_fire_damage attack_maximum_added_fire_damage', type: ModifierType.Addition },
-            { id: 'spell_and_attack_minimum_added_fire_damage spell_and_attack_maximum_added_fire_damage', type: ModifierType.Addition },
-            { id: 'local_minimum_added_fire_damage local_maximum_added_fire_damage', type: ModifierType.Addition },
+            { id: 'attack_minimum_added_lightning_damage attack_maximum_added_lightning_damage', type: ModifierType.Addition },
+            { id: 'spell_and_attack_minimum_added_lightning_damage spell_and_attack_maximum_added_lightning_damage', type: ModifierType.Addition },
+            { id: 'local_minimum_added_lightning_damage local_maximum_added_lightning_damage', type: ModifierType.Addition },
         ]
     },
     pseudo_adds_elemental_damage_to_attacks: {
@@ -303,10 +303,10 @@ export const PSEUDO_MODIFIERS: {
             { id: 'spell_minimum_added_physical_damage spell_maximum_added_physical_damage', type: ModifierType.Addition },
         ]
     },
-    pseudo_adds_lightning_damage_to_spells: {
+    pseudo_adds_fire_damage_to_spells: {
         mods: [
-            { id: 'spell_minimum_added_lightning_damage spell_maximum_added_lightning_damage', type: ModifierType.Addition },
-            { id: 'spell_and_attack_minimum_added_lightning_damage spell_and_attack_maximum_added_lightning_damage', type: ModifierType.Addition },
+            { id: 'spell_minimum_added_fire_damage spell_maximum_added_fire_damage', type: ModifierType.Addition },
+            { id: 'spell_and_attack_minimum_added_fire_damage spell_and_attack_maximum_added_fire_damage', type: ModifierType.Addition },
         ]
     },
     pseudo_adds_cold_damage_to_spells: {
@@ -315,10 +315,10 @@ export const PSEUDO_MODIFIERS: {
             { id: 'spell_and_attack_minimum_added_cold_damage spell_and_attack_maximum_added_cold_damage', type: ModifierType.Addition },
         ]
     },
-    pseudo_adds_fire_damage_to_spells: {
+    pseudo_adds_lightning_damage_to_spells: {
         mods: [
-            { id: 'spell_minimum_added_fire_damage spell_maximum_added_fire_damage', type: ModifierType.Addition },
-            { id: 'spell_and_attack_minimum_added_fire_damage spell_and_attack_maximum_added_fire_damage', type: ModifierType.Addition },
+            { id: 'spell_minimum_added_lightning_damage spell_maximum_added_lightning_damage', type: ModifierType.Addition },
+            { id: 'spell_and_attack_minimum_added_lightning_damage spell_and_attack_maximum_added_lightning_damage', type: ModifierType.Addition },
         ]
     },
     pseudo_adds_elemental_damage_to_spells: {
@@ -346,10 +346,10 @@ export const PSEUDO_MODIFIERS: {
             { id: 'elemental_damage_+%', type: ModifierType.Addition },
         ]
     },
-    pseudo_increased_lightning_damage: {
+    pseudo_increased_fire_damage: {
         mods: [
             { id: 'pseudo_increased_elemental_damage', type: ModifierType.Addition },
-            { id: 'lightning_damage_+%', type: ModifierType.Addition },
+            { id: 'fire_damage_+%', type: ModifierType.Addition },
         ]
     },
     pseudo_increased_cold_damage: {
@@ -358,10 +358,10 @@ export const PSEUDO_MODIFIERS: {
             { id: 'cold_damage_+%', type: ModifierType.Addition },
         ]
     },
-    pseudo_increased_fire_damage: {
+    pseudo_increased_lightning_damage: {
         mods: [
             { id: 'pseudo_increased_elemental_damage', type: ModifierType.Addition },
-            { id: 'fire_damage_+%', type: ModifierType.Addition },
+            { id: 'lightning_damage_+%', type: ModifierType.Addition },
         ]
     },
     pseudo_increased_spell_damage: {
@@ -369,48 +369,48 @@ export const PSEUDO_MODIFIERS: {
             { id: 'spell_damage_+%', type: ModifierType.Addition },
         ]
     },
-    pseudo_increased_lightning_spell_damage: {
+    pseudo_increased_fire_spell_damage: {
         mods: [
+            { id: 'pseudo_increased_fire_damage', type: ModifierType.Addition, count: 2 },
             { id: 'pseudo_increased_spell_damage', type: ModifierType.Addition },
-            { id: 'pseudo_increased_lightning_damage', type: ModifierType.Addition },
-        ]
+        ],
     },
     pseudo_increased_cold_spell_damage: {
         mods: [
+            { id: 'pseudo_increased_cold_damage', type: ModifierType.Addition, count: 2 },
             { id: 'pseudo_increased_spell_damage', type: ModifierType.Addition },
-            { id: 'pseudo_increased_cold_damage', type: ModifierType.Addition },
         ]
     },
-    pseudo_increased_fire_spell_damage: {
+    pseudo_increased_lightning_spell_damage: {
         mods: [
+            { id: 'pseudo_increased_lightning_damage', type: ModifierType.Addition, count: 2 },
             { id: 'pseudo_increased_spell_damage', type: ModifierType.Addition },
-            { id: 'pseudo_increased_fire_damage', type: ModifierType.Addition },
-        ],
+        ]
     },
     pseudo_increased_elemental_damage_with_attack_skills: {
         mods: [
             { id: 'elemental_damage_with_attack_skills_+%', type: ModifierType.Addition },
         ]
     },
-    pseudo_increased_lightning_damage_with_attack_skills: {
+    pseudo_increased_fire_damage_with_attack_skills: {
         mods: [
+            { id: 'pseudo_increased_fire_damage', type: ModifierType.Addition, count: 2 },
             { id: 'pseudo_increased_elemental_damage_with_attack_skills', type: ModifierType.Addition },
-            { id: 'pseudo_increased_lightning_damage', type: ModifierType.Addition },
-            { id: 'lightning_damage_with_attack_skills_+%', type: ModifierType.Addition },
+            { id: 'fire_damage_with_attack_skills_+%', type: ModifierType.Addition },
         ]
     },
     pseudo_increased_cold_damage_with_attack_skills: {
         mods: [
+            { id: 'pseudo_increased_cold_damage', type: ModifierType.Addition, count: 2 },
             { id: 'pseudo_increased_elemental_damage_with_attack_skills', type: ModifierType.Addition },
-            { id: 'pseudo_increased_cold_damage', type: ModifierType.Addition },
             { id: 'cold_damage_with_attack_skills_+%', type: ModifierType.Addition },
         ]
     },
-    pseudo_increased_fire_damage_with_attack_skills: {
+    pseudo_increased_lightning_damage_with_attack_skills: {
         mods: [
+            { id: 'pseudo_increased_lightning_damage', type: ModifierType.Addition, count: 2 },
             { id: 'pseudo_increased_elemental_damage_with_attack_skills', type: ModifierType.Addition },
-            { id: 'pseudo_increased_fire_damage', type: ModifierType.Addition },
-            { id: 'fire_damage_with_attack_skills_+%', type: ModifierType.Addition },
+            { id: 'lightning_damage_with_attack_skills_+%', type: ModifierType.Addition },
         ]
     },
 };

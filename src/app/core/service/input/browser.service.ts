@@ -20,14 +20,15 @@ export class BrowserService {
             this.electron.shell.openExternal(url);
         } else {
             const parent = this.electron.getCurrentWindow();
+            const [width, height] = parent.getSize();
 
             const BrowserWindow = this.electron.BrowserWindow;
             const win = new BrowserWindow({
                 center: true,
                 parent,
                 autoHideMenuBar: true,
-                width: 1400,
-                height: 800,
+                width: Math.round(width * 0.7),
+                height: Math.round(height * 0.7),
                 backgroundColor: '#0F0F0F',
                 show: false
             });

@@ -28,7 +28,12 @@
 			"disable-max-range": "Disable Max Range",
 			"filter": "Search Filter",
 			"gem": "Gem Level, Map Tier & Quality",
+			"item-default-links": "Item Link",
 			"item-level": "Item Level",
+			"item-links": {
+				"always": "Always",
+				"never": "Never"
+			},
 			"item-sockets": "Sockets",
 			"item-type": "Item Type",
 			"max-age": {

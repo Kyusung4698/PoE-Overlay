@@ -6,7 +6,8 @@
     <div class="detail">
         <!-- properties -->
         <ng-container *ngIf="item.properties">
-            <app-item-frame-properties [item]="item" [queryItem]="queryItem" [language]="language" [properties]="properties">
+            <app-item-frame-properties [item]="item" [queryItem]="queryItem" [language]="language"
+                [properties]="properties">
             </app-item-frame-properties>
             <ng-content select="properties"></ng-content>
             <app-item-frame-separator [item]="item" *ngIf="req || sockets || stats || state || influences || separator">
@@ -30,8 +31,8 @@
 
         <!-- stats -->
         <ng-container *ngIf="stats">
-            <app-item-frame-stats [item]="item" [queryItem]="queryItem" [language]="language" [modifier]="modifier"
-                [modifierMaxRange]="modifierMaxRange"></app-item-frame-stats>
+            <app-item-frame-stats [item]="item" [queryItem]="queryItem" [language]="language"
+                [modifierMinRange]="modifierMinRange" [modifierMaxRange]="modifierMaxRange"></app-item-frame-stats>
             <app-item-frame-separator [item]="item" *ngIf="state || influences || separator">
             </app-item-frame-separator>
         </ng-container>

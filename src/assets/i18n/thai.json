@@ -28,7 +28,12 @@
 			"disable-max-range": "ปิดการใช้งาน Max Range",
 			"filter": "ตัวกรองการค้นหา",
 			"gem": "ระดับอัญมณีแผนที่ชั้นและคุณภาพ",
+			"item-default-links": "ลิงค์รายการ",
 			"item-level": "รายการระดับ",
+			"item-links": {
+				"always": "เสมอ",
+				"never": "ไม่เคย"
+			},
 			"item-sockets": "ซ็อกเก็ต",
 			"item-type": "ประเภทรายการ",
 			"max-age": {

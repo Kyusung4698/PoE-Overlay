@@ -28,7 +28,12 @@
 			"disable-max-range": "Maximalen Wertebereich deaktivieren",
 			"filter": "Suchfilter",
 			"gem": "Edelsteinstufe, Kartenstufe und -qualität",
+			"item-default-links": "Item Link",
 			"item-level": "Gegenstandsstufe",
+			"item-links": {
+				"always": "Immer",
+				"never": "Niemals"
+			},
 			"item-sockets": "Sockel",
 			"item-type": "Gegenstandsart",
 			"max-age": {

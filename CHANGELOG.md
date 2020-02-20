@@ -1,3 +1,15 @@
+## 0.5.19 (2020-02-20)
+
+- add browser use 70% of primary monitor size (#214)
+- add negotiable pricing on double click (#191)
+- add min/ max modifier range (#249)
+- add preselect links (always, 5-6, 6, never) (#218)
+- add ceiling/ flooring for mod ranges if possible (#255)
+- update russian translations (thanks to S1ROZHA)
+- update pseudo elemental order (fire > cold > lightning) (#255)
+- remove some pseudo redundancies (#255)
+- remove preselect sockets
+
 ## 0.5.18 (2020-02-19)
 
 - add double click tray to open settings (#247)

@@ -28,7 +28,12 @@
 			"disable-max-range": "최대 범위 비활성화",
 			"filter": "검색 필터",
 			"gem": "보석 레벨,지도 등급 및 품질",
+			"item-default-links": "아이템 링크",
 			"item-level": "아이템 레벨",
+			"item-links": {
+				"always": "항상",
+				"never": "못"
+			},
 			"item-sockets": "소켓",
 			"item-type": "항목 형식",
 			"max-age": {

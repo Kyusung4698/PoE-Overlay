@@ -15,10 +15,10 @@ export class ItemFrameValueComponent implements OnInit {
   public disabled: boolean;
 
   @Input()
-  public modifier: number;
+  public modifierMinRange: number;
 
   @Input()
-  public modifierMaxRange: boolean;
+  public modifierMaxRange: number;
 
   @Input()
   public value: ItemValue;
@@ -198,11 +198,30 @@ export class ItemFrameValueComponent implements OnInit {
     this.value.min = value;
     this.value.max = value;
     this.default = { ...this.value };
-    if (!this.modifierMaxRange) {
-      this.value.max = undefined;
+
+    if (this.modifierMinRange === 0.5) {
+      this.value.min = undefined;
+    } else {
+      this.value.min -= value * this.modifierMinRange;
+      if (Number.isInteger(value)) {
+        this.value.min = Math.floor(this.value.min);
+      } else {
+        this.value.min = Math.floor(this.value.min * 10) / 10;
+      }
     }
-    const newValue = value * this.modifier;
-    this.adjustValue(Math.round(newValue * 10) / 10, true, true);
+
+    if (this.modifierMaxRange === 0.5) {
+      this.value.max = undefined;
+    } else {
+      this.value.max += value * this.modifierMaxRange;
+      if (Number.isInteger(value)) {
+        this.value.max = Math.ceil(this.value.max);
+      } else {
+        this.value.max = Math.ceil(this.value.max * 10) / 10;
+      }
+    }
+
+    this.emitChange();
   }
 
   private emitChange(): void {

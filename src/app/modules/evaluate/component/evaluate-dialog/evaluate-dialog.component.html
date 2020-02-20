@@ -1,8 +1,8 @@
 <div appDrag=".cdk-overlay-pane">
     <app-item-frame [item]="data.item" [language]="data.language" [queryItem]="queryItem"
         (queryItemChange)="onQueryItemChange($event)" [separator]="true"
-        [modifier]="data.settings.evaluateModifierRange / 100"
-        [modifierMaxRange]="!data.settings.evaluateModifierDisableMaxRange">
+        [modifierMinRange]="data.settings.evaluateModifierMinRange / 100"
+        [modifierMaxRange]="data.settings.evaluateModifierMaxRange / 100">
         <ng-container *ngIf="(currencies$ | async) as currencies; else loading">
             <app-evaluate-exchange-rate [item]="data.item" [currencies]="currencies" (evaluateResult)="onEvaluateResult($event)"></app-evaluate-exchange-rate>
             <app-item-frame-separator [item]="data.item"></app-item-frame-separator>

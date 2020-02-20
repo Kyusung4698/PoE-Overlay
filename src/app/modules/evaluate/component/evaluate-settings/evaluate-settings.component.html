@@ -64,15 +64,21 @@
             (change)="settings.evaluateQueryDefaultType = $event.checked">
             {{'evaluate.search.item-type' | translate}}
         </mat-slide-toggle>
-        <mat-slide-toggle [checked]="settings.evaluateQueryDefaultSockets"
-            (change)="settings.evaluateQueryDefaultSockets = $event.checked">
-            {{'evaluate.search.item-sockets' | translate}}
-        </mat-slide-toggle>
         <mat-slide-toggle [checked]="settings.evaluateQueryDefaultMiscs"
             (change)="settings.evaluateQueryDefaultMiscs = $event.checked">
             {{'evaluate.search.gem' | translate}}
         </mat-slide-toggle>
+        <mat-form-field>
+            <mat-label>{{'evaluate.search.item-default-links' | translate}}</mat-label>
+            <mat-select [(value)]="settings.evaluateQueryDefaultLinks">
+                <mat-option [value]="0"> {{'evaluate.search.item-links.always' | translate}} </mat-option>
+                <mat-option [value]="5"> 5-6 </mat-option>
+                <mat-option [value]="6"> 6 </mat-option>
+                <mat-option [value]="999"> {{'evaluate.search.item-links.never' | translate}} </mat-option>
+            </mat-select>
+        </mat-form-field>
     </div>
+
     <label class="label"> {{'evaluate.stats' | translate}} </label>
     <app-select-list [items]="stats$ | async" (itemsChange)="onStatsChange($event)">
         <ng-template let-item>
@@ -89,28 +95,28 @@
 </mat-card>
 <mat-card>
     <mat-label> {{'evaluate.search.modifier' | translate}} </mat-label>
-    <div class="toggle">
-        <mat-slide-toggle [checked]="settings.evaluateModifierDisableMaxRange"
-            (change)="settings.evaluateModifierDisableMaxRange = $event.checked">
-            {{'evaluate.search.disable-max-range' | translate}}
-        </mat-slide-toggle>
-    </div>
-    <label class="label"> {{'evaluate.search.modifier-range' | translate}} ±{{settings.evaluateModifierRange}}% </label>
+    <label class="label"> {{'evaluate.search.modifier-range' | translate}}
+        {{displayWith(settings.evaluateModifierMinRange)}}~{{displayWith(settings.evaluateModifierMaxRange)}}% </label>
     <div class="range">
         <div class="slider">
-            <mat-slider min="0" max="50" step="1" tickInterval="10" thumbLabel
-                [(value)]="settings.evaluateModifierRange">
+            <mat-slider min="0" max="50" step="1" tickInterval="10" thumbLabel invert [displayWith]="displayWith"
+                [(value)]="settings.evaluateModifierMinRange">
+            </mat-slider>
+            <mat-slider min="0" max="50" step="1" tickInterval="10" thumbLabel [displayWith]="displayWith"
+                [(value)]="settings.evaluateModifierMaxRange">
             </mat-slider>
         </div>
-        <div class="value" *ngIf="settings.evaluateModifierRange > 0">
-            <span>{{50 * ( 1 - (settings.evaluateModifierRange / 100)) | number : '1.0-2'}}</span>
+        <div class="value"
+            *ngIf="settings.evaluateModifierMinRange !== 0 || settings.evaluateModifierMaxRange !== 0;else single">
+            <span
+                *ngIf="settings.evaluateModifierMinRange !== 50;else any">{{50 * ( 1 - (settings.evaluateModifierMinRange / 100)) | number : '1.0-1'}}</span>
             <span>~</span>
             <span
-                *ngIf="!settings.evaluateModifierDisableMaxRange">{{50 * ( 1 + (settings.evaluateModifierRange / 100)) | number : '1.0-2'}}</span>
-            <span *ngIf="settings.evaluateModifierDisableMaxRange">#</span>
+                *ngIf="settings.evaluateModifierMaxRange !== 50;else any">{{50 * ( 1 + (settings.evaluateModifierMaxRange / 100)) | number : '1.0-1'}}</span>
+            <ng-template #any>#</ng-template>
         </div>
-        <div class="value" *ngIf="settings.evaluateModifierRange == 0">
-            50
-        </div>
+        <ng-template #single>
+            <span>50</span>
+        </ng-template>
     </div>
 </mat-card>

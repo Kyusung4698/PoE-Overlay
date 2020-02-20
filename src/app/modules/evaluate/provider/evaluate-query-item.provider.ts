@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ItemSocketService } from '@shared/module/poe/service/item/item-socket.service';
 import { Item, ItemRarity } from '@shared/module/poe/type';
 import { EvaluateUserSettings } from '../component/evaluate-settings/evaluate-settings.component';
 
@@ -11,6 +12,9 @@ export interface EvaluateQueryItemResult {
     providedIn: 'root'
 })
 export class EvaluateQueryItemProvider {
+
+    constructor(private readonly itemSocketService: ItemSocketService) { }
+
     public provide(item: Item, settings: EvaluateUserSettings): EvaluateQueryItemResult {
         const defaultItem: Item = this.copy({
             nameId: item.nameId,
@@ -34,7 +38,8 @@ export class EvaluateQueryItemProvider {
             queryItem.level = item.level;
         }
 
-        if (settings.evaluateQueryDefaultSockets) {
+        const count = this.itemSocketService.getLinkCount(item.sockets);
+        if (count >= settings.evaluateQueryDefaultLinks) {
             queryItem.sockets = item.sockets;
         }
 
