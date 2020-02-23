@@ -1,3 +1,7 @@
+## 0.5.21 (2020-02-23)
+
+ - fix fast tag not working on multiple monitor set-up (#266)
+
 ## 0.5.20 (2020-02-23)
 
 - add bulk price support for fast tagging (#253)
