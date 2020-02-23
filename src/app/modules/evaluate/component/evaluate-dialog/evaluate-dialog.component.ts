@@ -2,7 +2,7 @@ import { AfterViewInit, ChangeDetectionStrategy, Component, Inject, OnInit } fro
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { EvaluateQueryItemProvider } from '@modules/evaluate/provider/evaluate-query-item.provider';
 import { EvaluateResult } from '@modules/evaluate/type/evaluate.type';
-import { PriceTagType } from '@shared/module/poe/service';
+import { StashPriceTagType } from '@shared/module/poe/service';
 import { CurrencyService } from '@shared/module/poe/service/currency/currency.service';
 import { Currency, Item, Language } from '@shared/module/poe/type';
 import { BehaviorSubject, forkJoin, Observable, Subject } from 'rxjs';
@@ -70,7 +70,7 @@ export class EvaluateDialogComponent implements OnInit, AfterViewInit {
         debounceTime(250)
       ))
     ).subscribe(([result, double]) => {
-      const type = double ? PriceTagType.Negotiable : PriceTagType.Exact;
+      const type = double ? StashPriceTagType.Negotiable : StashPriceTagType.Exact;
       this.ref.close({ ...result, type });
     });
   }

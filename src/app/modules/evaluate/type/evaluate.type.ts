@@ -1,8 +1,5 @@
-import { PriceTagType } from '@shared/module/poe/service';
-import { Currency } from '@shared/module/poe/type';
+import { StashPriceTag } from '@shared/module/poe/service';
 
-export interface EvaluateResult {
-    currency: Currency;
-    amount: number;
-    type?: PriceTagType;
+export interface EvaluateResult extends StashPriceTag {
+    tmp?: any;
 }

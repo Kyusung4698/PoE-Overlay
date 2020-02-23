@@ -1,3 +1,17 @@
+## 0.5.20 (2020-02-23)
+
+- add bulk price support for fast tagging (#253)
+- update browser width to consider aspect ratio
+- update query to use rarity only for uniques (#231)
+- update stats data  
+  - fix non negatable mods using it's matched predicate only (#237)
+  - fix some unavailable translations because of mismatched predicates
+- remove `alt f4` as possible hotkey (#259)
+- fix evaluate dialog out of overlay bounds (#258)
+- fix stash navigation not working with custom ui scale (#257)
+- fix clipboard empty using `alt` as modifier by releasing it prior sending the copy command
+- fix query using integers only (#237)
+
 ## 0.5.19 (2020-02-20)
 
 - add browser use 70% of primary monitor size (#214)

@@ -23,15 +23,7 @@ export class MouseService {
         this.ipcRenderer.sendSync('click-at', button, position);
     }
 
-    public position(raw: boolean = false): Point {
-        if (raw) {
-            return this.ipcRenderer.sendSync('mouse-pos');
-        }
-
-        const { zoomFactor } = this.window.webContents;
-        const point = this.screen.getCursorScreenPoint();
-        point.x *= 1 / zoomFactor;
-        point.y *= 1 / zoomFactor;
-        return point;
+    public position(): Point {
+        return this.ipcRenderer.sendSync('mouse-pos');
     }
 }

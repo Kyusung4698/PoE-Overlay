@@ -16,7 +16,6 @@ export class ItemClipboardResult {
     code: ItemClipboardResultCode;
     item?: Item;
     point?: Point;
-    rawPoint?: Point;
 }
 
 @Injectable({
@@ -35,7 +34,8 @@ export class ItemClipboardService {
         return of(null).pipe(
             flatMap(() => {
                 const point = this.mouse.position();
-                const rawPoint = this.mouse.position(true);
+                this.keyboard.setKeyboardDelay(1);
+                this.keyboard.keyToggle('c', false, ['alt']);
                 this.keyboard.setKeyboardDelay(25);
                 this.keyboard.keyTap('c', ['control']);
 
@@ -67,8 +67,7 @@ export class ItemClipboardService {
                         return {
                             code: ItemClipboardResultCode.Success,
                             item,
-                            point,
-                            rawPoint
+                            point
                         };
                     })
                 );

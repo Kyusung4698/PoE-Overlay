@@ -26,8 +26,9 @@ export class MapDialogService {
         const avgHeight = 300;
 
         const bounds = this.window.getBounds();
-        const left = Math.min(Math.max(point.x - width * 0.5, bounds.x), bounds.x + bounds.width - width);
-        const top = Math.min(Math.max(point.y - avgHeight * 0.5, bounds.y), bounds.y + bounds.height - avgHeight);
+        const local = this.window.convertToLocal(point);
+        const left = Math.min(Math.max(local.x - width * 0.5, bounds.x), bounds.x + bounds.width - width);
+        const top = Math.min(Math.max(local.y - avgHeight * 0.5, bounds.y), bounds.y + bounds.height - avgHeight);
 
         const data: MapDialogData = {
             item,

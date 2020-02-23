@@ -4,6 +4,12 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
 const KEY_CODES = /^(F24|F23|F22|F21|F20|F19|F18|F17|F16|F15|F14|F13|F12|F11|F10|F9|F8|F7|F6|F5|F4|F3|F2|F1|[0-9A-Z])$/;
 /* tslint:enable */
 
+const PRESERVERED_ACCELERATORS = [
+  'CmdOrCtrl + C',
+  'CmdOrCtrl + V',
+  'Alt + F4',
+];
+
 @Component({
   selector: 'app-accelerator',
   templateUrl: './accelerator.component.html',
@@ -56,7 +62,7 @@ export class AcceleratorComponent {
         }
         modifiers.push(key);
         const value = modifiers.join(' + ');
-        if (value !== 'CmdOrCtrl + C' && value !== 'CmdOrCtrl + V') {
+        if (!PRESERVERED_ACCELERATORS.includes(value)) {
           this.value = value;
           this.valueChange.next(this.value);
         } else {

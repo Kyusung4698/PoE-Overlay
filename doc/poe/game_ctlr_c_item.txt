@@ -889,7 +889,7 @@ Sockets: G-G-B-G-R G
 Item Level: 72
 --------
 Adds 1 to 279 Lightning Damage
-13% increased Attack Speed
+0.4% increased Attack Speed
 60% of Lightning Damage Converted to Chaos Damage
 10% chance to Shock
 Your Chaos Damage can Shock
@@ -1105,3 +1105,26 @@ Dex: 104 (unmet)
 Sockets: R-R 
 --------
 Adds 58 to 109 Fire Damage
+
+Rarity: Magic
+Seething Sanctified Life Flask of Grounding
+--------
+Recovers 496 (augmented) Life over 3.00 Seconds
+Consumes 15 of 30 Charges on use
+Currently has 0 Charges
+--------
+Requirements:
+Level: 50
+--------
+Item Level: 72
+--------
+0.1% reduced Amount Recovered
+Instant Recovery
+Immunity to Shock during Flask effect
+Removes Shock on use
+--------
+Right click to drink. Can only hold charges while in belt. Refills as you kill monsters.
+--------
+Note: ~price 1 chance
+
+
