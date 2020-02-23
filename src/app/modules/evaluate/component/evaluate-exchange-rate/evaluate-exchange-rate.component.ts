@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
 import { BrowserService } from '@app/service';
 import { EvaluateResult } from '@modules/evaluate/type/evaluate.type';
 import { SnackBarService } from '@shared/module/material/service';
-import { ItemExchangeRateResult, ItemExchangeRateService, PriceTagType } from '@shared/module/poe/service';
+import { ItemExchangeRateResult, ItemExchangeRateService } from '@shared/module/poe/service';
 import { Currency, Item, ItemRarity } from '@shared/module/poe/type';
 import { BehaviorSubject } from 'rxjs';
 
@@ -68,11 +68,10 @@ export class EvaluateExchangeRateComponent {
     }
   }
 
-  public onAmountClick(amount: number): void {
+  public onAmountClick(amount: number, count?: number): void {
+    const { currency } = this.result$.value.rate;
     this.evaluateResult.next({
-      amount,
-      currency: this.result$.value.rate.currency,
-      type: PriceTagType.Exact
+      amount, count, currency
     });
   }
 

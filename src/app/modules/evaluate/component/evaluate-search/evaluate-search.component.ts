@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output
 import { BrowserService } from '@app/service';
 import { EvaluateResult } from '@modules/evaluate/type/evaluate.type';
 import { SnackBarService } from '@shared/module/material/service';
-import { ItemSearchAnalyzeResult, ItemSearchAnalyzeService, ItemSearchResult, ItemSearchService, PriceTagType } from '@shared/module/poe/service';
+import { ItemSearchAnalyzeResult, ItemSearchAnalyzeService, ItemSearchResult, ItemSearchService, StashPriceTagType } from '@shared/module/poe/service';
 import { Currency, Item } from '@shared/module/poe/type';
 import { ItemSearchIndexed, ItemSearchOptions } from '@shared/module/poe/type/search.type';
 import { BehaviorSubject, Subject } from 'rxjs';
@@ -115,7 +115,7 @@ export class EvaluateSearchComponent implements OnInit {
 
   public onAmountSelect(amount: number): void {
     const currency = this.result$.value.currency;
-    this.evaluateResult.next({ amount, currency, type: PriceTagType.Exact });
+    this.evaluateResult.next({ amount, currency });
   }
 
   private registerSearchOnChange(): void {

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Query } from '@data/poe';
-import { Item, ItemCategory, ItemSearchFiltersService, Language } from '@shared/module/poe/type';
+import { Item, ItemCategory, ItemRarity, ItemSearchFiltersService, Language } from '@shared/module/poe/type';
 import { ItemService } from '../item.service';
 
 @Injectable({
@@ -68,9 +68,11 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
             case ItemCategory.Map:
             // monster
             case ItemCategory.MonsterBeast:
-                query.filters.type_filters.filters.rarity = {
-                    option: item.rarity
-                };
+                if (item.rarity === ItemRarity.Unique) {
+                    query.filters.type_filters.filters.rarity = {
+                        option: item.rarity
+                    };
+                }
                 query.filters.type_filters.filters.category = {
                     option: item.category,
                 };

@@ -10,12 +10,19 @@ export enum StashNavigationDirection {
     Right
 }
 
-export enum PriceTagType {
+export enum StashPriceTagType {
     Exact = '~price',
     Negotiable = '~b/o'
 }
 
 const GAME_HEIGHT_TO_STASH_WIDTH_RATIO = 1.622;
+
+export interface StashPriceTag {
+    amount: number;
+    currency: Currency;
+    type?: StashPriceTagType;
+    count?: number;
+}
 
 @Injectable({
     providedIn: 'root'
@@ -28,9 +35,8 @@ export class StashService {
         private readonly clipboard: ClipboardService) {
     }
 
-    public hovering(point?: Point): boolean {
-        point = point || this.mouse.position();
-
+    public hovering(): boolean {
+        const point = this.mouse.position();
         const gameBounds = this.window.getBounds();
 
         const stashWidth = Math.round(gameBounds.height / GAME_HEIGHT_TO_STASH_WIDTH_RATIO);
@@ -57,13 +63,13 @@ export class StashService {
         this.keyboard.keyTap(dir === StashNavigationDirection.Left ? 'left' : 'right');
     }
 
-    public copyPrice(amount: number, currency: Currency, type: PriceTagType): void {
-        this.clipboard.writeText(`${type} ${amount} ${currency.id}`);
+    public copyPrice(tag: StashPriceTag): void {
+        this.clipboard.writeText(`${tag.type} ${(tag.count ? `${tag.amount}/${tag.count}` : tag.amount)} ${tag.currency.id}`);
     }
 
-    public tagPrice(amount: number, currency: Currency, point: Point, type: PriceTagType): Observable<void> {
+    public tagPrice(tag: StashPriceTag, point: Point): Observable<void> {
         const text = this.clipboard.readText();
-        this.copyPrice(amount, currency, type);
+        this.copyPrice(tag);
         return of(null).pipe(
             tap(() => this.mouse.click('right', point)),
             delay(100),

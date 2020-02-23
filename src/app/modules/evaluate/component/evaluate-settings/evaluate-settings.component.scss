@@ -64,14 +64,10 @@ label {
 .range {
   display: flex;
   align-items: center;
+  justify-content: center;
 
-  .slider {
-    display: flex;
-    width: 100%;
-
-    .mat-slider {
-      width: 50%;
-    }
+  .mat-slider {
+    width: 50%;
   }
 
   .value {

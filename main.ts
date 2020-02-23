@@ -37,6 +37,11 @@ ipcMain.on('key-tap', (event, key, modifier) => {
     event.returnValue = true;
 });
 
+ipcMain.on('key-toggle', (event, key, down, modifier) => {
+    robot.keyToggle(key, down, modifier);
+    event.returnValue = true;
+});
+
 ipcMain.on('set-keyboard-delay', (event, delay) => {
     robot.setKeyboardDelay(delay);
     event.returnValue = true;
@@ -166,7 +171,7 @@ function loadApp(win: BrowserWindow, route: string = '') {
         win.loadURL(appUrl + route);
     }
 
-    if (serve) {
+    if (serve && route.length === 0) {
         win.webContents.openDevTools({ mode: 'undocked' });
     }
 }
@@ -204,7 +209,7 @@ function createTray(): Tray {
 
     const menu = Menu.buildFromTemplate(items);
     tray.setToolTip(`PoE-Overlay: ${version}`);
-    tray.setContextMenu(menu);    
+    tray.setContextMenu(menu);
     tray.on('double-click', () => win.webContents.send('show-user-settings'))
     return tray;
 }

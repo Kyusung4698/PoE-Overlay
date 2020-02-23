@@ -38,12 +38,16 @@ export class ItemSearchFiltersStatsService implements ItemSearchFiltersService {
 
                     let min: number;
                     if (mins.length > 0) {
-                        min = Math.floor(mins.reduce((a, b) => a + b.min, 0) / mins.length) * negate;
+                        min = mins.reduce((a, b) => a + b.min, 0) / mins.length;
+                        min = Math.round(min * 10) / 10;
+                        min *= negate;
                     }
 
                     let max: number;
                     if (maxs.length > 0) {
-                        max = Math.floor(maxs.reduce((a, b) => a + b.max, 0) / maxs.length) * negate;
+                        max = maxs.reduce((a, b) => a + b.max, 0) / maxs.length;
+                        max = Math.round(max * 10) / 10;
+                        max *= negate;
                     }
 
                     if (min !== undefined && max !== undefined) {

@@ -27,7 +27,7 @@ export class BrowserService {
                 center: true,
                 parent,
                 autoHideMenuBar: true,
-                width: Math.round(width * 0.7),
+                width: Math.round(Math.min(height * 1.3, width * 0.7)),
                 height: Math.round(height * 0.7),
                 backgroundColor: '#0F0F0F',
                 show: false

@@ -1,7 +1,7 @@
 import { Injectable, NgZone } from '@angular/core';
 import { ElectronProvider } from '@app/provider';
 import { Rectangle } from '@app/type';
-import { BrowserWindow } from 'electron';
+import { BrowserWindow, Point } from 'electron';
 import { Observable, Subject } from 'rxjs';
 
 @Injectable({
@@ -60,5 +60,18 @@ export class WindowService {
 
     public enableInput(): void {
         this.window.setIgnoreMouseEvents(false);
+    }
+
+    public convertToLocal(point: Point): Point {
+        const bounds = this.window.getBounds();
+        point.x -= bounds.x;
+        point.x = Math.min(Math.max(point.x, 0), bounds.width);
+        point.y -= bounds.y;
+        point.y = Math.min(Math.max(point.y, 0), bounds.height);
+
+        const { zoomFactor } = this.window.webContents;
+        point.x *= 1 / zoomFactor;
+        point.y *= 1 / zoomFactor;
+        return point;
     }
 }

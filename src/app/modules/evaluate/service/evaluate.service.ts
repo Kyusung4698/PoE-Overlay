@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { SnackBarService } from '@shared/module/material/service';
-import { ItemClipboardResultCode, ItemClipboardService, StashService, PriceTagType } from '@shared/module/poe/service';
+import { ItemClipboardResultCode, ItemClipboardService, StashService } from '@shared/module/poe/service';
 import { Language } from '@shared/module/poe/type';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, flatMap } from 'rxjs/operators';
@@ -20,26 +20,25 @@ export class EvaluateService {
 
     public evaluate(settings: EvaluateUserSettings, language?: Language): Observable<void> {
         return this.item.copy().pipe(
-            flatMap(result => {
-                switch (result.code) {
+            flatMap(({ code, point, item }) => {
+                switch (code) {
                     case ItemClipboardResultCode.Success:
-                        const point = result.point;
-                        return this.evaluateDialog.open(point, result.item, settings, language).pipe(
-                            flatMap(evaluate => {
-                                if (!evaluate) {
+                        return this.evaluateDialog.open(point, item, settings, language).pipe(
+                            flatMap(result => {
+                                if (!result) {
                                     return of(null);
                                 }
 
-                                if (!this.stash.hovering(point)) {
-                                    this.stash.copyPrice(evaluate.amount, evaluate.currency, evaluate.type);
+                                if (!this.stash.hovering()) {
+                                    this.stash.copyPrice(result);
                                     return this.snackbar.info('evaluate.tag.outside-stash');
                                 }
 
-                                if ((result.item.note || '').length > 0) {
-                                    this.stash.copyPrice(evaluate.amount, evaluate.currency, evaluate.type);
+                                if ((item.note || '').length > 0) {
+                                    this.stash.copyPrice(result);
                                     return this.snackbar.info('evaluate.tag.note');
                                 }
-                                return this.stash.tagPrice(evaluate.amount, evaluate.currency, result.rawPoint, evaluate.type);
+                                return this.stash.tagPrice(result, point);
                             })
                         );
                     case ItemClipboardResultCode.Empty:
@@ -47,7 +46,7 @@ export class EvaluateService {
                     case ItemClipboardResultCode.ParserError:
                         return this.snackbar.warning('clipboard.parser-error');
                     default:
-                        return throwError(`code: '${result.code}' out of range`);
+                        return throwError(`code: '${code}' out of range`);
                 }
             }),
             catchError(() => {

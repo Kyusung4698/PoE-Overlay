@@ -16,7 +16,7 @@
                             <span class="amount clickable" (click)="onAmountClick(result.rate.amount)">
                                 {{result.rate.amount | number:'1.2-2'}}&nbsp;</span>
                             <span class="amount clickable"
-                                (click)="onAmountClick(result.rate.amount * result.rate.factor)"
+                                (click)="onAmountClick(result.rate.amount * result.rate.factor, result.rate.factor)"
                                 *ngIf="result.rate.factor > 1">
                                 {{result.rate.amount * result.rate.factor | number:'1.2-2'}}&nbsp;</span>
                         </span>

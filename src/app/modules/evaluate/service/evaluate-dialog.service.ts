@@ -32,8 +32,9 @@ export class EvaluateDialogService {
         const { width, height } = this.estimateBounds(item, settings, language);
 
         const bounds = this.window.getBounds();
-        const left = Math.min(Math.max(point.x - width * 0.5, bounds.x), bounds.x + bounds.width - width);
-        const top = Math.min(Math.max(point.y - height * 0.5, bounds.y), bounds.y + bounds.height - height);
+        const local = this.window.convertToLocal(point);
+        const left = Math.max(Math.min(local.x - width * 0.5, bounds.width - width), 0);
+        const top = Math.max(Math.min(local.y - height * 0.5, bounds.height - height), 0);
 
         const data: EvaluateDialogData = {
             item,

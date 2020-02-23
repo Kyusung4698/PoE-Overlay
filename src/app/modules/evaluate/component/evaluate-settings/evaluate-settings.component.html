@@ -98,14 +98,9 @@
     <label class="label"> {{'evaluate.search.modifier-range' | translate}}
         {{displayWith(settings.evaluateModifierMinRange)}}~{{displayWith(settings.evaluateModifierMaxRange)}}% </label>
     <div class="range">
-        <div class="slider">
-            <mat-slider min="0" max="50" step="1" tickInterval="10" thumbLabel invert [displayWith]="displayWith"
-                [(value)]="settings.evaluateModifierMinRange">
-            </mat-slider>
-            <mat-slider min="0" max="50" step="1" tickInterval="10" thumbLabel [displayWith]="displayWith"
-                [(value)]="settings.evaluateModifierMaxRange">
-            </mat-slider>
-        </div>
+        <mat-slider min="0" max="50" step="1" tickInterval="10" thumbLabel invert [displayWith]="displayWith"
+            [(value)]="settings.evaluateModifierMinRange">
+        </mat-slider>
         <div class="value"
             *ngIf="settings.evaluateModifierMinRange !== 0 || settings.evaluateModifierMaxRange !== 0;else single">
             <span
@@ -115,8 +110,13 @@
                 *ngIf="settings.evaluateModifierMaxRange !== 50;else any">{{50 * ( 1 + (settings.evaluateModifierMaxRange / 100)) | number : '1.0-1'}}</span>
             <ng-template #any>#</ng-template>
         </div>
+        <mat-slider min="0" max="50" step="1" tickInterval="10" thumbLabel [displayWith]="displayWith"
+            [(value)]="settings.evaluateModifierMaxRange">
+        </mat-slider>
         <ng-template #single>
-            <span>50</span>
+            <div class="value">
+                <span>50</span>
+            </div>
         </ng-template>
     </div>
 </mat-card>
