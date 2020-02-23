@@ -64,14 +64,17 @@ export class WindowService {
 
     public convertToLocal(point: Point): Point {
         const bounds = this.window.getBounds();
-        point.x -= bounds.x;
-        point.x = Math.min(Math.max(point.x, 0), bounds.width);
-        point.y -= bounds.y;
-        point.y = Math.min(Math.max(point.y, 0), bounds.height);
+        const local = {
+            ...point
+        };
+        local.x -= bounds.x;
+        local.x = Math.min(Math.max(local.x, 0), bounds.width);
+        local.y -= bounds.y;
+        local.y = Math.min(Math.max(local.y, 0), bounds.height);
 
         const { zoomFactor } = this.window.webContents;
-        point.x *= 1 / zoomFactor;
-        point.y *= 1 / zoomFactor;
-        return point;
+        local.x *= 1 / zoomFactor;
+        local.y *= 1 / zoomFactor;
+        return local;
     }
 }
