@@ -36,3 +36,13 @@
     <app-accelerator [label]="'settings.exit-app' | translate" [(value)]="settings.exitAppKeybinding">
     </app-accelerator>
 </mat-card>
+<mat-card>
+    <mat-dialog-actions align="center">
+        <button mat-button (click)="relaunchApp()">
+            {{'settings.relaunch-app' | translate}}
+        </button>
+        <button mat-button (click)="exitApp()">
+            {{'settings.exit-app' | translate}}
+        </button>
+    </mat-dialog-actions>
+</mat-card>

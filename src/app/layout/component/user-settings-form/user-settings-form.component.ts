@@ -4,6 +4,7 @@ import { LeaguesProvider } from '@shared/module/poe/provider';
 import { Language, League } from '@shared/module/poe/type';
 import { BehaviorSubject } from 'rxjs';
 import { UserSettings } from '../../type';
+import { AppService } from '@app/service';
 
 @Component({
   selector: 'app-user-settings-form',
@@ -18,7 +19,8 @@ export class UserSettingsFormComponent implements OnInit {
   @Input()
   public settings: UserSettings;
 
-  constructor(private readonly leaguesProvider: LeaguesProvider) { }
+  constructor(private readonly leaguesProvider: LeaguesProvider,
+              private readonly app: AppService) { }
 
   public ngOnInit(): void {
     if (this.settings.language) {
@@ -38,5 +40,13 @@ export class UserSettingsFormComponent implements OnInit {
       }
       this.leagues$.next(leagues);
     });
+  }
+
+  public relaunchApp(): void {
+    this.app.relaunch();
+  }
+
+  public exitApp(): void {
+    this.app.quit();
   }
 }
