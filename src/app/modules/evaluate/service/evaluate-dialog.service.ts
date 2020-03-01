@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { WindowService } from '@app/service';
-import { DialogsService } from '@app/service/input/dialogs.service';
+import { DialogService } from '@app/service/dialog';
 import { Point } from '@app/type';
 import { StatsService } from '@shared/module/poe/service';
 import { Item, Language, StatType } from '@shared/module/poe/type';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { DialogSpawnPosition } from 'src/app/layout/type';
 import { EvaluateDialogComponent, EvaluateDialogData } from '../component/evaluate-dialog/evaluate-dialog.component';
 import { EvaluateResultView, EvaluateUserSettings } from '../component/evaluate-settings/evaluate-settings.component';
 import { EvaluateResult } from '../type/evaluate.type';
@@ -22,19 +20,12 @@ const DIALOG_AVG_VALUE_WIDTH = 36;
 })
 export class EvaluateDialogService {
     constructor(
-        private readonly dialog: MatDialog,
-        private readonly window: WindowService,
-        private readonly dialogs: DialogsService,
+        private readonly dialog: DialogService,
         private readonly stats: StatsService) {
     }
 
     public open(point: Point, item: Item, settings: EvaluateUserSettings, language?: Language): Observable<EvaluateResult> {
         const { width, height } = this.estimateBounds(item, settings, language);
-
-        const bounds = this.window.getBounds();
-        const local = this.window.convertToLocal(point);
-        const left = Math.max(Math.min(local.x - width * 0.5, bounds.width - width), 0);
-        const top = Math.max(Math.min(local.y - height * 0.5, bounds.height - height), 0);
 
         const data: EvaluateDialogData = {
             item,
@@ -42,23 +33,10 @@ export class EvaluateDialogService {
             language,
         };
 
-        this.window.enableInput();
-        const dialogRef = this.dialog.open<EvaluateDialogComponent, EvaluateDialogData, EvaluateResult>(EvaluateDialogComponent, {
-            position: {
-                left: `${left}px`,
-                top: `${top}px`,
-            },
-            backdropClass: 'backdrop-clear',
-            data
+        const position = settings.dialogSpawnPosition === DialogSpawnPosition.Cursor ? point : undefined;
+        return this.dialog.open(EvaluateDialogComponent, data, {
+            position, width, height
         });
-        const close = dialogRef.close.bind(dialogRef);
-        this.dialogs.add(close);
-        return dialogRef.afterClosed().pipe(tap(() => {
-            if (this.dialog.openDialogs.length === 0) {
-                this.window.disableInput();
-            }
-            this.dialogs.remove(close);
-        }));
     }
 
     private estimateBounds(item: Item, settings: EvaluateUserSettings, language: Language): { width: number, height: number } {

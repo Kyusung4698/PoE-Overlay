@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ClipboardService, KeyboardService, MouseService, WindowService } from '@app/service';
+import { WindowService } from '@app/service';
+import { ClipboardService, KeyboardService, MouseService } from '@app/service/input';
 import { Point } from '@app/type';
 import { Observable, of } from 'rxjs';
 import { delay, tap } from 'rxjs/operators';

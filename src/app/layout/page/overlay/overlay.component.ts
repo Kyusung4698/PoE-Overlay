@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component, HostListener, Inject, OnDestroy, OnInit } from '@angular/core';
-import { AppService, BrowserService, DialogsService, RendererService, ShortcutService, WindowService } from '@app/service';
+import { AppService, BrowserService, RendererService, WindowService } from '@app/service';
+import { DialogRefService } from '@app/service/dialog';
+import { ShortcutService } from '@app/service/input';
 import { FEATURE_MODULES } from '@app/token';
 import { FeatureModule, VisibleFlag } from '@app/type';
 import { ReleasesHttpService } from '@data/github';
@@ -8,7 +10,6 @@ import { ContextService } from '@shared/module/poe/service';
 import { Context, Language } from '@shared/module/poe/type';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { distinctUntilChanged, flatMap, tap } from 'rxjs/operators';
-import { version } from '../../../../../package.json';
 import { UserSettingsService } from '../../service/user-settings.service';
 import { UserSettings } from '../../type';
 
@@ -21,7 +22,7 @@ import { UserSettings } from '../../type';
 export class OverlayComponent implements OnInit, OnDestroy {
   private userSettingsOpen: Observable<void>;
 
-  public version = version;
+  public version: string;
   public displayVersion$ = new BehaviorSubject(true);
 
   constructor(
@@ -35,7 +36,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
     private readonly browser: BrowserService,
     private readonly renderer: RendererService,
     private readonly shortcut: ShortcutService,
-    private readonly dialogs: DialogsService,
+    private readonly dialogRef: DialogRefService,
     private readonly translate: TranslateService) {
     this.translate.setDefaultLang(`${Language.English}`);
   }
@@ -55,8 +56,10 @@ export class OverlayComponent implements OnInit, OnDestroy {
   }
 
   private checkVersion(): void {
+    this.version = this.app.version();
+
     this.releasesHttpService.getLatestRelease().subscribe(release => {
-      if (release && release.tag_name !== version && release.assets && release.assets[0].browser_download_url) {
+      if (release && release.tag_name !== this.version && release.assets && release.assets[0].browser_download_url) {
         if (confirm(`A new version: '${release.tag_name}' is available. Go to download Page?`)) {
           this.browser.open(release.html_url);
         }
@@ -123,14 +126,14 @@ export class OverlayComponent implements OnInit, OnDestroy {
   }
 
   private reset(): void {
-    this.dialogs.reset();
+    this.dialogRef.reset();
     this.shortcut.reset();
   }
 
   private register(settings: UserSettings): void {
     this.registerFeatures(settings);
     this.registerSettings(settings);
-    this.dialogs.register();
+    this.dialogRef.register();
   }
 
   private registerFeatures(settings: UserSettings): void {

@@ -3,7 +3,6 @@ import * as hotkeys from 'hotkeys';
 import * as path from 'path';
 import * as robot from 'robotjs';
 import * as url from 'url';
-import { version } from './package.json';
 
 if (!app.requestSingleInstanceLock()) {
     app.quit();
@@ -215,7 +214,7 @@ function createTray(): Tray {
     };
 
     const menu = Menu.buildFromTemplate(items);
-    tray.setToolTip(`PoE-Overlay: ${version}`);
+    tray.setToolTip(`PoE-Overlay: ${app.getVersion()}`);
     tray.setContextMenu(menu);
     tray.on('double-click', () => win.webContents.send('show-user-settings'))
     return tray;

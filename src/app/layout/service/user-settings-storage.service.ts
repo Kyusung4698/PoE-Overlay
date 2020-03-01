@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { StorageService } from '@app/service/storage.service';
+import { StorageService } from '@app/service';
 import { Language } from '@shared/module/poe/type';
 import { Observable } from 'rxjs';
 import { UserSettings } from '../type';

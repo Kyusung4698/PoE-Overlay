@@ -122,6 +122,11 @@
 	},
 	"settings": {
 		"cancel": "Cancelar",
+		"dialog-spawn-position": {
+			"center": "centro",
+			"cursor": "Cursor"
+		},
+		"dialog-spawn-position-title": "Posição de Spawn de Diálogo",
 		"display-version": "Versão de exibição",
 		"exit-app": "Sair do aplicativo",
 		"game-settings": "Configurações do jogo",

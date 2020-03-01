@@ -122,6 +122,11 @@
 	},
 	"settings": {
 		"cancel": "Отменить",
+		"dialog-spawn-position": {
+			"center": "центр",
+			"cursor": "Курсор"
+		},
+		"dialog-spawn-position-title": "Dialog Spawn Position",
 		"display-version": "Отображать версию",
 		"exit-app": "Выход из приложения",
 		"game-settings": "Игровые настройки",

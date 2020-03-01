@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { VisibleFlag } from '@app/type/app.type';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
-import { ShortcutService } from './shortcut.service';
+import { ShortcutService } from '../input/shortcut.service';
 
 export type DialogCloseFn = () => void;
 
 @Injectable({
     providedIn: 'root'
 })
-export class DialogsService {
+export class DialogRefService {
     private readonly dialogCloseFns: DialogCloseFn[] = [];
     private readonly dialogCountChange$ = new BehaviorSubject<number>(0);
 

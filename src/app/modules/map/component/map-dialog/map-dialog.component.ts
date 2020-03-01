@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { WindowService, BrowserService } from '@app/service';
+import { BrowserService } from '@app/service';
 import { MapsService } from '@shared/module/poe/service/maps/maps.service';
 import { AtlasMap, Item } from '@shared/module/poe/type';
 import { MapUserSettings } from '../map-settings/map-settings.component';

@@ -122,6 +122,11 @@
 	},
 	"settings": {
 		"cancel": "ยกเลิก",
+		"dialog-spawn-position": {
+			"center": "ศูนย์",
+			"cursor": "เคอร์เซอร์"
+		},
+		"dialog-spawn-position-title": "ตำแหน่งการวางกล่องโต้ตอบ",
 		"display-version": "แสดงเวอร์ชั่น",
 		"exit-app": "ออกจากแอป",
 		"game-settings": "ตั้งค่าเกม",

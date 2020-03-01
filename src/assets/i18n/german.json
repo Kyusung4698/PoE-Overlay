@@ -122,6 +122,11 @@
 	},
 	"settings": {
 		"cancel": "Abbrechen",
+		"dialog-spawn-position": {
+			"center": "Center",
+			"cursor": "Mauszeiger"
+		},
+		"dialog-spawn-position-title": "Dialog Spawn Position",
 		"display-version": "Version anzeigen",
 		"exit-app": "App beenden",
 		"game-settings": "Spieleinstellungen",

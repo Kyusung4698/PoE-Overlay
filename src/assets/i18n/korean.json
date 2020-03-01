@@ -122,6 +122,11 @@
 	},
 	"settings": {
 		"cancel": "취소",
+		"dialog-spawn-position": {
+			"center": "센터",
+			"cursor": "커서"
+		},
+		"dialog-spawn-position-title": "대화 상자 스폰 위치",
 		"display-version": "디스플레이 버전",
 		"exit-app": "앱 종료",
 		"game-settings": "게임 설정",
