@@ -1,8 +1,8 @@
 import { app, BrowserWindow, ipcMain, Menu, MenuItemConstructorOptions, Tray } from 'electron';
-import * as hotkeys from 'hotkeys';
 import * as path from 'path';
 import * as robot from 'robotjs';
 import * as url from 'url';
+import * as hook from './hook';
 
 if (!app.requestSingleInstanceLock()) {
     app.quit();
@@ -23,7 +23,6 @@ ipcMain.on('click-at', (event, button, position) => {
         robot.moveMouse(position.x, position.y);
     }
     robot.mouseClick(button, false);
-
     event.returnValue = true;
 });
 
@@ -46,29 +45,38 @@ ipcMain.on('set-keyboard-delay', (event, delay) => {
     event.returnValue = true;
 });
 
-/* hotkeys */
+/* hook */
 
-ipcMain.on('register-shortcut', (event, shortcut) => {
-    hotkeys.register(shortcut, () => {
-        win.webContents.send('shortcut-' + shortcut);
-    });
-    event.returnValue = true;
-});
-
-ipcMain.on('unregister-shortcut', (event, shortcut) => {
-    hotkeys.unregister(shortcut);
-    event.returnValue = true;
-});
-
-ipcMain.on('unregisterall-shortcut', (event) => {
-    hotkeys.unregisterall();
-    event.returnValue = true;
-});
-
-ipcMain.on('register-active-change', (event) => {
-    hotkeys.on(active => {
+ipcMain.on('register-active-change', event => {
+    hook.on('change', active => {
         win.webContents.send('active-change', active);
     });
+    event.returnValue = true;
+});
+
+ipcMain.on('register-shortcut', (event, accelerator) => {
+    switch (accelerator) {
+        case 'CmdOrCtrl + MouseWheelUp':
+        case 'CmdOrCtrl + MouseWheelDown':
+            hook.on('wheel', e => {
+                if (e.ctrlKey) {
+                    win.webContents.send(`shortcut-${e.rotation === -1
+                        ? 'CmdOrCtrl + MouseWheelUp'
+                        : 'CmdOrCtrl + MouseWheelDown'}`);
+                }
+            });
+            break;
+    }
+    event.returnValue = true;
+});
+
+ipcMain.on('unregister-shortcut', (event, accelerator) => {
+    switch (accelerator) {
+        case 'CmdOrCtrl + MouseWheelUp':
+        case 'CmdOrCtrl + MouseWheelDown':
+            hook.off('wheel');
+            break;
+    }
     event.returnValue = true;
 });
 
@@ -180,9 +188,7 @@ function loadApp(win: BrowserWindow, route: string = '') {
 let tray: Tray;
 
 function createTray(): Tray {
-    tray = serve
-        ? new Tray(path.join(__dirname, 'src/favicon.ico'))
-        : new Tray(path.join(__dirname, 'dist/favicon.ico'));
+    tray = new Tray(path.join(__dirname, serve ? 'src/favicon.ico' : 'dist/favicon.ico'));
 
     const items: MenuItemConstructorOptions[] = [
         {
@@ -207,7 +213,7 @@ function createTray(): Tray {
     ];
 
     if (serve) {
-        items.splice(2, 0, {
+        items.splice(1, 0, {
             label: 'Ignore Mouse Events', type: 'normal',
             click: () => win.setIgnoreMouseEvents(true),
         });
@@ -222,13 +228,13 @@ function createTray(): Tray {
 
 try {
     app.on('ready', () => {
-        hotkeys.beginListener(!serve);
+        hook.register();
         createWindow();
         createTray();
     });
 
     app.on('window-all-closed', () => {
-        hotkeys.removeListener();
+        hook.unregister();
         if (process.platform !== 'darwin') {
             app.quit();
         }

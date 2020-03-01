@@ -3,6 +3,7 @@
     "directories": {
         "output": "release/"
     },
+    "npmRebuild": false,
     "files": [
         "main.js",
         "dist/**/*",
@@ -19,6 +20,11 @@
         "icon": "dist/favicon.ico",
         "target": [
             "portable"
+        ]
+    },
+    "linux": {
+        "target": [
+            "AppImage"
         ]
     }
 }
