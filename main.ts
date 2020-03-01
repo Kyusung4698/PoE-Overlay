@@ -195,6 +195,13 @@ function createTray(): Tray {
             click: () => win.webContents.send('reset-zoom'),
         },
         {
+            label: 'Relaunch', type: 'normal',
+            click: () => {
+                app.relaunch();
+                app.exit(0);
+            }
+        },
+        {
             label: 'Exit', type: 'normal',
             click: () => app.quit()
         }
@@ -238,4 +245,3 @@ try {
     // Catch Error
     // throw e;
 }
-

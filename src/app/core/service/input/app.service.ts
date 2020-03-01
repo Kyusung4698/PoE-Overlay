@@ -51,4 +51,14 @@ export class AppService {
     public quit(): void {
         this.electron.app.quit();
     }
+
+    /**
+     * Electron's suggested way of relaunching the application.
+     *
+     * https://www.electronjs.org/docs/api/app#apprelaunchoptions
+     */
+    public relaunch(): void {
+        this.electron.app.relaunch();
+        this.electron.app.exit(0);
+    }
 }
