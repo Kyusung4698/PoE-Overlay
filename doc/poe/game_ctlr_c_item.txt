@@ -1128,3 +1128,56 @@ Right click to drink. Can only hold charges while in belt. Refills as you kill m
 Note: ~price 1 chance
 
 
+
+
+Rarity: Magic
+Waterways Map of Vulnerability
+--------
+Map Tier: 13
+Atlas Region: Tirn's End
+Item Quantity: +13% (augmented)
+Item Rarity: +8% (augmented)
+Monster Pack Size: +5% (augmented)
+--------
+Item Level: 81
+--------
+Players are Cursed with Vulnerability
+--------
+Travel to this Map by using it in a personal Map Device. Maps can only be used once.
+
+Rarity: Rare
+Silk Gloves
+--------
+Energy Shield: 43
+--------
+Requirements:
+Level: 70
+Int: 95
+--------
+Sockets: B-B B 
+--------
+Item Level: 75
+--------
+12% increased Spell Damage (implicit)
+--------
++19 to Dexterity
+Adds 5 to 10 Physical Damage to Attacks
++400 to Accuracy Rating
+9% increased Rarity of Items found
+
+Rarity: Magic
+Strong-Willed Fingerless Silk Gloves
+--------
+Energy Shield: 55 (augmented)
+--------
+Requirements:
+Level: 70
+Int: 95
+--------
+Sockets: R-B-B 
+--------
+Item Level: 78
+--------
+13% increased Spell Damage (implicit)
+--------
+29% increased Energy Shield

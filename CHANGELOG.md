@@ -1,3 +1,8 @@
+## 0.5.22 (2020-02-29)
+
+- add relaunch button (#275)
+- fix `waterways map of vulnerablity` mismatched with `vulnerablitity skill gem` (#268)
+
 ## 0.5.21 (2020-02-23)
 
  - fix fast tag not working on multiple monitor set-up (#266)
