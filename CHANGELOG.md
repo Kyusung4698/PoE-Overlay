@@ -1,4 +1,4 @@
-## 0.5.22 (2020-02-29)
+## 0.5.22 (2020-03-01)
 
 - add relaunch button (#275)
 - fix `waterways map of vulnerablity` mismatched with `vulnerablitity skill gem` (#268)

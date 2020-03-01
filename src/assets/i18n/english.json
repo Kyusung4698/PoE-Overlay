@@ -124,12 +124,12 @@
 		"cancel": "Cancel",
 		"display-version": "Display Version",
 		"exit-app": "Exit App",
-		"relaunch-app": "Relaunch App",
 		"game-settings": "Game Settings",
 		"general": "General",
 		"language": "Language",
 		"league": "League",
 		"open-settings": "Open Settings",
+		"relaunch-app": "Relaunch App",
 		"save": "Save",
 		"zoom": "Zoom"
 	}
