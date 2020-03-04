@@ -96,7 +96,10 @@ export function register(): void {
     iohook.start();
 
     activeCheckSubscription = activeCheck$.pipe(
-        throttleTime(500)
+        throttleTime(500, undefined, {
+            trailing: true,
+            leading: false
+        })
     ).subscribe(() => {
         checkActive();
     });

@@ -49,7 +49,7 @@ ipcMain.on('set-keyboard-delay', (event, delay) => {
 
 ipcMain.on('register-active-change', event => {
     hook.on('change', active => {
-        win.webContents.send('active-change', active);
+        win.webContents.send('active-change', serve ? true : active);
     });
     event.returnValue = true;
 });
@@ -94,7 +94,7 @@ function createWindow(): BrowserWindow {
         movable: false,
         webPreferences: {
             nodeIntegration: true,
-            allowRunningInsecureContent: (serve) ? true : false,
+            allowRunningInsecureContent: serve,
             webSecurity: false
         },
         focusable: false,
@@ -131,7 +131,7 @@ ipcMain.on('open-route', (event, route) => {
                 movable: false,
                 webPreferences: {
                     nodeIntegration: true,
-                    allowRunningInsecureContent: (serve) ? true : false,
+                    allowRunningInsecureContent: serve,
                     webSecurity: false
                 },
                 modal: true,
@@ -140,8 +140,6 @@ ipcMain.on('open-route', (event, route) => {
             });
             childs[route].removeMenu();
 
-            loadApp(childs[route], `#/${route}`);
-
             childs[route].once('ready-to-show', () => {
                 childs[route].show()
             });
@@ -149,6 +147,8 @@ ipcMain.on('open-route', (event, route) => {
             childs[route].once('closed', () => {
                 childs[route] = null;
             });
+
+            loadApp(childs[route], `#/${route}`);
         } else {
             childs[route].show();
         }
@@ -178,7 +178,7 @@ function loadApp(win: BrowserWindow, route: string = '') {
         win.loadURL(appUrl + route);
     }
 
-    if (serve && route.length === 0) {
+    if (serve) {
         win.webContents.openDevTools({ mode: 'undocked' });
     }
 }

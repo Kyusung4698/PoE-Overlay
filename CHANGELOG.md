@@ -2,6 +2,7 @@
 
 - add relaunch button (#275)
 - add dialog spawn position as general setting (Cursor, Center) (#210)
+- remove hotkeys dependency (#261)
 - fix timeless jewels missing keystone (#274)
 - fix `waterways map of vulnerablity` mismatched with `vulnerablitity skill gem` (#268)
 

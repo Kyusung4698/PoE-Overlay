@@ -36,8 +36,8 @@ export class StashService {
         private readonly clipboard: ClipboardService) {
     }
 
-    public hovering(): boolean {
-        const point = this.mouse.position();
+    public hovering(point?: Point): boolean {
+        point = point || this.mouse.position();
         const gameBounds = this.window.getBounds();
 
         const stashWidth = Math.round(gameBounds.height / GAME_HEIGHT_TO_STASH_WIDTH_RATIO);
