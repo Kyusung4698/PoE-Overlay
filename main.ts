@@ -1,4 +1,4 @@
-import { app, BrowserWindow, ipcMain, Menu, MenuItemConstructorOptions, Tray } from 'electron';
+import { app, screen, BrowserWindow, ipcMain, Menu, MenuItemConstructorOptions, Tray, Display } from 'electron';
 import * as path from 'path';
 import * as robot from 'robotjs';
 import * as url from 'url';
@@ -80,14 +80,25 @@ ipcMain.on('unregister-shortcut', (event, accelerator) => {
     event.returnValue = true;
 });
 
+/* helper */
+
+function getDisplay(): Display {
+    return screen.getPrimaryDisplay();
+}
+
 /* main window */
 
 let win: BrowserWindow = null;
 
 function createWindow(): BrowserWindow {
+    const { bounds } = getDisplay();
+    console.log(bounds);
     // Create the browser window.
     win = new BrowserWindow({
-        fullscreen: true,
+        width: bounds.width,
+        height: bounds.height,
+        x: bounds.x,
+        y: bounds.y,
         transparent: true,
         frame: false,
         resizable: false,
@@ -102,7 +113,9 @@ function createWindow(): BrowserWindow {
     });
     win.removeMenu();
     win.setIgnoreMouseEvents(true);
-    win.setAlwaysOnTop(true, 'screen-saver');
+
+    win.setAlwaysOnTop(true, "floating", 1);
+    win.setVisibleOnAllWorkspaces(true);
 
     loadApp(win);
 
@@ -122,9 +135,13 @@ let childs: {
 ipcMain.on('open-route', (event, route) => {
     try {
         if (!childs[route]) {
+            const { bounds } = getDisplay();
             // Create the child browser window.
             childs[route] = new BrowserWindow({
-                fullscreen: true,
+                width: bounds.width,
+                height: bounds.height,
+                x: bounds.x,
+                y: bounds.y,
                 transparent: true,
                 frame: false,
                 resizable: false,
@@ -229,9 +246,11 @@ function createTray(): Tray {
 
 try {
     app.on('ready', () => {
-        hook.register();
-        createWindow();
-        createTray();
+        setTimeout(() => {
+            hook.register();
+            createWindow();
+        }, 1000)
+        // createTray();
     });
 
     app.on('window-all-closed', () => {
