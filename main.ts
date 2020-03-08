@@ -1,4 +1,4 @@
-import { app, screen, BrowserWindow, ipcMain, Menu, MenuItemConstructorOptions, Tray, Display } from 'electron';
+import { app, BrowserWindow, Display, ipcMain, Menu, MenuItemConstructorOptions, screen, Tray } from 'electron';
 import * as path from 'path';
 import * as robot from 'robotjs';
 import * as url from 'url';
@@ -93,8 +93,10 @@ let win: BrowserWindow = null;
 function createWindow(): BrowserWindow {
     const { bounds } = getDisplay();
     console.log(bounds);
+
     // Create the browser window.
     win = new BrowserWindow({
+        fullscreen: true,
         width: bounds.width,
         height: bounds.height,
         x: bounds.x,
@@ -138,6 +140,7 @@ ipcMain.on('open-route', (event, route) => {
             const { bounds } = getDisplay();
             // Create the child browser window.
             childs[route] = new BrowserWindow({
+                fullscreen: true,
                 width: bounds.width,
                 height: bounds.height,
                 x: bounds.x,
@@ -155,6 +158,7 @@ ipcMain.on('open-route', (event, route) => {
                 parent: win,
                 show: false
             });
+
             childs[route].removeMenu();
 
             childs[route].once('ready-to-show', () => {
@@ -249,8 +253,8 @@ try {
         setTimeout(() => {
             hook.register();
             createWindow();
-        }, 1000)
-        // createTray();
+            createTray();
+        }, 1000);
     });
 
     app.on('window-all-closed', () => {
