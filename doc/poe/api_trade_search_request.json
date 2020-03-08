@@ -1,0 +1,231 @@
+{
+    "status": {
+        "option": "online"
+    },
+    "name": "Ahkeli's Meadow",
+    "type": "Ruby Ring",
+    "stats": [
+        {
+            "type": "and",
+            "filters": [
+                {
+                    "id": "explicit.stat_328541901",
+                    "value": {
+                        "min": 33,
+                        "max": 33
+                    },
+                    "disabled": false
+                }
+            ]
+        }
+    ],
+    "filters": {
+        "type_filters": {
+            "filters": {
+                "category": {
+                    "option": "map"
+                },
+                "rarity": {
+                    "option": "rare"
+                }
+            }
+        },
+        "weapon_filters": {
+            "filters": {
+                "damage": {
+                    "min": 1,
+                    "max": 2
+                },
+                "crit": {
+                    "min": 3,
+                    "max": 4
+                },
+                "pdps": {
+                    "min": 5,
+                    "max": 6
+                },
+                "aps": {
+                    "min": 7,
+                    "max": 8
+                },
+                "dps": {
+                    "min": 9,
+                    "max": 10
+                },
+                "edps": {
+                    "min": 11,
+                    "max": 12
+                }
+            }
+        },
+        "armour_filters": {
+            "filters": {
+                "ar": {
+                    "min": 13,
+                    "max": 14
+                },
+                "ev": {
+                    "min": 15,
+                    "max": 16
+                },
+                "es": {
+                    "min": 16,
+                    "max": 17
+                },
+                "block": {
+                    "min": 18,
+                    "max": 19
+                }
+            }
+        },
+        "socket_filters": {
+            "filters": {
+                "sockets": {
+                    "min": 20,
+                    "max": 21,
+                    "r": 1,
+                    "g": 1,
+                    "b": 1,
+                    "w": 1
+                },
+                "links": {
+                    "min": 22,
+                    "max": 23,
+                    "r": 1,
+                    "g": 1,
+                    "b": 1,
+                    "w": 1
+                }
+            }
+        },
+        "req_filters": {
+            "filters": {
+                "lvl": {
+                    "min": 24,
+                    "max": 25
+                },
+                "str": {
+                    "min": 26,
+                    "max": 27
+                },
+                "dex": {
+                    "min": 28,
+                    "max": 29
+                },
+                "int": {
+                    "min": 30,
+                    "max": 31
+                }
+            }
+        },
+        "map_filters": {
+            "filters": {
+                "map_tier": {
+                    "min": 31,
+                    "max": 32
+                },
+                "map_packsize": {
+                    "min": 33,
+                    "max": 34
+                },
+                "map_iiq": {
+                    "min": 35,
+                    "max": 36
+                },
+                "map_iir": {
+                    "min": 37,
+                    "max": 38
+                },
+                "map_shaped": {
+                    "option": "true"
+                },
+                "map_elder": {
+                    "option": "false"
+                },
+                "map_blighted": {
+                    "option": "false"
+                },
+                "map_series": {
+                    "option": "legion"
+                }
+            }
+        },
+        "misc_filters": {
+            "filters": {
+                "quality": {
+                    "min": 39,
+                    "max": 40
+                },
+                "ilvl": {
+                    "min": 41,
+                    "max": 42
+                },
+                "gem_level": {
+                    "min": 43,
+                    "max": 44
+                },
+                "gem_level_progress": {
+                    "min": 45,
+                    "max": 46
+                },
+                "shaper_item": {
+                    "option": "false"
+                },
+                "elder_item": {
+                    "option": "false"
+                },
+                "crusader_item": {
+                    "option": "false"
+                },
+                "redeemer_item": {
+                    "option": "false"
+                },
+                "hunter_item": {
+                    "option": "false"
+                },
+                "warlord_item": {
+                    "option": "false"
+                },
+                "fractured_item": {
+                    "option": "true"
+                },
+                "synthesised_item": {
+                    "option": "false"
+                },
+                "alternate_art": {
+                    "option": "false"
+                },
+                "identified": {
+                    "option": "false"
+                },
+                "corrupted": {
+                    "option": "true"
+                },
+                "mirrored": {
+                    "option": "false"
+                },
+                "crafted": {
+                    "option": "false"
+                },
+                "veiled": {
+                    "option": "false"
+                },
+                "enchanted": {
+                    "option": "false"
+                },
+                "talisman_tier": {
+                    "min": 47,
+                    "max": 48
+                }
+            }
+        },
+        "trade_filters": {
+            "disabled": false,
+            "filters": {
+                "price": {
+                    "option": "divine"
+                }
+            }
+        }
+    }
+}

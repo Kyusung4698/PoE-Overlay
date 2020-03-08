@@ -1,0 +1,20 @@
+{
+  "result": [
+    {
+      "id": "Metamorph",
+      "text": "Metamorph"
+    },
+    {
+      "id": "Hardcore Metamorph",
+      "text": "Hardcore Metamorph"
+    },
+    {
+      "id": "Standard",
+      "text": "Standard"
+    },
+    {
+      "id": "Hardcore",
+      "text": "Hardcore"
+    }
+  ]
+}

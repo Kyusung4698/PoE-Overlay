@@ -1,0 +1,21 @@
+@import "./../../../../../../styles/variables";
+
+.frame {
+  background: rgba(0, 0, 0, 0.8);
+  color: $light-dark-grey;
+  text-align: center;
+  font-style: 14.3px;
+  font-family: FontinSmallCaps;
+
+  span {
+    display: inline-block;
+  }
+
+  .detail {
+    position: relative;
+    padding: 2px;
+    min-width: 396px;
+    min-height: 115px;
+    white-space: pre;
+  }
+}

@@ -1,0 +1,3020 @@
+{
+	"Default": {
+		"Beach Map": {
+			"items": [
+				"Hope",
+				"The Gambler",
+				"Her Mask",
+				"Gripped Gloves",
+				"Spiked Gloves"
+			],
+			"layoutRating": "A",
+			"bosses": [
+				"Glace"
+			],
+			"bossRating": "2",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Beach_Map",
+			"encounter": "Glace (Based on Hailrake of The Tidal Island (Act 1))",
+			"layout": "The layout is similar to The Beacon in Act 6, but the map and map boss is a heavily modified version of The Tidal Island (Act 1). In fact, Part 2 of the campaign released after the first version of Beach Map."
+		},
+		"Dungeon Map": {
+			"items": [
+				"Hope",
+				"The Summoner",
+				"The Warden",
+				"The Gambler",
+				"Gripped Gloves",
+				"Spiked Gloves",
+				"The Wretched",
+				"Cerulean Ring"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"Penitentiary Incarcerator"
+			],
+			"bossRating": "4",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Dungeon_Map"
+		},
+		"Graveyard Map": {
+			"items": [
+				"Hope",
+				"The Gambler",
+				"The Union",
+				"Fingerless Silk Gloves",
+				"The Coming Storm",
+				"Struck by Lightning",
+				"Three Voices"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"Steelpoint the Avenger",
+				"Champion of Frost",
+				"Thunderskull"
+			],
+			"bossRating": "3",
+			"bossCount": 3,
+			"url": "https://pathofexile.gamepedia.com/Graveyard_Map",
+			"encounter": "3 unique skeletons: Champion of Frost, Steelpoint the Avenger and Thunderskull. They are the map variants of Chatters, Ironpoint the Forsaken as well as a unique Skeleton Archmage."
+		},
+		"Lookout Map": {
+			"items": [
+				"Hope",
+				"The Gambler",
+				"Her Mask",
+				"Fingerless Silk Gloves"
+			],
+			"layoutRating": "A",
+			"bosses": [
+				"The Grey Plague"
+			],
+			"bossRating": "3",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Lookout_Map"
+		},
+		"Alleyways Map": {
+			"items": [
+				"The Poet",
+				"The Gambler",
+				"Assassin's Favour",
+				"Her Mask",
+				"Two-Toned Boots",
+				"The Saint's Treasure",
+				"The Blazing Fire"
+			],
+			"layoutRating": "A",
+			"bosses": [
+				"Calderus"
+			],
+			"bossRating": "3",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Alleyways_Map"
+		},
+		"Arid Lake Map": {
+			"items": [
+				"The Gambler",
+				"Her Mask",
+				"The Rabid Rhoa",
+				"Two-Toned Boots",
+				"Two-Toned Boots"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"Drought-Maddened Rhoa"
+			],
+			"bossRating": "3",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Arid_Lake_Map"
+		},
+		"Desert Map": {
+			"items": [
+				"The Gambler",
+				"Her Mask",
+				"Earth Drinker",
+				"Two-Toned Boots",
+				"Two-Toned Boots",
+				"Imperial Legacy"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"Preethi, Eye-Pecker"
+			],
+			"bossRating": "3",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Desert_Map"
+		},
+		"Flooded Mine Map": {
+			"items": [
+				"The Gambler",
+				"Death",
+				"Gift of the Gemling Queen",
+				"The Survivalist",
+				"Volatile Power",
+				"Glimmer of Hope",
+				"Her Mask",
+				"Treasure Hunter",
+				"The Endurance",
+				"The Wolf",
+				"Gripped Gloves",
+				"Spiked Gloves",
+				"The Fathomless Depths",
+				"The Rite of Elements",
+				"Buried Treasure",
+				"The Primordial"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"The Eroding One"
+			],
+			"bossRating": "2",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Flooded_Mine_Map"
+		},
+		"Marshes Map": {
+			"items": [
+				"The Gambler",
+				"Death",
+				"Pride Before the Fall",
+				"Her Mask",
+				"Gripped Gloves",
+				"Spiked Gloves",
+				"The Eye of the Dragon"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"Tore, Towering Ancient"
+			],
+			"bossRating": "3",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Marshes_Map"
+		},
+		"Pen Map": {
+			"items": [
+				"The Chains that Bind",
+				"The Warden",
+				"The Gambler",
+				"Her Mask",
+				"Gripped Gloves",
+				"Spiked Gloves",
+				"The Master"
+			],
+			"layoutRating": "A",
+			"bosses": [
+				"Arwyn, the Houndmaster",
+				"Lola, the Fierce",
+				"Rocco, the Bloodthirsty"
+			],
+			"bossRating": "2",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Pen_Map"
+		},
+		"Arcade Map": {
+			"items": [
+				"The Poet",
+				"The Gambler",
+				"Assassin's Favour",
+				"Her Mask",
+				"Blue Pearl Amulet",
+				"The Saint's Treasure"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"Herald of Ashes",
+				"Herald of Thunder"
+			],
+			"bossRating": "1",
+			"bossCount": 2,
+			"url": "https://pathofexile.gamepedia.com/Arcade_Map",
+			"encounter": "Two unique ribbon sentinels, based on the fire and lightning unique ribbons in the Solaris Temple. Killing one causes the other to enrage and gain a new skill.",
+			"layout": "Like the act zone it is based upon, this map is a large area of ruined market stalls, creating a web of narrow passageways and many obstacles. Dead ends occur very infrequently only. There is no separate boss arena, instead, they are waiting in a medium sized room branching off from the map edge. The floor around the bosses is marked with sand spirals."
+		},
+		"Burial Chambers Map": {
+			"items": [
+				"The Doctor",
+				"The Gambler",
+				"The Incantation",
+				"The Betrayal",
+				"Her Mask",
+				"Fingerless Silk Gloves",
+				"Vanguard Belt",
+				"Lingering Remnants",
+				"The Witch"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"Witch of the Cauldron"
+			],
+			"bossRating": "2",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Burial_Chambers_Map"
+		},
+		"Cage Map": {
+			"items": [
+				"The Chains that Bind",
+				"The Warden",
+				"The Gambler",
+				"Her Mask",
+				"Blue Pearl Amulet"
+			],
+			"layoutRating": "A",
+			"bosses": [
+				"Executioner Bloodwing"
+			],
+			"bossRating": "2",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Cage_Map"
+		},
+		"Cells Map": {
+			"items": [
+				"The Summoner",
+				"The Gambler",
+				"The Offering",
+				"Her Mask",
+				"The Penitent",
+				"The Soul",
+				"Gripped Gloves",
+				"Spiked Gloves",
+				"The Wretched"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"Megaera"
+			],
+			"bossRating": "4",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Cells_Map",
+			"encounter": "Shavronne the Sickening, based on Shavronne"
+		},
+		"Excavation Map": {
+			"items": [
+				"The Gambler",
+				"Gift of the Gemling Queen",
+				"Volatile Power",
+				"Her Mask",
+				"The Endurance",
+				"Gripped Gloves",
+				"Spiked Gloves",
+				"The Cacophony",
+				"Buried Treasure"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"Shrieker Eihal",
+				"Breaker Toruul"
+			],
+			"bossRating": "1",
+			"bossCount": 2,
+			"url": "https://pathofexile.gamepedia.com/Excavation_Map"
+		},
+		"Iceberg Map": {
+			"items": [
+				"The Gambler",
+				"Crystal Belt",
+				"Two-Toned Boots",
+				"Mitts"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"Mutewind",
+				"Warband"
+			],
+			"bossRating": "3",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Iceberg_Map"
+		},
+		"Leyline Map": {
+			"items": [
+				"The Gambler",
+				"Her Mask",
+				"Marble Amulet",
+				"The Coming Storm",
+				"Struck by Lightning"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"Mirage of Bones"
+			],
+			"bossRating": "2",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Leyline_Map",
+			"encounter": "Mirage of Bones (Based on Nightwane)",
+			"layout": "The layout is a long wide strip lined with countless ridges blocking off elevated areas and a few depressions. Gap-closing movement skill highly recommended. Boss arena is found at the end of a raised rectangular walkway."
+		},
+		"Peninsula Map": {
+			"items": [
+				"The Scarred Meadow",
+				"The Gambler",
+				"Her Mask",
+				"Fingerless Silk Gloves",
+				"The Primordial"
+			],
+			"layoutRating": "A",
+			"bosses": [
+				"Titan of the Grove"
+			],
+			"bossRating": "2",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Peninsula_Map"
+		},
+		"Port Map": {
+			"items": [
+				"Jack in the Box",
+				"Lucky Connections",
+				"The Gambler",
+				"Assassin's Favour",
+				"Two-Toned Boots",
+				"Two-Toned Boots",
+				"The Saint's Treasure"
+			],
+			"layoutRating": "A",
+			"bosses": [
+				"Unravelling Horror"
+			],
+			"bossRating": "4",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Port_Map"
+		},
+		"Fungal Hollow Map": {
+			"items": [
+				"The Gambler",
+				"The Betrayal",
+				"Hunter's Resolve",
+				"Her Mask",
+				"Emperor of Purity",
+				"Gripped Gloves",
+				"Spiked Gloves"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"Aulen Greychain"
+			],
+			"bossRating": "3",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Fungal_Hollow_Map"
+		},
+		"Esh's Domain": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"Blessing of Esh",
+				"Voice of the Storm",
+				"Hand of Thought and Motion",
+				"Esh's Mirror",
+				"The Escape"
+			],
+			"layoutRating": "N/A",
+			"bosses": [
+				"Esh, Forked Thought"
+			],
+			"bossRating": "5",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Esh%27s_Domain"
+		},
+		"Tul's Domain": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"Blessing of Tul",
+				"Tulborn",
+				"The Halcyon",
+				"The Snowblind Grace",
+				"The Escape"
+			],
+			"layoutRating": "N/A",
+			"bosses": [
+				"Tul, Creeping Avalanche"
+			],
+			"bossRating": "5",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Tul%27s_Domain"
+		},
+		"Xoph's Domain": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Formless Flame",
+				"Xoph's Heart",
+				"Xoph's Inception",
+				"Blessing of Xoph",
+				"The Escape"
+			],
+			"layoutRating": "N/A",
+			"bosses": [
+				"Xoph, Dark Embers"
+			],
+			"bossRating": "5",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Xoph%27s_Domain"
+		},
+		"The Apex of Sacrifice": {
+			"items": [
+				"The Gambler",
+				"Audacity",
+				"The Ethereal",
+				"Alluring Bounty"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"Atziri, Queen of the Vaal",
+				"Q'ura",
+				"Y'ara'az",
+				"A'alai",
+				"Vessel of the Vaal",
+				"Vessel of the Vaal"
+			],
+			"bossRating": "5",
+			"bossCount": 6,
+			"url": "https://pathofexile.gamepedia.com/The_Apex_of_Sacrifice",
+			"layout": "The map is partitioned into 7 areas:"
+		},
+		"Canyon Map": {
+			"items": [
+				"The Gambler",
+				"Convoking Wand"
+			],
+			"layoutRating": "A",
+			"bosses": [
+				"Gnar, Eater of Carrion",
+				"Stonebeak, Battle Fowl"
+			],
+			"bossRating": "5",
+			"bossCount": 2,
+			"url": "https://pathofexile.gamepedia.com/Canyon_Map",
+			"encounter": "This Map has two bosses."
+		},
+		"Chateau Map": {
+			"items": [
+				"The Gambler",
+				"Marble Amulet",
+				"The Scavenger",
+				"Lingering Remnants",
+				"The Opulent",
+				"Boon of Justice"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"Hephaeus, The Hammer"
+			],
+			"bossRating": "4",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Chateau_Map"
+		},
+		"City Square Map": {
+			"items": [
+				"The Carrion Crow",
+				"The Gambler",
+				"Her Mask",
+				"Crystal Belt",
+				"Two-Toned Boots",
+				"Steel Ring",
+				"Three Voices"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"Carius, the Unnatural",
+				"Pileah, Corpse Burner",
+				"Pileah, Burning Corpse"
+			],
+			"bossRating": "3",
+			"bossCount": 3,
+			"url": "https://pathofexile.gamepedia.com/City_Square_Map"
+		},
+		"Courthouse Map": {
+			"items": [
+				"The Gambler",
+				"Blue Pearl Amulet",
+				"Lingering Remnants",
+				"The Rite of Elements",
+				"The Undaunted",
+				"Three Voices",
+				"Vermillion Ring"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"Thena Moga, The Crimson Storm",
+				"Ion Darkshroud, The Hungering Blade",
+				"Bolt Brownfur, Earth Churner"
+			],
+			"bossRating": "4",
+			"bossCount": 3,
+			"url": "https://pathofexile.gamepedia.com/Courthouse_Map"
+		},
+		"Glacier Map": {
+			"items": [
+				"The Gambler",
+				"Her Mask",
+				"The Lion",
+				"Gripped Gloves",
+				"Spiked Gloves",
+				"The Wolverine"
+			],
+			"layoutRating": "A",
+			"bosses": [
+				"Rek'tar, the Breaker"
+			],
+			"bossRating": "3",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Glacier_Map",
+			"encounter": "The boss is \"Rek'tar, the Breaker\", a unique Goatman. It is a single phase encounter in an arena.\nThe boss alternately leap slams around a few times, then becomes exhausted for a few seconds during which he is easy to damage, then continues leap slamming again."
+		},
+		"Grotto Map": {
+			"items": [
+				"The Gambler",
+				"The Watcher",
+				"Loyalty",
+				"Hunter's Reward",
+				"Her Mask",
+				"Treasure Hunter",
+				"Rain Tempter",
+				"Marble Amulet",
+				"Opal Ring",
+				"The Rite of Elements",
+				"Pride of the First Ones",
+				"The Primordial"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"Void Anomaly"
+			],
+			"bossRating": "3",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Grotto_Map"
+		},
+		"Lighthouse Map": {
+			"items": [
+				"Lantador's Lost Love",
+				"The Gambler",
+				"Fingerless Silk Gloves",
+				"Vanguard Belt",
+				"The Journey"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"Redblade",
+				"Warband"
+			],
+			"bossRating": "3",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Lighthouse_Map"
+		},
+		"The Perandus Manor": {
+			"items": [],
+			"layoutRating": "B",
+			"bosses": [
+				"Platinia, Servant of Prospero",
+				"Auriot, Prospero's Furnace Guardian",
+				"Rhodion, Servant of Prospero",
+				"Osmea, Servant of Prospero",
+				"Pallias, Servant of Prospero",
+				"Argient, Servant of Prospero",
+				"Rheniot, Servant of Prospero"
+			],
+			"bossCount": 7,
+			"url": "https://pathofexile.gamepedia.com/The_Perandus_Manor"
+		},
+		"Relic Chambers Map": {
+			"items": [
+				"The Gambler",
+				"Blind Venture",
+				"Her Mask",
+				"Bone Helmet",
+				"The Polymath",
+				"Might is Right",
+				"The Opulent",
+				"No Traces",
+				"Azyran's Reward"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"Litanius, the Black Prayer"
+			],
+			"bossRating": "2",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Relic_Chambers_Map",
+			"layout": "This map is an alternate version of The Reliquary (Act 10) with a Darker environment."
+		},
+		"Strand Map": {
+			"items": [
+				"The Gambler",
+				"The Betrayal",
+				"Her Mask",
+				"Thunderous Skies",
+				"Two-Toned Boots",
+				"The Landing"
+			],
+			"layoutRating": "A",
+			"bosses": [
+				"Master of the Blade",
+				"Massier"
+			],
+			"bossRating": "3",
+			"bossCount": 2,
+			"url": "https://pathofexile.gamepedia.com/Strand_Map",
+			"layout": "The layout of this map is fairly linear, following the shoreline will lead to the Boss Arena."
+		},
+		"Whakawairua Tuahu": {
+			"items": [],
+			"layoutRating": "C",
+			"bosses": [
+				"Tormented Temptress",
+				"Shades"
+			],
+			"bossRating": "4",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Whakawairua_Tuahu"
+		},
+		"Volcano Map": {
+			"items": [
+				"The Battle Born",
+				"The Gambler",
+				"The King's Heart",
+				"Pride Before the Fall",
+				"Two-Toned Boots",
+				"Two-Toned Boots"
+			],
+			"layoutRating": "A",
+			"bosses": [
+				"Forest of Flames"
+			],
+			"bossRating": "4",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Volcano_Map"
+		},
+		"Ancient City Map": {
+			"items": [
+				"The Gambler",
+				"The Catalyst",
+				"Her Mask",
+				"Bone Helmet",
+				"The Admirer",
+				"Arrogance of the Vaal",
+				"The Damned"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"Lady Stormflay"
+			],
+			"bossRating": "4",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Ancient_City_Map"
+		},
+		"Barrows Map": {
+			"items": [
+				"The Gambler",
+				"The Fox",
+				"Loyalty",
+				"Her Mask",
+				"Pride of the First Ones",
+				"Convoking Wand"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"Beast of the Pits"
+			],
+			"bossRating": "3",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Barrows_Map"
+		},
+		"Channel Map": {
+			"items": [
+				"The Carrion Crow",
+				"Humility",
+				"The Gambler",
+				"Her Mask",
+				"Gripped Gloves",
+				"The Scavenger",
+				"Spiked Gloves",
+				"Cerulean Ring"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"The Winged Death"
+			],
+			"bossRating": "4",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Channel_Map",
+			"encounter": "The Winged Death, based on The Hundred Foot Shadow"
+		},
+		"Conservatory Map": {
+			"items": [
+				"The Gambler",
+				"Marble Amulet",
+				"The Opulent"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"The Forgotten Soldier"
+			],
+			"bossRating": "3",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Conservatory_Map"
+		},
+		"Haunted Mansion Map": {
+			"items": [
+				"The Gambler",
+				"Her Mask",
+				"Two-Toned Boots",
+				"Two-Toned Boots",
+				"The Opulent",
+				"The Blazing Fire"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"Barthol, the Pure",
+				"Barthol, the Corrupter"
+			],
+			"bossRating": "2",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Haunted_Mansion_Map"
+		},
+		"Ivory Temple Map": {
+			"items": [
+				"The Sun",
+				"The Gambler",
+				"Her Mask",
+				"Boundless Realms",
+				"Dialla's Subjugation",
+				"Two-Toned Boots",
+				"Two-Toned Boots",
+				"Lingering Remnants",
+				"The Opulent",
+				"The Mayor",
+				"The Twins",
+				"The Golden Era",
+				"Vermillion Ring"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"Perandus Manor"
+			],
+			"bossRating": "3",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Ivory_Temple_Map"
+		},
+		"Maze Map": {
+			"items": [
+				"The Gambler",
+				"The Inventor",
+				"The Catalyst",
+				"Her Mask",
+				"Two-Toned Boots",
+				"Two-Toned Boots",
+				"The Admirer"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"Shadow of the Vaal"
+			],
+			"bossRating": "4",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Maze_Map"
+		},
+		"Spider Lair Map": {
+			"items": [
+				"The Gambler",
+				"Her Mask",
+				"The Web",
+				"Gripped Gloves",
+				"Spiked Gloves",
+				"Cerulean Ring"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"Thraxia"
+			],
+			"bossRating": "3",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Spider_Lair_Map",
+			"encounter": "Thraxia (based on The Bone Queen)"
+		},
+		"Sulphur Vents Map": {
+			"items": [
+				"The Gambler",
+				"Her Mask",
+				"Gripped Gloves",
+				"Spiked Gloves",
+				"The Eye of the Dragon"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"The Gorgon"
+			],
+			"bossRating": "3",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Sulphur_Vents_Map"
+		},
+		"Toxic Sewer Map": {
+			"items": [
+				"The Feast",
+				"The Gambler",
+				"The Throne",
+				"Bone Helmet",
+				"Vile Power"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"Arachnoxia"
+			],
+			"bossRating": "3",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Toxic_Sewer_Map"
+		},
+		"The Beachhead": {
+			"items": [],
+			"url": "https://pathofexile.gamepedia.com/The_Beachhead_(High_Tier)_(Betrayal)"
+		},
+		"Academy Map": {
+			"items": [
+				"The Scholar",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"Destined to Crumble",
+				"Marble Amulet",
+				"A Dab of Ink",
+				"Thirst for Knowledge"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"The Arbiter of Knowledge"
+			],
+			"bossRating": "4",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Academy_Map"
+		},
+		"Atoll Map": {
+			"items": [
+				"The Wind",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"Her Mask",
+				"Two-Toned Boots",
+				"The Spark and the Flame"
+			],
+			"layoutRating": "A",
+			"bosses": [
+				"Puruna, the Challenger"
+			],
+			"bossRating": "4",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Atoll_Map"
+		},
+		"Maelström of Chaos": {
+			"items": [],
+			"layoutRating": "A",
+			"bosses": [
+				"Merveil, the Reflection",
+				"Merveil, the Returned",
+				"Heir of Flame",
+				"Heir of Storm"
+			],
+			"bossRating": "3",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Maelstr%C3%B6m_of_Chaos"
+		},
+		"Ashen Wood Map": {
+			"items": [
+				"The Scarred Meadow",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Flora's Gift",
+				"The Enlightened",
+				"Her Mask",
+				"Two-Toned Boots",
+				"Two-Toned Boots"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"Lord of the Ashen Arrow"
+			],
+			"bossRating": "2",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Ashen_Wood_Map",
+			"encounter": "Lord of the Ashen Arrow"
+		},
+		"Cemetery Map": {
+			"items": [
+				"The Gambler",
+				"The Union",
+				"The Encroaching Darkness",
+				"Two-Toned Boots",
+				"Two-Toned Boots",
+				"Struck by Lightning",
+				"The Cacophony"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"Erebix, Light's Bane"
+			],
+			"bossRating": "5",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Cemetery_Map",
+			"encounter": "Erebix, Light's Bane based on Gruthkul, Mother of Despair.",
+			"layout": "The map consists of a large walled in continuous area with a few impassable pits and other obstacles. The boss is found in a separate arena."
+		},
+		"Hallowed Ground": {
+			"items": [],
+			"layoutRating": "B",
+			"bosses": [
+				"Maker of Mires",
+				"Jaesyn",
+				"Jik'shah",
+				"Balah, Duke",
+				"Kruug, the Frayed"
+			],
+			"bossRating": "4",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Hallowed_Ground"
+		},
+		"Fields Map": {
+			"items": [
+				"The Scarred Meadow",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"Tranquillity",
+				"Her Mask",
+				"Two-Toned Boots",
+				"Two-Toned Boots"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"Drek, Apex Hunter",
+				"Enthralled Dire Wolf",
+				"Enraptured Hellion"
+			],
+			"bossRating": "2",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Fields_Map"
+		},
+		"Jungle Valley Map": {
+			"items": [
+				"The Wind",
+				"The Pack Leader",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Flora's Gift",
+				"Her Mask",
+				"The Web",
+				"Two-Toned Boots",
+				"Two-Toned Boots"
+			],
+			"layoutRating": "A",
+			"bosses": [
+				"Queen of the Great Tangle"
+			],
+			"bossRating": "2",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Jungle_Valley_Map"
+		},
+		"Mausoleum Map": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"Her Mask",
+				"Two-Toned Boots",
+				"Two-Toned Boots",
+				"Might is Right",
+				"No Traces"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"Tolman, the Exhumer"
+			],
+			"bossRating": "2",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Mausoleum_Map"
+		},
+		"Phantasmagoria Map": {
+			"items": [
+				"The Hunger",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Surveyor",
+				"Her Mask",
+				"Marble Amulet",
+				"The Oath"
+			],
+			"layoutRating": "A",
+			"bosses": [
+				"Erythrophagia"
+			],
+			"bossRating": "2",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Phantasmagoria_Map"
+		},
+		"Thicket Map": {
+			"items": [
+				"The Explorer",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"Her Mask",
+				"Convoking Wand"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"The Primal One"
+			],
+			"bossRating": "3",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Thicket_Map"
+		},
+		"Underground Sea Map": {
+			"items": [
+				"Lantador's Lost Love",
+				"The Lover",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Siren",
+				"The Survivalist",
+				"Glimmer of Hope",
+				"Treasure Hunter",
+				"Lysah's Respite",
+				"Two-Toned Boots",
+				"Two-Toned Boots",
+				"The Fathomless Depths",
+				"The Cacophony"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"Merveil, the Reflection"
+			],
+			"bossRating": "2",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Underground_Sea_Map"
+		},
+		"Oba's Cursed Trove": {
+			"items": [],
+			"layoutRating": "B",
+			"bossRating": "1",
+			"bossCount": 0,
+			"url": "https://pathofexile.gamepedia.com/Oba%27s_Cursed_Trove"
+		},
+		"Wharf Map": {
+			"items": [
+				"Lucky Connections",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"Her Mask",
+				"Two-Toned Boots",
+				"The Coming Storm",
+				"Struck by Lightning",
+				"The Rite of Elements",
+				"The Primordial"
+			],
+			"layoutRating": "A",
+			"bosses": [
+				"Stone of the Currents"
+			],
+			"bossRating": "2",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Wharf_Map"
+		},
+		"Arachnid Nest Map": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"The Web",
+				"Convoking Wand",
+				"Cerulean Ring"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"Spinner of False Hope"
+			],
+			"bossRating": "5",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Arachnid_Nest_Map"
+		},
+		"Bazaar Map": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"Assassin's Favour",
+				"Two-Toned Boots",
+				"Two-Toned Boots",
+				"The Saint's Treasure"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"Ancient Sculptor",
+				"Marceus the Defaced",
+				"The Goddess of Purity"
+			],
+			"bossRating": "3",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Bazaar_Map"
+		},
+		"Bone Crypt Map": {
+			"items": [
+				"The Summoner",
+				"Coveted Possession",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"Grave Knowledge",
+				"The Lich",
+				"The Wretched",
+				"The Forsaken",
+				"The Standoff",
+				"Convoking Wand"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"Xixic, High Necromancer"
+			],
+			"bossRating": "2",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Bone_Crypt_Map"
+		},
+		"Olmec's Sanctum": {
+			"items": [],
+			"layoutRating": "A",
+			"bosses": [
+				"Olmec, the All Stone",
+				"Achioc, the Glacier",
+				"Zorioc, the Storm",
+				"Levioc, the Volcano",
+				"Izioc, the Abyss"
+			],
+			"bossRating": "4",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Olmec%27s_Sanctum"
+		},
+		"Coral Ruins Map": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"The Vast",
+				"Two-Toned Boots",
+				"Two-Toned Boots",
+				"The Deep Ones",
+				"Vermillion Ring"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"Captain Tanner Lightfoot"
+			],
+			"bossRating": "4",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Coral_Ruins_Map"
+		},
+		"Dunes Map": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"Earth Drinker",
+				"Two-Toned Boots",
+				"Two-Toned Boots",
+				"Imperial Legacy"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"The Blacksmith"
+			],
+			"bossRating": "3",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Dunes_Map",
+			"encounter": "The Blacksmith based on Hillock."
+		},
+		"Pillars of Arun": {
+			"items": [],
+			"layoutRating": "C",
+			"bosses": [
+				"Talin, Faithbreaker"
+			],
+			"bossRating": "3",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Pillars_of_Arun"
+		},
+		"Gardens Map": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"Bone Helmet",
+				"Steel Ring",
+				"The Porcupine"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"Sallazzang"
+			],
+			"bossRating": "2",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Gardens_Map",
+			"encounter": "Sallazzang, a unique Plumed Chimeral.",
+			"layout": "The layout is similar to the Imperial Gardens (or the removed area The Hedge Maze) of Act 3, as well as some areas of The Lord's Labyrinth."
+		},
+		"Lava Chamber Map": {
+			"items": [
+				"The Summoner",
+				"The Chains that Bind",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"Gripped Gloves",
+				"Spiked Gloves",
+				"The Standoff",
+				"Burning Blood"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"Fire and Fury"
+			],
+			"bossRating": "3",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Lava_Chamber_Map"
+		},
+		"Ramparts Map": {
+			"items": [
+				"The Carrion Crow",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"Hunter's Resolve",
+				"The Traitor",
+				"Her Mask",
+				"Lucky Deck",
+				"Gripped Gloves",
+				"Spiked Gloves"
+			],
+			"layoutRating": "A",
+			"bosses": [
+				"Legius Garhall"
+			],
+			"bossRating": "3",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Ramparts_Map"
+		},
+		"Residence Map": {
+			"items": [
+				"The Drunken Aristocrat",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"The Tower",
+				"The Dapper Prodigy",
+				"Light and Truth",
+				"Two-Toned Boots",
+				"Two-Toned Boots",
+				"The Opulent"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"Excellis Aurafix"
+			],
+			"bossRating": "5",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Residence_Map"
+		},
+		"Underground River Map": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"Hunter's Reward",
+				"Treasure Hunter",
+				"The Wolf's Shadow",
+				"Two-Toned Boots",
+				"Two-Toned Boots",
+				"The Scavenger",
+				"Vermillion Ring"
+			],
+			"layoutRating": "A",
+			"bosses": [
+				"It That Fell"
+			],
+			"bossRating": "3",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Underground_River_Map"
+		},
+		"Caer Blaidd, Wolfpack's Den": {
+			"items": [],
+			"layoutRating": "B",
+			"bosses": [
+				"Solus, Pack Alpha",
+				"Storm Eye",
+				"Winterfang"
+			],
+			"bossRating": "4",
+			"bossCount": 3,
+			"url": "https://pathofexile.gamepedia.com/Caer_Blaidd,_Wolfpack%27s_Den"
+		},
+		"Armoury Map": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"Merciless Armament",
+				"Her Mask",
+				"Gripped Gloves",
+				"Spiked Gloves"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"Warmonger"
+			],
+			"bossRating": "2",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Armoury_Map"
+		},
+		"Courtyard Map": {
+			"items": [
+				"Emperor's Luck",
+				"The Carrion Crow",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"Her Mask",
+				"Thunderous Skies",
+				"Blue Pearl Amulet",
+				"Struck by Lightning",
+				"Three Voices"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"Oriath's Vengeance",
+				"Oriath's Vigil",
+				"Oriath's Virtue"
+			],
+			"bossRating": "4",
+			"bossCount": 3,
+			"url": "https://pathofexile.gamepedia.com/Courtyard_Map"
+		},
+		"The Vinktar Square": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"Vessel of Vinktar",
+				"The Iron Bard",
+				"Monochrome"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"Avatar of Thunder",
+				"Guardian of the North",
+				"Guardian of the East",
+				"Guardian of the South",
+				"Guardian of the West"
+			],
+			"bossRating": "3",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/The_Vinktar_Square"
+		},
+		"Geode Map": {
+			"items": [
+				"The Gambler",
+				"The Watcher",
+				"The Encroaching Darkness",
+				"The Trial",
+				"Gift of the Gemling Queen",
+				"Volatile Power",
+				"The Endurance",
+				"Bone Helmet",
+				"The Rite of Elements",
+				"Buried Treasure",
+				"The Primordial"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"Avatar of Undoing"
+			],
+			"bossRating": "3",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Geode_Map"
+		},
+		"Infested Valley Map": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"Gripped Gloves",
+				"Spiked Gloves",
+				"The Coming Storm",
+				"Call to the First Ones",
+				"Struck by Lightning",
+				"More is Never Enough",
+				"Cerulean Ring"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"Gorulis, Will-Thief"
+			],
+			"bossRating": "4",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Infested_Valley_Map",
+			"encounter": "The boss is \"Gorulis, Will-Thief\", a unique Carrion Queen and the map version of Ryslatha, the Puppet Mistress. You need to destroy the three nests for Gorulis to unburrow, spawning in the middle of the arena. Her attacks are."
+		},
+		"Laboratory Map": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"Two-Toned Boots",
+				"The Opulent",
+				"The Dreamland",
+				"The Professor"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"Riftwalker"
+			],
+			"bossRating": "3",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Laboratory_Map"
+		},
+		"Mineral Pools Map": {
+			"items": [
+				"Lantador's Lost Love",
+				"The Lover",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"The Survivalist",
+				"Lysah's Respite",
+				"Fingerless Silk Gloves",
+				"Vanguard Belt",
+				"Opal Ring",
+				"The Cacophony"
+			],
+			"layoutRating": "A",
+			"bosses": [
+				"Merveil, the Reflection",
+				"Merveil, the Returned",
+				"Heir of Flame",
+				"Heir of Storm"
+			],
+			"bossRating": "3",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Mineral_Pools_Map"
+		},
+		"Mud Geyser Map": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"Death",
+				"The Trial",
+				"Her Mask",
+				"Fingerless Silk Gloves"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"Tunneltrap"
+			],
+			"bossRating": "5",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Mud_Geyser_Map"
+		},
+		"Overgrown Ruin Map": {
+			"items": [
+				"The Dark Mage",
+				"The Summoner",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"The Surgeon",
+				"Her Mask",
+				"Shard of Fate",
+				"Emperor of Purity",
+				"Fingerless Silk Gloves",
+				"The Wretched",
+				"The Garish Power",
+				"Echoes of Love"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"Visceris",
+				"Akaveesh",
+				"M'uneh"
+			],
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Overgrown_Ruin_Map"
+		},
+		"Shore Map": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"Prosperity",
+				"Gripped Gloves",
+				"Spiked Gloves",
+				"The Landing"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"Belcer, the Pirate Lord"
+			],
+			"bossRating": "3",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Shore_Map"
+		},
+		"Mao Kun": {
+			"items": [],
+			"layoutRating": "C",
+			"bosses": [
+				"Fairgraves, Never Dying"
+			],
+			"bossRating": "4",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Mao_Kun"
+		},
+		"The Pale Court": {
+			"items": [
+				"The Gambler",
+				"Crown of the Pale King",
+				"Volkuur's Guidance",
+				"Volkuur's Guidance",
+				"Volkuur's Guidance",
+				"Left to Fate"
+			],
+			"layoutRating": "A",
+			"bosses": [
+				"Eber, the Plaguemaw",
+				"Inya, the Unbearable Whispers",
+				"Volkuur, the Unbreathing Queen",
+				"Yriel, the Feral Lord"
+			],
+			"bossRating": "5",
+			"bossCount": 4,
+			"url": "https://pathofexile.gamepedia.com/The_Pale_Court"
+		},
+		"Tropical Island Map": {
+			"items": [
+				"The Pack Leader",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Flora's Gift",
+				"The Trial",
+				"Her Mask",
+				"Two-Toned Boots"
+			],
+			"layoutRating": "A",
+			"bosses": [
+				"Blood Progenitor",
+				"Spirit of Aidan",
+				"Spirit of Nadia"
+			],
+			"bossRating": "2",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Tropical_Island_Map"
+		},
+		"Uul-Netol's Domain": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Infinite Pursuit",
+				"Blessing of Uul-Netol",
+				"Uul-Netol's Kiss",
+				"The Anticipation"
+			],
+			"layoutRating": "N/A",
+			"bosses": [
+				"Uul-Netol, Unburdened Flesh"
+			],
+			"bossRating": "5",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Uul-Netol%27s_Domain"
+		},
+		"Untainted Paradise": {
+			"items": [],
+			"layoutRating": "B",
+			"bosses": [
+				"Clutch Queen",
+				"Colossal Spitter",
+				"Elder Devourer",
+				"Great Maw",
+				"Prime Ape",
+				"The First Rhoa"
+			],
+			"bossRating": "2",
+			"bossCount": 6,
+			"url": "https://pathofexile.gamepedia.com/Untainted_Paradise"
+		},
+		"Vaal Pyramid Map": {
+			"items": [
+				"The Gambler",
+				"The Inventor",
+				"The Encroaching Darkness",
+				"The Spoiled Prince",
+				"The Trial",
+				"The Catalyst",
+				"Marble Amulet",
+				"The Admirer",
+				"Three Voices"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"The Fallen Queen",
+				"The Hollow Lady",
+				"The Broken Prince"
+			],
+			"bossRating": "5",
+			"bossCount": 3,
+			"url": "https://pathofexile.gamepedia.com/Vaal_Pyramid_Map"
+		},
+		"Vaults of Atziri": {
+			"items": [],
+			"layoutRating": "A",
+			"bossRating": "0",
+			"bossCount": 0,
+			"url": "https://pathofexile.gamepedia.com/Vaults_of_Atziri"
+		},
+		"Arena Map": {
+			"items": [
+				"The Gladiator",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"The Visionary",
+				"The Deceiver",
+				"Three Voices",
+				"Convoking Wand"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"Avatar of the Forge",
+				"Avatar of the Huntress",
+				"Avatar of the Skies"
+			],
+			"bossRating": "4",
+			"bossCount": 3,
+			"url": "https://pathofexile.gamepedia.com/Arena_Map"
+		},
+		"Estuary Map": {
+			"items": [
+				"The Gambler",
+				"The Trial",
+				"Heterochromia",
+				"Bone Helmet"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"Sumter the Twisted",
+				"Flarus",
+				"Frosis"
+			],
+			"bossRating": "1",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Estuary_Map"
+		},
+		"Moon Temple Map": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"Blue Pearl Amulet",
+				"The Twilight Moon",
+				"The Twins"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"Sebbert, Crescent's Point"
+			],
+			"bossRating": "4",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Moon_Temple_Map"
+		},
+		"The Twilight Temple": {
+			"items": [],
+			"bosses": [
+				"Helial, the Day Unending",
+				"Selenia, the Endless Night",
+				"Opid, Helial's Herald",
+				"Arteth, Selenia's Herald",
+				"Aloris, the First Light",
+				"Nebria, the Last Light"
+			],
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/The_Twilight_Temple"
+		},
+		"Museum Map": {
+			"items": [
+				"The Scholar",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"Blind Venture",
+				"Destined to Crumble",
+				"Shard of Fate",
+				"Two-Toned Boots",
+				"The Polymath",
+				"A Dab of Ink",
+				"Thirst for Knowledge"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"He of Many Pieces"
+			],
+			"bossRating": "5",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Museum_Map"
+		},
+		"The Putrid Cloister": {
+			"items": [],
+			"layoutRating": "C",
+			"bosses": [
+				"Headmistress Braeta"
+			],
+			"bossRating": "4",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/The_Putrid_Cloister"
+		},
+		"Plateau Map": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"Two-Toned Boots",
+				"Two-Toned Boots",
+				"Vermillion Ring"
+			],
+			"layoutRating": "A",
+			"bosses": [
+				"Puruna, the Challenger",
+				"Poporo, the Highest Spire"
+			],
+			"bossRating": "3",
+			"bossCount": 2,
+			"url": "https://pathofexile.gamepedia.com/Plateau_Map"
+		},
+		"Scriptorium Map": {
+			"items": [
+				"The Scholar",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"The Aesthete",
+				"The Offering",
+				"Destined to Crumble",
+				"Fingerless Silk Gloves",
+				"A Dab of Ink"
+			],
+			"layoutRating": "A",
+			"bosses": [
+				"Gisale, Thought Thief"
+			],
+			"bossRating": "4",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Scriptorium_Map",
+			"encounter": "Gisale, Thought Thief"
+		},
+		"Sepulchre Map": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"The Soul",
+				"Bone Helmet",
+				"Steel Ring",
+				"Might is Right",
+				"No Traces",
+				"The Cacophony"
+			],
+			"bosses": [
+				"Doedre the Defiler"
+			],
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Sepulchre_Map"
+		},
+		"Temple Map": {
+			"items": [
+				"The Sun",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"Boundless Realms",
+				"Dialla's Subjugation",
+				"Two-Toned Boots",
+				"The Opulent",
+				"Forbidden Power",
+				"The Twilight Moon"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"Jorus, Sky's Edge"
+			],
+			"bossRating": "3",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Temple_Map",
+			"encounter": "Jorus, Sky's Edge, based on Dawn, Harbinger of Solaris.",
+			"layout": "The map is a large area of interconnected walkways and rooms, with the player start always located in the south east, and the portal to the separate boss arena always positioned in the north east."
+		},
+		"Poorjoy's Asylum": {
+			"items": [],
+			"layoutRating": "B",
+			"bosses": [
+				"Mistress Hyseria"
+			],
+			"bossRating": "5",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Poorjoy%27s_Asylum"
+		},
+		"Tower Map": {
+			"items": [
+				"The Warden",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"The Tower",
+				"The Aesthete",
+				"The Offering",
+				"Thunderous Skies",
+				"Bone Helmet",
+				"The Wretched",
+				"Lingering Remnants",
+				"Struck by Lightning",
+				"The Nurse"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"Liantra",
+				"Bazur"
+			],
+			"bossRating": "4",
+			"bossCount": 2,
+			"url": "https://pathofexile.gamepedia.com/Tower_Map",
+			"encounter": "Bazur and Liantra, the map variants of Reassembled Brutus and Shavronne the Returned of Act 6.",
+			"layout": "It's a series of smaller areas linked together with stairs. The boss waits on the tower roof in a separate arena reachable with a ladder. The layout is similar to Shavronne's Tower of Act 6, but the map was actually released earlier than the Act area."
+		},
+		"Vault Map": {
+			"items": [
+				"The Hoarder",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"Gripped Gloves",
+				"Spiked Gloves",
+				"The Opulent",
+				"Immortal Resolve",
+				"The Rite of Elements",
+				"The Primordial",
+				"The Side Quest"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"Guardian of the Vault"
+			],
+			"bossRating": "4",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Vault_Map"
+		},
+		"Waste Pool Map": {
+			"items": [
+				"The Feast",
+				"The Gambler",
+				"Doedre's Madness",
+				"The Encroaching Darkness",
+				"The Trial",
+				"Her Mask",
+				"The Throne",
+				"Blue Pearl Amulet"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"Portentia, the Foul"
+			],
+			"bossRating": "3",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Waste_Pool_Map"
+		},
+		"Arachnid Tomb Map": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"Her Mask",
+				"The Web",
+				"Bone Helmet",
+				"Lingering Remnants",
+				"The Nurse"
+			],
+			"layoutRating": "A",
+			"bosses": [
+				"Hybrid Widow"
+			],
+			"bossRating": "2",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Arachnid_Tomb_Map"
+		},
+		"Belfry Map": {
+			"items": [
+				"The Gambler",
+				"The Wrath",
+				"The Encroaching Darkness",
+				"The Trial",
+				"Two-Toned Boots",
+				"Two-Toned Boots"
+			],
+			"layoutRating": "A",
+			"bosses": [
+				"Lord of the Grey"
+			],
+			"bossRating": "5",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Belfry_Map"
+		},
+		"Bog Map": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"Death",
+				"The Trial",
+				"Two-Toned Boots",
+				"Two-Toned Boots",
+				"Lingering Remnants"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"Skullbeak"
+			],
+			"bossRating": "3",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Bog_Map"
+		},
+		"Cursed Crypt Map": {
+			"items": [
+				"The Summoner",
+				"The Celestial Justicar",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"Grave Knowledge",
+				"Her Mask",
+				"Two-Toned Boots",
+				"The Wretched"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"Pagan Bishop of Agony"
+			],
+			"bossRating": "3",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Cursed_Crypt_Map",
+			"encounter": "Pagan Bishop of Agony, based on Archbishop Geofri the Abashed."
+		},
+		"The Coward's Trial": {
+			"items": [],
+			"layoutRating": "A",
+			"bosses": [
+				"Infector of Dreams"
+			],
+			"bossRating": "2",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/The_Coward%27s_Trial"
+		},
+		"Orchard Map": {
+			"items": [
+				"Emperor's Luck",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"Two-Toned Boots",
+				"Two-Toned Boots",
+				"Boon of Justice"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"Vision of Justice"
+			],
+			"bossRating": "4",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Orchard_Map"
+		},
+		"Pier Map": {
+			"items": [
+				"Lucky Connections",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"Her Mask",
+				"Fingerless Silk Gloves"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"Ancient Architect"
+			],
+			"bossRating": "2",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Pier_Map"
+		},
+		"Precinct Map": {
+			"items": [
+				"Abandoned Wealth",
+				"Jack in the Box",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"The Tyrant",
+				"Marble Amulet",
+				"Opal Ring",
+				"The Saint's Treasure",
+				"The Undaunted"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"Rogue Exiles"
+			],
+			"bossRating": "4",
+			"bossCount": 3,
+			"url": "https://pathofexile.gamepedia.com/Precinct_Map",
+			"layout": "The map use Sarn tileset"
+		},
+		"Shipyard Map": {
+			"items": [
+				"Lucky Connections",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"The Coming Storm",
+				"Struck by Lightning",
+				"Convoking Wand",
+				"Cerulean Ring"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"Brinerot",
+				"Warband"
+			],
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Shipyard_Map"
+		},
+		"Siege Map": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"Bone Helmet",
+				"Steel Ring",
+				"Lingering Remnants",
+				"The Blazing Fire"
+			],
+			"layoutRating": "A",
+			"bosses": [
+				"Tahsin, Warmaker"
+			],
+			"bossRating": "4",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Siege_Map"
+		},
+		"Wasteland Map": {
+			"items": [
+				"The Brittle Emperor",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"Fingerless Silk Gloves"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"The Brittle Emperor"
+			],
+			"bossRating": "4",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Wasteland_Map",
+			"encounter": "The Brittle Emperor, based on Voll. Has the following abilities:",
+			"layout": "The layout is based on The Dried Lake. It consists of a few larger areas connected with short narrow paths that sometimes lead into a dead end. The boss doesn't have a separate arena. He waits in a large camp surrounded by palisades."
+		},
+		"Colonnade Map": {
+			"items": [
+				"The Carrion Crow",
+				"Gemcutter's Promise",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"Merciless Armament",
+				"Gripped Gloves",
+				"Spiked Gloves",
+				"The Coming Storm",
+				"Lingering Remnants",
+				"Struck by Lightning"
+			],
+			"layoutRating": "A",
+			"bosses": [
+				"Tyrant"
+			],
+			"bossRating": "3",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Colonnade_Map",
+			"encounter": "The boss is based on General Gravicius of Act 3"
+		},
+		"Coves Map": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"Scholar of the Seas",
+				"Gripped Gloves",
+				"Spiked Gloves",
+				"The Rite of Elements",
+				"The Primordial"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"Telvar, the Inebriated",
+				"Pirate Treasure"
+			],
+			"bossRating": "4",
+			"bossCount": 2,
+			"url": "https://pathofexile.gamepedia.com/Coves_Map"
+		},
+		"Factory Map": {
+			"items": [
+				"Three Faces in the Dark",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"Rats",
+				"Fingerless Silk Gloves",
+				"Vanguard Belt",
+				"Lingering Remnants"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"Pesquin, the Mad Baron"
+			],
+			"bossRating": "1",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Factory_Map"
+		},
+		"Mesa Map": {
+			"items": [
+				"The Gambler",
+				"The Betrayal",
+				"The Encroaching Darkness",
+				"The Trial",
+				"Her Mask",
+				"Fingerless Silk Gloves",
+				"Lingering Remnants"
+			],
+			"layoutRating": "A",
+			"bosses": [
+				"Oak the Mighty"
+			],
+			"bossRating": "2",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Mesa_Map"
+		},
+		"Lair Map": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"Loyalty",
+				"The Wolf's Shadow",
+				"The Wolven King's Bite",
+				"Lingering Remnants",
+				"The Mad King",
+				"Pride of the First Ones",
+				"Convoking Wand",
+				"Cerulean Ring"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"Lycius, Midnight's Howl"
+			],
+			"bossRating": "5",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Lair_Map"
+		},
+		"Pit Map": {
+			"items": [
+				"The Gladiator",
+				"The Chains that Bind",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The King's Blade",
+				"The Trial",
+				"Convoking Wand"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"Olof, Son of the Headsman"
+			],
+			"bossRating": "3",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Pit_Map"
+		},
+		"Primordial Pool Map": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"The Inoculated",
+				"Her Mask",
+				"Two-Toned Boots"
+			],
+			"layoutRating": "A",
+			"bosses": [
+				"Nightmare's Omen"
+			],
+			"bossRating": "3",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Primordial_Pool_Map"
+		},
+		"Promenade Map": {
+			"items": [
+				"The Carrion Crow",
+				"Gemcutter's Promise",
+				"Jack in the Box",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"The Traitor",
+				"Her Mask",
+				"Fingerless Silk Gloves",
+				"Vanguard Belt",
+				"Opal Ring",
+				"Struck by Lightning"
+			],
+			"layoutRating": "A",
+			"bosses": [
+				"Blackguard Avenger",
+				"Blackguard Tempest"
+			],
+			"bossRating": "3",
+			"bossCount": 2,
+			"url": "https://pathofexile.gamepedia.com/Promenade_Map",
+			"encounter": "This map has two bosses."
+		},
+		"Hall of Grandmasters": {
+			"items": [],
+			"layoutRating": "A",
+			"bossRating": "5",
+			"bossCount": 0,
+			"url": "https://pathofexile.gamepedia.com/Hall_of_Grandmasters"
+		},
+		"Spider Forest Map": {
+			"items": [
+				"The Doctor",
+				"The Gambler",
+				"The Incantation",
+				"The Betrayal",
+				"The Encroaching Darkness",
+				"The Trial",
+				"Crystal Belt",
+				"Two-Toned Boots",
+				"Steel Ring",
+				"The Witch"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"Enticer of Rot",
+				"Avatar of Rot"
+			],
+			"bossRating": "2",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Spider_Forest_Map",
+			"encounter": "Enticer of Rot based on Alira."
+		},
+		"Waterways Map": {
+			"items": [
+				"Humility",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"Two-Toned Boots",
+				"The Rite of Elements",
+				"The Primordial"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"Fragment of Winter"
+			],
+			"bossRating": "3",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Waterways_Map"
+		},
+		"Castle Ruins Map": {
+			"items": [
+				"The Road to Power",
+				"Rain of Chaos",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Fox",
+				"The Mercenary",
+				"Marble Amulet",
+				"Lingering Remnants"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"Leif, the Swift-Handed"
+			],
+			"bossRating": "2",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Castle_Ruins_Map"
+		},
+		"Crystal Ore Map": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"Gift of the Gemling Queen",
+				"Volatile Power",
+				"The Endurance",
+				"Two-Toned Boots",
+				"Two-Toned Boots",
+				"Lingering Remnants",
+				"The Jeweller's Boon",
+				"Three Voices",
+				"The Messenger",
+				"Buried Treasure"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"Champion of the Hollows",
+				"Lord of the Hollows",
+				"Messenger of the Hollows"
+			],
+			"bossRating": "5",
+			"bossCount": 3,
+			"url": "https://pathofexile.gamepedia.com/Crystal_Ore_Map"
+		},
+		"Defiled Cathedral Map": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"Bone Helmet",
+				"Lingering Remnants",
+				"Seven Years Bad Luck"
+			],
+			"bosses": [
+				"Woad, Mockery of Man"
+			],
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Defiled_Cathedral_Map"
+		},
+		"Necropolis Map": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"Crystal Belt",
+				"Two-Toned Boots",
+				"Steel Ring",
+				"The Wretched",
+				"Lingering Remnants"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"Burtok, Conjuror of Bones"
+			],
+			"bossRating": "3",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Necropolis_Map"
+		},
+		"Death and Taxes": {
+			"items": [],
+			"layoutRating": "A",
+			"bosses": [
+				"Avatar of Apocalypse",
+				"Avatar of Ash",
+				"Avatar of Winter",
+				"Avatar of Silence"
+			],
+			"bossRating": "5",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Death_and_Taxes"
+		},
+		"Overgrown Shrine Map": {
+			"items": [
+				"The Dark Mage",
+				"Vinia's Token",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Surgeon",
+				"The Sigil",
+				"Shard of Fate",
+				"Emperor of Purity",
+				"The Soul",
+				"Fingerless Silk Gloves",
+				"Vanguard Belt",
+				"Opal Ring",
+				"The Garish Power",
+				"Lingering Remnants"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"Maligaro the Mutilator"
+			],
+			"bossRating": "4",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Overgrown_Shrine_Map"
+		},
+		"Acton's Nightmare": {
+			"items": [],
+			"layoutRating": "C",
+			"bosses": [
+				"Rose",
+				"Thorn"
+			],
+			"bossRating": "2",
+			"bossCount": 2,
+			"url": "https://pathofexile.gamepedia.com/Acton%27s_Nightmare"
+		},
+		"Racecourse Map": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"Gripped Gloves",
+				"Spiked Gloves",
+				"Lingering Remnants",
+				"Three Voices"
+			],
+			"layoutRating": "A",
+			"bosses": [
+				"Shredder of Gladiators",
+				"Crusher of Gladiators",
+				"Bringer of Blood"
+			],
+			"bossRating": "3",
+			"bossCount": 3,
+			"url": "https://pathofexile.gamepedia.com/Racecourse_Map"
+		},
+		"Summit Map": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"Blue Pearl Amulet",
+				"Mitts",
+				"Lingering Remnants",
+				"The Wolverine",
+				"The Ruthless Ceinture",
+				"The Mountain",
+				"Vermillion Ring"
+			],
+			"bosses": [
+				"Mephod, the Earth Scorcher"
+			],
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Summit_Map"
+		},
+		"Primordial Blocks Map": {
+			"items": [
+				"The Summoner",
+				"The Avenger",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"Blue Pearl Amulet",
+				"The Wretched",
+				"Lingering Remnants",
+				"Vermillion Ring"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"Shock and Horror"
+			],
+			"bossRating": "4",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Primordial_Blocks_Map"
+		},
+		"Villa Map": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Conduit",
+				"Light and Truth",
+				"Fingerless Silk Gloves",
+				"The Coming Storm",
+				"Lingering Remnants",
+				"Struck by Lightning",
+				"The Opulent"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"The High Templar"
+			],
+			"bossRating": "3",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Villa_Map"
+		},
+		"Arsenal Map": {
+			"items": [
+				"Three Faces in the Dark",
+				"Abandoned Wealth",
+				"Jack in the Box",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Warlord",
+				"Rats",
+				"Two-Toned Boots",
+				"Two-Toned Boots",
+				"Lingering Remnants",
+				"The Saint's Treasure"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"The Steel Soul"
+			],
+			"bossRating": "2",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Arsenal_Map"
+		},
+		"Caldera Map": {
+			"items": [
+				"The Battle Born",
+				"The Gambler",
+				"The King's Heart",
+				"The Encroaching Darkness",
+				"Pride Before the Fall",
+				"The Lion",
+				"Lingering Remnants",
+				"The Mad King",
+				"Convoking Wand"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"The Infernal King"
+			],
+			"bossRating": "4",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Caldera_Map"
+		},
+		"Core Map": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Aesthete",
+				"The Surveyor",
+				"The Offering",
+				"The Oath",
+				"Lingering Remnants",
+				"Vile Power",
+				"Convoking Wand",
+				"Cerulean Ring"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"Eater of Souls",
+				"Prodigy of Pain",
+				"Prodigy of Hexes",
+				"Prodigy of Darkness"
+			],
+			"bossRating": "5",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Core_Map",
+			"layout": "Core Map uses the Belly tileset. Based on the The Harvest in Act 4."
+		},
+		"Chayula's Domain": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"Blessing of Chayula",
+				"Skin of the Loyal",
+				"Severed in Sleep",
+				"The Blue Dream",
+				"The Green Dream",
+				"The Red Dream"
+			],
+			"layoutRating": "N/A",
+			"bosses": [
+				"Chayula, Who Dreamt"
+			],
+			"bossRating": "5",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Chayula%27s_Domain"
+		},
+		"Desert Spring Map": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"Bone Helmet",
+				"Steel Ring",
+				"Lingering Remnants",
+				"Imperial Legacy"
+			],
+			"bosses": [
+				"Terror of the Infinite Drifts",
+				"Tamipin",
+				"Tamulus"
+			],
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Desert_Spring_Map"
+		},
+		"Ghetto Map": {
+			"items": [
+				"Jack in the Box",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Gentleman",
+				"Crystal Belt",
+				"Two-Toned Boots",
+				"Steel Ring",
+				"Lingering Remnants",
+				"The Saint's Treasure"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"Hephaeus, The Hammer"
+			],
+			"bossRating": "3",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Ghetto_Map"
+		},
+		"Malformation Map": {
+			"items": [
+				"The Hunger",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Surveyor",
+				"Marble Amulet",
+				"The Oath",
+				"Opal Ring",
+				"Lingering Remnants"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"Nightmare Manifest"
+			],
+			"bossRating": "4",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Malformation_Map"
+		},
+		"Park Map": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"Assassin's Favour",
+				"Blue Pearl Amulet",
+				"Lingering Remnants"
+			],
+			"bosses": [
+				"Suncaller Asha"
+			],
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Park_Map",
+			"encounter": "Suncaller Asha"
+		},
+		"Shrine Map": {
+			"items": [
+				"Vinia's Token",
+				"The Fiend",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Thaumaturgist",
+				"The Lunaris Priestess",
+				"Marble Amulet",
+				"Opal Ring",
+				"Lingering Remnants",
+				"The Army of Blood"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"Piety the Empyrean"
+			],
+			"bossRating": "4",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Shrine_Map",
+			"encounter": "Piety (End of act3)"
+		},
+		"Terrace Map": {
+			"items": [
+				"Emperor's Luck",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"Marble Amulet",
+				"Opal Ring",
+				"The Porcupine",
+				"Lingering Remnants",
+				"The Celestial Stone"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"Varhesh, Shimmering Aberration"
+			],
+			"bossRating": "4",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Terrace_Map"
+		},
+		"The Alluring Abyss": {
+			"items": [
+				"The Gambler",
+				"House of Mirrors",
+				"Alluring Bounty"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"Atziri, Queen of the Vaal",
+				"Q'ura",
+				"Y'ara'az",
+				"A'alai",
+				"Vessel of the Vaal",
+				"Vessel of the Vaal"
+			],
+			"bossRating": "5",
+			"bossCount": 6,
+			"url": "https://pathofexile.gamepedia.com/The_Alluring_Abyss"
+		},
+		"Acid Caverns Map": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Inoculated",
+				"Blue Pearl Amulet",
+				"Lingering Remnants",
+				"Vermillion Ring"
+			],
+			"layoutRating": "A",
+			"bosses": [
+				"Renegades",
+				"Warband"
+			],
+			"bossRating": "4",
+			"bossCount": 2,
+			"url": "https://pathofexile.gamepedia.com/Acid_Caverns_Map"
+		},
+		"Colosseum Map": {
+			"items": [
+				"The Gladiator",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Visionary",
+				"Bone Helmet",
+				"Steel Ring",
+				"Lingering Remnants",
+				"The Deceiver",
+				"The Sword King's Salute"
+			],
+			"layoutRating": "A",
+			"bosses": [
+				"Ambrius, Legion Slayer"
+			],
+			"bossRating": "5",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Colosseum_Map"
+		},
+		"Crimson Temple Map": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"Lingering Remnants",
+				"The Opulent",
+				"The Cacophony",
+				"Convoking Wand",
+				"Cerulean Ring"
+			],
+			"bosses": [
+				"The Sanguine Siren"
+			],
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Crimson_Temple_Map"
+		},
+		"Dark Forest Map": {
+			"items": [
+				"The Dragon",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"Bone Helmet",
+				"Steel Ring",
+				"Mawr Blaidd",
+				"The Wolven King's Bite",
+				"Lingering Remnants",
+				"The Mad King"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"The Cursed King"
+			],
+			"bossRating": "5",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Dark_Forest_Map"
+		},
+		"Dig Map": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"Gift of the Gemling Queen",
+				"Volatile Power",
+				"The Endurance",
+				"Marble Amulet",
+				"Opal Ring",
+				"Lingering Remnants",
+				"The Ruthless Ceinture",
+				"Buried Treasure"
+			],
+			"bosses": [
+				"Stalker of the Endless Dunes",
+				"The Vulture Queen"
+			],
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Dig_Map"
+		},
+		"Palace Map": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"Light and Truth",
+				"The Sephirot",
+				"Bone Helmet",
+				"Steel Ring",
+				"Lingering Remnants",
+				"The Opulent"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"God's Chosen",
+				"The Hallowed Husk"
+			],
+			"bossRating": "5",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Palace_Map"
+		},
+		"Plaza Map": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"Gripped Gloves",
+				"Spiked Gloves",
+				"The Porcupine",
+				"Boon of Justice"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"The Goddess"
+			],
+			"bossRating": "5",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Plaza_Map",
+			"encounter": "The Goddess, based on the Goddess of Justice that accompanies Izaro in The Lord's Labyrinths."
+		},
+		"Basilica Map": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"Blue Pearl Amulet",
+				"Lingering Remnants",
+				"The Opulent",
+				"The Undaunted",
+				"The Celestial Stone",
+				"The Innocent"
+			],
+			"bosses": [
+				"Konley, the Unrepentant",
+				"The Cleansing Light"
+			],
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Basilica_Map",
+			"encounter": "Konley, the Unrepentant, based on the High Templar Avarius from the Chamber of Innocence in Act 5. He transforms into The Cleansing Light for the second stage of the fight once Konley is killed. He has the same attacks as Avarius.",
+			"layout": "Layout is based upon The Chamber of Innocence. The layout is cross-shaped, but very wide. Arena entrance is to one of the sides of the cross."
+		},
+		"Carcass Map": {
+			"items": [
+				"The Hunger",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Surveyor",
+				"The Oath",
+				"Lingering Remnants",
+				"The Insatiable",
+				"Immortal Resolve",
+				"Convoking Wand",
+				"Cerulean Ring"
+			],
+			"bosses": [
+				"Amalgam of Nightmares"
+			],
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Carcass_Map",
+			"encounter": "The boss is the Amalgam of Nightmares, based on the Act 9 boss The Depraved Trinity.",
+			"layout": "The Tileset is based The Rotting Core in Act 9. The Layout is a linear path with two branches that connect in a circle, with a path in the middle splitting the map, with a few offshoots."
+		},
+		"Lava Lake Map": {
+			"items": [
+				"The Gambler",
+				"The Wrath",
+				"The Encroaching Darkness",
+				"Pride Before the Fall",
+				"Lingering Remnants",
+				"Convoking Wand",
+				"Cerulean Ring"
+			],
+			"layoutRating": "A",
+			"bosses": [
+				"Kitava, the Insatiable"
+			],
+			"bossRating": "5",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Lava_Lake_Map",
+			"layout": "The Tileset is based on The Karui Fortress in Act 6. The map is donut-shaped, with a giant lava lake in the middle. The boss arena is found from a jut of land that leads to a bridge over the lake."
+		},
+		"Reef Map": {
+			"items": [
+				"Lantador's Lost Love",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"Scholar of the Seas",
+				"The Formless Sea",
+				"Lingering Remnants",
+				"The Mad King",
+				"The Deep Ones",
+				"Convoking Wand"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"Nassar, Lion of the Seas"
+			],
+			"bossRating": "4",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Reef_Map"
+		},
+		"Sunken City Map": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Fox",
+				"Blue Pearl Amulet",
+				"Lingering Remnants",
+				"Arrogance of the Vaal",
+				"Vermillion Ring"
+			],
+			"bosses": [
+				"Armala, the Widow"
+			],
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Sunken_City_Map"
+		},
+		"Vaal Temple Map": {
+			"items": [
+				"The Gambler",
+				"The Inventor",
+				"The Encroaching Darkness",
+				"The Catalyst",
+				"Last Hope",
+				"Fingerless Silk Gloves",
+				"Vanguard Belt",
+				"Opal Ring",
+				"Three Voices",
+				"Beauty Through Death",
+				"The Damned"
+			],
+			"layoutRating": "C",
+			"bosses": [
+				"K'aj A'alai",
+				"K'aj Q'ura",
+				"K'aj Y'ara'az"
+			],
+			"bossRating": "5",
+			"bossCount": 3,
+			"url": "https://pathofexile.gamepedia.com/Vaal_Temple_Map"
+		},
+		"The Shaper's Realm": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"Voidwalker",
+				"Starforge",
+				"Dying Sun",
+				"Shaper's Touch",
+				"Solstice Vigil"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"The Shaper"
+			],
+			"bossRating": "5",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/The_Shaper%27s_Realm"
+		},
+		"Crater Map": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"Her Mask",
+				"The Soul",
+				"Fingerless Silk Gloves",
+				"Vanguard Belt",
+				"Opal Ring",
+				"The Standoff"
+			],
+			"bosses": [
+				"Megaera"
+			],
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Crater_Map",
+			"encounter": "Megaera based on Fire Fury."
+		}
+	}
+}

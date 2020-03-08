@@ -1,0 +1,73 @@
+@import "./styles/fonts";
+@import "./styles/theme";
+@import "./styles/scrollbar";
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+.clickable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.mat-snack-bar-container.snack-bar-service {
+  min-width: 0;
+  border-radius: 2px;
+  background-color: rgb(35, 35, 35);
+}
+
+.mat-slide-toggle {
+  margin-bottom: 12px;
+}
+
+.backdrop-fullsize + .cdk-global-overlay-wrapper {
+  .mat-dialog-container {
+    border-radius: 2px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .mat-dialog-content,
+  .mat-dialog-actions {
+    margin: 0;
+    padding: 0;
+  }
+
+  .mat-dialog-actions {
+    padding: 0 12px;
+  }
+}
+
+.backdrop-clear + .cdk-global-overlay-wrapper {
+  .mat-dialog-container {
+    box-shadow: none;
+    background: none;
+    border-radius: 0;
+    padding: 0;
+  }
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+mat-label {
+  display: block;
+}
+
+mat-card {
+  margin-bottom: 12px;
+
+  > mat-label {
+    margin-bottom: 12px;
+  }
+}
+
+.tooltip-val {
+  padding: 2px !important;
+}

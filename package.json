@@ -1,0 +1,101 @@
+{
+  "name": "poe-overlay",
+  "description": "A Overlay for Path of Exile. Built with Electron and Angular.",
+  "homepage": "https://github.com/Kyusung4698/PoE-Overlay",
+  "repository": {
+    "url": "https://github.com/Kyusung4698/PoE-Overlay"
+  },
+  "author": {
+    "name": "Kyusung4698"
+  },
+  "version": "0.5.22",
+  "scripts": {
+    "postinstall": "npm run ng:cc && npm run electron:deps",
+    "ng:cc": "ngcc --properties esm5 browser module main --first-only --create-ivy-entry-points",
+    "ng:serve": "ng serve",
+    "ng:test": "ng test",
+    "ng:lint": "ng lint --fix",
+    "start": "npm-run-all -p ng:serve electron:serve",
+    "build": "npm run electron:serve-tsc && ng build",
+    "build:dev": "npm run build",
+    "build:prod": "npm run build -- -c production",
+    "electron:serve-tsc": "tsc -p tsconfig.serve.json",
+    "electron:serve": "wait-on http-get://localhost:4200/ && npm run electron:serve-tsc && electron . --serve",
+    "electron:local": "npm run build:prod && electron .",
+    "electron:windows": "npm run build:prod && electron-builder build --windows",
+    "electron:linux": "electron-builder build --linux",
+    "electron:build": "npm run build:prod && electron-builder build --linux --windows",
+    "electron:version": "electron -v && electron -a",
+    "electron:deps": "electron-builder install-app-deps",
+    "electron:rebuild": "npm rebuild --runtime=electron --target=8.0.3 --disturl=https://atom.io/download/atom-shell --abi=76"
+  },
+  "main": "main.js",
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^9.0.5",
+    "@angular/cdk": "^9.1.0",
+    "@angular/common": "^9.0.5",
+    "@angular/compiler": "^9.0.5",
+    "@angular/core": "^9.0.5",
+    "@angular/forms": "^9.0.5",
+    "@angular/material": "^9.1.0",
+    "@angular/platform-browser": "^9.0.5",
+    "@angular/platform-browser-dynamic": "^9.0.5",
+    "@angular/router": "^9.0.5",
+    "@ngx-translate/core": "^12.1.2",
+    "@swimlane/ngx-charts": "^13.0.2",
+    "active-win": "git+https://github.com/Kyusung4698/active-win.git#f2292727f7e979d9fb5c6919e3742bf5d6140014",
+    "iohook": "^0.6.5",
+    "localforage": "^1.7.3",
+    "moment": "^2.24.0",
+    "robotjs": "git+https://github.com/Kyusung4698/robotjs.git#1069e3c20ef388275a71fe2fd7300b0d96af335e",
+    "rxjs": "~6.5.4",
+    "tslib": "^1.11.1",
+    "zone.js": "~0.10.2"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^0.900.4",
+    "@angular/cli": "^9.0.4",
+    "@angular/compiler-cli": "^9.0.5",
+    "@angular/language-service": "^9.0.5",
+    "@types/jasmine": "^3.5.7",
+    "@types/jasminewd2": "~2.0.3",
+    "@types/node": "^12.12.29",
+    "codelyzer": "^5.1.2",
+    "electron": "^8.0.3",
+    "electron-builder": "^22.3.6",
+    "electron-reload": "^1.5.0",
+    "jasmine-core": "~3.5.0",
+    "jasmine-spec-reporter": "~4.2.1",
+    "karma": "~4.4.1",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage-istanbul-reporter": "~2.1.1",
+    "karma-jasmine": "^3.1.1",
+    "karma-jasmine-html-reporter": "^1.5.2",
+    "npm-run-all": "^4.1.5",
+    "protractor": "^5.4.3",
+    "ts-node": "^8.6.2",
+    "tslint": "~6.0.0",
+    "typescript": "~3.7.5",
+    "wait-on": "^4.0.1"
+  },
+  "engines": {
+    "node": ">=10.9.0"
+  },
+  "browser": {
+    "fs": false
+  },
+  "iohook": {
+    "targets": [
+      "electron-76"
+    ],
+    "platforms": [
+      "win32",
+      "linux"
+    ],
+    "arches": [
+      "x64",
+      "ia32"
+    ]
+  }
+}

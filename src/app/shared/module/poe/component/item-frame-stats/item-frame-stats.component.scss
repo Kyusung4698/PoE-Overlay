@@ -1,0 +1,41 @@
+@import "./../../../../../../styles/variables";
+
+.purpel {
+  color: $purple;
+}
+
+.blue {
+  color: $blue;
+}
+
+::ng-deep {
+  app-item-frame-stats {
+    .cold {
+      .value,
+      .value.changed {
+        color: $aqua;
+      }
+    }
+
+    .lightning {
+      .value,
+      .value.changed {
+        color: $yellow;
+      }
+    }
+
+    .chaos {
+      .value,
+      .value.changed {
+        color: $pink;
+      }
+    }
+
+    .fire {
+      .value,
+      .value.changed {
+        color: $red;
+      }
+    }
+  }
+}

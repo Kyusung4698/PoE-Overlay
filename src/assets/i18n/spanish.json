@@ -1,0 +1,141 @@
+{
+	"bookmark": {
+		"add": "Añadir marcador",
+		"name": "Marcador",
+		"shortcut": "Atajo",
+		"url": "Url"
+	},
+	"clipboard": {
+		"empty": "El portapapeles estaba vacío. Asegúrate de que el juego esté enfocado.",
+		"error": "Se produjo un error al analizar el elemento.",
+		"parser-error": "El artículo no se pudo analizar. Asegúrese de tener seleccionado el idioma correcto."
+	},
+	"command": {
+		"add": "Agregar Comando",
+		"name": "Mando",
+		"shortcut": "Atajo"
+	},
+	"evaluate": {
+		"currency": "Moneda mostrada",
+		"days": "Los últimos 7 días",
+		"error": "Ocurrió un error.",
+		"loading": "Cargando...",
+		"name": "Evaluar",
+		"not-found": "Datos no encontrados.",
+		"result-view": "Vista de resultados",
+		"search": {
+			"default": "Configuración de búsqueda predeterminada",
+			"disable-max-range": "Deshabilitar rango máximo",
+			"filter": "Filtro de búsqueda",
+			"gem": "Nivel de gema, nivel de mapa y calidad",
+			"item-default-links": "Enlace de artículo",
+			"item-level": "Nivel de objeto",
+			"item-links": {
+				"always": "siempre",
+				"never": "Nunca"
+			},
+			"item-sockets": "Enchufes",
+			"item-type": "Tipo de artículo",
+			"max-age": {
+				"any": "EN CUALQUIER MOMENTO",
+				"day": "Hasta hace un día",
+				"days": "Hasta hace 3 días.",
+				"month": "Hasta 1 mes atrás",
+				"months": "Hasta hace 2 meses",
+				"title": "Listado de edad máxima",
+				"week": "Hasta hace una semana",
+				"weeks": "Hasta hace 2 semanas."
+			},
+			"modifier": "Configuración de búsqueda de modificador",
+			"modifier-range": "Rango Modificador",
+			"online-only": "Solo online"
+		},
+		"settings": "Evaluar configuraciones",
+		"stats": "Estadísticas",
+		"stats-export": "Exportar estadísticas al portapapeles",
+		"stats-import": "Importar estadísticas del portapapeles",
+		"switch": "cantidad de cambio",
+		"tag": {
+			"note": "Solo los artículos sin una nota existente se pueden etiquetar rápidamente. La nota se ha copiado en su lugar.",
+			"outside-stash": "Solo los artículos dentro del alijo se pueden etiquetar rápidamente. La nota se ha copiado en su lugar."
+		},
+		"translate": "Evaluar Traducir",
+		"translate-language": "Idioma del elemento traducido",
+		"translate-settings": "Evaluar la configuración de traducción"
+	},
+	"help": {
+		"browser": "Si mantiene presionada la tecla CTRL mientras hace clic, se abrirá el enlace en el navegador predeterminado.",
+		"browser-title": "¿Cómo abro la búsqueda en mi navegador predeterminado?",
+		"bug": "Crear un problema",
+		"bug-title": "Encontrado un error? ¿O tienes una sugerencia? Por favor crea un problema en GitHub",
+		"donate": "Done a través de PayPal",
+		"donate-title": "Me encanta el proyecto? Siéntase libre de dejar una donación. ¡Gracias por su apoyo!",
+		"dwm": "Esto es causado principalmente por un Aero / DWM deshabilitado. Por lo tanto, intente habilitar esta función de Windows.<br> Como se requiere para crear ventanas transparentes.",
+		"dwm-title": "¿Por qué mi pantalla se vuelve negra / blanca después de alternar alguna función?",
+		"faq": "Preguntas más frecuentes",
+		"graph": "La barra indica la distribución del valor del artículo. Básicamente agrupa los valores por valor y los cuenta.<br> La barra más alta es el Modo. También llamado 'valor más común'. La media es el promedio. La mediana es el valor centrado de todos los valores.",
+		"graph-title": "¿Qué representa el gráfico? ¿Qué es la moda / media / mediana?",
+		"graph-url": "Abra 'Cómo leer un histograma Min Max Median Mean' por 'academy.datawrapper.de'",
+		"graphic": "Esto se debe principalmente a controladores gráficos incompatibles para la versión actual de Chrome.<br> Ejecute 'run-without-gpu.bat' para iniciar la superposición sin soporte de gpu (aceleración de hardware).",
+		"graphic-title": "Los gráficos son borrosos / error gráfico?",
+		"name": "Ayuda",
+		"wiki": "Open Project Wiki",
+		"wiki-title": "Vea el wiki del proyecto para más documentación"
+	},
+	"map": {
+		"boss": "Jefe",
+		"boss-rating": "Calificación del jefe",
+		"bosses": "Jefes",
+		"info": "información",
+		"layout-rating": "Calificación de diseño",
+		"name": "Mapa",
+		"no-map": "El artículo no es un mapa.",
+		"not-found": "Mapa no encontrado",
+		"stats-warning": "Advertencias de estadísticas",
+		"stats-warning-export": "Exportar advertencias de estadísticas al portapapeles",
+		"stats-warning-import": "Importar advertencias de estadísticas desde el portapapeles"
+	},
+	"material": {
+		"accelerator": {
+			"any": "presiona cualquier tecla",
+			"unbound": "Sin consolidar"
+		},
+		"select-list": {
+			"add": "agregar a seleccionado",
+			"remove": "eliminar de seleccionado",
+			"selected": "Seleccionado",
+			"unselected": "No seleccionado"
+		}
+	},
+	"misc": {
+		"highlight": "Realce",
+		"name": "Misceláneos",
+		"navigation": "Navegación",
+		"open-poedb": "Abrir PoE DB",
+		"open-poedb-external": "Abrir PoE DB Externo",
+		"open-wiki": "Wiki abierto",
+		"open-wiki-external": "Abrir Wiki Externo",
+		"parser-error": "El portapapeles no se pudo analizar. Asegúrese de haber borrado (ESC) el resaltado anterior.",
+		"poedb": "PoE DB",
+		"stash": "RESERVA",
+		"wiki": "Wiki"
+	},
+	"settings": {
+		"cancel": "Cancelar",
+		"dialog-spawn-position": {
+			"center": "Centrar",
+			"cursor": "Cursor"
+		},
+		"dialog-spawn-position-title": "Posición de generación de diálogo",
+		"display-version": "Versión de pantalla",
+		"exit-app": "Salir de la aplicacion",
+		"game-settings": "Configuraciones de juego",
+		"general": "general",
+		"language": "idioma",
+		"league": "liga",
+		"open-settings": "Configuración abierta",
+		"relaunch-app": "Relanzar aplicación",
+		"save": "Salvar",
+		"zoom": "Enfocar"
+	}
+}

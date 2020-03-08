@@ -1,0 +1,25 @@
+<mat-card>
+  <mat-label>{{'misc.wiki' | translate}}</mat-label>
+  <app-accelerator [label]="'misc.open-wiki' | translate" [(value)]="settings.miscWikiKeybinding">
+  </app-accelerator>
+  <app-accelerator [label]="'misc.open-wiki-external' | translate" [(value)]="settings.miscWikiExternalKeybinding">
+  </app-accelerator>
+</mat-card>
+<mat-card>
+  <mat-label>{{'misc.poedb' | translate}}</mat-label>
+  <app-accelerator [label]="'misc.open-poedb' | translate" [(value)]="settings.miscPoedbKeybinding">
+  </app-accelerator>
+  <app-accelerator [label]="'misc.open-poedb-external' | translate" [(value)]="settings.miscPoedbExternalKeybinding">
+  </app-accelerator>
+</mat-card>
+<mat-card>
+  <mat-label>{{'misc.stash' | translate}}</mat-label>
+  <div class="toggle">
+    <mat-slide-toggle [checked]="settings.miscStashNavigation" (change)="settings.miscStashNavigation = $event.checked">
+      {{'misc.navigation' | translate}} (CTRL + SCROLL)
+    </mat-slide-toggle>
+    <mat-slide-toggle [checked]="settings.miscStashHighlight" (change)="settings.miscStashHighlight = $event.checked">
+      {{'misc.highlight' | translate}} (ALT + F)
+    </mat-slide-toggle>
+  </div>
+</mat-card>

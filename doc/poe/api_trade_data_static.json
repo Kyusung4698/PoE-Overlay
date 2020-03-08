@@ -1,0 +1,5600 @@
+{
+  "result": [
+    {
+      "id": "Currency",
+      "label": "Currency",
+      "entries": [
+        {
+          "id": "alt",
+          "text": "Orb of Alteration",
+          "image": "/image/Art/2DItems/Currency/CurrencyRerollMagic.png?v=6d9520174f6643e502da336e76b730d3"
+        },
+        {
+          "id": "fuse",
+          "text": "Orb of Fusing",
+          "image": "/image/Art/2DItems/Currency/CurrencyRerollSocketLinks.png?v=0ad7134a62e5c45e4f8bc8a44b95540f"
+        },
+        {
+          "id": "alch",
+          "text": "Orb of Alchemy",
+          "image": "/image/Art/2DItems/Currency/CurrencyUpgradeToRare.png?v=89c110be97333995522c7b2c29cae728"
+        },
+        {
+          "id": "chaos",
+          "text": "Chaos Orb",
+          "image": "/image/Art/2DItems/Currency/CurrencyRerollRare.png?v=c60aa876dd6bab31174df91b1da1b4f9"
+        },
+        {
+          "id": "gcp",
+          "text": "Gemcutter's Prism",
+          "image": "/image/Art/2DItems/Currency/CurrencyGemQuality.png?v=f11792b6dbd2f5f869351151bc3a4539"
+        },
+        {
+          "id": "exa",
+          "text": "Exalted Orb",
+          "image": "/image/Art/2DItems/Currency/CurrencyAddModToRare.png?v=1745ebafbd533b6f91bccf588ab5efc5"
+        },
+        {
+          "id": "chrom",
+          "text": "Chromatic Orb",
+          "image": "/image/Art/2DItems/Currency/CurrencyRerollSocketColours.png?v=9d377f2cf04a16a39aac7b14abc9d7c3"
+        },
+        {
+          "id": "jew",
+          "text": "Jeweller's Orb",
+          "image": "/image/Art/2DItems/Currency/CurrencyRerollSocketNumbers.png?v=2946b0825af70f796b8f15051d75164d"
+        },
+        {
+          "id": "engineers-orb",
+          "text": "Engineer's Orb",
+          "image": "/image/Art/2DItems/Currency/EngineersOrb.png?v=4b291fd7d6b9022a2d35b34c43c08e87"
+        },
+        {
+          "id": "chance",
+          "text": "Orb of Chance",
+          "image": "/image/Art/2DItems/Currency/CurrencyUpgradeRandomly.png?v=e4049939b9cd61291562f94364ee0f00"
+        },
+        {
+          "id": "chisel",
+          "text": "Cartographer's Chisel",
+          "image": "/image/Art/2DItems/Currency/CurrencyMapQuality.png?v=f46e0a1af7223e2d4cae52bc3f9f7a1f"
+        },
+        {
+          "id": "scour",
+          "text": "Orb of Scouring",
+          "image": "/image/Art/2DItems/Currency/CurrencyConvertToNormal.png?v=15e3ef97f04a39ae284359309697ef7d"
+        },
+        {
+          "id": "blessed",
+          "text": "Blessed Orb",
+          "image": "/image/Art/2DItems/Currency/CurrencyImplicitMod.png?v=472eeef04846d8a25d65b3d4f9ceecc8"
+        },
+        {
+          "id": "regret",
+          "text": "Orb of Regret",
+          "image": "/image/Art/2DItems/Currency/CurrencyPassiveSkillRefund.png?v=1de687952ce56385b74ac450f97fcc33"
+        },
+        {
+          "id": "regal",
+          "text": "Regal Orb",
+          "image": "/image/Art/2DItems/Currency/CurrencyUpgradeMagicToRare.png?v=1187a8511b47b35815bd75698de1fa2a"
+        },
+        {
+          "id": "divine",
+          "text": "Divine Orb",
+          "image": "/image/Art/2DItems/Currency/CurrencyModValues.png?v=0ad99d4a2b0356a60fa8194910d80f6b"
+        },
+        {
+          "id": "vaal",
+          "text": "Vaal Orb",
+          "image": "/image/Art/2DItems/Currency/CurrencyVaal.png?v=64114709d67069cd665f8f1a918cd12a"
+        },
+        {
+          "id": "orb-of-annulment",
+          "text": "Orb of Annulment",
+          "image": "/image/Art/2DItems/Currency/AnnullOrb.png?v=f9a0f8b21515c8abf517e9648cfc7455"
+        },
+        {
+          "id": "orb-of-binding",
+          "text": "Orb of Binding",
+          "image": "/image/Art/2DItems/Currency/BindingOrb.png?v=6ee0528156592a01c2931262d024f842"
+        },
+        {
+          "id": "ancient-orb",
+          "text": "Ancient Orb",
+          "image": "/image/Art/2DItems/Currency/AncientOrb.png?v=3edb14b53b9b05e176124814aba86f94"
+        },
+        {
+          "id": "orb-of-horizons",
+          "text": "Orb of Horizons",
+          "image": "/image/Art/2DItems/Currency/HorizonOrb.png?v=f3b3343dc61c60e667003bbdbbdb2374"
+        },
+        {
+          "id": "harbingers-orb",
+          "text": "Harbinger's Orb",
+          "image": "/image/Art/2DItems/Currency/HarbingerOrb.png?v=a61bf3add692a2fe74bb5f39213f4d93"
+        },
+        {
+          "id": "wis",
+          "text": "Scroll of Wisdom",
+          "image": "/image/Art/2DItems/Currency/CurrencyIdentification.png?v=1b9b38c45be95c59d8900f91b2afd58b"
+        },
+        {
+          "id": "port",
+          "text": "Portal Scroll",
+          "image": "/image/Art/2DItems/Currency/CurrencyPortal.png?v=728696ea10d4fb1e789039debc5d8c3c"
+        },
+        {
+          "id": "scr",
+          "text": "Armourer's Scrap",
+          "image": "/image/Art/2DItems/Currency/CurrencyArmourQuality.png?v=251e204e4ec325f75ce8ef75b2dfbeb8"
+        },
+        {
+          "id": "whe",
+          "text": "Blacksmith's Whetstone",
+          "image": "/image/Art/2DItems/Currency/CurrencyWeaponQuality.png?v=d2ce9167e23a74cef5d8465433e86482"
+        },
+        {
+          "id": "ba",
+          "text": "Glassblower's Bauble",
+          "image": "/image/Art/2DItems/Currency/CurrencyFlaskQuality.png?v=ca8bd0dd43d2adf8b021578a398eb9de"
+        },
+        {
+          "id": "tra",
+          "text": "Orb of Transmutation",
+          "image": "/image/Art/2DItems/Currency/CurrencyUpgradeToMagic.png?v=333b8b5e28b73c62972fc66e7634c5c8"
+        },
+        {
+          "id": "aug",
+          "text": "Orb of Augmentation",
+          "image": "/image/Art/2DItems/Currency/CurrencyAddModToMagic.png?v=97e63b85807f2419f4208482fd0b4859"
+        },
+        {
+          "id": "mir",
+          "text": "Mirror of Kalandra",
+          "image": "/image/Art/2DItems/Currency/CurrencyDuplicate.png?v=6fd68c1a5c4292c05b97770e83aa22bc"
+        },
+        {
+          "id": "ete",
+          "text": "Eternal Orb",
+          "image": "/image/Art/2DItems/Currency/CurrencyImprintOrb.png?v=0483ded9ac1f08c320fc21d5ddc208c0"
+        },
+        {
+          "id": "p",
+          "text": "Perandus Coin",
+          "image": "/image/Art/2DItems/Currency/CurrencyCoin.png?v=b971d7d9ea1ad32f16cce8ee99c897cf"
+        },
+        {
+          "id": "silver",
+          "text": "Silver Coin",
+          "image": "/image/Art/2DItems/Currency/SilverObol.png?v=93c1b204ec2736a2fe5aabbb99510bcf"
+        },
+        {
+          "id": "annulment-shard",
+          "text": "Annulment Shard",
+          "image": "/image/Art/2DItems/Currency/AnnullShard.png?v=502496c41d3da750bcecbb194d0aa3f4"
+        },
+        {
+          "id": "mirror-shard",
+          "text": "Mirror Shard",
+          "image": "/image/Art/2DItems/Currency/MirrorShard.png?v=b5b677eece4ae7e8450452e3944f121d"
+        },
+        {
+          "id": "exalted-shard",
+          "text": "Exalted Shard",
+          "image": "/image/Art/2DItems/Currency/ExaltedShard.png?v=4945fe24b79868be79870f8ad01f20b0"
+        },
+        {
+          "id": "binding-shard",
+          "text": "Binding Shard",
+          "image": "/image/Art/2DItems/Currency/BindingShard.png?v=b00f27dee8ad94d7f187133a09b872f9"
+        },
+        {
+          "id": "horizon-shard",
+          "text": "Horizon Shard",
+          "image": "/image/Art/2DItems/Currency/HorizonShard.png?v=6d0e5b4c1bbaeb06c8cd10c269ad8121"
+        },
+        {
+          "id": "harbingers-shard",
+          "text": "Harbinger's Shard",
+          "image": "/image/Art/2DItems/Currency/HarbingerShard.png?v=2274561da4960ca41bb6742952edc74d"
+        },
+        {
+          "id": "engineers-shard",
+          "text": "Engineer's Shard",
+          "image": "/image/Art/2DItems/Currency/EngineersShard.png?v=8b69b76b1f42120f72cf7febb76b6a7a"
+        },
+        {
+          "id": "ancient-shard",
+          "text": "Ancient Shard",
+          "image": "/image/Art/2DItems/Currency/AncientShard.png?v=e1eb08f64822576bd6d47029cd72d1a9"
+        },
+        {
+          "id": "chaos-shard",
+          "text": "Chaos Shard",
+          "image": "/image/Art/2DItems/Currency/ChaosShard.png?v=c206269aeda3a6a7b5a8ac110045afca"
+        },
+        {
+          "id": "regal-shard",
+          "text": "Regal Shard",
+          "image": "/image/Art/2DItems/Currency/RegalShard.png?v=e10a1590d421e4305d8a19ff8c4d9948"
+        },
+        {
+          "id": "apprentice-sextant",
+          "text": "Simple Sextant",
+          "image": "/image/Art/2DItems/Currency/AtlasRadiusTier1.png?v=7c21fc06120d910018893083227406df"
+        },
+        {
+          "id": "journeyman-sextant",
+          "text": "Prime Sextant",
+          "image": "/image/Art/2DItems/Currency/AtlasRadiusTier2.png?v=043e5f4d8c52af6b302e30afaffa5eba"
+        },
+        {
+          "id": "master-sextant",
+          "text": "Awakened Sextant",
+          "image": "/image/Art/2DItems/Currency/AtlasRadiusTier3.png?v=d69377f526ff51c408461b0cee4d4ade"
+        },
+        {
+          "id": "blessing-xoph",
+          "text": "Blessing of Xoph",
+          "image": "/image/Art/2DItems/Currency/Breach/BreachUpgraderFire.png?v=6c7efd3a8fc9150d4b293d5a5917fd04"
+        },
+        {
+          "id": "blessing-tul",
+          "text": "Blessing of Tul",
+          "image": "/image/Art/2DItems/Currency/Breach/BreachUpgraderCold.png?v=c25b6df9be1fd051d99616e4bb78066e"
+        },
+        {
+          "id": "blessing-esh",
+          "text": "Blessing of Esh",
+          "image": "/image/Art/2DItems/Currency/Breach/BreachUpgraderLightning.png?v=ed7bb0e73f5ca907ef62592e48d442dc"
+        },
+        {
+          "id": "blessing-uul-netol",
+          "text": "Blessing of Uul-Netol",
+          "image": "/image/Art/2DItems/Currency/Breach/BreachUpgraderPhysical.png?v=cf3d245db6b6bb796112a952d74543e0"
+        },
+        {
+          "id": "blessing-chayula",
+          "text": "Blessing of Chayula",
+          "image": "/image/Art/2DItems/Currency/Breach/BreachUpgraderChaos.png?v=841360bbd5f81619761a0d16f8c36793"
+        },
+        {
+          "id": "splinter-xoph",
+          "text": "Splinter of Xoph",
+          "image": "/image/Art/2DItems/Currency/Breach/BreachShardFire.png?v=4635e0847323cf1d62c8b4e8101351bf"
+        },
+        {
+          "id": "splinter-tul",
+          "text": "Splinter of Tul",
+          "image": "/image/Art/2DItems/Currency/Breach/BreachShardCold.png?v=4a7652d6ff5de2493d37768e993c9411"
+        },
+        {
+          "id": "splinter-esh",
+          "text": "Splinter of Esh",
+          "image": "/image/Art/2DItems/Currency/Breach/BreachShardLightning.png?v=11cd23560f7aa0dda27cc323fa97cb96"
+        },
+        {
+          "id": "splinter-uul",
+          "text": "Splinter of Uul-Netol",
+          "image": "/image/Art/2DItems/Currency/Breach/BreachShardPhysical.png?v=25f31f4a5e1ba4540cb7bfa03b82c1e8"
+        },
+        {
+          "id": "splinter-chayula",
+          "text": "Splinter of Chayula",
+          "image": "/image/Art/2DItems/Currency/Breach/BreachShardChaos.png?v=2c18cbe5384375bbe4643cd8b83ea32d"
+        },
+        {
+          "id": "timeless-karui-splinter",
+          "text": "Timeless Karui Splinter",
+          "image": "/image/Art/2DItems/Maps/KaruiShard.png?v=e3ab494b7e170292856cd88874110b61"
+        },
+        {
+          "id": "timeless-maraketh-splinter",
+          "text": "Timeless Maraketh Splinter",
+          "image": "/image/Art/2DItems/Maps/MarakethShard.png?v=e0b5a2a9dd104c9884025da7191cdb9e"
+        },
+        {
+          "id": "timeless-eternal-empire-splinter",
+          "text": "Timeless Eternal Empire Splinter",
+          "image": "/image/Art/2DItems/Maps/EternalEmpireShard.png?v=c39753adba56300b8c08f3066a79429c"
+        },
+        {
+          "id": "timeless-templar-splinter",
+          "text": "Timeless Templar Splinter",
+          "image": "/image/Art/2DItems/Maps/TemplarShard.png?v=82d3d517ed1caa15a3dfad5f3a0a8fff"
+        },
+        {
+          "id": "timeless-vaal-splinter",
+          "text": "Timeless Vaal Splinter",
+          "image": "/image/Art/2DItems/Maps/VaalShard.png?v=0a4bddb57e7c348f72bfffd3434f0e6b"
+        },
+        {
+          "id": "stacked-deck",
+          "text": "Stacked Deck",
+          "image": "/image/Art/2DItems/Divination/Deck.png?v=0e5e6da39f79fc57f3d38d463126617a"
+        }
+      ]
+    },
+    {
+      "id": "Fragments",
+      "label": "Fragments & Sets",
+      "entries": [
+        {
+          "id": "dusk",
+          "text": "Sacrifice at Dusk",
+          "image": "/image/Art/2DItems/Maps/Vaal04.png?v=72207b7e72a4ed4fafd3e72f7b0b2a93"
+        },
+        {
+          "id": "mid",
+          "text": "Sacrifice at Midnight",
+          "image": "/image/Art/2DItems/Maps/Vaal01.png?v=3b21ce0cd4c0b9e8cf5db6257daf831a"
+        },
+        {
+          "id": "dawn",
+          "text": "Sacrifice at Dawn",
+          "image": "/image/Art/2DItems/Maps/Vaal02.png?v=3ead6455599ec6c303f54ba98d6f8eb2"
+        },
+        {
+          "id": "noon",
+          "text": "Sacrifice at Noon",
+          "image": "/image/Art/2DItems/Maps/Vaal03.png?v=ba374d543316349b87de121039c3cc6f"
+        },
+        {
+          "id": "grie",
+          "text": "Mortal Grief",
+          "image": "/image/Art/2DItems/Maps/UberVaal04.png?v=735839ceae0fc45d15ec69555e931413"
+        },
+        {
+          "id": "rage",
+          "text": "Mortal Rage",
+          "image": "/image/Art/2DItems/Maps/UberVaal01.png?v=9336df5d7d0befd5963b71e7a68479ce"
+        },
+        {
+          "id": "hope",
+          "text": "Mortal Hope",
+          "image": "/image/Art/2DItems/Maps/UberVaal02.png?v=db5b529a8425bd2b9fd7bee9fca2e018"
+        },
+        {
+          "id": "ign",
+          "text": "Mortal Ignorance",
+          "image": "/image/Art/2DItems/Maps/UberVaal03.png?v=9fb218dad337a4627a59f74bfa2d6c86"
+        },
+        {
+          "id": "eber",
+          "text": "Eber's Key",
+          "image": "/image/Art/2DItems/Maps/PaleCourt01.png?v=044cbdae1e06e621585eaa627c2162db"
+        },
+        {
+          "id": "yriel",
+          "text": "Yriel's Key",
+          "image": "/image/Art/2DItems/Maps/PaleCourt02.png?v=757829336b7239c4b1e398c203f0cca0"
+        },
+        {
+          "id": "inya",
+          "text": "Inya's Key",
+          "image": "/image/Art/2DItems/Maps/PaleCourt03.png?v=6e43b636847d46b560ef0518869a7294"
+        },
+        {
+          "id": "volkuur",
+          "text": "Volkuur's Key",
+          "image": "/image/Art/2DItems/Maps/PaleCourt04.png?v=5c3afc6bad631a50f9fe5ccb570aeb36"
+        },
+        {
+          "id": "hydra",
+          "text": "Fragment of the Hydra",
+          "image": "/image/Art/2DItems/Maps/AtlasMaps/FragmentHydra.png?v=fd37e4be7672c0db8b549a1b16ad489d"
+        },
+        {
+          "id": "phoenix",
+          "text": "Fragment of the Phoenix",
+          "image": "/image/Art/2DItems/Maps/AtlasMaps/FragmentPhoenix.png?v=8f76720ab06bb40a6d6f75730f92e4a7"
+        },
+        {
+          "id": "minot",
+          "text": "Fragment of the Minotaur",
+          "image": "/image/Art/2DItems/Maps/AtlasMaps/FragmentMinotaur.png?v=e0e3f5e7daf32736d63fc3df1ba98122"
+        },
+        {
+          "id": "chimer",
+          "text": "Fragment of the Chimera",
+          "image": "/image/Art/2DItems/Maps/AtlasMaps/FragmentChimera.png?v=15bd6ba80e1853c22ae3acf40abf6428"
+        },
+        {
+          "id": "fragment-of-enslavement",
+          "text": "Fragment of Enslavement",
+          "image": "/image/Art/2DItems/Maps/AtlasMapGuardianFire.png?v=e5e1e33936ce8035aed76e3ca12b9b4f"
+        },
+        {
+          "id": "fragment-of-eradication",
+          "text": "Fragment of Eradication",
+          "image": "/image/Art/2DItems/Maps/AtlasMapGuardianLightning.png?v=90d792a619252cc02b8f974893811531"
+        },
+        {
+          "id": "fragment-of-constriction",
+          "text": "Fragment of Constriction",
+          "image": "/image/Art/2DItems/Maps/AtlasMapGuardianHoly.png?v=ebb9b06c3456603cc78e88b797049dda"
+        },
+        {
+          "id": "fragment-of-purification",
+          "text": "Fragment of Purification",
+          "image": "/image/Art/2DItems/Maps/AtlasMapGuardianChaos.png?v=e131ac9d26855fcbd7eb44deee8a9ef1"
+        },
+        {
+          "id": "fragment-of-terror",
+          "text": "Fragment of Terror",
+          "image": "/image/Art/2DItems/Maps/UberElder01.png?v=c1662a983a1667f02de44c05a7cced8d"
+        },
+        {
+          "id": "fragment-of-emptiness",
+          "text": "Fragment of Emptiness",
+          "image": "/image/Art/2DItems/Maps/UberElder02.png?v=2ea163da8372085ec19b7b616f0fae21"
+        },
+        {
+          "id": "fragment-of-shape",
+          "text": "Fragment of Shape",
+          "image": "/image/Art/2DItems/Maps/UberElder03.png?v=5b48237528d294f7e5028a602499ce52"
+        },
+        {
+          "id": "fragment-of-knowledge",
+          "text": "Fragment of Knowledge",
+          "image": "/image/Art/2DItems/Maps/UberElder04.png?v=92479aa9a27516e897bbd3171515b2ca"
+        },
+        {
+          "id": "sacrifice-set",
+          "text": "Sacrifice Set",
+          "image": "/image/Art/2DItems/Maps/VaalComplete.png?v=220c72c1470274a14f24b3c77e2272fd"
+        },
+        {
+          "id": "mortal-set",
+          "text": "Mortal Set",
+          "image": "/image/Art/2DItems/Maps/UberVaalComplete.png?v=abcf6327fdc6ff5a740ad8203fe2b9e7"
+        },
+        {
+          "id": "pale-court-set",
+          "text": "Pale Court Set",
+          "image": "/image/Art/2DItems/Maps/PaleCourtComplete.png?v=becaec4bfa49e2c8c6512557e7c20de5"
+        },
+        {
+          "id": "shaper-set",
+          "text": "Key to the Crucible",
+          "image": "/image/Art/2DItems/Maps/ShaperComplete.png?v=1d7beb22351d0872d188d6682d694222"
+        },
+        {
+          "id": "key-to-decay",
+          "text": "Key to Decay",
+          "image": "/image/Art/2DItems/Maps/ElderComplete.png?v=31f15520f32a048ac2b71591aa77f2c2"
+        },
+        {
+          "id": "maddening-object",
+          "text": "Maddening Object",
+          "image": "/image/Art/2DItems/Maps/UberElderComplete.png?v=36847d1a69e777ebbff81b571555e1bb"
+        },
+        {
+          "id": "xophs-breachstone",
+          "text": "Xoph's Breachstone",
+          "image": "/image/Art/2DItems/Currency/Breach/BreachFragmentsFire.png?v=f9c679d9bd76b1b6c40f2a352b8bbea5"
+        },
+        {
+          "id": "tuls-breachstone",
+          "text": "Tul's Breachstone",
+          "image": "/image/Art/2DItems/Currency/Breach/BreachFragmentsCold.png?v=8698bfa03dcc9fca7fdde5c763839bd0"
+        },
+        {
+          "id": "eshs-breachstone",
+          "text": "Esh's Breachstone",
+          "image": "/image/Art/2DItems/Currency/Breach/BreachFragmentsLightning.png?v=01c1ec0220d90a59ebdbb1847a915710"
+        },
+        {
+          "id": "uul-breachstone",
+          "text": "Uul-Netol's Breachstone",
+          "image": "/image/Art/2DItems/Currency/Breach/BreachFragmentsPhysical.png?v=d3df204b32e1891bb1f6fb0d2376480d"
+        },
+        {
+          "id": "chayulas-breachstone",
+          "text": "Chayula's Breachstone",
+          "image": "/image/Art/2DItems/Currency/Breach/BreachFragmentsChaos.png?v=fabeba4157753d08666137bb482ce18c"
+        },
+        {
+          "id": "xophs-charged-breachstone",
+          "text": "Xoph's Charged Breachstone",
+          "image": "/image/Art/2DItems/Currency/Breach/BreachFragmentsFire.png?v=f9c679d9bd76b1b6c40f2a352b8bbea5"
+        },
+        {
+          "id": "tuls-charged-breachstone",
+          "text": "Tul's Charged Breachstone",
+          "image": "/image/Art/2DItems/Currency/Breach/BreachFragmentsCold.png?v=8698bfa03dcc9fca7fdde5c763839bd0"
+        },
+        {
+          "id": "eshs-charged-breachstone",
+          "text": "Esh's Charged Breachstone",
+          "image": "/image/Art/2DItems/Currency/Breach/BreachFragmentsLightning.png?v=01c1ec0220d90a59ebdbb1847a915710"
+        },
+        {
+          "id": "uul-charged-breachstone",
+          "text": "Uul-Netol's Charged Breachstone",
+          "image": "/image/Art/2DItems/Currency/Breach/BreachFragmentsPhysical.png?v=d3df204b32e1891bb1f6fb0d2376480d"
+        },
+        {
+          "id": "chayulas-charged-breachstone",
+          "text": "Chayula's Charged Breachstone",
+          "image": "/image/Art/2DItems/Currency/Breach/BreachFragmentsChaos.png?v=fabeba4157753d08666137bb482ce18c"
+        },
+        {
+          "id": "xophs-enriched-breachstone",
+          "text": "Xoph's Enriched Breachstone",
+          "image": "/image/Art/2DItems/Currency/Breach/BreachFragmentsFire.png?v=f9c679d9bd76b1b6c40f2a352b8bbea5"
+        },
+        {
+          "id": "tuls-enriched-breachstone",
+          "text": "Tul's Enriched Breachstone",
+          "image": "/image/Art/2DItems/Currency/Breach/BreachFragmentsCold.png?v=8698bfa03dcc9fca7fdde5c763839bd0"
+        },
+        {
+          "id": "eshs-enriched-breachstone",
+          "text": "Esh's Enriched Breachstone",
+          "image": "/image/Art/2DItems/Currency/Breach/BreachFragmentsLightning.png?v=01c1ec0220d90a59ebdbb1847a915710"
+        },
+        {
+          "id": "uul-enriched-breachstone",
+          "text": "Uul-Netol's Enriched Breachstone",
+          "image": "/image/Art/2DItems/Currency/Breach/BreachFragmentsPhysical.png?v=d3df204b32e1891bb1f6fb0d2376480d"
+        },
+        {
+          "id": "chayulas-enriched-breachstone",
+          "text": "Chayula's Enriched Breachstone",
+          "image": "/image/Art/2DItems/Currency/Breach/BreachFragmentsChaos.png?v=fabeba4157753d08666137bb482ce18c"
+        },
+        {
+          "id": "xophs-pure-breachstone",
+          "text": "Xoph's Pure Breachstone",
+          "image": "/image/Art/2DItems/Currency/Breach/BreachFragmentsFire.png?v=f9c679d9bd76b1b6c40f2a352b8bbea5"
+        },
+        {
+          "id": "tuls-pure-breachstone",
+          "text": "Tul's Pure Breachstone",
+          "image": "/image/Art/2DItems/Currency/Breach/BreachFragmentsCold.png?v=8698bfa03dcc9fca7fdde5c763839bd0"
+        },
+        {
+          "id": "eshs-pure-breachstone",
+          "text": "Esh's Pure Breachstone",
+          "image": "/image/Art/2DItems/Currency/Breach/BreachFragmentsLightning.png?v=01c1ec0220d90a59ebdbb1847a915710"
+        },
+        {
+          "id": "uul-pure-breachstone",
+          "text": "Uul-Netol's Pure Breachstone",
+          "image": "/image/Art/2DItems/Currency/Breach/BreachFragmentsPhysical.png?v=d3df204b32e1891bb1f6fb0d2376480d"
+        },
+        {
+          "id": "chayulas-pure-breachstone",
+          "text": "Chayula's Pure Breachstone",
+          "image": "/image/Art/2DItems/Currency/Breach/BreachFragmentsChaos.png?v=fabeba4157753d08666137bb482ce18c"
+        },
+        {
+          "id": "timeless-karui-emblem",
+          "text": "Timeless Karui Emblem",
+          "image": "/image/Art/2DItems/Maps/KaruiFragment.png?v=f7bfe0a32b0c064acb8255b457c40535"
+        },
+        {
+          "id": "timeless-maraketh-emblem",
+          "text": "Timeless Maraketh Emblem",
+          "image": "/image/Art/2DItems/Maps/MarakethFragment.png?v=0b1e038b90b3f899ce3dca06c89cf028"
+        },
+        {
+          "id": "timeless-eternal-emblem",
+          "text": "Timeless Eternal Emblem",
+          "image": "/image/Art/2DItems/Maps/EternalEmpireFragment.png?v=30c2c9438da81c410cee1f8163557706"
+        },
+        {
+          "id": "timeless-templar-emblem",
+          "text": "Timeless Templar Emblem",
+          "image": "/image/Art/2DItems/Maps/TemplarFragment.png?v=b6527abf80550dc661af223ca1cc4767"
+        },
+        {
+          "id": "timeless-vaal-emblem",
+          "text": "Timeless Vaal Emblem",
+          "image": "/image/Art/2DItems/Maps/VaalFragment.png?v=9c8f41e2642fbe1cac2e5ed801330f0f"
+        },
+        {
+          "id": "offer",
+          "text": "Offering to the Goddess",
+          "image": "/image/Art/2DItems/Maps/Labyrinth.png?v=ef005aef5d2f9135d6922f4b1b912f78"
+        },
+        {
+          "id": "ancient-reliquary-key",
+          "text": "Ancient Reliquary Key",
+          "image": "/image/Art/2DItems/Maps/VaultMap.png?v=cb50511b7087323b10a19559bfb2be29"
+        },
+        {
+          "id": "timeworn-reliquary-key",
+          "text": "Timeworn Reliquary Key",
+          "image": "/image/Art/2DItems/Maps/VaultMap3.png?v=0cf8994b036acc924498581e13141723"
+        },
+        {
+          "id": "divine-vessel",
+          "text": "Divine Vessel",
+          "image": "/image/Art/2DItems/Maps/SinFlaskEmpty.png?v=2c2d035c29cb4e4dc4cd9e803a5ae657"
+        }
+      ]
+    },
+    {
+      "id": "Catalysts",
+      "label": "Catalysts",
+      "entries": [
+        {
+          "id": "turbulent-catalyst",
+          "text": "Turbulent Catalyst",
+          "image": "/image/Art/2DItems/Currency/Catalysts/TurbulentCatalyst.png?v=cf5766c8b9aa79b81858aee847aa172b"
+        },
+        {
+          "id": "imbued-catalyst",
+          "text": "Imbued Catalyst",
+          "image": "/image/Art/2DItems/Currency/Catalysts/ImbuedCatalyst.png?v=4b98b438f960f85e4bb642d2dd9a6224"
+        },
+        {
+          "id": "abrasive-catalyst",
+          "text": "Abrasive Catalyst",
+          "image": "/image/Art/2DItems/Currency/Catalysts/AbrasiveCatalyst.png?v=e12c9b02facdd68687afc0fd32e5caca"
+        },
+        {
+          "id": "tempering-catalyst",
+          "text": "Tempering Catalyst",
+          "image": "/image/Art/2DItems/Currency/Catalysts/TemperingCatalyst.png?v=a1d7b9ff50e76c3916d2e11ef1eeac63"
+        },
+        {
+          "id": "fertile-catalyst",
+          "text": "Fertile Catalyst",
+          "image": "/image/Art/2DItems/Currency/Catalysts/FertileCatalyst.png?v=d7f88f489c3a7056f93f28f7b382a881"
+        },
+        {
+          "id": "prismatic-catalyst",
+          "text": "Prismatic Catalyst",
+          "image": "/image/Art/2DItems/Currency/Catalysts/PrismaticCatalyst.png?v=57abcb3af1f7721edfd445a654f4d9d5"
+        },
+        {
+          "id": "intrinsic-catalyst",
+          "text": "Intrinsic Catalyst",
+          "image": "/image/Art/2DItems/Currency/Catalysts/IntrinsicCatalyst.png?v=a7806ab74cce23e960fe209ee2e44297"
+        }
+      ]
+    },
+    {
+      "id": "Oils",
+      "label": "Oils",
+      "entries": [
+        {
+          "id": "clear-oil",
+          "text": "Clear Oil",
+          "image": "/image/Art/2DItems/Currency/Oils/ClearOil.png?v=7e94917a8ab308cd44507d432f6427e0"
+        },
+        {
+          "id": "sepia-oil",
+          "text": "Sepia Oil",
+          "image": "/image/Art/2DItems/Currency/Oils/SepiaOil.png?v=f3183599d3c2c74ac600ec1a5bd0fc9b"
+        },
+        {
+          "id": "amber-oil",
+          "text": "Amber Oil",
+          "image": "/image/Art/2DItems/Currency/Oils/AmberOil.png?v=bb68a14adbd47ebf3cd4f3e2d1c00d86"
+        },
+        {
+          "id": "verdant-oil",
+          "text": "Verdant Oil",
+          "image": "/image/Art/2DItems/Currency/Oils/VerdantOil.png?v=ab946f4f41529e1c8345fe4eabf9e7d7"
+        },
+        {
+          "id": "teal-oil",
+          "text": "Teal Oil",
+          "image": "/image/Art/2DItems/Currency/Oils/TealOil.png?v=e643cc6cf11fb035f07319933b6462fa"
+        },
+        {
+          "id": "azure-oil",
+          "text": "Azure Oil",
+          "image": "/image/Art/2DItems/Currency/Oils/AzureOil.png?v=66a6ac68a7e98e558585deed1ea72fcc"
+        },
+        {
+          "id": "violet-oil",
+          "text": "Violet Oil",
+          "image": "/image/Art/2DItems/Currency/Oils/VioletOil.png?v=97c565b4873349cd094e87ecf89dfbb3"
+        },
+        {
+          "id": "crimson-oil",
+          "text": "Crimson Oil",
+          "image": "/image/Art/2DItems/Currency/Oils/CrimsonOil.png?v=7a9b8849c48523a671a3e10a7e75b3c9"
+        },
+        {
+          "id": "black-oil",
+          "text": "Black Oil",
+          "image": "/image/Art/2DItems/Currency/Oils/BlackOil.png?v=1546a2c090924f9ce55ec5661b985f64"
+        },
+        {
+          "id": "opalescent-oil",
+          "text": "Opalescent Oil",
+          "image": "/image/Art/2DItems/Currency/Oils/OpalescentOil.png?v=4805751b2930db1dd3af0ac01a243d4a"
+        },
+        {
+          "id": "silver-oil",
+          "text": "Silver Oil",
+          "image": "/image/Art/2DItems/Currency/Oils/SilverOil.png?v=37b466d27aad3d06b0fd97ee42322bcc"
+        },
+        {
+          "id": "golden-oil",
+          "text": "Golden Oil",
+          "image": "/image/Art/2DItems/Currency/Oils/GoldenOil.png?v=7640c249d21dbddf0425727a2ff9b4cf"
+        }
+      ]
+    },
+    {
+      "id": "Incubators",
+      "label": "Incubators",
+      "entries": [
+        {
+          "id": "whispering-incubator",
+          "text": "Whispering Incubator",
+          "image": "/image/Art/2DItems/Currency/Incubation/IncubationEssence.png?v=b51f80e95d1890669860ae60392c307e"
+        },
+        {
+          "id": "fine-incubator",
+          "text": "Fine Incubator",
+          "image": "/image/Art/2DItems/Currency/Incubation/IncubationCurrency.png?v=3c803cb3cd9889cbdf52ff2e09373a6f"
+        },
+        {
+          "id": "singular-incubator",
+          "text": "Singular Incubator",
+          "image": "/image/Art/2DItems/Currency/Incubation/IncubationUniques.png?v=5cb9c213e8dcb8350fa319ba2999a49f"
+        },
+        {
+          "id": "cartographers-incubator",
+          "text": "Cartographer's Incubator",
+          "image": "/image/Art/2DItems/Currency/Incubation/IncubationMaps.png?v=cbfaba73b3e563aa1b9cb19efca107ad"
+        },
+        {
+          "id": "otherworldly-incubator",
+          "text": "Otherworldly Incubator",
+          "image": "/image/Art/2DItems/Currency/Incubation/IncubationMaps.png?v=cbfaba73b3e563aa1b9cb19efca107ad"
+        },
+        {
+          "id": "abyssal-incubator",
+          "text": "Abyssal Incubator",
+          "image": "/image/Art/2DItems/Currency/Incubation/IncubationAbyss.png?v=2addb0e5c56bb5d9ebf2d08760b6100c"
+        },
+        {
+          "id": "fragmented-incubator",
+          "text": "Fragmented Incubator",
+          "image": "/image/Art/2DItems/Currency/Incubation/IncubationFragments.png?v=1ae56ed16deb7b2f4371970f84b3169f"
+        },
+        {
+          "id": "skittering-incubator",
+          "text": "Skittering Incubator",
+          "image": "/image/Art/2DItems/Currency/Incubation/IncubationScarabs.png?v=7cb233a7fa5bd047460e6c7d8c734161"
+        },
+        {
+          "id": "infused-incubator",
+          "text": "Infused Incubator",
+          "image": "/image/Art/2DItems/Currency/Incubation/IncubationEssence.png?v=b51f80e95d1890669860ae60392c307e"
+        },
+        {
+          "id": "fossilised-incubator",
+          "text": "Fossilised Incubator",
+          "image": "/image/Art/2DItems/Currency/Incubation/IncubationFossils.png?v=ce7fdc617423efd7cdd62fb79224712c"
+        },
+        {
+          "id": "decadent-incubator",
+          "text": "Decadent Incubator",
+          "image": "/image/Art/2DItems/Currency/Incubation/IncubationPerandus.png?v=79ae67522e91675e609e4da51763221d"
+        },
+        {
+          "id": "diviners-incubator",
+          "text": "Diviner's Incubator",
+          "image": "/image/Art/2DItems/Currency/Incubation/IncubationDivinationCards.png?v=09245016a1241fbf45da0847be059360"
+        },
+        {
+          "id": "primal-incubator",
+          "text": "Primal Incubator",
+          "image": "/image/Art/2DItems/Currency/Incubation/IncubationTalismans.png?v=345e913685b86abafb50b4089955bf9e"
+        },
+        {
+          "id": "enchanted-incubator",
+          "text": "Enchanted Incubator",
+          "image": "/image/Art/2DItems/Currency/Incubation/IncubationLabyrinth.png?v=d78e32bd7d589f5151934ca46fa1bec9"
+        },
+        {
+          "id": "geomancers-incubator",
+          "text": "Geomancer's Incubator",
+          "image": "/image/Art/2DItems/Currency/Incubation/IncubationArmour.png?v=93173d8896e47e277a7fe1d4cff49987"
+        },
+        {
+          "id": "ornate-incubator",
+          "text": "Ornate Incubator",
+          "image": "/image/Art/2DItems/Currency/Incubation/IncubationCurrency.png?v=3c803cb3cd9889cbdf52ff2e09373a6f"
+        },
+        {
+          "id": "time-lost-incubator",
+          "text": "Time-Lost Incubator",
+          "image": "/image/Art/2DItems/Currency/Incubation/IncubationUniques.png?v=5cb9c213e8dcb8350fa319ba2999a49f"
+        },
+        {
+          "id": "celestial-armoursmiths-incubator",
+          "text": "Celestial Armoursmith's Incubator",
+          "image": "/image/Art/2DItems/Currency/Incubation/IncubationArmour.png?v=93173d8896e47e277a7fe1d4cff49987"
+        },
+        {
+          "id": "celestial-blacksmiths-incubator",
+          "text": "Celestial Blacksmith's Incubator",
+          "image": "/image/Art/2DItems/Currency/Incubation/IncubationWeapons.png?v=8de81fc8cc2da69ba05ad4637b275673"
+        },
+        {
+          "id": "celestial-jewellers-incubator",
+          "text": "Celestial Jeweller's Incubator",
+          "image": "/image/Art/2DItems/Currency/Incubation/IncubationTrinkets.png?v=83f261d76ea0802f642a59a6b372d6b5"
+        },
+        {
+          "id": "eldritch-incubator",
+          "text": "Eldritch Incubator",
+          "image": "/image/Art/2DItems/Currency/Incubation/IncubationMaps.png?v=cbfaba73b3e563aa1b9cb19efca107ad"
+        },
+        {
+          "id": "obscured-incubator",
+          "text": "Obscured Incubator",
+          "image": "/image/Art/2DItems/Currency/Incubation/IncubationBreach.png?v=c4e4d0a070c0e7d19daad939d8d898af"
+        },
+        {
+          "id": "foreboding-incubator",
+          "text": "Foreboding Incubator",
+          "image": "/image/Art/2DItems/Currency/Incubation/IncubationHarbinger.png?v=3e5fccda35b615db5e764323ea1b6ed9"
+        },
+        {
+          "id": "thaumaturges-incubator",
+          "text": "Thaumaturge's Incubator",
+          "image": "/image/Art/2DItems/Currency/Incubation/IncubationGems.png?v=a07cbba07d03ff1991b68af5a4cf8d67"
+        },
+        {
+          "id": "mysterious-incubator",
+          "text": "Mysterious Incubator",
+          "image": "/image/Art/2DItems/Currency/Incubation/IncubationGeneric.png?v=9b3fda915aaa6795e8ed0998f0f4cbb8"
+        },
+        {
+          "id": "gemcutters-incubator",
+          "text": "Gemcutter's Incubator",
+          "image": "/image/Art/2DItems/Currency/Incubation/IncubationGems.png?v=a07cbba07d03ff1991b68af5a4cf8d67"
+        },
+        {
+          "id": "feral-incubator",
+          "text": "Feral Incubator",
+          "image": "/image/Art/2DItems/Currency/Incubation/IncubationBestiary.png?v=2a8912b64a89ee6c4d02e0e91387571d"
+        }
+      ]
+    },
+    {
+      "id": "Scarabs",
+      "label": "Scarabs",
+      "entries": [
+        {
+          "id": "rusted-breach-scarab",
+          "text": "Rusted Breach Scarab",
+          "image": "/image/Art/2DItems/Currency/Scarabs/LesserScarabBreach.png?v=602060cab574718c45fd3026b2c059c3"
+        },
+        {
+          "id": "polished-breach-scarab",
+          "text": "Polished Breach Scarab",
+          "image": "/image/Art/2DItems/Currency/Scarabs/NormalScarabBreach.png?v=16863ac16af551ed800fa73b404260b9"
+        },
+        {
+          "id": "gilded-breach-scarab",
+          "text": "Gilded Breach Scarab",
+          "image": "/image/Art/2DItems/Currency/Scarabs/GreaterScarabBreach.png?v=36271e487e3fb62e8973316b0852c9a2"
+        },
+        {
+          "id": "rusted-cartography-scarab",
+          "text": "Rusted Cartography Scarab",
+          "image": "/image/Art/2DItems/Currency/Scarabs/LesserScarabMaps.png?v=b6c0a93d76cb566ec0a801600a9ea91f"
+        },
+        {
+          "id": "polished-cartography-scarab",
+          "text": "Polished Cartography Scarab",
+          "image": "/image/Art/2DItems/Currency/Scarabs/NormalScarabMaps.png?v=9032bb5d90453c1180290155f5da4842"
+        },
+        {
+          "id": "gilded-cartography-scarab",
+          "text": "Gilded Cartography Scarab",
+          "image": "/image/Art/2DItems/Currency/Scarabs/GreaterScarabMaps.png?v=0c0d59dc2006070c008094bae103cc90"
+        },
+        {
+          "id": "rusted-reliquary-scarab",
+          "text": "Rusted Reliquary Scarab",
+          "image": "/image/Art/2DItems/Currency/Scarabs/LesserScarabUnique.png?v=26b0df6c7000438a2a4268d4fee29f67"
+        },
+        {
+          "id": "polished-reliquary-scarab",
+          "text": "Polished Reliquary Scarab",
+          "image": "/image/Art/2DItems/Currency/Scarabs/NormalScarabUnique.png?v=6c12510fc6b502f1c44147d77dd994c1"
+        },
+        {
+          "id": "gilded-reliquary-scarab",
+          "text": "Gilded Reliquary Scarab",
+          "image": "/image/Art/2DItems/Currency/Scarabs/GreaterScarabUnique.png?v=e4cb1725775c324152bc4820661b2277"
+        },
+        {
+          "id": "rusted-bestiary-scarab",
+          "text": "Rusted Bestiary Scarab",
+          "image": "/image/Art/2DItems/Currency/Scarabs/LesserScarabBeasts.png?v=ddb914ed1c2b799263e2e12f73d8f8fc"
+        },
+        {
+          "id": "polished-bestiary-scarab",
+          "text": "Polished Bestiary Scarab",
+          "image": "/image/Art/2DItems/Currency/Scarabs/NormalScarabBeasts.png?v=3804844af213d8f5dad123f07f33d518"
+        },
+        {
+          "id": "gilded-bestiary-scarab",
+          "text": "Gilded Bestiary Scarab",
+          "image": "/image/Art/2DItems/Currency/Scarabs/GreaterScarabBeasts.png?v=fa5f1ff1448d73ec81b0f1309da91129"
+        },
+        {
+          "id": "rusted-shaper-scarab",
+          "text": "Rusted Shaper Scarab",
+          "image": "/image/Art/2DItems/Currency/Scarabs/LesserScarabShaper.png?v=a4b1d3a464e3e4862969542fea56e4e1"
+        },
+        {
+          "id": "polished-shaper-scarab",
+          "text": "Polished Shaper Scarab",
+          "image": "/image/Art/2DItems/Currency/Scarabs/NormalScarabShaper.png?v=bbb0d3cc7dd4a7327595d03fa7775379"
+        },
+        {
+          "id": "gilded-shaper-scarab",
+          "text": "Gilded Shaper Scarab",
+          "image": "/image/Art/2DItems/Currency/Scarabs/GreaterScarabShaper.png?v=64add2bb5e7d4708b8cdab380c56567a"
+        },
+        {
+          "id": "rusted-elder-scarab",
+          "text": "Rusted Elder Scarab",
+          "image": "/image/Art/2DItems/Currency/Scarabs/LesserScarabElder.png?v=6ef2c4302f2b5f8374b5d8c1bb7d9aa5"
+        },
+        {
+          "id": "polished-elder-scarab",
+          "text": "Polished Elder Scarab",
+          "image": "/image/Art/2DItems/Currency/Scarabs/NormalScarabElder.png?v=66e4bfe459e97493e7d6192133c36a29"
+        },
+        {
+          "id": "gilded-elder-scarab",
+          "text": "Gilded Elder Scarab",
+          "image": "/image/Art/2DItems/Currency/Scarabs/GreaterScarabElder.png?v=b2cb5d97b3b205b12a0c4453226104e7"
+        },
+        {
+          "id": "rusted-sulphite-scarab",
+          "text": "Rusted Sulphite Scarab",
+          "image": "/image/Art/2DItems/Currency/Scarabs/LesserScarabSulphite.png?v=c07b341f6d9d64654359a0abdb758c3a"
+        },
+        {
+          "id": "polished-sulphite-scarab",
+          "text": "Polished Sulphite Scarab",
+          "image": "/image/Art/2DItems/Currency/Scarabs/NormalScarabSulphite.png?v=fd2b17d31cccffb35bfc07a0dde68088"
+        },
+        {
+          "id": "gilded-sulphite-scarab",
+          "text": "Gilded Sulphite Scarab",
+          "image": "/image/Art/2DItems/Currency/Scarabs/GreaterScarabSulphite.png?v=d39f02dfa31d8bb942c408e5cb15b7ef"
+        },
+        {
+          "id": "rusted-divination-scarab",
+          "text": "Rusted Divination Scarab",
+          "image": "/image/Art/2DItems/Currency/Scarabs/LesserScarabDivination.png?v=e06dd93935aaebaad15369e2efcf3415"
+        },
+        {
+          "id": "polished-divination-scarab",
+          "text": "Polished Divination Scarab",
+          "image": "/image/Art/2DItems/Currency/Scarabs/NormalScarabDivination.png?v=0422188a3d10cf7fddc2f2f5a6952441"
+        },
+        {
+          "id": "gilded-divination-scarab",
+          "text": "Gilded Divination Scarab",
+          "image": "/image/Art/2DItems/Currency/Scarabs/GreaterScarabDivination.png?v=7f3ac1d369558213e112f483ad5f8e66"
+        },
+        {
+          "id": "rusted-torment-scarab",
+          "text": "Rusted Torment Scarab",
+          "image": "/image/Art/2DItems/Currency/Scarabs/LesserScarabTorment.png?v=169e37021c7169b51b1441b5119b0fea"
+        },
+        {
+          "id": "polished-torment-scarab",
+          "text": "Polished Torment Scarab",
+          "image": "/image/Art/2DItems/Currency/Scarabs/NormalScarabTorment.png?v=0725ee98798e071a7ee0398ae6a23804"
+        },
+        {
+          "id": "gilded-torment-scarab",
+          "text": "Gilded Torment Scarab",
+          "image": "/image/Art/2DItems/Currency/Scarabs/GreaterScarabTorment.png?v=1e5891063b4f27d83d24ae0dbd37ceb4"
+        },
+        {
+          "id": "rusted-ambush-scarab",
+          "text": "Rusted Ambush Scarab",
+          "image": "/image/Art/2DItems/Currency/Scarabs/LesserScarabStrongboxes.png?v=b6c34ba92bd0b27536a4d6ea29611ccc"
+        },
+        {
+          "id": "polished-ambush-scarab",
+          "text": "Polished Ambush Scarab",
+          "image": "/image/Art/2DItems/Currency/Scarabs/NormalScarabStrongboxes.png?v=c85ce52908cd9a5db2ed9145c224c953"
+        },
+        {
+          "id": "gilded-ambush-scarab",
+          "text": "Gilded Ambush Scarab",
+          "image": "/image/Art/2DItems/Currency/Scarabs/GreaterScarabStrongboxes.png?v=1f797f4c715440a0a073ad31a349fefa"
+        },
+        {
+          "id": "rusted-harbinger-scarab",
+          "text": "Rusted Harbinger Scarab",
+          "image": "/image/Art/2DItems/Currency/Scarabs/LesserScarabHarbingers.png?v=d6c60580514d727feb67771bfae0c0a0"
+        },
+        {
+          "id": "polished-harbinger-scarab",
+          "text": "Polished Harbinger Scarab",
+          "image": "/image/Art/2DItems/Currency/Scarabs/NormalScarabHarbingers.png?v=7a652b26069ac74e6b2c4e6d6efed5bf"
+        },
+        {
+          "id": "gilded-harbinger-scarab",
+          "text": "Gilded Harbinger Scarab",
+          "image": "/image/Art/2DItems/Currency/Scarabs/GreaterScarabHarbingers.png?v=7a25efa086e01de24b4e1b7e9b1e337f"
+        },
+        {
+          "id": "rusted-perandus-scarab",
+          "text": "Rusted Perandus Scarab",
+          "image": "/image/Art/2DItems/Currency/Scarabs/LesserScarabPerandus.png?v=3cf73edfab917a777c944bbf1cce9388"
+        },
+        {
+          "id": "polished-perandus-scarab",
+          "text": "Polished Perandus Scarab",
+          "image": "/image/Art/2DItems/Currency/Scarabs/NormalScarabPerandus.png?v=652cd04032b22d12d5198e65f8c64d3a"
+        },
+        {
+          "id": "gilded-perandus-scarab",
+          "text": "Gilded Perandus Scarab",
+          "image": "/image/Art/2DItems/Currency/Scarabs/GreaterScarabPerandus.png?v=e91001b24a7aa9c210487e750c6b82ac"
+        },
+        {
+          "id": "rusted-legion-scarab",
+          "text": "Rusted Legion Scarab",
+          "image": "/image/Art/2DItems/Currency/Scarabs/LesserScarabLegion.png?v=d7f4d09f6b7e3eb167dcaa6b03de8666"
+        },
+        {
+          "id": "polished-legion-scarab",
+          "text": "Polished Legion Scarab",
+          "image": "/image/Art/2DItems/Currency/Scarabs/NormalScarabLegion.png?v=05c567e3074ad66fd7711d32c350d02e"
+        },
+        {
+          "id": "gilded-legion-scarab",
+          "text": "Gilded Legion Scarab",
+          "image": "/image/Art/2DItems/Currency/Scarabs/GreaterScarabLegion.png?v=2d45adf5fa878d4c4bda222dfefe5aae"
+        }
+      ]
+    },
+    {
+      "id": "DelveResonators",
+      "label": "Delve Resonators",
+      "entries": [
+        {
+          "id": "primitive-alchemical-resonator",
+          "text": "Primitive Alchemical Resonator",
+          "image": "/image/Art/2DItems/Currency/Delve/Upgrade1x1A.png?v=b1e654a4fc6338833a86053c8c9f803c"
+        },
+        {
+          "id": "potent-alchemical-resonator",
+          "text": "Potent Alchemical Resonator",
+          "image": "/image/Art/2DItems/Currency/Delve/Upgrade2x1A.png?v=45c5ee68d1c4d7e98fd605c6780cbe52"
+        },
+        {
+          "id": "powerful-alchemical-resonator",
+          "text": "Powerful Alchemical Resonator",
+          "image": "/image/Art/2DItems/Currency/Delve/Upgrade2x2A.png?v=7c6cd63b2bec84f7972763c31e1079b4"
+        },
+        {
+          "id": "prime-alchemical-resonator",
+          "text": "Prime Alchemical Resonator",
+          "image": "/image/Art/2DItems/Currency/Delve/Upgrade2x2C.png?v=3e5e66147228124336555511d32335ab"
+        },
+        {
+          "id": "primitive-chaotic-resonator",
+          "text": "Primitive Chaotic Resonator",
+          "image": "/image/Art/2DItems/Currency/Delve/Reroll1x1A.png?v=e1d44f3d008b43923e17788a3964ea5a"
+        },
+        {
+          "id": "potent-chaotic-resonator",
+          "text": "Potent Chaotic Resonator",
+          "image": "/image/Art/2DItems/Currency/Delve/Reroll2x1A.png?v=5426a15e85e4dc95e23ce23873bb0751"
+        },
+        {
+          "id": "powerful-chaotic-resonator",
+          "text": "Powerful Chaotic Resonator",
+          "image": "/image/Art/2DItems/Currency/Delve/Reroll2x2A.png?v=52e5aeed8456a111a3c686fdff25a7ea"
+        },
+        {
+          "id": "prime-chaotic-resonator",
+          "text": "Prime Chaotic Resonator",
+          "image": "/image/Art/2DItems/Currency/Delve/Reroll2x2C.png?v=ded8c68c14ea93f9fb6421b5b047d730"
+        }
+      ]
+    },
+    {
+      "id": "DelveFossils",
+      "label": "Delve Fossils",
+      "entries": [
+        {
+          "id": "scorched-fossil",
+          "text": "Scorched Fossil",
+          "image": "/image/Art/2DItems/Currency/Delve/AmberFireFly.png?v=07bf03f11f34c03905d0d1c65f5b001c"
+        },
+        {
+          "id": "frigid-fossil",
+          "text": "Frigid Fossil",
+          "image": "/image/Art/2DItems/Currency/Delve/AmberFang.png?v=5ad7bc2cc225c2cc27774cf81f390506"
+        },
+        {
+          "id": "metallic-fossil",
+          "text": "Metallic Fossil",
+          "image": "/image/Art/2DItems/Currency/Delve/MetallicFossil.png?v=cd53ee25a1625393929dec5f114b7f03"
+        },
+        {
+          "id": "jagged-fossil",
+          "text": "Jagged Fossil",
+          "image": "/image/Art/2DItems/Currency/Delve/JaggedFossil.png?v=2939dc778481bf687e678e22885cb847"
+        },
+        {
+          "id": "aberrant-fossil",
+          "text": "Aberrant Fossil",
+          "image": "/image/Art/2DItems/Currency/Delve/AbberantFossil.png?v=517fe1f29702c7f6f9b11d10206ab0e2"
+        },
+        {
+          "id": "pristine-fossil",
+          "text": "Pristine Fossil",
+          "image": "/image/Art/2DItems/Currency/Delve/PristineFossil.png?v=d8d8938da9c6edf3b0c9aa9056908805"
+        },
+        {
+          "id": "dense-fossil",
+          "text": "Dense Fossil",
+          "image": "/image/Art/2DItems/Currency/Delve/DenseFossil.png?v=bd717b705466892a7208dd62049f1ade"
+        },
+        {
+          "id": "corroded-fossil",
+          "text": "Corroded Fossil",
+          "image": "/image/Art/2DItems/Currency/Delve/CorrodedFossil.png?v=13ecceed03b1b56183516130c7d8d587"
+        },
+        {
+          "id": "prismatic-fossil",
+          "text": "Prismatic Fossil",
+          "image": "/image/Art/2DItems/Currency/Delve/PrismaticFossil.png?v=8889a1bf7ae2cd4665bb5d42c3707ab8"
+        },
+        {
+          "id": "aetheric-fossil",
+          "text": "Aetheric Fossil",
+          "image": "/image/Art/2DItems/Currency/Delve/AethericFossil.png?v=9d31f88bba65e50eda14a969f1fca002"
+        },
+        {
+          "id": "serrated-fossil",
+          "text": "Serrated Fossil",
+          "image": "/image/Art/2DItems/Currency/Delve/SerratedFossil.png?v=603bfb143ece949c58671b2b87080cf2"
+        },
+        {
+          "id": "lucent-fossil",
+          "text": "Lucent Fossil",
+          "image": "/image/Art/2DItems/Currency/Delve/LucentFossil.png?v=cbec4eaf61103bfeaa2e97b1a67a18d9"
+        },
+        {
+          "id": "shuddering-fossil",
+          "text": "Shuddering Fossil",
+          "image": "/image/Art/2DItems/Currency/Delve/ShudderingFossil.png?v=1b98a7816e9f531d43661590b54da6f1"
+        },
+        {
+          "id": "bound-fossil",
+          "text": "Bound Fossil",
+          "image": "/image/Art/2DItems/Currency/Delve/ResonatingFossil.png?v=17265c7ab9b83cc6e91ba22db4dabde3"
+        },
+        {
+          "id": "perfect-fossil",
+          "text": "Perfect Fossil",
+          "image": "/image/Art/2DItems/Currency/Delve/PerfectFossil.png?v=cbce2c743aad0314753383fa1cf220e2"
+        },
+        {
+          "id": "enchanted-fossil",
+          "text": "Enchanted Fossil",
+          "image": "/image/Art/2DItems/Currency/Delve/EnchantedFossil.png?v=f0c439ecbd6c8ef6ead41fe4907d59d2"
+        },
+        {
+          "id": "encrusted-fossil",
+          "text": "Encrusted Fossil",
+          "image": "/image/Art/2DItems/Currency/Delve/EncrustedFossil.png?v=41de1749ab9c3acdd85cf3e16b67dfaa"
+        },
+        {
+          "id": "faceted-fossil",
+          "text": "Faceted Fossil",
+          "image": "/image/Art/2DItems/Currency/Delve/FacetedFossil.png?v=319ed2d59667285880877153e560508c"
+        },
+        {
+          "id": "bloodstained-fossil",
+          "text": "Bloodstained Fossil",
+          "image": "/image/Art/2DItems/Currency/Delve/BloodstainedFossil.png?v=8b5b56790dff5a8eee0e6eed7e0125dc"
+        },
+        {
+          "id": "hollow-fossil",
+          "text": "Hollow Fossil",
+          "image": "/image/Art/2DItems/Currency/Delve/AmberEye.png?v=0b262d88695c859f59b6e4d93e1b3d5e"
+        },
+        {
+          "id": "fractured-fossil",
+          "text": "Fractured Fossil",
+          "image": "/image/Art/2DItems/Currency/Delve/FracturedFossil.png?v=11a6519b4c00c8660d5df8f19e692976"
+        },
+        {
+          "id": "glyphic-fossil",
+          "text": "Glyphic Fossil",
+          "image": "/image/Art/2DItems/Currency/Delve/GlyphicFossil.png?v=046124f39dafe06454cd306c71d6ddb7"
+        },
+        {
+          "id": "tangled-fossil",
+          "text": "Tangled Fossil",
+          "image": "/image/Art/2DItems/Currency/Delve/TangledFossil.png?v=3a0961ad0d9340b1a91f5334638b4c8c"
+        },
+        {
+          "id": "sanctified-fossil",
+          "text": "Sanctified Fossil",
+          "image": "/image/Art/2DItems/Currency/Delve/GildedFossil.png?v=6314bd89971f353179f630def8cf3a17"
+        },
+        {
+          "id": "gilded-fossil",
+          "text": "Gilded Fossil",
+          "image": "/image/Art/2DItems/Currency/Delve/SanctifiedFossil.png?v=06e401cb206eef0d0d2ed44487ee6098"
+        }
+      ]
+    },
+    {
+      "id": "Vials",
+      "label": "Vials",
+      "entries": [
+        {
+          "id": "vial-of-dominance",
+          "text": "Vial of Dominance",
+          "image": "/image/Art/2DItems/Currency/VialArchitectsHand.png?v=7511533af9f959a8bdab903c0061c75d"
+        },
+        {
+          "id": "vial-of-summoning",
+          "text": "Vial of Summoning",
+          "image": "/image/Art/2DItems/Currency/VialSpiritDrinker.png?v=6f16787ae91b38c5061b26d85423aa3b"
+        },
+        {
+          "id": "vial-of-awakening",
+          "text": "Vial of Awakening",
+          "image": "/image/Art/2DItems/Currency/VialSlumber.png?v=f56a6a0af2b60ea077f28d585fef46b0"
+        },
+        {
+          "id": "vial-of-the-ritual",
+          "text": "Vial of the Ritual",
+          "image": "/image/Art/2DItems/Currency/VialDanceOffered.png?v=b59a893b49b6e4d383bcbe207c807ec3"
+        },
+        {
+          "id": "vial-of-fate",
+          "text": "Vial of Fate",
+          "image": "/image/Art/2DItems/Currency/VialStoryVaal.png?v=06d1c6c589dfb7c574097654ecebac1d"
+        },
+        {
+          "id": "vial-of-consequence",
+          "text": "Vial of Consequence",
+          "image": "/image/Art/2DItems/Currency/VialCowardsChains.png?v=d4db2a42dab6d3100560db88cc156762"
+        },
+        {
+          "id": "vial-of-the-ghost",
+          "text": "Vial of the Ghost",
+          "image": "/image/Art/2DItems/Currency/VialSoulCatcher.png?v=dd5e81208051ef78212c78ab9d333cfe"
+        },
+        {
+          "id": "vial-of-transcendence",
+          "text": "Vial of Transcendence",
+          "image": "/image/Art/2DItems/Currency/VialTemperedFlesh.png?v=d9b4e2f84c2a562b1b3a553823c813c2"
+        },
+        {
+          "id": "vial-of-sacrifice",
+          "text": "Vial of Sacrifice",
+          "image": "/image/Art/2DItems/Currency/VialSacrificialHeart.png?v=ae0d26a590b235ecbd5677349085f182"
+        }
+      ]
+    },
+    {
+      "id": "Nets",
+      "label": null,
+      "entries": []
+    },
+    {
+      "id": "Leaguestones",
+      "label": null,
+      "entries": []
+    },
+    {
+      "id": "Essences",
+      "label": "Essences",
+      "entries": [
+        {
+          "id": "whispering-essence-of-hatred",
+          "text": "Whispering Essence of Hatred",
+          "image": "/image/Art/2DItems/Currency/Essence/Hatred1.png?v=af1a86ff4108cc78b67a6b7199b8959f"
+        },
+        {
+          "id": "muttering-essence-of-hatred",
+          "text": "Muttering Essence of Hatred",
+          "image": "/image/Art/2DItems/Currency/Essence/Hatred2.png?v=c4d6f1c773d20697ab194039c6734f36"
+        },
+        {
+          "id": "weeping-essence-of-hatred",
+          "text": "Weeping Essence of Hatred",
+          "image": "/image/Art/2DItems/Currency/Essence/Hatred3.png?v=7ce462d82e43b67ce7103cb8af695057"
+        },
+        {
+          "id": "wailing-essence-of-hatred",
+          "text": "Wailing Essence of Hatred",
+          "image": "/image/Art/2DItems/Currency/Essence/Hatred4.png?v=91177a1b7ab8a636d0028718227f1f84"
+        },
+        {
+          "id": "screaming-essence-of-hatred",
+          "text": "Screaming Essence of Hatred",
+          "image": "/image/Art/2DItems/Currency/Essence/Hatred5.png?v=c3346cf8ca025bd89d8efe5604d322ab"
+        },
+        {
+          "id": "shrieking-essence-of-hatred",
+          "text": "Shrieking Essence of Hatred",
+          "image": "/image/Art/2DItems/Currency/Essence/Hatred6.png?v=7e73d6da1f6a165ebebf35dcd45638b2"
+        },
+        {
+          "id": "deafening-essence-of-hatred",
+          "text": "Deafening Essence of Hatred",
+          "image": "/image/Art/2DItems/Currency/Essence/Hatred7.png?v=484492362fc2f7e4a5fb02bd37cf621f"
+        },
+        {
+          "id": "whispering-essence-of-woe",
+          "text": "Whispering Essence of Woe",
+          "image": "/image/Art/2DItems/Currency/Essence/Woe1.png?v=c2091e476989643b8eb31d5f7ee20f71"
+        },
+        {
+          "id": "muttering-essence-of-woe",
+          "text": "Muttering Essence of Woe",
+          "image": "/image/Art/2DItems/Currency/Essence/Woe2.png?v=4214744a550dc61157b8d7c7becf9cbd"
+        },
+        {
+          "id": "weeping-essence-of-woe",
+          "text": "Weeping Essence of Woe",
+          "image": "/image/Art/2DItems/Currency/Essence/Woe3.png?v=e55316dbaaad843c3f96c0fc6b13fc72"
+        },
+        {
+          "id": "wailing-essence-of-woe",
+          "text": "Wailing Essence of Woe",
+          "image": "/image/Art/2DItems/Currency/Essence/Woe4.png?v=26d83392a96b8947d6f9741849619711"
+        },
+        {
+          "id": "screaming-essence-of-woe",
+          "text": "Screaming Essence of Woe",
+          "image": "/image/Art/2DItems/Currency/Essence/Woe5.png?v=719bf2e52c17d688e02fa3de0a7e4bf7"
+        },
+        {
+          "id": "shrieking-essence-of-woe",
+          "text": "Shrieking Essence of Woe",
+          "image": "/image/Art/2DItems/Currency/Essence/Woe6.png?v=c159ac8d2eede3c497617c262ee4e38d"
+        },
+        {
+          "id": "deafening-essence-of-woe",
+          "text": "Deafening Essence of Woe",
+          "image": "/image/Art/2DItems/Currency/Essence/Woe7.png?v=cf2014f1803f43b0cbbe21b99f03c6dd"
+        },
+        {
+          "id": "whispering-essence-of-greed",
+          "text": "Whispering Essence of Greed",
+          "image": "/image/Art/2DItems/Currency/Essence/Greed1.png?v=aa5003ecc7f4899317f84cdf7c4ee05f"
+        },
+        {
+          "id": "muttering-essence-of-greed",
+          "text": "Muttering Essence of Greed",
+          "image": "/image/Art/2DItems/Currency/Essence/Greed2.png?v=2c3f8a3a5a1454ca0883d4c17109b617"
+        },
+        {
+          "id": "weeping-essence-of-greed",
+          "text": "Weeping Essence of Greed",
+          "image": "/image/Art/2DItems/Currency/Essence/Greed3.png?v=a673402a48dd5d1a6509515f5e249dab"
+        },
+        {
+          "id": "wailing-essence-of-greed",
+          "text": "Wailing Essence of Greed",
+          "image": "/image/Art/2DItems/Currency/Essence/Greed4.png?v=15c28237a0ef6e7eb22c09bbf03a7b6a"
+        },
+        {
+          "id": "screaming-essence-of-greed",
+          "text": "Screaming Essence of Greed",
+          "image": "/image/Art/2DItems/Currency/Essence/Greed5.png?v=f2cac5eb3527123b27ef94c99edbe3a2"
+        },
+        {
+          "id": "shrieking-essence-of-greed",
+          "text": "Shrieking Essence of Greed",
+          "image": "/image/Art/2DItems/Currency/Essence/Greed6.png?v=cbd2fb41eb4648a1b47915bab39b130b"
+        },
+        {
+          "id": "deafening-essence-of-greed",
+          "text": "Deafening Essence of Greed",
+          "image": "/image/Art/2DItems/Currency/Essence/Greed7.png?v=8283aa91c31cd8759b88b7b22b8f9669"
+        },
+        {
+          "id": "whispering-essence-of-contempt",
+          "text": "Whispering Essence of Contempt",
+          "image": "/image/Art/2DItems/Currency/Essence/Contempt1.png?v=60f8830c2dadd217eb99cee02425f07d"
+        },
+        {
+          "id": "muttering-essence-of-contempt",
+          "text": "Muttering Essence of Contempt",
+          "image": "/image/Art/2DItems/Currency/Essence/Contempt2.png?v=54a248bdc119c25b458deaf1e4867821"
+        },
+        {
+          "id": "weeping-essence-of-contempt",
+          "text": "Weeping Essence of Contempt",
+          "image": "/image/Art/2DItems/Currency/Essence/Contempt3.png?v=d3673e9f9027fc270a8950d2998b1f6c"
+        },
+        {
+          "id": "wailing-essence-of-contempt",
+          "text": "Wailing Essence of Contempt",
+          "image": "/image/Art/2DItems/Currency/Essence/Contempt4.png?v=31184aca892c0697a53adc523df41a71"
+        },
+        {
+          "id": "screaming-essence-of-contempt",
+          "text": "Screaming Essence of Contempt",
+          "image": "/image/Art/2DItems/Currency/Essence/Contempt5.png?v=b0890fd15d90c31d77f88b13d488dfe2"
+        },
+        {
+          "id": "shrieking-essence-of-contempt",
+          "text": "Shrieking Essence of Contempt",
+          "image": "/image/Art/2DItems/Currency/Essence/Contempt6.png?v=60a9720e9ce66690a45e2ae48143d7df"
+        },
+        {
+          "id": "deafening-essence-of-contempt",
+          "text": "Deafening Essence of Contempt",
+          "image": "/image/Art/2DItems/Currency/Essence/Contempt7.png?v=b8ac0a6d9789465eff413f5c7a74aca8"
+        },
+        {
+          "id": "muttering-essence-of-sorrow",
+          "text": "Muttering Essence of Sorrow",
+          "image": "/image/Art/2DItems/Currency/Essence/Sorrow2.png?v=07f487552536d08952250cb242dcd3ce"
+        },
+        {
+          "id": "weeping-essence-of-sorrow",
+          "text": "Weeping Essence of Sorrow",
+          "image": "/image/Art/2DItems/Currency/Essence/Sorrow3.png?v=3bb862824c36ee034a3a727a311432f8"
+        },
+        {
+          "id": "wailing-essence-of-sorrow",
+          "text": "Wailing Essence of Sorrow",
+          "image": "/image/Art/2DItems/Currency/Essence/Sorrow4.png?v=f5512f122d9c273e57c3eb4e1aa72fec"
+        },
+        {
+          "id": "screaming-essence-of-sorrow",
+          "text": "Screaming Essence of Sorrow",
+          "image": "/image/Art/2DItems/Currency/Essence/Sorrow5.png?v=c7e6a975cf955ee33a5c25558951643d"
+        },
+        {
+          "id": "shrieking-essence-of-sorrow",
+          "text": "Shrieking Essence of Sorrow",
+          "image": "/image/Art/2DItems/Currency/Essence/Sorrow6.png?v=6b6d08a252511245324c84eec5b7485a"
+        },
+        {
+          "id": "deafening-essence-of-sorrow",
+          "text": "Deafening Essence of Sorrow",
+          "image": "/image/Art/2DItems/Currency/Essence/Sorrow7.png?v=43e1fe2b224ece09268083a2c1915c3a"
+        },
+        {
+          "id": "muttering-essence-of-anger",
+          "text": "Muttering Essence of Anger",
+          "image": "/image/Art/2DItems/Currency/Essence/Anger2.png?v=56963b86f3de434e89b427190f3c6466"
+        },
+        {
+          "id": "weeping-essence-of-anger",
+          "text": "Weeping Essence of Anger",
+          "image": "/image/Art/2DItems/Currency/Essence/Anger3.png?v=2386a07a358a9949b4f925f7b544c1d3"
+        },
+        {
+          "id": "wailing-essence-of-anger",
+          "text": "Wailing Essence of Anger",
+          "image": "/image/Art/2DItems/Currency/Essence/Anger4.png?v=35c3aaa66bb84caf183a372d38a5a07c"
+        },
+        {
+          "id": "screaming-essence-of-anger",
+          "text": "Screaming Essence of Anger",
+          "image": "/image/Art/2DItems/Currency/Essence/Anger5.png?v=6a1a5786842f93c1decfd5448ec58ea0"
+        },
+        {
+          "id": "shrieking-essence-of-anger",
+          "text": "Shrieking Essence of Anger",
+          "image": "/image/Art/2DItems/Currency/Essence/Anger6.png?v=0f4a09afd0f372cca4229e687a809558"
+        },
+        {
+          "id": "deafening-essence-of-anger",
+          "text": "Deafening Essence of Anger",
+          "image": "/image/Art/2DItems/Currency/Essence/Anger7.png?v=4ca411583ed3cd3b75a4e5ac57b0efda"
+        },
+        {
+          "id": "muttering-essence-of-torment",
+          "text": "Muttering Essence of Torment",
+          "image": "/image/Art/2DItems/Currency/Essence/Torment2.png?v=e0b2310ca8180b5887485f7a2d3558ea"
+        },
+        {
+          "id": "weeping-essence-of-torment",
+          "text": "Weeping Essence of Torment",
+          "image": "/image/Art/2DItems/Currency/Essence/Torment3.png?v=df38adcd8dfae9dc7ce43f8902aec8f3"
+        },
+        {
+          "id": "wailing-essence-of-torment",
+          "text": "Wailing Essence of Torment",
+          "image": "/image/Art/2DItems/Currency/Essence/Torment4.png?v=a9d3fedc6e36286fbfc6bf32763db2da"
+        },
+        {
+          "id": "screaming-essence-of-torment",
+          "text": "Screaming Essence of Torment",
+          "image": "/image/Art/2DItems/Currency/Essence/Torment5.png?v=e771c7292c0e1885e657b0c84f9fe7e6"
+        },
+        {
+          "id": "shrieking-essence-of-torment",
+          "text": "Shrieking Essence of Torment",
+          "image": "/image/Art/2DItems/Currency/Essence/Torment6.png?v=42d9e6702a3ad8ae56fc23fdcf3a4c15"
+        },
+        {
+          "id": "deafening-essence-of-torment",
+          "text": "Deafening Essence of Torment",
+          "image": "/image/Art/2DItems/Currency/Essence/Torment7.png?v=fea8e2d8ccb19124d227f0baaf810039"
+        },
+        {
+          "id": "muttering-essence-of-fear",
+          "text": "Muttering Essence of Fear",
+          "image": "/image/Art/2DItems/Currency/Essence/Fear2.png?v=b87e37101af11df191863915c951c2de"
+        },
+        {
+          "id": "weeping-essence-of-fear",
+          "text": "Weeping Essence of Fear",
+          "image": "/image/Art/2DItems/Currency/Essence/Fear3.png?v=89cdd73a4de987ebc1bd4136507f7576"
+        },
+        {
+          "id": "wailing-essence-of-fear",
+          "text": "Wailing Essence of Fear",
+          "image": "/image/Art/2DItems/Currency/Essence/Fear4.png?v=19d61d301f7c14a3e26e4604b3273af5"
+        },
+        {
+          "id": "screaming-essence-of-fear",
+          "text": "Screaming Essence of Fear",
+          "image": "/image/Art/2DItems/Currency/Essence/Fear5.png?v=98666642411b25e17b860dfa79499bef"
+        },
+        {
+          "id": "shrieking-essence-of-fear",
+          "text": "Shrieking Essence of Fear",
+          "image": "/image/Art/2DItems/Currency/Essence/Fear6.png?v=f3fdeff9ef90cbe29c180758e19b5fb0"
+        },
+        {
+          "id": "deafening-essence-of-fear",
+          "text": "Deafening Essence of Fear",
+          "image": "/image/Art/2DItems/Currency/Essence/Fear7.png?v=23447273b68054be5341a93e5b31253e"
+        },
+        {
+          "id": "weeping-essence-of-suffering",
+          "text": "Weeping Essence of Suffering",
+          "image": "/image/Art/2DItems/Currency/Essence/Suffering3.png?v=3198cb3a59be5c098fa3a3fcaaf0b941"
+        },
+        {
+          "id": "wailing-essence-of-suffering",
+          "text": "Wailing Essence of Suffering",
+          "image": "/image/Art/2DItems/Currency/Essence/Suffering4.png?v=e764ac660e07b09bad94914c5bcb8dc0"
+        },
+        {
+          "id": "screaming-essence-of-suffering",
+          "text": "Screaming Essence of Suffering",
+          "image": "/image/Art/2DItems/Currency/Essence/Suffering5.png?v=f308ffc5c350e8d224063040ad142f41"
+        },
+        {
+          "id": "shrieking-essence-of-suffering",
+          "text": "Shrieking Essence of Suffering",
+          "image": "/image/Art/2DItems/Currency/Essence/Suffering6.png?v=fb10322cfd6ef4deb2d3c7894cea7dba"
+        },
+        {
+          "id": "deafening-essence-of-suffering",
+          "text": "Deafening Essence of Suffering",
+          "image": "/image/Art/2DItems/Currency/Essence/Suffering7.png?v=37ee3cd0581636d2f349864b66d9823d"
+        },
+        {
+          "id": "weeping-essence-of-rage",
+          "text": "Weeping Essence of Rage",
+          "image": "/image/Art/2DItems/Currency/Essence/Rage3.png?v=4e2cc03f5494682153e0209fda0e0e9d"
+        },
+        {
+          "id": "wailing-essence-of-rage",
+          "text": "Wailing Essence of Rage",
+          "image": "/image/Art/2DItems/Currency/Essence/Rage4.png?v=35eed2dacc8916e6710bae0ecaee9367"
+        },
+        {
+          "id": "screaming-essence-of-rage",
+          "text": "Screaming Essence of Rage",
+          "image": "/image/Art/2DItems/Currency/Essence/Rage5.png?v=b75372bd4b454b6ae9f6ae841df29f89"
+        },
+        {
+          "id": "shrieking-essence-of-rage",
+          "text": "Shrieking Essence of Rage",
+          "image": "/image/Art/2DItems/Currency/Essence/Rage6.png?v=97be74aff29ea91a516964b7eed240f8"
+        },
+        {
+          "id": "deafening-essence-of-rage",
+          "text": "Deafening Essence of Rage",
+          "image": "/image/Art/2DItems/Currency/Essence/Rage7.png?v=eedc0092ba0e7d4619fd2c3d5d4447a2"
+        },
+        {
+          "id": "weeping-essence-of-wrath",
+          "text": "Weeping Essence of Wrath",
+          "image": "/image/Art/2DItems/Currency/Essence/Wrath3.png?v=3870a986ca4f5984a797427c40a4ab41"
+        },
+        {
+          "id": "wailing-essence-of-wrath",
+          "text": "Wailing Essence of Wrath",
+          "image": "/image/Art/2DItems/Currency/Essence/Wrath4.png?v=1b78b631cf91f1d6ec48173183c26257"
+        },
+        {
+          "id": "screaming-essence-of-wrath",
+          "text": "Screaming Essence of Wrath",
+          "image": "/image/Art/2DItems/Currency/Essence/Wrath5.png?v=47288253244910c2da4f0bdda069b832"
+        },
+        {
+          "id": "shrieking-essence-of-wrath",
+          "text": "Shrieking Essence of Wrath",
+          "image": "/image/Art/2DItems/Currency/Essence/Wrath6.png?v=0e3b9c9f8d8299c4a91b17b8194e1581"
+        },
+        {
+          "id": "deafening-essence-of-wrath",
+          "text": "Deafening Essence of Wrath",
+          "image": "/image/Art/2DItems/Currency/Essence/Wrath7.png?v=e9ac9c03dc5aa664db2fa29e267fc366"
+        },
+        {
+          "id": "weeping-essence-of-doubt",
+          "text": "Weeping Essence of Doubt",
+          "image": "/image/Art/2DItems/Currency/Essence/Doubt3.png?v=c9c89f93be1f54c06d99b9283a94af14"
+        },
+        {
+          "id": "wailing-essence-of-doubt",
+          "text": "Wailing Essence of Doubt",
+          "image": "/image/Art/2DItems/Currency/Essence/Doubt4.png?v=02095ead87ba8aa5bb818521d89431ba"
+        },
+        {
+          "id": "screaming-essence-of-doubt",
+          "text": "Screaming Essence of Doubt",
+          "image": "/image/Art/2DItems/Currency/Essence/Doubt5.png?v=8d3a34ab4f38108888a592ef53452eb5"
+        },
+        {
+          "id": "shrieking-essence-of-doubt",
+          "text": "Shrieking Essence of Doubt",
+          "image": "/image/Art/2DItems/Currency/Essence/Doubt6.png?v=7872ac0cd80490d0a473c825a0e7e74b"
+        },
+        {
+          "id": "deafening-essence-of-doubt",
+          "text": "Deafening Essence of Doubt",
+          "image": "/image/Art/2DItems/Currency/Essence/Doubt7.png?v=ad1c5478187b01727a9f18890dbc893b"
+        },
+        {
+          "id": "wailing-essence-of-anguish",
+          "text": "Wailing Essence of Anguish",
+          "image": "/image/Art/2DItems/Currency/Essence/Anguish4.png?v=7f159be306f742b0e4845beacdecd612"
+        },
+        {
+          "id": "screaming-essence-of-anguish",
+          "text": "Screaming Essence of Anguish",
+          "image": "/image/Art/2DItems/Currency/Essence/Anguish5.png?v=9769855172e3523de00e083ab3649ab8"
+        },
+        {
+          "id": "shrieking-essence-of-anguish",
+          "text": "Shrieking Essence of Anguish",
+          "image": "/image/Art/2DItems/Currency/Essence/Anguish6.png?v=9d967aa7f5034bd401886eb96d1f8e59"
+        },
+        {
+          "id": "deafening-essence-of-anguish",
+          "text": "Deafening Essence of Anguish",
+          "image": "/image/Art/2DItems/Currency/Essence/Anguish7.png?v=c07fad72a69d28f5e745345a01f0ce9c"
+        },
+        {
+          "id": "wailing-essence-of-loathing",
+          "text": "Wailing Essence of Loathing",
+          "image": "/image/Art/2DItems/Currency/Essence/Loathing4.png?v=d84dd2fbac9b128225b5320df6bc9c54"
+        },
+        {
+          "id": "screaming-essence-of-loathing",
+          "text": "Screaming Essence of Loathing",
+          "image": "/image/Art/2DItems/Currency/Essence/Loathing5.png?v=f081b3de4779da9cb22b6fe0c8ca018c"
+        },
+        {
+          "id": "shrieking-essence-of-loathing",
+          "text": "Shrieking Essence of Loathing",
+          "image": "/image/Art/2DItems/Currency/Essence/Loathing6.png?v=5c971036ca1ad46642dcc3c1477d2293"
+        },
+        {
+          "id": "deafening-essence-of-loathing",
+          "text": "Deafening Essence of Loathing",
+          "image": "/image/Art/2DItems/Currency/Essence/Loathing7.png?v=030d0913f9e854bd49bd444644019a10"
+        },
+        {
+          "id": "wailing-essence-of-spite",
+          "text": "Wailing Essence of Spite",
+          "image": "/image/Art/2DItems/Currency/Essence/Spite4.png?v=4e706193d7c9c0c7b390740799679a4a"
+        },
+        {
+          "id": "screaming-essence-of-spite",
+          "text": "Screaming Essence of Spite",
+          "image": "/image/Art/2DItems/Currency/Essence/Spite5.png?v=f1961cf6e92a2dfc1fcaca12c24ebf33"
+        },
+        {
+          "id": "shrieking-essence-of-spite",
+          "text": "Shrieking Essence of Spite",
+          "image": "/image/Art/2DItems/Currency/Essence/Spite6.png?v=29049cc43f21f9d13e361c796f343448"
+        },
+        {
+          "id": "deafening-essence-of-spite",
+          "text": "Deafening Essence of Spite",
+          "image": "/image/Art/2DItems/Currency/Essence/Spite7.png?v=fcba04fa7e362e287ad5eaa2fb37781c"
+        },
+        {
+          "id": "wailing-essence-of-zeal",
+          "text": "Wailing Essence of Zeal",
+          "image": "/image/Art/2DItems/Currency/Essence/Zeal4.png?v=c09f456b095f7ecf967ff10b191fba2f"
+        },
+        {
+          "id": "screaming-essence-of-zeal",
+          "text": "Screaming Essence of Zeal",
+          "image": "/image/Art/2DItems/Currency/Essence/Zeal5.png?v=9cc43fa4c69034ea6c7c13a4387c6a20"
+        },
+        {
+          "id": "shrieking-essence-of-zeal",
+          "text": "Shrieking Essence of Zeal",
+          "image": "/image/Art/2DItems/Currency/Essence/Zeal6.png?v=63609bd84db94d338d95395e4d88d946"
+        },
+        {
+          "id": "deafening-essence-of-zeal",
+          "text": "Deafening Essence of Zeal",
+          "image": "/image/Art/2DItems/Currency/Essence/Zeal7.png?v=6fd71da4ce3b602cf4a2f16229bb8674"
+        },
+        {
+          "id": "screaming-essence-of-misery",
+          "text": "Screaming Essence of Misery",
+          "image": "/image/Art/2DItems/Currency/Essence/Misery5.png?v=fe191e14d46d94e18c3650566fa1ceac"
+        },
+        {
+          "id": "shrieking-essence-of-misery",
+          "text": "Shrieking Essence of Misery",
+          "image": "/image/Art/2DItems/Currency/Essence/Misery6.png?v=de5b42946403caf0556b126f0943d586"
+        },
+        {
+          "id": "deafening-essence-of-misery",
+          "text": "Deafening Essence of Misery",
+          "image": "/image/Art/2DItems/Currency/Essence/Misery7.png?v=b36a2cc337cefd3b8300a6ef4ef46e4c"
+        },
+        {
+          "id": "screaming-essence-of-dread",
+          "text": "Screaming Essence of Dread",
+          "image": "/image/Art/2DItems/Currency/Essence/Dread5.png?v=8ef342c40fc4bef92f26c7aba4cfe496"
+        },
+        {
+          "id": "shrieking-essence-of-dread",
+          "text": "Shrieking Essence of Dread",
+          "image": "/image/Art/2DItems/Currency/Essence/Dread6.png?v=b733786165c875af4d59d33d3c4d9a50"
+        },
+        {
+          "id": "deafening-essence-of-dread",
+          "text": "Deafening Essence of Dread",
+          "image": "/image/Art/2DItems/Currency/Essence/Dread7.png?v=7c0faddc480fb35f13436d5ca0d7e0c1"
+        },
+        {
+          "id": "screaming-essence-of-scorn",
+          "text": "Screaming Essence of Scorn",
+          "image": "/image/Art/2DItems/Currency/Essence/Scorn5.png?v=21824a513b092ceb1dccb7658cbc21f8"
+        },
+        {
+          "id": "shrieking-essence-of-scorn",
+          "text": "Shrieking Essence of Scorn",
+          "image": "/image/Art/2DItems/Currency/Essence/Scorn6.png?v=7002f726840836d398521a62506ebd21"
+        },
+        {
+          "id": "deafening-essence-of-scorn",
+          "text": "Deafening Essence of Scorn",
+          "image": "/image/Art/2DItems/Currency/Essence/Scorn7.png?v=90884b626b3ad149a967110e0a7ecd2d"
+        },
+        {
+          "id": "screaming-essence-of-envy",
+          "text": "Screaming Essence of Envy",
+          "image": "/image/Art/2DItems/Currency/Essence/Envy5.png?v=bac465c20f512b02d742b69f72d84b7a"
+        },
+        {
+          "id": "shrieking-essence-of-envy",
+          "text": "Shrieking Essence of Envy",
+          "image": "/image/Art/2DItems/Currency/Essence/Envy6.png?v=bb03c6c5ecee2aecc90a1dfdfe90437d"
+        },
+        {
+          "id": "deafening-essence-of-envy",
+          "text": "Deafening Essence of Envy",
+          "image": "/image/Art/2DItems/Currency/Essence/Envy7.png?v=2da97d735b5d283ef0a52e4fe5add46b"
+        },
+        {
+          "id": "essence-of-hysteria",
+          "text": "Essence of Hysteria",
+          "image": "/image/Art/2DItems/Currency/Essence/Terror1.png?v=b6310bff75f61da7446462b7abdbb0b7"
+        },
+        {
+          "id": "essence-of-insanity",
+          "text": "Essence of Insanity",
+          "image": "/image/Art/2DItems/Currency/Essence/Insanity1.png?v=5c44e4594763c6410f49a5821b8d8c9e"
+        },
+        {
+          "id": "essence-of-horror",
+          "text": "Essence of Horror",
+          "image": "/image/Art/2DItems/Currency/Essence/Horror1.png?v=8f0acc8500da53eb36f57e9109b3fb59"
+        },
+        {
+          "id": "essence-of-delirium",
+          "text": "Essence of Delirium",
+          "image": "/image/Art/2DItems/Currency/Essence/Madness1.png?v=6f49daf1b61aa8a9dab768db23cd8f87"
+        },
+        {
+          "id": "remnant-of-corruption",
+          "text": "Remnant of Corruption",
+          "image": "/image/Art/2DItems/Currency/Essence/EssenceCorrupt.png?v=49220b99e034b4dd3c85702167958b38"
+        }
+      ]
+    },
+    {
+      "id": "Cards",
+      "label": "Cards",
+      "entries": [
+        {
+          "id": "a-dab-of-ink",
+          "text": "A Dab of Ink"
+        },
+        {
+          "id": "a-mothers-parting-gift",
+          "text": "A Mother's Parting Gift"
+        },
+        {
+          "id": "abandoned-wealth",
+          "text": "Abandoned Wealth"
+        },
+        {
+          "id": "akils-prophecy",
+          "text": "Akil's Prophecy"
+        },
+        {
+          "id": "alluring-bounty",
+          "text": "Alluring Bounty"
+        },
+        {
+          "id": "alone-in-the-darkness",
+          "text": "Alone in the Darkness"
+        },
+        {
+          "id": "anarchys-price",
+          "text": "Anarchy's Price"
+        },
+        {
+          "id": "arrogance-of-the-vaal",
+          "text": "Arrogance of the Vaal"
+        },
+        {
+          "id": "assassins-favour",
+          "text": "Assassin's Favour"
+        },
+        {
+          "id": "atziris-arsenal",
+          "text": "Atziri's Arsenal"
+        },
+        {
+          "id": "audacity",
+          "text": "Audacity"
+        },
+        {
+          "id": "azyrans-reward",
+          "text": "Azyran's Reward"
+        },
+        {
+          "id": "baited-expectations",
+          "text": "Baited Expectations"
+        },
+        {
+          "id": "beauty-through-death",
+          "text": "Beauty Through Death"
+        },
+        {
+          "id": "birth-of-the-three",
+          "text": "Birth of the Three"
+        },
+        {
+          "id": "blessing-of-god",
+          "text": "Blessing of God"
+        },
+        {
+          "id": "blind-venture",
+          "text": "Blind Venture"
+        },
+        {
+          "id": "boon-of-justice",
+          "text": "Boon of Justice"
+        },
+        {
+          "id": "boon-of-the-first-ones",
+          "text": "Boon of the First Ones"
+        },
+        {
+          "id": "boundless-realms",
+          "text": "Boundless Realms"
+        },
+        {
+          "id": "bowyers-dream",
+          "text": "Bowyer's Dream"
+        },
+        {
+          "id": "buried-treasure",
+          "text": "Buried Treasure"
+        },
+        {
+          "id": "burning-blood",
+          "text": "Burning Blood"
+        },
+        {
+          "id": "call-to-the-first-ones",
+          "text": "Call to the First Ones"
+        },
+        {
+          "id": "camerias-cut",
+          "text": "Cameria's Cut"
+        },
+        {
+          "id": "cartographers-delight",
+          "text": "Cartographer's Delight"
+        },
+        {
+          "id": "chaotic-disposition",
+          "text": "Chaotic Disposition"
+        },
+        {
+          "id": "coveted-possession",
+          "text": "Coveted Possession"
+        },
+        {
+          "id": "dark-dreams",
+          "text": "Dark Dreams"
+        },
+        {
+          "id": "dark-temptation",
+          "text": "Dark Temptation"
+        },
+        {
+          "id": "death",
+          "text": "Death"
+        },
+        {
+          "id": "deathly-designs",
+          "text": "Deathly Designs"
+        },
+        {
+          "id": "demigods-wager",
+          "text": "Demigod's Wager"
+        },
+        {
+          "id": "destined-to-crumble",
+          "text": "Destined to Crumble"
+        },
+        {
+          "id": "diallas-subjugation",
+          "text": "Dialla's Subjugation"
+        },
+        {
+          "id": "divine-justice",
+          "text": "Divine Justice"
+        },
+        {
+          "id": "doedres-madness",
+          "text": "Doedre's Madness"
+        },
+        {
+          "id": "dying-anguish",
+          "text": "Dying Anguish"
+        },
+        {
+          "id": "earth-drinker",
+          "text": "Earth Drinker"
+        },
+        {
+          "id": "echoes-of-love",
+          "text": "Echoes of Love"
+        },
+        {
+          "id": "emperor-of-purity",
+          "text": "Emperor of Purity"
+        },
+        {
+          "id": "emperors-luck",
+          "text": "Emperor's Luck"
+        },
+        {
+          "id": "etched-in-blood",
+          "text": "Etched in Blood"
+        },
+        {
+          "id": "forbidden-power",
+          "text": "Forbidden Power"
+        },
+        {
+          "id": "friendship",
+          "text": "Friendship"
+        },
+        {
+          "id": "gemcutters-promise",
+          "text": "Gemcutter's Promise"
+        },
+        {
+          "id": "gift-of-the-gemling-queen",
+          "text": "Gift of the Gemling Queen"
+        },
+        {
+          "id": "glimmer-of-hope",
+          "text": "Glimmer of Hope"
+        },
+        {
+          "id": "grave-knowledge",
+          "text": "Grave Knowledge"
+        },
+        {
+          "id": "harmony-of-souls",
+          "text": "Harmony of Souls"
+        },
+        {
+          "id": "her-mask",
+          "text": "Her Mask"
+        },
+        {
+          "id": "heterochromia",
+          "text": "Heterochromia"
+        },
+        {
+          "id": "hope-card",
+          "text": "Hope"
+        },
+        {
+          "id": "house-of-mirrors",
+          "text": "House of Mirrors"
+        },
+        {
+          "id": "hubris",
+          "text": "Hubris"
+        },
+        {
+          "id": "humility",
+          "text": "Humility"
+        },
+        {
+          "id": "hunters-resolve",
+          "text": "Hunter's Resolve"
+        },
+        {
+          "id": "hunters-reward",
+          "text": "Hunter's Reward"
+        },
+        {
+          "id": "immortal-resolve",
+          "text": "Immortal Resolve"
+        },
+        {
+          "id": "imperial-legacy",
+          "text": "Imperial Legacy"
+        },
+        {
+          "id": "jack-in-the-box",
+          "text": "Jack in the Box"
+        },
+        {
+          "id": "lantadors-lost-love",
+          "text": "Lantador's Lost Love"
+        },
+        {
+          "id": "last-hope",
+          "text": "Last Hope"
+        },
+        {
+          "id": "left-to-fate",
+          "text": "Left to Fate"
+        },
+        {
+          "id": "light-and-truth",
+          "text": "Light and Truth"
+        },
+        {
+          "id": "lingering-remnants",
+          "text": "Lingering Remnants"
+        },
+        {
+          "id": "lost-worlds",
+          "text": "Lost Worlds"
+        },
+        {
+          "id": "loyalty",
+          "text": "Loyalty"
+        },
+        {
+          "id": "lucky-connections",
+          "text": "Lucky Connections"
+        },
+        {
+          "id": "lucky-deck",
+          "text": "Lucky Deck"
+        },
+        {
+          "id": "lysahs-respite",
+          "text": "Lysah's Respite"
+        },
+        {
+          "id": "mawr-blaidd",
+          "text": "Mawr Blaidd"
+        },
+        {
+          "id": "merciless-armament",
+          "text": "Merciless Armament"
+        },
+        {
+          "id": "might-is-right",
+          "text": "Might is Right"
+        },
+        {
+          "id": "mitts",
+          "text": "Mitts"
+        },
+        {
+          "id": "monochrome",
+          "text": "Monochrome"
+        },
+        {
+          "id": "more-is-never-enough",
+          "text": "More is Never Enough"
+        },
+        {
+          "id": "no-traces",
+          "text": "No Traces"
+        },
+        {
+          "id": "nooks-crown",
+          "text": "Nook's Crown"
+        },
+        {
+          "id": "perfection",
+          "text": "Perfection"
+        },
+        {
+          "id": "pride-before-the-fall",
+          "text": "Pride Before the Fall"
+        },
+        {
+          "id": "pride-of-the-first-ones",
+          "text": "Pride of the First Ones"
+        },
+        {
+          "id": "prosperity",
+          "text": "Prosperity"
+        },
+        {
+          "id": "rain-of-chaos",
+          "text": "Rain of Chaos"
+        },
+        {
+          "id": "rain-tempter",
+          "text": "Rain Tempter"
+        },
+        {
+          "id": "rats",
+          "text": "Rats"
+        },
+        {
+          "id": "rebirth",
+          "text": "Rebirth"
+        },
+        {
+          "id": "sambodhis-vow",
+          "text": "Sambodhi's Vow"
+        },
+        {
+          "id": "scholar-of-the-seas",
+          "text": "Scholar of the Seas"
+        },
+        {
+          "id": "seven-years-bad-luck",
+          "text": "Seven Years Bad Luck"
+        },
+        {
+          "id": "shard-of-fate",
+          "text": "Shard of Fate"
+        },
+        {
+          "id": "squandered-prosperity",
+          "text": "Squandered Prosperity"
+        },
+        {
+          "id": "struck-by-lightning",
+          "text": "Struck by Lightning"
+        },
+        {
+          "id": "succor-of-the-sinless",
+          "text": "Succor of the Sinless"
+        },
+        {
+          "id": "the-admirer",
+          "text": "The Admirer"
+        },
+        {
+          "id": "the-aesthete",
+          "text": "The Aesthete"
+        },
+        {
+          "id": "the-archmages-right-hand",
+          "text": "The Archmage's Right Hand"
+        },
+        {
+          "id": "the-arena-champion",
+          "text": "The Arena Champion"
+        },
+        {
+          "id": "the-army-of-blood",
+          "text": "The Army of Blood"
+        },
+        {
+          "id": "the-artist",
+          "text": "The Artist"
+        },
+        {
+          "id": "the-avenger",
+          "text": "The Avenger"
+        },
+        {
+          "id": "the-bargain",
+          "text": "The Bargain"
+        },
+        {
+          "id": "the-battle-born",
+          "text": "The Battle Born"
+        },
+        {
+          "id": "the-beast",
+          "text": "The Beast"
+        },
+        {
+          "id": "the-betrayal",
+          "text": "The Betrayal"
+        },
+        {
+          "id": "the-blazing-fire",
+          "text": "The Blazing Fire"
+        },
+        {
+          "id": "the-body",
+          "text": "The Body"
+        },
+        {
+          "id": "the-bones",
+          "text": "The Bones"
+        },
+        {
+          "id": "the-breach",
+          "text": "The Breach"
+        },
+        {
+          "id": "the-brittle-emperor",
+          "text": "The Brittle Emperor"
+        },
+        {
+          "id": "the-cacophony",
+          "text": "The Cacophony"
+        },
+        {
+          "id": "the-calling",
+          "text": "The Calling"
+        },
+        {
+          "id": "the-carrion-crow",
+          "text": "The Carrion Crow"
+        },
+        {
+          "id": "the-cartographer",
+          "text": "The Cartographer"
+        },
+        {
+          "id": "the-cataclysm",
+          "text": "The Cataclysm"
+        },
+        {
+          "id": "the-catalyst",
+          "text": "The Catalyst"
+        },
+        {
+          "id": "the-celestial-justicar",
+          "text": "The Celestial Justicar"
+        },
+        {
+          "id": "the-celestial-stone",
+          "text": "The Celestial Stone"
+        },
+        {
+          "id": "the-chains-that-bind",
+          "text": "The Chains that Bind"
+        },
+        {
+          "id": "the-chosen",
+          "text": "The Chosen"
+        },
+        {
+          "id": "the-coming-storm",
+          "text": "The Coming Storm"
+        },
+        {
+          "id": "the-conduit",
+          "text": "The Conduit"
+        },
+        {
+          "id": "the-craving",
+          "text": "The Craving"
+        },
+        {
+          "id": "the-cursed-king",
+          "text": "The Cursed King"
+        },
+        {
+          "id": "the-damned",
+          "text": "The Damned"
+        },
+        {
+          "id": "the-dapper-prodigy",
+          "text": "The Dapper Prodigy"
+        },
+        {
+          "id": "the-dark-mage",
+          "text": "The Dark Mage"
+        },
+        {
+          "id": "the-darkest-dream",
+          "text": "The Darkest Dream"
+        },
+        {
+          "id": "the-deal",
+          "text": "The Deal"
+        },
+        {
+          "id": "the-deceiver",
+          "text": "The Deceiver"
+        },
+        {
+          "id": "the-deep-ones",
+          "text": "The Deep Ones"
+        },
+        {
+          "id": "the-demon",
+          "text": "The Demon"
+        },
+        {
+          "id": "the-demoness",
+          "text": "The Demoness"
+        },
+        {
+          "id": "the-devastator",
+          "text": "The Devastator"
+        },
+        {
+          "id": "the-doctor",
+          "text": "The Doctor"
+        },
+        {
+          "id": "the-doppelganger",
+          "text": "The Doppelganger"
+        },
+        {
+          "id": "the-dragon",
+          "text": "The Dragon"
+        },
+        {
+          "id": "the-dragons-heart",
+          "text": "The Dragon's Heart"
+        },
+        {
+          "id": "the-dreamer",
+          "text": "The Dreamer"
+        },
+        {
+          "id": "the-dreamland",
+          "text": "The Dreamland"
+        },
+        {
+          "id": "the-drunken-aristocrat",
+          "text": "The Drunken Aristocrat"
+        },
+        {
+          "id": "the-encroaching-darkness",
+          "text": "The Encroaching Darkness"
+        },
+        {
+          "id": "the-endless-darkness",
+          "text": "The Endless Darkness"
+        },
+        {
+          "id": "the-endurance",
+          "text": "The Endurance"
+        },
+        {
+          "id": "the-enlightened",
+          "text": "The Enlightened"
+        },
+        {
+          "id": "the-escape",
+          "text": "The Escape"
+        },
+        {
+          "id": "the-ethereal",
+          "text": "The Ethereal"
+        },
+        {
+          "id": "the-explorer",
+          "text": "The Explorer"
+        },
+        {
+          "id": "the-eye-of-terror",
+          "text": "The Eye of Terror"
+        },
+        {
+          "id": "the-eye-of-the-dragon",
+          "text": "The Eye of the Dragon"
+        },
+        {
+          "id": "the-fathomless-depths",
+          "text": "The Fathomless Depths"
+        },
+        {
+          "id": "the-feast",
+          "text": "The Feast"
+        },
+        {
+          "id": "the-fiend",
+          "text": "The Fiend"
+        },
+        {
+          "id": "the-fishmonger",
+          "text": "The Fishmonger"
+        },
+        {
+          "id": "the-fletcher",
+          "text": "The Fletcher"
+        },
+        {
+          "id": "the-floras-gift",
+          "text": "The Flora's Gift"
+        },
+        {
+          "id": "the-fool",
+          "text": "The Fool"
+        },
+        {
+          "id": "the-formless-sea",
+          "text": "The Formless Sea"
+        },
+        {
+          "id": "the-forsaken",
+          "text": "The Forsaken"
+        },
+        {
+          "id": "the-fox",
+          "text": "The Fox"
+        },
+        {
+          "id": "the-gambler",
+          "text": "The Gambler"
+        },
+        {
+          "id": "the-garish-power",
+          "text": "The Garish Power"
+        },
+        {
+          "id": "the-gemcutter",
+          "text": "The Gemcutter"
+        },
+        {
+          "id": "the-gentleman",
+          "text": "The Gentleman"
+        },
+        {
+          "id": "the-gladiator",
+          "text": "The Gladiator"
+        },
+        {
+          "id": "the-golden-era",
+          "text": "The Golden Era"
+        },
+        {
+          "id": "the-hale-heart",
+          "text": "The Hale Heart"
+        },
+        {
+          "id": "the-harvester",
+          "text": "The Harvester"
+        },
+        {
+          "id": "the-hermit",
+          "text": "The Hermit"
+        },
+        {
+          "id": "the-heroic-shot",
+          "text": "The Heroic Shot"
+        },
+        {
+          "id": "the-hoarder",
+          "text": "The Hoarder"
+        },
+        {
+          "id": "the-hunger",
+          "text": "The Hunger"
+        },
+        {
+          "id": "the-immortal",
+          "text": "The Immortal"
+        },
+        {
+          "id": "the-incantation",
+          "text": "The Incantation"
+        },
+        {
+          "id": "the-innocent",
+          "text": "The Innocent"
+        },
+        {
+          "id": "the-inoculated",
+          "text": "The Inoculated"
+        },
+        {
+          "id": "the-insatiable",
+          "text": "The Insatiable"
+        },
+        {
+          "id": "the-inventor",
+          "text": "The Inventor"
+        },
+        {
+          "id": "the-iron-bard",
+          "text": "The Iron Bard"
+        },
+        {
+          "id": "the-jester",
+          "text": "The Jester"
+        },
+        {
+          "id": "the-jewellers-boon",
+          "text": "The Jeweller's Boon"
+        },
+        {
+          "id": "the-journey",
+          "text": "The Journey"
+        },
+        {
+          "id": "the-kings-blade",
+          "text": "The King's Blade"
+        },
+        {
+          "id": "the-kings-heart",
+          "text": "The King's Heart"
+        },
+        {
+          "id": "the-landing",
+          "text": "The Landing"
+        },
+        {
+          "id": "the-last-one-standing",
+          "text": "The Last One Standing"
+        },
+        {
+          "id": "the-lich",
+          "text": "The Lich"
+        },
+        {
+          "id": "the-life-thief",
+          "text": "The Life Thief"
+        },
+        {
+          "id": "the-lion",
+          "text": "The Lion"
+        },
+        {
+          "id": "the-lord-in-black",
+          "text": "The Lord in Black"
+        },
+        {
+          "id": "the-lord-of-celebration",
+          "text": "The Lord of Celebration"
+        },
+        {
+          "id": "the-lover",
+          "text": "The Lover"
+        },
+        {
+          "id": "the-lunaris-priestess",
+          "text": "The Lunaris Priestess"
+        },
+        {
+          "id": "the-mad-king",
+          "text": "The Mad King"
+        },
+        {
+          "id": "the-master",
+          "text": "The Master"
+        },
+        {
+          "id": "the-master-artisan",
+          "text": "The Master Artisan"
+        },
+        {
+          "id": "the-mayor",
+          "text": "The Mayor"
+        },
+        {
+          "id": "the-mercenary",
+          "text": "The Mercenary"
+        },
+        {
+          "id": "the-messenger",
+          "text": "The Messenger"
+        },
+        {
+          "id": "the-metalsmiths-gift",
+          "text": "The Metalsmith's Gift"
+        },
+        {
+          "id": "the-mountain",
+          "text": "The Mountain"
+        },
+        {
+          "id": "the-nurse",
+          "text": "The Nurse"
+        },
+        {
+          "id": "the-oath",
+          "text": "The Oath"
+        },
+        {
+          "id": "the-obscured",
+          "text": "The Obscured"
+        },
+        {
+          "id": "the-offering",
+          "text": "The Offering"
+        },
+        {
+          "id": "the-old-man",
+          "text": "The Old Man"
+        },
+        {
+          "id": "the-one-with-all",
+          "text": "The One With All"
+        },
+        {
+          "id": "the-opulent",
+          "text": "The Opulent"
+        },
+        {
+          "id": "the-pack-leader",
+          "text": "The Pack Leader"
+        },
+        {
+          "id": "the-pact",
+          "text": "The Pact"
+        },
+        {
+          "id": "the-penitent",
+          "text": "The Penitent"
+        },
+        {
+          "id": "the-poet",
+          "text": "The Poet"
+        },
+        {
+          "id": "the-polymath",
+          "text": "The Polymath"
+        },
+        {
+          "id": "the-porcupine",
+          "text": "The Porcupine"
+        },
+        {
+          "id": "the-price-of-loyalty",
+          "text": "The Price of Loyalty"
+        },
+        {
+          "id": "the-price-of-protection",
+          "text": "The Price of Protection"
+        },
+        {
+          "id": "the-primordial",
+          "text": "The Primordial"
+        },
+        {
+          "id": "the-professor",
+          "text": "The Professor"
+        },
+        {
+          "id": "the-puzzle",
+          "text": "The Puzzle"
+        },
+        {
+          "id": "the-queen",
+          "text": "The Queen"
+        },
+        {
+          "id": "the-rabid-rhoa",
+          "text": "The Rabid Rhoa"
+        },
+        {
+          "id": "the-realm",
+          "text": "The Realm"
+        },
+        {
+          "id": "the-risk",
+          "text": "The Risk"
+        },
+        {
+          "id": "the-rite-of-elements",
+          "text": "The Rite of Elements"
+        },
+        {
+          "id": "the-road-to-power",
+          "text": "The Road to Power"
+        },
+        {
+          "id": "the-ruthless-ceinture",
+          "text": "The Ruthless Ceinture"
+        },
+        {
+          "id": "the-sacrifice",
+          "text": "The Sacrifice"
+        },
+        {
+          "id": "the-saints-treasure",
+          "text": "The Saint's Treasure"
+        },
+        {
+          "id": "the-samurais-eye",
+          "text": "The Samurai's Eye"
+        },
+        {
+          "id": "the-scarred-meadow",
+          "text": "The Scarred Meadow"
+        },
+        {
+          "id": "the-scavenger",
+          "text": "The Scavenger"
+        },
+        {
+          "id": "the-scholar",
+          "text": "The Scholar"
+        },
+        {
+          "id": "the-seeker",
+          "text": "The Seeker"
+        },
+        {
+          "id": "the-sephirot",
+          "text": "The Sephirot"
+        },
+        {
+          "id": "the-side-quest",
+          "text": "The Side Quest"
+        },
+        {
+          "id": "the-sigil",
+          "text": "The Sigil"
+        },
+        {
+          "id": "the-siren",
+          "text": "The Siren"
+        },
+        {
+          "id": "the-skeleton",
+          "text": "The Skeleton"
+        },
+        {
+          "id": "the-soul",
+          "text": "The Soul"
+        },
+        {
+          "id": "the-spark-and-the-flame",
+          "text": "The Spark and the Flame"
+        },
+        {
+          "id": "the-spoiled-prince",
+          "text": "The Spoiled Prince"
+        },
+        {
+          "id": "the-standoff",
+          "text": "The Standoff"
+        },
+        {
+          "id": "the-stormcaller",
+          "text": "The Stormcaller"
+        },
+        {
+          "id": "the-summoner",
+          "text": "The Summoner"
+        },
+        {
+          "id": "the-sun",
+          "text": "The Sun"
+        },
+        {
+          "id": "the-surgeon",
+          "text": "The Surgeon"
+        },
+        {
+          "id": "the-surveyor",
+          "text": "The Surveyor"
+        },
+        {
+          "id": "the-survivalist",
+          "text": "The Survivalist"
+        },
+        {
+          "id": "the-sword-kings-salute",
+          "text": "The Sword King's Salute"
+        },
+        {
+          "id": "the-thaumaturgist",
+          "text": "The Thaumaturgist"
+        },
+        {
+          "id": "the-throne",
+          "text": "The Throne"
+        },
+        {
+          "id": "the-tower",
+          "text": "The Tower"
+        },
+        {
+          "id": "the-traitor",
+          "text": "The Traitor"
+        },
+        {
+          "id": "the-trial",
+          "text": "The Trial"
+        },
+        {
+          "id": "the-twilight-moon",
+          "text": "The Twilight Moon"
+        },
+        {
+          "id": "the-twins",
+          "text": "The Twins"
+        },
+        {
+          "id": "the-tyrant",
+          "text": "The Tyrant"
+        },
+        {
+          "id": "the-undaunted",
+          "text": "The Undaunted"
+        },
+        {
+          "id": "the-undisputed",
+          "text": "The Undisputed"
+        },
+        {
+          "id": "the-union",
+          "text": "The Union"
+        },
+        {
+          "id": "the-valkyrie",
+          "text": "The Valkyrie"
+        },
+        {
+          "id": "the-valley-of-steel-boxes",
+          "text": "The Valley of Steel Boxes"
+        },
+        {
+          "id": "the-vast",
+          "text": "The Vast"
+        },
+        {
+          "id": "the-visionary",
+          "text": "The Visionary"
+        },
+        {
+          "id": "the-void",
+          "text": "The Void"
+        },
+        {
+          "id": "the-warden",
+          "text": "The Warden"
+        },
+        {
+          "id": "the-warlord",
+          "text": "The Warlord"
+        },
+        {
+          "id": "the-watcher",
+          "text": "The Watcher"
+        },
+        {
+          "id": "the-web",
+          "text": "The Web"
+        },
+        {
+          "id": "the-wilted-rose",
+          "text": "The Wilted Rose"
+        },
+        {
+          "id": "the-wind",
+          "text": "The Wind"
+        },
+        {
+          "id": "the-witch",
+          "text": "The Witch"
+        },
+        {
+          "id": "the-wolf",
+          "text": "The Wolf"
+        },
+        {
+          "id": "the-wolfs-legacy",
+          "text": "The Wolf's Legacy"
+        },
+        {
+          "id": "the-wolfs-shadow",
+          "text": "The Wolf's Shadow"
+        },
+        {
+          "id": "the-wolven-kings-bite",
+          "text": "The Wolven King's Bite"
+        },
+        {
+          "id": "the-wolverine",
+          "text": "The Wolverine"
+        },
+        {
+          "id": "the-world-eater",
+          "text": "The World Eater"
+        },
+        {
+          "id": "the-wrath",
+          "text": "The Wrath"
+        },
+        {
+          "id": "the-wretched",
+          "text": "The Wretched"
+        },
+        {
+          "id": "thirst-for-knowledge",
+          "text": "Thirst for Knowledge"
+        },
+        {
+          "id": "three-faces-in-the-dark",
+          "text": "Three Faces in the Dark"
+        },
+        {
+          "id": "three-voices",
+          "text": "Three Voices"
+        },
+        {
+          "id": "thunderous-skies",
+          "text": "Thunderous Skies"
+        },
+        {
+          "id": "time-lost-relic",
+          "text": "Time-Lost Relic"
+        },
+        {
+          "id": "tranquillity",
+          "text": "Tranquillity"
+        },
+        {
+          "id": "treasure-hunter",
+          "text": "Treasure Hunter"
+        },
+        {
+          "id": "turn-the-other-cheek",
+          "text": "Turn the Other Cheek"
+        },
+        {
+          "id": "underground-forest",
+          "text": "Underground Forest"
+        },
+        {
+          "id": "vanity",
+          "text": "Vanity"
+        },
+        {
+          "id": "vile-power",
+          "text": "Vile Power"
+        },
+        {
+          "id": "vinias-token",
+          "text": "Vinia's Token"
+        },
+        {
+          "id": "void-of-the-elements",
+          "text": "Void of the Elements"
+        },
+        {
+          "id": "volatile-power",
+          "text": "Volatile Power"
+        },
+        {
+          "id": "wealth-and-power",
+          "text": "Wealth and Power"
+        }
+      ]
+    },
+    {
+      "id": "MapsTier1",
+      "label": "Maps (Tier 1)",
+      "entries": [
+        {
+          "id": "beach-map-tier-1",
+          "text": "Beach Map"
+        },
+        {
+          "id": "jungle-valley-map-tier-1",
+          "text": "Jungle Valley Map"
+        },
+        {
+          "id": "pier-map-tier-1",
+          "text": "Pier Map"
+        },
+        {
+          "id": "wharf-map-tier-1",
+          "text": "Wharf Map"
+        }
+      ]
+    },
+    {
+      "id": "MapsTier2",
+      "label": "Maps (Tier 2)",
+      "entries": [
+        {
+          "id": "alleyways-map-tier-2",
+          "text": "Alleyways Map"
+        },
+        {
+          "id": "armoury-map-tier-2",
+          "text": "Armoury Map"
+        },
+        {
+          "id": "ashen-wood-map-tier-2",
+          "text": "Ashen Wood Map"
+        },
+        {
+          "id": "cursed-crypt-map-tier-2",
+          "text": "Cursed Crypt Map"
+        },
+        {
+          "id": "desert-map-tier-2",
+          "text": "Desert Map"
+        },
+        {
+          "id": "fields-map-tier-2",
+          "text": "Fields Map"
+        },
+        {
+          "id": "fungal-hollow-map-tier-2",
+          "text": "Fungal Hollow Map"
+        },
+        {
+          "id": "glacier-map-tier-2",
+          "text": "Glacier Map"
+        },
+        {
+          "id": "graveyard-map-tier-2",
+          "text": "Graveyard Map"
+        },
+        {
+          "id": "haunted-mansion-map-tier-2",
+          "text": "Haunted Mansion Map"
+        },
+        {
+          "id": "laboratory-map-tier-2",
+          "text": "Laboratory Map"
+        },
+        {
+          "id": "lookout-map-tier-2",
+          "text": "Lookout Map"
+        },
+        {
+          "id": "mausoleum-map-tier-2",
+          "text": "Mausoleum Map"
+        },
+        {
+          "id": "orchard-map-tier-2",
+          "text": "Orchard Map"
+        },
+        {
+          "id": "peninsula-map-tier-2",
+          "text": "Peninsula Map"
+        },
+        {
+          "id": "ramparts-map-tier-2",
+          "text": "Ramparts Map"
+        },
+        {
+          "id": "strand-map-tier-2",
+          "text": "Strand Map"
+        },
+        {
+          "id": "sulphur-vents-map-tier-2",
+          "text": "Sulphur Vents Map"
+        },
+        {
+          "id": "underground-sea-map-tier-2",
+          "text": "Underground Sea Map"
+        },
+        {
+          "id": "villa-map-tier-2",
+          "text": "Villa Map"
+        }
+      ]
+    },
+    {
+      "id": "MapsTier3",
+      "label": "Maps (Tier 3)",
+      "entries": [
+        {
+          "id": "ancient-city-map-tier-3",
+          "text": "Ancient City Map"
+        },
+        {
+          "id": "arcade-map-tier-3",
+          "text": "Arcade Map"
+        },
+        {
+          "id": "arena-map-tier-3",
+          "text": "Arena Map"
+        },
+        {
+          "id": "arsenal-map-tier-3",
+          "text": "Arsenal Map"
+        },
+        {
+          "id": "bazaar-map-tier-3",
+          "text": "Bazaar Map"
+        },
+        {
+          "id": "belfry-map-tier-3",
+          "text": "Belfry Map"
+        },
+        {
+          "id": "bog-map-tier-3",
+          "text": "Bog Map"
+        },
+        {
+          "id": "cage-map-tier-3",
+          "text": "Cage Map"
+        },
+        {
+          "id": "cemetery-map-tier-3",
+          "text": "Cemetery Map"
+        },
+        {
+          "id": "coves-map-tier-3",
+          "text": "Coves Map"
+        },
+        {
+          "id": "dunes-map-tier-3",
+          "text": "Dunes Map"
+        },
+        {
+          "id": "leyline-map-tier-3",
+          "text": "Leyline Map"
+        },
+        {
+          "id": "mesa-map-tier-3",
+          "text": "Mesa Map"
+        },
+        {
+          "id": "moon-temple-map-tier-3",
+          "text": "Moon Temple Map"
+        },
+        {
+          "id": "mud-geyser-map-tier-3",
+          "text": "Mud Geyser Map"
+        },
+        {
+          "id": "museum-map-tier-3",
+          "text": "Museum Map"
+        },
+        {
+          "id": "overgrown-ruin-map-tier-3",
+          "text": "Overgrown Ruin Map"
+        },
+        {
+          "id": "pen-map-tier-3",
+          "text": "Pen Map"
+        },
+        {
+          "id": "primordial-pool-map-tier-3",
+          "text": "Primordial Pool Map"
+        },
+        {
+          "id": "racecourse-map-tier-3",
+          "text": "Racecourse Map"
+        },
+        {
+          "id": "relic-chambers-map-tier-3",
+          "text": "Relic Chambers Map"
+        },
+        {
+          "id": "temple-map-tier-3",
+          "text": "Temple Map"
+        },
+        {
+          "id": "toxic-sewer-map-tier-3",
+          "text": "Toxic Sewer Map"
+        },
+        {
+          "id": "vaal-pyramid-map-tier-3",
+          "text": "Vaal Pyramid Map"
+        },
+        {
+          "id": "vault-map-tier-3",
+          "text": "Vault Map"
+        },
+        {
+          "id": "volcano-map-tier-3",
+          "text": "Volcano Map"
+        },
+        {
+          "id": "wasteland-map-tier-3",
+          "text": "Wasteland Map"
+        },
+        {
+          "id": "waterways-map-tier-3",
+          "text": "Waterways Map"
+        }
+      ]
+    },
+    {
+      "id": "MapsTier4",
+      "label": "Maps (Tier 4)",
+      "entries": [
+        {
+          "id": "academy-map-tier-4",
+          "text": "Academy Map"
+        },
+        {
+          "id": "arachnid-tomb-map-tier-4",
+          "text": "Arachnid Tomb Map"
+        },
+        {
+          "id": "barrows-map-tier-4",
+          "text": "Barrows Map"
+        },
+        {
+          "id": "beach-map-tier-4",
+          "text": "Beach Map"
+        },
+        {
+          "id": "bone-crypt-map-tier-4",
+          "text": "Bone Crypt Map"
+        },
+        {
+          "id": "colonnade-map-tier-4",
+          "text": "Colonnade Map"
+        },
+        {
+          "id": "conservatory-map-tier-4",
+          "text": "Conservatory Map"
+        },
+        {
+          "id": "courtyard-map-tier-4",
+          "text": "Courtyard Map"
+        },
+        {
+          "id": "crystal-ore-map-tier-4",
+          "text": "Crystal Ore Map"
+        },
+        {
+          "id": "defiled-cathedral-map-tier-4",
+          "text": "Defiled Cathedral Map"
+        },
+        {
+          "id": "estuary-map-tier-4",
+          "text": "Estuary Map"
+        },
+        {
+          "id": "geode-map-tier-4",
+          "text": "Geode Map"
+        },
+        {
+          "id": "jungle-valley-map-tier-4",
+          "text": "Jungle Valley Map"
+        },
+        {
+          "id": "lava-chamber-map-tier-4",
+          "text": "Lava Chamber Map"
+        },
+        {
+          "id": "park-map-tier-4",
+          "text": "Park Map"
+        },
+        {
+          "id": "phantasmagoria-map-tier-4",
+          "text": "Phantasmagoria Map"
+        },
+        {
+          "id": "pier-map-tier-4",
+          "text": "Pier Map"
+        },
+        {
+          "id": "pit-map-tier-4",
+          "text": "Pit Map"
+        },
+        {
+          "id": "plaza-map-tier-4",
+          "text": "Plaza Map"
+        },
+        {
+          "id": "shore-map-tier-4",
+          "text": "Shore Map"
+        },
+        {
+          "id": "thicket-map-tier-4",
+          "text": "Thicket Map"
+        },
+        {
+          "id": "waste-pool-map-tier-4",
+          "text": "Waste Pool Map"
+        },
+        {
+          "id": "wharf-map-tier-4",
+          "text": "Wharf Map"
+        }
+      ]
+    },
+    {
+      "id": "MapsTier5",
+      "label": "Maps (Tier 5)",
+      "entries": [
+        {
+          "id": "alleyways-map-tier-5",
+          "text": "Alleyways Map"
+        },
+        {
+          "id": "arid-lake-map-tier-5",
+          "text": "Arid Lake Map"
+        },
+        {
+          "id": "armoury-map-tier-5",
+          "text": "Armoury Map"
+        },
+        {
+          "id": "atoll-map-tier-5",
+          "text": "Atoll Map"
+        },
+        {
+          "id": "basilica-map-tier-5",
+          "text": "Basilica Map"
+        },
+        {
+          "id": "caldera-map-tier-5",
+          "text": "Caldera Map"
+        },
+        {
+          "id": "canyon-map-tier-5",
+          "text": "Canyon Map"
+        },
+        {
+          "id": "castle-ruins-map-tier-5",
+          "text": "Castle Ruins Map"
+        },
+        {
+          "id": "chateau-map-tier-5",
+          "text": "Chateau Map"
+        },
+        {
+          "id": "fields-map-tier-5",
+          "text": "Fields Map"
+        },
+        {
+          "id": "fungal-hollow-map-tier-5",
+          "text": "Fungal Hollow Map"
+        },
+        {
+          "id": "haunted-mansion-map-tier-5",
+          "text": "Haunted Mansion Map"
+        },
+        {
+          "id": "marshes-map-tier-5",
+          "text": "Marshes Map"
+        },
+        {
+          "id": "mausoleum-map-tier-5",
+          "text": "Mausoleum Map"
+        },
+        {
+          "id": "peninsula-map-tier-5",
+          "text": "Peninsula Map"
+        },
+        {
+          "id": "reef-map-tier-5",
+          "text": "Reef Map"
+        },
+        {
+          "id": "scriptorium-map-tier-5",
+          "text": "Scriptorium Map"
+        },
+        {
+          "id": "strand-map-tier-5",
+          "text": "Strand Map"
+        },
+        {
+          "id": "sulphur-vents-map-tier-5",
+          "text": "Sulphur Vents Map"
+        },
+        {
+          "id": "tower-map-tier-5",
+          "text": "Tower Map"
+        },
+        {
+          "id": "tropical-island-map-tier-5",
+          "text": "Tropical Island Map"
+        },
+        {
+          "id": "villa-map-tier-5",
+          "text": "Villa Map"
+        }
+      ]
+    },
+    {
+      "id": "MapsTier6",
+      "label": "Maps (Tier 6)",
+      "entries": [
+        {
+          "id": "arcade-map-tier-6",
+          "text": "Arcade Map"
+        },
+        {
+          "id": "arena-map-tier-6",
+          "text": "Arena Map"
+        },
+        {
+          "id": "ashen-wood-map-tier-6",
+          "text": "Ashen Wood Map"
+        },
+        {
+          "id": "bazaar-map-tier-6",
+          "text": "Bazaar Map"
+        },
+        {
+          "id": "bog-map-tier-6",
+          "text": "Bog Map"
+        },
+        {
+          "id": "burial-chambers-map-tier-6",
+          "text": "Burial Chambers Map"
+        },
+        {
+          "id": "cursed-crypt-map-tier-6",
+          "text": "Cursed Crypt Map"
+        },
+        {
+          "id": "desert-map-tier-6",
+          "text": "Desert Map"
+        },
+        {
+          "id": "excavation-map-tier-6",
+          "text": "Excavation Map"
+        },
+        {
+          "id": "glacier-map-tier-6",
+          "text": "Glacier Map"
+        },
+        {
+          "id": "graveyard-map-tier-6",
+          "text": "Graveyard Map"
+        },
+        {
+          "id": "laboratory-map-tier-6",
+          "text": "Laboratory Map"
+        },
+        {
+          "id": "leyline-map-tier-6",
+          "text": "Leyline Map"
+        },
+        {
+          "id": "lookout-map-tier-6",
+          "text": "Lookout Map"
+        },
+        {
+          "id": "mesa-map-tier-6",
+          "text": "Mesa Map"
+        },
+        {
+          "id": "mud-geyser-map-tier-6",
+          "text": "Mud Geyser Map"
+        },
+        {
+          "id": "museum-map-tier-6",
+          "text": "Museum Map"
+        },
+        {
+          "id": "orchard-map-tier-6",
+          "text": "Orchard Map"
+        },
+        {
+          "id": "pen-map-tier-6",
+          "text": "Pen Map"
+        },
+        {
+          "id": "port-map-tier-6",
+          "text": "Port Map"
+        },
+        {
+          "id": "primordial-pool-map-tier-6",
+          "text": "Primordial Pool Map"
+        },
+        {
+          "id": "racecourse-map-tier-6",
+          "text": "Racecourse Map"
+        },
+        {
+          "id": "ramparts-map-tier-6",
+          "text": "Ramparts Map"
+        },
+        {
+          "id": "temple-map-tier-6",
+          "text": "Temple Map"
+        },
+        {
+          "id": "underground-sea-map-tier-6",
+          "text": "Underground Sea Map"
+        },
+        {
+          "id": "vault-map-tier-6",
+          "text": "Vault Map"
+        },
+        {
+          "id": "volcano-map-tier-6",
+          "text": "Volcano Map"
+        },
+        {
+          "id": "wasteland-map-tier-6",
+          "text": "Wasteland Map"
+        },
+        {
+          "id": "ancient-city-map-tier-7",
+          "text": "Ancient City Map"
+        }
+      ]
+    },
+    {
+      "id": "MapsTier7",
+      "label": "Maps (Tier 7)",
+      "entries": [
+        {
+          "id": "academy-map-tier-7",
+          "text": "Academy Map"
+        },
+        {
+          "id": "arsenal-map-tier-7",
+          "text": "Arsenal Map"
+        },
+        {
+          "id": "barrows-map-tier-7",
+          "text": "Barrows Map"
+        },
+        {
+          "id": "belfry-map-tier-7",
+          "text": "Belfry Map"
+        },
+        {
+          "id": "bone-crypt-map-tier-7",
+          "text": "Bone Crypt Map"
+        },
+        {
+          "id": "cage-map-tier-7",
+          "text": "Cage Map"
+        },
+        {
+          "id": "cemetery-map-tier-7",
+          "text": "Cemetery Map"
+        },
+        {
+          "id": "conservatory-map-tier-7",
+          "text": "Conservatory Map"
+        },
+        {
+          "id": "coves-map-tier-7",
+          "text": "Coves Map"
+        },
+        {
+          "id": "crystal-ore-map-tier-7",
+          "text": "Crystal Ore Map"
+        },
+        {
+          "id": "defiled-cathedral-map-tier-7",
+          "text": "Defiled Cathedral Map"
+        },
+        {
+          "id": "dunes-map-tier-7",
+          "text": "Dunes Map"
+        },
+        {
+          "id": "estuary-map-tier-7",
+          "text": "Estuary Map"
+        },
+        {
+          "id": "lava-chamber-map-tier-7",
+          "text": "Lava Chamber Map"
+        },
+        {
+          "id": "moon-temple-map-tier-7",
+          "text": "Moon Temple Map"
+        },
+        {
+          "id": "overgrown-ruin-map-tier-7",
+          "text": "Overgrown Ruin Map"
+        },
+        {
+          "id": "phantasmagoria-map-tier-7",
+          "text": "Phantasmagoria Map"
+        },
+        {
+          "id": "pit-map-tier-7",
+          "text": "Pit Map"
+        },
+        {
+          "id": "precinct-map-tier-7",
+          "text": "Precinct Map"
+        },
+        {
+          "id": "relic-chambers-map-tier-7",
+          "text": "Relic Chambers Map"
+        },
+        {
+          "id": "shore-map-tier-7",
+          "text": "Shore Map"
+        },
+        {
+          "id": "thicket-map-tier-7",
+          "text": "Thicket Map"
+        },
+        {
+          "id": "toxic-sewer-map-tier-7",
+          "text": "Toxic Sewer Map"
+        },
+        {
+          "id": "vaal-pyramid-map-tier-7",
+          "text": "Vaal Pyramid Map"
+        },
+        {
+          "id": "waterways-map-tier-7",
+          "text": "Waterways Map"
+        }
+      ]
+    },
+    {
+      "id": "MapsTier8",
+      "label": "Maps (Tier 8)",
+      "entries": [
+        {
+          "id": "arachnid-tomb-map-tier-8",
+          "text": "Arachnid Tomb Map"
+        },
+        {
+          "id": "beach-map-tier-8",
+          "text": "Beach Map"
+        },
+        {
+          "id": "caldera-map-tier-8",
+          "text": "Caldera Map"
+        },
+        {
+          "id": "canyon-map-tier-8",
+          "text": "Canyon Map"
+        },
+        {
+          "id": "castle-ruins-map-tier-8",
+          "text": "Castle Ruins Map"
+        },
+        {
+          "id": "colonnade-map-tier-8",
+          "text": "Colonnade Map"
+        },
+        {
+          "id": "courtyard-map-tier-8",
+          "text": "Courtyard Map"
+        },
+        {
+          "id": "geode-map-tier-8",
+          "text": "Geode Map"
+        },
+        {
+          "id": "jungle-valley-map-tier-8",
+          "text": "Jungle Valley Map"
+        },
+        {
+          "id": "lair-map-tier-8",
+          "text": "Lair Map"
+        },
+        {
+          "id": "park-map-tier-8",
+          "text": "Park Map"
+        },
+        {
+          "id": "pier-map-tier-8",
+          "text": "Pier Map"
+        },
+        {
+          "id": "plaza-map-tier-8",
+          "text": "Plaza Map"
+        },
+        {
+          "id": "reef-map-tier-8",
+          "text": "Reef Map"
+        },
+        {
+          "id": "siege-map-tier-8",
+          "text": "Siege Map"
+        },
+        {
+          "id": "waste-pool-map-tier-8",
+          "text": "Waste Pool Map"
+        },
+        {
+          "id": "wharf-map-tier-8",
+          "text": "Wharf Map"
+        }
+      ]
+    },
+    {
+      "id": "MapsTier9",
+      "label": "Maps (Tier 9)",
+      "entries": [
+        {
+          "id": "alleyways-map-tier-9",
+          "text": "Alleyways Map"
+        },
+        {
+          "id": "arcade-map-tier-9",
+          "text": "Arcade Map"
+        },
+        {
+          "id": "arid-lake-map-tier-9",
+          "text": "Arid Lake Map"
+        },
+        {
+          "id": "armoury-map-tier-9",
+          "text": "Armoury Map"
+        },
+        {
+          "id": "ashen-wood-map-tier-9",
+          "text": "Ashen Wood Map"
+        },
+        {
+          "id": "atoll-map-tier-9",
+          "text": "Atoll Map"
+        },
+        {
+          "id": "basilica-map-tier-9",
+          "text": "Basilica Map"
+        },
+        {
+          "id": "burial-chambers-map-tier-9",
+          "text": "Burial Chambers Map"
+        },
+        {
+          "id": "chateau-map-tier-9",
+          "text": "Chateau Map"
+        },
+        {
+          "id": "courthouse-map-tier-9",
+          "text": "Courthouse Map"
+        },
+        {
+          "id": "cursed-crypt-map-tier-9",
+          "text": "Cursed Crypt Map"
+        },
+        {
+          "id": "desert-map-tier-9",
+          "text": "Desert Map"
+        },
+        {
+          "id": "factory-map-tier-9",
+          "text": "Factory Map"
+        },
+        {
+          "id": "fields-map-tier-9",
+          "text": "Fields Map"
+        },
+        {
+          "id": "flooded-mine-map-tier-9",
+          "text": "Flooded Mine Map"
+        },
+        {
+          "id": "fungal-hollow-map-tier-9",
+          "text": "Fungal Hollow Map"
+        },
+        {
+          "id": "gardens-map-tier-9",
+          "text": "Gardens Map"
+        },
+        {
+          "id": "glacier-map-tier-9",
+          "text": "Glacier Map"
+        },
+        {
+          "id": "graveyard-map-tier-9",
+          "text": "Graveyard Map"
+        },
+        {
+          "id": "haunted-mansion-map-tier-9",
+          "text": "Haunted Mansion Map"
+        },
+        {
+          "id": "iceberg-map-tier-9",
+          "text": "Iceberg Map"
+        },
+        {
+          "id": "laboratory-map-tier-9",
+          "text": "Laboratory Map"
+        },
+        {
+          "id": "lookout-map-tier-9",
+          "text": "Lookout Map"
+        },
+        {
+          "id": "marshes-map-tier-9",
+          "text": "Marshes Map"
+        },
+        {
+          "id": "mausoleum-map-tier-9",
+          "text": "Mausoleum Map"
+        },
+        {
+          "id": "maze-map-tier-9",
+          "text": "Maze Map"
+        },
+        {
+          "id": "orchard-map-tier-9",
+          "text": "Orchard Map"
+        },
+        {
+          "id": "pen-map-tier-9",
+          "text": "Pen Map"
+        },
+        {
+          "id": "peninsula-map-tier-9",
+          "text": "Peninsula Map"
+        },
+        {
+          "id": "ramparts-map-tier-9",
+          "text": "Ramparts Map"
+        },
+        {
+          "id": "scriptorium-map-tier-9",
+          "text": "Scriptorium Map"
+        },
+        {
+          "id": "shipyard-map-tier-9",
+          "text": "Shipyard Map"
+        },
+        {
+          "id": "strand-map-tier-9",
+          "text": "Strand Map"
+        },
+        {
+          "id": "sulphur-vents-map-tier-9",
+          "text": "Sulphur Vents Map"
+        },
+        {
+          "id": "tower-map-tier-9",
+          "text": "Tower Map"
+        },
+        {
+          "id": "tropical-island-map-tier-9",
+          "text": "Tropical Island Map"
+        },
+        {
+          "id": "underground-sea-map-tier-9",
+          "text": "Underground Sea Map"
+        },
+        {
+          "id": "villa-map-tier-9",
+          "text": "Villa Map"
+        }
+      ]
+    },
+    {
+      "id": "MapsTier10",
+      "label": "Maps (Tier 10)",
+      "entries": [
+        {
+          "id": "ancient-city-map-tier-10",
+          "text": "Ancient City Map"
+        },
+        {
+          "id": "arena-map-tier-10",
+          "text": "Arena Map"
+        },
+        {
+          "id": "arsenal-map-tier-10",
+          "text": "Arsenal Map"
+        },
+        {
+          "id": "barrows-map-tier-10",
+          "text": "Barrows Map"
+        },
+        {
+          "id": "bazaar-map-tier-10",
+          "text": "Bazaar Map"
+        },
+        {
+          "id": "beach-map-tier-10",
+          "text": "Beach Map"
+        },
+        {
+          "id": "belfry-map-tier-10",
+          "text": "Belfry Map"
+        },
+        {
+          "id": "bog-map-tier-10",
+          "text": "Bog Map"
+        },
+        {
+          "id": "cage-map-tier-10",
+          "text": "Cage Map"
+        },
+        {
+          "id": "cells-map-tier-10",
+          "text": "Cells Map"
+        },
+        {
+          "id": "cemetery-map-tier-10",
+          "text": "Cemetery Map"
+        },
+        {
+          "id": "conservatory-map-tier-10",
+          "text": "Conservatory Map"
+        },
+        {
+          "id": "coves-map-tier-10",
+          "text": "Coves Map"
+        },
+        {
+          "id": "defiled-cathedral-map-tier-10",
+          "text": "Defiled Cathedral Map"
+        },
+        {
+          "id": "dunes-map-tier-10",
+          "text": "Dunes Map"
+        },
+        {
+          "id": "estuary-map-tier-10",
+          "text": "Estuary Map"
+        },
+        {
+          "id": "excavation-map-tier-10",
+          "text": "Excavation Map"
+        },
+        {
+          "id": "jungle-valley-map-tier-10",
+          "text": "Jungle Valley Map"
+        },
+        {
+          "id": "leyline-map-tier-10",
+          "text": "Leyline Map"
+        },
+        {
+          "id": "lighthouse-map-tier-10",
+          "text": "Lighthouse Map"
+        },
+        {
+          "id": "mesa-map-tier-10",
+          "text": "Mesa Map"
+        },
+        {
+          "id": "moon-temple-map-tier-10",
+          "text": "Moon Temple Map"
+        },
+        {
+          "id": "mud-geyser-map-tier-10",
+          "text": "Mud Geyser Map"
+        },
+        {
+          "id": "museum-map-tier-10",
+          "text": "Museum Map"
+        },
+        {
+          "id": "overgrown-ruin-map-tier-10",
+          "text": "Overgrown Ruin Map"
+        },
+        {
+          "id": "pier-map-tier-10",
+          "text": "Pier Map"
+        },
+        {
+          "id": "pit-map-tier-10",
+          "text": "Pit Map"
+        },
+        {
+          "id": "port-map-tier-10",
+          "text": "Port Map"
+        },
+        {
+          "id": "primordial-pool-map-tier-10",
+          "text": "Primordial Pool Map"
+        },
+        {
+          "id": "racecourse-map-tier-10",
+          "text": "Racecourse Map"
+        },
+        {
+          "id": "relic-chambers-map-tier-10",
+          "text": "Relic Chambers Map"
+        },
+        {
+          "id": "residence-map-tier-10",
+          "text": "Residence Map"
+        },
+        {
+          "id": "temple-map-tier-10",
+          "text": "Temple Map"
+        },
+        {
+          "id": "toxic-sewer-map-tier-10",
+          "text": "Toxic Sewer Map"
+        },
+        {
+          "id": "vaal-pyramid-map-tier-10",
+          "text": "Vaal Pyramid Map"
+        },
+        {
+          "id": "vault-map-tier-10",
+          "text": "Vault Map"
+        },
+        {
+          "id": "volcano-map-tier-10",
+          "text": "Volcano Map"
+        },
+        {
+          "id": "wasteland-map-tier-10",
+          "text": "Wasteland Map"
+        },
+        {
+          "id": "waterways-map-tier-10",
+          "text": "Waterways Map"
+        },
+        {
+          "id": "wharf-map-tier-10",
+          "text": "Wharf Map"
+        }
+      ]
+    },
+    {
+      "id": "MapsTier11",
+      "label": "Maps (Tier 11)",
+      "entries": [
+        {
+          "id": "academy-map-tier-11",
+          "text": "Academy Map"
+        },
+        {
+          "id": "alleyways-map-tier-11",
+          "text": "Alleyways Map"
+        },
+        {
+          "id": "arachnid-tomb-map-tier-11",
+          "text": "Arachnid Tomb Map"
+        },
+        {
+          "id": "arcade-map-tier-11",
+          "text": "Arcade Map"
+        },
+        {
+          "id": "arid-lake-map-tier-11",
+          "text": "Arid Lake Map"
+        },
+        {
+          "id": "armoury-map-tier-11",
+          "text": "Armoury Map"
+        },
+        {
+          "id": "arsenal-map-tier-11",
+          "text": "Arsenal Map"
+        },
+        {
+          "id": "ashen-wood-map-tier-11",
+          "text": "Ashen Wood Map"
+        },
+        {
+          "id": "atoll-map-tier-11",
+          "text": "Atoll Map"
+        },
+        {
+          "id": "bog-map-tier-11",
+          "text": "Bog Map"
+        },
+        {
+          "id": "bone-crypt-map-tier-11",
+          "text": "Bone Crypt Map"
+        },
+        {
+          "id": "burial-chambers-map-tier-11",
+          "text": "Burial Chambers Map"
+        },
+        {
+          "id": "caldera-map-tier-11",
+          "text": "Caldera Map"
+        },
+        {
+          "id": "cemetery-map-tier-11",
+          "text": "Cemetery Map"
+        },
+        {
+          "id": "city-square-map-tier-11",
+          "text": "City Square Map"
+        },
+        {
+          "id": "colonnade-map-tier-11",
+          "text": "Colonnade Map"
+        },
+        {
+          "id": "core-map-tier-11",
+          "text": "Core Map"
+        },
+        {
+          "id": "courtyard-map-tier-11",
+          "text": "Courtyard Map"
+        },
+        {
+          "id": "crater-map-tier-11",
+          "text": "Crater Map"
+        },
+        {
+          "id": "crystal-ore-map-tier-11",
+          "text": "Crystal Ore Map"
+        },
+        {
+          "id": "cursed-crypt-map-tier-11",
+          "text": "Cursed Crypt Map"
+        },
+        {
+          "id": "desert-map-tier-11",
+          "text": "Desert Map"
+        },
+        {
+          "id": "dig-map-tier-11",
+          "text": "Dig Map"
+        },
+        {
+          "id": "dunes-map-tier-11",
+          "text": "Dunes Map"
+        },
+        {
+          "id": "dungeon-map-tier-11",
+          "text": "Dungeon Map"
+        },
+        {
+          "id": "factory-map-tier-11",
+          "text": "Factory Map"
+        },
+        {
+          "id": "fields-map-tier-11",
+          "text": "Fields Map"
+        },
+        {
+          "id": "fungal-hollow-map-tier-11",
+          "text": "Fungal Hollow Map"
+        },
+        {
+          "id": "geode-map-tier-11",
+          "text": "Geode Map"
+        },
+        {
+          "id": "glacier-map-tier-11",
+          "text": "Glacier Map"
+        },
+        {
+          "id": "graveyard-map-tier-11",
+          "text": "Graveyard Map"
+        },
+        {
+          "id": "haunted-mansion-map-tier-11",
+          "text": "Haunted Mansion Map"
+        },
+        {
+          "id": "iceberg-map-tier-11",
+          "text": "Iceberg Map"
+        },
+        {
+          "id": "laboratory-map-tier-11",
+          "text": "Laboratory Map"
+        },
+        {
+          "id": "lava-chamber-map-tier-11",
+          "text": "Lava Chamber Map"
+        },
+        {
+          "id": "lookout-map-tier-11",
+          "text": "Lookout Map"
+        },
+        {
+          "id": "marshes-map-tier-11",
+          "text": "Marshes Map"
+        },
+        {
+          "id": "mausoleum-map-tier-11",
+          "text": "Mausoleum Map"
+        },
+        {
+          "id": "maze-map-tier-11",
+          "text": "Maze Map"
+        },
+        {
+          "id": "mesa-map-tier-11",
+          "text": "Mesa Map"
+        },
+        {
+          "id": "mud-geyser-map-tier-11",
+          "text": "Mud Geyser Map"
+        },
+        {
+          "id": "orchard-map-tier-11",
+          "text": "Orchard Map"
+        },
+        {
+          "id": "park-map-tier-11",
+          "text": "Park Map"
+        },
+        {
+          "id": "peninsula-map-tier-11",
+          "text": "Peninsula Map"
+        },
+        {
+          "id": "phantasmagoria-map-tier-11",
+          "text": "Phantasmagoria Map"
+        },
+        {
+          "id": "racecourse-map-tier-11",
+          "text": "Racecourse Map"
+        },
+        {
+          "id": "ramparts-map-tier-11",
+          "text": "Ramparts Map"
+        },
+        {
+          "id": "reef-map-tier-11",
+          "text": "Reef Map"
+        },
+        {
+          "id": "relic-chambers-map-tier-11",
+          "text": "Relic Chambers Map"
+        },
+        {
+          "id": "scriptorium-map-tier-11",
+          "text": "Scriptorium Map"
+        },
+        {
+          "id": "sepulchre-map-tier-11",
+          "text": "Sepulchre Map"
+        },
+        {
+          "id": "shore-map-tier-11",
+          "text": "Shore Map"
+        },
+        {
+          "id": "siege-map-tier-11",
+          "text": "Siege Map"
+        },
+        {
+          "id": "strand-map-tier-11",
+          "text": "Strand Map"
+        },
+        {
+          "id": "sulphur-vents-map-tier-11",
+          "text": "Sulphur Vents Map"
+        },
+        {
+          "id": "thicket-map-tier-11",
+          "text": "Thicket Map"
+        },
+        {
+          "id": "tropical-island-map-tier-11",
+          "text": "Tropical Island Map"
+        },
+        {
+          "id": "underground-sea-map-tier-11",
+          "text": "Underground Sea Map"
+        },
+        {
+          "id": "vault-map-tier-11",
+          "text": "Vault Map"
+        },
+        {
+          "id": "villa-map-tier-11",
+          "text": "Villa Map"
+        },
+        {
+          "id": "waste-pool-map-tier-11",
+          "text": "Waste Pool Map"
+        },
+        {
+          "id": "wasteland-map-tier-11",
+          "text": "Wasteland Map"
+        }
+      ]
+    },
+    {
+      "id": "MapsTier12",
+      "label": "Maps (Tier 12)",
+      "entries": [
+        {
+          "id": "academy-map-tier-12",
+          "text": "Academy Map"
+        },
+        {
+          "id": "ancient-city-map-tier-12",
+          "text": "Ancient City Map"
+        },
+        {
+          "id": "arachnid-nest-map-tier-12",
+          "text": "Arachnid Nest Map"
+        },
+        {
+          "id": "arena-map-tier-12",
+          "text": "Arena Map"
+        },
+        {
+          "id": "barrows-map-tier-12",
+          "text": "Barrows Map"
+        },
+        {
+          "id": "basilica-map-tier-12",
+          "text": "Basilica Map"
+        },
+        {
+          "id": "bazaar-map-tier-12",
+          "text": "Bazaar Map"
+        },
+        {
+          "id": "belfry-map-tier-12",
+          "text": "Belfry Map"
+        },
+        {
+          "id": "bone-crypt-map-tier-12",
+          "text": "Bone Crypt Map"
+        },
+        {
+          "id": "cage-map-tier-12",
+          "text": "Cage Map"
+        },
+        {
+          "id": "caldera-map-tier-12",
+          "text": "Caldera Map"
+        },
+        {
+          "id": "canyon-map-tier-12",
+          "text": "Canyon Map"
+        },
+        {
+          "id": "castle-ruins-map-tier-12",
+          "text": "Castle Ruins Map"
+        },
+        {
+          "id": "chateau-map-tier-12",
+          "text": "Chateau Map"
+        },
+        {
+          "id": "colosseum-map-tier-12",
+          "text": "Colosseum Map"
+        },
+        {
+          "id": "conservatory-map-tier-12",
+          "text": "Conservatory Map"
+        },
+        {
+          "id": "courthouse-map-tier-12",
+          "text": "Courthouse Map"
+        },
+        {
+          "id": "coves-map-tier-12",
+          "text": "Coves Map"
+        },
+        {
+          "id": "defiled-cathedral-map-tier-12",
+          "text": "Defiled Cathedral Map"
+        },
+        {
+          "id": "estuary-map-tier-12",
+          "text": "Estuary Map"
+        },
+        {
+          "id": "excavation-map-tier-12",
+          "text": "Excavation Map"
+        },
+        {
+          "id": "flooded-mine-map-tier-12",
+          "text": "Flooded Mine Map"
+        },
+        {
+          "id": "gardens-map-tier-12",
+          "text": "Gardens Map"
+        },
+        {
+          "id": "ghetto-map-tier-12",
+          "text": "Ghetto Map"
+        },
+        {
+          "id": "lair-map-tier-12",
+          "text": "Lair Map"
+        },
+        {
+          "id": "leyline-map-tier-12",
+          "text": "Leyline Map"
+        },
+        {
+          "id": "lighthouse-map-tier-12",
+          "text": "Lighthouse Map"
+        },
+        {
+          "id": "moon-temple-map-tier-12",
+          "text": "Moon Temple Map"
+        },
+        {
+          "id": "museum-map-tier-12",
+          "text": "Museum Map"
+        },
+        {
+          "id": "overgrown-ruin-map-tier-12",
+          "text": "Overgrown Ruin Map"
+        },
+        {
+          "id": "park-map-tier-12",
+          "text": "Park Map"
+        },
+        {
+          "id": "pen-map-tier-12",
+          "text": "Pen Map"
+        },
+        {
+          "id": "pit-map-tier-12",
+          "text": "Pit Map"
+        },
+        {
+          "id": "plaza-map-tier-12",
+          "text": "Plaza Map"
+        },
+        {
+          "id": "port-map-tier-12",
+          "text": "Port Map"
+        },
+        {
+          "id": "precinct-map-tier-12",
+          "text": "Precinct Map"
+        },
+        {
+          "id": "primordial-blocks-map-tier-12",
+          "text": "Primordial Blocks Map"
+        },
+        {
+          "id": "primordial-pool-map-tier-12",
+          "text": "Primordial Pool Map"
+        },
+        {
+          "id": "residence-map-tier-12",
+          "text": "Residence Map"
+        },
+        {
+          "id": "shipyard-map-tier-12",
+          "text": "Shipyard Map"
+        },
+        {
+          "id": "temple-map-tier-12",
+          "text": "Temple Map"
+        },
+        {
+          "id": "thicket-map-tier-12",
+          "text": "Thicket Map"
+        },
+        {
+          "id": "tower-map-tier-12",
+          "text": "Tower Map"
+        },
+        {
+          "id": "toxic-sewer-map-tier-12",
+          "text": "Toxic Sewer Map"
+        },
+        {
+          "id": "vaal-pyramid-map-tier-12",
+          "text": "Vaal Pyramid Map"
+        },
+        {
+          "id": "volcano-map-tier-12",
+          "text": "Volcano Map"
+        }
+      ]
+    },
+    {
+      "id": "MapsTier13",
+      "label": "Maps (Tier 13)",
+      "entries": [
+        {
+          "id": "arachnid-tomb-map-tier-13",
+          "text": "Arachnid Tomb Map"
+        },
+        {
+          "id": "castle-ruins-map-tier-13",
+          "text": "Castle Ruins Map"
+        },
+        {
+          "id": "cells-map-tier-13",
+          "text": "Cells Map"
+        },
+        {
+          "id": "channel-map-tier-13",
+          "text": "Channel Map"
+        },
+        {
+          "id": "colonnade-map-tier-13",
+          "text": "Colonnade Map"
+        },
+        {
+          "id": "core-map-tier-13",
+          "text": "Core Map"
+        },
+        {
+          "id": "courthouse-map-tier-13",
+          "text": "Courthouse Map"
+        },
+        {
+          "id": "courtyard-map-tier-13",
+          "text": "Courtyard Map"
+        },
+        {
+          "id": "crystal-ore-map-tier-13",
+          "text": "Crystal Ore Map"
+        },
+        {
+          "id": "dig-map-tier-13",
+          "text": "Dig Map"
+        },
+        {
+          "id": "gardens-map-tier-13",
+          "text": "Gardens Map"
+        },
+        {
+          "id": "geode-map-tier-13",
+          "text": "Geode Map"
+        },
+        {
+          "id": "lair-map-tier-13",
+          "text": "Lair Map"
+        },
+        {
+          "id": "overgrown-shrine-map-tier-13",
+          "text": "Overgrown Shrine Map"
+        },
+        {
+          "id": "phantasmagoria-map-tier-13",
+          "text": "Phantasmagoria Map"
+        },
+        {
+          "id": "plateau-map-tier-13",
+          "text": "Plateau Map"
+        },
+        {
+          "id": "reef-map-tier-13",
+          "text": "Reef Map"
+        },
+        {
+          "id": "sepulchre-map-tier-13",
+          "text": "Sepulchre Map"
+        },
+        {
+          "id": "shore-map-tier-13",
+          "text": "Shore Map"
+        },
+        {
+          "id": "siege-map-tier-13",
+          "text": "Siege Map"
+        },
+        {
+          "id": "underground-river-map-tier-13",
+          "text": "Underground River Map"
+        },
+        {
+          "id": "waste-pool-map-tier-13",
+          "text": "Waste Pool Map"
+        },
+        {
+          "id": "waterways-map-tier-13",
+          "text": "Waterways Map"
+        }
+      ]
+    },
+    {
+      "id": "MapsTier14",
+      "label": "Maps (Tier 14)",
+      "entries": [
+        {
+          "id": "academy-map-tier-14",
+          "text": "Academy Map"
+        },
+        {
+          "id": "alleyways-map-tier-14",
+          "text": "Alleyways Map"
+        },
+        {
+          "id": "ancient-city-map-tier-14",
+          "text": "Ancient City Map"
+        },
+        {
+          "id": "arachnid-nest-map-tier-14",
+          "text": "Arachnid Nest Map"
+        },
+        {
+          "id": "arcade-map-tier-14",
+          "text": "Arcade Map"
+        },
+        {
+          "id": "arena-map-tier-14",
+          "text": "Arena Map"
+        },
+        {
+          "id": "arid-lake-map-tier-14",
+          "text": "Arid Lake Map"
+        },
+        {
+          "id": "armoury-map-tier-14",
+          "text": "Armoury Map"
+        },
+        {
+          "id": "arsenal-map-tier-14",
+          "text": "Arsenal Map"
+        },
+        {
+          "id": "ashen-wood-map-tier-14",
+          "text": "Ashen Wood Map"
+        },
+        {
+          "id": "atoll-map-tier-14",
+          "text": "Atoll Map"
+        },
+        {
+          "id": "barrows-map-tier-14",
+          "text": "Barrows Map"
+        },
+        {
+          "id": "basilica-map-tier-14",
+          "text": "Basilica Map"
+        },
+        {
+          "id": "beach-map-tier-14",
+          "text": "Beach Map"
+        },
+        {
+          "id": "belfry-map-tier-14",
+          "text": "Belfry Map"
+        },
+        {
+          "id": "bog-map-tier-14",
+          "text": "Bog Map"
+        },
+        {
+          "id": "burial-chambers-map-tier-14",
+          "text": "Burial Chambers Map"
+        },
+        {
+          "id": "cage-map-tier-14",
+          "text": "Cage Map"
+        },
+        {
+          "id": "canyon-map-tier-14",
+          "text": "Canyon Map"
+        },
+        {
+          "id": "cemetery-map-tier-14",
+          "text": "Cemetery Map"
+        },
+        {
+          "id": "chateau-map-tier-14",
+          "text": "Chateau Map"
+        },
+        {
+          "id": "city-square-map-tier-14",
+          "text": "City Square Map"
+        },
+        {
+          "id": "colosseum-map-tier-14",
+          "text": "Colosseum Map"
+        },
+        {
+          "id": "conservatory-map-tier-14",
+          "text": "Conservatory Map"
+        },
+        {
+          "id": "crater-map-tier-14",
+          "text": "Crater Map"
+        },
+        {
+          "id": "crimson-temple-map-tier-14",
+          "text": "Crimson Temple Map"
+        },
+        {
+          "id": "cursed-crypt-map-tier-14",
+          "text": "Cursed Crypt Map"
+        },
+        {
+          "id": "dark-forest-map-tier-14",
+          "text": "Dark Forest Map"
+        },
+        {
+          "id": "defiled-cathedral-map-tier-14",
+          "text": "Defiled Cathedral Map"
+        },
+        {
+          "id": "desert-map-tier-14",
+          "text": "Desert Map"
+        },
+        {
+          "id": "dunes-map-tier-14",
+          "text": "Dunes Map"
+        },
+        {
+          "id": "dungeon-map-tier-14",
+          "text": "Dungeon Map"
+        },
+        {
+          "id": "excavation-map-tier-14",
+          "text": "Excavation Map"
+        },
+        {
+          "id": "factory-map-tier-14",
+          "text": "Factory Map"
+        },
+        {
+          "id": "fields-map-tier-14",
+          "text": "Fields Map"
+        },
+        {
+          "id": "flooded-mine-map-tier-14",
+          "text": "Flooded Mine Map"
+        },
+        {
+          "id": "fungal-hollow-map-tier-14",
+          "text": "Fungal Hollow Map"
+        },
+        {
+          "id": "ghetto-map-tier-14",
+          "text": "Ghetto Map"
+        },
+        {
+          "id": "glacier-map-tier-14",
+          "text": "Glacier Map"
+        },
+        {
+          "id": "graveyard-map-tier-14",
+          "text": "Graveyard Map"
+        },
+        {
+          "id": "haunted-mansion-map-tier-14",
+          "text": "Haunted Mansion Map"
+        },
+        {
+          "id": "iceberg-map-tier-14",
+          "text": "Iceberg Map"
+        },
+        {
+          "id": "infested-valley-map-tier-14",
+          "text": "Infested Valley Map"
+        },
+        {
+          "id": "ivory-temple-map-tier-14",
+          "text": "Ivory Temple Map"
+        },
+        {
+          "id": "jungle-valley-map-tier-14",
+          "text": "Jungle Valley Map"
+        },
+        {
+          "id": "laboratory-map-tier-14",
+          "text": "Laboratory Map"
+        },
+        {
+          "id": "lava-chamber-map-tier-14",
+          "text": "Lava Chamber Map"
+        },
+        {
+          "id": "leyline-map-tier-14",
+          "text": "Leyline Map"
+        },
+        {
+          "id": "lookout-map-tier-14",
+          "text": "Lookout Map"
+        },
+        {
+          "id": "malformation-map-tier-14",
+          "text": "Malformation Map"
+        },
+        {
+          "id": "marshes-map-tier-14",
+          "text": "Marshes Map"
+        },
+        {
+          "id": "mausoleum-map-tier-14",
+          "text": "Mausoleum Map"
+        },
+        {
+          "id": "maze-map-tier-14",
+          "text": "Maze Map"
+        },
+        {
+          "id": "mesa-map-tier-14",
+          "text": "Mesa Map"
+        },
+        {
+          "id": "mineral-pools-map-tier-14",
+          "text": "Mineral Pools Map"
+        },
+        {
+          "id": "moon-temple-map-tier-14",
+          "text": "Moon Temple Map"
+        },
+        {
+          "id": "mud-geyser-map-tier-14",
+          "text": "Mud Geyser Map"
+        },
+        {
+          "id": "museum-map-tier-14",
+          "text": "Museum Map"
+        },
+        {
+          "id": "orchard-map-tier-14",
+          "text": "Orchard Map"
+        },
+        {
+          "id": "pen-map-tier-14",
+          "text": "Pen Map"
+        },
+        {
+          "id": "peninsula-map-tier-14",
+          "text": "Peninsula Map"
+        },
+        {
+          "id": "pier-map-tier-14",
+          "text": "Pier Map"
+        },
+        {
+          "id": "pit-map-tier-14",
+          "text": "Pit Map"
+        },
+        {
+          "id": "plaza-map-tier-14",
+          "text": "Plaza Map"
+        },
+        {
+          "id": "precinct-map-tier-14",
+          "text": "Precinct Map"
+        },
+        {
+          "id": "primordial-blocks-map-tier-14",
+          "text": "Primordial Blocks Map"
+        },
+        {
+          "id": "racecourse-map-tier-14",
+          "text": "Racecourse Map"
+        },
+        {
+          "id": "ramparts-map-tier-14",
+          "text": "Ramparts Map"
+        },
+        {
+          "id": "relic-chambers-map-tier-14",
+          "text": "Relic Chambers Map"
+        },
+        {
+          "id": "residence-map-tier-14",
+          "text": "Residence Map"
+        },
+        {
+          "id": "scriptorium-map-tier-14",
+          "text": "Scriptorium Map"
+        },
+        {
+          "id": "shipyard-map-tier-14",
+          "text": "Shipyard Map"
+        },
+        {
+          "id": "shrine-map-tier-14",
+          "text": "Shrine Map"
+        },
+        {
+          "id": "spider-forest-map-tier-14",
+          "text": "Spider Forest Map"
+        },
+        {
+          "id": "spider-lair-map-tier-14",
+          "text": "Spider Lair Map"
+        },
+        {
+          "id": "strand-map-tier-14",
+          "text": "Strand Map"
+        },
+        {
+          "id": "sulphur-vents-map-tier-14",
+          "text": "Sulphur Vents Map"
+        },
+        {
+          "id": "sunken-city-map-tier-14",
+          "text": "Sunken City Map"
+        },
+        {
+          "id": "temple-map-tier-14",
+          "text": "Temple Map"
+        },
+        {
+          "id": "tower-map-tier-14",
+          "text": "Tower Map"
+        },
+        {
+          "id": "tropical-island-map-tier-14",
+          "text": "Tropical Island Map"
+        },
+        {
+          "id": "underground-sea-map-tier-14",
+          "text": "Underground Sea Map"
+        },
+        {
+          "id": "vaal-pyramid-map-tier-14",
+          "text": "Vaal Pyramid Map"
+        },
+        {
+          "id": "vault-map-tier-14",
+          "text": "Vault Map"
+        },
+        {
+          "id": "villa-map-tier-14",
+          "text": "Villa Map"
+        },
+        {
+          "id": "volcano-map-tier-14",
+          "text": "Volcano Map"
+        },
+        {
+          "id": "wasteland-map-tier-14",
+          "text": "Wasteland Map"
+        },
+        {
+          "id": "wharf-map-tier-14",
+          "text": "Wharf Map"
+        }
+      ]
+    },
+    {
+      "id": "MapsTier15",
+      "label": "Maps (Tier 15)",
+      "entries": [
+        {
+          "id": "acid-caverns-map-tier-15",
+          "text": "Acid Caverns Map"
+        },
+        {
+          "id": "arachnid-tomb-map-tier-15",
+          "text": "Arachnid Tomb Map"
+        },
+        {
+          "id": "bazaar-map-tier-15",
+          "text": "Bazaar Map"
+        },
+        {
+          "id": "bone-crypt-map-tier-15",
+          "text": "Bone Crypt Map"
+        },
+        {
+          "id": "caldera-map-tier-15",
+          "text": "Caldera Map"
+        },
+        {
+          "id": "castle-ruins-map-tier-15",
+          "text": "Castle Ruins Map"
+        },
+        {
+          "id": "cells-map-tier-15",
+          "text": "Cells Map"
+        },
+        {
+          "id": "channel-map-tier-15",
+          "text": "Channel Map"
+        },
+        {
+          "id": "coral-ruins-map-tier-15",
+          "text": "Coral Ruins Map"
+        },
+        {
+          "id": "core-map-tier-15",
+          "text": "Core Map"
+        },
+        {
+          "id": "courthouse-map-tier-15",
+          "text": "Courthouse Map"
+        },
+        {
+          "id": "courtyard-map-tier-15",
+          "text": "Courtyard Map"
+        },
+        {
+          "id": "coves-map-tier-15",
+          "text": "Coves Map"
+        },
+        {
+          "id": "desert-spring-map-tier-15",
+          "text": "Desert Spring Map"
+        },
+        {
+          "id": "dig-map-tier-15",
+          "text": "Dig Map"
+        },
+        {
+          "id": "estuary-map-tier-15",
+          "text": "Estuary Map"
+        },
+        {
+          "id": "geode-map-tier-15",
+          "text": "Geode Map"
+        },
+        {
+          "id": "grotto-map-tier-15",
+          "text": "Grotto Map"
+        },
+        {
+          "id": "lair-map-tier-15",
+          "text": "Lair Map"
+        },
+        {
+          "id": "lava-lake-map-tier-15",
+          "text": "Lava Lake Map"
+        },
+        {
+          "id": "lighthouse-map-tier-15",
+          "text": "Lighthouse Map"
+        },
+        {
+          "id": "necropolis-map-tier-15",
+          "text": "Necropolis Map"
+        },
+        {
+          "id": "overgrown-ruin-map-tier-15",
+          "text": "Overgrown Ruin Map"
+        },
+        {
+          "id": "palace-map-tier-15",
+          "text": "Palace Map"
+        },
+        {
+          "id": "park-map-tier-15",
+          "text": "Park Map"
+        },
+        {
+          "id": "phantasmagoria-map-tier-15",
+          "text": "Phantasmagoria Map"
+        },
+        {
+          "id": "port-map-tier-15",
+          "text": "Port Map"
+        },
+        {
+          "id": "precinct-map-tier-15",
+          "text": "Precinct Map"
+        },
+        {
+          "id": "primordial-pool-map-tier-15",
+          "text": "Primordial Pool Map"
+        },
+        {
+          "id": "reef-map-tier-15",
+          "text": "Reef Map"
+        },
+        {
+          "id": "sepulchre-map-tier-15",
+          "text": "Sepulchre Map"
+        },
+        {
+          "id": "shore-map-tier-15",
+          "text": "Shore Map"
+        },
+        {
+          "id": "siege-map-tier-15",
+          "text": "Siege Map"
+        },
+        {
+          "id": "terrace-map-tier-15",
+          "text": "Terrace Map"
+        },
+        {
+          "id": "thicket-map-tier-15",
+          "text": "Thicket Map"
+        },
+        {
+          "id": "toxic-sewer-map-tier-15",
+          "text": "Toxic Sewer Map"
+        },
+        {
+          "id": "waste-pool-map-tier-15",
+          "text": "Waste Pool Map"
+        }
+      ]
+    },
+    {
+      "id": "MapsTier16",
+      "label": "Maps (Tier 16)",
+      "entries": [
+        {
+          "id": "basilica-map-tier-16",
+          "text": "Basilica Map"
+        },
+        {
+          "id": "canyon-map-tier-16",
+          "text": "Canyon Map"
+        },
+        {
+          "id": "carcass-map-tier-16",
+          "text": "Carcass Map"
+        },
+        {
+          "id": "chateau-map-tier-16",
+          "text": "Chateau Map"
+        },
+        {
+          "id": "colonnade-map-tier-16",
+          "text": "Colonnade Map"
+        },
+        {
+          "id": "colosseum-map-tier-16",
+          "text": "Colosseum Map"
+        },
+        {
+          "id": "crimson-temple-map-tier-16",
+          "text": "Crimson Temple Map"
+        },
+        {
+          "id": "crystal-ore-map-tier-16",
+          "text": "Crystal Ore Map"
+        },
+        {
+          "id": "dark-forest-map-tier-16",
+          "text": "Dark Forest Map"
+        },
+        {
+          "id": "gardens-map-tier-16",
+          "text": "Gardens Map"
+        },
+        {
+          "id": "lava-chamber-map-tier-16",
+          "text": "Lava Chamber Map"
+        },
+        {
+          "id": "malformation-map-tier-16",
+          "text": "Malformation Map"
+        },
+        {
+          "id": "overgrown-shrine-map-tier-16",
+          "text": "Overgrown Shrine Map"
+        },
+        {
+          "id": "plateau-map-tier-16",
+          "text": "Plateau Map"
+        },
+        {
+          "id": "plaza-map-tier-16",
+          "text": "Plaza Map"
+        },
+        {
+          "id": "primordial-blocks-map-tier-16",
+          "text": "Primordial Blocks Map"
+        },
+        {
+          "id": "promenade-map-tier-16",
+          "text": "Promenade Map"
+        },
+        {
+          "id": "shipyard-map-tier-16",
+          "text": "Shipyard Map"
+        },
+        {
+          "id": "shrine-map-tier-16",
+          "text": "Shrine Map"
+        },
+        {
+          "id": "summit-map-tier-16",
+          "text": "Summit Map"
+        },
+        {
+          "id": "sunken-city-map-tier-16",
+          "text": "Sunken City Map"
+        },
+        {
+          "id": "tower-map-tier-16",
+          "text": "Tower Map"
+        },
+        {
+          "id": "underground-river-map-tier-16",
+          "text": "Underground River Map"
+        },
+        {
+          "id": "vaal-temple-map-tier-16",
+          "text": "Vaal Temple Map"
+        },
+        {
+          "id": "waterways-map-tier-16",
+          "text": "Waterways Map"
+        }
+      ]
+    },
+    {
+      "id": "MapsBlighted",
+      "label": "Maps (Blighted)",
+      "entries": [
+        {
+          "id": "blighted-beach-map",
+          "text": "Blighted Beach Map"
+        },
+        {
+          "id": "blighted-jungle-valley-map",
+          "text": "Blighted Jungle Valley Map"
+        },
+        {
+          "id": "blighted-wharf-map",
+          "text": "Blighted Wharf Map"
+        },
+        {
+          "id": "blighted-alleyways-map",
+          "text": "Blighted Alleyways Map"
+        },
+        {
+          "id": "blighted-armoury-map",
+          "text": "Blighted Armoury Map"
+        },
+        {
+          "id": "blighted-ashen-wood-map",
+          "text": "Blighted Ashen Wood Map"
+        },
+        {
+          "id": "blighted-desert-map",
+          "text": "Blighted Desert Map"
+        },
+        {
+          "id": "blighted-fields-map",
+          "text": "Blighted Fields Map"
+        },
+        {
+          "id": "blighted-graveyard-map",
+          "text": "Blighted Graveyard Map"
+        },
+        {
+          "id": "blighted-haunted-mansion-map",
+          "text": "Blighted Haunted Mansion Map"
+        },
+        {
+          "id": "blighted-orchard-map",
+          "text": "Blighted Orchard Map"
+        },
+        {
+          "id": "blighted-peninsula-map",
+          "text": "Blighted Peninsula Map"
+        },
+        {
+          "id": "blighted-ramparts-map",
+          "text": "Blighted Ramparts Map"
+        },
+        {
+          "id": "blighted-strand-map",
+          "text": "Blighted Strand Map"
+        },
+        {
+          "id": "blighted-sulphur-vents-map",
+          "text": "Blighted Sulphur Vents Map"
+        },
+        {
+          "id": "blighted-underground-sea-map",
+          "text": "Blighted Underground Sea Map"
+        },
+        {
+          "id": "blighted-villa-map",
+          "text": "Blighted Villa Map"
+        },
+        {
+          "id": "blighted-ancient-city-map",
+          "text": "Blighted Ancient City Map"
+        },
+        {
+          "id": "blighted-arcade-map",
+          "text": "Blighted Arcade Map"
+        },
+        {
+          "id": "blighted-arsenal-map",
+          "text": "Blighted Arsenal Map"
+        },
+        {
+          "id": "blighted-bazaar-map",
+          "text": "Blighted Bazaar Map"
+        },
+        {
+          "id": "blighted-belfry-map",
+          "text": "Blighted Belfry Map"
+        },
+        {
+          "id": "blighted-bog-map",
+          "text": "Blighted Bog Map"
+        },
+        {
+          "id": "blighted-cage-map",
+          "text": "Blighted Cage Map"
+        },
+        {
+          "id": "blighted-cemetery-map",
+          "text": "Blighted Cemetery Map"
+        },
+        {
+          "id": "blighted-coves-map",
+          "text": "Blighted Coves Map"
+        },
+        {
+          "id": "blighted-dunes-map",
+          "text": "Blighted Dunes Map"
+        },
+        {
+          "id": "blighted-leyline-map",
+          "text": "Blighted Leyline Map"
+        },
+        {
+          "id": "blighted-mesa-map",
+          "text": "Blighted Mesa Map"
+        },
+        {
+          "id": "blighted-moon-temple-map",
+          "text": "Blighted Moon Temple Map"
+        },
+        {
+          "id": "blighted-mud-geyser-map",
+          "text": "Blighted Mud Geyser Map"
+        },
+        {
+          "id": "blighted-pen-map",
+          "text": "Blighted Pen Map"
+        },
+        {
+          "id": "blighted-primordial-pool-map",
+          "text": "Blighted Primordial Pool Map"
+        },
+        {
+          "id": "blighted-racecourse-map",
+          "text": "Blighted Racecourse Map"
+        },
+        {
+          "id": "blighted-relic-chambers-map",
+          "text": "Blighted Relic Chambers Map"
+        },
+        {
+          "id": "blighted-temple-map",
+          "text": "Blighted Temple Map"
+        },
+        {
+          "id": "blighted-vault-map",
+          "text": "Blighted Vault Map"
+        },
+        {
+          "id": "blighted-volcano-map",
+          "text": "Blighted Volcano Map"
+        },
+        {
+          "id": "blighted-wasteland-map",
+          "text": "Blighted Wasteland Map"
+        },
+        {
+          "id": "blighted-barrows-map",
+          "text": "Blighted Barrows Map"
+        },
+        {
+          "id": "blighted-colonnade-map",
+          "text": "Blighted Colonnade Map"
+        },
+        {
+          "id": "blighted-conservatory-map",
+          "text": "Blighted Conservatory Map"
+        },
+        {
+          "id": "blighted-courtyard-map",
+          "text": "Blighted Courtyard Map"
+        },
+        {
+          "id": "blighted-defiled-cathedral-map",
+          "text": "Blighted Defiled Cathedral Map"
+        },
+        {
+          "id": "blighted-estuary-map",
+          "text": "Blighted Estuary Map"
+        },
+        {
+          "id": "blighted-geode-map",
+          "text": "Blighted Geode Map"
+        },
+        {
+          "id": "blighted-lava-chamber-map",
+          "text": "Blighted Lava Chamber Map"
+        },
+        {
+          "id": "blighted-park-map",
+          "text": "Blighted Park Map"
+        },
+        {
+          "id": "blighted-pit-map",
+          "text": "Blighted Pit Map"
+        },
+        {
+          "id": "blighted-plaza-map",
+          "text": "Blighted Plaza Map"
+        },
+        {
+          "id": "blighted-shore-map",
+          "text": "Blighted Shore Map"
+        },
+        {
+          "id": "blighted-thicket-map",
+          "text": "Blighted Thicket Map"
+        },
+        {
+          "id": "blighted-arid-lake-map",
+          "text": "Blighted Arid Lake Map"
+        },
+        {
+          "id": "blighted-atoll-map",
+          "text": "Blighted Atoll Map"
+        },
+        {
+          "id": "blighted-basilica-map",
+          "text": "Blighted Basilica Map"
+        },
+        {
+          "id": "blighted-canyon-map",
+          "text": "Blighted Canyon Map"
+        },
+        {
+          "id": "blighted-castle-ruins-map",
+          "text": "Blighted Castle Ruins Map"
+        },
+        {
+          "id": "blighted-chateau-map",
+          "text": "Blighted Chateau Map"
+        },
+        {
+          "id": "blighted-marshes-map",
+          "text": "Blighted Marshes Map"
+        },
+        {
+          "id": "blighted-reef-map",
+          "text": "Blighted Reef Map"
+        },
+        {
+          "id": "blighted-tropical-island-map",
+          "text": "Blighted Tropical Island Map"
+        },
+        {
+          "id": "blighted-burial-chambers-map",
+          "text": "Blighted Burial Chambers Map"
+        },
+        {
+          "id": "blighted-port-map",
+          "text": "Blighted Port Map"
+        },
+        {
+          "id": "blighted-precinct-map",
+          "text": "Blighted Precinct Map"
+        },
+        {
+          "id": "blighted-siege-map",
+          "text": "Blighted Siege Map"
+        },
+        {
+          "id": "blighted-courthouse-map",
+          "text": "Blighted Courthouse Map"
+        },
+        {
+          "id": "blighted-iceberg-map",
+          "text": "Blighted Iceberg Map"
+        },
+        {
+          "id": "blighted-shipyard-map",
+          "text": "Blighted Shipyard Map"
+        },
+        {
+          "id": "blighted-lighthouse-map",
+          "text": "Blighted Lighthouse Map"
+        },
+        {
+          "id": "blighted-city-square-map",
+          "text": "Blighted City Square Map"
+        },
+        {
+          "id": "blighted-dig-map",
+          "text": "Blighted Dig Map"
+        },
+        {
+          "id": "blighted-sepulchre-map",
+          "text": "Blighted Sepulchre Map"
+        },
+        {
+          "id": "blighted-ghetto-map",
+          "text": "Blighted Ghetto Map"
+        },
+        {
+          "id": "blighted-primordial-blocks-map",
+          "text": "Blighted Primordial Blocks Map"
+        },
+        {
+          "id": "blighted-plateau-map",
+          "text": "Blighted Plateau Map"
+        },
+        {
+          "id": "blighted-crimson-temple-map",
+          "text": "Blighted Crimson Temple Map"
+        },
+        {
+          "id": "blighted-dark-forest-map",
+          "text": "Blighted Dark Forest Map"
+        },
+        {
+          "id": "blighted-infested-valley-map",
+          "text": "Blighted Infested Valley Map"
+        },
+        {
+          "id": "blighted-ivory-temple-map",
+          "text": "Blighted Ivory Temple Map"
+        },
+        {
+          "id": "blighted-mineral-pools-map",
+          "text": "Blighted Mineral Pools Map"
+        },
+        {
+          "id": "blighted-shrine-map",
+          "text": "Blighted Shrine Map"
+        },
+        {
+          "id": "blighted-spider-forest-map",
+          "text": "Blighted Spider Forest Map"
+        },
+        {
+          "id": "blighted-spider-lair-map",
+          "text": "Blighted Spider Lair Map"
+        },
+        {
+          "id": "blighted-coral-ruins-map",
+          "text": "Blighted Coral Ruins Map"
+        },
+        {
+          "id": "blighted-desert-spring-map",
+          "text": "Blighted Desert Spring Map"
+        },
+        {
+          "id": "blighted-lava-lake-map",
+          "text": "Blighted Lava Lake Map"
+        },
+        {
+          "id": "blighted-palace-map",
+          "text": "Blighted Palace Map"
+        },
+        {
+          "id": "blighted-terrace-map",
+          "text": "Blighted Terrace Map"
+        },
+        {
+          "id": "blighted-promenade-map",
+          "text": "Blighted Promenade Map"
+        },
+        {
+          "id": "blighted-summit-map",
+          "text": "Blighted Summit Map"
+        }
+      ]
+    },
+    {
+      "id": "Misc",
+      "label": null,
+      "entries": []
+    }
+  ]
+}

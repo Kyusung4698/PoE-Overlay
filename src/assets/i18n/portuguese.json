@@ -1,0 +1,141 @@
+{
+	"bookmark": {
+		"add": "Adicionar marcador",
+		"name": "marca páginas",
+		"shortcut": "Atalho",
+		"url": "URL"
+	},
+	"clipboard": {
+		"empty": "A área de transferência estava vazia. Por favor, verifique se o jogo está focado.",
+		"error": "Ocorreu um erro ao analisar o item.",
+		"parser-error": "Não foi possível analisar o item. Verifique se você selecionou o idioma correto."
+	},
+	"command": {
+		"add": "Comando Adicionar",
+		"name": "Comando",
+		"shortcut": "Atalho"
+	},
+	"evaluate": {
+		"currency": "Moeda exibida",
+		"days": "Últimos 7 dias",
+		"error": "Um erro ocorreu.",
+		"loading": "Carregando...",
+		"name": "Avalie",
+		"not-found": "Nenhum dado encontrado.",
+		"result-view": "Visualização de resultados",
+		"search": {
+			"default": "Configurações de pesquisa padrão",
+			"disable-max-range": "Desativar intervalo máximo",
+			"filter": "Filtro de pesquisa",
+			"gem": "Nível da gema, nível do mapa e qualidade",
+			"item-default-links": "Link do item",
+			"item-level": "Nível do Item",
+			"item-links": {
+				"always": "Sempre",
+				"never": "Nunca"
+			},
+			"item-sockets": "tomadas",
+			"item-type": "Tipo de item",
+			"max-age": {
+				"any": "A qualquer momento",
+				"day": "Até um dia atrás",
+				"days": "Até 3 dias atrás",
+				"month": "Até 1 mês atrás",
+				"months": "Até 2 meses atrás",
+				"title": "Idade máxima da listagem",
+				"week": "Até uma semana atrás",
+				"weeks": "Até 2 semanas atrás"
+			},
+			"modifier": "Configurações de pesquisa do modificador",
+			"modifier-range": "Faixa do modificador",
+			"online-only": "Online somente"
+		},
+		"settings": "Avaliar configurações",
+		"stats": "Estatisticas",
+		"stats-export": "Exportar estatísticas para a área de transferência",
+		"stats-import": "Importar estatísticas da área de transferência",
+		"switch": "mudar quantidade",
+		"tag": {
+			"note": "Somente itens sem uma nota existente podem ser marcados rapidamente. A nota foi copiada.",
+			"outside-stash": "Somente itens dentro do esconderijo podem ser marcados rapidamente. A nota foi copiada."
+		},
+		"translate": "Avaliar Traduzir",
+		"translate-language": "Idioma do item traduzido",
+		"translate-settings": "Avaliar configurações de tradução"
+	},
+	"help": {
+		"browser": "Pressionar CTRL enquanto clica abrirá o link no navegador padrão.",
+		"browser-title": "Como abro a pesquisa no meu navegador padrão?",
+		"bug": "Criar um problema",
+		"bug-title": "Encontrou um bug? Ou tem uma sugestão? Por favor, crie um problema no GitHub",
+		"donate": "Doe via PayPal",
+		"donate-title": "Ame o projeto? Sinta-se livre para deixar uma doação. Obrigado por seu apoio!",
+		"dwm": "Isso é causado principalmente por um Aero / DWM desativado. Portanto, tente ativar esse recurso do Windows.<br> Como é necessário criar janelas transparentes.",
+		"dwm-title": "Por que minha tela está ficando preta / branca depois de alternar algum recurso?",
+		"faq": "Perguntas frequentes",
+		"graph": "A barra indica a distribuição do valor do item. Ele basicamente agrupa os valores por valor e os conta.<br> A barra mais alta é o modo. Também chamado de \"valor mais comum\". Média é a média. Mediana é o valor centralizado de todos os valores.",
+		"graph-title": "O que o gráfico representa? O que é modo / média / mediana?",
+		"graph-url": "Abra 'Como ler uma média média máxima do histograma' por 'academy.datawrapper.de'",
+		"graphic": "Isso é causado principalmente por drivers gráficos incompatíveis para a versão atual do cromo.<br> Execute 'run-without-gpu.bat' para iniciar a sobreposição sem o suporte da gpu (aceleração de hardware).",
+		"graphic-title": "Os gráficos estão embaçados / bug gráfico?",
+		"name": "Socorro",
+		"wiki": "Abrir Wiki do Projeto",
+		"wiki-title": "Consulte o wiki do projeto para obter mais documentação"
+	},
+	"map": {
+		"boss": "Patrão",
+		"boss-rating": "Classificação do Chefe",
+		"bosses": "Chefes",
+		"info": "Info",
+		"layout-rating": "Classificação do layout",
+		"name": "Mapa",
+		"no-map": "O item não é um mapa.",
+		"not-found": "Mapa não encontrado.",
+		"stats-warning": "Estatisticas",
+		"stats-warning-export": "Exportar avisos de estatísticas para a área de transferência",
+		"stats-warning-import": "Importar estatísticas de avisos da área de transferência"
+	},
+	"material": {
+		"accelerator": {
+			"any": "pressione qualquer tecla",
+			"unbound": "Não consolidado"
+		},
+		"select-list": {
+			"add": "adicionar aos selecionados",
+			"remove": "remover do selecionado",
+			"selected": "Selecionado",
+			"unselected": "não selecionado"
+		}
+	},
+	"misc": {
+		"highlight": "Realçar",
+		"name": "Misc",
+		"navigation": "Navegação",
+		"open-poedb": "Abrir PoE DB",
+		"open-poedb-external": "Abrir PoE DB External",
+		"open-wiki": "Abrir Wiki",
+		"open-wiki-external": "Abrir Wiki Externo",
+		"parser-error": "Não foi possível analisar a área de transferência. Verifique se você apagou (ESC) o destaque anterior.",
+		"poedb": "PoE DB",
+		"stash": "Esconderijo",
+		"wiki": "Wiki"
+	},
+	"settings": {
+		"cancel": "Cancelar",
+		"dialog-spawn-position": {
+			"center": "centro",
+			"cursor": "Cursor"
+		},
+		"dialog-spawn-position-title": "Posição de Spawn de Diálogo",
+		"display-version": "Versão de exibição",
+		"exit-app": "Sair do aplicativo",
+		"game-settings": "Configurações do jogo",
+		"general": "Geral",
+		"language": "Língua",
+		"league": "Liga",
+		"open-settings": "Abrir configurações",
+		"relaunch-app": "Relançar aplicativo",
+		"save": "Salve ",
+		"zoom": "Zoom"
+	}
+}

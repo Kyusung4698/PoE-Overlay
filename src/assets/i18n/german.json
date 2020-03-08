@@ -1,0 +1,141 @@
+{
+	"bookmark": {
+		"add": "Lesezeichen hinzufügen",
+		"name": "Lesezeichen",
+		"shortcut": "Tastaturkürzel",
+		"url": "Url"
+	},
+	"clipboard": {
+		"empty": "Zwischenablage war leer. Bitte stellen Sie sicher, dass das Spiel fokussiert ist.",
+		"error": "Beim Parsen des Gegenstandes ist ein Fehler aufgetreten.",
+		"parser-error": "Gegenstand konnte nicht geparst werden. Bitte stellen Sie sicher, dass Sie die richtige Sprache ausgewählt haben."
+	},
+	"command": {
+		"add": "Befehl hinzufügen",
+		"name": "Befehl",
+		"shortcut": "Tastaturkürzel"
+	},
+	"evaluate": {
+		"currency": "Angezeigte Währung",
+		"days": "Letzte 7 Tage",
+		"error": "Es ist ein Fehler aufgetreten.",
+		"loading": "Wird geladen...",
+		"name": "Bewerten",
+		"not-found": "Keine Daten gefunden.",
+		"result-view": "Ergebnisansicht",
+		"search": {
+			"default": "Standardsucheinstellungen",
+			"disable-max-range": "Maximalen Wertebereich deaktivieren",
+			"filter": "Suchfilter",
+			"gem": "Edelsteinstufe, Kartenstufe und -qualität",
+			"item-default-links": "Item Link",
+			"item-level": "Gegenstandsstufe",
+			"item-links": {
+				"always": "Immer",
+				"never": "Niemals"
+			},
+			"item-sockets": "Sockel",
+			"item-type": "Gegenstandsart",
+			"max-age": {
+				"any": "Jederzeit",
+				"day": "Bis vor einem Tag",
+				"days": "Bis vor 3 Tagen",
+				"month": "Bis vor 1 Monat",
+				"months": "Bis vor 2 Monaten",
+				"title": "Maximales Alter des Angebotes",
+				"week": "Bis vor einer Woche",
+				"weeks": "Bis vor 2 Wochen"
+			},
+			"modifier": "Einstellungen für die Modifikatorsuche",
+			"modifier-range": "Modifikatorbereich",
+			"online-only": "Nur online"
+		},
+		"settings": "Bewertungseinstellungen",
+		"stats": "Stats",
+		"stats-export": "Exportieren der Stats in die Zwischenablage",
+		"stats-import": "Importieren der Stats aus der Zwischenablage",
+		"switch": "Betrag wechseln",
+		"tag": {
+			"note": "Nur Elemente ohne vorhandene Notiz können schnell markiert werden. Notiz wurde stattdessen kopiert.",
+			"outside-stash": "Nur Gegenstände in der Truhe können schnell markiert werden. Notiz wurde stattdessen kopiert."
+		},
+		"translate": "Übersetzt Bewerten",
+		"translate-language": "Sprache des übersetzten Gegenstandes",
+		"translate-settings": "Übersetzte Bewertungseinstellungen"
+	},
+	"help": {
+		"browser": "Wenn Sie beim Klicken die STRG-Taste gedrückt halten, wird der Link im Standardbrowser geöffnet.",
+		"browser-title": "Wie öffne ich die Suche in meinem Standardbrowser?",
+		"bug": "Erstellen Sie ein Problem",
+		"bug-title": "Einen Fehler gefunden? Oder haben Sie einen Vorschlag? Bitte erstellen Sie ein Problem auf GitHub",
+		"donate": "Spende über PayPal",
+		"donate-title": "Lieben Sie das Projekt? Fühlen Sie sich frei, eine Spende zu hinterlassen. Danke für deine Unterstützung!",
+		"dwm": "Dies wird hauptsächlich von einem deaktivierten Aero / DWM verursacht. Versuchen Sie daher, diese Windows-Funktion zu aktivieren.<br> Da diese erforderlich ist, um transparente Fenster zu erstellen.",
+		"dwm-title": "Warum wird mein Bildschirm nach dem Benutzen einer Funktion schwarz / weiß?",
+		"faq": "FAQ",
+		"graph": "Der Balken zeigt die Verteilung des Gegenstandwerts an. Grundsätzlich werden die Werte nach Wert gruppiert und gezählt.<br> Der höchste Balken ist der Modus. Wird auch als \"häufigster Wert\" bezeichnet. Mittelwert ist der Durchschnitt. Der Median ist der zentrierte Wert aller Werte.",
+		"graph-title": "Was stellt die Grafik dar? Was ist Modus / Mittelwert / Median?",
+		"graph-url": "\"So lesen Sie einen Histogramm-Min-Max-Median-Mittelwert\" von \"academy.datawrapper.de\" öffnen",
+		"graphic": "Dies wird hauptsächlich durch inkompatible Grafiktreiber für die aktuelle Chrom-Version verursacht.<br> Führen Sie 'run-without-gpu.bat' aus, um das Overlay ohne GPU-Unterstützung (Hardwarebeschleunigung) zu starten.",
+		"graphic-title": "Die Grafiken sind verschwommen / Grafikfehler?",
+		"name": "Hilfe",
+		"wiki": "Projekt-Wiki öffnen",
+		"wiki-title": "Weitere Dokumentation finden Sie im Projekt-Wiki"
+	},
+	"map": {
+		"boss": "Boss",
+		"boss-rating": "Boss-Bewertung",
+		"bosses": "Bosse",
+		"info": "Info",
+		"layout-rating": "Layout-Bewertung",
+		"name": "Karte",
+		"no-map": "Gegenstand ist keine Karte.",
+		"not-found": "Karte nicht gefunden.",
+		"stats-warning": "Stats Warnungen",
+		"stats-warning-export": "Exportieren der Statswarnungen in die Zwischenablage",
+		"stats-warning-import": "Importieren der Statswarnungen aus der Zwischenablage"
+	},
+	"material": {
+		"accelerator": {
+			"any": "Drücke irgendeine Taste",
+			"unbound": "Ungebunden"
+		},
+		"select-list": {
+			"add": "Zur Auswahl hinzufügen",
+			"remove": "Aus Auswahl entfernen",
+			"selected": "Ausgewählt",
+			"unselected": "Nicht ausgewählt"
+		}
+	},
+	"misc": {
+		"highlight": "Markieren",
+		"name": "Sonstiges",
+		"navigation": "Navigation",
+		"open-poedb": "Öffne PoE DB",
+		"open-poedb-external": "Öffne PoE DB External",
+		"open-wiki": "Wiki öffnen",
+		"open-wiki-external": "Wiki im Browser öffnen",
+		"parser-error": "Zwischenablage konnte nicht geparst werden. Bitte stellen Sie sicher, dass Sie die vorherige Markierung gelöscht haben (ESC).",
+		"poedb": "PoE DB",
+		"stash": "Truhe",
+		"wiki": "Wiki"
+	},
+	"settings": {
+		"cancel": "Abbrechen",
+		"dialog-spawn-position": {
+			"center": "Center",
+			"cursor": "Mauszeiger"
+		},
+		"dialog-spawn-position-title": "Dialog Spawn Position",
+		"display-version": "Version anzeigen",
+		"exit-app": "App beenden",
+		"game-settings": "Spieleinstellungen",
+		"general": "Allgemeines",
+		"language": "Sprache",
+		"league": "Liga",
+		"open-settings": "Einstellungen öffnen",
+		"relaunch-app": "App neu starten",
+		"save": "Speichern",
+		"zoom": "Skalierung"
+	}
+}

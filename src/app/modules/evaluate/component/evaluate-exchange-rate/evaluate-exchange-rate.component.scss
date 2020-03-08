@@ -1,0 +1,76 @@
+@import "./../../../../../styles/variables";
+
+.exchange-rate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  overscroll-behavior: none;
+  padding-left: 60px;
+  max-width: 340px;
+  margin: 0 auto;
+
+  .spacer {
+    flex-grow: 1;
+  }
+
+  .factor {
+    display: flex;
+    align-items: center;
+
+    .amount-column {
+      display: flex;
+      flex-direction: column;
+
+      .amount {
+        color: $light-grey;
+        line-height: 15px;
+      }
+    }
+  }
+
+  .chart {
+    display: flex;
+    align-items: center;
+
+    .values {
+      display: flex;
+      flex-direction: column;
+      line-height: 18px;
+      padding: 0 6px;
+
+      .value {
+        display: flex;
+        align-items: center;
+
+        &.positive {
+          color: lightgreen;
+        }
+
+        &.negative {
+          color: red;
+        }
+      }
+
+      .info {
+        font-size: 12px;
+        line-height: 12px;
+      }
+    }
+  }
+}
+
+::ng-deep {
+  app-evaluate-exchange-rate {
+    .exchange-rate {
+      &:hover {
+        app-currency-frame {
+          .currency {
+            background-color: rgba(170, 158, 130, 0.3);
+            outline: auto;
+          }
+        }
+      }
+    }
+  }
+}

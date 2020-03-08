@@ -1,0 +1,77 @@
+@import "./../../../../../styles/variables";
+
+$label-color: rgba(200, 200, 200, 0.54);
+
+.toggle {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+
+  > * {
+    width: 25%;
+    padding-right: 15px;
+  }
+}
+
+label {
+  display: block;
+  color: $label-color;
+  font-size: 12px;
+  transform: perspective(100px) translateZ(0.001px);
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+
+  > .text {
+    overflow: hidden;
+    max-height: 38px;
+  }
+
+  > .type {
+    display: inline-block;
+    padding: 3px;
+    margin-right: 6px;
+    border-radius: 4px;
+
+    &.explicit {
+      display: none;
+    }
+
+    &.pseudo {
+      background-color: $pseudo;
+    }
+
+    &.implicit {
+      background-color: $implicit;
+    }
+
+    &.crafted {
+      background-color: $crafted;
+    }
+
+    &.enchant {
+      background-color: $enchant;
+    }
+
+    &.fractured {
+      background-color: $fractured;
+    }
+  }
+}
+
+.range {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .mat-slider {
+    width: 50%;
+  }
+
+  .value {
+    width: 80px;
+    text-align: center;
+  }
+}

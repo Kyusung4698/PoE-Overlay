@@ -1,0 +1,19 @@
+<div appDrag=".cdk-overlay-pane">
+    <app-item-frame [item]="data.item" [language]="data.language" [queryItem]="queryItem"
+        (queryItemChange)="onQueryItemChange($event)" [separator]="true"
+        [modifierMinRange]="data.settings.evaluateModifierMinRange / 100"
+        [modifierMaxRange]="data.settings.evaluateModifierMaxRange / 100">
+        <ng-container *ngIf="(currencies$ | async) as currencies; else loading">
+            <app-evaluate-exchange-rate [item]="data.item" [currencies]="currencies" (evaluateResult)="onEvaluateResult($event)"></app-evaluate-exchange-rate>
+            <app-item-frame-separator [item]="data.item"></app-item-frame-separator>
+            <app-evaluate-search *ngIf="init$ | async; else loading" [settings]="data.settings"
+                [defaultItem]="defaultItem" [queryItem]="queryItem" [queryItemChange]="queryItemChange"
+                [currencies]="currencies" (update)="onQueryItemChange($event)"
+                (evaluateResult)="onEvaluateResult($event)">
+            </app-evaluate-search>
+        </ng-container>
+        <ng-template #loading>
+            <div> {{'evaluate.loading' | translate}} </div>
+        </ng-template>
+    </app-item-frame>
+</div>

@@ -1,0 +1,16 @@
+<mat-card class="card" *ngFor="let command of settings.commands; let index = index">
+    <button class="remove" mat-icon-button (click)="onRemoveClick(index)">
+        <mat-icon>close</mat-icon>
+    </button>
+    <mat-form-field>
+        <mat-label>{{'command.name' | translate}}</mat-label>
+        <input matInput [(ngModel)]="command.text">
+    </mat-form-field>
+    <app-accelerator [label]="'command.shortcut' | translate" [(value)]="command.shortcut">
+    </app-accelerator>
+</mat-card>
+<mat-card>
+    <div align="center">
+        <button mat-button (click)="onAddCommandClick()">{{'command.add' | translate}}</button>
+    </div>
+</mat-card>
