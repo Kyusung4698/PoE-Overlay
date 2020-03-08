@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { EnumValues } from '@app/class';
-import { ClipboardService } from '@app/service';
+import { ClipboardService } from '@app/service/input';
 import { SelectListItem } from '@shared/module/material/component/select-list/select-list.component';
 import { SnackBarService } from '@shared/module/material/service';
 import { PSEUDO_MODIFIERS } from '@shared/module/poe/config/pseudo.config';
@@ -45,13 +45,6 @@ interface StatSelectListItem extends SelectListItem {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EvaluateSettingsComponent implements UserSettingsComponent {
-
-  constructor(
-    private readonly currencyService: CurrencyService,
-    private readonly statsProvider: StatsProvider,
-    private readonly statsService: StatsService,
-    private readonly clipboard: ClipboardService,
-    private readonly snackbar: SnackBarService) { }
   public languages = new EnumValues(Language);
   public views = new EnumValues(EvaluateResultView);
   public settings: EvaluateUserSettings;
@@ -60,6 +53,13 @@ export class EvaluateSettingsComponent implements UserSettingsComponent {
   public stats$ = new BehaviorSubject<StatSelectListItem[]>([]);
 
   public displayWith = (value: number) => value === 50 ? '#' : value;
+
+  constructor(
+    private readonly currencyService: CurrencyService,
+    private readonly statsProvider: StatsProvider,
+    private readonly statsService: StatsService,
+    private readonly clipboard: ClipboardService,
+    private readonly snackbar: SnackBarService) { }
 
   public load(): void {
     if (this.settings.language) {

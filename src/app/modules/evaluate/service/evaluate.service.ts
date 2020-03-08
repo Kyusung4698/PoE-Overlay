@@ -29,7 +29,7 @@ export class EvaluateService {
                                     return of(null);
                                 }
 
-                                if (!this.stash.hovering()) {
+                                if (!this.stash.hovering(point)) {
                                     this.stash.copyPrice(result);
                                     return this.snackbar.info('evaluate.tag.outside-stash');
                                 }

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ClipboardService, KeyboardService, MouseService, WindowService } from '@app/service';
+import { WindowService } from '@app/service';
+import { ClipboardService, KeyboardService, MouseService } from '@app/service/input';
 import { Point } from '@app/type';
 import { Observable, of } from 'rxjs';
 import { delay, tap } from 'rxjs/operators';
@@ -35,8 +36,8 @@ export class StashService {
         private readonly clipboard: ClipboardService) {
     }
 
-    public hovering(): boolean {
-        const point = this.mouse.position();
+    public hovering(point?: Point): boolean {
+        point = point || this.mouse.position();
         const gameBounds = this.window.getBounds();
 
         const stashWidth = Math.round(gameBounds.height / GAME_HEIGHT_TO_STASH_WIDTH_RATIO);

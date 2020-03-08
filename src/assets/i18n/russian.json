@@ -27,13 +27,13 @@
 			"default": "Настройки поиска по умолчанию",
 			"disable-max-range": "Отключить максимальный диапазон",
 			"filter": "Фильтр поиска",
+			"gem": "Уровень камня, уровень карты и качество",
 			"item-default-links": "Ссылка на товар",
+			"item-level": "Уровень предмета",
 			"item-links": {
 				"always": "всегда",
 				"never": "никогда"
 			},
-			"gem": "Уровень камня, уровень карты и качество",
-			"item-level": "Уровень предмета",
 			"item-sockets": "Гнёзда",
 			"item-type": "Тип элемента",
 			"max-age": {
@@ -122,6 +122,11 @@
 	},
 	"settings": {
 		"cancel": "Отменить",
+		"dialog-spawn-position": {
+			"center": "центр",
+			"cursor": "Курсор"
+		},
+		"dialog-spawn-position-title": "Dialog Spawn Position",
 		"display-version": "Отображать версию",
 		"exit-app": "Выход из приложения",
 		"game-settings": "Игровые настройки",
@@ -129,6 +134,7 @@
 		"language": "Язык",
 		"league": "Лига",
 		"open-settings": "Открыть настройки",
+		"relaunch-app": "Перезапустить приложение",
 		"save": "Сохранить",
 		"zoom": "Масштаб"
 	}

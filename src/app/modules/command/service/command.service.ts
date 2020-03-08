@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ClipboardService, KeyboardService } from '@app/service';
+import { ClipboardService, KeyboardService } from '@app/service/input';
 import { Subject } from 'rxjs';
 import { delay, map, tap, throttleTime } from 'rxjs/operators';
 

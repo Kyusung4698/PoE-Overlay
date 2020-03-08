@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { EnumValues } from '@app/class';
+import { AppService } from '@app/service';
 import { LeaguesProvider } from '@shared/module/poe/provider';
 import { Language, League } from '@shared/module/poe/type';
 import { BehaviorSubject } from 'rxjs';
 import { UserSettings } from '../../type';
-import { AppService } from '@app/service';
 
 @Component({
   selector: 'app-user-settings-form',
@@ -20,7 +20,7 @@ export class UserSettingsFormComponent implements OnInit {
   public settings: UserSettings;
 
   constructor(private readonly leaguesProvider: LeaguesProvider,
-              private readonly app: AppService) { }
+    private readonly app: AppService) { }
 
   public ngOnInit(): void {
     if (this.settings.language) {
@@ -43,7 +43,8 @@ export class UserSettingsFormComponent implements OnInit {
   }
 
   public relaunchApp(): void {
-    this.app.relaunch();
+    // TODO: Does not work with compiled app.
+    // this.app.relaunch();
   }
 
   public exitApp(): void {

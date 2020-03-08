@@ -5,10 +5,10 @@
     },
     "files": [
         "main.js",
+        "hook.js",
         "dist/**/*",
         "!node_modules/@angular/**/*",
         "!node_modules/@swimlane/**/*",
-        "!node_modules/rxjs/**/*",
         "!node_modules/moment/**/*",
         "!node_modules/zone.js/**/*",
         "!node_modules/localforage/**/*",
@@ -19,6 +19,11 @@
         "icon": "dist/favicon.ico",
         "target": [
             "portable"
+        ]
+    },
+    "linux": {
+        "target": [
+            "AppImage"
         ]
     }
 }

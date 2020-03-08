@@ -122,6 +122,11 @@
 	},
 	"settings": {
 		"cancel": "Cancelar",
+		"dialog-spawn-position": {
+			"center": "Centrar",
+			"cursor": "Cursor"
+		},
+		"dialog-spawn-position-title": "Posición de generación de diálogo",
 		"display-version": "Versión de pantalla",
 		"exit-app": "Salir de la aplicacion",
 		"game-settings": "Configuraciones de juego",
@@ -129,6 +134,7 @@
 		"language": "idioma",
 		"league": "liga",
 		"open-settings": "Configuración abierta",
+		"relaunch-app": "Relanzar aplicación",
 		"save": "Salvar",
 		"zoom": "Enfocar"
 	}

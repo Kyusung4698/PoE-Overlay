@@ -51,18 +51,25 @@ export class BaseItemTypesService {
 
         if (!this.keys[language]) {
             this.keys[language] = Object.getOwnPropertyNames(map)
-                .filter(key => key[0] !== `\\`)
-                .sort((a, b) => map[b].length - map[a].length);
+                .filter(key => key[0] !== `\\`);
         }
 
         const cache = this.cache[language];
         const keys = this.keys[language];
+
+        let maxScore = Number.MIN_VALUE;
+        let maxKey;
         for (const key of keys) {
             const expr = cache[key] || (cache[key] = new RegExp(map[key]));
-            if (expr.test(name)) {
-                return key;
+            const match = expr.exec(name);
+            if (match) {
+                const score = map[key].split(' ').length * 10 - match.index;
+                if (score > maxScore) {
+                    maxScore = score;
+                    maxKey = key;
+                }
             }
         }
-        return undefined;
+        return maxKey;
     }
 }

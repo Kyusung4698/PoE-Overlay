@@ -31,6 +31,13 @@
             </mat-option>
         </mat-select>
     </mat-form-field>
+    <mat-form-field>
+        <mat-label>{{'settings.dialog-spawn-position-title' | translate}}</mat-label>
+        <mat-select [(value)]="settings.dialogSpawnPosition">
+            <mat-option [value]="1">{{'settings.dialog-spawn-position.cursor' | translate}}</mat-option>
+            <mat-option [value]="2">{{'settings.dialog-spawn-position.center' | translate}}</mat-option>
+        </mat-select>
+    </mat-form-field>
     <app-accelerator [label]="'settings.open-settings' | translate" [(value)]="settings.openUserSettingsKeybinding">
     </app-accelerator>
     <app-accelerator [label]="'settings.exit-app' | translate" [(value)]="settings.exitAppKeybinding">
@@ -38,7 +45,7 @@
 </mat-card>
 <mat-card>
     <mat-dialog-actions align="center">
-        <button mat-button (click)="relaunchApp()">
+        <button mat-button (click)="relaunchApp()" disabled>
             {{'settings.relaunch-app' | translate}}
         </button>
         <button mat-button (click)="exitApp()">
