@@ -199,13 +199,14 @@ function createTray(): Tray {
             label: 'Reset Zoom', type: 'normal',
             click: () => win.webContents.send('reset-zoom'),
         },
-        {
-            label: 'Relaunch', type: 'normal',
-            click: () => {
-                app.relaunch();
-                app.exit(0);
-            }
-        },
+        // TODO: Does not work with compiled app.
+        // {
+        //     label: 'Relaunch', type: 'normal',
+        //     click: () => {
+        //         app.relaunch();
+        //         app.quit();
+        //     }
+        // },
         {
             label: 'Exit', type: 'normal',
             click: () => app.quit()

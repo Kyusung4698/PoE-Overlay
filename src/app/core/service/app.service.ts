@@ -3,7 +3,7 @@ import { ElectronProvider } from '@app/provider';
 import { VisibleFlag } from '@app/type/app.type';
 import { IpcRenderer, Remote } from 'electron';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
-import { debounceTime, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { DialogRefService } from './dialog/dialog-ref.service';
 
 @Injectable({
@@ -30,18 +30,16 @@ export class AppService {
         return combineLatest([
             this.activeChange$,
             this.dialogRef.dialogCountChange()
-        ]).pipe(
-            map(([game, dialogCount]) => {
-                let result = VisibleFlag.None;
-                if (game) {
-                    result |= VisibleFlag.Game;
-                }
-                if (dialogCount > 0) {
-                    result |= VisibleFlag.Dialog;
-                }
-                return result;
-            }),
-            debounceTime(250));
+        ]).pipe(map(([game, dialogCount]) => {
+            let result = VisibleFlag.None;
+            if (game) {
+                result |= VisibleFlag.Game;
+            }
+            if (dialogCount > 0) {
+                result |= VisibleFlag.Dialog;
+            }
+            return result;
+        }));
     }
 
     public triggerVisibleChange(): void {
@@ -63,6 +61,6 @@ export class AppService {
      */
     public relaunch(): void {
         this.electron.app.relaunch();
-        this.electron.app.exit(0);
+        this.electron.app.quit();
     }
 }

@@ -107,14 +107,14 @@ export function register(): void {
     iohook.on('keydown', onKeydown);
     iohook.on('keyup', onKeyup);
     iohook.on('mousewheel', onMousewheel);
-    iohook.on('mouseclick', onMouseclick);
+    iohook.on('mouseup', onMouseclick);
 }
 
 export function unregister(): void {
     iohook.off('keydown', onKeydown);
     iohook.off('keyup', onKeyup);
     iohook.off('mousewheel', onMousewheel);
-    iohook.off('mouseclick', onMouseclick);
+    iohook.off('mouseup', onMouseclick);
 
     if (activeCheckSubscription) {
         activeCheckSubscription.unsubscribe();
