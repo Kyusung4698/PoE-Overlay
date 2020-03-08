@@ -188,7 +188,7 @@ function loadApp(win: BrowserWindow, route: string = '') {
 let tray: Tray;
 
 function createTray(): Tray {
-    tray = new Tray(path.join(__dirname, serve ? 'src/favicon.ico' : 'dist/favicon.ico'));
+    tray = new Tray(path.join(__dirname, serve ? 'src/favicon.png' : 'dist/favicon.png'));
 
     const items: MenuItemConstructorOptions[] = [
         {
