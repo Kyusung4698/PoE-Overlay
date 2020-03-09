@@ -1,3 +1,7 @@
+## 0.5.23 (2020-03-09)
+
+- update korean translations (thanks to moveoh)
+
 ## 0.5.22 (2020-03-08)
 
 - add dialog spawn position as general setting (Cursor, Center) (#210)

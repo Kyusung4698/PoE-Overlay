@@ -76,6 +76,7 @@ These instructions will set you up to run and enjoy the overlay.
 
 * Path of Exile ***must be*** in windowed fullscreen mode
 * PoE Overlay should run with privileged rights
+* You may need to install [vc_redist](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) 
 
 #### Installing
 

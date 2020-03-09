@@ -19,12 +19,13 @@
         "icon": "dist/favicon.ico",
         "target": [
             "portable"
-        ]
+        ],
+        "category": "Utility"
     },
     "linux": {        
         "icon": "dist/favicon.png",
         "target": [
-            "AppImage"
+            "deb"
         ]
     }
 }

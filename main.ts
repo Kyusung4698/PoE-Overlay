@@ -92,7 +92,6 @@ let win: BrowserWindow = null;
 
 function createWindow(): BrowserWindow {
     const { bounds } = getDisplay();
-    console.log(bounds);
 
     // Create the browser window.
     win = new BrowserWindow({
@@ -250,6 +249,7 @@ function createTray(): Tray {
 
 try {
     app.on('ready', () => {
+        /* delay create window in order to support transparent windows at linux. */
         setTimeout(() => {
             hook.register();
             createWindow();
