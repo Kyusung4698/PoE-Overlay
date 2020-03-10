@@ -1,5 +1,9 @@
-## 0.5.23 (2020-03-09)
+## 0.6.0 (2020-03-10)
 
+- add auto update (#40)
+- add auto launch on boot/ login (#81)
+- add relaunch app via tray and menu (#282)
+- update accelerators to support `|< (#269)
 - update korean translations (thanks to moveoh)
 
 ## 0.5.22 (2020-03-08)

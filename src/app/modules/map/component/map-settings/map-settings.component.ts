@@ -51,14 +51,14 @@ export class MapSettingsComponent implements UserSettingsComponent {
       this.clipboard.writeText(stats);
       this.snackbar.success('stats were copied to clipboard successfully.');
     } catch (ex) {
-      this.snackbar.success('stats could not be copied to clipboard.');
+      this.snackbar.error('stats could not be copied to clipboard.');
     }
   }
 
   public onImportStats(): void {
     const text = this.clipboard.readText();
     if (!text || text.length < 0) {
-      this.snackbar.success('clipboard was empty.');
+      this.snackbar.warning('clipboard was empty.');
       return;
     }
 
@@ -66,7 +66,7 @@ export class MapSettingsComponent implements UserSettingsComponent {
     try {
       stats = JSON.parse(text);
     } catch (ex) {
-      this.snackbar.success('clipboard content could not be parsed.');
+      this.snackbar.error('clipboard content could not be parsed.');
       return;
     }
 

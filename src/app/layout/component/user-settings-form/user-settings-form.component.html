@@ -18,11 +18,24 @@
     </mat-form-field>
 </mat-card>
 <mat-card>
+    <mat-label>{{'settings.dialog'}}</mat-label>
+    <mat-form-field>
+        <mat-label>{{'settings.dialog-spawn-position-title' | translate}}</mat-label>
+        <mat-select [(value)]="settings.dialogSpawnPosition">
+            <mat-option [value]="1">{{'settings.dialog-spawn-position.cursor' | translate}}</mat-option>
+            <mat-option [value]="2">{{'settings.dialog-spawn-position.center' | translate}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+</mat-card>
+<mat-card>
+    <mat-label>{{'settings.app'}}</mat-label>
+
     <div>
         <mat-slide-toggle [checked]="settings.displayVersion" (change)="settings.displayVersion = $event.checked">
             {{'settings.display-version' | translate}}
         </mat-slide-toggle>
     </div>
+
     <mat-form-field>
         <mat-label>{{'settings.zoom' | translate}}</mat-label>
         <mat-select [(value)]="settings.zoom">
@@ -31,21 +44,14 @@
             </mat-option>
         </mat-select>
     </mat-form-field>
-    <mat-form-field>
-        <mat-label>{{'settings.dialog-spawn-position-title' | translate}}</mat-label>
-        <mat-select [(value)]="settings.dialogSpawnPosition">
-            <mat-option [value]="1">{{'settings.dialog-spawn-position.cursor' | translate}}</mat-option>
-            <mat-option [value]="2">{{'settings.dialog-spawn-position.center' | translate}}</mat-option>
-        </mat-select>
-    </mat-form-field>
+
     <app-accelerator [label]="'settings.open-settings' | translate" [(value)]="settings.openUserSettingsKeybinding">
     </app-accelerator>
     <app-accelerator [label]="'settings.exit-app' | translate" [(value)]="settings.exitAppKeybinding">
     </app-accelerator>
-</mat-card>
-<mat-card>
+
     <mat-dialog-actions align="center">
-        <button mat-button (click)="relaunchApp()" disabled>
+        <button mat-button (click)="relaunchApp()">
             {{'settings.relaunch-app' | translate}}
         </button>
         <button mat-button (click)="exitApp()">

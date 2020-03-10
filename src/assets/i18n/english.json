@@ -1,4 +1,10 @@
 {
+	"app": {
+		"update": {
+			"available": "A new version is available. Download will start now ...",
+			"downloaded": "Download completed. Please relaunch the app in order to finish the update."
+		}
+	},
 	"bookmark": {
 		"add": "Add Bookmark",
 		"name": "Bookmark",

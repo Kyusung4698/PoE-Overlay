@@ -1,6 +1,7 @@
 @import "./styles/fonts";
 @import "./styles/theme";
 @import "./styles/scrollbar";
+@import "./styles/variables";
 
 html,
 body {
@@ -8,7 +9,6 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
-
 
 .clickable {
   cursor: pointer;
@@ -19,6 +19,18 @@ body {
   min-width: 0;
   border-radius: 2px;
   background-color: rgb(35, 35, 35);
+
+  &.error {
+    background-color: $red;
+  }
+
+  &.warning {
+    background-color: $orange;
+  }
+
+  &.success {    
+    background-color: $purple
+  }
 }
 
 .mat-slide-toggle {

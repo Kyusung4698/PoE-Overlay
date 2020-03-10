@@ -1,4 +1,10 @@
 {
+	"app": {
+		"update": {
+			"available": "Eine neue Version ist verfügbar. Der Download beginnt jetzt ...",
+			"downloaded": "Download abgeschlossen. Bitte starten Sie die App neu, um das Update abzuschließen."
+		}
+	},
 	"bookmark": {
 		"add": "Lesezeichen hinzufügen",
 		"name": "Lesezeichen",

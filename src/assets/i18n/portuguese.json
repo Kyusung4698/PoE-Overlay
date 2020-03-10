@@ -1,4 +1,10 @@
 {
+	"app": {
+		"update": {
+			"available": "Uma nova versão está disponível. O download começará agora ...",
+			"downloaded": "Transferência concluída. Por favor, reinicie o aplicativo para concluir a atualização."
+		}
+	},
 	"bookmark": {
 		"add": "Adicionar marcador",
 		"name": "marca páginas",

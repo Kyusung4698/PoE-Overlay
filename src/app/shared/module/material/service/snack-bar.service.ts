@@ -36,9 +36,9 @@ export class SnackBarService {
                 action ? this.translate.get(action) : of(undefined)
             ]).pipe(
                 flatMap(([translatedMessage, translatedAction]) => this.matSnackBar.open(translatedMessage, translatedAction, {
-                    duration: 5 * 1000,
+                    duration: 7 * 1000,
                     verticalPosition: 'bottom',
-                    panelClass: `snack-bar-service`
+                    panelClass: ['snack-bar-service', panelClass]
                 }).onAction())
             ).toPromise());
     }

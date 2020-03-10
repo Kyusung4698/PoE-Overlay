@@ -1,4 +1,10 @@
 {
+	"app": {
+		"update": {
+			"available": "Une nouvelle version est disponible. Le téléchargement va commencer maintenant ...",
+			"downloaded": "Téléchargement terminé. Veuillez relancer l'application pour terminer la mise à jour."
+		}
+	},
 	"bookmark": {
 		"add": "Ajouter un signet",
 		"name": "Signet",

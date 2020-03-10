@@ -1,4 +1,6 @@
+import AutoLaunch from 'auto-launch';
 import { app, BrowserWindow, Display, ipcMain, Menu, MenuItemConstructorOptions, screen, Tray } from 'electron';
+import { autoUpdater } from 'electron-updater';
 import * as path from 'path';
 import * as robot from 'robotjs';
 import * as url from 'url';
@@ -15,6 +17,17 @@ app.commandLine.appendSwitch('force-device-scale-factor', '1');
 
 const args = process.argv.slice(1),
     serve = args.some(val => val === '--serve');
+
+const launch = new AutoLaunch({
+    name: 'PoE Overlay'
+});
+
+let win: BrowserWindow = null;
+let tray: Tray = null;
+
+const childs: {
+    [key: string]: BrowserWindow
+} = {};
 
 /* robot js */
 
@@ -49,7 +62,7 @@ ipcMain.on('set-keyboard-delay', (event, delay) => {
 
 ipcMain.on('register-active-change', event => {
     hook.on('change', active => {
-        win.webContents.send('active-change', serve ? true : active);
+        event.sender.send('active-change', serve ? true : active);
     });
     event.returnValue = true;
 });
@@ -60,7 +73,7 @@ ipcMain.on('register-shortcut', (event, accelerator) => {
         case 'CmdOrCtrl + MouseWheelDown':
             hook.on('wheel', e => {
                 if (e.ctrlKey) {
-                    win.webContents.send(`shortcut-${e.rotation === -1
+                    event.sender.send(`shortcut-${e.rotation === -1
                         ? 'CmdOrCtrl + MouseWheelUp'
                         : 'CmdOrCtrl + MouseWheelDown'}`);
                 }
@@ -86,9 +99,36 @@ function getDisplay(): Display {
     return screen.getPrimaryDisplay();
 }
 
-/* main window */
+/* auto-updater */
 
-let win: BrowserWindow = null;
+autoUpdater.on('update-available', () => {
+    win.webContents.send('app-update-available');
+});
+
+autoUpdater.on('update-downloaded', () => {
+    win.webContents.send('app-update-downloaded');
+});
+
+ipcMain.on('app-quit-and-install', event => {
+    autoUpdater.quitAndInstall();
+    event.returnValue = true;
+});
+
+/* auto-launch */
+
+ipcMain.on('app-auto-launch-enabled', event => {
+    launch.isEnabled()
+        .then((enabled: boolean) => event.sender.send('app-auto-launch-enabled-result', enabled))
+        .catch(() => event.sender.send('app-auto-launch-enabled-result', false));
+});
+
+ipcMain.on('app-auto-launch-change', (event, enabled) => {
+    (enabled ? launch.enable() : launch.disable())
+        .then(() => event.sender.send('app-auto-launch-change-result', true))
+        .catch(() => event.sender.send('app-auto-launch-change-result', false));
+})
+
+/* main window */
 
 function createWindow(): BrowserWindow {
     const { bounds } = getDisplay();
@@ -110,7 +150,7 @@ function createWindow(): BrowserWindow {
             webSecurity: false
         },
         focusable: false,
-        show: false,
+        show: false
     });
     win.removeMenu();
     win.setIgnoreMouseEvents(true);
@@ -123,15 +163,16 @@ function createWindow(): BrowserWindow {
     win.on('closed', () => {
         win = null;
     });
-
+    win.once('ready-to-show', () => {
+        // timeout of 10 to give angular a chance of listing to events first.
+        setTimeout(() => {
+            autoUpdater.checkForUpdatesAndNotify();
+        }, 1000 * 10);
+    });
     return win;
 }
 
 /* modal window */
-
-let childs: {
-    [key: string]: BrowserWindow
-} = {};
 
 ipcMain.on('open-route', (event, route) => {
     try {
@@ -205,8 +246,6 @@ function loadApp(win: BrowserWindow, route: string = '') {
 
 /* tray */
 
-let tray: Tray;
-
 function createTray(): Tray {
     tray = new Tray(path.join(__dirname, serve ? 'src/favicon.png' : 'dist/favicon.png'));
 
@@ -219,14 +258,10 @@ function createTray(): Tray {
             label: 'Reset Zoom', type: 'normal',
             click: () => win.webContents.send('reset-zoom'),
         },
-        // TODO: Does not work with compiled app.
-        // {
-        //     label: 'Relaunch', type: 'normal',
-        //     click: () => {
-        //         app.relaunch();
-        //         app.quit();
-        //     }
-        // },
+        {
+            label: 'Relaunch', type: 'normal',
+            click: () => win.webContents.send('app-relaunch')
+        },
         {
             label: 'Exit', type: 'normal',
             click: () => app.quit()

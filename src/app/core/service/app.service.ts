@@ -1,8 +1,8 @@
 import { Injectable, NgZone } from '@angular/core';
 import { ElectronProvider } from '@app/provider';
-import { VisibleFlag } from '@app/type/app.type';
+import { AppUpdateState, VisibleFlag } from '@app/type/app.type';
 import { IpcRenderer, Remote } from 'electron';
-import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
+import { BehaviorSubject, combineLatest, Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { DialogRefService } from './dialog/dialog-ref.service';
 
@@ -13,6 +13,7 @@ export class AppService {
     private readonly electron: Remote;
     private readonly ipcRenderer: IpcRenderer;
     private readonly activeChange$ = new BehaviorSubject<boolean>(false);
+    private readonly updateState$ = new BehaviorSubject<AppUpdateState>(AppUpdateState.None);
 
     constructor(
         private readonly ngZone: NgZone,
@@ -22,11 +23,27 @@ export class AppService {
         this.ipcRenderer = electronProvider.provideIpcRenderer();
     }
 
+    public registerEvents(): void {
+        this.ipcRenderer.on('app-update-available', () => {
+            this.ngZone.run(() => this.updateState$.next(AppUpdateState.Available));
+        });
+        this.ipcRenderer.on('app-update-downloaded', () => {
+            this.ngZone.run(() => this.updateState$.next(AppUpdateState.Downloaded));
+        });
+        this.ipcRenderer.on('app-relaunch', () => {
+            this.ngZone.run(() => this.relaunch());
+        });
+    }
+
+    public updateStateChange(): Observable<AppUpdateState> {
+        return this.updateState$;
+    }
+
     public visibleChange(): Observable<VisibleFlag> {
         this.ipcRenderer.on('active-change', (event, arg) => {
             this.ngZone.run(() => this.activeChange$.next(arg));
         });
-        this.ipcRenderer.sendSync('register-active-change');
+        this.ipcRenderer.send('register-active-change');
         return combineLatest([
             this.activeChange$,
             this.dialogRef.dialogCountChange()
@@ -40,6 +57,30 @@ export class AppService {
             }
             return result;
         }));
+    }
+
+    public isAutoLaunchEnabled(): Observable<boolean> {
+        const subject = new Subject<boolean>();
+        this.ipcRenderer.once('app-auto-launch-enabled-result', (_, enabled) => {
+            this.ngZone.run(() => {
+                subject.next(enabled);
+                subject.complete();
+            });
+        });
+        this.ipcRenderer.send('app-auto-launch-enabled');
+        return subject;
+    }
+
+    public updateAutoLaunchEnabled(enabled: boolean): Observable<boolean> {
+        const subject = new Subject<boolean>();
+        this.ipcRenderer.once('app-auto-launch-change-result', (_, success) => {
+            this.ngZone.run(() => {
+                subject.next(success);
+                subject.complete();
+            });
+        });
+        this.ipcRenderer.send('app-auto-launch-change', enabled);
+        return subject;
     }
 
     public triggerVisibleChange(): void {
@@ -60,7 +101,11 @@ export class AppService {
      * https://www.electronjs.org/docs/api/app#apprelaunchoptions
      */
     public relaunch(): void {
-        this.electron.app.relaunch();
-        this.electron.app.quit();
+        if (this.updateState$.value === AppUpdateState.Downloaded) {
+            this.ipcRenderer.send('app-quit-and-install');
+        } else {
+            this.electron.app.relaunch();
+            this.electron.app.quit();
+        }
     }
 }

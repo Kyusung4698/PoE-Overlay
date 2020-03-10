@@ -1,14 +1,9 @@
 {
   "name": "poe-overlay",
-  "description": "A Overlay for Path of Exile. Built with Electron and Angular.",
-  "homepage": "https://github.com/Kyusung4698/PoE-Overlay",
-  "repository": {
-    "url": "https://github.com/Kyusung4698/PoE-Overlay"
-  },
-  "author": {
-    "name": "Kyusung4698"
-  },
   "version": "0.5.22",
+  "private": true,
+  "description": "A Overlay for Path of Exile. Built with Electron and Angular.",
+  "main": "main.js",
   "scripts": {
     "postinstall": "npm run ng:cc && npm run electron:deps",
     "ng:cc": "ngcc --properties esm5 browser module main --first-only --create-ivy-entry-points",
@@ -27,32 +22,21 @@
     "electron:build": "npm run build:prod && electron-builder build --linux --windows",
     "electron:version": "electron -v && electron -a",
     "electron:deps": "electron-builder install-app-deps",
+    "electron:deploy": "electron-builder build --win --publish always",
     "electron:rebuild": "npm rebuild --runtime=electron --target=8.0.3 --disturl=https://atom.io/download/atom-shell --abi=76"
   },
-  "main": "main.js",
-  "private": true,
-  "dependencies": {
-    "@angular/animations": "^9.0.5",
-    "@angular/cdk": "^9.1.0",
-    "@angular/common": "^9.0.5",
-    "@angular/compiler": "^9.0.5",
-    "@angular/core": "^9.0.5",
-    "@angular/forms": "^9.0.5",
-    "@angular/material": "^9.1.0",
-    "@angular/platform-browser": "^9.0.5",
-    "@angular/platform-browser-dynamic": "^9.0.5",
-    "@angular/router": "^9.0.5",
-    "@ngx-translate/core": "^12.1.2",
-    "@swimlane/ngx-charts": "^13.0.2",
-    "active-win": "git+https://github.com/Kyusung4698/active-win.git#f2292727f7e979d9fb5c6919e3742bf5d6140014",
-    "iohook": "^0.6.5",
-    "localforage": "^1.7.3",
-    "moment": "^2.24.0",
-    "robotjs": "git+https://github.com/Kyusung4698/robotjs.git#1069e3c20ef388275a71fe2fd7300b0d96af335e",
-    "rxjs": "~6.5.4",
-    "tslib": "^1.11.1",
-    "zone.js": "~0.10.2"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kyusung4698/PoE-Overlay.git"
   },
+  "author": {
+    "name": "Kyusung4698",
+    "email": "kyusung4698@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/Kyusung4698/PoE-Overlay/issues"
+  },
+  "homepage": "https://github.com/Kyusung4698/PoE-Overlay",
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.900.4",
     "@angular/cli": "^9.0.4",
@@ -78,6 +62,30 @@
     "tslint": "~6.0.0",
     "typescript": "~3.7.5",
     "wait-on": "^4.0.1"
+  },
+  "dependencies": {
+    "@angular/animations": "^9.0.5",
+    "@angular/cdk": "^9.1.0",
+    "@angular/common": "^9.0.5",
+    "@angular/compiler": "^9.0.5",
+    "@angular/core": "^9.0.5",
+    "@angular/forms": "^9.0.5",
+    "@angular/material": "^9.1.0",
+    "@angular/platform-browser": "^9.0.5",
+    "@angular/platform-browser-dynamic": "^9.0.5",
+    "@angular/router": "^9.0.5",
+    "@ngx-translate/core": "^12.1.2",
+    "@swimlane/ngx-charts": "^13.0.2",
+    "active-win": "git+https://github.com/Kyusung4698/active-win.git#f2292727f7e979d9fb5c6919e3742bf5d6140014",
+    "auto-launch": "^5.0.5",
+    "electron-updater": "^4.2.4",
+    "iohook": "^0.6.5",
+    "localforage": "^1.7.3",
+    "moment": "^2.24.0",
+    "robotjs": "git+https://github.com/Kyusung4698/robotjs.git#1069e3c20ef388275a71fe2fd7300b0d96af335e",
+    "rxjs": "~6.5.4",
+    "tslib": "^1.11.1",
+    "zone.js": "~0.10.2"
   },
   "engines": {
     "node": ">=10.9.0"

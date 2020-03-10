@@ -3,9 +3,10 @@ import { AppService, BrowserService, RendererService, WindowService } from '@app
 import { DialogRefService } from '@app/service/dialog';
 import { ShortcutService } from '@app/service/input';
 import { FEATURE_MODULES } from '@app/token';
-import { FeatureModule, VisibleFlag } from '@app/type';
+import { AppUpdateState, FeatureModule, VisibleFlag } from '@app/type';
 import { ReleasesHttpService } from '@data/github';
 import { TranslateService } from '@ngx-translate/core';
+import { SnackBarService } from '@shared/module/material/service';
 import { ContextService } from '@shared/module/poe/service';
 import { Context, Language } from '@shared/module/poe/type';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -32,6 +33,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
     private readonly userSettingsService: UserSettingsService,
     private readonly context: ContextService,
     private readonly app: AppService,
+    private readonly snackBar: SnackBarService,
     private readonly window: WindowService,
     private readonly browser: BrowserService,
     private readonly renderer: RendererService,
@@ -47,6 +49,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit(): void {
+    this.registerEvents();
     this.checkVersion();
     this.initSettings();
   }
@@ -55,16 +58,31 @@ export class OverlayComponent implements OnInit, OnDestroy {
     this.reset();
   }
 
+  // deprecated. will be removed with 0.6.1 - if the auto update works.
   private checkVersion(): void {
     this.version = this.app.version();
 
     this.releasesHttpService.getLatestRelease().subscribe(release => {
-      if (release && release.tag_name !== this.version && release.assets && release.assets[0].browser_download_url) {
+      if (release && release.tag_name.replace('v', '') !== this.version && release.assets && release.assets[0].browser_download_url) {
         if (confirm(`A new version: '${release.tag_name}' is available. Go to download Page?`)) {
           this.browser.open(release.html_url);
         }
       }
     });
+  }
+
+  private registerEvents(): void {
+    this.app.updateStateChange().subscribe(event => {
+      switch (event) {
+        case AppUpdateState.Available:
+          this.snackBar.info('app.update.available');
+          break;
+        case AppUpdateState.Downloaded:
+          this.snackBar.success('app.update.downloaded');
+          break;
+      }
+    });
+    this.app.registerEvents();
   }
 
   private initSettings(): void {

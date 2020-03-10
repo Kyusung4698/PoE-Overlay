@@ -1,4 +1,10 @@
 {
+	"app": {
+		"update": {
+			"available": "Una nueva version esta disponible. La descarga comenzará ahora ...",
+			"downloaded": "Descarga completa. Vuelva a iniciar la aplicación para finalizar la actualización."
+		}
+	},
 	"bookmark": {
 		"add": "Añadir marcador",
 		"name": "Marcador",

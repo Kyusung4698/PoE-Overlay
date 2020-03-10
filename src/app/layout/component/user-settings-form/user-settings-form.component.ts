@@ -43,8 +43,7 @@ export class UserSettingsFormComponent implements OnInit {
   }
 
   public relaunchApp(): void {
-    // TODO: Does not work with compiled app.
-    // this.app.relaunch();
+    this.app.relaunch();
   }
 
   public exitApp(): void {
