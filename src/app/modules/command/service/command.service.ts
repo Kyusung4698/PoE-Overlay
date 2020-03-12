@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ClipboardService, KeyboardService } from '@app/service/input';
+import { ClipboardService, KeyboardService, KeyCode } from '@app/service/input';
 import { Subject } from 'rxjs';
 import { delay, map, tap, throttleTime } from 'rxjs/operators';
 
@@ -26,9 +26,9 @@ export class CommandService {
                 const text = this.clipboard.readText();
                 this.clipboard.writeText(command);
                 this.keyboard.setKeyboardDelay(5);
-                this.keyboard.keyTap('enter');
-                this.keyboard.keyTap('v', ['control']);
-                this.keyboard.keyTap('enter');
+                this.keyboard.keyTap(KeyCode.VK_RETURN);
+                this.keyboard.keyTap(KeyCode.VK_KEY_V, ['control']);
+                this.keyboard.keyTap(KeyCode.VK_RETURN);
                 return text;
             }),
             delay(200),

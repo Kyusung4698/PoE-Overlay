@@ -85,6 +85,7 @@
 		"graphic": "Esto se debe principalmente a controladores gráficos incompatibles para la versión actual de Chrome.<br> Ejecute 'run-without-gpu.bat' para iniciar la superposición sin soporte de gpu (aceleración de hardware).",
 		"graphic-title": "Los gráficos son borrosos / error gráfico?",
 		"name": "Ayuda",
+		"patreon": "Apóyame en Patreon",
 		"wiki": "Open Project Wiki",
 		"wiki-title": "Vea el wiki del proyecto para más documentación"
 	},
@@ -127,7 +128,10 @@
 		"wiki": "Wiki"
 	},
 	"settings": {
+		"app": "aplicación",
+		"auto-launch": "Ejecutar en arranque",
 		"cancel": "Cancelar",
+		"dialog": "Diálogo",
 		"dialog-spawn-position": {
 			"center": "Centrar",
 			"cursor": "Cursor"

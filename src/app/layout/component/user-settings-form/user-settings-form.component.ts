@@ -3,18 +3,21 @@ import { EnumValues } from '@app/class';
 import { AppService } from '@app/service';
 import { LeaguesProvider } from '@shared/module/poe/provider';
 import { Language, League } from '@shared/module/poe/type';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 import { UserSettings } from '../../type';
 
 @Component({
   selector: 'app-user-settings-form',
   templateUrl: './user-settings-form.component.html',
+  styleUrls: ['./user-settings-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserSettingsFormComponent implements OnInit {
   public languages = new EnumValues(Language);
 
   public leagues$ = new BehaviorSubject<League[]>([]);
+  public autoLaunchEnabled$: Observable<boolean>;
 
   @Input()
   public settings: UserSettings;
@@ -26,6 +29,13 @@ export class UserSettingsFormComponent implements OnInit {
     if (this.settings.language) {
       this.updateLeagues();
     }
+    this.autoLaunchEnabled$ = this.app.isAutoLaunchEnabled();
+  }
+
+  public onAutoLaunchChange(enabled: boolean): void {
+    this.autoLaunchEnabled$ = this.app.updateAutoLaunchEnabled(enabled).pipe(
+      map(success => success ? enabled : !enabled)
+    );
   }
 
   public onLanguageChange(): void {

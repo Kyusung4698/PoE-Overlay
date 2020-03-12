@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { WindowService } from '@app/service';
-import { ClipboardService, KeyboardService, MouseService } from '@app/service/input';
+import { ClipboardService, KeyboardService, KeyCode, MouseService } from '@app/service/input';
 import { Point } from '@app/type';
 import { Observable, of } from 'rxjs';
 import { delay, tap } from 'rxjs/operators';
@@ -51,9 +51,9 @@ export class StashService {
         this.clipboard.writeText(`"${term}"`);
         this.keyboard.setKeyboardDelay(5);
         return of(null).pipe(
-            tap(() => this.keyboard.keyTap('f', ['control'])),
+            tap(() => this.keyboard.keyTap(KeyCode.VK_KEY_F, ['control'])),
             delay(175),
-            tap(() => this.keyboard.keyTap('v', ['control'])),
+            tap(() => this.keyboard.keyTap(KeyCode.VK_KEY_V, ['control'])),
             delay(75),
             tap(() => this.clipboard.writeText(text))
         );
@@ -61,7 +61,7 @@ export class StashService {
 
     public navigate(dir: StashNavigationDirection): void {
         this.keyboard.setKeyboardDelay(5);
-        this.keyboard.keyTap(dir === StashNavigationDirection.Left ? 'left' : 'right');
+        this.keyboard.keyTap(dir === StashNavigationDirection.Left ? KeyCode.VK_LEFT : KeyCode.VK_RIGHT);
     }
 
     public copyPrice(tag: StashPriceTag): void {
@@ -76,12 +76,12 @@ export class StashService {
             delay(100),
             tap(() => {
                 this.keyboard.setKeyboardDelay(5);
-                this.keyboard.keyTap('v', ['control']);
+                this.keyboard.keyTap(KeyCode.VK_KEY_V, ['control']);
             }),
             delay(50),
             tap(() => {
                 this.keyboard.setKeyboardDelay(5);
-                this.keyboard.keyTap('enter');
+                this.keyboard.keyTap(KeyCode.VK_RETURN);
             }),
             delay(75),
             tap(() => this.clipboard.writeText(text)),

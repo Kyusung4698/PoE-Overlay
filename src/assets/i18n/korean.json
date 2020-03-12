@@ -85,6 +85,7 @@
 		"graphic": "현재 크롬 버전의 호환되지 않는 그래픽 드라이버로 인해 발생합니다.<br> GPU 지원 (하드웨어 가속)없이 오버레이를 시작하려면 'run-without-gpu.bat'를 실행하십시오.",
 		"graphic-title": "그래픽이 흐릿하거나 그래픽 버그입니까?",
 		"name": "도움",
+		"patreon": "Patreon에서 나를 지원하십시오",
 		"wiki": "프로젝트 위키 열기",
 		"wiki-title": "추가 문서는 프로젝트 위키를 참조하십시오."
 	},
@@ -127,7 +128,10 @@
 		"wiki": "위키"
 	},
 	"settings": {
+		"app": "앱",
+		"auto-launch": "부팅시 실행",
 		"cancel": "취소",
+		"dialog": "대화",
 		"dialog-spawn-position": {
 			"center": "센터",
 			"cursor": "커서"

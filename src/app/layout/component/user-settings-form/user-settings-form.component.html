@@ -18,7 +18,7 @@
     </mat-form-field>
 </mat-card>
 <mat-card>
-    <mat-label>{{'settings.dialog'}}</mat-label>
+    <mat-label>{{'settings.dialog' | translate}}</mat-label>
     <mat-form-field>
         <mat-label>{{'settings.dialog-spawn-position-title' | translate}}</mat-label>
         <mat-select [(value)]="settings.dialogSpawnPosition">
@@ -28,11 +28,14 @@
     </mat-form-field>
 </mat-card>
 <mat-card>
-    <mat-label>{{'settings.app'}}</mat-label>
+    <mat-label>{{'settings.app' | translate}}</mat-label>
 
-    <div>
+    <div class="toggle">
         <mat-slide-toggle [checked]="settings.displayVersion" (change)="settings.displayVersion = $event.checked">
             {{'settings.display-version' | translate}}
+        </mat-slide-toggle>
+        <mat-slide-toggle [checked]="autoLaunchEnabled$ | async" (change)="onAutoLaunchChange($event.checked)">
+            {{'settings.auto-launch' | translate}}
         </mat-slide-toggle>
     </div>
 

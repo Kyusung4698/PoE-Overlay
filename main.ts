@@ -155,7 +155,7 @@ function createWindow(): BrowserWindow {
     win.removeMenu();
     win.setIgnoreMouseEvents(true);
 
-    win.setAlwaysOnTop(true, "floating", 1);
+    win.setAlwaysOnTop(true, 'pop-up-menu', 1);
     win.setVisibleOnAllWorkspaces(true);
 
     loadApp(win);

@@ -9,7 +9,7 @@ export const environment = {
     baseUrl: 'https://pathofexile.gamepedia.com',
   },
   poedb: {
-    baseUrl: 'https://poedb.tw/us',
+    baseUrl: 'https://poedb.tw/{country}',
   },
   poeNinja: {
     baseUrl: 'https://poe.ninja'

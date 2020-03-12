@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ClipboardService, KeyboardService, MouseService } from '@app/service/input';
+import { ClipboardService, KeyboardService, KeyCode, MouseService } from '@app/service/input';
 import { Point } from '@app/type';
 import { iif, Observable, of, throwError } from 'rxjs';
 import { catchError, concatMap, delay, flatMap, map, retryWhen, tap } from 'rxjs/operators';
@@ -34,10 +34,13 @@ export class ItemClipboardService {
         return of(null).pipe(
             flatMap(() => {
                 const point = this.mouse.position();
+
                 this.keyboard.setKeyboardDelay(1);
-                this.keyboard.keyToggle('c', false, ['alt']);
+                this.keyboard.keyToggle(KeyCode.VK_LMENU, false);
+                this.keyboard.keyToggle(KeyCode.VK_RMENU, false);
+
                 this.keyboard.setKeyboardDelay(25);
-                this.keyboard.keyTap('c', ['control']);
+                this.keyboard.keyTap(KeyCode.VK_KEY_C, ['control']);
 
                 return of(null).pipe(
                     flatMap(() => {

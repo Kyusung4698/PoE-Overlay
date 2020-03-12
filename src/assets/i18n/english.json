@@ -85,6 +85,7 @@
 		"graphic": "This is mostly caused by incompatible graphic drivers for the current chromium version.<br> Please run 'run-without-gpu.bat' in order to start the overlay without gpu support (hardware acceleration).",
 		"graphic-title": "The graphics are blurry/ graphic bug?",
 		"name": "Help",
+		"patreon": "Support me on Patreon",
 		"wiki": "Open Project Wiki",
 		"wiki-title": "See the project wiki for further documentation"
 	},
@@ -127,7 +128,10 @@
 		"wiki": "Wiki"
 	},
 	"settings": {
+		"app": "App",
+		"auto-launch": "Run on Boot",
 		"cancel": "Cancel",
+		"dialog": "Dialog",
 		"dialog-spawn-position": {
 			"center": "Center",
 			"cursor": "Cursor"

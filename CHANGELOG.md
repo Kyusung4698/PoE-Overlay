@@ -1,8 +1,11 @@
-## 0.6.0 (2020-03-10)
+## 0.6.0 (2020-03-12)
 
 - add auto update (#40)
 - add auto launch on boot/ login (#81)
-- add relaunch app via tray and menu (#282)
+- add relaunch app via tray and menu (#275)
+- add localized poe db (#282)
+- fix `Clipboard was empty` while using a non US/DEU keyboard layout (#177)
+- update data to 3.9.3b
 - update accelerators to support `|< (#269)
 - update korean translations (thanks to moveoh)
 

@@ -64,7 +64,9 @@ export class OverlayComponent implements OnInit, OnDestroy {
 
     this.releasesHttpService.getLatestRelease().subscribe(release => {
       if (release && release.tag_name.replace('v', '') !== this.version && release.assets && release.assets[0].browser_download_url) {
-        if (confirm(`A new version: '${release.tag_name}' is available. Go to download Page?`)) {
+        if (confirm(
+          `A new version: '${release.tag_name}' is available. Go to download Page?\n` +
+          `*** Deprecated. will be removed with 0.6.1`)) {
           this.browser.open(release.html_url);
         }
       }
