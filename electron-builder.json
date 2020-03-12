@@ -1,11 +1,13 @@
 {
     "productName": "poe-overlay",
+    "publish": {
+        "provider": "github"
+    },
     "directories": {
         "output": "release/"
     },
     "files": [
-        "main.js",
-        "hook.js",
+        "*.js",
         "dist/**/*",
         "!node_modules/@angular/**/*",
         "!node_modules/@swimlane/**/*",
@@ -18,12 +20,15 @@
     "win": {
         "icon": "dist/favicon.ico",
         "target": [
-            "portable"
+            "nsis"
         ]
     },
-    "linux": {
+    "linux": {        
+        "icon": "dist/favicon.png",
         "target": [
+            "deb",
             "AppImage"
-        ]
+        ],
+        "category": "Utility"
     }
 }

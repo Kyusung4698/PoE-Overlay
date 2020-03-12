@@ -38,7 +38,7 @@ export class SnackBarService {
                 flatMap(([translatedMessage, translatedAction]) => this.matSnackBar.open(translatedMessage, translatedAction, {
                     duration: 5 * 1000,
                     verticalPosition: 'bottom',
-                    panelClass: `snack-bar-service`
+                    panelClass: ['snack-bar-service', panelClass]
                 }).onAction())
             ).toPromise());
     }

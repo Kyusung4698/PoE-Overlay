@@ -1,4 +1,10 @@
 {
+	"app": {
+		"update": {
+			"available": "Uma nova versão está disponível. O download começará agora ...",
+			"downloaded": "Transferência concluída. Por favor, reinicie o aplicativo para concluir a atualização."
+		}
+	},
 	"bookmark": {
 		"add": "Adicionar marcador",
 		"name": "marca páginas",
@@ -79,6 +85,7 @@
 		"graphic": "Isso é causado principalmente por drivers gráficos incompatíveis para a versão atual do cromo.<br> Execute 'run-without-gpu.bat' para iniciar a sobreposição sem o suporte da gpu (aceleração de hardware).",
 		"graphic-title": "Os gráficos estão embaçados / bug gráfico?",
 		"name": "Socorro",
+		"patreon": "Apoie-me no Patreon",
 		"wiki": "Abrir Wiki do Projeto",
 		"wiki-title": "Consulte o wiki do projeto para obter mais documentação"
 	},
@@ -121,7 +128,10 @@
 		"wiki": "Wiki"
 	},
 	"settings": {
+		"app": "Aplicativo",
+		"auto-launch": "Executar na inicialização",
 		"cancel": "Cancelar",
+		"dialog": "Diálogo",
 		"dialog-spawn-position": {
 			"center": "centro",
 			"cursor": "Cursor"

@@ -13,7 +13,10 @@ class ElectronProviderFake {
   }
 
   public provideIpcRenderer(): Electron.IpcRenderer {
-    return null;
+    return {
+      once: () => null,
+      send: () => null
+    } as any as Electron.IpcRenderer;
   }
 }
 

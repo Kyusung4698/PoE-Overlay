@@ -1,4 +1,10 @@
 {
+	"app": {
+		"update": {
+			"available": "Une nouvelle version est disponible. Le téléchargement va commencer maintenant ...",
+			"downloaded": "Téléchargement terminé. Veuillez relancer l'application pour terminer la mise à jour."
+		}
+	},
 	"bookmark": {
 		"add": "Ajouter un signet",
 		"name": "Signet",
@@ -79,6 +85,7 @@
 		"graphic": "Cela est principalement dû à des pilotes graphiques incompatibles pour la version actuelle de chrome.<br> Veuillez exécuter 'run-without-gpu.bat' afin de démarrer la superposition sans support gpu (accélération matérielle).",
 		"graphic-title": "Les graphismes sont flous / bug graphique?",
 		"name": "Aidez-moi",
+		"patreon": "Soutenez-moi sur Patreon",
 		"wiki": "Ouvrir le Wiki du projet",
 		"wiki-title": "Voir le wiki du projet pour plus de documentation"
 	},
@@ -121,7 +128,10 @@
 		"wiki": "Wiki"
 	},
 	"settings": {
+		"app": "app",
+		"auto-launch": "Exécuter au démarrage",
 		"cancel": "Annuler",
+		"dialog": "Dialogue",
 		"dialog-spawn-position": {
 			"center": "Centre",
 			"cursor": "Le curseur"

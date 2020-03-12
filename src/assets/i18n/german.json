@@ -1,4 +1,10 @@
 {
+	"app": {
+		"update": {
+			"available": "Eine neue Version ist verfügbar. Der Download beginnt jetzt ...",
+			"downloaded": "Download abgeschlossen. Bitte starten Sie die App neu, um das Update abzuschließen."
+		}
+	},
 	"bookmark": {
 		"add": "Lesezeichen hinzufügen",
 		"name": "Lesezeichen",
@@ -79,6 +85,7 @@
 		"graphic": "Dies wird hauptsächlich durch inkompatible Grafiktreiber für die aktuelle Chrom-Version verursacht.<br> Führen Sie 'run-without-gpu.bat' aus, um das Overlay ohne GPU-Unterstützung (Hardwarebeschleunigung) zu starten.",
 		"graphic-title": "Die Grafiken sind verschwommen / Grafikfehler?",
 		"name": "Hilfe",
+		"patreon": "Unterstütze mich auf Patreon",
 		"wiki": "Projekt-Wiki öffnen",
 		"wiki-title": "Weitere Dokumentation finden Sie im Projekt-Wiki"
 	},
@@ -121,7 +128,10 @@
 		"wiki": "Wiki"
 	},
 	"settings": {
+		"app": "App",
+		"auto-launch": "Beim Booten ausführen",
 		"cancel": "Abbrechen",
+		"dialog": "Dialog",
 		"dialog-spawn-position": {
 			"center": "Center",
 			"cursor": "Mauszeiger"
