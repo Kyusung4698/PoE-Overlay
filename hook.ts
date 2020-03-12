@@ -50,9 +50,10 @@ function checkActive(): void {
     const win = activeWin.sync();
     const path = win?.owner?.path
     if (path) {
-        active = path.endsWith('PathOfExile_x64_KG.exe') || path.endsWith('PathOfExile_KG.exe')
-            || path.endsWith('PathOfExile_x64Steam.exe') || path.endsWith('PathOfExileSteam.exe')
-            || path.endsWith('PathOfExile_x64.exe') || path.endsWith('PathOfExile.exe');
+        const test = path.toLowerCase();
+        active = test.endsWith('pathofexile_x64_kg.exe') || test.endsWith('pathofexile_kg.exe')
+            || test.endsWith('pathofexile_x64steam.exe') || test.endsWith('pathofexilesteam.exe')
+            || test.endsWith('pathofexile_x64.exe') || test.endsWith('pathofexile.exe');
     }
 
     if (old !== active) {
