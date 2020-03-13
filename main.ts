@@ -1,5 +1,6 @@
 import AutoLaunch from 'auto-launch';
 import { app, BrowserWindow, Display, ipcMain, Menu, MenuItem, MenuItemConstructorOptions, screen, Tray } from 'electron';
+import * as log from 'electron-log';
 import { autoUpdater } from 'electron-updater';
 import * as path from 'path';
 import * as robot from 'robotjs';
@@ -15,6 +16,11 @@ app.allowRendererProcessReuse = true;
 app.commandLine.appendSwitch('high-dpi-support', 'true');
 app.commandLine.appendSwitch('force-device-scale-factor', '1');
 
+log.transports.file.level = 'info';
+log.info('App starting...');
+
+autoUpdater.logger = log;
+
 const args = process.argv.slice(1),
     serve = args.some(val => val === '--serve');
 
@@ -25,6 +31,7 @@ const launch = new AutoLaunch({
 let win: BrowserWindow = null;
 let tray: Tray = null;
 let menu: Menu = null;
+let downloadItem: MenuItem = null;
 
 const childs: {
     [key: string]: BrowserWindow
@@ -109,15 +116,17 @@ autoUpdater.on('update-available', () => {
         title: 'New update available',
         content: 'A new update is available. Will be automatically downloaded unless otherwise specified.',
     });
-    const item = new MenuItem({
-        label: 'Download Update',
-        type: 'normal',
-        click: () => {
-            autoUpdater.downloadUpdate();
-            item.enabled = false;
-        }
-    });
-    menu?.insert(2, item);
+    if (!downloadItem) {
+        downloadItem = new MenuItem({
+            label: 'Download Update',
+            type: 'normal',
+            click: () => {
+                autoUpdater.downloadUpdate();
+                downloadItem.enabled = false;
+            }
+        });
+        menu?.insert(2, downloadItem);
+    }
 });
 
 autoUpdater.on('update-downloaded', () => {
@@ -131,7 +140,10 @@ autoUpdater.on('update-downloaded', () => {
 
 ipcMain.on('app-download-init', (event, autoDownload) => {
     autoUpdater.autoDownload = autoDownload;
-    autoUpdater.checkForUpdatesAndNotify();
+    autoUpdater.checkForUpdates();
+    setInterval(() => {
+        autoUpdater.checkForUpdates();
+    }, 1000 * 60 * 5);
     event.returnValue = true;
 });
 
