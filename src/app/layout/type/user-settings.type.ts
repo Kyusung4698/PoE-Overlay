@@ -13,4 +13,5 @@ export interface UserSettings {
     zoom?: number;
     dialogSpawnPosition?: DialogSpawnPosition;
     displayVersion?: boolean;
+    autoDownload?: boolean;
 }

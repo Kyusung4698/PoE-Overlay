@@ -30,7 +30,8 @@ export class UserSettingsService {
                     language: Language.English,
                     zoom: 100,
                     dialogSpawnPosition: DialogSpawnPosition.Cursor,
-                    displayVersion: true
+                    displayVersion: true,
+                    autoDownload: true
                 };
 
                 modules.forEach(x => {

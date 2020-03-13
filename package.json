@@ -1,6 +1,6 @@
 {
   "name": "poe-overlay",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "private": true,
   "description": "A Overlay for Path of Exile. Built with Electron and Angular.",
   "main": "main.js",
@@ -22,7 +22,7 @@
     "electron:build": "npm run build:prod && electron-builder build --linux --windows",
     "electron:version": "electron -v && electron -a",
     "electron:deps": "electron-builder install-app-deps",
-    "electron:deploy": "electron-builder build --win --publish always",
+    "electron:deploy": "npm run build:prod && electron-builder build --win --publish always",
     "electron:rebuild": "npm rebuild --runtime=electron --target=8.1.1 --disturl=https://atom.io/download/atom-shell --abi=76"
   },
   "repository": {

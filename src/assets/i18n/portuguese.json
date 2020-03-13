@@ -1,8 +1,8 @@
 {
 	"app": {
 		"update": {
-			"available": "Uma nova versão está disponível. O download começará agora ...",
-			"downloaded": "Transferência concluída. Por favor, reinicie o aplicativo para concluir a atualização."
+			"available": "Uma nova atualização está disponível. Será baixado automaticamente, a menos que seja especificado de outra forma.",
+			"downloaded": "A nova atualização está pronta para instalação. Por favor, reinicie seu aplicativo."
 		}
 	},
 	"bookmark": {
@@ -129,6 +129,7 @@
 	},
 	"settings": {
 		"app": "Aplicativo",
+		"auto-download": "Baixar atualização automaticamente",
 		"auto-launch": "Executar na inicialização",
 		"cancel": "Cancelar",
 		"dialog": "Diálogo",

@@ -1,3 +1,9 @@
+## 0.6.1 (2020-03-13)
+
+- add allow user to change install path (#296, #300)
+- add toggle for auto download (#297)
+- update data to 3.10
+
 ## 0.6.0 (2020-03-12)
 
 - add auto update (#40)

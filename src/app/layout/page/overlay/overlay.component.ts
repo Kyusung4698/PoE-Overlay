@@ -49,7 +49,6 @@ export class OverlayComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit(): void {
-    this.registerEvents();
     this.checkVersion();
     this.initSettings();
   }
@@ -73,20 +72,6 @@ export class OverlayComponent implements OnInit, OnDestroy {
     });
   }
 
-  private registerEvents(): void {
-    this.app.updateStateChange().subscribe(event => {
-      switch (event) {
-        case AppUpdateState.Available:
-          this.snackBar.info('app.update.available');
-          break;
-        case AppUpdateState.Downloaded:
-          this.snackBar.success('app.update.downloaded');
-          break;
-      }
-    });
-    this.app.registerEvents();
-  }
-
   private initSettings(): void {
     this.userSettingsService.init(this.modules).subscribe(settings => {
       this.translate.use(`${settings.language}`);
@@ -94,6 +79,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
       this.window.setZoom(settings.zoom / 100);
       this.context.init(this.getContext(settings));
 
+      this.registerEvents(settings);
       this.register(settings);
       this.registerVisibleChange();
 
@@ -109,6 +95,22 @@ export class OverlayComponent implements OnInit, OnDestroy {
         });
       })
     });
+  }
+
+  private registerEvents(settings: UserSettings): void {
+    this.app.updateStateChange().subscribe(event => {
+      switch (event) {
+        case AppUpdateState.Available:
+          this.snackBar.info('app.update.available');
+          break;
+        case AppUpdateState.Downloaded:
+          this.snackBar.success('app.update.downloaded');
+          break;
+        default:
+          break;
+      }
+    });
+    this.app.registerEvents(settings.autoDownload);
   }
 
   private registerVisibleChange(): void {
@@ -138,6 +140,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
         this.displayVersion$.next(settings.displayVersion);
         this.context.update(this.getContext(settings));
 
+        this.app.updateAutoDownload(settings.autoDownload);
         this.register(settings);
         this.app.triggerVisibleChange();
       }, () => this.userSettingsOpen = null);

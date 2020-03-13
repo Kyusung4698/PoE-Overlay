@@ -4,7 +4,7 @@ import { AppService } from '@app/service';
 import { LeaguesProvider } from '@shared/module/poe/provider';
 import { Language, League } from '@shared/module/poe/type';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { UserSettings } from '../../type';
 
 @Component({
@@ -18,6 +18,7 @@ export class UserSettingsFormComponent implements OnInit {
 
   public leagues$ = new BehaviorSubject<League[]>([]);
   public autoLaunchEnabled$: Observable<boolean>;
+  public downloadAvailable$: Observable<boolean>;
 
   @Input()
   public settings: UserSettings;

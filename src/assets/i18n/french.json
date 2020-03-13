@@ -1,8 +1,8 @@
 {
 	"app": {
 		"update": {
-			"available": "Une nouvelle version est disponible. Le téléchargement va commencer maintenant ...",
-			"downloaded": "Téléchargement terminé. Veuillez relancer l'application pour terminer la mise à jour."
+			"available": "Une nouvelle mise à jour est disponible. Sera automatiquement téléchargé, sauf indication contraire.",
+			"downloaded": "La nouvelle mise à jour est maintenant prête à installer. Veuillez relancer votre candidature."
 		}
 	},
 	"bookmark": {
@@ -129,6 +129,7 @@
 	},
 	"settings": {
 		"app": "app",
+		"auto-download": "Télécharger la mise à jour automatiquement",
 		"auto-launch": "Exécuter au démarrage",
 		"cancel": "Annuler",
 		"dialog": "Dialogue",

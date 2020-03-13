@@ -1,8 +1,8 @@
 {
 	"app": {
 		"update": {
-			"available": "A new version is available. Download will start now ...",
-			"downloaded": "Download completed. Please relaunch the app in order to finish the update."
+			"available": "A new update is available. Will be automatically downloaded unless otherwise specified.",
+			"downloaded": "The new update is now ready to install. Please relaunch your application."
 		}
 	},
 	"bookmark": {
@@ -129,6 +129,7 @@
 	},
 	"settings": {
 		"app": "App",
+		"auto-download": "Download update automatically",
 		"auto-launch": "Run on Boot",
 		"cancel": "Cancel",
 		"dialog": "Dialog",
