@@ -22,7 +22,8 @@
         "target": [
             "nsis",
             "portable"
-        ]
+        ],
+        "publisherName": ["Nicklas Ronge"]
     },
     "linux": {
         "icon": "dist/favicon.png",

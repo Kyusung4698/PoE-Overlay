@@ -4,7 +4,6 @@ import { DialogRefService } from '@app/service/dialog';
 import { ShortcutService } from '@app/service/input';
 import { FEATURE_MODULES } from '@app/token';
 import { AppUpdateState, FeatureModule, VisibleFlag } from '@app/type';
-import { ReleasesHttpService } from '@data/github';
 import { TranslateService } from '@ngx-translate/core';
 import { SnackBarService } from '@shared/module/material/service';
 import { ContextService } from '@shared/module/poe/service';
@@ -29,7 +28,6 @@ export class OverlayComponent implements OnInit, OnDestroy {
   constructor(
     @Inject(FEATURE_MODULES)
     private readonly modules: FeatureModule[],
-    private readonly releasesHttpService: ReleasesHttpService,
     private readonly userSettingsService: UserSettingsService,
     private readonly context: ContextService,
     private readonly app: AppService,
@@ -49,27 +47,11 @@ export class OverlayComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit(): void {
-    this.checkVersion();
     this.initSettings();
   }
 
   public ngOnDestroy(): void {
     this.reset();
-  }
-
-  // deprecated. will be removed with 0.6.1 - if the auto update works.
-  private checkVersion(): void {
-    this.version = this.app.version();
-
-    this.releasesHttpService.getLatestRelease().subscribe(release => {
-      if (release && release.tag_name.replace('v', '') !== this.version && release.assets && release.assets[0].browser_download_url) {
-        if (confirm(
-          `A new version: '${release.tag_name}' is available. Go to download Page?\n` +
-          `*** Deprecated. will be removed with 0.6.1`)) {
-          this.browser.open(release.html_url);
-        }
-      }
-    });
   }
 
   private initSettings(): void {

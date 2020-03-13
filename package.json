@@ -81,6 +81,7 @@
     "electron-updater": "^4.2.5",
     "iohook": "^0.6.5",
     "localforage": "^1.7.3",
+    "log": "^6.0.0",
     "moment": "^2.24.0",
     "robotjs": "git+https://github.com/Kyusung4698/robotjs.git#a219829c83ff7f3a802c98a9c52a672ca798d80e",
     "rxjs": "~6.5.4",

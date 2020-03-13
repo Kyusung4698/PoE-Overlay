@@ -1,3 +1,8 @@
+## 0.6.2 (2020-03-xx)
+
+- remove version popup
+- fix auto update not working
+
 ## 0.6.1 (2020-03-13)
 
 - add allow user to change install path (#296, #300)
