@@ -37,6 +37,9 @@
         <mat-slide-toggle [checked]="autoLaunchEnabled$ | async" (change)="onAutoLaunchChange($event.checked)">
             {{'settings.auto-launch' | translate}}
         </mat-slide-toggle>
+        <mat-slide-toggle [checked]="settings.autoDownload" (change)="settings.autoDownload = $event.checked">
+            {{'settings.auto-download' | translate}}
+        </mat-slide-toggle>
     </div>
 
     <mat-form-field>

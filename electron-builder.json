@@ -20,15 +20,20 @@
     "win": {
         "icon": "dist/favicon.ico",
         "target": [
-            "nsis"
+            "nsis",
+            "portable"
         ]
     },
-    "linux": {        
+    "linux": {
         "icon": "dist/favicon.png",
         "target": [
             "deb",
             "AppImage"
         ],
         "category": "Utility"
+    },
+    "nsis": {
+        "allowToChangeInstallationDirectory": true,
+        "oneClick": false
     }
 }

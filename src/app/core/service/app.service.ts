@@ -3,7 +3,7 @@ import { ElectronProvider } from '@app/provider';
 import { AppUpdateState, VisibleFlag } from '@app/type/app.type';
 import { IpcRenderer, Remote } from 'electron';
 import { BehaviorSubject, combineLatest, Observable, Subject } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { DialogRefService } from './dialog/dialog-ref.service';
 
 @Injectable({
@@ -23,7 +23,7 @@ export class AppService {
         this.ipcRenderer = electronProvider.provideIpcRenderer();
     }
 
-    public registerEvents(): void {
+    public registerEvents(autoDownload: boolean): void {
         this.ipcRenderer.on('app-update-available', () => {
             this.ngZone.run(() => this.updateState$.next(AppUpdateState.Available));
         });
@@ -33,6 +33,11 @@ export class AppService {
         this.ipcRenderer.on('app-relaunch', () => {
             this.ngZone.run(() => this.relaunch());
         });
+        this.ipcRenderer.sendSync('app-download-init', autoDownload);
+    }
+
+    public updateAutoDownload(autoDownload: boolean): void {
+        this.ipcRenderer.sendSync('app-download-auto', autoDownload);
     }
 
     public updateStateChange(): Observable<AppUpdateState> {

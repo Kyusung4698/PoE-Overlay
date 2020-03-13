@@ -1,5 +1,5 @@
 import AutoLaunch from 'auto-launch';
-import { app, BrowserWindow, Display, ipcMain, Menu, MenuItemConstructorOptions, screen, Tray } from 'electron';
+import { app, BrowserWindow, Display, ipcMain, Menu, MenuItem, MenuItemConstructorOptions, screen, Tray } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import * as path from 'path';
 import * as robot from 'robotjs';
@@ -24,6 +24,7 @@ const launch = new AutoLaunch({
 
 let win: BrowserWindow = null;
 let tray: Tray = null;
+let menu: Menu = null;
 
 const childs: {
     [key: string]: BrowserWindow
@@ -103,10 +104,45 @@ function getDisplay(): Display {
 
 autoUpdater.on('update-available', () => {
     win.webContents.send('app-update-available');
+    tray?.displayBalloon({
+        iconType: 'info',
+        title: 'New update available',
+        content: 'A new update is available. Will be automatically downloaded unless otherwise specified.',
+    });
+    const item = new MenuItem({
+        label: 'Download Update',
+        type: 'normal',
+        click: () => {
+            autoUpdater.downloadUpdate();
+            item.enabled = false;
+        }
+    });
+    menu?.insert(2, item);
 });
 
 autoUpdater.on('update-downloaded', () => {
     win.webContents.send('app-update-downloaded');
+    tray?.displayBalloon({
+        iconType: 'info',
+        title: 'Update ready to install',
+        content: 'The new update is now ready to install. Please relaunch your application.',
+    });
+});
+
+ipcMain.on('app-download-init', (event, autoDownload) => {
+    autoUpdater.autoDownload = autoDownload;
+    autoUpdater.checkForUpdatesAndNotify();
+    event.returnValue = true;
+});
+
+ipcMain.on('app-download-auto', (event, autoDownload) => {
+    autoUpdater.autoDownload = autoDownload;
+    event.returnValue = true;
+});
+
+ipcMain.on('app-download-update', event => {
+    autoUpdater.downloadUpdate();
+    event.returnValue = true;
 });
 
 ipcMain.on('app-quit-and-install', event => {
@@ -162,12 +198,6 @@ function createWindow(): BrowserWindow {
 
     win.on('closed', () => {
         win = null;
-    });
-    win.once('ready-to-show', () => {
-        // timeout of 10 to give angular a chance of listing to events first.
-        setTimeout(() => {
-            autoUpdater.checkForUpdatesAndNotify();
-        }, 1000 * 10);
     });
     return win;
 }
@@ -275,10 +305,10 @@ function createTray(): Tray {
         });
     };
 
-    const menu = Menu.buildFromTemplate(items);
+    menu = Menu.buildFromTemplate(items);
     tray.setToolTip(`PoE-Overlay: ${app.getVersion()}`);
     tray.setContextMenu(menu);
-    tray.on('double-click', () => win.webContents.send('show-user-settings'))
+    tray.on('double-click', () => win.webContents.send('show-user-settings'));
     return tray;
 }
 

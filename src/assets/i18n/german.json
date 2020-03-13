@@ -1,8 +1,8 @@
 {
 	"app": {
 		"update": {
-			"available": "Eine neue Version ist verfügbar. Der Download beginnt jetzt ...",
-			"downloaded": "Download abgeschlossen. Bitte starten Sie die App neu, um das Update abzuschließen."
+			"available": "Ein neues Update ist verfügbar. Wird automatisch heruntergeladen, sofern nicht anders angegeben.",
+			"downloaded": "Das neue Update kann jetzt installiert werden. Bitte starten Sie Ihre Anwendung neu."
 		}
 	},
 	"bookmark": {
@@ -129,6 +129,7 @@
 	},
 	"settings": {
 		"app": "App",
+		"auto-download": "Update automatisch herunterladen",
 		"auto-launch": "Beim Booten ausführen",
 		"cancel": "Abbrechen",
 		"dialog": "Dialog",
