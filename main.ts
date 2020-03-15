@@ -248,7 +248,6 @@ ipcMain.on('open-route', (event, route) => {
         if (!childs[route]) {
             const bounds = win.getBounds();
             childs[route] = new BrowserWindow({
-                // fullscreen: true,
                 width: bounds.width,
                 height: bounds.height,
                 x: bounds.x,
