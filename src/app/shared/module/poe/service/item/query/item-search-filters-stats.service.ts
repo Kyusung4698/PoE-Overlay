@@ -23,7 +23,7 @@ export class ItemSearchFiltersStatsService implements ItemSearchFiltersService {
 
                 if (stat.option) {
                     filter.value = {
-                        option: stat.predicate
+                        option: isNaN(+stat.predicate) ? stat.predicate : +stat.predicate
                     };
                 } else {
                     const mins = stat.values.filter(x => x.min !== undefined);

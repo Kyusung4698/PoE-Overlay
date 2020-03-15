@@ -1,0 +1,24 @@
+Rarity: Rare
+Gale Creed
+Large Cluster Jewel
+--------
+Item Level: 69
+--------
+Adds 12 Passive Skills (enchant)
+Added Small Passive Skills grant: 12% increased Attack Damage while holding a Shield (enchant)
+--------
+1 Added Passive Skill is Advance Guard
+1 Added Passive Skill is Strike Leader
+1 Added Passive Skill is a Jewel Socket
+--------
+Place into an allocated Large Jewel Socket on the Passive Skill Tree. Added passives do not interact with jewel radiuses. Right click to remove from the Socket.
+--------
+Note: ~price 1 alch
+
+Rarity: Unique
+First Piece of the Arcane
+Legion Sword Piece
+--------
+Item Level: 74
+--------
+This item will transform when correctly arranged with other items.

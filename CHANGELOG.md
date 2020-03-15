@@ -1,3 +1,10 @@
+## 0.6.4 (2020-03-15)
+
+- add support for canonical stats variation (#313)
+- add support for `Added Small Passive Skills grant` stat (#313)
+- fix enchant stats not working (#320)
+- fix unique framgents category mismatched as unique map fragmente (#309)
+
 ## 0.6.3 (2020-03-15)
 
 - add 3.10 stats (#311)

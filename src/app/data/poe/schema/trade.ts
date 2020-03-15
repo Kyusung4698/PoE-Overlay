@@ -110,7 +110,7 @@ export interface TradeStatsResultResultEntry {
 }
 
 export interface FilterValueOption {
-    option?: string;
+    option?: string | number;
     min?: number;
     max?: number;
 }

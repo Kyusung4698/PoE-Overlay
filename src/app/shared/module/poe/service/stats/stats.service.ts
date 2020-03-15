@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { StatsLocalProvider } from '../../provider/stats-local.provider';
 import { StatsProvider } from '../../provider/stats.provider';
-import { ItemStat, ItemValue, Language, Stat, StatType } from '../../type';
+import { ItemStat, Language, Stat, StatType } from '../../type';
 import { ContextService } from '../context.service';
 
 export interface StatsSearchResult {
@@ -37,7 +37,7 @@ interface StatsSectionsSearch {
 
 const REVERSE_REGEX = /\\[.*+?^${}()|[\]\\]/g;
 const VALUE_PLACEHOLDER = '(\\S+)';
-const TYPE_PLACEHOLDER_REGEX = / \(implicit\)| \(fractured\)| \(crafted\)/;
+const TYPE_PLACEHOLDER_REGEX = / \(implicit\)| \(fractured\)| \(crafted\) |\(enchant\)/;
 
 @Injectable({
     providedIn: 'root'
@@ -86,22 +86,14 @@ export class StatsService {
         language = language || this.context.get().language;
         options = options || {};
 
-        const { implicitsSearch, enchantsSearch, explicitsSearch } = this.buildSearch(texts);
+        const { implicitsSearch, explicitsSearch } = this.buildSearch(texts);
 
         const results: StatsSearchResult[] = [];
         if (implicitsSearch.sections.length > 0) {
             this.executeSearch(implicitsSearch, options, language, results);
         }
 
-        if (enchantsSearch.sections.length > 0) {
-            const enchants: StatsSearchResult[] = [];
-            this.executeSearch(enchantsSearch, options, language, enchants);
-
-            const explicits: StatsSearchResult[] = [];
-            this.executeSearch(explicitsSearch, options, language, explicits);
-
-            this.mergeEnchantsAndExplicits(texts, enchants, explicits, results);
-        } else {
+        if (explicitsSearch.sections.length > 0) {
             this.executeSearch(explicitsSearch, options, language, results);
         }
 
@@ -200,7 +192,6 @@ export class StatsService {
 
     private buildSearch(texts: string[]): {
         implicitsSearch: StatsSectionsSearch,
-        enchantsSearch: StatsSectionsSearch,
         explicitsSearch: StatsSectionsSearch
     } {
         const implicitPhrase = ` (${StatType.Implicit})`;
@@ -208,10 +199,7 @@ export class StatsService {
             types: [StatType.Implicit],
             sections: []
         };
-        const enchantsSearch: StatsSectionsSearch = {
-            types: [StatType.Enchant],
-            sections: [],
-        };
+        const enchantPhrase = ` (${StatType.Enchant})`;
         const craftedPhrase = ` (${StatType.Crafted})`;
         const fracturedPhrase = ` (${StatType.Fractured})`;
         const explicitsSearch: StatsSectionsSearch = {
@@ -227,44 +215,29 @@ export class StatsService {
                 // implicits have there own section
                 implicitsSearch.sections.push(section);
             } else {
+                const hasEnchants = text.indexOf(enchantPhrase) !== -1;
+                if (hasEnchants) {
+                    if (explicitsSearch.types.indexOf(StatType.Enchant) === -1) {
+                        explicitsSearch.types.push(StatType.Enchant);
+                    }
+                }
+
                 const hasCrafteds = text.indexOf(craftedPhrase) !== -1;
                 if (hasCrafteds) {
                     if (explicitsSearch.types.indexOf(StatType.Crafted) === -1) {
                         explicitsSearch.types.push(StatType.Crafted);
                     }
                 }
+
                 const hasFractureds = text.indexOf(fracturedPhrase) !== -1;
                 if (hasFractureds) {
                     if (explicitsSearch.types.indexOf(StatType.Fractured) === -1) {
                         explicitsSearch.types.push(StatType.Fractured);
                     }
                 }
-                if (hasCrafteds || hasFractureds) {
-                    explicitsSearch.sections.push(section);
-                } else {
-                    // text did not have any marks so they can be enchants
-                    enchantsSearch.sections.push({ ...section });
-                    // or explicits
-                    explicitsSearch.sections.push(section);
-                }
+                explicitsSearch.sections.push(section);
             }
         });
-        return { implicitsSearch, enchantsSearch, explicitsSearch };
-    }
-
-    private mergeEnchantsAndExplicits(
-        texts: string[],
-        enchants: StatsSearchResult[],
-        explicits: StatsSearchResult[],
-        results: StatsSearchResult[]): void {
-        texts.forEach((_, index) => {
-            const enchantsInSection = enchants.filter(x => x.match.index === index);
-            const explicitsInSection = explicits.filter(x => x.match.index === index);
-            if (enchantsInSection.length >= explicitsInSection.length) {
-                enchantsInSection.forEach(x => results.push(x));
-            } else {
-                explicitsInSection.forEach(x => results.push(x));
-            }
-        });
+        return { implicitsSearch, explicitsSearch };
     }
 }
