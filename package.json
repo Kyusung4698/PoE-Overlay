@@ -1,6 +1,6 @@
 {
   "name": "poe-overlay",
-  "version": "0.6.3",
+  "version": "0.6.4",
   "private": true,
   "description": "A Overlay for Path of Exile. Built with Electron and Angular.",
   "main": "main.js",
