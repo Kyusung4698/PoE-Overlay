@@ -29,7 +29,7 @@ export class UserSettingsService {
                     exitAppKeybinding: 'F8',
                     language: Language.English,
                     zoom: 100,
-                    dialogSpawnPosition: DialogSpawnPosition.Cursor,
+                    dialogSpawnPosition: DialogSpawnPosition.Center,
                     displayVersion: true,
                     autoDownload: true
                 };

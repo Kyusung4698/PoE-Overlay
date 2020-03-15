@@ -1,3 +1,11 @@
+## 0.6.3 (2020-03-15)
+
+- add 3.10 stats (#311)
+- add support for windowed mode by moving the overlay on top of poe (#233)
+- update default dialog spawns to center (#315)
+- fix breaking on tab by settings window on top after tabbing back (#295)
+- fix dialog spawns not centered if zoomed (#315)
+
 ## 0.6.2 (2020-03-13)
 
 - add periodic version check 

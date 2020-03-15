@@ -93,7 +93,7 @@ export class AppService {
     }
 
     public version(): string {
-        return this.electron.app.getVersion();
+        return this.ipcRenderer.sendSync('app-version');
     }
 
     public quit(): void {

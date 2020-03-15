@@ -71,10 +71,17 @@ export class WindowService {
         local.x = Math.min(Math.max(local.x, 0), bounds.width);
         local.y -= bounds.y;
         local.y = Math.min(Math.max(local.y, 0), bounds.height);
+        return local;
+    }
+
+    public convertToLocalScaled(local: Point): Point{
+        const point = {
+            ...local
+        };
 
         const { zoomFactor } = this.window.webContents;
-        local.x *= 1 / zoomFactor;
-        local.y *= 1 / zoomFactor;
-        return local;
+        point.x *= 1 / zoomFactor;
+        point.y *= 1 / zoomFactor;
+        return point;
     }
 }

@@ -32,9 +32,10 @@ export class DialogService {
         const local = point
             ? this.window.convertToLocal(point)
             : { x: bounds.width * 0.5, y: bounds.height * 0.5 };
+        const scaled = this.window.convertToLocalScaled(local);
 
-        const left = Math.max(Math.min(local.x - width * 0.5, bounds.width - width), 0);
-        const top = Math.max(Math.min(local.y - height * 0.5, bounds.height - height), 0);
+        const left = Math.max(Math.min(scaled.x - width * 0.5, bounds.width - width), 0);
+        const top = Math.max(Math.min(scaled.y - height * 0.5, bounds.height - height), 0);
 
         this.window.enableInput();
         const dialogRef = this.dialog.open(componentOrTemplateRef, {
