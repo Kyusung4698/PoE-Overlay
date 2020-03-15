@@ -22,7 +22,7 @@ import { UserSettings } from '../../type';
 export class OverlayComponent implements OnInit, OnDestroy {
   private userSettingsOpen: Observable<void>;
 
-  public version: string;
+  public version$ = new BehaviorSubject<string>('');
   public displayVersion$ = new BehaviorSubject(true);
 
   constructor(
@@ -33,7 +33,6 @@ export class OverlayComponent implements OnInit, OnDestroy {
     private readonly app: AppService,
     private readonly snackBar: SnackBarService,
     private readonly window: WindowService,
-    private readonly browser: BrowserService,
     private readonly renderer: RendererService,
     private readonly shortcut: ShortcutService,
     private readonly dialogRef: DialogRefService,
@@ -47,6 +46,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit(): void {
+    this.version$.next(this.app.version());
     this.initSettings();
   }
 

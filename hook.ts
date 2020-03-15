@@ -15,8 +15,16 @@ interface WheelEvent {
     ctrlKey: boolean;
 }
 
+interface Bounds {
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+}
+
 let active = false;
-let activeChangeFn: (active: boolean) => void;
+let bounds: Bounds = null;
+let activeChangeFn: (active: boolean, bounds: Bounds) => void;
 let wheelChangeFn: (event: WheelEvent) => void;
 
 const activeCheck$ = new Subject<void>();
@@ -54,11 +62,15 @@ function checkActive(): void {
         active = test.endsWith('pathofexile_x64_kg.exe') || test.endsWith('pathofexile_kg.exe')
             || test.endsWith('pathofexile_x64steam.exe') || test.endsWith('pathofexilesteam.exe')
             || test.endsWith('pathofexile_x64.exe') || test.endsWith('pathofexile.exe');
+
+        if (active) {
+            bounds = win.bounds;
+        }
     }
 
     if (old !== active) {
         if (activeChangeFn) {
-            activeChangeFn(active);
+            activeChangeFn(active, bounds);
         }
     }
 }
@@ -67,14 +79,14 @@ export function getActive(): boolean {
     return active;
 }
 
-export function on(event: 'change', callback: (active: boolean) => void): void;
+export function on(event: 'change', callback: (active: boolean, bounds: Bounds) => void): void;
 export function on(event: 'wheel', callback: (event: WheelEvent) => void): void;
 
 export function on(event: string, callback: any) {
     switch (event) {
         case 'change':
             activeChangeFn = callback;
-            activeChangeFn(active);
+            activeChangeFn(active, bounds);
             break;
         case 'wheel':
             wheelChangeFn = callback;

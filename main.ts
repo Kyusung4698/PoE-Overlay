@@ -32,6 +32,7 @@ let win: BrowserWindow = null;
 let tray: Tray = null;
 let menu: Menu = null;
 let downloadItem: MenuItem = null;
+let checkForUpdatesHandle;
 
 const childs: {
     [key: string]: BrowserWindow
@@ -69,8 +70,24 @@ ipcMain.on('set-keyboard-delay', (event, delay) => {
 /* hook */
 
 ipcMain.on('register-active-change', event => {
-    hook.on('change', active => {
+    hook.on('change', (active, bounds) => {
         event.sender.send('active-change', serve ? true : active);
+
+        if (active) {
+            win.setAlwaysOnTop(false);
+            win.setVisibleOnAllWorkspaces(false);
+
+            win.setAlwaysOnTop(true, 'pop-up-menu', 1);
+            win.setVisibleOnAllWorkspaces(true);
+
+            if (bounds) {
+                win.setBounds({
+                    ...bounds
+                });
+                log.info('set bounds to: ', win.getBounds());
+            }
+        }
+
     });
     event.returnValue = true;
 });
@@ -127,6 +144,10 @@ autoUpdater.on('update-available', () => {
         });
         menu?.insert(2, downloadItem);
     }
+    if (checkForUpdatesHandle) {
+        clearInterval(checkForUpdatesHandle);
+        checkForUpdatesHandle = null;
+    }
 });
 
 autoUpdater.on('update-downloaded', () => {
@@ -141,7 +162,7 @@ autoUpdater.on('update-downloaded', () => {
 ipcMain.on('app-download-init', (event, autoDownload) => {
     autoUpdater.autoDownload = autoDownload;
     autoUpdater.checkForUpdates();
-    setInterval(() => {
+    checkForUpdatesHandle = setInterval(() => {
         autoUpdater.checkForUpdates();
     }, 1000 * 60 * 5);
     event.returnValue = true;
@@ -160,6 +181,12 @@ ipcMain.on('app-download-update', event => {
 ipcMain.on('app-quit-and-install', event => {
     autoUpdater.quitAndInstall();
     event.returnValue = true;
+});
+
+ipcMain.on('app-version', event => {
+    const version = app.getVersion();
+    log.info('version: ', version)
+    event.returnValue = version;
 });
 
 /* auto-launch */
@@ -183,7 +210,7 @@ function createWindow(): BrowserWindow {
 
     // Create the browser window.
     win = new BrowserWindow({
-        fullscreen: true,
+        // fullscreen: true,
         width: bounds.width,
         height: bounds.height,
         x: bounds.x,
@@ -219,10 +246,9 @@ function createWindow(): BrowserWindow {
 ipcMain.on('open-route', (event, route) => {
     try {
         if (!childs[route]) {
-            const { bounds } = getDisplay();
-            // Create the child browser window.
+            const bounds = win.getBounds();
             childs[route] = new BrowserWindow({
-                fullscreen: true,
+                // fullscreen: true,
                 width: bounds.width,
                 height: bounds.height,
                 x: bounds.x,
