@@ -23,7 +23,10 @@
             "nsis",
             "portable"
         ],
-        "publisherName": ["Nicklas Ronge"]
+        "requestedExecutionLevel": "highestAvailable",
+        "publisherName": [
+            "Nicklas Ronge"
+        ]
     },
     "linux": {
         "icon": "dist/favicon.png",
@@ -35,6 +38,11 @@
     },
     "nsis": {
         "allowToChangeInstallationDirectory": true,
-        "oneClick": false
+        "perMachine": true,
+        "oneClick": false,
+        "shortcutName": "PoE Overlay"
+    },
+    "portable": {
+        "requestExecutionLevel": "highest"
     }
 }

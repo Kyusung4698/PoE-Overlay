@@ -1,5 +1,4 @@
 import activeWin from 'active-win';
-import iohook from 'iohook';
 import { Subject, Subscription } from 'rxjs';
 import { throttleTime } from 'rxjs/operators';
 
@@ -106,32 +105,43 @@ export function off(event: 'change' | 'wheel') {
 }
 
 export function register(): void {
-    iohook.start();
+    import('iohook').then(x => {
+        const iohook = x.default;
+        iohook.start();
 
-    activeCheckSubscription = activeCheck$.pipe(
-        throttleTime(500, undefined, {
-            trailing: true,
-            leading: false
-        })
-    ).subscribe(() => {
-        checkActive();
+        activeCheckSubscription = activeCheck$.pipe(
+            throttleTime(500, undefined, {
+                trailing: true,
+                leading: false
+            })
+        ).subscribe(() => {
+            checkActive();
+        });
+
+        iohook.on('keydown', onKeydown);
+        iohook.on('keyup', onKeyup);
+        iohook.on('mousewheel', onMousewheel);
+        iohook.on('mouseup', onMouseclick);
+    }).catch(() => {
+        alert('Failed to import iohook. Please make sure you have vc_redist installed.');
     });
-
-    iohook.on('keydown', onKeydown);
-    iohook.on('keyup', onKeyup);
-    iohook.on('mousewheel', onMousewheel);
-    iohook.on('mouseup', onMouseclick);
 }
 
 export function unregister(): void {
-    iohook.off('keydown', onKeydown);
-    iohook.off('keyup', onKeyup);
-    iohook.off('mousewheel', onMousewheel);
-    iohook.off('mouseup', onMouseclick);
+    import('iohook').then(x => {
+        const iohook = x.default;
 
-    if (activeCheckSubscription) {
-        activeCheckSubscription.unsubscribe();
-    }
+        iohook.off('keydown', onKeydown);
+        iohook.off('keyup', onKeyup);
+        iohook.off('mousewheel', onMousewheel);
+        iohook.off('mouseup', onMouseclick);
 
-    iohook.stop();
+        if (activeCheckSubscription) {
+            activeCheckSubscription.unsubscribe();
+        }
+
+        iohook.stop();
+    }).catch(() => {
+        alert('Failed to import iohook. Please make sure you have vc_redist installed.');
+    });
 }

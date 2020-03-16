@@ -28,8 +28,8 @@ body {
     background-color: $orange;
   }
 
-  &.success {    
-    background-color: $purple
+  &.success {
+    background-color: $purple;
   }
 }
 
@@ -55,12 +55,16 @@ body {
   }
 }
 
-.backdrop-clear + .cdk-global-overlay-wrapper {
-  .mat-dialog-container {
-    box-shadow: none;
-    background: none;
-    border-radius: 0;
-    padding: 0;
+.cdk-overlay-dark-backdrop {
+  background: rgba(0, 0, 0, 0.01);
+  
+  & + .cdk-global-overlay-wrapper {
+    .mat-dialog-container {
+      box-shadow: none;
+      background: none;
+      border-radius: 0;
+      padding: 0;
+    }
   }
 }
 
