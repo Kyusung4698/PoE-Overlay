@@ -1,4 +1,4 @@
-# PoE Overlay 0.6.4
+# PoE Overlay 0.6.5
 
 An Overlay for Path of Exile. The ***core aspect*** is to blend in with the game. Built with Electron and Angular. 
  
@@ -57,7 +57,7 @@ This project is currently in a ***pilot phase***. If you encounter any bugs or h
 
 | Module        | Status        | Notes   |
 | ------------- |-------------: | ------- |
-| Core | 100% | + overlay<br>+ global shortcuts<br>+ user settings (language, league)<br>+ custom shortcuts<br>+ ~~auto updating~~ version check
+| Core | 100% | + overlay<br>+ global shortcuts<br>+ user settings (language, league)<br>+ custom shortcuts<br>+ auto updating
 | Shared | 100% | + item frame<br>+ currency frame<br>+ item parser in all languages<br>+ item parser mods
 | Evaluate         | 100%           | + Basic search implemented <br>+ User settings (display currency, translated language) <br>+ Chart to display values instead of avg <br>+ Advanced search with filter on modifiers |
 | Command        | 100%            | + bind in-game commmands to shortcuts (/dnd, /hideout) |
@@ -72,20 +72,26 @@ This project is currently in a ***pilot phase***. If you encounter any bugs or h
 
 These instructions will set you up to run and enjoy the overlay.
 
+#### Supports
+
+* Windows 10 x64
+* Windows 7 (partial; no scroll support)
+* Linux coming soon
+
 #### Prerequisites
 
 * Path of Exile ***must be*** in windowed fullscreen mode
-* PoE Overlay should run with privileged rights
-* You may need to install [vc_redist](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) 
+* PoE Overlay ***should run*** with privileged rights
+* You ***may need*** to install [vc_redist](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) 
 
 #### Installing
 
 1. Head over to [Releases](https://github.com/Kyusung4698/PoE-Overlay/releases) and download one of the following files
-    1. `poe-overlay-Setup-0.6.4.exe` to install locally. This supports auto update/ auto launch.
-    2. `poe-overlay-0.6.4.exe` portable version. This does not support auto update/ auto launch.
+    1. `poe-overlay-Setup-0.6.5.exe` to install locally. This supports auto update/ auto launch.
+    2. `poe-overlay-0.6.5.exe` portable version. This does not support auto update/ auto launch.
 2. Run either of your downloaded file
 3. Start Path of Exile
-4. Wait until you can see `PoE Overlay 0.6.4` in the bottom left corner
+4. Wait until you can see `PoE Overlay 0.6.5` in the bottom left corner
 5. Hit `f7` and set `Language` and `League` to meet your game settings
 
 #### Shortcuts
@@ -107,6 +113,11 @@ You can change these shortcuts in the user settings menu.
 | `f6`           | Toggle DND
 | `f7`           | Opens the user settings menu
 | `f8`           | Exits overlay
+| `numpad1`      | Open `https://www.poelab.com/`
+| `numpad2`      | Open `https://wraeclast.com/`
+| `esc`          | Close latest dialog
+| `space`        | Close all dialogs
+
 
 ## Developer
 

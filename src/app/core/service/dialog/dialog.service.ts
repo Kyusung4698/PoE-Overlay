@@ -43,7 +43,6 @@ export class DialogService {
                 left: `${left}px`,
                 top: `${top}px`,
             },
-            backdropClass: 'backdrop-clear',
             data
         });
 

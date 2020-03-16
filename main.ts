@@ -1,23 +1,39 @@
 import AutoLaunch from 'auto-launch';
-import { app, BrowserWindow, Display, ipcMain, Menu, MenuItem, MenuItemConstructorOptions, screen, Tray } from 'electron';
+import { app, BrowserWindow, Display, ipcMain, Menu, MenuItem, MenuItemConstructorOptions, screen, systemPreferences, Tray } from 'electron';
 import * as log from 'electron-log';
 import { autoUpdater } from 'electron-updater';
+import * as fs from 'fs';
 import * as path from 'path';
 import * as robot from 'robotjs';
 import * as url from 'url';
 import * as hook from './hook';
 
 if (!app.requestSingleInstanceLock()) {
-    app.quit();
+    app.exit();
 }
 
-app.allowRendererProcessReuse = true;
+if (process.platform === 'win32' && !systemPreferences.isAeroGlassEnabled()) {
+    alert('Aero needs to be enabled.')
+    app.exit();
+}
+
+app.allowRendererProcessReuse = false;
 
 app.commandLine.appendSwitch('high-dpi-support', 'true');
 app.commandLine.appendSwitch('force-device-scale-factor', '1');
 
 log.transports.file.level = 'info';
 log.info('App starting...');
+
+let animationPath = path.join(app.getPath('userData'), 'animation.flag');
+
+log.info(`App checking for animation flag: ${animationPath}.`);
+
+let animationExists = fs.existsSync(animationPath);
+if (animationExists) {
+    app.disableHardwareAcceleration();
+    log.info('App disabled hardware acceleration');
+}
 
 autoUpdater.logger = log;
 
@@ -185,7 +201,7 @@ ipcMain.on('app-quit-and-install', event => {
 
 ipcMain.on('app-version', event => {
     const version = app.getVersion();
-    log.info('version: ', version)
+    log.info('App Version: ', version)
     event.returnValue = version;
 });
 
@@ -210,7 +226,6 @@ function createWindow(): BrowserWindow {
 
     // Create the browser window.
     win = new BrowserWindow({
-        // fullscreen: true,
         width: bounds.width,
         height: bounds.height,
         x: bounds.x,
@@ -330,6 +345,17 @@ function createTray(): Tray {
             click: () => win.webContents.send('app-relaunch')
         },
         {
+            label: 'Hardware Acceleration', type: 'checkbox',
+            checked: !animationExists, click: () => {
+                if (animationExists) {
+                    fs.unlinkSync(animationPath);
+                } else {
+                    fs.writeFileSync(animationPath, 'true');
+                }
+                win.webContents.send('app-relaunch');
+            }
+        },
+        {
             label: 'Exit', type: 'normal',
             click: () => app.quit()
         }
@@ -343,7 +369,7 @@ function createTray(): Tray {
     };
 
     menu = Menu.buildFromTemplate(items);
-    tray.setToolTip(`PoE-Overlay: ${app.getVersion()}`);
+    tray.setToolTip(`PoE Overlay: ${app.getVersion()}`);
     tray.setContextMenu(menu);
     tray.on('double-click', () => win.webContents.send('show-user-settings'));
     return tray;

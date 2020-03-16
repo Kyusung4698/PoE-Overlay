@@ -1,3 +1,13 @@
+## 0.6.5 (2020-03-16)
+
+- add requestExecutionLevel highest (#333)
+- add hardware acceleration toggle as tray option (#329, #327)
+- add aero is enabled check
+- add iohook vc redist error handling (#325)
+- update readme (esc/ space) (#330)
+- fix multiline `Added Small Passive Skills grant` stat (#324)
+- fix singular/ plural stats (#320)
+
 ## 0.6.4 (2020-03-15)
 
 - add support for canonical stats variation (#313)
