@@ -107,7 +107,7 @@ You can change these shortcuts in the user settings menu.
 | `alt+g`        | Opens item in poedb
 | `ctrl+alt+g`   | As above - but in external browser
 | `alt+q`        | Shows map info (layout, bosses)
-| `ctrl+f`       | Highlights item in stash
+| `alt+f`        | Highlights item in stash
 | `ctrl+wheel`   | Navigates through stash tabs
 | `f5`           | Go to Hideout
 | `f6`           | Toggle DND
