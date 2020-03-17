@@ -1,3 +1,7 @@
+## 0.6.6 (2020-03-17)
+
+- fix regex not working with unicode (#338, #340)
+
 ## 0.6.5 (2020-03-16)
 
 - add requestExecutionLevel highest (#333)

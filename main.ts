@@ -37,8 +37,8 @@ if (animationExists) {
 
 autoUpdater.logger = log;
 
-const args = process.argv.slice(1),
-    serve = args.some(val => val === '--serve');
+const args = process.argv.slice(1);
+const serve = args.some(val => val === '--serve');
 
 const launch = new AutoLaunch({
     name: 'PoE Overlay'
@@ -48,7 +48,7 @@ let win: BrowserWindow = null;
 let tray: Tray = null;
 let menu: Menu = null;
 let downloadItem: MenuItem = null;
-let checkForUpdatesHandle;
+let checkForUpdatesHandle = null;
 
 const childs: {
     [key: string]: BrowserWindow
@@ -149,7 +149,7 @@ autoUpdater.on('update-available', () => {
         title: 'New update available',
         content: 'A new update is available. Will be automatically downloaded unless otherwise specified.',
     });
-    if (!downloadItem) {
+    if (!autoUpdater.autoDownload && !downloadItem) {        
         downloadItem = new MenuItem({
             label: 'Download Update',
             type: 'normal',
@@ -177,10 +177,12 @@ autoUpdater.on('update-downloaded', () => {
 
 ipcMain.on('app-download-init', (event, autoDownload) => {
     autoUpdater.autoDownload = autoDownload;
-    autoUpdater.checkForUpdates();
-    checkForUpdatesHandle = setInterval(() => {
+    if (!serve) {
         autoUpdater.checkForUpdates();
-    }, 1000 * 60 * 5);
+        checkForUpdatesHandle = setInterval(() => {
+            autoUpdater.checkForUpdates();
+        }, 1000 * 60 * 5);
+    }
     event.returnValue = true;
 });
 
@@ -305,12 +307,12 @@ ipcMain.on('open-route', (event, route) => {
     }
 });
 
-function loadApp(win: BrowserWindow, route: string = '') {
+function loadApp(self: BrowserWindow, route: string = '') {
     if (serve) {
         require('electron-reload')(__dirname, {
             electron: require(`${__dirname}/node_modules/electron`)
         });
-        win.loadURL('http://localhost:4200' + route);
+        self.loadURL('http://localhost:4200' + route);
     }
     else {
         const appUrl = url.format({
@@ -318,11 +320,11 @@ function loadApp(win: BrowserWindow, route: string = '') {
             protocol: 'file:',
             slashes: true
         });
-        win.loadURL(appUrl + route);
+        self.loadURL(appUrl + route);
     }
 
     if (serve) {
-        win.webContents.openDevTools({ mode: 'undocked' });
+        self.webContents.openDevTools({ mode: 'undocked' });
     }
 }
 
