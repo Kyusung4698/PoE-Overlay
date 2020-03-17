@@ -6,9 +6,8 @@ import { Item, ItemSearchFiltersService, Language } from '@shared/module/poe/typ
     providedIn: 'root'
 })
 export class ItemSearchFiltersArmourService implements ItemSearchFiltersService {
-    public add(item: Item, language: Language, query: Query): void {
-        const prop = item.properties;
-        if (!prop) {
+    public add(item: Item, _: Language, query: Query): void {
+        if (!item.properties) {
             return;
         }
 
@@ -16,24 +15,32 @@ export class ItemSearchFiltersArmourService implements ItemSearchFiltersService 
             filters: {}
         };
 
-        if (prop.armourArmour) {
+        const { armourArmour } = item.properties;
+        if (armourArmour) {
+            const { value } = armourArmour;
             query.filters.armour_filters.filters.ar = {
-                min: +prop.armourArmour.value
+                min: value.min, max: value.max
             };
         }
-        if (prop.armourEvasionRating) {
+        const { armourEvasionRating } = item.properties;
+        if (armourEvasionRating) {
+            const { value } = armourEvasionRating;
             query.filters.armour_filters.filters.ev = {
-                min: +prop.armourEvasionRating.value
+                min: value.min, max: value.max
             };
         }
-        if (prop.armourEnergyShield) {
+        const { armourEnergyShield } = item.properties;
+        if (armourEnergyShield) {
+            const { value } = armourEnergyShield;
             query.filters.armour_filters.filters.es = {
-                min: +prop.armourEnergyShield.value
+                min: value.min, max: value.max
             };
         }
-        if (prop.shieldBlockChance) {
+        const { shieldBlockChance } = item.properties;
+        if (shieldBlockChance) {
+            const { value } = shieldBlockChance;
             query.filters.armour_filters.filters.block = {
-                min: +prop.shieldBlockChance.value
+                min: value.min, max: value.max
             };
         }
     }

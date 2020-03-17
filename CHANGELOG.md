@@ -1,5 +1,7 @@
 ## 0.6.6 (2020-03-17)
 
+- add dps mod range (#294)
+- add weapon, shield and armour props as mod range (#335)
 - fix regex not working with unicode (#338, #340)
 
 ## 0.6.5 (2020-03-16)

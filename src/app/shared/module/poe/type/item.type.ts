@@ -93,9 +93,9 @@ export enum ItemCategory {
 }
 
 export interface ItemWeaponDamage {
-    dps?: number;
-    edps?: number;
-    pdps?: number;
+    dps?: ItemValue;
+    edps?: ItemValue;
+    pdps?: ItemValue;
 }
 
 export enum ItemSocketColor {
@@ -115,13 +115,13 @@ export interface ItemProperties {
     weaponPhysicalDamage?: ItemProperty;
     weaponElementalDamage?: ItemProperty[];
     weaponChaosDamage?: ItemProperty;
-    weaponCriticalStrikeChance?: ItemProperty;
-    weaponAttacksPerSecond?: ItemProperty;
+    weaponCriticalStrikeChance?: ItemValueProperty;
+    weaponAttacksPerSecond?: ItemValueProperty;
     weaponRange?: ItemProperty;
-    shieldBlockChance?: ItemProperty;
-    armourArmour?: ItemProperty;
-    armourEvasionRating?: ItemProperty;
-    armourEnergyShield?: ItemProperty;
+    shieldBlockChance?: ItemValueProperty;
+    armourArmour?: ItemValueProperty;
+    armourEvasionRating?: ItemValueProperty;
+    armourEnergyShield?: ItemValueProperty;
     stackSize?: ItemProperty;
     gemLevel?: ItemValueProperty;
     quality?: ItemValueProperty;

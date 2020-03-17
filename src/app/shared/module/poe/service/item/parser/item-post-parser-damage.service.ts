@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Item, ItemPostParserService, ItemProperty } from '@shared/module/poe/type';
+import { Item, ItemPostParserService, ItemProperty, ItemValueProperty } from '@shared/module/poe/type';
 
 @Injectable({
     providedIn: 'root'
@@ -14,14 +14,16 @@ export class ItemPostParserDamageService implements ItemPostParserService {
         const pdps = this.calculatePhysicalDps(item);
         const edps = this.calculateElementalDps(item);
         const cdps = this.calculateChaosDps(item);
-        if (pdps <= 0 && edps <= 0 && cdps <= 0) {
+
+        const dps = edps + pdps + cdps;
+        if (dps <= 0) {
             return;
         }
 
         item.damage = {
-            edps,
-            pdps,
-            dps: edps + pdps + cdps
+            edps: edps > 0 ? { text: `${edps}` } : null,
+            pdps: pdps > 0 ? { text: `${pdps}` } : null,
+            dps: { text: `${dps}` },
         };
     }
 
@@ -71,8 +73,8 @@ export class ItemPostParserDamageService implements ItemPostParserService {
         return damage;
     }
 
-    private addAps(prop: ItemProperty, damage: number): number {
-        const aps = prop ? +prop.value : 1;
+    private addAps(prop: ItemValueProperty, damage: number): number {
+        const aps = prop ? +prop.value.text : 1;
         return damage * aps;
     }
 

@@ -24,6 +24,7 @@ export class ItemFramePropertiesComponent implements OnInit {
     this.properties = this.properties || [
       'weaponCriticalStrikeChance',
       'weaponAttacksPerSecond',
+      'weaponRange',
       'shieldBlockChance',
       'armourArmour',
       'armourEvasionRating',
