@@ -1,53 +1,53 @@
 <ng-container *ngIf="item.damage">
     <div *ngIf="item.damage.dps">
-        <app-item-frame-query [(property)]="queryItem.damage.dps" [value]="item.damage.dps">
-            <span> {{'DPS'}}</span>
-            <span class="white">&nbsp;{{item.damage.dps | number : '1.1-1'}}</span>
-        </app-item-frame-query>
+        <ng-container *ngTemplateOutlet="damage; context: { prop: 'dps', name: 'DPS'}">
+        </ng-container>
     </div>
     <div *ngIf="item.damage.pdps">
-        <app-item-frame-query [(property)]="queryItem.damage.pdps" [value]="item.damage.pdps">
-            <span> {{'Physical DPS'}}</span>
-            <span class="white">&nbsp;{{item.damage.pdps | number : '1.1-1'}}</span>
-        </app-item-frame-query>
+        <ng-container *ngTemplateOutlet="damage; context: { prop: 'pdps', name: 'Physical DPS'}">
+        </ng-container>
     </div>
     <div *ngIf="item.damage.edps">
-        <app-item-frame-query [(property)]="queryItem.damage.edps" [value]="item.damage.edps">
-            <span> {{'Elemental DPS'}}</span>
-            <span class="white">&nbsp;{{item.damage.edps | number : '1.1-1'}}</span>
-        </app-item-frame-query>
+        <ng-container *ngTemplateOutlet="damage; context: { prop: 'edps', name: 'Elemental DPS'}">
+        </ng-container>
     </div>
 </ng-container>
+
 <ng-container *ngFor="let property of properties">
     <div *ngIf="item.properties[property] as prop" [ngSwitch]="property">
         <ng-container *ngSwitchCase="'weaponCriticalStrikeChance'">
             <ng-container
-                *ngTemplateOutlet="query; context: { prop: prop, name: property, key: 'ItemDisplayWeaponCriticalStrikeChance'}">
+                *ngTemplateOutlet="value; context: { prop: prop, name: property, key: 'ItemDisplayWeaponCriticalStrikeChance'}">
             </ng-container>
         </ng-container>
         <ng-container *ngSwitchCase="'weaponAttacksPerSecond'">
             <ng-container
-                *ngTemplateOutlet="query; context: { prop: prop, name: property, key: 'ItemDisplayWeaponAttacksPerSecond'}">
+                *ngTemplateOutlet="value; context: { prop: prop, name: property, key: 'ItemDisplayWeaponAttacksPerSecond'}">
+            </ng-container>
+        </ng-container>
+        <ng-container *ngSwitchCase="'weaponRange'">
+            <ng-container
+                *ngTemplateOutlet="static; context: { prop: prop, name: property, key: 'ItemDisplayWeaponRange'}">
             </ng-container>
         </ng-container>
         <ng-container *ngSwitchCase="'shieldBlockChance'">
             <ng-container
-                *ngTemplateOutlet="query; context: { prop: prop, name: property, key: 'ItemDisplayShieldBlockChance'}">
+                *ngTemplateOutlet="value; context: { prop: prop, name: property, key: 'ItemDisplayShieldBlockChance'}">
             </ng-container>
         </ng-container>
         <ng-container *ngSwitchCase="'armourArmour'">
             <ng-container
-                *ngTemplateOutlet="query; context: { prop: prop, name: property, key: 'ItemDisplayArmourArmour'}">
+                *ngTemplateOutlet="value; context: { prop: prop, name: property, key: 'ItemDisplayArmourArmour'}">
             </ng-container>
         </ng-container>
         <ng-container *ngSwitchCase="'armourEvasionRating'">
             <ng-container
-                *ngTemplateOutlet="query; context: { prop: prop, name: property, key: 'ItemDisplayArmourEvasionRating'}">
+                *ngTemplateOutlet="value; context: { prop: prop, name: property, key: 'ItemDisplayArmourEvasionRating'}">
             </ng-container>
         </ng-container>
         <ng-container *ngSwitchCase="'armourEnergyShield'">
             <ng-container
-                *ngTemplateOutlet="query; context: { prop: prop, name: property, key: 'ItemDisplayArmourEnergyShield'}">
+                *ngTemplateOutlet="value; context: { prop: prop, name: property, key: 'ItemDisplayArmourEnergyShield'}">
             </ng-container>
         </ng-container>
         <ng-container *ngSwitchCase="'stackSize'">
@@ -56,15 +56,8 @@
             </ng-container>
         </ng-container>
         <ng-container *ngSwitchCase="'gemLevel'">
-            <app-item-frame-query [(property)]="queryItem.properties[property]" [value]="prop">
-                <app-item-frame-value-group>
-                    <span>{{'Level' | clientString:language}}:&nbsp;</span>
-                    <span [class]="prop.augmented ? 'purpel' : 'white'">
-                        <app-item-frame-value [(value)]="prop.value" [modifierMinRange]="0" [modifierMaxRange]="0.5">
-                        </app-item-frame-value>
-                    </span>
-                </app-item-frame-value-group>
-            </app-item-frame-query>
+            <ng-container *ngTemplateOutlet="value; context: { prop: prop, name: property, key: 'Level'}">
+            </ng-container>
         </ng-container>
         <ng-container *ngSwitchCase="'mapTier'">
             <ng-container *ngTemplateOutlet="query; context: { prop: prop, name: property, key: 'ItemDisplayMapTier'}">
@@ -108,6 +101,30 @@
         </ng-container>
     </div>
 </ng-container>
+
+<ng-template #damage let-name="name" let-prop="prop">
+    <app-item-frame-query [(property)]="queryItem.damage[prop]" [value]="item.damage[prop]">
+        <app-item-frame-value-group>
+            <span>{{name}}:&nbsp;</span>
+            <span class="white">
+                <app-item-frame-value [(value)]="item.damage[prop]" [modifierMinRange]="0" [modifierMaxRange]="0.5">
+                </app-item-frame-value>
+            </span>
+        </app-item-frame-value-group>
+    </app-item-frame-query>
+</ng-template>
+
+<ng-template #value let-prop="prop" let-name="name" let-key="key">
+    <app-item-frame-query [(property)]="queryItem.properties[name]" [value]="prop">
+        <app-item-frame-value-group>
+            <span>{{key | clientString:language}}:&nbsp;</span>
+            <span [class]="prop.augmented ? 'purpel' : 'white'">
+                <app-item-frame-value [(value)]="prop.value" [modifierMinRange]="0" [modifierMaxRange]="0.5">
+                </app-item-frame-value>
+            </span>
+        </app-item-frame-value-group>
+    </app-item-frame-query>
+</ng-template>
 
 <ng-template #query let-prop="prop" let-name="name" let-key="key">
     <app-item-frame-query [(property)]="queryItem.properties[name]" [value]="prop">

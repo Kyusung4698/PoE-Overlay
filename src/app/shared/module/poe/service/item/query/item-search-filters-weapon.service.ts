@@ -6,41 +6,45 @@ import { Item, ItemSearchFiltersService, Language } from '@shared/module/poe/typ
     providedIn: 'root'
 })
 export class ItemSearchFiltersWeaponService implements ItemSearchFiltersService {
-    public add(item: Item, language: Language, query: Query): void {
+    public add(item: Item, _: Language, query: Query): void {
         query.filters.weapon_filters = {
             filters: {}
         };
 
-        const damage = item.damage;
+        const { damage } = item;
         if (damage) {
-            if (damage.dps) {
+            const { dps, edps, pdps } = damage;
+            if (dps) {
                 query.filters.weapon_filters.filters.dps = {
-                    min: damage.dps
+                    min: dps.min, max: dps.max
                 };
             }
-            if (damage.edps) {
+            if (edps) {
                 query.filters.weapon_filters.filters.edps = {
-                    min: damage.edps
+                    min: edps.min, max: edps.max
                 };
             }
-            if (damage.pdps) {
+            if (pdps) {
                 query.filters.weapon_filters.filters.pdps = {
-                    min: damage.pdps
+                    min: pdps.min, max: pdps.max
                 };
             }
         }
 
-        const prop = item.properties;
-        if (prop) {
-            if (prop.weaponAttacksPerSecond) {
+        if (item.properties) {
+            const { weaponAttacksPerSecond } = item.properties;
+            if (weaponAttacksPerSecond) {
+                const { value } = weaponAttacksPerSecond;
                 query.filters.weapon_filters.filters.aps = {
-                    min: +prop.weaponAttacksPerSecond.value
+                    min: value.min, max: value.max
                 };
             }
 
-            if (prop.weaponCriticalStrikeChance) {
+            const { weaponCriticalStrikeChance } = item.properties;
+            if (weaponCriticalStrikeChance) {
+                const { value } = weaponCriticalStrikeChance;
                 query.filters.weapon_filters.filters.crit = {
-                    min: +(prop.weaponCriticalStrikeChance.value.replace('%', ''))
+                    min: value.min, max: value.max
                 };
             }
         }

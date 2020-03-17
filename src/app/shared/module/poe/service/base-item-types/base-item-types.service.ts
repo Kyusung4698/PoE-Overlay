@@ -29,10 +29,8 @@ export class BaseItemTypesService {
             return `untranslated: '${id}' for language: '${Language[language]}'`;
         }
 
-        // remove \\b#\\b
-        const result = name.slice(2, name.length - 2);
         // reverse escape string regex
-        return result.replace(/\\[.*+?^${}()|[\]\\]/g, (value) => value.replace('\\', ''));
+        return name.replace(/\\[.*+?^${}()|[\]\\]/g, (value) => value.replace('\\', ''));
     }
 
     public search(name: string, language?: Language): string {
@@ -40,7 +38,8 @@ export class BaseItemTypesService {
 
         const map = this.baseItemTypeProvider.provide(language);
 
-        const hashKey = map[`\\b${name}\\b`];
+        const nameKey = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const hashKey = map[nameKey];
         if (hashKey) {
             return hashKey;
         }
@@ -60,7 +59,7 @@ export class BaseItemTypesService {
         let maxScore = Number.MIN_VALUE;
         let maxKey;
         for (const key of keys) {
-            const expr = cache[key] || (cache[key] = new RegExp(map[key]));
+            const expr = cache[key] || (cache[key] = new RegExp('(?<=[\\s,.:;"\']|^)' + map[key] + '(?=[\\s,.:;"\']|$)'));
             const match = expr.exec(name);
             if (match) {
                 const score = map[key].split(' ').length * 10 - match.index;
