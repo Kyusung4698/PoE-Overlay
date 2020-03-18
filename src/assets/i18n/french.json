@@ -22,12 +22,17 @@
 		"shortcut": "Raccourci"
 	},
 	"evaluate": {
+		"count": "Compter",
 		"currency": "Monnaie affichée",
 		"days": "Les 7 derniers jours",
 		"error": "Une erreur s'est produite.",
 		"loading": "Chargement...",
+		"mean": "Mean",
+		"median": "Médian",
+		"mode": "Mode",
 		"name": "Évaluer",
 		"not-found": "Aucune donnée disponible.",
+		"range": "Range",
 		"result-view": "Affichage des résultats",
 		"search": {
 			"default": "Paramètres de recherche par défaut",
@@ -60,6 +65,7 @@
 		"stats": "Statistiques",
 		"stats-export": "Exporter les statistiques vers le presse-papiers",
 		"stats-import": "Importer des statistiques depuis le presse-papiers",
+		"stats-unique-check-all": "Tout cocher unique",
 		"switch": "inverser les valeurs",
 		"tag": {
 			"note": "Seuls les éléments sans note existante peuvent être taggés. La note a été copiée à la place.",
@@ -82,7 +88,7 @@
 		"graph": "La barre indique la distribution de la valeur de l'objet. Il regroupe essentiellement les valeurs par valeur et les compte.<br> La barre la plus haute est le Mode. Aussi appelé «valeur la plus représenté». La moyenne est la moyenne arithmétique. La médiane est la valeur centrée des valeurs.",
 		"graph-title": "Que représente le graphique? Qu'est-ce que le mode / la moyenne / médiane?",
 		"graph-url": "Ouvrez 'Comment lire un histogramme' par 'fr.wikihow.com/lire-un-histogramme'",
-		"graphic": "Cela est principalement dû à des pilotes graphiques incompatibles pour la version actuelle de chrome.<br> Veuillez exécuter 'run-without-gpu.bat' afin de démarrer la superposition sans support gpu (accélération matérielle).",
+		"graphic": "Cela est principalement dû à des pilotes graphiques incompatibles pour la version actuelle de chrome.<br> Veuillez désactiver l'accélération matérielle dans le menu de la barre d'état.",
 		"graphic-title": "Les graphismes sont flous / bug graphique?",
 		"name": "Aidez-moi",
 		"patreon": "Soutenez-moi sur Patreon",
@@ -110,6 +116,7 @@
 		"select-list": {
 			"add": "Ajouter à la sélection",
 			"remove": "Supprimer de la sélection",
+			"search": "Chercher",
 			"selected": "Sélectionné",
 			"unselected": "Non séléctionné"
 		}
@@ -143,10 +150,24 @@
 		"game-settings": "Paramètres de jeu",
 		"general": "Général",
 		"language": "Langue",
+		"languages": {
+			"english": "Anglais",
+			"french": "français",
+			"german": "Allemand",
+			"korean": "coréen",
+			"polish": "polonais",
+			"portuguese": "Portugais",
+			"russian": "russe",
+			"simplifiedchinese": "Chinois simplifié",
+			"spanish": "Espanol",
+			"thai": "thaïlandais",
+			"traditionalchinese": "Chinois traditionnel"
+		},
 		"league": "Ligue",
 		"open-settings": "Ouvrir les paramètres",
 		"relaunch-app": "Relancer l'application",
 		"save": "Sauvegarder",
+		"ui-language": "Langue de l'interface utilisateur",
 		"zoom": "Zoom"
 	}
 }

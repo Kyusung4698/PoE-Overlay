@@ -1,10 +1,9 @@
 import { ChangeDetectionStrategy, Component, HostListener, Inject, OnDestroy, OnInit } from '@angular/core';
 import { WindowService } from '@app/service';
 import { FEATURE_MODULES } from '@app/token';
-import { FeatureModule } from '@app/type';
+import { FeatureModule, UiLanguage } from '@app/type';
 import { TranslateService } from '@ngx-translate/core';
 import { ContextService } from '@shared/module/poe/service';
-import { Language } from '@shared/module/poe/type';
 import { flatMap, tap } from 'rxjs/operators';
 import { UserSettingsService } from '../../service';
 
@@ -22,7 +21,7 @@ export class UserSettingsComponent implements OnInit, OnDestroy {
     private readonly window: WindowService,
     private readonly context: ContextService,
     private readonly translate: TranslateService) {
-    this.translate.setDefaultLang(`${Language.English}`);
+    this.translate.setDefaultLang(`${UiLanguage.English}`);
   }
 
   @HostListener('window:beforeunload', [])
@@ -32,7 +31,7 @@ export class UserSettingsComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.userSettingsService.init(this.modules).subscribe(settings => {
-      this.translate.use(`${settings.language}`);
+      this.translate.use(`${settings.uiLanguage}`);
       this.window.setZoom(settings.zoom / 100);
       this.context.init({
         language: settings.language,
@@ -40,7 +39,7 @@ export class UserSettingsComponent implements OnInit, OnDestroy {
       });
       this.userSettingsService.edit(settings).subscribe((saved) => {
         if (saved) {
-          this.translate.use(`${saved.language}`);
+          this.translate.use(`${saved.uiLanguage}`);
         }
         this.window.hide();
         this.registerShow();
@@ -62,7 +61,7 @@ export class UserSettingsComponent implements OnInit, OnDestroy {
         flatMap(settings => this.userSettingsService.edit(settings))
       ).subscribe((settings) => {
         if (settings) {
-          this.translate.use(`${settings.language}`);
+          this.translate.use(`${settings.uiLanguage}`);
           this.window.setZoom(settings.zoom / 100);
         }
         this.window.hide();

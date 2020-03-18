@@ -55,6 +55,10 @@ export class StatsService {
     public translate(stat: Stat, predicate: string, language?: Language): string {
         language = language || this.context.get().language;
 
+        if (!stat.text[language] || !stat.text[language][predicate]) {
+            return `untranslated: '${stat.id}' for language: '${Language[language]}'`;
+        }
+
         const result = stat.text[language][predicate];
         return result
             .slice(1, result.length - 1)

@@ -22,12 +22,17 @@
 		"shortcut": "Shortcut"
 	},
 	"evaluate": {
+		"count": "Count",
 		"currency": "Displayed Currency",
 		"days": "Last 7 days",
 		"error": "An error occured.",
 		"loading": "Loading...",
+		"mean": "Mean",
+		"median": "Median",
+		"mode": "Mode",
 		"name": "Evaluate",
 		"not-found": "No data found.",
+		"range": "Range",
 		"result-view": "Result View",
 		"search": {
 			"default": "Default Search Settings",
@@ -60,6 +65,7 @@
 		"stats": "Stats",
 		"stats-export": "Export Stats to Clipboard",
 		"stats-import": "Import Stats from Clipboard",
+		"stats-unique-check-all": "Unique Check All",
 		"switch": "switch amount",
 		"tag": {
 			"note": "Only items without an existing note can be fast tagged. Note has been copied instead.",
@@ -82,7 +88,7 @@
 		"graph": "The bar indicates the distribution of the item value. It basically groups the values by value and counts them.<br> The highest bar is the Mode. Also named 'most common value'. Mean is the average. Median is the centered value of all values.",
 		"graph-title": "What does the graph represent? What is mode/mean/median?",
 		"graph-url": "Open 'How to read a Histogram Min Max Median Mean' by 'academy.datawrapper.de'",
-		"graphic": "This is mostly caused by incompatible graphic drivers for the current chromium version.<br> Please run 'run-without-gpu.bat' in order to start the overlay without gpu support (hardware acceleration).",
+		"graphic": "This is mostly caused by incompatible graphic drivers for the current chromium version.<br> Please disable Hardware Acceleration inside the tray menu.",
 		"graphic-title": "The graphics are blurry/ graphic bug?",
 		"name": "Help",
 		"patreon": "Support me on Patreon",
@@ -110,6 +116,7 @@
 		"select-list": {
 			"add": "add to selected",
 			"remove": "remove from selected",
+			"search": "Search",
 			"selected": "Selected",
 			"unselected": "Unselected"
 		}
@@ -143,10 +150,24 @@
 		"game-settings": "Game Settings",
 		"general": "General",
 		"language": "Language",
+		"languages": {
+			"english": "English",
+			"french": "French",
+			"german": "German",
+			"korean": "Korean",
+			"polish": "Polish",
+			"portuguese": "Portuguese",
+			"russian": "Russian",
+			"simplifiedchinese": "Simplified Chinese",
+			"spanish": "Spanish",
+			"thai": "Thai",
+			"traditionalchinese": "Traditional Chinese"
+		},
 		"league": "League",
 		"open-settings": "Open Settings",
 		"relaunch-app": "Relaunch App",
 		"save": "Save",
+		"ui-language": "UI Language",
 		"zoom": "Zoom"
 	}
 }

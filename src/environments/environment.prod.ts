@@ -3,7 +3,9 @@ export const environment = {
   poe: {
     baseUrl: 'https://www.pathofexile.com/api',
     countryUrl: 'https://{country}.pathofexile.com/api',
-    koreanUrl: 'https://poe.game.daum.net/api'
+    koreanUrl: 'https://poe.game.daum.net/api',
+    simplifiedChineseUrl: 'https://poe.game.qq.com/api',
+    traditionalChineseUrl: 'https://web.poe.garena.tw/api'
   },
   wiki: {
     baseUrl: 'https://pathofexile.gamepedia.com',
@@ -13,8 +15,5 @@ export const environment = {
   },
   poeNinja: {
     baseUrl: 'https://poe.ninja'
-  },
-  github: {
-    baseUrl: 'https://api.github.com/repos/Kyusung4698/PoE-Overlay'
   }
 };

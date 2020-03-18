@@ -20,11 +20,11 @@ export class BookmarkModule implements FeatureModule {
             bookmarks: [
                 {
                     url: 'https://www.poelab.com/',
-                    shortcut: 'num1'
+                    shortcut: 'Alt + num1'
                 },
                 {
                     url: 'https://wraeclast.com/',
-                    shortcut: 'num2'
+                    shortcut: 'Alt + num2'
                 }
             ]
         };

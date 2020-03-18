@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { StorageService } from '@app/service';
+import { UiLanguage } from '@app/type';
 import { Language } from '@shared/module/poe/type';
 import { Observable } from 'rxjs';
 import { UserSettings } from '../type';
@@ -14,7 +15,8 @@ export class UserSettingsStorageService {
 
     public get(): Observable<UserSettings> {
         return this.storage.get<UserSettings>(USER_SETTINGS_KEY, {
-            language: Language.English
+            language: Language.English,
+            uiLanguage: UiLanguage.English
         });
     }
 

@@ -39,7 +39,7 @@ export class EvaluateModule implements FeatureModule {
             evaluateQueryDefaultItemLevel: false,
             evaluateQueryDefaultLinks: 5,
             evaluateQueryDefaultMiscs: true,
-            evaluateQueryDefaultType: true,
+            evaluateQueryDefaultType: false,
             evaluateQueryDefaultStats: {
                 'pseudo.pseudo_total_elemental_resistance': true,
                 'pseudo.pseudo_total_resistance': true,
@@ -49,6 +49,7 @@ export class EvaluateModule implements FeatureModule {
                 'explicit.stat_1479533453': true,
                 'enchant.stat_290368246': true
             },
+            evaluateQueryDefaultStatsUnique: true,
             evaluateQueryIndexedRange: ItemSearchIndexed.UpTo3DaysAgo,
             evaluateQueryOnline: true,
             evaluateModifierMinRange: 0,

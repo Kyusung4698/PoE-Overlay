@@ -26,18 +26,19 @@
     <div class="clickable values" (click)="onCurrencyClick($event)" (wheel)="onCurrencyWheel($event)"
       title="'Click' = In-Game Browser, 'CTRL + Click' Default Browser">
       <div>
-        <app-currency-frame label="Mean" [amount]="result.mean">
+        <app-currency-frame [label]="'evaluate.mean' | translate" [amount]="result.mean">
         </app-currency-frame>
-        <app-currency-frame label="Median" [amount]="result.median">
+        <app-currency-frame [label]="'evaluate.median' | translate" [amount]="result.median">
         </app-currency-frame>
-        <app-currency-frame label="Mode" [amount]="result.mode">
+        <app-currency-frame [label]="'evaluate.mode' | translate" [amount]="result.mode">
         </app-currency-frame>
       </div>
       <div>
-        <app-currency-frame label="Count" [count]="result.total">
+        <app-currency-frame [label]="'evaluate.count' | translate" [count]="result.total">
         </app-currency-frame>
         <span class="currency">
-          <app-currency-frame label="Range" [currency]="result.currency" [range]="{ min: result.min, max: result.max }">
+          <app-currency-frame [label]="'evaluate.range' | translate" [currency]="result.currency"
+            [range]="{ min: result.min, max: result.max }">
           </app-currency-frame>
         </span>
       </div>

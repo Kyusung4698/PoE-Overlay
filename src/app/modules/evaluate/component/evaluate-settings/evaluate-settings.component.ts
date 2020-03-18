@@ -28,6 +28,7 @@ export interface EvaluateUserSettings extends UserSettings {
   evaluateQueryDefaultMiscs: boolean;
   evaluateQueryDefaultType: boolean;
   evaluateQueryDefaultStats: any;
+  evaluateQueryDefaultStatsUnique: boolean;
   evaluateQueryOnline: boolean;
   evaluateQueryIndexedRange: ItemSearchIndexed;
   evaluateModifierMinRange: number;
@@ -142,15 +143,20 @@ export class EvaluateSettingsComponent implements UserSettingsComponent {
       const stats = this.statsProvider.provide(type);
       Object.getOwnPropertyNames(stats).forEach(tradeId => {
         const stat = stats[tradeId];
-        const predicate = Object.getOwnPropertyNames(stat.text[this.settings.language])[0];
-        const key = `${type}.${tradeId}`;
-        const item: StatSelectListItem = {
-          key,
-          type,
-          text: this.statsService.translate(stat, predicate, this.settings.language),
-          selected: !!this.settings.evaluateQueryDefaultStats[key],
-        };
-        items.push(item);
+        const localStat = stat.text[this.settings.language];
+        if (localStat) {
+          const predicate = Object.getOwnPropertyNames(localStat)[0];
+          const key = `${type}.${tradeId}`;
+          const item: StatSelectListItem = {
+            key,
+            type,
+            text: this.statsService.translate(stat, predicate, this.settings.language),
+            selected: !!this.settings.evaluateQueryDefaultStats[key],
+          };
+          items.push(item);
+        } else {
+          console.warn(`Stat with ${tradeId} not found in ${this.settings.language}.`);
+        }
       });
     });
     this.stats$.next(items);
