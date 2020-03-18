@@ -1,3 +1,10 @@
+## 0.6.7 (2020-03-18)
+
+- add traditional chinese support
+- add simplified chinese support
+- add seperate ui language (polish)
+- fix uncaught exception on alert
+
 ## 0.6.6 (2020-03-17)
 
 - add dps mod range (#294)

@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { EnumValues } from '@app/class';
 import { AppService } from '@app/service';
+import { UiLanguage } from '@app/type';
 import { LeaguesProvider } from '@shared/module/poe/provider';
 import { Language, League } from '@shared/module/poe/type';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -15,6 +16,7 @@ import { UserSettings } from '../../type';
 })
 export class UserSettingsFormComponent implements OnInit {
   public languages = new EnumValues(Language);
+  public uiLanguages = new EnumValues(UiLanguage);
 
   public leagues$ = new BehaviorSubject<League[]>([]);
   public autoLaunchEnabled$: Observable<boolean>;

@@ -1,0 +1,171 @@
+{
+	"app": {
+		"update": {
+			"available": "Dostępna jest nowa aktualizacja. Zostanie automatycznie pobrany, chyba że określono inaczej.",
+			"downloaded": "Nowa aktualizacja jest teraz gotowa do zainstalowania. Uruchom ponownie aplikację."
+		}
+	},
+	"bookmark": {
+		"add": "Dodaj zakładkę",
+		"name": "Zakładka",
+		"shortcut": "Skrót",
+		"url": "URL"
+	},
+	"clipboard": {
+		"empty": "Schowek był pusty. Upewnij się, że gra jest skoncentrowana.",
+		"error": "Wystąpił błąd podczas analizowania elementu.",
+		"parser-error": "Nie można przeanalizować elementu. Upewnij się, że wybrano właściwy język."
+	},
+	"command": {
+		"add": "Dodaj polecenie",
+		"name": "komenda",
+		"shortcut": "Skrót"
+	},
+	"evaluate": {
+		"count": "Liczyć",
+		"currency": "Wyświetlana waluta",
+		"days": "ostatnie 7 dni",
+		"error": "Wystąpił błąd.",
+		"loading": "Ładuję...",
+		"mean": "Oznaczać",
+		"median": "Mediana",
+		"mode": "tryb",
+		"name": "Oceniać",
+		"not-found": "Nie znaleziono danych.",
+		"range": "Zasięg",
+		"result-view": "Widok wyników",
+		"search": {
+			"default": "Domyślne ustawienia wyszukiwania",
+			"disable-max-range": "Wyłącz maksymalny zasięg",
+			"filter": "Wyszukaj filtr",
+			"gem": "Poziom klejnotów, poziom mapy i jakość",
+			"item-default-links": "Link do przedmiotu",
+			"item-level": "Poziom przedmiotu",
+			"item-links": {
+				"always": "zawsze",
+				"never": "Nigdy"
+			},
+			"item-sockets": "Gniazda",
+			"item-type": "Typ przedmiotu",
+			"max-age": {
+				"any": "W dowolnym momencie",
+				"day": "Do dnia temu",
+				"days": "Do 3 dni temu",
+				"month": "Do 1 miesiąca temu",
+				"months": "Do 2 miesięcy temu",
+				"title": "Wykaz maksymalnego wieku",
+				"week": "Do tygodnia temu",
+				"weeks": "Do 2 tygodni temu"
+			},
+			"modifier": "Ustawienia wyszukiwania modyfikatora",
+			"modifier-range": "Zakres modyfikatora",
+			"online-only": "Tylko online"
+		},
+		"settings": "Oceń ustawienia",
+		"stats": "Statystyki",
+		"stats-export": "Eksportuj statystyki do schowka",
+		"stats-import": "Importuj statystyki ze schowka",
+		"switch": "zmiana kwoty",
+		"tag": {
+			"note": "Tylko elementy bez istniejącej notatki mogą być szybko oznaczone. Uwaga została zamiast tego skopiowana.",
+			"outside-stash": "Tylko przedmioty w skrytce można szybko oznaczyć. Uwaga została zamiast tego skopiowana."
+		},
+		"translate": "Oceń Tłumacz",
+		"translate-language": "Przetłumaczony język przedmiotów",
+		"translate-settings": "Oceń ustawienia tłumaczenia"
+	},
+	"help": {
+		"browser": "Przytrzymanie CTRL podczas klikania spowoduje otwarcie łącza w domyślnej przeglądarce.",
+		"browser-title": "Jak mogę otworzyć wyszukiwanie w mojej domyślnej przeglądarce?",
+		"bug": "Utwórz problem",
+		"bug-title": "Znalazłeś błąd? Czy masz sugestię? Utwórz problem w GitHub",
+		"donate": "Przekaż darowiznę przez PayPal",
+		"donate-title": "Podoba ci się projekt? Możesz zostawić darowiznę. Dziękuję za wsparcie!",
+		"dwm": "Jest to głównie spowodowane wyłączonym Aero / DWM. Dlatego spróbuj włączyć tę funkcję systemu Windows.<br> Ponieważ wymagane jest tworzenie przezroczystych okien.",
+		"dwm-title": "Dlaczego mój ekran zmienia kolor na czarny / biały po przełączeniu jakiejkolwiek funkcji?",
+		"faq": "FAQ",
+		"graph": "Pasek wskazuje rozkład wartości przedmiotu. Zasadniczo grupuje wartości według wartości i je zlicza.<br> Najwyższym paskiem jest tryb. Również nazywany „najczęstszą wartością”. Średnia to średnia. Mediana to wyśrodkowana wartość wszystkich wartości.",
+		"graph-title": "Co przedstawia wykres? Co to jest tryb / średnia / mediana?",
+		"graph-url": "Otwórz „Jak odczytać histogram Min Max Mediana Średnia” przez „academy.datawrapper.de”",
+		"graphic": "Jest to głównie spowodowane niekompatybilnymi sterownikami graficznymi dla obecnej wersji chromu.<br> Wyłącz przyspieszenie sprzętowe w menu zasobnika.",
+		"graphic-title": "Grafika jest rozmyta / błąd graficzny?",
+		"name": "Wsparcie",
+		"patreon": "Wesprzyj mnie na Patreon",
+		"wiki": "Otwórz projekt Wiki",
+		"wiki-title": "Zobacz wiki projektu w celu uzyskania dalszej dokumentacji"
+	},
+	"map": {
+		"boss": "Szef",
+		"boss-rating": "Ocena szefa",
+		"bosses": "Szefowie",
+		"info": "Informacje",
+		"layout-rating": "Ocena układu",
+		"name": "Mapa",
+		"no-map": "Przedmiot nie jest mapą.",
+		"not-found": "Nie znaleziono mapy.",
+		"stats-warning": "Statystyki Ostrzeżenia",
+		"stats-warning-export": "Eksportuj ostrzeżenia statystyk do schowka",
+		"stats-warning-import": "Importuj ostrzeżenia statystyczne ze schowka"
+	},
+	"material": {
+		"accelerator": {
+			"any": "naciśnij dowolny klawisz",
+			"unbound": "Rozwiązany"
+		},
+		"select-list": {
+			"add": "dodaj do wybranych",
+			"remove": "usuń z wybranych",
+			"selected": "wybrany",
+			"unselected": "Nie zaznaczone"
+		}
+	},
+	"misc": {
+		"highlight": "Atrakcja",
+		"name": "Misc",
+		"navigation": "Nawigacja",
+		"open-poedb": "Otwórz PoE DB",
+		"open-poedb-external": "Otwórz PoE DB External",
+		"open-wiki": "Otwórz Wiki",
+		"open-wiki-external": "Otwórz Wiki External",
+		"parser-error": "Nie można przeanalizować schowka. Upewnij się, że wyczyściłeś (ESC) poprzednią atrakcję.",
+		"poedb": "PoE DB",
+		"stash": "Chować na potem",
+		"wiki": "Wiki"
+	},
+	"settings": {
+		"app": "App",
+		"auto-download": "Pobierz aktualizację automatycznie",
+		"auto-launch": "Uruchom przy rozruchu",
+		"cancel": "Anuluj",
+		"dialog": "Dialog",
+		"dialog-spawn-position": {
+			"center": "centrum",
+			"cursor": "Kursor"
+		},
+		"dialog-spawn-position-title": "Okno odradzania pozycji",
+		"display-version": "Wersja wyświetlacza",
+		"exit-app": "Wyjdź z aplikacji",
+		"game-settings": "Ustawienia gry",
+		"general": "Generał",
+		"language": "jezyk",
+		"languages": {
+			"english": "język angielski",
+			"french": "Francuski",
+			"german": "Niemiecki",
+			"korean": "koreański",
+			"polish": "Polski",
+			"portuguese": "portugalski",
+			"russian": "rosyjski",
+			"simplifiedchinese": "Chiński uproszczony",
+			"spanish": "hiszpański",
+			"thai": "tajski",
+			"traditionalchinese": "Tradycyjny chiński"
+		},
+		"league": "Liga",
+		"open-settings": "Otwórz ustawienia",
+		"relaunch-app": "Uruchom ponownie aplikację",
+		"save": "Zapisać",
+		"ui-language": "Język interfejsu użytkownika",
+		"zoom": "Powiększenie"
+	}
+}

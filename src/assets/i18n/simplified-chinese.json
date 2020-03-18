@@ -1,0 +1,171 @@
+{
+	"app": {
+		"update": {
+			"available": "有新的更新。除非另有说明，否则将自动下载。",
+			"downloaded": "现在就可以安装新更新了。请重新启动您的应用程序。"
+		}
+	},
+	"bookmark": {
+		"add": "添加书签",
+		"name": "书签",
+		"shortcut": "捷径",
+		"url": "网址"
+	},
+	"clipboard": {
+		"empty": "剪贴板是空的。请确保游戏专注。",
+		"error": "解析项目时发生错误。",
+		"parser-error": "无法解析项目。请确保您选择了正确的语言。"
+	},
+	"command": {
+		"add": "添加命令",
+		"name": "命令",
+		"shortcut": "捷径"
+	},
+	"evaluate": {
+		"count": "计数",
+		"currency": "显示货币",
+		"days": "过去7天",
+		"error": "发生错误。",
+		"loading": "载入中...",
+		"mean": "意思",
+		"median": "中位数",
+		"mode": "模式",
+		"name": "评估",
+		"not-found": "没有找到数据。",
+		"range": "范围",
+		"result-view": "结果视图",
+		"search": {
+			"default": "默认搜索设置",
+			"disable-max-range": "禁用最大范围",
+			"filter": "搜索过滤器",
+			"gem": "宝石等级，地图等级和品质",
+			"item-default-links": "物品链接",
+			"item-level": "物品等级",
+			"item-links": {
+				"always": "总是",
+				"never": "决不"
+			},
+			"item-sockets": "插座",
+			"item-type": "物品种类",
+			"max-age": {
+				"any": "任何时间",
+				"day": "直到一天前",
+				"days": "最多3天前",
+				"month": "最多1个月前",
+				"months": "最多2个月前",
+				"title": "列出最高年龄",
+				"week": "直到一周前",
+				"weeks": "最多2周前"
+			},
+			"modifier": "修改器搜索设置",
+			"modifier-range": "修改范围",
+			"online-only": "仅在线"
+		},
+		"settings": "评估设置",
+		"stats": "统计资料",
+		"stats-export": "将统计数据导出到剪贴板",
+		"stats-import": "从剪贴板导入统计",
+		"switch": "切换量",
+		"tag": {
+			"note": "只有没有注释的物品才能被快速标记。注释已被复制。",
+			"outside-stash": "只有储藏柜中的物品才能被快速标记。注释已被复制。"
+		},
+		"translate": "评估翻译",
+		"translate-language": "翻译项目语言",
+		"translate-settings": "评估翻译设置"
+	},
+	"help": {
+		"browser": "单击时按住CTRL将在默认浏览器中打开链接。",
+		"browser-title": "如何在默认浏览器中打开搜索？",
+		"bug": "创建问题",
+		"bug-title": "发现了错误？或有建议？请在GitHub上创建问题",
+		"donate": "通过贝宝捐款",
+		"donate-title": "喜欢这个项目吗？随时留下捐款。谢谢你的支持！",
+		"dwm": "这主要是由Aero / DWM禁用引起的。因此，请尝试启用此Windows功能。<br> 由于需要创建透明窗口。",
+		"dwm-title": "切换任何功能后，为什么我的屏幕会变成黑色/白色？",
+		"faq": "常问问题",
+		"graph": "条形图指示项目值的分布。它基本上按值对值进行分组并对其进行计数。<br> 最高的条是模式。也称为“最常见的价值”。平均值是平均值。中位数是所有值的中心值。",
+		"graph-title": "图代表什么？什么是模式/均值/中位数？",
+		"graph-url": "通过“ academy.datawrapper.de”打开“如何读取直方图的最小最大中位数均值”",
+		"graphic": "这主要是由当前铬版本的不兼容图形驱动程序引起的。<br> 请在任务栏菜单中禁用“硬件加速”。",
+		"graphic-title": "图形模糊/图形错误？",
+		"name": "救命",
+		"patreon": "在Patreon上支持我",
+		"wiki": "打开项目维基",
+		"wiki-title": "有关更多文档，请参见项目Wiki。"
+	},
+	"map": {
+		"boss": "老板",
+		"boss-rating": "老板评分",
+		"bosses": "老板",
+		"info": "信息",
+		"layout-rating": "布局等级",
+		"name": "地图",
+		"no-map": "项目不是地图。",
+		"not-found": "找不到地图。",
+		"stats-warning": "统计警告",
+		"stats-warning-export": "将统计信息警告导出到剪贴板",
+		"stats-warning-import": "从剪贴板导入统计信息警告"
+	},
+	"material": {
+		"accelerator": {
+			"any": "按任意键",
+			"unbound": "未绑定"
+		},
+		"select-list": {
+			"add": "添加到选中",
+			"remove": "从选择中删除",
+			"selected": "选",
+			"unselected": "未选中"
+		}
+	},
+	"misc": {
+		"highlight": "突出",
+		"name": "杂项",
+		"navigation": "导航",
+		"open-poedb": "打开PoE DB",
+		"open-poedb-external": "外部开放式PoE DB",
+		"open-wiki": "打开维基",
+		"open-wiki-external": "外部打开Wiki",
+		"parser-error": "剪贴板无法解析。请确保您清除（ESC）上一个突出显示。",
+		"poedb": "PoE数据库",
+		"stash": "藏",
+		"wiki": "维基"
+	},
+	"settings": {
+		"app": "应用",
+		"auto-download": "自动下载更新",
+		"auto-launch": "开机运行",
+		"cancel": "取消",
+		"dialog": "对话",
+		"dialog-spawn-position": {
+			"center": "中央",
+			"cursor": "光标"
+		},
+		"dialog-spawn-position-title": "对话框产生位置",
+		"display-version": "显示版本",
+		"exit-app": "退出应用",
+		"game-settings": "游戏设置",
+		"general": "一般",
+		"language": "语言",
+		"languages": {
+			"english": "英语",
+			"french": "法国",
+			"german": "德语",
+			"korean": "朝鲜的",
+			"polish": "抛光",
+			"portuguese": "葡萄牙语",
+			"russian": "俄语",
+			"simplifiedchinese": "简体中文",
+			"spanish": "西班牙语",
+			"thai": "泰国",
+			"traditionalchinese": "繁体中文"
+		},
+		"league": "联盟",
+		"open-settings": "打开设置",
+		"relaunch-app": "重新启动应用",
+		"save": "保存",
+		"ui-language": "UI语言",
+		"zoom": "放大"
+	}
+}

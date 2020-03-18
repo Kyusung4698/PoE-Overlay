@@ -1,5 +1,5 @@
 import AutoLaunch from 'auto-launch';
-import { app, BrowserWindow, Display, ipcMain, Menu, MenuItem, MenuItemConstructorOptions, screen, systemPreferences, Tray } from 'electron';
+import { app, BrowserWindow, dialog, Display, ipcMain, Menu, MenuItem, MenuItemConstructorOptions, screen, systemPreferences, Tray } from 'electron';
 import * as log from 'electron-log';
 import { autoUpdater } from 'electron-updater';
 import * as fs from 'fs';
@@ -13,7 +13,9 @@ if (!app.requestSingleInstanceLock()) {
 }
 
 if (process.platform === 'win32' && !systemPreferences.isAeroGlassEnabled()) {
-    alert('Aero needs to be enabled.')
+    dialog.showErrorBox(
+        'Aero is required to run PoE Overlay',
+        'Aero is currently disabled. Please enable Aero and try again.');
     app.exit();
 }
 
@@ -149,7 +151,7 @@ autoUpdater.on('update-available', () => {
         title: 'New update available',
         content: 'A new update is available. Will be automatically downloaded unless otherwise specified.',
     });
-    if (!autoUpdater.autoDownload && !downloadItem) {        
+    if (!autoUpdater.autoDownload && !downloadItem) {
         downloadItem = new MenuItem({
             label: 'Download Update',
             type: 'normal',
@@ -381,10 +383,18 @@ try {
     app.on('ready', () => {
         /* delay create window in order to support transparent windows at linux. */
         setTimeout(() => {
-            hook.register();
-            createWindow();
-            createTray();
-        }, 1000);
+            hook.register().then(success => {
+                if (!success) {
+                    dialog.showErrorBox(
+                        'Iohook is required to run PoE Overlay',
+                        'Iohook could not be loaded. Please make sure you have vc_redist installed and try again.');
+                    app.quit();
+                } else {
+                    createWindow();
+                    createTray();
+                }
+            });
+        }, 300);
     });
 
     app.on('window-all-closed', () => {

@@ -104,44 +104,54 @@ export function off(event: 'change' | 'wheel') {
     }
 }
 
-export function register(): void {
-    import('iohook').then(x => {
-        const iohook = x.default;
-        iohook.start();
+export function register(): Promise<boolean> {
+    return new Promise<boolean>(async (resolve) => {
+        try {
+            const iohook = (await import('iohook')).default;
+            iohook.start();
 
-        activeCheckSubscription = activeCheck$.pipe(
-            throttleTime(500, undefined, {
-                trailing: true,
-                leading: false
-            })
-        ).subscribe(() => {
-            checkActive();
-        });
+            activeCheckSubscription = activeCheck$.pipe(
+                throttleTime(500, undefined, {
+                    trailing: true,
+                    leading: false
+                })
+            ).subscribe(() => {
+                checkActive();
+            });
 
-        iohook.on('keydown', onKeydown);
-        iohook.on('keyup', onKeyup);
-        iohook.on('mousewheel', onMousewheel);
-        iohook.on('mouseup', onMouseclick);
-    }).catch(() => {
-        alert('Failed to import iohook. Please make sure you have vc_redist installed.');
-    });
+            iohook.on('keydown', onKeydown);
+            iohook.on('keyup', onKeyup);
+            iohook.on('mousewheel', onMousewheel);
+            iohook.on('mouseup', onMouseclick);
+            resolve(true);
+        }
+        catch (error) {
+            console.error('An unexpected error occured while registering iohook', error);
+            resolve(false);
+        }
+    })
 }
 
-export function unregister(): void {
-    import('iohook').then(x => {
-        const iohook = x.default;
+export function unregister(): Promise<void> {
+    return new Promise(async (resolve, reject) => {
+        try {
+            const iohook = (await import('iohook')).default;
 
-        iohook.off('keydown', onKeydown);
-        iohook.off('keyup', onKeyup);
-        iohook.off('mousewheel', onMousewheel);
-        iohook.off('mouseup', onMouseclick);
+            iohook.off('keydown', onKeydown);
+            iohook.off('keyup', onKeyup);
+            iohook.off('mousewheel', onMousewheel);
+            iohook.off('mouseup', onMouseclick);
 
-        if (activeCheckSubscription) {
-            activeCheckSubscription.unsubscribe();
+            if (activeCheckSubscription) {
+                activeCheckSubscription.unsubscribe();
+            }
+
+            iohook.stop();
+            resolve();
         }
-
-        iohook.stop();
-    }).catch(() => {
-        alert('Failed to import iohook. Please make sure you have vc_redist installed.');
+        catch (error) {
+            console.error('An unexpected error occured while unregistering iohook', error);
+            reject();
+        }
     });
 }

@@ -1,3 +1,4 @@
+import { UiLanguage } from '@app/type';
 import { Language } from '@shared/module/poe/type';
 
 export enum DialogSpawnPosition {
@@ -8,6 +9,7 @@ export enum DialogSpawnPosition {
 export interface UserSettings {
     leagueId?: string;
     language?: Language;
+    uiLanguage?: UiLanguage;
     openUserSettingsKeybinding?: string;
     exitAppKeybinding?: string;
     zoom?: number;

@@ -1,4 +1,4 @@
-export enum Language {
+export enum UiLanguage {
     English = 1,
     Portuguese = 2,
     Russian = 3,
@@ -9,8 +9,5 @@ export enum Language {
     Korean = 8,
     SimplifiedChinese = 9,
     TraditionalChinese = 10,
-}
-
-export interface LanguageMap<TType> {
-    [language: number]: TType;
+    Polish = 11,
 }

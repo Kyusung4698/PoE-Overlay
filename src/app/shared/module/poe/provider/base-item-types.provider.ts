@@ -24,6 +24,9 @@ export class BaseItemTypesProvider {
                 return Spanish;
             case Language.Korean:
                 return Korean;
+            // TODO: Chinese
+            // case Language.Chinese:
+            //     return Chinese;
             default:
                 throw new Error(`Could not map words to language: '${Language[language]}'.`);
         }

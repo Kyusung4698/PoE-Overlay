@@ -23,7 +23,6 @@ export class ShortcutService {
         private readonly ngZone: NgZone,
         electronProvider: ElectronProvider) {
         this.ipcRenderer = electronProvider.provideIpcRenderer();
-
         this.remote = electronProvider.provideRemote();
     }
 
@@ -46,6 +45,7 @@ export class ShortcutService {
         const shortcut = this.shortcuts[index];
         if (shortcut) {
             this.unregisterShortcut(shortcut);
+            shortcut.callback.complete();
             this.shortcuts.splice(index, 1);
         }
     }

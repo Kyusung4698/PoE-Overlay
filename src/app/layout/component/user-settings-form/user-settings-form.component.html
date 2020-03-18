@@ -4,7 +4,7 @@
         <mat-label>{{'settings.language' | translate}}</mat-label>
         <mat-select [(value)]="settings.language" (valueChange)="onLanguageChange()">
             <mat-option *ngFor="let language of languages.keys" [value]="language">
-                {{languages.values[language]}}
+                {{'settings.languages.' + (languages.values[language] | lowercase) | translate}}
             </mat-option>
         </mat-select>
     </mat-form-field>
@@ -41,6 +41,15 @@
             {{'settings.auto-download' | translate}}
         </mat-slide-toggle>
     </div>
+
+    <mat-form-field>
+        <mat-label>{{'settings.ui-language' | translate}}</mat-label>
+        <mat-select [(value)]="settings.uiLanguage">
+            <mat-option *ngFor="let language of uiLanguages.keys" [value]="language">
+                {{'settings.languages.' + (uiLanguages.values[language] | lowercase) | translate}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
 
     <mat-form-field>
         <mat-label>{{'settings.zoom' | translate}}</mat-label>

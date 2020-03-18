@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { FeatureModule } from '@app/type';
+import { FeatureModule, UiLanguage } from '@app/type';
 import { Language } from '@shared/module/poe/type';
 import { Observable, of } from 'rxjs';
 import { flatMap, map } from 'rxjs/operators';
-import { UserSettings, DialogSpawnPosition } from '../type';
+import { DialogSpawnPosition, UserSettings } from '../type';
 import { UserSettingsDialogService } from './user-settings-dialog.service';
 import { UserSettingsFeatureService } from './user-settings-feature.service';
 import { UserSettingsStorageService } from './user-settings-storage.service';
@@ -28,6 +28,7 @@ export class UserSettingsService {
                     openUserSettingsKeybinding: 'F7',
                     exitAppKeybinding: 'F8',
                     language: Language.English,
+                    uiLanguage: UiLanguage.English,
                     zoom: 100,
                     dialogSpawnPosition: DialogSpawnPosition.Center,
                     displayVersion: true,

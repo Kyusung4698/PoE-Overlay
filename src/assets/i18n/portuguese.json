@@ -22,12 +22,17 @@
 		"shortcut": "Atalho"
 	},
 	"evaluate": {
+		"count": "Contagem",
 		"currency": "Moeda exibida",
 		"days": "Últimos 7 dias",
 		"error": "Um erro ocorreu.",
 		"loading": "Carregando...",
+		"mean": "Mean",
+		"median": "Mediana",
+		"mode": "Mode",
 		"name": "Avalie",
 		"not-found": "Nenhum dado encontrado.",
+		"range": "Range",
 		"result-view": "Visualização de resultados",
 		"search": {
 			"default": "Configurações de pesquisa padrão",
@@ -82,7 +87,7 @@
 		"graph": "A barra indica a distribuição do valor do item. Ele basicamente agrupa os valores por valor e os conta.<br> A barra mais alta é o modo. Também chamado de \"valor mais comum\". Média é a média. Mediana é o valor centralizado de todos os valores.",
 		"graph-title": "O que o gráfico representa? O que é modo / média / mediana?",
 		"graph-url": "Abra 'Como ler uma média média máxima do histograma' por 'academy.datawrapper.de'",
-		"graphic": "Isso é causado principalmente por drivers gráficos incompatíveis para a versão atual do cromo.<br> Execute 'run-without-gpu.bat' para iniciar a sobreposição sem o suporte da gpu (aceleração de hardware).",
+		"graphic": "Isso é causado principalmente por drivers gráficos incompatíveis para a versão atual do cromo.<br> Desative a Aceleração de hardware dentro do menu da bandeja.",
 		"graphic-title": "Os gráficos estão embaçados / bug gráfico?",
 		"name": "Socorro",
 		"patreon": "Apoie-me no Patreon",
@@ -143,10 +148,24 @@
 		"game-settings": "Configurações do jogo",
 		"general": "Geral",
 		"language": "Língua",
+		"languages": {
+			"english": "Inglês",
+			"french": "francês",
+			"german": "alemão",
+			"korean": "coreano",
+			"polish": "polonês",
+			"portuguese": "português",
+			"russian": "russo",
+			"simplifiedchinese": "Chinês simplificado",
+			"spanish": "espanhol",
+			"thai": "tailandês",
+			"traditionalchinese": "Chinês tradicional"
+		},
 		"league": "Liga",
 		"open-settings": "Abrir configurações",
 		"relaunch-app": "Relançar aplicativo",
 		"save": "Salve ",
+		"ui-language": "Idioma da interface do usuário",
 		"zoom": "Zoom"
 	}
 }

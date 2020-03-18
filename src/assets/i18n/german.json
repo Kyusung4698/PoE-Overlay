@@ -22,12 +22,17 @@
 		"shortcut": "Tastaturkürzel"
 	},
 	"evaluate": {
+		"count": "Anzahl",
 		"currency": "Angezeigte Währung",
 		"days": "Letzte 7 Tage",
 		"error": "Es ist ein Fehler aufgetreten.",
 		"loading": "Wird geladen...",
+		"mean": "Mean",
+		"median": "Median",
+		"mode": "Mode",
 		"name": "Bewerten",
 		"not-found": "Keine Daten gefunden.",
+		"range": "Bereich",
 		"result-view": "Ergebnisansicht",
 		"search": {
 			"default": "Standardsucheinstellungen",
@@ -82,7 +87,7 @@
 		"graph": "Der Balken zeigt die Verteilung des Gegenstandwerts an. Grundsätzlich werden die Werte nach Wert gruppiert und gezählt.<br> Der höchste Balken ist der Modus. Wird auch als \"häufigster Wert\" bezeichnet. Mittelwert ist der Durchschnitt. Der Median ist der zentrierte Wert aller Werte.",
 		"graph-title": "Was stellt die Grafik dar? Was ist Modus / Mittelwert / Median?",
 		"graph-url": "\"So lesen Sie einen Histogramm-Min-Max-Median-Mittelwert\" von \"academy.datawrapper.de\" öffnen",
-		"graphic": "Dies wird hauptsächlich durch inkompatible Grafiktreiber für die aktuelle Chrom-Version verursacht.<br> Führen Sie 'run-without-gpu.bat' aus, um das Overlay ohne GPU-Unterstützung (Hardwarebeschleunigung) zu starten.",
+		"graphic": "Dies wird hauptsächlich durch inkompatible Grafiktreiber für die aktuelle Chromversion verursacht.<br> Deaktivieren Sie die Hardwarebeschleunigung im Taskleistenmenü.",
 		"graphic-title": "Die Grafiken sind verschwommen / Grafikfehler?",
 		"name": "Hilfe",
 		"patreon": "Unterstütze mich auf Patreon",
@@ -143,10 +148,24 @@
 		"game-settings": "Spieleinstellungen",
 		"general": "Allgemeines",
 		"language": "Sprache",
+		"languages": {
+			"english": "Englisch",
+			"french": "Französisch",
+			"german": "Deutsch",
+			"korean": "Koreanisch",
+			"polish": "Polnisch",
+			"portuguese": "Portugiesisch",
+			"russian": "Russisch",
+			"simplifiedchinese": "Vereinfachtes Chinesisch",
+			"spanish": "Spanisch",
+			"thai": "Thai",
+			"traditionalchinese": "Traditionelles Chinesisch"
+		},
 		"league": "Liga",
 		"open-settings": "Einstellungen öffnen",
 		"relaunch-app": "App neu starten",
 		"save": "Speichern",
+		"ui-language": "Sprache der Benutzeroberfläche",
 		"zoom": "Skalierung"
 	}
 }

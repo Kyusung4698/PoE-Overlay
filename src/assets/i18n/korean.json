@@ -22,12 +22,17 @@
 		"shortcut": "단축키"
 	},
 	"evaluate": {
+		"count": "카운트",
 		"currency": "표시중인 화폐",
 		"days": "최근 7 일",
 		"error": "오류가 발생했습니다.",
 		"loading": "로드 중 ...",
+		"mean": "Mean",
+		"median": "중앙값",
+		"mode": "Mode",
 		"name": "가격 측정",
 		"not-found": "데이터가 없습니다.",
+		"range": "Range",
 		"result-view": "결과보기",
 		"search": {
 			"default": "기본 검색 설정",
@@ -82,7 +87,7 @@
 		"graph": "막대는 품목 값의 분포를 나타냅니다. 기본적으로 값을 값으로 그룹화하고 계산합니다.<br> 가장 높은 막대는 모드입니다. '가장 일반적인 가치'라고도합니다. 평균은 평균입니다. 중앙값은 모든 값의 중심 값입니다.",
 		"graph-title": "그래프는 무엇을 나타 냅니까? 모드 / 평균 / 중간이란 무엇입니까?",
 		"graph-url": "'academy.datawrapper.de'에서 '히스토그램 최소 최대 평균값을 읽는 방법'을 엽니다.",
-		"graphic": "현재 크롬 버전의 호환되지 않는 그래픽 드라이버로 인해 발생합니다.<br> GPU 지원 (하드웨어 가속)없이 오버레이를 시작하려면 'run-without-gpu.bat'를 실행하십시오.",
+		"graphic": "현재 크롬 버전에 호환되지 않는 그래픽 드라이버가 원인입니다.<br> 트레이 메뉴에서 하드웨어 가속을 비활성화하십시오.",
 		"graphic-title": "그래픽이 흐릿하거나 그래픽 버그입니까?",
 		"name": "도움",
 		"patreon": "Patreon에서 나를 지원하십시오",
@@ -143,10 +148,24 @@
 		"game-settings": "게임 설정",
 		"general": "일반",
 		"language": "언어",
+		"languages": {
+			"english": "영어",
+			"french": "프랑스 국민",
+			"german": "독일 사람",
+			"korean": "한국어",
+			"polish": "폴란드어",
+			"portuguese": "포르투갈 인",
+			"russian": "러시아인",
+			"simplifiedchinese": "중국어 간체",
+			"spanish": "스페인 사람",
+			"thai": "타이",
+			"traditionalchinese": "중국어 번체"
+		},
 		"league": "리그",
 		"open-settings": "설정 열기",
 		"relaunch-app": "앱을 다시 시작",
 		"save": "저장",
+		"ui-language": "UI 언어",
 		"zoom": "줌"
 	}
 }
