@@ -65,6 +65,7 @@
 		"stats": "Statystyki",
 		"stats-export": "Eksportuj statystyki do schowka",
 		"stats-import": "Importuj statystyki ze schowka",
+		"stats-unique-check-all": "Unikalne sprawdzenie wszystkich",
 		"switch": "zmiana kwoty",
 		"tag": {
 			"note": "Tylko elementy bez istniejącej notatki mogą być szybko oznaczone. Uwaga została zamiast tego skopiowana.",
@@ -115,6 +116,7 @@
 		"select-list": {
 			"add": "dodaj do wybranych",
 			"remove": "usuń z wybranych",
+			"search": "Szukaj",
 			"selected": "wybrany",
 			"unselected": "Nie zaznaczone"
 		}

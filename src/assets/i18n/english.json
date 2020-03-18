@@ -65,6 +65,7 @@
 		"stats": "Stats",
 		"stats-export": "Export Stats to Clipboard",
 		"stats-import": "Import Stats from Clipboard",
+		"stats-unique-check-all": "Unique Check All",
 		"switch": "switch amount",
 		"tag": {
 			"note": "Only items without an existing note can be fast tagged. Note has been copied instead.",
@@ -115,6 +116,7 @@
 		"select-list": {
 			"add": "add to selected",
 			"remove": "remove from selected",
+			"search": "Search",
 			"selected": "Selected",
 			"unselected": "Unselected"
 		}

@@ -49,7 +49,12 @@ export class StashService {
     public highlight(term: string): Observable<void> {
         const text = this.clipboard.readText();
         this.clipboard.writeText(`"${term}"`);
-        this.keyboard.setKeyboardDelay(5);
+
+        this.keyboard.setKeyboardDelay(1);
+        this.keyboard.keyToggle(KeyCode.VK_LMENU, false);
+        this.keyboard.keyToggle(KeyCode.VK_RMENU, false);
+
+        this.keyboard.setKeyboardDelay(15);
         return of(null).pipe(
             tap(() => this.keyboard.keyTap(KeyCode.VK_KEY_F, ['control'])),
             delay(175),

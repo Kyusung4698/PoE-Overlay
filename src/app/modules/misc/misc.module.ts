@@ -3,7 +3,7 @@ import { FEATURE_MODULES } from '@app/token';
 import { Feature, FeatureModule } from '@app/type';
 import { SharedModule } from '@shared/shared.module';
 import { UserSettingsFeature } from 'src/app/layout/type';
-import { MiscSettingsComponent, MiscUserSettings } from './component';
+import { MiscSettingsComponent, MiscStashNavigation, MiscUserSettings } from './component';
 import { MiscPoedbService } from './service/misc-poedb.service';
 import { MiscStashService } from './service/misc-stash.service';
 import { MiscWikiService } from './service/misc-wiki.service';
@@ -22,8 +22,8 @@ export class MiscModule implements FeatureModule {
 
     public getSettings(): UserSettingsFeature {
         const defaultSettings: MiscUserSettings = {
-            miscStashNavigation: true,
-            miscStashHighlight: true,
+            miscStashNavigationMode: MiscStashNavigation.Normal,
+            miscStashHighlightKeybinding: 'Alt + F',
             miscWikiKeybinding: 'Alt + W',
             miscWikiExternalKeybinding: 'CmdOrCtrl + Alt + W',
             miscPoedbKeybinding: 'Alt + G',
@@ -54,25 +54,23 @@ export class MiscModule implements FeatureModule {
                 name: 'poedb-open-external',
                 accelerator: settings.miscPoedbExternalKeybinding,
             },
+            {
+                name: 'stash-highlight',
+                accelerator: settings.miscStashHighlightKeybinding
+            }
         ];
 
-        if (settings.miscStashNavigation) {
+        if (settings.miscStashNavigationMode !== MiscStashNavigation.Disabled) {
+            const inverse = settings.miscStashNavigationMode === MiscStashNavigation.Inverse;
             features.push({
-                name: 'stash-left',
+                name: !inverse ? 'stash-left' : 'stash-right',
                 accelerator: 'CmdOrCtrl + MouseWheelUp',
                 passive: true
             });
             features.push({
-                name: 'stash-right',
+                name: !inverse ? 'stash-right' : 'stash-left',
                 accelerator: 'CmdOrCtrl + MouseWheelDown',
                 passive: true
-            });
-        }
-
-        if (settings.miscStashHighlight) {
-            features.push({
-                name: 'stash-highlight',
-                accelerator: 'Alt + F'
             });
         }
 

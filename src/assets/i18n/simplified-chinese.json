@@ -65,6 +65,7 @@
 		"stats": "统计资料",
 		"stats-export": "将统计数据导出到剪贴板",
 		"stats-import": "从剪贴板导入统计",
+		"stats-unique-check-all": "唯一检查所有",
 		"switch": "切换量",
 		"tag": {
 			"note": "只有没有注释的物品才能被快速标记。注释已被复制。",
@@ -115,6 +116,7 @@
 		"select-list": {
 			"add": "添加到选中",
 			"remove": "从选择中删除",
+			"search": "搜索",
 			"selected": "选",
 			"unselected": "未选中"
 		}

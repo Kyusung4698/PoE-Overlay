@@ -65,6 +65,7 @@
 		"stats": "Estatisticas",
 		"stats-export": "Exportar estatísticas para a área de transferência",
 		"stats-import": "Importar estatísticas da área de transferência",
+		"stats-unique-check-all": "Verificação única de tudo",
 		"switch": "mudar quantidade",
 		"tag": {
 			"note": "Somente itens sem uma nota existente podem ser marcados rapidamente. A nota foi copiada.",
@@ -115,6 +116,7 @@
 		"select-list": {
 			"add": "adicionar aos selecionados",
 			"remove": "remover do selecionado",
+			"search": "Procurar",
 			"selected": "Selecionado",
 			"unselected": "não selecionado"
 		}

@@ -65,6 +65,7 @@
 		"stats": "Statistiques",
 		"stats-export": "Exporter les statistiques vers le presse-papiers",
 		"stats-import": "Importer des statistiques depuis le presse-papiers",
+		"stats-unique-check-all": "Tout cocher unique",
 		"switch": "inverser les valeurs",
 		"tag": {
 			"note": "Seuls les éléments sans note existante peuvent être taggés. La note a été copiée à la place.",
@@ -115,6 +116,7 @@
 		"select-list": {
 			"add": "Ajouter à la sélection",
 			"remove": "Supprimer de la sélection",
+			"search": "Chercher",
 			"selected": "Sélectionné",
 			"unselected": "Non séléctionné"
 		}

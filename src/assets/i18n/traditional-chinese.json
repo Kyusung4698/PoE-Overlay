@@ -65,6 +65,7 @@
 		"stats": "統計資料",
 		"stats-export": "將統計數據導出到剪貼板",
 		"stats-import": "從剪貼板導入統計",
+		"stats-unique-check-all": "唯一檢查全部",
 		"switch": "切換量",
 		"tag": {
 			"note": "只有沒有註釋的物品才能被快速標記。註釋已被複製。",
@@ -115,6 +116,7 @@
 		"select-list": {
 			"add": "添加到選中",
 			"remove": "從選擇中刪除",
+			"search": "搜索",
 			"selected": "選",
 			"unselected": "未選中"
 		}

@@ -25,7 +25,7 @@
         <mat-label>{{'evaluate.translate-language' | translate}}</mat-label>
         <mat-select [(value)]="settings.evaluateTranslatedItemLanguage">
             <mat-option *ngFor="let language of languages.keys" [value]="language">
-                {{languages.values[language]}}
+                {{'settings.languages.' + (languages.values[language] | lowercase) | translate}}
             </mat-option>
         </mat-select>
     </mat-form-field>
@@ -78,8 +78,16 @@
             </mat-select>
         </mat-form-field>
     </div>
+</mat-card>
 
-    <label class="label"> {{'evaluate.stats' | translate}} </label>
+<mat-card>
+    <mat-label> {{'evaluate.stats' | translate}} </mat-label>
+    <div class="toggle">
+        <mat-slide-toggle [checked]="settings.evaluateQueryDefaultStatsUnique"
+            (change)="settings.evaluateQueryDefaultStatsUnique = $event.checked">
+            {{'evaluate.stats-unique-check-all' | translate}}
+        </mat-slide-toggle>
+    </div>
     <app-select-list [items]="stats$ | async" (itemsChange)="onStatsChange($event)">
         <ng-template let-item>
             <span class="stat" [title]="item.text">
@@ -93,6 +101,7 @@
         <button mat-button (click)="onExportStats()">{{'evaluate.stats-export' | translate}}</button>
     </div>
 </mat-card>
+
 <mat-card>
     <mat-label> {{'evaluate.search.modifier' | translate}} </mat-label>
     <label class="label"> {{'evaluate.search.modifier-range' | translate}}

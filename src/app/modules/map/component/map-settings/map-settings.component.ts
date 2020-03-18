@@ -97,14 +97,19 @@ export class MapSettingsComponent implements UserSettingsComponent {
 
         itemsContains[key] = true;
 
-        const predicates = Object.getOwnPropertyNames(stat.text[this.settings.language]);
-        const predicate = predicates.find(x => (x[0] === 'N' && stat.negated) || !stat.negated);
-        const item: SelectListItem = {
-          key,
-          text: this.statsService.translate(stat, predicate, this.settings.language),
-          selected: !!this.settings.mapInfoWarningStats[key],
-        };
-        items.push(item);
+        const localStat = stat.text[this.settings.language];
+        if (localStat) {
+          const predicates = Object.getOwnPropertyNames(localStat);
+          const predicate = predicates.find(x => (x[0] === 'N' && stat.negated) || !stat.negated);
+          const item: SelectListItem = {
+            key,
+            text: this.statsService.translate(stat, predicate, this.settings.language),
+            selected: !!this.settings.mapInfoWarningStats[key],
+          };
+          items.push(item);
+        } else {
+          console.warn(`Stat with ${tradeId} not found in ${this.settings.language}.`);
+        }
       });
     });
     this.stats$.next(items);

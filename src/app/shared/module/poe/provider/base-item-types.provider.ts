@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { English, French, German, Korean, Portuguese, Russian, Spanish, Thai } from '../../../../../assets/poe/base-item-types.json';
+import { English, French, German, Korean, Portuguese, Russian, SimplifiedChinese, Spanish, Thai, TraditionalChinese } from '../../../../../assets/poe/base-item-types.json';
 import { BaseItemTypeMap, Language } from '../type';
 
 @Injectable({
@@ -24,9 +24,10 @@ export class BaseItemTypesProvider {
                 return Spanish;
             case Language.Korean:
                 return Korean;
-            // TODO: Chinese
-            // case Language.Chinese:
-            //     return Chinese;
+            case Language.SimplifiedChinese:
+                return SimplifiedChinese;
+            case Language.TraditionalChinese:
+                return TraditionalChinese;
             default:
                 throw new Error(`Could not map words to language: '${Language[language]}'.`);
         }

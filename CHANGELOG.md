@@ -1,8 +1,15 @@
 ## 0.6.7 (2020-03-18)
 
-- add traditional chinese support
-- add simplified chinese support
-- add seperate ui language (polish)
+- add traditional chinese support (Garena)
+- add simplified chinese support (Tencent)
+- add seperate ui language
+  - polish
+- add search placeholder above stat list
+- add stash highlight keybinding (#350)
+- add stash navigation mode (disabled, normal, inverse)
+- add alt modifier to bookmark hotkeys (#362)
+- add unique select all (#360)
+- update data to 3.10.0c
 - fix uncaught exception on alert
 
 ## 0.6.6 (2020-03-17)

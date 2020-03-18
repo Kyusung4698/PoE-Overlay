@@ -65,6 +65,7 @@
 		"stats": "통계",
 		"stats-export": "통계를 클립 보드로 내보내기",
 		"stats-import": "클립 보드에서 통계 가져 오기",
+		"stats-unique-check-all": "모두 확인",
 		"switch": "스위치 금액",
 		"tag": {
 			"note": "기존 메모가없는 항목 만 빠른 태그를 지정할 수 있습니다. 대신 메모가 복사되었습니다.",
@@ -115,6 +116,7 @@
 		"select-list": {
 			"add": "선택한 항목에 추가",
 			"remove": "선택된 항목에서 제거",
+			"search": "수색",
 			"selected": "선택된",
 			"unselected": "선택하지 않은"
 		}

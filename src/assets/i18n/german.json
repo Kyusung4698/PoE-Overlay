@@ -65,6 +65,7 @@
 		"stats": "Stats",
 		"stats-export": "Exportieren der Stats in die Zwischenablage",
 		"stats-import": "Importieren der Stats aus der Zwischenablage",
+		"stats-unique-check-all": "Einzigartige Check All",
 		"switch": "Betrag wechseln",
 		"tag": {
 			"note": "Nur Elemente ohne vorhandene Notiz können schnell markiert werden. Notiz wurde stattdessen kopiert.",
@@ -115,6 +116,7 @@
 		"select-list": {
 			"add": "Zur Auswahl hinzufügen",
 			"remove": "Aus Auswahl entfernen",
+			"search": "Suche",
 			"selected": "Ausgewählt",
 			"unselected": "Nicht ausgewählt"
 		}

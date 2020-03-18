@@ -14,12 +14,14 @@
 </mat-card>
 <mat-card>
   <mat-label>{{'misc.stash' | translate}}</mat-label>
-  <div class="toggle">
-    <mat-slide-toggle [checked]="settings.miscStashNavigation" (change)="settings.miscStashNavigation = $event.checked">
-      {{'misc.navigation' | translate}} (CTRL + SCROLL)
-    </mat-slide-toggle>
-    <mat-slide-toggle [checked]="settings.miscStashHighlight" (change)="settings.miscStashHighlight = $event.checked">
-      {{'misc.highlight' | translate}} (ALT + F)
-    </mat-slide-toggle>
-  </div>
+  <mat-form-field>
+    <mat-label>{{'misc.navigation' | translate}} (CTRL + SCROLL)</mat-label>
+    <mat-select [(value)]="settings.miscStashNavigationMode">
+      <mat-option *ngFor="let navigation of navigations.keys" [value]="navigation">
+        {{navigations.values[navigation]}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <app-accelerator [label]="'misc.highlight' | translate" [(value)]="settings.miscStashHighlightKeybinding">
+  </app-accelerator>
 </mat-card>

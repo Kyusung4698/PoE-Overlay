@@ -61,10 +61,14 @@ export class EvaluateQueryItemProvider {
         }
 
         if (item.stats) {
-            queryItem.stats = item.stats.map(stat => {
-                const key = `${stat.type}.${stat.tradeId}`;
-                return settings.evaluateQueryDefaultStats[key] ? stat : undefined;
-            });
+            if (item.rarity === ItemRarity.Unique && settings.evaluateQueryDefaultStatsUnique) {
+                queryItem.stats = item.stats;
+            } else {
+                queryItem.stats = item.stats.map(stat => {
+                    const key = `${stat.type}.${stat.tradeId}`;
+                    return settings.evaluateQueryDefaultStats[key] ? stat : undefined;
+                });
+            }
         }
 
         return {

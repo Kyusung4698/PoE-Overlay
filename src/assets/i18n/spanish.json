@@ -65,6 +65,7 @@
 		"stats": "Estadísticas",
 		"stats-export": "Exportar estadísticas al portapapeles",
 		"stats-import": "Importar estadísticas del portapapeles",
+		"stats-unique-check-all": "Verificación única de todo",
 		"switch": "cantidad de cambio",
 		"tag": {
 			"note": "Solo los artículos sin una nota existente se pueden etiquetar rápidamente. La nota se ha copiado en su lugar.",
@@ -115,6 +116,7 @@
 		"select-list": {
 			"add": "agregar a seleccionado",
 			"remove": "eliminar de seleccionado",
+			"search": "Buscar",
 			"selected": "Seleccionado",
 			"unselected": "No seleccionado"
 		}
