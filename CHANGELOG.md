@@ -1,3 +1,8 @@
+## 0.6.9 (2020-03-19)
+
+- fix cloudflare access error
+- fix false trojan warning
+
 ## 0.6.8 (2020-03-19)
 
 - add bookmark external flag (#373)

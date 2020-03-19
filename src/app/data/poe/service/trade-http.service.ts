@@ -1,5 +1,6 @@
 import { HttpClient, HttpErrorResponse, HttpParams, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BrowserService } from '@app/service';
 import { environment } from '@env/environment';
 import { Language } from '@shared/module/poe/type';
 import { Observable, of, throwError } from 'rxjs';
@@ -7,13 +8,16 @@ import { delay, flatMap, map, retry, retryWhen } from 'rxjs/operators';
 import { TradeFetchResult, TradeItemsResult, TradeLeaguesResult, TradeResponse, TradeSearchRequest, TradeSearchResponse, TradeStaticResult, TradeStatsResult } from '../schema/trade';
 
 const RETRY_COUNT = 3;
+const RETRY_DELAY = 100;
 const RETRY_LIMIT_DELAY = 100;
 
 @Injectable({
     providedIn: 'root'
 })
 export class TradeHttpService {
-    constructor(private readonly http: HttpClient) { }
+    constructor(
+        private readonly http: HttpClient,
+        private readonly browser: BrowserService) { }
 
     public getItems(language: Language): Observable<TradeResponse<TradeItemsResult>> {
         const url = this.getApiUrl('data/items', language);
@@ -57,6 +61,11 @@ export class TradeHttpService {
             })
         }).pipe(retryWhen(errors => errors.pipe(
             flatMap((error: HttpErrorResponse) => {
+                if (error.status === 403) {
+                    return this.browser.retrieve(url).pipe(
+                        map(() => null)
+                    );
+                }
                 if (error.status === 429) {
                     return of(error).pipe(delay(RETRY_LIMIT_DELAY));
                 }
@@ -107,7 +116,22 @@ export class TradeHttpService {
         return this.http.get(url, {
             responseType: 'text',
             observe: 'response'
-        }).pipe(retry(RETRY_COUNT), map(response => this.transformResponse(response)));
+        }).pipe(
+            retryWhen(errors => errors.pipe(
+                flatMap((error: HttpErrorResponse, count) => {
+                    if (count >= RETRY_COUNT) {
+                        return throwError(error);
+                    }
+                    if (error.status === 403) {
+                        return this.browser.retrieve(url).pipe(
+                            map(() => null)
+                        );
+                    }
+                    return of(null).pipe(delay(RETRY_DELAY));
+                })
+            )),
+            map(response => this.transformResponse(response))
+        );
     }
 
     private transformResponse<TResponse>(response: HttpResponse<string>): TResponse {
