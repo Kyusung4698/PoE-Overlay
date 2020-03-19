@@ -20,11 +20,13 @@ export class BookmarkModule implements FeatureModule {
             bookmarks: [
                 {
                     url: 'https://www.poelab.com/',
-                    shortcut: 'Alt + num1'
+                    shortcut: 'Alt + num1',
+                    external: false
                 },
                 {
                     url: 'https://wraeclast.com/',
-                    shortcut: 'Alt + num2'
+                    shortcut: 'Alt + num2',
+                    external: false
                 }
             ]
         };
@@ -38,16 +40,18 @@ export class BookmarkModule implements FeatureModule {
     public getFeatures(settings: BookmarkUserSettings): Feature[] {
         return settings.bookmarks
             .filter(bookmark => bookmark.url && bookmark.shortcut)
-            .map(bookmark => {
+            .map((bookmark, index) => {
                 const feature: Feature = {
-                    name: bookmark.url,
+                    name: `bookmark-${index}`,
                     accelerator: bookmark.shortcut
                 };
                 return feature;
             });
     }
 
-    public run(feature: string): void {
-        this.bookmarkService.open(feature);
+    public run(feature: string, settings: BookmarkUserSettings): void {
+        const index = +feature.split('-')[1];
+        const bookmark = settings.bookmarks[index];
+        this.bookmarkService.open(bookmark);
     }
 }

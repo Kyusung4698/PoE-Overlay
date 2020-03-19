@@ -1,3 +1,15 @@
+## 0.6.8 (2020-03-19)
+
+- add bookmark external flag (#373)
+- add evaluate original currency (#308)
+- update exchange rate to not show inverse rate if item has stack size > 1 (#377)
+- update data to 3.10.0d
+- update chinese translations (thanks to Eyster87)
+- remove simplified chinese (maintenance for 3.10)
+- fix missing mod `Trigger a Socketed Spell when you Use a Skill` (#368)
+- fix missing map tier filter (#372)
+- fix temporary damage_resistance mismatched with damage_resistance_is (#359)
+
 ## 0.6.7 (2020-03-18)
 
 - add traditional chinese support (Garena)

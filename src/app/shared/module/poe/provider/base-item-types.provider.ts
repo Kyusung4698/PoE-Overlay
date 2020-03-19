@@ -24,8 +24,8 @@ export class BaseItemTypesProvider {
                 return Spanish;
             case Language.Korean:
                 return Korean;
-            case Language.SimplifiedChinese:
-                return SimplifiedChinese;
+            // case Language.SimplifiedChinese:
+            //     return SimplifiedChinese;
             case Language.TraditionalChinese:
                 return TraditionalChinese;
             default:

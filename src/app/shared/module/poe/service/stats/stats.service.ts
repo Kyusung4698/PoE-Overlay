@@ -37,7 +37,7 @@ interface StatsSectionsSearch {
 
 const REVERSE_REGEX = /\\[.*+?^${}()|[\]\\]/g;
 const VALUE_PLACEHOLDER = '(\\S+)';
-const TYPE_PLACEHOLDER_REGEX = / \(implicit\)| \(fractured\)| \(crafted\) |\(enchant\)/;
+const TYPE_PLACEHOLDER_REGEX = / \(implicit\)| \(fractured\)| \(crafted\)| \(enchant\)/;
 
 @Injectable({
     providedIn: 'root'

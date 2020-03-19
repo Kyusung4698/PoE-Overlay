@@ -8,6 +8,7 @@ export interface BookmarkUserSettings extends UserSettings {
 export interface BookmarkUserBookmark {
   url: string;
   shortcut: string;
+  external: boolean;
 }
 
 @Component({
@@ -34,7 +35,8 @@ export class BookmarkSettingsComponent implements UserSettingsComponent {
   private addBookmark(): void {
     this.settings.bookmarks.push({
       url: 'https://github.com/Kyusung4698/PoE-Overlay',
-      shortcut: undefined
+      shortcut: undefined,
+      external: false
     });
   }
 

@@ -1,5 +1,11 @@
 <mat-card>
     <mat-label>{{'evaluate.settings' | translate}}</mat-label>
+    <div class="toggle">
+        <mat-slide-toggle [checked]="settings.evaluateCurrencyOriginal"
+            (change)="settings.evaluateCurrencyOriginal = $event.checked">
+            {{'evaluate.currency-original' | translate}}
+        </mat-slide-toggle>
+    </div>
     <mat-form-field>
         <mat-label>{{'evaluate.currency' | translate}}</mat-label>
         <mat-select [(value)]="settings.evaluateCurrencyIds" (valueChange)="onCurrenciesValueChange()" multiple>

@@ -243,7 +243,9 @@
 			],
 			"bossRating": "2",
 			"bossCount": 1,
-			"url": "https://pathofexile.gamepedia.com/Cage_Map"
+			"url": "https://pathofexile.gamepedia.com/Cage_Map",
+			"encounter": "Executioner Bloodwing (based on Justicar Casticus)",
+			"layout": "Map is a long and winding corridor with a few dead ended branches along its length. Roughly midway along its length, the coils of the map's corridors come into contact, though you cannot cross this gap. The boss arena lies at the end of the map corridor."
 		},
 		"Cells Map": {
 			"items": [
@@ -686,7 +688,8 @@
 				"Loyalty",
 				"Her Mask",
 				"Pride of the First Ones",
-				"Convoking Wand"
+				"Convoking Wand",
+				"The Tinkerer's Table"
 			],
 			"layoutRating": "C",
 			"bosses": [
@@ -1398,7 +1401,8 @@
 				"Bone Helmet",
 				"The Rite of Elements",
 				"Buried Treasure",
-				"The Primordial"
+				"The Primordial",
+				"The Tinkerer's Table"
 			],
 			"layoutRating": "C",
 			"bosses": [
@@ -2359,7 +2363,8 @@
 				"The Encroaching Darkness",
 				"Bone Helmet",
 				"Lingering Remnants",
-				"Seven Years Bad Luck"
+				"Seven Years Bad Luck",
+				"Divine Justice"
 			],
 			"bosses": [
 				"Woad, Mockery of Man"

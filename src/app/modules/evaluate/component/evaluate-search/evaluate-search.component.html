@@ -55,7 +55,8 @@
     </div>
     <app-evaluate-search-chart *ngIf="graph" [result]="result" (amountSelect)="onAmountSelect($event)">
     </app-evaluate-search-chart>
-    <app-evaluate-search-table *ngIf="!graph" [result]="result" (amountSelect)="onAmountSelect($event)">
+    <app-evaluate-search-table *ngIf="!graph" [result]="result" [original]="settings.evaluateCurrencyOriginal"
+      (amountSelect)="onAmountSelect($event.amount, $event.currency)">
     </app-evaluate-search-table>
   </ng-container>
   <ng-container *ngIf="result.items && result.items.length === 0">

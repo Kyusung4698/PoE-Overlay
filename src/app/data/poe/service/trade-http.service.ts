@@ -91,9 +91,9 @@ export class TradeHttpService {
             case Language.Korean:
                 baseUrl = environment.poe.koreanUrl;
                 break;
-            case Language.SimplifiedChinese:
-                baseUrl = environment.poe.simplifiedChineseUrl;
-                break;
+            // case Language.SimplifiedChinese:
+            //     baseUrl = environment.poe.simplifiedChineseUrl;
+            //     break;
             case Language.TraditionalChinese:
                 baseUrl = environment.poe.traditionalChineseUrl;
                 break;

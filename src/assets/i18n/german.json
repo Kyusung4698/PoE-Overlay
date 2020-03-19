@@ -7,6 +7,7 @@
 	},
 	"bookmark": {
 		"add": "Lesezeichen hinzufügen",
+		"external": "Externe",
 		"name": "Lesezeichen",
 		"shortcut": "Tastaturkürzel",
 		"url": "Url"
@@ -24,6 +25,7 @@
 	"evaluate": {
 		"count": "Anzahl",
 		"currency": "Angezeigte Währung",
+		"currency-original": "Originalwährung",
 		"days": "Letzte 7 Tage",
 		"error": "Es ist ein Fehler aufgetreten.",
 		"loading": "Wird geladen...",

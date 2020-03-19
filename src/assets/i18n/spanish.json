@@ -7,6 +7,7 @@
 	},
 	"bookmark": {
 		"add": "Añadir marcador",
+		"external": "Externo",
 		"name": "Marcador",
 		"shortcut": "Atajo",
 		"url": "Url"
@@ -24,6 +25,7 @@
 	"evaluate": {
 		"count": "Contar",
 		"currency": "Moneda mostrada",
+		"currency-original": "Moneda original",
 		"days": "Los últimos 7 días",
 		"error": "Ocurrió un error.",
 		"loading": "Cargando...",

@@ -7,6 +7,7 @@ import { ItemCategory, ItemRarity } from '../type';
 export class ItemCategoryValue {
     name: string;
     type: string;
+    mapTier: number;
     links: number;
     chaosAmount: number;
     change: number;
@@ -182,6 +183,7 @@ export class ItemCategoryValuesProvider {
                         name: line.currencyTypeName,
                         type: undefined,
                         links: undefined,
+                        mapTier: undefined,
                         change: sparkLine.totalChange,
                         history: sparkLine.data,
                         chaosAmount: line.chaosEquivalent,
@@ -205,6 +207,7 @@ export class ItemCategoryValuesProvider {
                     const value: ItemCategoryValue = {
                         name: line.name,
                         type: line.baseType,
+                        mapTier: line.mapTier,
                         links: line.links,
                         change: sparkLine.totalChange,
                         history: sparkLine.data,

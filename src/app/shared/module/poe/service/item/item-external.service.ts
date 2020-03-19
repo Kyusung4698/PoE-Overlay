@@ -40,7 +40,7 @@ const LANGUAGE_MAPPING = {
     [Language.Russian]: 'ru',
     [Language.Spanish]: 'sp',
     [Language.Thai]: 'th',
-    [Language.SimplifiedChinese]: 'cn',
+    // [Language.SimplifiedChinese]: 'cn',
     [Language.TraditionalChinese]: 'tw',
 }
 
