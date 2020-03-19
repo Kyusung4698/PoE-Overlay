@@ -81,7 +81,7 @@ export class EvaluateExchangeRateComponent {
       .subscribe(
         result => {
           if (result) {
-            this.inverse$.next(result.amount < 1 && item.rarity === ItemRarity.Currency);
+            this.inverse$.next(result.amount < 1 && result.factor <= 1 && item.rarity === ItemRarity.Currency);
           }
           this.result$.next({ rate: result });
         },

@@ -7,6 +7,7 @@
 	},
 	"bookmark": {
 		"add": "북마크에 추가",
+		"external": "외부",
 		"name": "책갈피",
 		"shortcut": "단축키",
 		"url": "URL"
@@ -24,6 +25,7 @@
 	"evaluate": {
 		"count": "카운트",
 		"currency": "표시중인 화폐",
+		"currency-original": "원래 통화",
 		"days": "최근 7 일",
 		"error": "오류가 발생했습니다.",
 		"loading": "로드 중 ...",

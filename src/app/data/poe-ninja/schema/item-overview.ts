@@ -6,6 +6,7 @@ export interface ItemOverviewResponse {
 export interface ItemOverviewLine {
     name: string;
     baseType: string;
+    mapTier: number;
     links: number;
     chaosValue: number;
     sparkline: SparkLine;

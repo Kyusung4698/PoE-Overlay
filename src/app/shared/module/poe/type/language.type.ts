@@ -7,7 +7,7 @@ export enum Language {
     French = 6,
     Spanish = 7,
     Korean = 8,
-    SimplifiedChinese = 9,
+    // SimplifiedChinese = 9,
     TraditionalChinese = 10,
 }
 

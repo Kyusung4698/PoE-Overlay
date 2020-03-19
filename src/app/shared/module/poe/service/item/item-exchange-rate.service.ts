@@ -46,9 +46,9 @@ export class ItemExchangeRateService {
                         const values = factors.map(factor => [value.chaosAmount * factor]);
                         const index = this.currencySelectService.select(values, CurrencySelectStrategy.MinWithAtleast1);
                         const result: ItemExchangeRateResult = {
-                            amount: values[index][0],
+                            amount: Math.ceil(values[index][0] * 100) / 100,
                             factor: +(item.properties?.stackSize?.value?.split('/') || [1])[0],
-                            inverseAmount: 1 / values[index][0],
+                            inverseAmount: Math.ceil((1 / values[index][0]) * 100) / 100,
                             currency: currencies[index],
                             change: value.change,
                             history: value.history || [],
@@ -76,13 +76,23 @@ export class ItemExchangeRateService {
             return false;
         };
 
+        const tier = +item.properties?.mapTier?.value;
+        const filterMapTier = (x: ItemCategoryValue) => {
+            if (isNaN(tier) || x.links === undefined) {
+                return true;
+            }
+            return x.mapTier === tier;
+        };
+
         return this.valuesProvider.provide(leagueId, item.rarity, item.category).pipe(map(response => {
             const type = this.baseItemTypesService.translate(item.typeId, Language.English);
             const name = this.wordService.translate(item.nameId, Language.English);
             if (item.typeId && !item.nameId) {
-                return response.values.find(x => x.name === type && filterLinks(x));
+                return response.values.find(
+                    x => x.name === type && filterLinks(x) && filterMapTier(x));
             }
-            return response.values.find(x => x.name === name && x.type === type && filterLinks(x));
+            return response.values.find(
+                x => x.name === name && x.type === type && filterLinks(x) && filterMapTier(x));
         }));
     }
 }

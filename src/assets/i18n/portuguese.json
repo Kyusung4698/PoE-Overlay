@@ -7,6 +7,7 @@
 	},
 	"bookmark": {
 		"add": "Adicionar marcador",
+		"external": "Externo",
 		"name": "marca páginas",
 		"shortcut": "Atalho",
 		"url": "URL"
@@ -24,6 +25,7 @@
 	"evaluate": {
 		"count": "Contagem",
 		"currency": "Moeda exibida",
+		"currency-original": "Moeda original",
 		"days": "Últimos 7 dias",
 		"error": "Um erro ocorreu.",
 		"loading": "Carregando...",

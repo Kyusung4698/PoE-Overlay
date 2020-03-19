@@ -7,6 +7,7 @@
 	},
 	"bookmark": {
 		"add": "添加書籤",
+		"external": "外部",
 		"name": "書籤",
 		"shortcut": "捷徑",
 		"url": "網址"
@@ -24,6 +25,7 @@
 	"evaluate": {
 		"count": "計數",
 		"currency": "顯示貨幣",
+		"currency-original": "原始貨幣",
 		"days": "過去7天",
 		"error": "發生錯誤。",
 		"loading": "載入中...",

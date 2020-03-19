@@ -34,6 +34,7 @@ export class EvaluateModule implements FeatureModule {
 
     public getSettings(): UserSettingsFeature {
         const defaultSettings: EvaluateUserSettings = {
+            evaluateCurrencyOriginal: false,
             evaluateCurrencyIds: ['chaos', 'exa'],
             evaluateResultView: EvaluateResultView.Graph,
             evaluateQueryDefaultItemLevel: false,

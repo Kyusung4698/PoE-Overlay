@@ -2,10 +2,19 @@
     <button class="remove" mat-icon-button (click)="onRemoveClick(index)">
         <mat-icon>close</mat-icon>
     </button>
-    <mat-form-field>
-        <mat-label>{{'bookmark.url' | translate}}</mat-label>
-        <input matInput [(ngModel)]="bookmark.url">
-    </mat-form-field>
+    <div class="url">
+        <div class="first">
+            <mat-form-field>
+                <mat-label>{{'bookmark.url' | translate}}</mat-label>
+                <input matInput [(ngModel)]="bookmark.url">
+            </mat-form-field>
+        </div>
+        <div class="second">
+            <mat-slide-toggle [checked]="bookmark.external" (change)="bookmark.external = $event.checked">
+                {{'bookmark.external' | translate}}
+            </mat-slide-toggle>
+        </div>
+    </div>
     <app-accelerator [label]="'bookmark.shortcut' | translate" [(value)]="bookmark.shortcut">
     </app-accelerator>
 </mat-card>

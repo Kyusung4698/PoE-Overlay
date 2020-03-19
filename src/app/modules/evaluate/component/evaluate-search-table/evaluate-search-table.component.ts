@@ -4,9 +4,16 @@ import { Currency } from '@shared/module/poe/type';
 
 interface Row {
   amount: number;
+  originalAmount: number;
+  originalCurrency: Currency;
   count: number;
   seller: string;
   age: string;
+}
+
+interface SelectEvent {
+  amount: number;
+  currency?: Currency;
 }
 
 @Component({
@@ -32,6 +39,7 @@ export class EvaluateSearchTableComponent {
       result.items.forEach(item => {
         const next: Row = {
           amount: Math.round(item.targetAmount * 100) / 100, count: 1,
+          originalAmount: item.originalAmount, originalCurrency: item.original,
           seller: item.seller, age: item.age,
         };
         const key = keyFn(next);
@@ -47,10 +55,16 @@ export class EvaluateSearchTableComponent {
     }
   }
 
-  @Output()
-  public amountSelect = new EventEmitter<number>();
+  @Input()
+  public original: boolean;
 
-  public onRowClick(amount: number): void {
-    this.amountSelect.next(amount);
+  @Output()
+  public amountSelect = new EventEmitter<SelectEvent>();
+
+  public onRowClick(row: Row): void {
+    this.amountSelect.next({
+      amount: this.original ? row.originalAmount : row.amount,
+      currency: this.original ? row.originalCurrency : undefined
+    });
   }
 }

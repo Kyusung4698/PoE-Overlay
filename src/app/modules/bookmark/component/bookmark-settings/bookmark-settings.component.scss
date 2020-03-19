@@ -8,3 +8,19 @@
     z-index: 1;
   }
 }
+
+.url {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+
+  > .first {
+    width: 75%;
+    padding-right: 15px;
+  }
+
+  > .second {
+    width: 25%;
+    text-align: center;
+  }
+}

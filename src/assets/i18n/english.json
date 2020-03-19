@@ -7,6 +7,7 @@
 	},
 	"bookmark": {
 		"add": "Add Bookmark",
+		"external": "External",
 		"name": "Bookmark",
 		"shortcut": "Shortcut",
 		"url": "Url"
@@ -24,6 +25,7 @@
 	"evaluate": {
 		"count": "Count",
 		"currency": "Displayed Currency",
+		"currency-original": "Original Currency",
 		"days": "Last 7 days",
 		"error": "An error occured.",
 		"loading": "Loading...",

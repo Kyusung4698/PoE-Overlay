@@ -14,10 +14,11 @@ import { UserSettings, UserSettingsComponent } from 'src/app/layout/type';
 
 export enum EvaluateResultView {
   Graph = 1,
-  List = 2
+  List = 2,
 }
 
 export interface EvaluateUserSettings extends UserSettings {
+  evaluateCurrencyOriginal: boolean;
   evaluateCurrencyIds: string[];
   evaluateKeybinding: string;
   evaluateResultView: EvaluateResultView;

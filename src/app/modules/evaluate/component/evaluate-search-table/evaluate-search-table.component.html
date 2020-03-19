@@ -6,15 +6,21 @@
             <th class="age">Age</th>
         </tr>
     </table>
-    <cdk-virtual-scroll-viewport class="viewport" [style.height.px]="rows.length > 20 ? 20 * 20 : (rows.length + 1) * 20" itemSize="19" minBufferPx="200" maxBufferPx="400">
+    <cdk-virtual-scroll-viewport class="viewport"
+        [style.height.px]="rows.length > 20 ? 20 * 20 : (rows.length + 1) * 20" itemSize="19" minBufferPx="200"
+        maxBufferPx="400">
         <table>
             <tr *cdkVirtualFor="let row of rows;templateCacheSize: 0" class="clickable" [class.fixer]="row.count >= 3"
-                (click)="onRowClick(row.amount)">
-                <td class="amount">
+                (click)="onRowClick(row)">
+                <td class="amount" *ngIf="!original">
                     <span class="value">{{row.amount}}</span>
                     <span *ngIf="row.count > 1">
                         <small>&nbsp;x&nbsp;{{row.count}}</small>
                     </span>
+                </td>
+                <td *ngIf="original">
+                    <app-currency-frame [amount]="row.originalAmount" [currency]="row.originalCurrency">
+                    </app-currency-frame>
                 </td>
                 <td class="seller"> {{row.seller}} </td>
                 <td class="age"> <small>{{row.age}}</small> </td>
