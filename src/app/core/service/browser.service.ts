@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ElectronProvider } from '@app/provider';
 import { Remote } from 'electron';
+import { Observable, Subject } from 'rxjs';
 import { DialogRefService } from './dialog/dialog-ref.service';
 
 @Injectable({
@@ -13,6 +14,23 @@ export class BrowserService {
         private readonly dialogRef: DialogRefService,
         electronProvider: ElectronProvider) {
         this.electron = electronProvider.provideRemote();
+    }
+
+    public retrieve(url: string): Observable<void> {
+        const BrowserWindow = this.electron.BrowserWindow;
+        const parent = this.electron.getCurrentWindow();
+        const subject = new Subject<void>();
+        const win = new BrowserWindow({
+            parent,
+            show: false
+        });
+        win.once('ready-to-show', () => {
+            subject.next();
+            subject.complete();
+            win.close();
+        });
+        win.loadURL(url);
+        return subject;
     }
 
     public open(url: string, external: boolean = false): void {
