@@ -73,9 +73,9 @@
             "note": "Tylko elementy bez istniejącej notatki mogą być szybko oznaczone. Notatka została zamiast tego skopiowana.",
             "outside-stash": "Tylko przedmioty w skrytce można szybko oznaczyć. Notatka została zamiast tego skopiowana."
     },
-    "translate": "Wyceń przedmiot, przy tłumaczenia",
-    "translate-language": "Język przełumaczonego przedmiotu Translated Item Language",
-    "translate-settings": "Wycena Translate Settings"
+    "translate": "Wyceń przetłumaczony przedmiot",
+    "translate-language": "Język przełumaczonego przedmiotu",
+    "translate-settings": "Ustawienia tłumaczenia Wyceny"
   },
   "help": {
     "browser": "Przytrzymanie klawisza Ctrl i kliknięcie, spowoduje otwarcie odnośnika w domyślnej przeglądarce.",
