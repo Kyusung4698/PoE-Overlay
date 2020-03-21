@@ -7,31 +7,40 @@ assignees: ''
 
 ---
 
+<!--🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅
+
 Oh hi there! 😄
 
 To expedite issue processing please search open and closed issues before submitting a new one.
-Existing issues often contain information about workarounds, resolution.
+Existing issues often contain information about workarounds, resolution, or progress updates.
+
+🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅-->
 
 # 🐞 bug report
 
 **Describe the bug**
-A clear and concise description of what the bug is.
+<!--  A clear and concise description of what the bug is.  -->
+<!-- ✍️edit:-->
 
 **To Reproduce**
+<!-- 
 Steps to reproduce the behavior:
 1. Go to '...'
 2. Click on '....'
 3. Scroll down to '....'
 4. See error
+<!-- ✍️edit:-->
 
 **Expected behavior**
-A clear and concise description of what you expected to happen.
+<!--   A clear and concise description of what you expected to happen.  -->
+<!-- ✍️edit:-->
 
 **Screenshots**
-If applicable, add screenshots to help explain your problem.
+<!-- Often a screenshot can help to capture the issue better than a long description. -->
+<!-- ✍️upload a screenshot:-->
 
 ## 🌍  Your Environment
 
-- OS: [e.g. Win7 x64]
-- Version: [e.g. 0.6.9 portable]
-- PoE: [e.g. Steam 3.10.0/e English]
+- OS: <!-- ✍️edit:--> e.g. Win7 x64
+- Version: <!-- ✍️edit:--> e.g. 0.6.9 portable
+- PoE: <!-- ✍️edit:--> e.g. Steam 3.10.0/e English
