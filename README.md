@@ -1,3 +1,7 @@
+![GitHub Releases](https://img.shields.io/github/downloads/Kyusung4698/PoE-Overlay/latest/total)
+![GitHub Release Date](https://img.shields.io/github/release-date/Kyusung4698/PoE-Overlay)
+<a href="https://www.patreon.com/bePatron?u=30666721"><img src="https://c5.patreon.com/external/logo/become_a_patron_button.png" alt="Become a Patron" width="85px" height="20px"></a>
+
 # PoE Overlay 0.6.9
 
 An Overlay for Path of Exile. The ***core aspect*** is to blend in with the game. Built with Electron and Angular. 
@@ -6,20 +10,7 @@ An Overlay for Path of Exile. The ***core aspect*** is to blend in with the game
 - [Features](#features)
 - [Roadmap](#roadmap)
 - [Enduser](#enduser)
-    - [Getting Started](#getting-started)
-        - [Prerequisites](#prerequisites)
-        - [Installing](#installing)
-        - [Shortcuts](#shortcuts)
 - [Developer](#developer)
-    - [Getting Started](#getting-started-1)
-        - [Prerequisites](#prerequisites-1)
-        - [Installing](#installing-1)
-    - [Running the tests](#running-the-tests)
-        - [And coding style tests](#and-coding-style-tests)
-    - [Building](#building)
-    - [Built With](#built-with)
-    - [Contributing](#contributing)
-    - [Versioning](#versioning)
 - [Authors](#authors)
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
