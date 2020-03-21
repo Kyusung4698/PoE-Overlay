@@ -94,6 +94,7 @@ These instructions will set you up to run and enjoy the overlay.
 You can change these shortcuts in the user settings menu.
 
 <details>
+  
 |Shortcut        |Description
 |---             |---	    
 | `ctrl+d`       | Displays the item in a frame and evaluates the price. You can open the offical trade site on click of the currency value
@@ -113,6 +114,7 @@ You can change these shortcuts in the user settings menu.
 | `alt + num2`   | Open `https://wraeclast.com/`
 | `esc`          | Close latest dialog
 | `space`        | Close all dialogs
+
 </details>
 
 ## Developer
