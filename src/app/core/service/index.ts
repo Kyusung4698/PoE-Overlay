@@ -1,3 +1,4 @@
+export * from './app-translate.service';
 export * from './app.service';
 export * from './browser.service';
 export * from './renderer.service';

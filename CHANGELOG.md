@@ -1,3 +1,14 @@
+## 0.6.10 (2020-03-22)
+
+- add missing translations (#413)
+- add trade search configurable debounce time with now support (#426)
+- add trade search cancelable (my patrons)
+- update always use the item type of maps and flasks as query param (#433)
+- update use ico instead of png as tray icon (#403)
+- update disable arrow if no mod selected (#425)
+- fix run on boot not working (#419)
+- fix uncaught exceptions thrown after app relaunch (#411)
+
 ## 0.6.9 (2020-03-19)
 
 - fix cloudflare access error

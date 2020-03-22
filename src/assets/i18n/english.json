@@ -1,5 +1,6 @@
 {
 	"app": {
+		"clickable": "'Click' = In-Game Browser, 'CTRL + Click' Default Browser",
 		"update": {
 			"available": "A new update is available. Will be automatically downloaded unless otherwise specified.",
 			"downloaded": "The new update is now ready to install. Please relaunch your application."
@@ -19,15 +20,30 @@
 	},
 	"command": {
 		"add": "Add Command",
-		"name": "Command",
-		"shortcut": "Shortcut"
+		"name": "Commands",
+		"shortcut": "Shortcut",
+		"text": "Command"
 	},
 	"evaluate": {
+		"age": "Age",
+		"analyzing": "Analyzing data...",
+		"cancel": "Cancel?",
+		"canceled": "Search canceled. Open in browser?",
 		"count": "Count",
 		"currency": "Displayed Currency",
 		"currency-original": "Original Currency",
 		"days": "Last 7 days",
+		"debounce-time": "Search Debounce Time",
+		"debounce-times": {
+			"fast": "Fast",
+			"normal": "Normal",
+			"slow": "Slow",
+			"veryfast": "Very fast",
+			"veryslow": "Very slow"
+		},
+		"empty": "No results. Open in browser?",
 		"error": "An error occured.",
+		"listings": "Found {{total}}. Fetching entries...",
 		"loading": "Loading...",
 		"mean": "Mean",
 		"median": "Median",
@@ -36,6 +52,10 @@
 		"not-found": "No data found.",
 		"range": "Range",
 		"result-view": "Result View",
+		"result-views": {
+			"graph": "Graph",
+			"list": "List"
+		},
 		"search": {
 			"default": "Default Search Settings",
 			"disable-max-range": "Disable Max Range",
@@ -63,7 +83,10 @@
 			"modifier-range": "Modifier Range",
 			"online-only": "Online Only"
 		},
+		"searching": "Searching...",
+		"seller": "Seller",
 		"settings": "Evaluate Settings",
+		"stale": "Data is stale. Fetching again in {{counter}}s... Now?",
 		"stats": "Stats",
 		"stats-export": "Export Stats to Clipboard",
 		"stats-import": "Import Stats from Clipboard",
@@ -75,7 +98,8 @@
 		},
 		"translate": "Evaluate Translate",
 		"translate-language": "Translated Item Language",
-		"translate-settings": "Evaluate Translate Settings"
+		"translate-settings": "Evaluate Translate Settings",
+		"value": "Value"
 	},
 	"help": {
 		"browser": "Holding CTRL while clicking will open the link in the default browser.",
@@ -100,9 +124,11 @@
 	"map": {
 		"boss": "Boss",
 		"boss-rating": "Boss Rating",
+		"boss-rating-info": "5: High and consistent damage output that is difficult to reliably avoid; skipped by many players.\n4: High and consistent damage output that can be avoided reasonably well but still very dangerous.\n3: Occasionally high damage output that can be avoided reasonably well.\n2: Moderate damage output that can be easily kited and/or reasonably mitigated by most builds.\n1: Trivial for most builds.",
 		"bosses": "Bosses",
 		"info": "Info",
 		"layout-rating": "Layout Rating",
+		"layout-rating-info": "A: The map has a consistent layout that can be reliably fully cleared with no backtracking.\nB: The map has an open layout with few obstacles, or has only short and well-connected side paths.\nC: The map has an open layout with many obstacles, or has long side paths that require backtracking.",
 		"name": "Map",
 		"no-map": "Item is not a map.",
 		"not-found": "Map not found.",
@@ -127,6 +153,11 @@
 		"highlight": "Highlight",
 		"name": "Misc",
 		"navigation": "Navigation",
+		"navigations": {
+			"disabled": "Disabled",
+			"inverse": "Inverse",
+			"normal": "Normal"
+		},
 		"open-poedb": "Open PoE DB",
 		"open-poedb-external": "Open PoE DB External",
 		"open-wiki": "Open Wiki",

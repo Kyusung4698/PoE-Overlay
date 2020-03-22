@@ -5,9 +5,8 @@
                 <div *ngIf="(inverse$ | async) === false; else inverse">
                     <div class="factor">
                         <span class="amount-column">
-                            <span class="amount">{{1 | number:'1.2-2'}}&nbsp;</span>
-                            <span class="amount"
-                                *ngIf="result.rate.factor > 1">{{result.rate.factor | number:'1.2-2'}}&nbsp;</span>
+                            <span class="amount">1&nbsp;</span>
+                            <span class="amount" *ngIf="result.rate.factor > 1">{{result.rate.factor}}&nbsp;</span>
                         </span>
                         <mat-icon class="clickable switch" [title]="'evaluate.switch' | translate"
                             (click)="inverse$.next(!inverse$.value)">compare_arrows
@@ -33,7 +32,7 @@
                             (click)="inverse$.next(!inverse$.value)">compare_arrows
                         </mat-icon>
                         <span class="amount-column">
-                            <span class="amount">{{1 | number:'1.2-2'}}&nbsp;</span>
+                            <span class="amount">1&nbsp;</span>
                         </span>
                         <app-currency-frame [currency]="result.rate.currency">
                         </app-currency-frame>
@@ -42,8 +41,7 @@
             </div>
             <div class="spacer"></div>
             <div class="chart">
-                <div class="values clickable" (click)="onClick($event)"
-                    title="'Click' = In-Game Browser, 'CTRL + Click' Default Browser">
+                <div class="values clickable" (click)="onClick($event)" [title]="'app.clickable' | translate">
                     <span class="value" [class.negative]="result.rate.change < 0"
                         [class.positive]="result.rate.change > 0">
                         <mat-icon *ngIf="result.rate.change < 0">trending_down</mat-icon>
@@ -54,7 +52,8 @@
                     <span class="info">{{'evaluate.days' | translate}}</span>
                 </div>
                 <div>
-                    <app-evaluate-exchange-rate-chart [result]="result.rate" [inverse]="inverse$ | async">
+                    <app-evaluate-exchange-rate-chart [result]="result.rate" [inverse]="inverse$ | async"
+                        [name]="'evaluate.value' | translate">
                     </app-evaluate-exchange-rate-chart>
                 </div>
             </div>

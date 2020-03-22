@@ -19,9 +19,7 @@ describe('EvaluateSearchChartComponent', () => {
     fixture = TestBed.createComponent(EvaluateSearchChartComponent);
     component = fixture.componentInstance;
     component.result = {
-      url: '',
-      items: [],
-      total: 0
+      entries: [],
     };
     fixture.detectChanges();
   });

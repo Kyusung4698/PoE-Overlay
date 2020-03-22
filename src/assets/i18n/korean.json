@@ -1,5 +1,6 @@
 {
 	"app": {
+		"clickable": "'Click'= 게임 내 브라우저, 'CTRL + 클릭'기본 브라우저",
 		"update": {
 			"available": "새로운 업데이트가 있습니다. 별도로 지정하지 않는 한 자동으로 다운로드됩니다.",
 			"downloaded": "이제 새로운 업데이트를 설치할 준비가되었습니다. 응용 프로그램을 다시 시작하십시오."
@@ -20,14 +21,29 @@
 	"command": {
 		"add": "명령어 추가",
 		"name": "명령어",
-		"shortcut": "단축키"
+		"shortcut": "단축키",
+		"text": "명령어"
 	},
 	"evaluate": {
+		"age": "나이",
+		"analyzing": "데이터 분석 중 ...",
+		"cancel": "취소?",
+		"canceled": "검색이 취소되었습니다. 브라우저에서 열려?",
 		"count": "카운트",
 		"currency": "표시중인 화폐",
 		"currency-original": "원래 통화",
 		"days": "최근 7 일",
+		"debounce-time": "검색 디 바운스 시간",
+		"debounce-times": {
+			"fast": "빠른",
+			"normal": "표준",
+			"slow": "느린",
+			"veryfast": "매우 빠름",
+			"veryslow": "아주 느린"
+		},
+		"empty": "결과가 없습니다. 브라우저에서 열려?",
 		"error": "오류가 발생했습니다.",
+		"listings": " {{total}}을 (를) 찾았습니다. 항목을 가져 오는 중 ...",
 		"loading": "로드 중 ...",
 		"mean": "Mean",
 		"median": "중앙값",
@@ -36,6 +52,10 @@
 		"not-found": "데이터가 없습니다.",
 		"range": "Range",
 		"result-view": "결과보기",
+		"result-views": {
+			"graph": "그래프",
+			"list": "명부"
+		},
 		"search": {
 			"default": "기본 검색 설정",
 			"disable-max-range": "최대 범위 비활성화",
@@ -63,7 +83,10 @@
 			"modifier-range": "수정 자 범위",
 			"online-only": "온라인만"
 		},
+		"searching": "수색...",
+		"seller": "파는 사람",
 		"settings": "설정 평가",
+		"stale": "데이터가 오래되었습니다. {{counter}}에서 다시 가져 오는 중 ... 지금?",
 		"stats": "통계",
 		"stats-export": "통계를 클립 보드로 내보내기",
 		"stats-import": "클립 보드에서 통계 가져 오기",
@@ -75,7 +98,8 @@
 		},
 		"translate": "번역 평가",
 		"translate-language": "번역 된 항목 언어",
-		"translate-settings": "번역 설정 평가"
+		"translate-settings": "번역 설정 평가",
+		"value": "값"
 	},
 	"help": {
 		"browser": "클릭하는 동안 CTRL을 누르고 있으면 기본 브라우저에서 링크가 열립니다.",
@@ -100,9 +124,11 @@
 	"map": {
 		"boss": "보스",
 		"boss-rating": "보스 등급",
+		"boss-rating-info": "5 : 확실하고 피하기 어려운 높고 일관된 손상 출력; 많은 플레이어들이 건너 뛰었습니다.\n4 : 합리적으로 잘 피할 수 있지만 여전히 매우 위험한 높고 일관된 손상 출력.\n3 : 때때로 피할 수있는 높은 데미지 출력.\n2 : 대부분의 빌드에서 쉽게 키트 및 / 또는 합리적으로 완화 할 수있는 보통 수준의 손상 출력.\n1 : 대부분의 빌드에서는 사소합니다.",
 		"bosses": "보스",
 		"info": "정보",
 		"layout-rating": "레이아웃 등급",
+		"layout-rating-info": "A : 맵에는 역 추적없이 안정적으로 완전히 지울 수있는 일관된 레이아웃이 있습니다.\nB :지도에 장애물이 거의없는 열린 레이아웃이 있거나 짧고 잘 연결된 측면 경로 만 있습니다.\nC :지도에 장애물이 많은 열린 레이아웃이 있거나 역 추적이 필요한 긴 길이 있습니다.",
 		"name": "지도",
 		"no-map": "항목이 지도가 아닙니다.",
 		"not-found": "지도를 찾을 수 없습니다.",
@@ -127,6 +153,11 @@
 		"highlight": "가장 밝은 부분",
 		"name": "기타",
 		"navigation": "항해",
+		"navigations": {
+			"disabled": "장애인",
+			"inverse": "역",
+			"normal": "표준"
+		},
 		"open-poedb": "PoE DB 열기",
 		"open-poedb-external": "PoE DB 외부 열기",
 		"open-wiki": "위키 열기",

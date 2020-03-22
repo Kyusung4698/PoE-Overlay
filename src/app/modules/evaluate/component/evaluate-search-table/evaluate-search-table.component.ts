@@ -29,14 +29,14 @@ export class EvaluateSearchTableComponent {
   @Input()
   public set result(result: ItemSearchAnalyzeResult) {
     this.currency = result.currency;
-    if (result.items.length > 0) {
+    if (result.entries.length > 0) {
       const keyFn = (row: Row): string => {
         return `${row.amount}_${row.seller}_${row.age}`;
       };
       const map: {
         [key: string]: Row
       } = {};
-      result.items.forEach(item => {
+      result.entries.forEach(item => {
         const next: Row = {
           amount: Math.round(item.targetAmount * 100) / 100, count: 1,
           originalAmount: item.originalAmount, originalCurrency: item.original,

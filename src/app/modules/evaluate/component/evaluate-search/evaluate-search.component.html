@@ -1,3 +1,5 @@
+<!-- todo: own component -->
+
 <div class="options">
   <mat-icon class="clickable" (click)="options$.next(!options$.value)">filter_list</mat-icon>
   <div class="popover" *ngIf="options$ | async">
@@ -21,54 +23,88 @@
     </span>
   </div>
 </div>
-<ng-container *ngIf="result$ | async as result; else loading">
-  <ng-container *ngIf="result.items && result.items.length > 0">
-    <div class="clickable values" (click)="onCurrencyClick($event)" (wheel)="onCurrencyWheel($event)"
-      title="'Click' = In-Game Browser, 'CTRL + Click' Default Browser">
-      <div>
-        <app-currency-frame [label]="'evaluate.mean' | translate" [amount]="result.mean">
-        </app-currency-frame>
-        <app-currency-frame [label]="'evaluate.median' | translate" [amount]="result.median">
-        </app-currency-frame>
-        <app-currency-frame [label]="'evaluate.mode' | translate" [amount]="result.mode">
-        </app-currency-frame>
-      </div>
-      <div>
-        <app-currency-frame [label]="'evaluate.count' | translate" [count]="result.total">
-        </app-currency-frame>
-        <span class="currency">
-          <app-currency-frame [label]="'evaluate.range' | translate" [currency]="result.currency"
-            [range]="{ min: result.min, max: result.max }">
-          </app-currency-frame>
-        </span>
-      </div>
-    </div>
-    <div class="tools">
-      <span>
-        {{result.items.length}}/{{result.total}}
-      </span>
-      <span class="spacer"></span>
-      <span class="clickable">
-        <mat-icon [class.active]="graph" (click)="graph = true">bar_chart</mat-icon>
-        <mat-icon [class.active]="!graph" (click)="graph = false">list</mat-icon>
-      </span>
-    </div>
-    <app-evaluate-search-chart *ngIf="graph" [result]="result" (amountSelect)="onAmountSelect($event)">
-    </app-evaluate-search-chart>
-    <app-evaluate-search-table *ngIf="!graph" [result]="result" [original]="settings.evaluateCurrencyOriginal"
-      (amountSelect)="onAmountSelect($event.amount, $event.currency)">
-    </app-evaluate-search-table>
-  </ng-container>
-  <ng-container *ngIf="result.items && result.items.length === 0">
-    <div class="clickable" (click)="onCurrencyClick($event)"
-      title="'Click' = In-Game Browser, 'CTRL + Click' Default Browser">
-      {{ 'evaluate.not-found' | translate }}
-    </div>
-  </ng-container>
-  <ng-container *ngIf="!result.items">
-    <div>{{ 'evaluate.error' | translate }}</div>
-  </ng-container>
+
+<!-- search -->
+
+<ng-container *ngIf="(staleCounter$ | async) as counter; else search">
+  <div class="clickable" (click)="onStaleCancelClick()">
+    {{'evaluate.stale' | translate:{counter: counter / 10 | number:'1.1-1'} }}
+  </div>
 </ng-container>
-<ng-template #loading>
-  <div>{{ 'evaluate.loading' | translate }}</div>
+
+<ng-template #search>
+  <ng-container *ngIf="(error$ | async) === false; else error">
+    <ng-container *ngIf="search$ | async as search; else searching">
+      <ng-container *ngIf="search.total; else empty">
+        <ng-container *ngIf="listings$ | async as listings; else listings">
+          <ng-container *ngIf="listings.length; else canceled">
+            <ng-container *ngIf="result$ | async as result; else analyzing">
+              <!-- values -->
+              <ng-container *ngIf="result.values as values">
+                <div class="clickable values" (click)="onCurrencyClick($event)" (wheel)="onCurrencyWheel($event)"
+                  [title]="'app.clickable' | translate">
+                  <div>
+                    <app-currency-frame [label]="'evaluate.mean' | translate" [amount]="values.mean">
+                    </app-currency-frame>
+                    <app-currency-frame [label]="'evaluate.median' | translate" [amount]="values.median">
+                    </app-currency-frame>
+                    <app-currency-frame [label]="'evaluate.mode' | translate" [amount]="values.mode">
+                    </app-currency-frame>
+                  </div>
+                  <div>
+                    <app-currency-frame [label]="'evaluate.range' | translate" [currency]="result.currency"
+                      [range]="{ min: values.min, max: values.max }">
+                    </app-currency-frame>
+                  </div>
+                </div>
+              </ng-container>
+
+              <div class="tools">
+                <span>
+                  {{listings.length}}/{{search.total | number}}
+                </span>
+                <span class="spacer"></span>
+                <span class="clickable">
+                  <mat-icon [class.active]="graph" (click)="graph = true">bar_chart</mat-icon>
+                  <mat-icon [class.active]="!graph" (click)="graph = false">list</mat-icon>
+                </span>
+              </div>
+
+              <app-evaluate-search-chart *ngIf="graph" [result]="result" (amountSelect)="onAmountSelect($event)">
+              </app-evaluate-search-chart>
+              <app-evaluate-search-table *ngIf="!graph" [result]="result" [original]="settings.evaluateCurrencyOriginal"
+                (amountSelect)="onAmountSelect($event.amount, $event.currency)">
+              </app-evaluate-search-table>
+
+            </ng-container>
+            <ng-template #analyzing>
+              <div>{{ 'evaluate.analyzing' | translate }}</div>
+            </ng-template>
+          </ng-container>
+          <ng-template #canceled>
+            <div class="clickable" (click)="onCurrencyClick($event)" [title]="'app.clickable' | translate">
+              {{ 'evaluate.canceled' | translate }}
+            </div>
+          </ng-template>
+        </ng-container>
+        <ng-template #listings>
+          <div class="clickable" (click)="onSearchCancelClick()">
+            {{'evaluate.listings' | translate:{total: search.total | number} }}&nbsp;<span
+              class="delayed">{{ 'evaluate.cancel' | translate }}</span>
+          </div>
+        </ng-template>
+      </ng-container>
+      <ng-template #empty>
+        <div class="clickable" (click)="onCurrencyClick($event)" [title]="'app.clickable' | translate">
+          {{ 'evaluate.empty' | translate }}
+        </div>
+      </ng-template>
+    </ng-container>
+    <ng-template #searching>
+      <div>{{ 'evaluate.searching' | translate }}</div>
+    </ng-template>
+  </ng-container>
+  <ng-template #error>
+    <div>{{ 'evaluate.error' | translate }}</div>
+  </ng-template>
 </ng-template>

@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ItemFrameValueGroupComponent } from './item-frame-value-group.component';
+
 
 describe('ItemFrameValueGroupComponent', () => {
   let component: ItemFrameValueGroupComponent;
@@ -8,9 +8,9 @@ describe('ItemFrameValueGroupComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ItemFrameValueGroupComponent ]
+      declarations: [ItemFrameValueGroupComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

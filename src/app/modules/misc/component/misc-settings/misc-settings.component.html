@@ -17,8 +17,8 @@
   <mat-form-field>
     <mat-label>{{'misc.navigation' | translate}} (CTRL + SCROLL)</mat-label>
     <mat-select [(value)]="settings.miscStashNavigationMode">
-      <mat-option *ngFor="let navigation of navigations.keys" [value]="navigation">
-        {{navigations.values[navigation]}}
+      <mat-option *ngFor="let navigation of navigations.keys" [value]="navigation">        
+        {{'misc.navigations.' + (navigations.values[navigation] | lowercase) | translate}}
       </mat-option>
     </mat-select>
   </mat-form-field>

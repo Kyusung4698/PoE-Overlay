@@ -2,14 +2,12 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output
 import { BrowserService } from '@app/service';
 import { EvaluateResult } from '@modules/evaluate/type/evaluate.type';
 import { SnackBarService } from '@shared/module/material/service';
-import { ItemSearchAnalyzeResult, ItemSearchAnalyzeService, ItemSearchResult, ItemSearchService, StashPriceTagType } from '@shared/module/poe/service';
+import { ItemSearchAnalyzeResult, ItemSearchAnalyzeService, ItemSearchListing, ItemSearchResult, ItemSearchService } from '@shared/module/poe/service';
 import { Currency, Item } from '@shared/module/poe/type';
 import { ItemSearchIndexed, ItemSearchOptions } from '@shared/module/poe/type/search.type';
-import { BehaviorSubject, Subject } from 'rxjs';
-import { debounceTime, takeUntil, tap } from 'rxjs/operators';
+import { BehaviorSubject, Subject, Subscription, timer } from 'rxjs';
+import { debounceTime, takeUntil } from 'rxjs/operators';
 import { EvaluateResultView, EvaluateUserSettings } from '../evaluate-settings/evaluate-settings.component';
-
-const SEARCH_DEBOUNCE_TIME = 500;
 
 @Component({
   selector: 'app-evaluate-search',
@@ -18,7 +16,7 @@ const SEARCH_DEBOUNCE_TIME = 500;
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EvaluateSearchComponent implements OnInit {
-  private search$ = new BehaviorSubject<ItemSearchResult>(null);
+  private listSubscription: Subscription;
 
   public options$ = new BehaviorSubject<boolean>(false);
   public online$: BehaviorSubject<boolean>;
@@ -26,7 +24,11 @@ export class EvaluateSearchComponent implements OnInit {
 
   public graph: boolean;
 
+  public search$ = new BehaviorSubject<ItemSearchResult>(null);
+  public listings$ = new BehaviorSubject<ItemSearchListing[]>(null);
   public result$ = new BehaviorSubject<ItemSearchAnalyzeResult>(null);
+  public error$ = new BehaviorSubject<boolean>(false);
+  public staleCounter$ = new BehaviorSubject<number>(0);
 
   @Input()
   public settings: EvaluateUserSettings;
@@ -51,7 +53,7 @@ export class EvaluateSearchComponent implements OnInit {
 
   constructor(
     private readonly itemSearchService: ItemSearchService,
-    private readonly itemSearchEvaluateService: ItemSearchAnalyzeService,
+    private readonly itemSearchAnalyzeService: ItemSearchAnalyzeService,
     private readonly browser: BrowserService,
     private readonly snackbar: SnackBarService) { }
 
@@ -90,14 +92,24 @@ export class EvaluateSearchComponent implements OnInit {
   }
 
   public onCurrencyClick(event: MouseEvent): void {
-    const result = this.result$.getValue();
-    if (result && result.url) {
-      this.browser.open(result.url, event.ctrlKey);
+    const search = this.search$.value;
+    if (search?.url?.length) {
+      this.browser.open(search.url, event.ctrlKey);
     }
   }
 
+  public onSearchCancelClick(): void {
+    this.listings$.next([]);
+    this.listSubscription?.unsubscribe();
+  }
+
+  public onStaleCancelClick(): void {
+    this.staleCounter$.next(0);
+  }
+
   public onCurrencyWheel(event: WheelEvent): void {
-    if (!this.search$.value || !this.result$.value) {
+    const listings = this.listings$.value;
+    if (!listings?.length) {
       return;
     }
 
@@ -109,8 +121,9 @@ export class EvaluateSearchComponent implements OnInit {
     } else if (index < 0) {
       index = this.currencies.length - 1;
     }
+
     this.result$.next(null);
-    this.evaluate(this.search$.value, this.currencies[index]);
+    this.analyze(listings, this.currencies[index]);
   }
 
   public onAmountSelect(amount: number, currency?: Currency): void {
@@ -119,10 +132,24 @@ export class EvaluateSearchComponent implements OnInit {
   }
 
   private registerSearchOnChange(): void {
+    let subscription: Subscription;
     this.queryItemChange.pipe(
-      debounceTime(SEARCH_DEBOUNCE_TIME),
-      tap(() => this.result$.next(null)),
-    ).subscribe(item => this.search(item));
+      debounceTime(100),
+    ).subscribe(item => {
+      this.clear();
+      this.staleCounter$.next(this.settings.evaluateDebounceTime);
+      subscription?.unsubscribe();
+      subscription = timer(0, 100).pipe(
+        takeUntil(this.queryItemChange),
+      ).subscribe(() => {
+        if (this.staleCounter$.value === 0) {
+          subscription?.unsubscribe();
+          this.search(item);
+        } else {
+          this.staleCounter$.next(this.staleCounter$.value - 1)
+        }
+      });
+    });
   }
 
   private search(item: Item): void {
@@ -132,39 +159,44 @@ export class EvaluateSearchComponent implements OnInit {
     };
     this.itemSearchService.search(item, options).pipe(
       takeUntil(this.queryItemChange)
-    ).subscribe(
-      search => {
-        this.search$.next(search);
-        this.evaluate(search);
-      },
-      error => this.handleError(error)
-    );
+    ).subscribe(search => {
+      this.search$.next(search);
+      if (search.total > 0) {
+        this.list(search);
+      }
+    }, error => this.handleError(error));
   }
 
-  private evaluate(search: ItemSearchResult, currency?: Currency): void {
-    if (search.items.length <= 0) {
-      const empty: ItemSearchAnalyzeResult = {
-        url: search.url,
-        items: [],
-        total: 0,
-      };
-      this.result$.next(empty);
-    } else {
-      this.itemSearchEvaluateService
-        .analyze(search, currency ? [currency] : this.currencies)
-        .subscribe(
-          result => this.result$.next(result),
-          error => this.handleError(error)
-        );
-    }
+  private list(search: ItemSearchResult): void {
+    this.listSubscription = this.itemSearchService.list(search).pipe(
+      takeUntil(this.queryItemChange)
+    ).subscribe(listings => {
+      this.listings$.next(listings);
+      if (listings.length > 0) {
+        this.analyze(listings);
+      }
+    }, error => this.handleError(error));
+  }
+
+  private analyze(listings: ItemSearchListing[], currency?: Currency): void {
+    const currencies = currency ? [currency] : this.currencies;
+    this.itemSearchAnalyzeService.analyze(listings, currencies).pipe(
+      takeUntil(this.queryItemChange)
+    ).subscribe(
+      result => this.result$.next(result),
+      error => this.handleError(error));
+  }
+
+  private clear(): void {
+    this.error$.next(false);
+    this.search$.next(null);
+    this.listings$.next(null);
+    this.result$.next(null);
   }
 
   private handleError(error: any): void {
-    this.result$.next({
-      url: null,
-      items: null,
-      total: null
-    });
+    this.clear();
+    this.error$.next(true);
     this.snackbar.error(`${typeof error === 'string' ? `${error}` : 'evaluate.error'}`);
   }
 }

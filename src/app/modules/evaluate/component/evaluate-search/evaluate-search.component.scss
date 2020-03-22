@@ -46,9 +46,20 @@
   outline: auto;
 }
 
+.delayed {
+  opacity: 0;
+  animation: reveal 300ms 700ms forwards;
+}
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+  }
+}
+
 ::ng-deep {
   app-evaluate-search {
-    .values{
+    .values {
       &:hover {
         app-currency-frame {
           .currency {

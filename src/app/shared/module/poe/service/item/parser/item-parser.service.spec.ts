@@ -11,7 +11,7 @@ describe('ItemParserService', () => {
         TestBed.configureTestingModule({
             imports: [
                 SharedModule
-            ],
+            ]
         }).compileComponents();
         sut = TestBed.inject<ItemParserService>(ItemParserService);
 

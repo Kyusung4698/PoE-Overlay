@@ -25,6 +25,8 @@ app.commandLine.appendSwitch('high-dpi-support', 'true');
 app.commandLine.appendSwitch('force-device-scale-factor', '1');
 
 log.transports.file.level = 'info';
+Object.assign(console, log.functions);
+
 log.info('App starting...');
 
 let animationPath = path.join(app.getPath('userData'), 'animation.flag');
@@ -42,6 +44,9 @@ autoUpdater.logger = log;
 const args = process.argv.slice(1);
 const serve = args.some(val => val === '--serve');
 
+log.info('App args', args);
+log.info('App served', serve);
+
 const launch = new AutoLaunch({
     name: 'PoE Overlay'
 });
@@ -55,6 +60,22 @@ let checkForUpdatesHandle = null;
 const childs: {
     [key: string]: BrowserWindow
 } = {};
+
+
+/* helper */
+
+function getDisplay(): Display {
+    return screen.getPrimaryDisplay();
+}
+
+function send(channel: string, ...args: any[]) {
+    try {
+        win.webContents.send(channel, ...args);
+    }
+    catch (error) {
+        log.error(`could not send to '${channel}' with args '${JSON.stringify(args)}`);
+    }
+}
 
 /* robot js */
 
@@ -89,9 +110,9 @@ ipcMain.on('set-keyboard-delay', (event, delay) => {
 
 ipcMain.on('register-active-change', event => {
     hook.on('change', (active, bounds) => {
-        event.sender.send('active-change', serve ? true : active);
+        send('active-change', serve ? true : active);
 
-        if (active) {
+        if (win && active) {
             win.setAlwaysOnTop(false);
             win.setVisibleOnAllWorkspaces(false);
 
@@ -102,7 +123,7 @@ ipcMain.on('register-active-change', event => {
                 win.setBounds({
                     ...bounds
                 });
-                log.info('set bounds to: ', win.getBounds());
+                log.verbose('set bounds to: ', win.getBounds());
             }
         }
 
@@ -116,9 +137,8 @@ ipcMain.on('register-shortcut', (event, accelerator) => {
         case 'CmdOrCtrl + MouseWheelDown':
             hook.on('wheel', e => {
                 if (e.ctrlKey) {
-                    event.sender.send(`shortcut-${e.rotation === -1
-                        ? 'CmdOrCtrl + MouseWheelUp'
-                        : 'CmdOrCtrl + MouseWheelDown'}`);
+                    const channel = `shortcut-CmdOrCtrl + ${e.rotation === -1 ? 'MouseWheelUp' : 'MouseWheelDown'}`;
+                    send(channel);
                 }
             });
             break;
@@ -136,16 +156,10 @@ ipcMain.on('unregister-shortcut', (event, accelerator) => {
     event.returnValue = true;
 });
 
-/* helper */
-
-function getDisplay(): Display {
-    return screen.getPrimaryDisplay();
-}
-
 /* auto-updater */
 
 autoUpdater.on('update-available', () => {
-    win.webContents.send('app-update-available');
+    send('app-update-available');
     tray?.displayBalloon({
         iconType: 'info',
         title: 'New update available',
@@ -169,7 +183,7 @@ autoUpdater.on('update-available', () => {
 });
 
 autoUpdater.on('update-downloaded', () => {
-    win.webContents.send('app-update-downloaded');
+    send('app-update-downloaded');
     tray?.displayBalloon({
         iconType: 'info',
         title: 'Update ready to install',
@@ -199,13 +213,12 @@ ipcMain.on('app-download-update', event => {
 });
 
 ipcMain.on('app-quit-and-install', event => {
-    autoUpdater.quitAndInstall();
+    autoUpdater.quitAndInstall(false, true);
     event.returnValue = true;
 });
 
 ipcMain.on('app-version', event => {
     const version = app.getVersion();
-    log.info('App Version: ', version)
     event.returnValue = version;
 });
 
@@ -333,20 +346,22 @@ function loadApp(self: BrowserWindow, route: string = '') {
 /* tray */
 
 function createTray(): Tray {
-    tray = new Tray(path.join(__dirname, serve ? 'src/favicon.png' : 'dist/favicon.png'));
+    const iconFolder = serve ? 'src' : 'dist';
+    const iconFile = /^win/.test(process.platform) ? 'favicon.ico' : 'favicon.png';
+    tray = new Tray(path.join(__dirname, iconFolder, iconFile));
 
     const items: MenuItemConstructorOptions[] = [
         {
             label: 'Settings', type: 'normal',
-            click: () => win.webContents.send('show-user-settings'),
+            click: () => send('show-user-settings'),
         },
         {
             label: 'Reset Zoom', type: 'normal',
-            click: () => win.webContents.send('reset-zoom'),
+            click: () => send('reset-zoom'),
         },
         {
             label: 'Relaunch', type: 'normal',
-            click: () => win.webContents.send('app-relaunch')
+            click: () => send('app-relaunch')
         },
         {
             label: 'Hardware Acceleration', type: 'checkbox',
@@ -356,7 +371,7 @@ function createTray(): Tray {
                 } else {
                     fs.writeFileSync(animationPath, 'true');
                 }
-                win.webContents.send('app-relaunch');
+                send('app-relaunch');
             }
         },
         {

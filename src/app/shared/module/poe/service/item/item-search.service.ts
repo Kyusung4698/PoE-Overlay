@@ -12,7 +12,7 @@ import { ItemSearchQueryService } from './query/item-search-query.service';
 const MAX_FETCH_COUNT = 10;
 const MAX_FETCH_CONCURRENT_COUNT = 5;
 
-export interface SearchListing {
+export interface ItemSearchListing {
     seller: string;
     indexed: moment.Moment;
     age: string;
@@ -21,9 +21,11 @@ export interface SearchListing {
 }
 
 export interface ItemSearchResult {
-    items: SearchListing[];
-    total: number;
+    id: string;
+    language: Language;
     url: string;
+    total: number;
+    hits: string[];
 }
 
 @Injectable({
@@ -62,6 +64,7 @@ export class ItemSearchService {
                 stats: []
             }
         };
+
         if (options.indexed) {
             request.query.filters.trade_filters.filters.indexed = {
                 option: options.indexed === ItemSearchIndexed.AnyTime ? null : options.indexed
@@ -69,61 +72,48 @@ export class ItemSearchService {
         }
         this.requestService.map(requestedItem, language, request.query);
 
-        return this.tradeService.search(request, language, leagueId).pipe(
-            flatMap(response => {
-                if (response.total <= 0 || !response.result || !response.result.length) {
-                    const result: ItemSearchResult = {
-                        items: [],
-                        url: response.url,
-                        total: response.total
-                    };
-                    return of(result);
+        return this.tradeService.search(request, language, leagueId).pipe(map(response => {
+            const { id, url, total } = response;
+            const result: ItemSearchResult = {
+                id, language,
+                url, total,
+                hits: response.result || []
+            };
+            return result;
+        }));
+    }
+
+    public list(search: ItemSearchResult): Observable<ItemSearchListing[]> {
+        const { id, language, hits } = search;
+
+        const hitsChunked: string[][] = [];
+        for (let i = 0, j = Math.min(100, hits.length); i < j; i += MAX_FETCH_COUNT) {
+            hitsChunked.push(hits.slice(i, i + MAX_FETCH_COUNT));
+        }
+
+        return from(hitsChunked).pipe(
+            mergeMap(chunk => this.tradeService.fetch(chunk, id, language), MAX_FETCH_CONCURRENT_COUNT),
+            toArray(),
+            flatMap(responses => {
+                const results: TradeFetchResult[] = responses
+                    .filter(x => x.result && x.result.length)
+                    .reduce((a, b) => a.concat(b.result), []);
+
+                if (results.length <= 0) {
+                    return of([]);
                 }
 
-                const resultIds = response.result;
-                const resultIdsChunked: string[][] = [];
+                const listings$ = results
+                    .map(result => this.mapResult(result));
 
-                for (let i = 0, j = Math.min(100, resultIds.length); i < j; i += MAX_FETCH_COUNT) {
-                    resultIdsChunked.push(resultIds.slice(i, i + MAX_FETCH_COUNT));
-                }
-
-                return from(resultIdsChunked).pipe(
-                    mergeMap(chunk => this.tradeService.fetch(chunk, response.id, language), MAX_FETCH_CONCURRENT_COUNT),
-                    toArray(),
-                    flatMap(responses => {
-                        const results = responses
-                            .filter(x => x.result && x.result.length)
-                            .reduce((a, b) => a.concat(b.result), []);
-
-                        if (results.length <= 0) {
-                            const result: ItemSearchResult = {
-                                items: [],
-                                url: response.url,
-                                total: response.total
-                            };
-                            return of(result);
-                        }
-
-                        const listings$ = results
-                            .map(item => this.mapListing(item));
-
-                        return forkJoin(listings$).pipe(
-                            map(listings => {
-                                const result: ItemSearchResult = {
-                                    items: listings.filter(listing => listing !== undefined),
-                                    url: response.url,
-                                    total: response.total
-                                };
-                                return result;
-                            })
-                        );
-                    })
+                return forkJoin(listings$).pipe(
+                    map(listings => listings.filter(x => x !== undefined))
                 );
             })
         );
     }
 
-    private mapListing(result: TradeFetchResult): Observable<SearchListing> {
+    private mapResult(result: TradeFetchResult): Observable<ItemSearchListing> {
         if (!result || !result.listing || !result.listing.price || !result.listing.account || !result.listing.indexed) {
             console.warn(`Result was invalid.`, result);
             return of(undefined);

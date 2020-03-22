@@ -10,14 +10,18 @@ export class ElectronProvider {
     private readonly electron: Electron;
 
     constructor() {
-        this.electron = window.require('electron') as Electron;
+        if (window?.require) {
+            this.electron = window.require('electron') as Electron;
+        } else {
+            console.warn('window.require not defined.');
+        }
     }
 
     public provideRemote(): Remote {
-        return this.electron.remote;
+        return this.electron?.remote;
     }
 
     public provideIpcRenderer(): IpcRenderer {
-        return this.electron.ipcRenderer;
+        return this.electron?.ipcRenderer;
     }
 }

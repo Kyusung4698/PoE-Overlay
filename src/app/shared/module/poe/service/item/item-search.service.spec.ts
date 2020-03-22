@@ -14,7 +14,7 @@ describe('ItemSearchService', () => {
         TestBed.configureTestingModule({
             imports: [
                 SharedModule
-            ],
+            ]
         }).compileComponents();
         sut = TestBed.inject<ItemSearchService>(ItemSearchService);
 
@@ -31,10 +31,26 @@ describe('ItemSearchService', () => {
         };
 
         sut.search(requestedItem).subscribe(result => {
-            expect(result.items.length).toBeGreaterThan(0);
+            expect(result.hits.length).toBeGreaterThan(0);
             done();
         }, error => {
             done.fail(error);
         });
     });
+
+    it('should list items from search', (done) => {
+        const requestedItem: Item = {
+            typeId: baseItemTypesService.search('Topaz Ring')
+        };
+
+        sut.search(requestedItem).subscribe(result => {
+            expect(result.hits.length).toBeGreaterThan(0);
+
+            sut.list(result).subscribe(listings => {
+                expect(listings.length).toBe(Math.min(result.hits.length, 100));
+
+                done();
+            }, error => done.fail(error));
+        }, error => done.fail(error));
+    })
 });

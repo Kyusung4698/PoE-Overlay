@@ -54,14 +54,13 @@ export class EvaluateSearchChartComponent {
   }
 
   private update(result: ItemSearchAnalyzeResult): void {
-    if (!result.itemsGrouped) {
+    if (!result.entryGroups) {
       this.display = 'none';
       this.items = [];
     } else {
       this.display = 'block';
-      this.total = result.total;
       this.groups = {};
-      this.items = result.itemsGrouped.map(x => {
+      this.items = result.entryGroups.map(x => {
         this.groups[x.value] = x;
         return { name: x.value, value: x.items.length };
       });

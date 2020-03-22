@@ -8,7 +8,7 @@ describe('MapsService', () => {
         TestBed.configureTestingModule({
             imports: [
                 SharedModule
-            ],
+            ]
         }).compileComponents();
         sut = TestBed.inject<MapsService>(MapsService);
     }));

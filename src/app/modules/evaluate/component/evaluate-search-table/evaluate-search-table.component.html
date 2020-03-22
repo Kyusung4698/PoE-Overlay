@@ -1,9 +1,9 @@
 <ng-container *ngIf="rows.length > 0">
     <table class="header">
         <tr>
-            <th class="amount">Amount</th>
-            <th class="seller">Seller</th>
-            <th class="age">Age</th>
+            <th class="amount">{{'evaluate.value' | translate}}</th>
+            <th class="seller">{{'evaluate.seller' | translate}}</th>
+            <th class="age">{{'evaluate.age' | translate}}</th>
         </tr>
     </table>
     <cdk-virtual-scroll-viewport class="viewport"

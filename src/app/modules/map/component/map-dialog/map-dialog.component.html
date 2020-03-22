@@ -2,15 +2,16 @@
     <app-item-frame class="map-frame" [item]="data.item" [properties]="properties" [separator]="true" modifier="0"
         modifierMaxRange="true">
         <ng-container ngProjectAs="properties">
-            <div [title]="layoutRatingText">{{'map.layout-rating' | translate}}: <span class="white">{{(map || {}).layoutRating || '-'}}</span></div>
-            <div [title]="bossRatingText">{{'map.boss-rating' | translate}}: <span class="white">{{(map || {}).bossRating || '-'}}/5</span></div>
+            <div [title]="'map.layout-rating-info' | translate">{{'map.layout-rating' | translate}}: <span
+                    class="white">{{(map || {}).layoutRating || '-'}}</span></div>
+            <div [title]="'map.boss-rating-info' | translate">{{'map.boss-rating' | translate}}: <span
+                    class="white">{{(map || {}).bossRating || '-'}}/5</span></div>
         </ng-container>
         <ng-container *ngIf="!map">
             <div>{{'map.not-found' | translate}}</div>
         </ng-container>
         <ng-container *ngIf="map">
-            <div class="clickable" (click)="onMapClick($event)"
-                title="'Click' = In-Game Browser, 'CTRL + Click' Default Browser">
+            <div class="clickable" (click)="onMapClick($event)" [title]="'app.clickable' | translate">
                 <ng-container *ngIf="map.layout">
                     <div class="description">
                         {{map.layout}}

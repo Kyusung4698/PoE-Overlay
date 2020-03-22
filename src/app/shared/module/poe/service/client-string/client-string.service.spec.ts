@@ -11,7 +11,7 @@ describe('ClientStringService', () => {
         TestBed.configureTestingModule({
             imports: [
                 SharedModule
-            ],
+            ]
         }).compileComponents();
         sut = TestBed.inject<ClientStringService>(ClientStringService);
 

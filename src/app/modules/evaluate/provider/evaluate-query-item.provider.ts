@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ItemSocketService } from '@shared/module/poe/service/item/item-socket.service';
-import { Item, ItemRarity } from '@shared/module/poe/type';
+import { Item, ItemCategory, ItemRarity } from '@shared/module/poe/type';
 import { EvaluateUserSettings } from '../component/evaluate-settings/evaluate-settings.component';
 
 export interface EvaluateQueryItemResult {
@@ -55,8 +55,20 @@ export class EvaluateQueryItemProvider {
         }
 
         if (!settings.evaluateQueryDefaultType) {
-            if (!item.nameId && (item.rarity === ItemRarity.Magic || item.rarity === ItemRarity.Rare)) {
-                queryItem.typeId = undefined;
+            if (!item.nameId && (
+                item.rarity === ItemRarity.Normal ||
+                item.rarity === ItemRarity.Magic ||
+                item.rarity === ItemRarity.Rare)
+            ) {
+                switch (item.category) {
+                    // flasks & map are priced by name
+                    case ItemCategory.Flask:
+                    case ItemCategory.Map:
+                        break;
+                    default:
+                        queryItem.typeId = undefined;
+                        break;
+                }
             }
         }
 

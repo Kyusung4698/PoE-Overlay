@@ -1,175 +1,206 @@
 {
-  "app": {
-    "update": {
-      "available": "Dostępna jest nowa aktualizacja. Zostanie automatycznie pobrana, chyba, że dokonano innego wyboru.",
-      "downloaded": "Nowa aktualizacja jest już gotowa do zainstalowania. Uruchom ponownie program."
-    }
-  },
-  "bookmark": {
-    "add": "Dodaj Odnośnik",
-    "external": "Otwórz w przeglądarce",
-    "name": "Odnośniki",
-    "shortcut": "Skrót klawiszowy",
-    "url": "Url"
-  },
-  "clipboard": {
-    "empty": "Schowek był pusty. Upewnij się, że okno gry jest aktywne.",
-    "error": "Wystąpił błąd podczas przetwarzania przedmiotu.",
-    "parser-error": "Nie można przetworzyć przedmiotu. Upewnij się, że wybrano właściwy język gry."
-  },
-  "command": {
-    "add": "Dodaj komendę",
-    "name": "Komenda",
-    "shortcut": "Skrót klawiszowy"
-  },
-  "evaluate": {
-    "count": "Liczba Aukcji",
-    "currency": "Wyświetlana waluta",
-    "currency-original": "Orginalna Waluta",
-    "days": "ostatnie 7 dni",
-    "error": "Wystąpił błąd.",
-    "loading": "Ładuję...",
-    "mean": "Średnia",
-    "median": "Mediana",
-    "mode": "Moda",
-    "name": "Wycena przedmiotu",
-    "not-found": "Brak danych.",
-    "range": "Zakres",
-    "result-view": "Okno wyników",
-    "search": {
-      "default": "Domyślne ustawienia wyszukiwania",
-      "disable-max-range": "Wyłącz maksymalny zasięg",
-      "filter": "Filtr Wyszukiwania",
-      "gem": "Poziom gemów, map oraz jakość",
-      "item-default-links": "Z połączonymi gniazdami ",
-      "item-level": "Poziom przedmiotu",
-      "item-links": {
-        "always": "Zawsze",
-        "never": "Nigdy"
-      },
-      "item-sockets": "Gniazda",
-      "item-type": "Typ przedmiotu",
-      "max-age": {
-        "any": "Kiedykolwiek",
-        "day": "Do 24 godzin temu",
-        "days": "3 Dni temu",
-        "month": "Miesiąc temu",
-        "months": "2 Miesiące temu",
-        "title": "Data wystawienia",
-        "week": "Tydzień temu",
-        "weeks": "2 Tygodnie temu"
-      },
-      "modifier": "Ustawienia wyszukiwania moda",
-      "modifier-range": "Zakres moda",
-      "online-only": "Gracze Online"
-    },
-    "settings": "Ustawienia Wyceny Przedmiotu",
-    "stats": "Statystyki",
-    "stats-export": "Wyślij statystyki do schowka",
-    "stats-import": "Wczytaj statystyki ze schowka",
-    "stats-unique-check-all": "Unikaty - sprawdź wszystkie",
-    "switch": "zmień sumę",
-    "tag": {
-            "note": "Tylko elementy bez istniejącej notatki mogą być szybko oznaczone. Notatka została zamiast tego skopiowana.",
-            "outside-stash": "Tylko przedmioty w skrytce można szybko oznaczyć. Notatka została zamiast tego skopiowana."
-    },
-    "translate": "Wyceń przetłumaczony przedmiot",
-    "translate-language": "Język przełumaczonego przedmiotu",
-    "translate-settings": "Ustawienia tłumaczenia Wyceny"
-  },
-  "help": {
-    "browser": "Przytrzymanie klawisza Ctrl i kliknięcie, spowoduje otwarcie odnośnika w domyślnej przeglądarce.",
-    "browser-title": "Jak mogę otworzyć wyszukiwanie w domyślnej przeglądarce?",
-    "bug": "Zgłoś błąd / zaproponuj sugestię",
-    "bug-title": "Znalazłeś błąd? A może masz sugestię? Proszę zgłoś ją na stronie GitHub projektu.",
-    "donate": "Przekaż darowiznę przez PayPal",
-    "donate-title": "Podoba ci się ten projekt? Jeśli chcesz, możesz przekazać darowiznę. Dziękuję za Twoje wsparcie!",
-    "dwm": "Jest to głównie spowodowane wyłączonym trybem Aero / DWM. Spróbuj więc włączyć tę funkcję systemu Windows.<br> Jest wymagana aby tworzyć przezroczyste okna.",
-    "dwm-title": "Dlaczego mój ekran zmienia kolor na czarny / biały po przełączeniu jakiejkolwiek funkcji?",
-    "faq": "FAQ - najczęściej zadawane pytania",
-    "graph": "Kolumny/paski wskazują podział cen przedmiotu. Grupują ceny o takiej samej wartości i sumują ich liczbę.<br> Najwyższa kolumna/pasek to Moda często zwana \"wartością najczęstszą\", czyli w tym przypadku cena pojawiająca się najczęściej. Średnia to poprostu średnia cena przedmiotu. Mediana to cena zajmująca środkową pozycję między wszystkimi wartościami cen.",
-    "graph-title": "Co przedstawia wykres? Co to jest moda / średnia / mediana?",
-    "graph-url": "Otwórz artykuł \"Jak odczytać histogram Minimum Maksimum Mediana i Średnia\", autorstwa \"academy.datawrapper.de\"",
-    "graphic": "Jest to głównie spowodowane niekompatybilnością sterowników graficznych obecnej wersji chromium.<br> Wyłącz proszę przyspieszenie sprzętowe w pasku narzędzi.",
-    "graphic-title": "Czemu obraz jest rozmyty / wystąpił błąd graficzny?",
-    "name": "Pomoc",
-    "patreon": "Wesprzyj mnie na Patreonie",
-    "wiki": "Otwórz stronę Wiki projektu",
-    "wiki-title": "Zobacz stronę wiki projektu dla uzyskania dodatkowych informacji."
-  },
-  "map": {
-    "boss": "Boss",
-    "boss-rating": "Rating Bossa",
-    "bosses": "Bossowie",
-    "info": "Informacje",
-    "layout-rating": "Layout Rating",
-    "name": "Mapy",
-    "no-map": "Przedmiot nie jest mapą.",
-    "not-found": "Nie znaleziono mapy.",
-    "stats-warning": "Statystyki Ostrzeżenia",
-    "stats-warning-export": "Wyślij ostrzeżenia statystyk do schowka",
-    "stats-warning-import": "Wczytaj ostrzeżenia statystyczne ze schowka"
-  },
-  "material": {
-    "accelerator": {
-      "any": "Naciśnij dowolny klawisz",
-      "unbound": "Nie przypisany"
-    },
-    "select-list": {
-      "add": "Dodaj do wybranych",
-      "remove": "Usuń z wybranych",
-      "search": "Szukaj",
-      "selected": "Wybrane",
-      "unselected": "Nie Wybrane"
-    }
-  },
-  "misc": {
-    "highlight": "Podświetl przedmiot",
-    "name": "Różne",
-    "navigation": "Przełączanie pomiędzy zakładkami",
-    "open-poedb": "Otwórz stronę PoE DB",
-    "open-poedb-external": "Otwórz stronę PoE DB w przeglądarce",
-    "open-wiki": "Otwórz stronę Wiki",
-    "open-wiki-external": "Otwórz stronę Wiki w przeglądarce",
-    "parser-error": "Nie można odczytać informacji ze schowka. Upewnij się, że wyczyściłeś (ESC) poprzednie podświetlenie.",
-    "poedb": "PoE DB",
-    "stash": "Skrytka",
-    "wiki": "Wiki"
-  },
-  "settings": {
-    "app": "Program",
-    "auto-download": "Pobierz aktualizację automatycznie",
-    "auto-launch": "Uruchom wraz ze startem systemu",
-    "cancel": "Anuluj",
-    "dialog": "Okno dialogowe",
-    "dialog-spawn-position": {
-      "center": "Na środku",
-      "cursor": "Kursor myszy"
-    },
-    "dialog-spawn-position-title": "Pozycja okna dialogowego",
-    "display-version": "Wyświetl wersję",
-    "exit-app": "Wyjdź z programu",
-    "game-settings": "Ustawienia gry",
-    "general": "Ogólne",
-    "language": "Język",
-    "languages": {
-      "english": "Angielski",
-      "french": "Francuski",
-      "german": "Niemiecki",
-      "korean": "Koreański",
-      "polish": "Polski",
-      "portuguese": "Portugalski",
-      "russian": "Rosyjski",
-      "simplifiedchinese": "Chiński uproszczony",
-      "spanish": "Hiszpański",
-      "thai": "Tajski",
-      "traditionalchinese": "Chiński tradycyjny"
-    },
-    "league": "Liga",
-    "open-settings": "Otwórz ustawienia",
-    "relaunch-app": "Uruchom program ponownie",
-    "save": "Zapisz",
-    "ui-language": "Język programu",
-    "zoom": "Powiększenie"
-  }
+	"app": {
+		"clickable": "„Kliknięcie” = przeglądarka w grze, „CTRL + kliknięcie” Domyślna przeglądarka",
+		"update": {
+			"available": "Dostępna jest nowa aktualizacja. Zostanie automatycznie pobrana, chyba, że dokonano innego wyboru.",
+			"downloaded": "Nowa aktualizacja jest już gotowa do zainstalowania. Uruchom ponownie program."
+		}
+	},
+	"bookmark": {
+		"add": "Dodaj Odnośnik",
+		"external": "Otwórz w przeglądarce",
+		"name": "Odnośniki",
+		"shortcut": "Skrót klawiszowy",
+		"url": "Url"
+	},
+	"clipboard": {
+		"empty": "Schowek był pusty. Upewnij się, że okno gry jest aktywne.",
+		"error": "Wystąpił błąd podczas przetwarzania przedmiotu.",
+		"parser-error": "Nie można przetworzyć przedmiotu. Upewnij się, że wybrano właściwy język gry."
+	},
+	"command": {
+		"add": "Dodaj komendę",
+		"name": "Komenda",
+		"shortcut": "Skrót klawiszowy",
+		"text": "Komenda"
+	},
+	"evaluate": {
+		"age": "Wiek",
+		"analyzing": "Analiza danych ...",
+		"cancel": "Anuluj?",
+		"canceled": "Wyszukiwanie anulowane. Otwórz w przeglądarce?",
+		"count": "Liczba Aukcji",
+		"currency": "Wyświetlana waluta",
+		"currency-original": "Orginalna Waluta",
+		"days": "ostatnie 7 dni",
+		"debounce-time": "Wyszukaj czas odbicia",
+		"debounce-times": {
+			"fast": "Szybki",
+			"normal": "normalna",
+			"slow": "Powolny",
+			"veryfast": "Bardzo szybki",
+			"veryslow": "Bardzo wolno"
+		},
+		"empty": "Brak wyników. Otwórz w przeglądarce?",
+		"error": "Wystąpił błąd.",
+		"listings": "Znaleziono {{total}}. Pobieranie wpisów ...",
+		"loading": "Ładuję...",
+		"mean": "Średnia",
+		"median": "Mediana",
+		"mode": "Moda",
+		"name": "Wycena przedmiotu",
+		"not-found": "Brak danych.",
+		"range": "Zakres",
+		"result-view": "Okno wyników",
+		"result-views": {
+			"graph": "Wykres",
+			"list": "lista"
+		},
+		"search": {
+			"default": "Domyślne ustawienia wyszukiwania",
+			"disable-max-range": "Wyłącz maksymalny zasięg",
+			"filter": "Filtr Wyszukiwania",
+			"gem": "Poziom gemów, map oraz jakość",
+			"item-default-links": "Z połączonymi gniazdami ",
+			"item-level": "Poziom przedmiotu",
+			"item-links": {
+				"always": "Zawsze",
+				"never": "Nigdy"
+			},
+			"item-sockets": "Gniazda",
+			"item-type": "Typ przedmiotu",
+			"max-age": {
+				"any": "Kiedykolwiek",
+				"day": "Do 24 godzin temu",
+				"days": "3 Dni temu",
+				"month": "Miesiąc temu",
+				"months": "2 Miesiące temu",
+				"title": "Data wystawienia",
+				"week": "Tydzień temu",
+				"weeks": "2 Tygodnie temu"
+			},
+			"modifier": "Ustawienia wyszukiwania moda",
+			"modifier-range": "Zakres moda",
+			"online-only": "Gracze Online"
+		},
+		"searching": "Badawczy...",
+		"seller": "Sprzedawca",
+		"settings": "Ustawienia Wyceny Przedmiotu",
+		"stale": "Dane są nieaktualne. Pobieranie ponownie za {{counter}}s ... Teraz?",
+		"stats": "Statystyki",
+		"stats-export": "Wyślij statystyki do schowka",
+		"stats-import": "Wczytaj statystyki ze schowka",
+		"stats-unique-check-all": "Unikaty - sprawdź wszystkie",
+		"switch": "zmień sumę",
+		"tag": {
+			"note": "Tylko elementy bez istniejącej notatki mogą być szybko oznaczone. Notatka została zamiast tego skopiowana.",
+			"outside-stash": "Tylko przedmioty w skrytce można szybko oznaczyć. Notatka została zamiast tego skopiowana."
+		},
+		"translate": "Wyceń przetłumaczony przedmiot",
+		"translate-language": "Język przełumaczonego przedmiotu",
+		"translate-settings": "Ustawienia tłumaczenia Wyceny",
+		"value": "Wartość"
+	},
+	"help": {
+		"browser": "Przytrzymanie klawisza Ctrl i kliknięcie, spowoduje otwarcie odnośnika w domyślnej przeglądarce.",
+		"browser-title": "Jak mogę otworzyć wyszukiwanie w domyślnej przeglądarce?",
+		"bug": "Zgłoś błąd / zaproponuj sugestię",
+		"bug-title": "Znalazłeś błąd? A może masz sugestię? Proszę zgłoś ją na stronie GitHub projektu.",
+		"donate": "Przekaż darowiznę przez PayPal",
+		"donate-title": "Podoba ci się ten projekt? Jeśli chcesz, możesz przekazać darowiznę. Dziękuję za Twoje wsparcie!",
+		"dwm": "Jest to głównie spowodowane wyłączonym trybem Aero / DWM. Spróbuj więc włączyć tę funkcję systemu Windows.<br> Jest wymagana aby tworzyć przezroczyste okna.",
+		"dwm-title": "Dlaczego mój ekran zmienia kolor na czarny / biały po przełączeniu jakiejkolwiek funkcji?",
+		"faq": "FAQ - najczęściej zadawane pytania",
+		"graph": "Kolumny/paski wskazują podział cen przedmiotu. Grupują ceny o takiej samej wartości i sumują ich liczbę.<br> Najwyższa kolumna/pasek to Moda często zwana \"wartością najczęstszą\", czyli w tym przypadku cena pojawiająca się najczęściej. Średnia to poprostu średnia cena przedmiotu. Mediana to cena zajmująca środkową pozycję między wszystkimi wartościami cen.",
+		"graph-title": "Co przedstawia wykres? Co to jest moda / średnia / mediana?",
+		"graph-url": "Otwórz artykuł \"Jak odczytać histogram Minimum Maksimum Mediana i Średnia\", autorstwa \"academy.datawrapper.de\"",
+		"graphic": "Jest to głównie spowodowane niekompatybilnością sterowników graficznych obecnej wersji chromium.<br> Wyłącz proszę przyspieszenie sprzętowe w pasku narzędzi.",
+		"graphic-title": "Czemu obraz jest rozmyty / wystąpił błąd graficzny?",
+		"name": "Pomoc",
+		"patreon": "Wesprzyj mnie na Patreonie",
+		"wiki": "Otwórz stronę Wiki projektu",
+		"wiki-title": "Zobacz stronę wiki projektu dla uzyskania dodatkowych informacji."
+	},
+	"map": {
+		"boss": "Boss",
+		"boss-rating": "Rating Bossa",
+		"boss-rating-info": "5: Wysokie i stałe zadawanie obrażeń, którego trudno niezawodnie uniknąć; pomijane przez wielu graczy.\n4: Wysokie i stałe obrażenia, których można dość dobrze uniknąć, ale nadal są bardzo niebezpieczne.\n3: Czasami wysokie obrażenia, których można dość dobrze uniknąć.\n2: Umiarkowane obrażenia, które można łatwo kite i / lub rozsądnie złagodzić przez większość buildów.\n1: Trywialny dla większości wersji.",
+		"bosses": "Bossowie",
+		"info": "Informacje",
+		"layout-rating": "Layout Rating",
+		"layout-rating-info": "Odp .: Mapa ma spójny układ, który można niezawodnie całkowicie wyczyścić bez cofania się.\nB: Mapa ma otwarty układ z kilkoma przeszkodami lub ma tylko krótkie i dobrze połączone ścieżki boczne.\nC: Mapa ma otwarty układ z wieloma przeszkodami lub ma długie boczne ścieżki, które wymagają cofnięcia.",
+		"name": "Mapy",
+		"no-map": "Przedmiot nie jest mapą.",
+		"not-found": "Nie znaleziono mapy.",
+		"stats-warning": "Statystyki Ostrzeżenia",
+		"stats-warning-export": "Wyślij ostrzeżenia statystyk do schowka",
+		"stats-warning-import": "Wczytaj ostrzeżenia statystyczne ze schowka"
+	},
+	"material": {
+		"accelerator": {
+			"any": "Naciśnij dowolny klawisz",
+			"unbound": "Nie przypisany"
+		},
+		"select-list": {
+			"add": "Dodaj do wybranych",
+			"remove": "Usuń z wybranych",
+			"search": "Szukaj",
+			"selected": "Wybrane",
+			"unselected": "Nie Wybrane"
+		}
+	},
+	"misc": {
+		"highlight": "Podświetl przedmiot",
+		"name": "Różne",
+		"navigation": "Przełączanie pomiędzy zakładkami",
+		"navigations": {
+			"disabled": "niepełnosprawny",
+			"inverse": "Odwrotność",
+			"normal": "normalna"
+		},
+		"open-poedb": "Otwórz stronę PoE DB",
+		"open-poedb-external": "Otwórz stronę PoE DB w przeglądarce",
+		"open-wiki": "Otwórz stronę Wiki",
+		"open-wiki-external": "Otwórz stronę Wiki w przeglądarce",
+		"parser-error": "Nie można odczytać informacji ze schowka. Upewnij się, że wyczyściłeś (ESC) poprzednie podświetlenie.",
+		"poedb": "PoE DB",
+		"stash": "Skrytka",
+		"wiki": "Wiki"
+	},
+	"settings": {
+		"app": "Program",
+		"auto-download": "Pobierz aktualizację automatycznie",
+		"auto-launch": "Uruchom wraz ze startem systemu",
+		"cancel": "Anuluj",
+		"dialog": "Okno dialogowe",
+		"dialog-spawn-position": {
+			"center": "Na środku",
+			"cursor": "Kursor myszy"
+		},
+		"dialog-spawn-position-title": "Pozycja okna dialogowego",
+		"display-version": "Wyświetl wersję",
+		"exit-app": "Wyjdź z programu",
+		"game-settings": "Ustawienia gry",
+		"general": "Ogólne",
+		"language": "Język",
+		"languages": {
+			"english": "Angielski",
+			"french": "Francuski",
+			"german": "Niemiecki",
+			"korean": "Koreański",
+			"polish": "Polski",
+			"portuguese": "Portugalski",
+			"russian": "Rosyjski",
+			"simplifiedchinese": "Chiński uproszczony",
+			"spanish": "Hiszpański",
+			"thai": "Tajski",
+			"traditionalchinese": "Chiński tradycyjny"
+		},
+		"league": "Liga",
+		"open-settings": "Otwórz ustawienia",
+		"relaunch-app": "Uruchom program ponownie",
+		"save": "Zapisz",
+		"ui-language": "Język programu",
+		"zoom": "Powiększenie"
+	}
 }
