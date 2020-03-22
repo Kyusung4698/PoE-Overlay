@@ -1,34 +1,20 @@
+![GitHub Releases](https://img.shields.io/github/downloads/Kyusung4698/PoE-Overlay/latest/total)
+![GitHub Release Date](https://img.shields.io/github/release-date/Kyusung4698/PoE-Overlay)
+<a href="https://www.patreon.com/bePatron?u=30666721"><img src="https://c5.patreon.com/external/logo/become_a_patron_button.png" alt="Become a Patron" width="85px" height="20px"></a>
+
 # PoE Overlay 0.6.9
 
 An Overlay for Path of Exile. The ***core aspect*** is to blend in with the game. Built with Electron and Angular. 
  
 <!-- TOC -->
-- [Status](#status)
 - [Features](#features)
 - [Roadmap](#roadmap)
 - [Enduser](#enduser)
-    - [Getting Started](#getting-started)
-        - [Prerequisites](#prerequisites)
-        - [Installing](#installing)
-        - [Shortcuts](#shortcuts)
 - [Developer](#developer)
-    - [Getting Started](#getting-started-1)
-        - [Prerequisites](#prerequisites-1)
-        - [Installing](#installing-1)
-    - [Running the tests](#running-the-tests)
-        - [And coding style tests](#and-coding-style-tests)
-    - [Building](#building)
-    - [Built With](#built-with)
-    - [Contributing](#contributing)
-    - [Versioning](#versioning)
 - [Authors](#authors)
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
 <!-- /TOC -->
-
-## Status
-
-This project is currently in a ***pilot phase***. If you encounter any bugs or have feature requests please open up an issue on github. 
 
 ## Features
 
@@ -37,34 +23,34 @@ This project is currently in a ***pilot phase***. If you encounter any bugs or h
 * Evaluation of items:
     * select your preferred currencies and language
     * uses the official pathofexile.com/trade website
-    * a graphical display of the price distribution<br> ![item](img/item_0.5.8.jpg)
-    * filter your search on all supported properties on click<br> ![item_filter](img/item_filter_0.5.8.jpg)
-    * an in game browser to display the created search<br> ![browser](img/item_browser_0.5.8.jpg)
+    * a graphical display of the price distribution<br><details>![item](img/item_0.5.8.jpg)</details>
+    * filter your search on all supported properties on click<br> <details>![item_filter](img/item_filter_0.5.8.jpg)</details>
+    * an in game browser to display the created search<br> <details>![browser](img/item_browser_0.5.8.jpg)</details>
     * lets you price tag the item by clicking the desired bar/value
 
 * Customisable keybindings:  
     * bind in game commands to a custom hotkey
     * premade /hideout on `F5` and /dnd on `F6`
+    
+* Bookmark
+    * bind websites on hotkeys
 
 * Misc:
     * Navigating storage by CTRL + WHEEL
     * Highlighting items by ALT + F
 
 * Menu:
-    * an in game menu to change all settings<br> ![menu](img/menu_0.5.2.jpg)
+    * an in game menu to change all settings<br> <details>![menu](img/menu_0.5.2.jpg)</details>
+    
+See the [Wiki](https://github.com/Kyusung4698/PoE-Overlay/wiki) for further details.
 
 ## Roadmap
 
 | Module        | Status        | Notes   |
 | ------------- |-------------: | ------- |
-| Core | 100% | + overlay<br>+ global shortcuts<br>+ user settings (language, league)<br>+ custom shortcuts<br>+ auto updating
-| Shared | 100% | + item frame<br>+ currency frame<br>+ item parser in all languages<br>+ item parser mods
-| Evaluate         | 100%           | + Basic search implemented <br>+ User settings (display currency, translated language) <br>+ Chart to display values instead of avg <br>+ Advanced search with filter on modifiers |
-| Command        | 100%            | + bind in-game commmands to shortcuts (/dnd, /hideout) |
-| Map        | 100%            | + display map info (layout, bosses, ...)<br>+ customisable mod warnings |
-| Misc        | 100%            | + navigating through storage by CTRL + WHEEL<br> + highlighting items by ALT + F |
-| Trade      | 0%           | - Send messages<br>- Trade UI<br>- etc.       |
-
+| Linux         | 50%           | - Allow running this app on Linux
+| Trade         | 0%            | - Send messages<br>- Trade UI<br>- etc.
+| Overwolf      | 0%            | - Release this app as Overwolf addon to support a fullscreen experience
 
 ## Enduser
 
@@ -98,6 +84,8 @@ These instructions will set you up to run and enjoy the overlay.
 
 You can change these shortcuts in the user settings menu.
 
+<details>
+  
 |Shortcut        |Description
 |---             |---	    
 | `ctrl+d`       | Displays the item in a frame and evaluates the price. You can open the offical trade site on click of the currency value
@@ -118,6 +106,7 @@ You can change these shortcuts in the user settings menu.
 | `esc`          | Close latest dialog
 | `space`        | Close all dialogs
 
+</details>
 
 ## Developer
 
