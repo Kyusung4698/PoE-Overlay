@@ -44,6 +44,9 @@ autoUpdater.logger = log;
 const args = process.argv.slice(1);
 const serve = args.some(val => val === '--serve');
 
+log.info('App args', args);
+log.info('App served', serve);
+
 const launch = new AutoLaunch({
     name: 'PoE Overlay'
 });
@@ -67,7 +70,7 @@ function getDisplay(): Display {
 
 function send(channel: string, ...args: any[]) {
     try {
-        win.webContents.send(channel, args);
+        win.webContents.send(channel, ...args);
     }
     catch (error) {
         log.error(`could not send to '${channel}' with args '${JSON.stringify(args)}`);
@@ -382,7 +385,7 @@ function createTray(): Tray {
             label: 'Ignore Mouse Events', type: 'normal',
             click: () => win.setIgnoreMouseEvents(true),
         });
-    };    
+    };
 
     menu = Menu.buildFromTemplate(items);
     tray.setToolTip(`PoE Overlay: ${app.getVersion()}`);
