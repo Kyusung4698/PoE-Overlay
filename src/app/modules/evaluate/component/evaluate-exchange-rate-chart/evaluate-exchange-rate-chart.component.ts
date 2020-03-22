@@ -97,8 +97,6 @@ export class EvaluateExchangeRateChartComponent {
       }
     ];
 
-    console.log(this.items);
-
     this.yScaleMin *= 0.9;
     this.yScaleMax *= 1.1;
   }

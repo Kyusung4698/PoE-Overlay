@@ -100,9 +100,7 @@ export class EvaluateSearchComponent implements OnInit {
 
   public onSearchCancelClick(): void {
     this.listings$.next([]);
-    if (this.listSubscription) {
-      this.listSubscription.unsubscribe();
-    }
+    this.listSubscription?.unsubscribe();
   }
 
   public onStaleCancelClick(): void {
