@@ -1,10 +1,9 @@
 import { ChangeDetectionStrategy, Component, HostListener, Inject, OnDestroy, OnInit } from '@angular/core';
-import { AppService, RendererService, WindowService } from '@app/service';
+import { AppService, AppTranslateService, RendererService, WindowService } from '@app/service';
 import { DialogRefService } from '@app/service/dialog';
 import { ShortcutService } from '@app/service/input';
 import { FEATURE_MODULES } from '@app/token';
-import { AppUpdateState, FeatureModule, UiLanguage, VisibleFlag } from '@app/type';
-import { TranslateService } from '@ngx-translate/core';
+import { AppUpdateState, FeatureModule, VisibleFlag } from '@app/type';
 import { SnackBarService } from '@shared/module/material/service';
 import { ContextService } from '@shared/module/poe/service';
 import { Context } from '@shared/module/poe/type';
@@ -31,13 +30,12 @@ export class OverlayComponent implements OnInit, OnDestroy {
     private readonly userSettingsService: UserSettingsService,
     private readonly context: ContextService,
     private readonly app: AppService,
+    private readonly translate: AppTranslateService,
     private readonly snackBar: SnackBarService,
     private readonly window: WindowService,
     private readonly renderer: RendererService,
     private readonly shortcut: ShortcutService,
-    private readonly dialogRef: DialogRefService,
-    private readonly translate: TranslateService) {
-    this.translate.setDefaultLang(`${UiLanguage.English}`);
+    private readonly dialogRef: DialogRefService) {
   }
 
   @HostListener('window:beforeunload', [])
@@ -56,7 +54,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
 
   private initSettings(): void {
     this.userSettingsService.init(this.modules).subscribe(settings => {
-      this.translate.use(`${settings.uiLanguage}`);
+      this.translate.use(settings.uiLanguage);
       this.displayVersion$.next(settings.displayVersion);
       this.window.setZoom(settings.zoom / 100);
       this.context.init(this.getContext(settings));
@@ -117,7 +115,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
       ).subscribe(settings => {
         this.userSettingsOpen = null;
 
-        this.translate.use(`${settings.uiLanguage}`);
+        this.translate.use(settings.uiLanguage);
         this.window.setZoom(settings.zoom / 100);
         this.displayVersion$.next(settings.displayVersion);
         this.context.update(this.getContext(settings));

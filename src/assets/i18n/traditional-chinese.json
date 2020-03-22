@@ -1,5 +1,6 @@
 {
 	"app": {
+		"clickable": "'點擊'=遊戲內瀏覽器，'CTRL +點擊'默認瀏覽器",
 		"update": {
 			"available": "有新的更新。除非另有說明，否則將自動下載。",
 			"downloaded": "現在就可以安裝新更新了。請重新啟動您的應用程序。"
@@ -20,9 +21,11 @@
 	"command": {
 		"add": "添加命令",
 		"name": "命令",
-		"shortcut": "捷徑"
+		"shortcut": "捷徑",
+		"text": "命令"
 	},
 	"evaluate": {
+		"age": "年齡",
 		"count": "計數",
 		"currency": "顯示貨幣",
 		"currency-original": "原始貨幣",
@@ -36,6 +39,10 @@
 		"not-found": "沒有找到數據。",
 		"range": "範圍",
 		"result-view": "結果視圖",
+		"result-views": {
+			"graph": "圖形",
+			"list": "名單"
+		},
 		"search": {
 			"default": "默認搜索設置",
 			"disable-max-range": "禁用最大範圍",
@@ -63,6 +70,7 @@
 			"modifier-range": "修改範圍",
 			"online-only": "僅在線"
 		},
+		"seller": "賣家",
 		"settings": "評估設置",
 		"stats": "統計資料",
 		"stats-export": "將統計數據導出到剪貼板",
@@ -75,7 +83,8 @@
 		},
 		"translate": "評估翻譯",
 		"translate-language": "翻譯項目語言",
-		"translate-settings": "評估翻譯設置"
+		"translate-settings": "評估翻譯設置",
+		"value": "值"
 	},
 	"help": {
 		"browser": "單擊時按住CTRL將在默認瀏覽器中打開鏈接。",
@@ -100,9 +109,11 @@
 	"map": {
 		"boss": "輿圖尾王",
 		"boss-rating": "輿圖尾王評分",
+		"boss-rating-info": "5：難以避免的高且一致的損壞輸出；被許多玩家跳過。\n4：高且一致的損壞輸出，可以合理避免，但仍然非常危險。\n3：偶爾會產生較高的損壞輸出，而這可以很好地避免。\n2：適度的損壞輸出，大多數構造都可以輕鬆地修理和/或合理地減輕。\n1：對於大多數構建來說都是微不足道的。",
 		"bosses": "輿圖尾王們",
 		"info": "信息",
 		"layout-rating": "地形等級",
+		"layout-rating-info": "答：地圖具有一致的佈局，可以可靠地完全清除而不會發生回溯。\nB：地圖的開放式佈局幾乎沒有障礙物，或者只有較短且連接良好的側向路徑。\nC：地圖的佈局開放，有很多障礙，或者路線較長，需要回溯。",
 		"name": "地圖",
 		"no-map": "項目不是地圖。",
 		"not-found": "找不到地圖。",
@@ -127,6 +138,11 @@
 		"highlight": "突出",
 		"name": "雜項",
 		"navigation": "導航",
+		"navigations": {
+			"disabled": "殘",
+			"inverse": "逆",
+			"normal": "正常"
+		},
 		"open-poedb": "打開PoE DB",
 		"open-poedb-external": "外部開放式PoE DB",
 		"open-wiki": "打開維基",

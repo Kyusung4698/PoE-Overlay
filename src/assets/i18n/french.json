@@ -1,5 +1,6 @@
 {
 	"app": {
+		"clickable": "'Click' = navigateur en jeu, 'CTRL + Click' navigateur par défaut",
 		"update": {
 			"available": "Une nouvelle mise à jour est disponible. Sera automatiquement téléchargé, sauf indication contraire.",
 			"downloaded": "La nouvelle mise à jour est maintenant prête à installer. Veuillez relancer votre candidature."
@@ -20,9 +21,11 @@
 	"command": {
 		"add": "Ajouter une commande",
 		"name": "Commande",
-		"shortcut": "Raccourci"
+		"shortcut": "Raccourci",
+		"text": "Commande"
 	},
 	"evaluate": {
+		"age": "âge",
 		"count": "Compter",
 		"currency": "Monnaie affichée",
 		"currency-original": "Devise d'origine",
@@ -36,6 +39,10 @@
 		"not-found": "Aucune donnée disponible.",
 		"range": "Range",
 		"result-view": "Affichage des résultats",
+		"result-views": {
+			"graph": "Graphique",
+			"list": "liste"
+		},
 		"search": {
 			"default": "Paramètres de recherche par défaut",
 			"disable-max-range": "Désactiver la plage maximale",
@@ -63,6 +70,7 @@
 			"modifier-range": "Plage de modificateurs",
 			"online-only": "En ligne seulement"
 		},
+		"seller": "vendeur",
 		"settings": "Paramètres d'évaluation",
 		"stats": "Statistiques",
 		"stats-export": "Exporter les statistiques vers le presse-papiers",
@@ -75,7 +83,8 @@
 		},
 		"translate": "Évaluation traduite",
 		"translate-language": "Langue de l'objet traduit",
-		"translate-settings": "Paramètres de l'évaluation traduuite"
+		"translate-settings": "Paramètres de l'évaluation traduuite",
+		"value": "Valeur"
 	},
 	"help": {
 		"browser": "Maintenir CTRL tout en cliquant ouvrira le lien dans le navigateur par défaut.",
@@ -100,9 +109,11 @@
 	"map": {
 		"boss": "Boss",
 		"boss-rating": "Évaluation du boss",
+		"boss-rating-info": "5: sortie de dommages élevée et constante difficile à éviter de manière fiable; sauté par de nombreux joueurs.\n4: Dégâts élevés et constants pouvant être évités raisonnablement bien mais toujours très dangereux.\n3: Dégâts occasionnellement élevés qui peuvent être évités raisonnablement bien.\n2: Sortie de dégâts modérée qui peut être facilement maîtrisée et / ou raisonnablement atténuée par la plupart des builds.\n1: trivial pour la plupart des versions.",
 		"bosses": "Boss",
 		"info": "Info",
 		"layout-rating": "Disposition de la fenêtre d'évaluation",
+		"layout-rating-info": "R: La carte a une disposition cohérente qui peut être complètement effacée de manière fiable sans retour en arrière.\nB: La carte a une disposition ouverte avec peu d'obstacles, ou n'a que des chemins latéraux courts et bien connectés.\nC: La carte a une disposition ouverte avec de nombreux obstacles, ou a de longs chemins latéraux qui nécessitent un retour en arrière.",
 		"name": "Carte",
 		"no-map": "L'objet n'est pas une carte.",
 		"not-found": "Carte introuvable.",
@@ -127,6 +138,11 @@
 		"highlight": "Surbrillance",
 		"name": "Divers",
 		"navigation": "Défilement",
+		"navigations": {
+			"disabled": "Désactivé",
+			"inverse": "Inversé",
+			"normal": "Ordinaire"
+		},
 		"open-poedb": "Ouvrir PoE DB",
 		"open-poedb-external": "Ouvrir PoE DB dans une nouvelle fenêtre",
 		"open-wiki": "Ouvrir le wiki",

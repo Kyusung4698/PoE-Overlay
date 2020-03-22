@@ -382,7 +382,7 @@ function createTray(): Tray {
             label: 'Ignore Mouse Events', type: 'normal',
             click: () => win.setIgnoreMouseEvents(true),
         });
-    };
+    };    
 
     menu = Menu.buildFromTemplate(items);
     tray.setToolTip(`PoE Overlay: ${app.getVersion()}`);

@@ -17,8 +17,8 @@
     <mat-form-field>
         <mat-label>{{'evaluate.result-view' | translate}}</mat-label>
         <mat-select [(value)]="settings.evaluateResultView">
-            <mat-option *ngFor="let view of views.keys" [value]="view">
-                {{views.values[view]}}
+            <mat-option *ngFor="let view of views.keys" [value]="view">                
+                {{'evaluate.result-views.' + (views.values[view] | lowercase) | translate}}
             </mat-option>
         </mat-select>
     </mat-form-field>

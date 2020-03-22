@@ -1,5 +1,6 @@
 {
 	"app": {
+		"clickable": "'点击'=游戏内浏览器，'CTRL +点击'默认浏览器",
 		"update": {
 			"available": "有新的更新。除非另有说明，否则将自动下载。",
 			"downloaded": "现在就可以安装新更新了。请重新启动您的应用程序。"
@@ -20,9 +21,11 @@
 	"command": {
 		"add": "添加命令",
 		"name": "命令",
-		"shortcut": "捷径"
+		"shortcut": "捷径",
+		"text": "命令"
 	},
 	"evaluate": {
+		"age": "年龄",
 		"count": "计数",
 		"currency": "显示货币",
 		"currency-original": "原始货币",
@@ -36,6 +39,10 @@
 		"not-found": "没有找到数据。",
 		"range": "范围",
 		"result-view": "结果视图",
+		"result-views": {
+			"graph": "图形",
+			"list": "名单"
+		},
 		"search": {
 			"default": "默认搜索设置",
 			"disable-max-range": "禁用最大范围",
@@ -63,6 +70,7 @@
 			"modifier-range": "修改范围",
 			"online-only": "仅在线"
 		},
+		"seller": "卖家",
 		"settings": "评估设置",
 		"stats": "统计资料",
 		"stats-export": "将统计数据导出到剪贴板",
@@ -75,7 +83,8 @@
 		},
 		"translate": "评估翻译",
 		"translate-language": "翻译项目语言",
-		"translate-settings": "评估翻译设置"
+		"translate-settings": "评估翻译设置",
+		"value": "值"
 	},
 	"help": {
 		"browser": "单击时按住CTRL将在默认浏览器中打开链接。",
@@ -100,9 +109,11 @@
 	"map": {
 		"boss": "舆图王",
 		"boss-rating": "舆图王评分",
+		"boss-rating-info": "5：难以避免的高且一致的损坏输出；被许多玩家跳过。\n4：高且一致的损坏输出，可以合理避免，但仍然非常危险。\n3：偶尔会产生较高的损坏输出，而这可以很好地避免。\n2：适度的损坏输出，大多数构造都可以轻松地修理和/或合理地减轻。\n1：对于大多数构建来说都是微不足道的。",
 		"bosses": "舆图王们",
 		"info": "信息",
 		"layout-rating": "地形等级",
+		"layout-rating-info": "答：地图具有一致的布局，可以可靠地完全清除而不会发生回溯。\nB：地图的开放式布局几乎没有障碍物，或者只有较短且连接良好的侧向路径。\nC：地图的布局开放，有很多障碍，或者路线较长，需要回溯。",
 		"name": "地图",
 		"no-map": "项目不是地图。",
 		"not-found": "找不到地图。",
@@ -127,6 +138,11 @@
 		"highlight": "突出",
 		"name": "杂项",
 		"navigation": "导航",
+		"navigations": {
+			"disabled": "残",
+			"inverse": "逆",
+			"normal": "正常"
+		},
 		"open-poedb": "打开PoE DB",
 		"open-poedb-external": "外部打开PoE DB",
 		"open-wiki": "打开维基",

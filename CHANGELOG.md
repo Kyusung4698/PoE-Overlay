@@ -1,5 +1,6 @@
 ## 0.6.10 (2020-03-22)
 
+- add missing translations (#413)
 - update use ico instead of png as tray icon (#403)
 - update disable arrow if no mod selected (#425)
 - fix run on boot not working (#419)

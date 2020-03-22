@@ -24,7 +24,7 @@
 <ng-container *ngIf="result$ | async as result; else loading">
   <ng-container *ngIf="result.items && result.items.length > 0">
     <div class="clickable values" (click)="onCurrencyClick($event)" (wheel)="onCurrencyWheel($event)"
-      title="'Click' = In-Game Browser, 'CTRL + Click' Default Browser">
+      [title]="'app.clickable' | translate">
       <div>
         <app-currency-frame [label]="'evaluate.mean' | translate" [amount]="result.mean">
         </app-currency-frame>
@@ -60,8 +60,7 @@
     </app-evaluate-search-table>
   </ng-container>
   <ng-container *ngIf="result.items && result.items.length === 0">
-    <div class="clickable" (click)="onCurrencyClick($event)"
-      title="'Click' = In-Game Browser, 'CTRL + Click' Default Browser">
+    <div class="clickable" (click)="onCurrencyClick($event)" [title]="'app.clickable' | translate">
       {{ 'evaluate.not-found' | translate }}
     </div>
   </ng-container>

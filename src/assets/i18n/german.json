@@ -1,5 +1,6 @@
 {
 	"app": {
+		"clickable": "'Klick' = Browser im Spiel, 'STRG + Klick' Standardbrowser",
 		"update": {
 			"available": "Ein neues Update ist verfügbar. Wird automatisch heruntergeladen, sofern nicht anders angegeben.",
 			"downloaded": "Das neue Update kann jetzt installiert werden. Bitte starten Sie Ihre Anwendung neu."
@@ -19,10 +20,12 @@
 	},
 	"command": {
 		"add": "Befehl hinzufügen",
-		"name": "Befehl",
-		"shortcut": "Tastaturkürzel"
+		"name": "Befehle",
+		"shortcut": "Tastaturkürzel",
+		"text": "Befehl"
 	},
 	"evaluate": {
+		"age": "Alter",
 		"count": "Anzahl",
 		"currency": "Angezeigte Währung",
 		"currency-original": "Originalwährung",
@@ -36,6 +39,10 @@
 		"not-found": "Keine Daten gefunden.",
 		"range": "Bereich",
 		"result-view": "Ergebnisansicht",
+		"result-views": {
+			"graph": "Graph",
+			"list": "Liste"
+		},
 		"search": {
 			"default": "Standardsucheinstellungen",
 			"disable-max-range": "Maximalen Wertebereich deaktivieren",
@@ -63,6 +70,7 @@
 			"modifier-range": "Modifikatorbereich",
 			"online-only": "Nur online"
 		},
+		"seller": "Verkäufer",
 		"settings": "Bewertungseinstellungen",
 		"stats": "Stats",
 		"stats-export": "Exportieren der Stats in die Zwischenablage",
@@ -75,7 +83,8 @@
 		},
 		"translate": "Übersetzt Bewerten",
 		"translate-language": "Sprache des übersetzten Gegenstandes",
-		"translate-settings": "Übersetzte Bewertungseinstellungen"
+		"translate-settings": "Übersetzte Bewertungseinstellungen",
+		"value": "Wert"
 	},
 	"help": {
 		"browser": "Wenn Sie beim Klicken die STRG-Taste gedrückt halten, wird der Link im Standardbrowser geöffnet.",
@@ -100,9 +109,11 @@
 	"map": {
 		"boss": "Boss",
 		"boss-rating": "Boss-Bewertung",
+		"boss-rating-info": "5: Hohe und konstante Schadensleistung, die schwer zuverlässig zu vermeiden ist; von vielen Spielern übersprungen.\n4: Hohe und konstante Schadensleistung, die einigermaßen gut vermieden werden kann, aber dennoch sehr gefährlich ist.\n3: Gelegentlich hoher Schaden, der einigermaßen gut vermieden werden kann.\n2: Mäßiger Schaden, der von den meisten Builds leicht gemitet und / oder angemessen gemindert werden kann.\n1: Trivial für die meisten Builds.",
 		"bosses": "Bosse",
 		"info": "Info",
 		"layout-rating": "Layout-Bewertung",
+		"layout-rating-info": "A: Die Karte verfügt über ein konsistentes Layout, das ohne Rückverfolgung zuverlässig vollständig gelöscht werden kann.\nB: Die Karte hat ein offenes Layout mit wenigen Hindernissen oder nur kurze und gut verbundene Seitenwege.\nC: Die Karte hat ein offenes Layout mit vielen Hindernissen oder lange Seitenwege, die ein Zurückverfolgen erfordern.",
 		"name": "Karte",
 		"no-map": "Gegenstand ist keine Karte.",
 		"not-found": "Karte nicht gefunden.",
@@ -127,8 +138,13 @@
 		"highlight": "Markieren",
 		"name": "Sonstiges",
 		"navigation": "Navigation",
-		"open-poedb": "Öffne PoE DB",
-		"open-poedb-external": "Öffne PoE DB External",
+		"navigations": {
+			"disabled": "Deaktiviert",
+			"inverse": "Invers",
+			"normal": "Normal"
+		},
+		"open-poedb": "PoE DB öffnen",
+		"open-poedb-external": "PoE DB im Browser öffnen",
 		"open-wiki": "Wiki öffnen",
 		"open-wiki-external": "Wiki im Browser öffnen",
 		"parser-error": "Zwischenablage konnte nicht geparst werden. Bitte stellen Sie sicher, dass Sie die vorherige Markierung gelöscht haben (ESC).",

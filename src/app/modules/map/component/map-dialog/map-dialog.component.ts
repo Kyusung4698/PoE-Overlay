@@ -20,18 +20,6 @@ export class MapDialogComponent implements OnInit {
   public properties = [
     'mapTier'
   ];
-  public layoutRatingText =
-    'A: The map has a consistent layout that can be reliably fully cleared with no backtracking.\n' +
-    'B: The map has an open layout with few obstacles, or has only short and well-connected side paths.\n' +
-    'C: The map has an open layout with many obstacles, or has long side paths that require backtracking.';
-
-  public bossRatingText =
-    '5: High and consistent damage output that is difficult to reliably avoid; skipped by many players.\n' +
-    '4: High and consistent damage output that can be avoided reasonably well but still very dangerous.\n' +
-    '3: Occasionally high damage output that can be avoided reasonably well.\n' +
-    '2: Moderate damage output that can be easily kited and/or reasonably mitigated by most builds.\n' +
-    '1: Trivial for most builds.';
-
   public map: AtlasMap;
 
   constructor(

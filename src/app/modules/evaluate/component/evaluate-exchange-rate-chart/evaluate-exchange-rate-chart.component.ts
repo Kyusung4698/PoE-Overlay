@@ -12,6 +12,7 @@ import * as shape from 'd3-shape';
 export class EvaluateExchangeRateChartComponent {
   private _result: ItemExchangeRateResult;
   private _inverse: boolean;
+  private _name : string;
 
   public items: any[];
   public view = [140, 60];
@@ -49,8 +50,19 @@ export class EvaluateExchangeRateChartComponent {
     return this._inverse;
   }
 
+  @Input()
+  public set name(name : string) {
+    this._name = name;
+    this.update();
+  }
+
+  public get name() : string {
+    return this._name;
+  }
+
+
   private update() {
-    if (!this.result.history) {
+    if (!this.result.history || !this.name) {
       this.display = 'none';
       return;
     } else {
@@ -65,7 +77,7 @@ export class EvaluateExchangeRateChartComponent {
 
     this.items = [
       {
-        name: 'amount',
+        name: this.name,
         series: this.result.history.map((value, index) => {
           const day = 6 - index;
           value = base * (1 + value / 100);
@@ -84,6 +96,8 @@ export class EvaluateExchangeRateChartComponent {
         })
       }
     ];
+
+    console.log(this.items);
 
     this.yScaleMin *= 0.9;
     this.yScaleMax *= 1.1;

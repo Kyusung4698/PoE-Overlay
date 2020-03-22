@@ -1,5 +1,6 @@
 {
 	"app": {
+		"clickable": "'Click' = Navegador dentro del juego, 'CTRL + Click' Navegador predeterminado",
 		"update": {
 			"available": "Una nueva actualización está disponible. Se descargará automáticamente a menos que se especifique lo contrario.",
 			"downloaded": "La nueva actualización ya está lista para instalar. Por favor, reinicie su aplicación."
@@ -20,9 +21,11 @@
 	"command": {
 		"add": "Agregar Comando",
 		"name": "Mando",
-		"shortcut": "Atajo"
+		"shortcut": "Atajo",
+		"text": "Mando"
 	},
 	"evaluate": {
+		"age": "años",
 		"count": "Contar",
 		"currency": "Moneda mostrada",
 		"currency-original": "Moneda original",
@@ -36,6 +39,10 @@
 		"not-found": "Datos no encontrados.",
 		"range": "Range",
 		"result-view": "Vista de resultados",
+		"result-views": {
+			"graph": "Gráfico",
+			"list": "Lista"
+		},
 		"search": {
 			"default": "Configuración de búsqueda predeterminada",
 			"disable-max-range": "Deshabilitar rango máximo",
@@ -63,6 +70,7 @@
 			"modifier-range": "Rango Modificador",
 			"online-only": "Solo online"
 		},
+		"seller": "Vendedor",
 		"settings": "Evaluar configuraciones",
 		"stats": "Estadísticas",
 		"stats-export": "Exportar estadísticas al portapapeles",
@@ -75,7 +83,8 @@
 		},
 		"translate": "Evaluar Traducir",
 		"translate-language": "Idioma del elemento traducido",
-		"translate-settings": "Evaluar la configuración de traducción"
+		"translate-settings": "Evaluar la configuración de traducción",
+		"value": "Valor"
 	},
 	"help": {
 		"browser": "Si mantiene presionada la tecla CTRL mientras hace clic, se abrirá el enlace en el navegador predeterminado.",
@@ -100,9 +109,11 @@
 	"map": {
 		"boss": "Jefe",
 		"boss-rating": "Calificación del jefe",
+		"boss-rating-info": "5: Salida de daño alta y constante que es difícil de evitar de manera confiable; omitido por muchos jugadores.\n4: Salida de daño alta y constante que puede evitarse razonablemente bien pero que sigue siendo muy peligrosa.\n3: Ocasionalmente, alto daño producido que puede evitarse razonablemente bien.\n2: Salida de daño moderada que puede ser fácilmente eliminada y / o mitigada razonablemente por la mayoría de las construcciones.\n1: Trivial para la mayoría de las compilaciones.",
 		"bosses": "Jefes",
 		"info": "información",
 		"layout-rating": "Calificación de diseño",
+		"layout-rating-info": "R: El mapa tiene un diseño consistente que puede borrarse completamente de manera confiable sin retroceder.\nB: El mapa tiene un diseño abierto con pocos obstáculos, o solo tiene caminos laterales cortos y bien conectados.\nC: El mapa tiene un diseño abierto con muchos obstáculos, o tiene caminos laterales largos que requieren retroceso.",
 		"name": "Mapa",
 		"no-map": "El artículo no es un mapa.",
 		"not-found": "Mapa no encontrado",
@@ -127,6 +138,11 @@
 		"highlight": "Realce",
 		"name": "Misceláneos",
 		"navigation": "Navegación",
+		"navigations": {
+			"disabled": "Discapacitado",
+			"inverse": "Inverso",
+			"normal": "Normal"
+		},
 		"open-poedb": "Abrir PoE DB",
 		"open-poedb-external": "Abrir PoE DB Externo",
 		"open-wiki": "Wiki abierto",
