@@ -1,3 +1,9 @@
+## 0.6.10 (2020-03-22)
+
+- update disable arrow if no mod selected (#425)
+- fix run on boot not working (#419)
+- fix uncaught exceptions thrown after app relaunch (#411)
+
 ## 0.6.9 (2020-03-19)
 
 - fix cloudflare access error
