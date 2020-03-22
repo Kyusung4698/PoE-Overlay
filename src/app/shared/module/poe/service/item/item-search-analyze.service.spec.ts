@@ -2,6 +2,7 @@ import { async, TestBed } from '@angular/core/testing';
 import { Item, Language } from '@shared/module/poe/type';
 import { SharedModule } from '@shared/shared.module';
 import { forkJoin } from 'rxjs';
+import { flatMap } from 'rxjs/operators';
 import { BaseItemTypesService } from '../base-item-types/base-item-types.service';
 import { ContextService } from '../context.service';
 import { CurrencyService } from '../currency/currency.service';
@@ -19,7 +20,7 @@ describe('ItemSearchAnalyzeService', () => {
         TestBed.configureTestingModule({
             imports: [
                 SharedModule
-            ],
+            ]
         }).compileComponents();
         sut = TestBed.inject<ItemSearchAnalyzeService>(ItemSearchAnalyzeService);
 
@@ -39,11 +40,13 @@ describe('ItemSearchAnalyzeService', () => {
         };
 
         forkJoin([
-            searchService.search(requestedItem),
+            searchService.search(requestedItem).pipe(
+                flatMap(result => searchService.list(result))
+            ),
             currencyService.searchById('chaos')
         ]).subscribe(results => {
             sut.analyze(results[0], [results[1]]).subscribe(result => {
-                expect(result.median).toBeGreaterThan(0);
+                expect(result.values.median).toBeGreaterThan(0);
                 done();
             }, error => {
                 done.fail(error);

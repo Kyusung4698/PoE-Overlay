@@ -15,7 +15,7 @@ describe('ItemExchangeRateService', () => {
         TestBed.configureTestingModule({
             imports: [
                 SharedModule
-            ],
+            ]
         }).compileComponents();
         sut = TestBed.inject<ItemExchangeRateService>(ItemExchangeRateService);
 

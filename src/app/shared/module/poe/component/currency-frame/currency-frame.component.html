@@ -6,7 +6,7 @@
   <span *ngIf="count" class="amount">{{ count | number: "1.0-0" }}&nbsp;</span>
   <span *ngIf="range" class="amount">{{ range.min | number: "1.2-2" }}&nbsp;-&nbsp;{{
       range.max | number: "1.2-2"
-    }}</span>
+    }}&nbsp;</span>
   <span class="currency" *ngIf="currency">
     <img [src]="'https://web.poecdn.com' + currency.image" />
   </span>

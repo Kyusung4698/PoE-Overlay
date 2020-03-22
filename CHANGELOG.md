@@ -1,6 +1,8 @@
 ## 0.6.10 (2020-03-22)
 
 - add missing translations (#413)
+- add trade search configurable debounce time with now support (#426)
+- add trade search cancelable (my patrons)
 - update always use the item type of maps and flasks as query param (#433)
 - update use ico instead of png as tray icon (#403)
 - update disable arrow if no mod selected (#425)

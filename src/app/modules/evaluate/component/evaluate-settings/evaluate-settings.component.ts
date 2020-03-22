@@ -17,6 +17,14 @@ export enum EvaluateResultView {
   List = 2,
 }
 
+export enum EvaluateDebounceTime {
+  VeryFast = 5,
+  Fast = 25,
+  Normal = 50,
+  Slow = 75,
+  VerySlow = 100,
+}
+
 export interface EvaluateUserSettings extends UserSettings {
   evaluateCurrencyOriginal: boolean;
   evaluateCurrencyIds: string[];
@@ -34,6 +42,7 @@ export interface EvaluateUserSettings extends UserSettings {
   evaluateQueryIndexedRange: ItemSearchIndexed;
   evaluateModifierMinRange: number;
   evaluateModifierMaxRange: number;
+  evaluateDebounceTime: EvaluateDebounceTime;
 }
 
 interface StatSelectListItem extends SelectListItem {
@@ -49,6 +58,7 @@ interface StatSelectListItem extends SelectListItem {
 export class EvaluateSettingsComponent implements UserSettingsComponent {
   public languages = new EnumValues(Language);
   public views = new EnumValues(EvaluateResultView);
+  public debounceTimes = new EnumValues(EvaluateDebounceTime);
   public settings: EvaluateUserSettings;
 
   public currencies$ = new BehaviorSubject<Currency[]>([]);

@@ -5,9 +5,9 @@ import { forkJoin, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { CurrencyConverterService } from '../currency/currency-converter.service';
 import { CurrencySelectService, CurrencySelectStrategy } from '../currency/currency-select.service';
-import { ItemSearchResult, SearchListing } from './item-search.service';
+import { ItemSearchListing } from './item-search.service';
 
-export type SearchAnalyzeEntry = SearchListing & {
+export type SearchAnalyzeEntry = ItemSearchListing & {
     original: Currency;
     originalAmount: number;
     target: Currency;
@@ -22,17 +22,19 @@ export interface SearchAnalyzeEntryGrouped {
     items: SearchAnalyzeEntry[];
 }
 
-export interface ItemSearchAnalyzeResult {
-    url: string;
-    total: number;
-    items: SearchAnalyzeEntry[];
-    itemsGrouped?: SearchAnalyzeEntryGrouped[];
-    currency?: Currency;
+export interface SearchAnalyzeValues {
     min?: number;
     max?: number;
     mode?: number;
     median?: number;
     mean?: number;
+}
+
+export interface ItemSearchAnalyzeResult {
+    entries: SearchAnalyzeEntry[];
+    entryGroups?: SearchAnalyzeEntryGrouped[];
+    currency?: Currency;
+    values?: SearchAnalyzeValues;
 }
 
 @Injectable({
@@ -44,30 +46,28 @@ export class ItemSearchAnalyzeService {
         private readonly currencyConverterService: CurrencyConverterService,
         private readonly currencySelectService: CurrencySelectService) { }
 
-    public analyze(itemSearchResult: ItemSearchResult, currencies: Currency[]): Observable<ItemSearchAnalyzeResult> {
-        return this.convert(currencies, itemSearchResult).pipe(
+    public analyze(listings: ItemSearchListing[], currencies: Currency[]): Observable<ItemSearchAnalyzeResult> {
+        return this.convert(currencies, listings).pipe(
             map(converted => this.findMinCurrencyWithAtleast1(converted)),
-            map(items => {
-                if (!items || items.length <= 0) {
+            map(entries => {
+                if (!entries || entries.length <= 0) {
                     const empty: ItemSearchAnalyzeResult = {
-                        url: itemSearchResult.url,
-                        total: itemSearchResult.total,
-                        items,
+                        entries,
                     };
                     return empty;
                 }
-                return this.calculateMetrics(items, itemSearchResult);
+                return this.calculateMetrics(entries);
             })
         );
     }
 
-    private calculateMetrics(items: SearchAnalyzeEntry[], itemSearchResult: ItemSearchResult): ItemSearchAnalyzeResult {
-        const sortedByAmount = items.sort((a, b) => a.targetAmount - b.targetAmount);
+    private calculateMetrics(entries: SearchAnalyzeEntry[]): ItemSearchAnalyzeResult {
+        const sortedByAmount = entries.sort((a, b) => a.targetAmount - b.targetAmount);
 
         const min = sortedByAmount[0].targetAmount;
         const max = sortedByAmount[sortedByAmount.length - 1].targetAmount;
 
-        const sortedByAmountRounded = items.sort((a, b) => a.targetAmountRounded - b.targetAmountRounded);
+        const sortedByAmountRounded = entries.sort((a, b) => a.targetAmountRounded - b.targetAmountRounded);
         const itemsGrouped: SearchAnalyzeEntryGrouped[] = [
             {
                 value: sortedByAmountRounded[0].targetAmountRounded,
@@ -122,29 +122,29 @@ export class ItemSearchAnalyzeService {
             .add(Math.floor(meanGroup / itemsGrouped[itemsGrouped.length - 1].items.length))
             .to(now);
 
-        const mean = items.reduce((a, b) => a + b.targetAmount, 0) / items.length;
+        const mean = entries.reduce((a, b) => a + b.targetAmount, 0) / entries.length;
         const center = Math.floor(sortedByAmount.length / 2);
         const median = sortedByAmount.length % 2
             ? sortedByAmount[center].targetAmount
             : (sortedByAmount[center - 1].targetAmount + sortedByAmount[center].targetAmount) / 2;
 
         const result: ItemSearchAnalyzeResult = {
-            url: itemSearchResult.url,
-            total: itemSearchResult.total,
-            items: sortedByAmount,
-            itemsGrouped,
-            currency: items[0].target,
-            min: Math.round(min * 100) / 100,
-            max: Math.round(max * 100) / 100,
-            mode: Math.round(mode * 100) / 100,
-            mean: Math.round(mean * 100) / 100,
-            median: Math.round(median * 100) / 100
+            entries: sortedByAmount,
+            entryGroups: itemsGrouped,
+            currency: entries[0].target,
+            values: {
+                min: Math.round(min * 100) / 100,
+                max: Math.round(max * 100) / 100,
+                mode: Math.round(mode * 100) / 100,
+                mean: Math.round(mean * 100) / 100,
+                median: Math.round(median * 100) / 100
+            }
         };
         return result;
     }
 
-    private convert(currencies: Currency[], itemSearchResult: ItemSearchResult): Observable<SearchAnalyzeEntry[][]> {
-        const converted = currencies.map(target => forkJoin(itemSearchResult.items
+    private convert(currencies: Currency[], listings: ItemSearchListing[]): Observable<SearchAnalyzeEntry[][]> {
+        const converted = currencies.map(target => forkJoin(listings
             .map(listing => forkJoin([
                 this.currencyConverterService.convert(listing.currency, 'chaos'),
                 this.currencyConverterService.convert(listing.currency, target),

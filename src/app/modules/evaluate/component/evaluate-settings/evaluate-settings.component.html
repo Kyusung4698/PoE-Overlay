@@ -22,6 +22,14 @@
             </mat-option>
         </mat-select>
     </mat-form-field>
+    <mat-form-field>
+        <mat-label>{{'evaluate.debounce-time' | translate}}</mat-label>
+        <mat-select [(value)]="settings.evaluateDebounceTime">
+            <mat-option *ngFor="let debounceTime of debounceTimes.keys" [value]="debounceTime">                
+                {{'evaluate.debounce-times.' + (debounceTimes.values[debounceTime] | lowercase) | translate}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
     <app-accelerator [label]="'evaluate.name' | translate" [(value)]="settings.evaluateKeybinding">
     </app-accelerator>
 </mat-card>

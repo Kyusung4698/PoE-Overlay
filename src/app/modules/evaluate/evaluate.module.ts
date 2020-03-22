@@ -9,7 +9,7 @@ import { EvaluateExchangeRateChartComponent } from './component/evaluate-exchang
 import { EvaluateSearchChartComponent } from './component/evaluate-search-chart/evaluate-search-chart.component';
 import { EvaluateDialogComponent } from './component/evaluate-dialog/evaluate-dialog.component';
 import { EvaluateSearchComponent } from './component/evaluate-search/evaluate-search.component';
-import { EvaluateSettingsComponent, EvaluateUserSettings, EvaluateResultView } from './component/evaluate-settings/evaluate-settings.component';
+import { EvaluateSettingsComponent, EvaluateUserSettings, EvaluateResultView, EvaluateDebounceTime } from './component/evaluate-settings/evaluate-settings.component';
 import { EvaluateExchangeRateComponent } from './component/evaluate-exchange-rate/evaluate-exchange-rate.component';
 import { EvaluateService } from './service/evaluate.service';
 import { EvaluateSearchTableComponent } from './component/evaluate-search-table/evaluate-search-table.component';
@@ -58,6 +58,7 @@ export class EvaluateModule implements FeatureModule {
             evaluateKeybinding: 'CmdOrCtrl + D',
             evaluateTranslatedItemLanguage: Language.English,
             evaluateTranslatedKeybinding: 'CmdOrCtrl + T',
+            evaluateDebounceTime: EvaluateDebounceTime.Normal
         };
         return {
             name: 'evaluate.name',

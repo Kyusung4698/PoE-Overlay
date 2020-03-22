@@ -5,9 +5,8 @@
                 <div *ngIf="(inverse$ | async) === false; else inverse">
                     <div class="factor">
                         <span class="amount-column">
-                            <span class="amount">{{1 | number:'1.2-2'}}&nbsp;</span>
-                            <span class="amount"
-                                *ngIf="result.rate.factor > 1">{{result.rate.factor | number:'1.2-2'}}&nbsp;</span>
+                            <span class="amount">1&nbsp;</span>
+                            <span class="amount" *ngIf="result.rate.factor > 1">{{result.rate.factor}}&nbsp;</span>
                         </span>
                         <mat-icon class="clickable switch" [title]="'evaluate.switch' | translate"
                             (click)="inverse$.next(!inverse$.value)">compare_arrows
@@ -33,7 +32,7 @@
                             (click)="inverse$.next(!inverse$.value)">compare_arrows
                         </mat-icon>
                         <span class="amount-column">
-                            <span class="amount">{{1 | number:'1.2-2'}}&nbsp;</span>
+                            <span class="amount">1&nbsp;</span>
                         </span>
                         <app-currency-frame [currency]="result.rate.currency">
                         </app-currency-frame>
