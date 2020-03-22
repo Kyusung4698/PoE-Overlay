@@ -2,7 +2,7 @@
     <input matInput (keyup)="onFilterKeyUp()" [placeholder]="'material.select-list.search' | translate" />
 </mat-form-field>
 <div class="content">
-    <div class="list">        
+    <div class="list">
         <mat-label>{{'material.select-list.unselected' | translate}}</mat-label>
         <mat-selection-list #deselected>
             <cdk-virtual-scroll-viewport class="viewport" itemSize="48" minBufferPx="200" maxBufferPx="400">
@@ -16,10 +16,14 @@
     </div>
     <div class="control">
         <div class="buttons">
-            <button mat-icon-button (click)="selectOptions(deselected.selectedOptions.selected)" [title]="'material.select-list.add' | translate">
+            <button mat-icon-button (click)="selectOptions(deselected.selectedOptions.selected)"
+                [disabled]="!deselected.selectedOptions.selected.length"
+                [title]="'material.select-list.add' | translate">
                 <mat-icon>keyboard_arrow_right</mat-icon>
             </button>
-            <button mat-icon-button (click)="deselectOptions(selected.selectedOptions.selected)" [title]="'material.select-list.remove' | translate">
+            <button mat-icon-button (click)="deselectOptions(selected.selectedOptions.selected)"
+                [disabled]="!selected.selectedOptions.selected.length"
+                [title]="'material.select-list.remove' | translate">
                 <mat-icon>keyboard_arrow_left</mat-icon>
             </button>
         </div>
