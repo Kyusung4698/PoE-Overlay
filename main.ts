@@ -25,6 +25,8 @@ app.commandLine.appendSwitch('high-dpi-support', 'true');
 app.commandLine.appendSwitch('force-device-scale-factor', '1');
 
 log.transports.file.level = 'info';
+Object.assign(console, log.functions);
+
 log.info('App starting...');
 
 let animationPath = path.join(app.getPath('userData'), 'animation.flag');

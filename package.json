@@ -77,7 +77,7 @@
     "@ngx-translate/core": "^12.1.2",
     "@swimlane/ngx-charts": "^13.0.2",
     "active-win": "git+https://github.com/Kyusung4698/active-win.git#f2292727f7e979d9fb5c6919e3742bf5d6140014",
-    "auto-launch": "^5.0.5",
+    "auto-launch": "git+https://github.com/Kyusung4698/node-auto-launch.git#a42efa798b4827c34554ee01bc51d4962fdb8ec1",
     "electron-log": "^4.1.0",
     "electron-updater": "^4.2.5",
     "iohook": "^0.6.5",
