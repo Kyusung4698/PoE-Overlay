@@ -1,6 +1,8 @@
 ## 0.6.11 (2020-03-xx)
 
 - add league as fast toggle option (#273)
+- add keyboard support for stat ranges (#152)
+- fix scroll wheel not working on win7 (#319)
 - fix remove typeId only on weapon, armour and accessory (#437, #441)
 
 ## 0.6.10 (2020-03-22)
