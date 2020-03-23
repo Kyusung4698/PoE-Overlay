@@ -14,6 +14,10 @@
       .value,
       .value.changed {
         color: $aqua;
+
+        .text {
+          color: $aqua !important;
+        }
       }
     }
 
@@ -21,6 +25,10 @@
       .value,
       .value.changed {
         color: $yellow;
+
+        .text {
+          color: $yellow !important;
+        }
       }
     }
 
@@ -28,6 +36,10 @@
       .value,
       .value.changed {
         color: $pink;
+
+        .text {
+          color: $pink !important;
+        }
       }
     }
 
@@ -35,6 +47,10 @@
       .value,
       .value.changed {
         color: $red;
+
+        .text {
+          color: $red !important;
+        }
       }
     }
   }

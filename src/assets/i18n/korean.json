@@ -34,13 +34,6 @@
 		"currency-original": "원래 통화",
 		"days": "최근 7 일",
 		"debounce-time": "검색 디 바운스 시간",
-		"debounce-times": {
-			"fast": "빠른",
-			"normal": "표준",
-			"slow": "느린",
-			"veryfast": "매우 빠름",
-			"veryslow": "아주 느린"
-		},
 		"empty": "결과가 없습니다. 브라우저에서 열려?",
 		"error": "오류가 발생했습니다.",
 		"listings": " {{total}}을 (를) 찾았습니다. 항목을 가져 오는 중 ...",

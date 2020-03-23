@@ -34,13 +34,6 @@
 		"currency-original": "Original Currency",
 		"days": "Last 7 days",
 		"debounce-time": "Search Debounce Time",
-		"debounce-times": {
-			"fast": "Fast",
-			"normal": "Normal",
-			"slow": "Slow",
-			"veryfast": "Very fast",
-			"veryslow": "Very slow"
-		},
 		"empty": "No results. Open in browser?",
 		"error": "An error occured.",
 		"listings": "Found {{total}}. Fetching entries...",

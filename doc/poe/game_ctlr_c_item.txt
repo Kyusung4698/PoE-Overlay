@@ -401,13 +401,6 @@ Rarity: Rare
 Rift Blast
 Long Bow
 --------
-Bow
-Quality: +9% (augmented)
-Physical Damage: 7-27 (augmented)
-Elemental Damage: 1-4 (augmented)
-Critical Strike Chance: 6.00%
-Attacks per Second: 1.30
---------
 Requirements:
 Level: 9
 Dex: 38

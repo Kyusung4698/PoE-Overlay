@@ -2,6 +2,7 @@
 
 - add league as fast toggle option (#273)
 - add keyboard support for stat ranges (#152)
+- update default debounce time to 1.5s (#426)
 - fix scroll wheel not working on win7 (#319)
 - fix remove typeId only on weapon, armour and accessory (#437, #441)
 

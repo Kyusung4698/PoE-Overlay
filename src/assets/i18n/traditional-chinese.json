@@ -34,13 +34,6 @@
 		"currency-original": "原始貨幣",
 		"days": "過去7天",
 		"debounce-time": "搜索反跳時間",
-		"debounce-times": {
-			"fast": "快速",
-			"normal": "正常",
-			"slow": "慢",
-			"veryfast": "非常快",
-			"veryslow": "非常慢"
-		},
 		"empty": "沒有結果。在瀏覽器中打開？",
 		"error": "發生錯誤。",
 		"listings": "找到 {{total}}。正在提取條目...",

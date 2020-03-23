@@ -104,7 +104,7 @@ export class EvaluateSearchComponent implements OnInit {
       debounceTime(100),
     ).subscribe(item => {
       this.clear();
-      this.staleCounter$.next(this.settings.evaluateDebounceTime);
+      this.staleCounter$.next(this.settings.evaluateQueryDebounceTime);
       subscription?.unsubscribe();
       subscription = timer(0, 100).pipe(
         takeUntil(this.queryItemChange),

@@ -34,13 +34,6 @@
 		"currency-original": "Orginalna Waluta",
 		"days": "ostatnie 7 dni",
 		"debounce-time": "Wyszukaj czas odbicia",
-		"debounce-times": {
-			"fast": "Szybki",
-			"normal": "normalna",
-			"slow": "Powolny",
-			"veryfast": "Bardzo szybki",
-			"veryslow": "Bardzo wolno"
-		},
 		"empty": "Brak wyników. Otwórz w przeglądarce?",
 		"error": "Wystąpił błąd.",
 		"listings": "Znaleziono {{total}}. Pobieranie wpisów ...",

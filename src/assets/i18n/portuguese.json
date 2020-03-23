@@ -34,13 +34,6 @@
 		"currency-original": "Moeda original",
 		"days": "Últimos 7 dias",
 		"debounce-time": "Tempo de devolução da pesquisa",
-		"debounce-times": {
-			"fast": "Rápido",
-			"normal": "Normal",
-			"slow": "Lento",
-			"veryfast": "Muito rápido",
-			"veryslow": "Muito devagar"
-		},
 		"empty": "Sem resultados. Abra no navegador?",
 		"error": "Um erro ocorreu.",
 		"listings": "Encontrado {{total}}. Buscando entradas ...",
