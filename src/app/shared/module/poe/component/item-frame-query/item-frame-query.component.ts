@@ -39,7 +39,12 @@ export class ItemFrameQueryComponent implements OnInit {
     }
   }
 
-  public onQueryToggleClick(): void {
+  public onQueryToggleClick(event: MouseEvent): void {
+    const target = event.target as HTMLInputElement;
+    if (target.type) {
+      return;
+    }
+
     if (this.property) {
       this.property = undefined;
     } else {

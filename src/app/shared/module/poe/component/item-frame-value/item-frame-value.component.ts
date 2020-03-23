@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
+import { DecimalPipe } from '@angular/common';
+import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Inject, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { ItemValue } from '../../type';
 import { ItemFrameComponent } from '../item-frame/item-frame.component';
 
@@ -6,10 +7,17 @@ import { ItemFrameComponent } from '../item-frame/item-frame.component';
   selector: 'app-item-frame-value',
   templateUrl: './item-frame-value.component.html',
   styleUrls: ['./item-frame-value.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [DecimalPipe]
 })
 export class ItemFrameValueComponent implements OnInit {
   public default: ItemValue;
+
+  @ViewChild('min', { static: true })
+  public min: ElementRef<HTMLInputElement>;
+
+  @ViewChild('max', { static: true })
+  public max: ElementRef<HTMLInputElement>;
 
   @Input()
   public disabled: boolean;
@@ -28,7 +36,8 @@ export class ItemFrameValueComponent implements OnInit {
 
   constructor(
     @Inject(ItemFrameComponent)
-    private readonly itemFrame: ItemFrameComponent) {
+    private readonly itemFrame: ItemFrameComponent,
+    private readonly decimal: DecimalPipe) {
   }
 
   public ngOnInit(): void {
@@ -84,6 +93,25 @@ export class ItemFrameValueComponent implements OnInit {
   public onWheelMax(event: WheelEvent): void {
     event.stopImmediatePropagation();
     this.adjustValue(this.getStepFromEvent(event), false, true);
+  }
+
+  public onBlur(viewMin: string | number, viewMax: string | number): void {
+    const { min, max } = this.value;
+
+    this.value.min = +viewMin;
+    this.value.max = +viewMax;
+
+    this.clampValue();
+
+    if (min !== this.value.min || max !== this.value.max) {
+      this.emitChange();
+    } else {
+      this.updateView();
+    }
+  }
+
+  public onKeyup(): void {
+    this.updateViewWidth();
   }
 
   public resetValue(isMin: boolean, isMax: boolean): void {
@@ -150,29 +178,7 @@ export class ItemFrameValueComponent implements OnInit {
       this.value.max += step;
     }
 
-    // stay in range
-    if (this.value.min > this.default.min) {
-      this.value.min = this.default.min;
-    }
-    if (this.value.max < this.default.max) {
-      this.value.max = this.default.max;
-    }
-
-    // if positive - stay positive!
-    if (min >= 0 && this.value.min < 0) {
-      this.value.min = 0;
-    }
-    if (max > 0 && this.value.max < 0) {
-      this.value.max = 0;
-    }
-
-    // if negative - stay negative!
-    if (min < 0 && this.value.min > 0) {
-      this.value.min = 0;
-    }
-    if (max <= 0 && this.value.max > 0) {
-      this.value.max = 0;
-    }
+    this.clampValue();
 
     if (min !== this.value.min || max !== this.value.max) {
       this.emitChange();
@@ -191,6 +197,39 @@ export class ItemFrameValueComponent implements OnInit {
       step *= -1;
     }
     return step;
+  }
+
+  private clampValue(): void {
+    if (isNaN(this.value.min)) {
+      this.value.min = undefined;
+    }
+    if (isNaN(this.value.max)) {
+      this.value.max = undefined;
+    }
+
+    // stay in range
+    if (this.value.min > this.default.min) {
+      this.value.min = this.default.min;
+    }
+    if (this.value.max < this.default.max) {
+      this.value.max = this.default.max;
+    }
+
+    // if positive - stay positive!
+    if (this.default.min >= 0 && this.value.min < 0) {
+      this.value.min = 0;
+    }
+    if (this.default.max > 0 && this.value.max < 0) {
+      this.value.max = 0;
+    }
+
+    // if negative - stay negative!
+    if (this.default.min < 0 && this.value.min > 0) {
+      this.value.min = 0;
+    }
+    if (this.default.max <= 0 && this.value.max > 0) {
+      this.value.max = 0;
+    }
   }
 
   private init(): void {
@@ -225,8 +264,22 @@ export class ItemFrameValueComponent implements OnInit {
   }
 
   private emitChange(): void {
+    this.updateView();
     this.valueChange.emit(this.value);
     this.itemFrame.onValueChange(this.value);
+  }
+
+  private updateView(): void {
+    this.min.nativeElement.value = this.value.min === undefined
+      ? '#' : this.decimal.transform(this.value.min, '1.0-1');
+    this.max.nativeElement.value = this.value.max === undefined
+      ? '#' : this.decimal.transform(this.value.max, '1.0-1');
+    this.updateViewWidth();
+  }
+
+  private updateViewWidth(): void {
+    this.min.nativeElement.style.width = `${this.min.nativeElement.value.length}ch`;
+    this.max.nativeElement.style.width = `${this.max.nativeElement.value.length}ch`;
   }
 
   private parseValue(text: string): number {
