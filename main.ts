@@ -256,7 +256,7 @@ function createWindow(): BrowserWindow {
             allowRunningInsecureContent: serve,
             webSecurity: false
         },
-        focusable: false,
+        skipTaskbar: true,
         show: false
     });
     win.removeMenu();
