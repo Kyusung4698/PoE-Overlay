@@ -60,14 +60,10 @@ export class EvaluateQueryItemProvider {
                 item.rarity === ItemRarity.Magic ||
                 item.rarity === ItemRarity.Rare)
             ) {
-                switch (item.category) {
-                    // flasks & map are priced by name
-                    case ItemCategory.Flask:
-                    case ItemCategory.Map:
-                        break;
-                    default:
-                        queryItem.typeId = undefined;
-                        break;
+                if (item.category.startsWith(ItemCategory.Weapon) ||
+                    item.category.startsWith(ItemCategory.Armour) ||
+                    item.category.startsWith(ItemCategory.Accessory)) {
+                    queryItem.typeId = undefined;
                 }
             }
         }

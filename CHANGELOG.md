@@ -1,3 +1,7 @@
+## 0.6.11 (2020-03-xx)
+
+- fix remove typeId only on weapon, armour and accessory (#437, #441)
+
 ## 0.6.10 (2020-03-22)
 
 - add missing translations (#413)
