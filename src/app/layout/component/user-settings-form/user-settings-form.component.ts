@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
 import { EnumValues } from '@app/class';
 import { AppService } from '@app/service';
 import { UiLanguage } from '@app/type';
-import { LeaguesProvider } from '@shared/module/poe/provider';
+import { LeaguesService } from '@shared/module/poe/service';
 import { Language, League } from '@shared/module/poe/type';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -25,7 +25,7 @@ export class UserSettingsFormComponent implements OnInit {
   @Input()
   public settings: UserSettings;
 
-  constructor(private readonly leaguesProvider: LeaguesProvider,
+  constructor(private readonly leaguesService: LeaguesService,
     private readonly app: AppService) { }
 
   public ngOnInit(): void {
@@ -46,7 +46,7 @@ export class UserSettingsFormComponent implements OnInit {
   }
 
   private updateLeagues(): void {
-    this.leaguesProvider.provide(this.settings.language).subscribe(leagues => {
+    this.leaguesService.get(this.settings.language).subscribe(leagues => {
       const selectedLeague = leagues.find(league => league.id === this.settings.leagueId);
       if (!selectedLeague) {
         this.settings.leagueId = leagues[0].id;

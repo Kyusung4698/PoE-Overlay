@@ -1,10 +1,11 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { BrowserService } from '@app/service';
 import { EvaluateResult } from '@modules/evaluate/type/evaluate.type';
 import { SnackBarService } from '@shared/module/material/service';
 import { ItemExchangeRateResult, ItemExchangeRateService } from '@shared/module/poe/service';
 import { Currency, Item, ItemRarity } from '@shared/module/poe/type';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
+import { EvaluateOptions } from '../evaluate-options/evaluate-options.component';
 
 interface Result {
   error?: boolean;
@@ -17,11 +18,17 @@ interface Result {
   styleUrls: ['./evaluate-exchange-rate.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class EvaluateExchangeRateComponent {
+export class EvaluateExchangeRateComponent implements OnInit {
   private _currencies: Currency[];
 
   public inverse$ = new BehaviorSubject<boolean>(false);
   public result$ = new BehaviorSubject<Result>(null);
+
+  @Input()
+  public options: EvaluateOptions;
+
+  @Input()
+  public optionsChange: Subject<EvaluateOptions>;
 
   @Input()
   public item: Item;
@@ -43,6 +50,10 @@ export class EvaluateExchangeRateComponent {
     private readonly exchangeRateService: ItemExchangeRateService,
     private readonly browser: BrowserService,
     private readonly snackbar: SnackBarService) { }
+
+  public ngOnInit(): void {
+    this.optionsChange.subscribe(() => this.evaluate(this.item));
+  }
 
   public onEvaluateWheel(event: WheelEvent): void {
     if (!this.result$.value || !this.result$.value.rate) {
@@ -77,7 +88,7 @@ export class EvaluateExchangeRateComponent {
 
   private evaluate(item: Item, currency?: Currency): void {
     this.exchangeRateService
-      .get(item, currency ? [currency] : this.currencies)
+      .get(item, currency ? [currency] : this.currencies, this.options.leagueId)
       .subscribe(
         result => {
           if (result) {

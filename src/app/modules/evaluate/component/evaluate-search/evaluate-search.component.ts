@@ -4,9 +4,10 @@ import { EvaluateResult } from '@modules/evaluate/type/evaluate.type';
 import { SnackBarService } from '@shared/module/material/service';
 import { ItemSearchAnalyzeResult, ItemSearchAnalyzeService, ItemSearchListing, ItemSearchResult, ItemSearchService } from '@shared/module/poe/service';
 import { Currency, Item } from '@shared/module/poe/type';
-import { ItemSearchIndexed, ItemSearchOptions } from '@shared/module/poe/type/search.type';
+import { ItemSearchOptions } from '@shared/module/poe/type/search.type';
 import { BehaviorSubject, Subject, Subscription, timer } from 'rxjs';
 import { debounceTime, takeUntil } from 'rxjs/operators';
+import { EvaluateOptions } from '../evaluate-options/evaluate-options.component';
 import { EvaluateResultView, EvaluateUserSettings } from '../evaluate-settings/evaluate-settings.component';
 
 @Component({
@@ -18,10 +19,6 @@ import { EvaluateResultView, EvaluateUserSettings } from '../evaluate-settings/e
 export class EvaluateSearchComponent implements OnInit {
   private listSubscription: Subscription;
 
-  public options$ = new BehaviorSubject<boolean>(false);
-  public online$: BehaviorSubject<boolean>;
-  public indexed$: BehaviorSubject<ItemSearchIndexed>;
-
   public graph: boolean;
 
   public search$ = new BehaviorSubject<ItemSearchResult>(null);
@@ -31,10 +28,10 @@ export class EvaluateSearchComponent implements OnInit {
   public staleCounter$ = new BehaviorSubject<number>(0);
 
   @Input()
-  public settings: EvaluateUserSettings;
+  public options: EvaluateOptions;
 
   @Input()
-  public defaultItem: Item;
+  public settings: EvaluateUserSettings;
 
   @Input()
   public queryItem: Item;
@@ -46,9 +43,6 @@ export class EvaluateSearchComponent implements OnInit {
   public currencies: Currency[];
 
   @Output()
-  public update = new EventEmitter<Item>();
-
-  @Output()
   public evaluateResult = new EventEmitter<EvaluateResult>();
 
   constructor(
@@ -58,37 +52,10 @@ export class EvaluateSearchComponent implements OnInit {
     private readonly snackbar: SnackBarService) { }
 
   public ngOnInit() {
-    this.online$ = new BehaviorSubject(this.settings.evaluateQueryOnline);
-    this.indexed$ = new BehaviorSubject(this.settings.evaluateQueryIndexedRange);
     this.graph = this.settings.evaluateResultView === EvaluateResultView.Graph;
 
     this.search(this.queryItem);
     this.registerSearchOnChange();
-  }
-
-  public onToggleOnlineClick(): void {
-    this.online$.next(!this.online$.value);
-    this.update.next(this.queryItem);
-  }
-
-  public onResetClick(): void {
-    const queryItem = JSON.parse(JSON.stringify(this.defaultItem));
-    this.update.next(queryItem);
-  }
-
-  public onIndexedWheel(event: WheelEvent): void {
-    const factor = event.deltaY > 0 ? -1 : 1;
-    const keys = Object.getOwnPropertyNames(ItemSearchIndexed);
-    let index = keys.findIndex(x => ItemSearchIndexed[x] === this.indexed$.value);
-    index += factor;
-    if (index >= keys.length) {
-      index = 0;
-    } else if (index < 0) {
-      index = keys.length - 1;
-    }
-    const key = keys[index];
-    this.indexed$.next(ItemSearchIndexed[key]);
-    this.update.next(this.queryItem);
   }
 
   public onCurrencyClick(event: MouseEvent): void {
@@ -154,8 +121,7 @@ export class EvaluateSearchComponent implements OnInit {
 
   private search(item: Item): void {
     const options: ItemSearchOptions = {
-      indexed: this.indexed$.value,
-      online: this.online$.value,
+      ...this.options
     };
     this.itemSearchService.search(item, options).pipe(
       takeUntil(this.queryItemChange)

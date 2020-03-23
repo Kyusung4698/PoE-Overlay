@@ -85,6 +85,14 @@ Item Level: 47
 +6% to Fire Resistance
 +7% to Lightning Resistance
 
+Rarity: Normal
+Mortal Hope
+--------
+Look to our Queen, for she will lead us from the darkness.
+--------
+Can be used in a personal Map Device.
+
+
 Rarity: Gem
 Righteous Fire
 --------

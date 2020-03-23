@@ -1,11 +1,12 @@
 ## 0.6.11 (2020-03-xx)
 
+- add league as fast toggle option (#273)
 - fix remove typeId only on weapon, armour and accessory (#437, #441)
 
 ## 0.6.10 (2020-03-22)
 
 - add missing translations (#413)
-- add trade search configurable debounce time with now support (#426)
+- add trade search configurable debounce time with instant support (#426)
 - add trade search cancelable (my patrons)
 - update always use the item type of maps and flasks as query param (#433)
 - update use ico instead of png as tray icon (#403)

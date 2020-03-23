@@ -1,37 +1,8 @@
-<!-- todo: own component -->
-
-<div class="options">
-  <mat-icon class="clickable" (click)="options$.next(!options$.value)">filter_list</mat-icon>
-  <div class="popover" *ngIf="options$ | async">
-    <ng-container *ngIf="online$ | async; else offline">
-      <span class="clickable" title="online" (click)="onToggleOnlineClick()">
-        <mat-icon>wifi</mat-icon>
-      </span>
-    </ng-container>
-    <ng-template #offline>
-      <span class="clickable" title="offline" (click)="onToggleOnlineClick()">
-        <mat-icon>wifi_off</mat-icon>
-      </span>
-    </ng-template>
-    <ng-container *ngIf="indexed$ | async as indexed">
-      <span class="indexed" (wheel)="onIndexedWheel($event)">
-        {{ indexed }}
-      </span>
-    </ng-container>
-    <span class="clickable" title="reset" (click)="onResetClick()">
-      <mat-icon>restore</mat-icon>
-    </span>
-  </div>
-</div>
-
-<!-- search -->
-
 <ng-container *ngIf="(staleCounter$ | async) as counter; else search">
   <div class="clickable" (click)="onStaleCancelClick()">
     {{'evaluate.stale' | translate:{counter: counter / 10 | number:'1.1-1'} }}
   </div>
 </ng-container>
-
 <ng-template #search>
   <ng-container *ngIf="(error$ | async) === false; else error">
     <ng-container *ngIf="search$ | async as search; else searching">
