@@ -14,7 +14,7 @@
 		"url": "网址"
 	},
 	"clipboard": {
-		"empty": "剪贴板是空的。请确保游戏专注。",
+		"empty": "剪贴板是空的。您可能需要使用特权启动PoE Overlay。",
 		"error": "解析项目时发生错误。",
 		"parser-error": "无法解析项目。请确保您选择了正确的语言。"
 	},
@@ -34,13 +34,6 @@
 		"currency-original": "原始货币",
 		"days": "过去7天",
 		"debounce-time": "搜索反跳时间",
-		"debounce-times": {
-			"fast": "快速",
-			"normal": "正常",
-			"slow": "慢",
-			"veryfast": "非常快",
-			"veryslow": "非常慢"
-		},
 		"empty": "没有结果。在浏览器中打开？",
 		"error": "发生错误。",
 		"listings": "找到 {{total}}。正在提取条目...",

@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { EvaluateQueryItemProvider } from '@modules/evaluate/provider/evaluate-query-item.provider';
 import { EvaluateResult } from '@modules/evaluate/type/evaluate.type';
@@ -7,6 +7,7 @@ import { CurrencyService } from '@shared/module/poe/service/currency/currency.se
 import { Currency, Item, Language } from '@shared/module/poe/type';
 import { BehaviorSubject, forkJoin, Observable, Subject } from 'rxjs';
 import { buffer, debounceTime, shareReplay } from 'rxjs/operators';
+import { EvaluateOptions } from '../evaluate-options/evaluate-options.component';
 import { EvaluateUserSettings } from '../evaluate-settings/evaluate-settings.component';
 
 const CURRENCIES_CACHE_SIZE = 1;
@@ -22,12 +23,16 @@ export interface EvaluateDialogData {
   templateUrl: './evaluate-dialog.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class EvaluateDialogComponent implements OnInit, AfterViewInit {
-  private result$ = new Subject<EvaluateResult>();
+export class EvaluateDialogComponent implements OnInit, AfterViewInit, OnDestroy {
+  private resultChange = new Subject<EvaluateResult>();
+
+  public options: EvaluateOptions;
+  public optionsChange = new Subject<EvaluateOptions>();
 
   public defaultItem: Item;
   public queryItem: Item;
-  public queryItemChange: Subject<Item>;
+  public queryItemChange = new Subject<Item>();
+
   public currencies$: Observable<Currency[]>;
 
   public init$ = new BehaviorSubject<boolean>(false);
@@ -41,10 +46,14 @@ export class EvaluateDialogComponent implements OnInit, AfterViewInit {
   }
 
   public ngOnInit(): void {
+    this.options = {
+      indexed: this.data.settings.evaluateQueryIndexedRange,
+      online: this.data.settings.evaluateQueryOnline,
+      leagueId: this.data.settings.leagueId
+    };
     const { defaultItem, queryItem } = this.evaluateQueryItemProvider.provide(this.data.item, this.data.settings);
     this.defaultItem = defaultItem;
     this.queryItem = queryItem;
-    this.queryItemChange = new Subject<Item>();
     this.currencies$ = this.getCurrencies();
     this.registerResultChange();
   }
@@ -55,18 +64,35 @@ export class EvaluateDialogComponent implements OnInit, AfterViewInit {
     }, 1);
   }
 
+  public ngOnDestroy(): void {
+    this.queryItemChange.complete();
+    this.optionsChange.complete();
+    this.resultChange.complete();
+  }
+
   public onQueryItemChange(queryItem: Item): void {
     this.queryItem = queryItem;
     this.queryItemChange.next(queryItem);
   }
 
+  public onOptionsChange(options: EvaluateOptions): void {
+    this.options = options;
+    this.optionsChange.next(this.options);
+    this.onQueryItemChange(this.queryItem);
+  }
+
+  public onReset(): void {
+    const queryItem = JSON.parse(JSON.stringify(this.defaultItem));
+    this.onQueryItemChange(queryItem);
+  }
+
   public onEvaluateResult(result: EvaluateResult): void {
-    this.result$.next(result);
+    this.resultChange.next(result);
   }
 
   private registerResultChange(): void {
-    this.result$.pipe(
-      buffer(this.result$.pipe(
+    this.resultChange.pipe(
+      buffer(this.resultChange.pipe(
         debounceTime(250)
       ))
     ).subscribe(([result, double]) => {

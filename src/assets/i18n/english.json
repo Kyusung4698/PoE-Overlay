@@ -14,7 +14,7 @@
 		"url": "Url"
 	},
 	"clipboard": {
-		"empty": "Clipboard was empty. Please make sure the game is focused.",
+		"empty": "Clipboard was empty. You may need to start PoE Overlay with privileged rights.",
 		"error": "An error occurred while parsing the item.",
 		"parser-error": "Item could not be parsed. Please make sure you have the correct language selected."
 	},
@@ -34,13 +34,6 @@
 		"currency-original": "Original Currency",
 		"days": "Last 7 days",
 		"debounce-time": "Search Debounce Time",
-		"debounce-times": {
-			"fast": "Fast",
-			"normal": "Normal",
-			"slow": "Slow",
-			"veryfast": "Very fast",
-			"veryslow": "Very slow"
-		},
 		"empty": "No results. Open in browser?",
 		"error": "An error occured.",
 		"listings": "Found {{total}}. Fetching entries...",

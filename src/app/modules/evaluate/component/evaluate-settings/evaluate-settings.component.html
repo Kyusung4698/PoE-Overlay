@@ -17,19 +17,20 @@
     <mat-form-field>
         <mat-label>{{'evaluate.result-view' | translate}}</mat-label>
         <mat-select [(value)]="settings.evaluateResultView">
-            <mat-option *ngFor="let view of views.keys" [value]="view">                
+            <mat-option *ngFor="let view of views.keys" [value]="view">
                 {{'evaluate.result-views.' + (views.values[view] | lowercase) | translate}}
             </mat-option>
         </mat-select>
     </mat-form-field>
-    <mat-form-field>
-        <mat-label>{{'evaluate.debounce-time' | translate}}</mat-label>
-        <mat-select [(value)]="settings.evaluateDebounceTime">
-            <mat-option *ngFor="let debounceTime of debounceTimes.keys" [value]="debounceTime">                
-                {{'evaluate.debounce-times.' + (debounceTimes.values[debounceTime] | lowercase) | translate}}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
+    <div class="time">
+        <label class="label"> {{'evaluate.debounce-time' | translate}}:
+            {{displayWithTime(settings.evaluateQueryDebounceTime)}}
+        </label>
+        <mat-slider min="5" max="100" step="5" tickInterval="2" [displayWith]="displayWithTime"
+            [(value)]="settings.evaluateQueryDebounceTime">
+        </mat-slider>
+    </div>
+
     <app-accelerator [label]="'evaluate.name' | translate" [(value)]="settings.evaluateKeybinding">
     </app-accelerator>
 </mat-card>
@@ -119,9 +120,10 @@
 <mat-card>
     <mat-label> {{'evaluate.search.modifier' | translate}} </mat-label>
     <label class="label"> {{'evaluate.search.modifier-range' | translate}}
-        {{displayWith(settings.evaluateModifierMinRange)}}~{{displayWith(settings.evaluateModifierMaxRange)}}% </label>
+        {{displayWithStat(settings.evaluateModifierMinRange)}}~{{displayWithStat(settings.evaluateModifierMaxRange)}}%
+    </label>
     <div class="range">
-        <mat-slider min="0" max="50" step="1" tickInterval="10" thumbLabel invert [displayWith]="displayWith"
+        <mat-slider min="0" max="50" step="1" tickInterval="10" invert [displayWith]="displayWithStat"
             [(value)]="settings.evaluateModifierMinRange">
         </mat-slider>
         <div class="value"
@@ -133,7 +135,7 @@
                 *ngIf="settings.evaluateModifierMaxRange !== 50;else any">{{50 * ( 1 + (settings.evaluateModifierMaxRange / 100)) | number : '1.0-1'}}</span>
             <ng-template #any>#</ng-template>
         </div>
-        <mat-slider min="0" max="50" step="1" tickInterval="10" thumbLabel [displayWith]="displayWith"
+        <mat-slider min="0" max="50" step="1" tickInterval="10" [displayWith]="displayWithStat"
             [(value)]="settings.evaluateModifierMaxRange">
         </mat-slider>
         <ng-template #single>

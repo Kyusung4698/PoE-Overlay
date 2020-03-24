@@ -23,7 +23,6 @@
             "nsis",
             "portable"
         ],
-        "requestedExecutionLevel": "highestAvailable",
         "publisherName": [
             "Nicklas Ronge"
         ]
@@ -41,8 +40,5 @@
         "perMachine": true,
         "oneClick": false,
         "shortcutName": "PoE Overlay"
-    },
-    "portable": {
-        "requestExecutionLevel": "highest"
     }
 }

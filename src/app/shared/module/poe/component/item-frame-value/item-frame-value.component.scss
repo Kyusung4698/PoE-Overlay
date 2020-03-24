@@ -3,5 +3,19 @@
 .value {
   &.changed {
     color: $light-grey;
+
+    .text {
+      color: $light-grey;
+    }
   }
+}
+
+.text {
+  background: none;
+  outline: none;
+  border: none;
+}
+
+.hidden {
+  display: none;
 }

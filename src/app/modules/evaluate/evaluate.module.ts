@@ -1,18 +1,19 @@
-import { NgModule, Injectable } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { FEATURE_MODULES } from '@app/token';
 import { Feature, FeatureModule } from '@app/type';
 import { Language } from '@shared/module/poe/type';
 import { ItemSearchIndexed } from '@shared/module/poe/type/search.type';
 import { SharedModule } from '@shared/shared.module';
 import { UserSettingsFeature } from 'src/app/layout/type';
-import { EvaluateExchangeRateChartComponent } from './component/evaluate-exchange-rate-chart/evaluate-exchange-rate-chart.component';
-import { EvaluateSearchChartComponent } from './component/evaluate-search-chart/evaluate-search-chart.component';
 import { EvaluateDialogComponent } from './component/evaluate-dialog/evaluate-dialog.component';
-import { EvaluateSearchComponent } from './component/evaluate-search/evaluate-search.component';
-import { EvaluateSettingsComponent, EvaluateUserSettings, EvaluateResultView, EvaluateDebounceTime } from './component/evaluate-settings/evaluate-settings.component';
+import { EvaluateExchangeRateChartComponent } from './component/evaluate-exchange-rate-chart/evaluate-exchange-rate-chart.component';
 import { EvaluateExchangeRateComponent } from './component/evaluate-exchange-rate/evaluate-exchange-rate.component';
-import { EvaluateService } from './service/evaluate.service';
+import { EvaluateOptionsComponent } from './component/evaluate-options/evaluate-options.component';
+import { EvaluateSearchChartComponent } from './component/evaluate-search-chart/evaluate-search-chart.component';
 import { EvaluateSearchTableComponent } from './component/evaluate-search-table/evaluate-search-table.component';
+import { EvaluateSearchComponent } from './component/evaluate-search/evaluate-search.component';
+import { EvaluateResultView, EvaluateSettingsComponent, EvaluateUserSettings } from './component/evaluate-settings/evaluate-settings.component';
+import { EvaluateService } from './service/evaluate.service';
 
 @NgModule({
     providers: [{ provide: FEATURE_MODULES, useClass: EvaluateModule, multi: true }],
@@ -23,7 +24,8 @@ import { EvaluateSearchTableComponent } from './component/evaluate-search-table/
         EvaluateExchangeRateChartComponent,
         EvaluateExchangeRateComponent,
         EvaluateSearchComponent,
-        EvaluateSearchTableComponent
+        EvaluateSearchTableComponent,
+        EvaluateOptionsComponent
     ],
     imports: [SharedModule]
 })
@@ -53,12 +55,12 @@ export class EvaluateModule implements FeatureModule {
             evaluateQueryDefaultStatsUnique: true,
             evaluateQueryIndexedRange: ItemSearchIndexed.UpTo3DaysAgo,
             evaluateQueryOnline: true,
+            evaluateQueryDebounceTime: 10,
             evaluateModifierMinRange: 0,
             evaluateModifierMaxRange: 10,
             evaluateKeybinding: 'CmdOrCtrl + D',
             evaluateTranslatedItemLanguage: Language.English,
             evaluateTranslatedKeybinding: 'CmdOrCtrl + T',
-            evaluateDebounceTime: EvaluateDebounceTime.Normal
         };
         return {
             name: 'evaluate.name',

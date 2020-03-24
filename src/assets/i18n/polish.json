@@ -14,7 +14,7 @@
 		"url": "Url"
 	},
 	"clipboard": {
-		"empty": "Schowek był pusty. Upewnij się, że okno gry jest aktywne.",
+		"empty": "Schowek był pusty. Może być konieczne uruchomienie nakładki PoE z uprawnieniami uprzywilejowanymi.",
 		"error": "Wystąpił błąd podczas przetwarzania przedmiotu.",
 		"parser-error": "Nie można przetworzyć przedmiotu. Upewnij się, że wybrano właściwy język gry."
 	},
@@ -34,13 +34,6 @@
 		"currency-original": "Orginalna Waluta",
 		"days": "ostatnie 7 dni",
 		"debounce-time": "Wyszukaj czas odbicia",
-		"debounce-times": {
-			"fast": "Szybki",
-			"normal": "normalna",
-			"slow": "Powolny",
-			"veryfast": "Bardzo szybki",
-			"veryslow": "Bardzo wolno"
-		},
 		"empty": "Brak wyników. Otwórz w przeglądarce?",
 		"error": "Wystąpił błąd.",
 		"listings": "Znaleziono {{total}}. Pobieranie wpisów ...",

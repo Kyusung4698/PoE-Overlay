@@ -1,3 +1,5 @@
+import { Language } from './language.type';
+
 export enum ItemSearchIndexed {
     AnyTime = 'any',
     UpToADayAgo = '1day',
@@ -11,4 +13,6 @@ export enum ItemSearchIndexed {
 export class ItemSearchOptions {
     online?: boolean;
     indexed?: ItemSearchIndexed;
+    leagueId?: string;
+    language?: Language;
 }

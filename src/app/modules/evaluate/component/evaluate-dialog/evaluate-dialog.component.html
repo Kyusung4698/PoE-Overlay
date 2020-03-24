@@ -4,11 +4,13 @@
         [modifierMinRange]="data.settings.evaluateModifierMinRange / 100"
         [modifierMaxRange]="data.settings.evaluateModifierMaxRange / 100">
         <ng-container *ngIf="(currencies$ | async) as currencies; else loading">
-            <app-evaluate-exchange-rate [item]="data.item" [currencies]="currencies" (evaluateResult)="onEvaluateResult($event)"></app-evaluate-exchange-rate>
-            <app-item-frame-separator [item]="data.item"></app-item-frame-separator>
-            <app-evaluate-search *ngIf="init$ | async; else loading" [settings]="data.settings"
-                [defaultItem]="defaultItem" [queryItem]="queryItem" [queryItemChange]="queryItemChange"
-                [currencies]="currencies" (update)="onQueryItemChange($event)"
+            <app-evaluate-options [options]="options" (optionsChange)="onOptionsChange($event)" (resetTrigger)="onReset()">
+            </app-evaluate-options>
+            <app-evaluate-exchange-rate [options]="options" [optionsChange]="optionsChange" [item]="data.item"
+                [currencies]="currencies" (evaluateResult)="onEvaluateResult($event)"> </app-evaluate-exchange-rate>
+            <app-item-frame-separator [item]="data.item"> </app-item-frame-separator>
+            <app-evaluate-search *ngIf="init$ | async; else loading" [options]="options" [settings]="data.settings"
+                [queryItem]="queryItem" [queryItemChange]="queryItemChange" [currencies]="currencies"
                 (evaluateResult)="onEvaluateResult($event)">
             </app-evaluate-search>
         </ng-container>

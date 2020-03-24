@@ -38,11 +38,10 @@ export class ItemSearchService {
         private readonly requestService: ItemSearchQueryService,
         private readonly tradeService: TradeHttpService) { }
 
-    public search(requestedItem: Item, options?: ItemSearchOptions, language?: Language, leagueId?: string): Observable<ItemSearchResult> {
-        leagueId = leagueId || this.context.get().leagueId;
-        language = language || this.context.get().language;
-
+    public search(requestedItem: Item, options?: ItemSearchOptions): Observable<ItemSearchResult> {
         options = options || {};
+        options.leagueId = options.leagueId || this.context.get().leagueId;
+        options.language = options.language || this.context.get().language;
 
         const request: TradeSearchRequest = {
             sort: {
@@ -65,11 +64,14 @@ export class ItemSearchService {
             }
         };
 
-        if (options.indexed) {
+        const { indexed } = options;
+        if (indexed) {
             request.query.filters.trade_filters.filters.indexed = {
-                option: options.indexed === ItemSearchIndexed.AnyTime ? null : options.indexed
+                option: indexed === ItemSearchIndexed.AnyTime ? null : indexed
             };
         }
+
+        const { language, leagueId } = options;
         this.requestService.map(requestedItem, language, request.query);
 
         return this.tradeService.search(request, language, leagueId).pipe(map(response => {

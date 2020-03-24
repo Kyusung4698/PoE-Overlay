@@ -14,7 +14,7 @@
 		"url": "Url"
 	},
 	"clipboard": {
-		"empty": "Zwischenablage war leer. Bitte stellen Sie sicher, dass das Spiel fokussiert ist.",
+		"empty": "Die Zwischenablage war leer. Möglicherweise müssen Sie PoE Overlay mit privilegierten Rechten starten.",
 		"error": "Beim Parsen des Gegenstandes ist ein Fehler aufgetreten.",
 		"parser-error": "Gegenstand konnte nicht geparst werden. Bitte stellen Sie sicher, dass Sie die richtige Sprache ausgewählt haben."
 	},
@@ -34,13 +34,6 @@
 		"currency-original": "Originalwährung",
 		"days": "Letzte 7 Tage",
 		"debounce-time": "Such-Entprellzeit",
-		"debounce-times": {
-			"fast": "schnell",
-			"normal": "Normal",
-			"slow": "Langsam",
-			"veryfast": "Sehr schnell",
-			"veryslow": "Sehr langsam"
-		},
 		"empty": "Keine Ergebnisse. Im Browser öffnen?",
 		"error": "Es ist ein Fehler aufgetreten.",
 		"listings": "Gefunden {{total}}. Einträge abrufen ...",
