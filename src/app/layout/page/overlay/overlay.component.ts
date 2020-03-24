@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, HostListener, Inject, OnDestroy, OnInit } from '@angular/core';
-import { AppService, AppTranslateService, RendererService, WindowService } from '@app/service';
+import { AppService, AppTranslateService, RendererService, WindowService, GameService } from '@app/service';
 import { DialogRefService } from '@app/service/dialog';
 import { ShortcutService } from '@app/service/input';
 import { FEATURE_MODULES } from '@app/token';
@@ -8,7 +8,7 @@ import { SnackBarService } from '@shared/module/material/service';
 import { ContextService } from '@shared/module/poe/service';
 import { Context } from '@shared/module/poe/type';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { distinctUntilChanged, flatMap, tap } from 'rxjs/operators';
+import { distinctUntilChanged, flatMap, tap, debounceTime } from 'rxjs/operators';
 import { UserSettingsService } from '../../service/user-settings.service';
 import { UserSettings } from '../../type';
 
@@ -30,6 +30,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
     private readonly userSettingsService: UserSettingsService,
     private readonly context: ContextService,
     private readonly app: AppService,
+    private readonly game: GameService,
     private readonly translate: AppTranslateService,
     private readonly snackBar: SnackBarService,
     private readonly window: WindowService,
@@ -102,6 +103,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
         this.window.hide();
       } else {
         this.window.show();
+        this.game.forceActive();
       }
     });
     this.app.triggerVisibleChange();

@@ -1,4 +1,5 @@
-import { Window, windowManager } from 'node-window-manager';
+import { Window, windowManager, addon } from 'node-window-manager';
+import { IRectangle } from 'node-window-manager/dist/interfaces';
 import { Subject, Subscription } from 'rxjs';
 import { throttleTime } from 'rxjs/operators';
 
@@ -18,7 +19,9 @@ interface WheelEvent {
 
 let active = false;
 let activeWindow: Window = null;
-let activeChangeFn: (active: boolean, game: Window) => void;
+let bounds: IRectangle = null;
+
+let activeChangeFn: (active: boolean, game: Window, bounds: IRectangle) => void;
 let wheelChangeFn: (event: WheelEvent) => void;
 
 const activeCheck$ = new Subject<void>();
@@ -47,8 +50,9 @@ function onMouseclick(event: WheelEvent): void {
 }
 
 function checkActive(): void {
-    let orgActive = active;    
+    let orgActive = active;
     let orgActiveWindow = activeWindow;
+    let orgBounds = bounds;
 
     const possibleWindow = windowManager.getActiveWindow();
     if (possibleWindow.path) {
@@ -57,19 +61,21 @@ function checkActive(): void {
             || lowerPath.endsWith('pathofexile_x64steam.exe') || lowerPath.endsWith('pathofexilesteam.exe')
             || lowerPath.endsWith('pathofexile_x64.exe') || lowerPath.endsWith('pathofexile.exe');
 
+
         if (active) {
             activeWindow = possibleWindow;
-        }
-
-        if (!active) {
-            active = process.pid === possibleWindow.processId;
-            console.log('overlay active', active);
+            
+            if (addon) {
+                bounds = addon.getWindowBounds(activeWindow.id);
+            }
         }
     }
 
-    if (orgActive !== active || orgActiveWindow !== activeWindow) {
+    if (orgActive !== active ||
+        orgActiveWindow?.processId !== activeWindow?.processId ||
+        JSON.stringify(orgBounds) !== JSON.stringify(bounds)) {
         if (activeChangeFn) {
-            activeChangeFn(active, activeWindow);
+            activeChangeFn(active, activeWindow, bounds);
         }
     }
 }
@@ -78,14 +84,14 @@ export function getActive(): boolean {
     return active;
 }
 
-export function on(event: 'change', callback: (active: boolean, game: Window) => void): void;
+export function on(event: 'change', callback: (active: boolean, game: Window, bounds: IRectangle) => void): void;
 export function on(event: 'wheel', callback: (event: WheelEvent) => void): void;
 
 export function on(event: string, callback: any) {
     switch (event) {
         case 'change':
             activeChangeFn = callback;
-            activeChangeFn(active, activeWindow);
+            activeChangeFn(active, activeWindow, bounds);
             break;
         case 'wheel':
             wheelChangeFn = callback;

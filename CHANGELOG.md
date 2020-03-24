@@ -1,3 +1,8 @@
+## 0.6.12 (2020-03-24)
+
+- fix not covering the game correctly (#453, #456)
+- fix poe losing focus after alt + tabbing (#455)
+
 ## 0.6.11 (2020-03-24)
 
 - add league as fast toggle option (#273)
