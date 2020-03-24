@@ -14,7 +14,7 @@
 		"url": "Url"
 	},
 	"clipboard": {
-		"empty": "El portapapeles estaba vacío. Asegúrate de que el juego esté enfocado.",
+		"empty": "El portapapeles estaba vacío. Es posible que deba iniciar PoE Overlay con derechos privilegiados.",
 		"error": "Se produjo un error al analizar el elemento.",
 		"parser-error": "El artículo no se pudo analizar. Asegúrese de tener seleccionado el idioma correcto."
 	},

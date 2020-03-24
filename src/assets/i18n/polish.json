@@ -14,7 +14,7 @@
 		"url": "Url"
 	},
 	"clipboard": {
-		"empty": "Schowek był pusty. Upewnij się, że okno gry jest aktywne.",
+		"empty": "Schowek był pusty. Może być konieczne uruchomienie nakładki PoE z uprawnieniami uprzywilejowanymi.",
 		"error": "Wystąpił błąd podczas przetwarzania przedmiotu.",
 		"parser-error": "Nie można przetworzyć przedmiotu. Upewnij się, że wybrano właściwy język gry."
 	},

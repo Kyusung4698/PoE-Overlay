@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { GameService } from '@app/service';
 import { ClipboardService, KeyboardService, KeyCode, MouseService } from '@app/service/input';
 import { Point } from '@app/type';
 import { iif, Observable, of, throwError } from 'rxjs';
@@ -25,6 +26,7 @@ export class ItemClipboardService {
     constructor(
         private readonly mouse: MouseService,
         private readonly keyboard: KeyboardService,
+        private readonly game: GameService,
         private readonly clipboard: ClipboardService,
         private readonly itemParser: ItemParserService) { }
 
@@ -33,6 +35,8 @@ export class ItemClipboardService {
     }): Observable<ItemClipboardResult> {
         return of(null).pipe(
             flatMap(() => {
+                this.game.forceActive();
+                
                 const point = this.mouse.position();
 
                 this.keyboard.setKeyboardDelay(1);

@@ -14,7 +14,7 @@
 		"url": "URL"
 	},
 	"clipboard": {
-		"empty": "A área de transferência estava vazia. Por favor, verifique se o jogo está focado.",
+		"empty": "A área de transferência estava vazia. Pode ser necessário iniciar a Sobreposição de PoE com direitos privilegiados.",
 		"error": "Ocorreu um erro ao analisar o item.",
 		"parser-error": "Não foi possível analisar o item. Verifique se você selecionou o idioma correto."
 	},

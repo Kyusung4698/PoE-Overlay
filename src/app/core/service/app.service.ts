@@ -3,7 +3,7 @@ import { ElectronProvider } from '@app/provider';
 import { AppUpdateState, VisibleFlag } from '@app/type/app.type';
 import { IpcRenderer, Remote } from 'electron';
 import { BehaviorSubject, combineLatest, Observable, Subject } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { DialogRefService } from './dialog/dialog-ref.service';
 
 @Injectable({

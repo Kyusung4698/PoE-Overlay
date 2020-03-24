@@ -14,7 +14,7 @@
 		"url": "Url"
 	},
 	"clipboard": {
-		"empty": "Zwischenablage war leer. Bitte stellen Sie sicher, dass das Spiel fokussiert ist.",
+		"empty": "Die Zwischenablage war leer. Möglicherweise müssen Sie PoE Overlay mit privilegierten Rechten starten.",
 		"error": "Beim Parsen des Gegenstandes ist ein Fehler aufgetreten.",
 		"parser-error": "Gegenstand konnte nicht geparst werden. Bitte stellen Sie sicher, dass Sie die richtige Sprache ausgewählt haben."
 	},

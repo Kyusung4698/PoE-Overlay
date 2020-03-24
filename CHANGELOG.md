@@ -1,8 +1,11 @@
-## 0.6.11 (2020-03-xx)
+## 0.6.11 (2020-03-24)
 
 - add league as fast toggle option (#273)
 - add keyboard support for stat ranges (#152)
-- update default debounce time to 1.5s (#426)
+- update default debounce time to 1s (#426)
+- update keyboard empty error to include you may need to start with privileged rights (#361)
+- remove requestedExecutionLevel from manifest (#361)
+- fix force poe to be active prior copying item data
 - fix scroll wheel not working on win7 (#319)
 - fix remove typeId only on weapon, armour and accessory (#437, #441)
 

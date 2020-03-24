@@ -1,6 +1,8 @@
-import activeWin from 'active-win';
+import { Window, windowManager } from 'node-window-manager';
 import { Subject, Subscription } from 'rxjs';
 import { throttleTime } from 'rxjs/operators';
+
+windowManager.requestAccessibility();
 
 interface KeyboardEvent {
     ctrlKey: boolean;
@@ -14,16 +16,9 @@ interface WheelEvent {
     ctrlKey: boolean;
 }
 
-interface Bounds {
-    x: number;
-    y: number;
-    width: number;
-    height: number;
-}
-
 let active = false;
-let bounds: Bounds = null;
-let activeChangeFn: (active: boolean, bounds: Bounds) => void;
+let activeWindow: Window = null;
+let activeChangeFn: (active: boolean, game: Window) => void;
 let wheelChangeFn: (event: WheelEvent) => void;
 
 const activeCheck$ = new Subject<void>();
@@ -52,24 +47,29 @@ function onMouseclick(event: WheelEvent): void {
 }
 
 function checkActive(): void {
-    let old = active;
+    let orgActive = active;    
+    let orgActiveWindow = activeWindow;
 
-    const win = activeWin.sync();
-    const path = win?.owner?.path
-    if (path) {
-        const test = path.toLowerCase();
-        active = test.endsWith('pathofexile_x64_kg.exe') || test.endsWith('pathofexile_kg.exe')
-            || test.endsWith('pathofexile_x64steam.exe') || test.endsWith('pathofexilesteam.exe')
-            || test.endsWith('pathofexile_x64.exe') || test.endsWith('pathofexile.exe');
+    const possibleWindow = windowManager.getActiveWindow();
+    if (possibleWindow.path) {
+        const lowerPath = possibleWindow.path.toLowerCase();
+        active = lowerPath.endsWith('pathofexile_x64_kg.exe') || lowerPath.endsWith('pathofexile_kg.exe')
+            || lowerPath.endsWith('pathofexile_x64steam.exe') || lowerPath.endsWith('pathofexilesteam.exe')
+            || lowerPath.endsWith('pathofexile_x64.exe') || lowerPath.endsWith('pathofexile.exe');
 
         if (active) {
-            bounds = win.bounds;
+            activeWindow = possibleWindow;
+        }
+
+        if (!active) {
+            active = process.pid === possibleWindow.processId;
+            console.log('overlay active', active);
         }
     }
 
-    if (old !== active) {
+    if (orgActive !== active || orgActiveWindow !== activeWindow) {
         if (activeChangeFn) {
-            activeChangeFn(active, bounds);
+            activeChangeFn(active, activeWindow);
         }
     }
 }
@@ -78,14 +78,14 @@ export function getActive(): boolean {
     return active;
 }
 
-export function on(event: 'change', callback: (active: boolean, bounds: Bounds) => void): void;
+export function on(event: 'change', callback: (active: boolean, game: Window) => void): void;
 export function on(event: 'wheel', callback: (event: WheelEvent) => void): void;
 
 export function on(event: string, callback: any) {
     switch (event) {
         case 'change':
             activeChangeFn = callback;
-            activeChangeFn(active, bounds);
+            activeChangeFn(active, activeWindow);
             break;
         case 'wheel':
             wheelChangeFn = callback;

@@ -3,6 +3,7 @@ import { app, BrowserWindow, dialog, Display, ipcMain, Menu, MenuItem, MenuItemC
 import * as log from 'electron-log';
 import { autoUpdater } from 'electron-updater';
 import * as fs from 'fs';
+import { Window } from 'node-window-manager';
 import * as path from 'path';
 import * as robot from 'robotjs';
 import * as url from 'url';
@@ -56,6 +57,7 @@ let tray: Tray = null;
 let menu: Menu = null;
 let downloadItem: MenuItem = null;
 let checkForUpdatesHandle = null;
+let gameWindow: Window = null;
 
 const childs: {
     [key: string]: BrowserWindow
@@ -108,8 +110,15 @@ ipcMain.on('set-keyboard-delay', (event, delay) => {
 
 /* hook */
 
+ipcMain.on('force-active', event => {
+    gameWindow?.bringToTop();
+    event.returnValue = true;
+})
+
 ipcMain.on('register-active-change', event => {
-    hook.on('change', (active, bounds) => {
+    hook.on('change', (active, activeWindow) => {
+        gameWindow = activeWindow;
+
         send('active-change', serve ? true : active);
 
         if (win && active) {
@@ -119,9 +128,9 @@ ipcMain.on('register-active-change', event => {
             win.setAlwaysOnTop(true, 'pop-up-menu', 1);
             win.setVisibleOnAllWorkspaces(true);
 
-            if (bounds) {
+            if (activeWindow) {
                 win.setBounds({
-                    ...bounds
+                    ...activeWindow.getBounds()
                 });
                 log.verbose('set bounds to: ', win.getBounds());
             }

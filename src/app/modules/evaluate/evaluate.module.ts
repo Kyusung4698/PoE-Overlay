@@ -55,7 +55,7 @@ export class EvaluateModule implements FeatureModule {
             evaluateQueryDefaultStatsUnique: true,
             evaluateQueryIndexedRange: ItemSearchIndexed.UpTo3DaysAgo,
             evaluateQueryOnline: true,
-            evaluateQueryDebounceTime: 15,
+            evaluateQueryDebounceTime: 10,
             evaluateModifierMinRange: 0,
             evaluateModifierMaxRange: 10,
             evaluateKeybinding: 'CmdOrCtrl + D',

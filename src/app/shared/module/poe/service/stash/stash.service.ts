@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { WindowService } from '@app/service';
+import { GameService, WindowService } from '@app/service';
 import { ClipboardService, KeyboardService, KeyCode, MouseService } from '@app/service/input';
 import { Point } from '@app/type';
 import { Observable, of } from 'rxjs';
@@ -30,6 +30,7 @@ export interface StashPriceTag {
 })
 export class StashService {
     constructor(
+        private readonly game: GameService,
         private readonly keyboard: KeyboardService,
         private readonly mouse: MouseService,
         private readonly window: WindowService,
@@ -77,6 +78,7 @@ export class StashService {
         const text = this.clipboard.readText();
         this.copyPrice(tag);
         return of(null).pipe(
+            tap(() => this.game.forceActive()),
             tap(() => this.mouse.click('right', point)),
             delay(100),
             tap(() => {

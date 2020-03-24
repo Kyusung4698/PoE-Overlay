@@ -74,7 +74,7 @@ export class WindowService {
         return local;
     }
 
-    public convertToLocalScaled(local: Point): Point{
+    public convertToLocalScaled(local: Point): Point {
         const point = {
             ...local
         };

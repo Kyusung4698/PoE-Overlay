@@ -14,7 +14,7 @@
 		"url": "URL"
 	},
 	"clipboard": {
-		"empty": "Le presse-papiers était vide. Veuillez vous assurer que la fenêtre du jeu est active.",
+		"empty": "Le presse-papiers était vide. Vous devrez peut-être démarrer PoE Overlay avec des droits privilégiés.",
 		"error": "Une erreur s'est produite lors de l'analyse de l'élément.",
 		"parser-error": "L'élément n'a pas pu être analysé. Veuillez vous assurer d'avoir sélectionné la bonne langue."
 	},
