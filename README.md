@@ -61,8 +61,8 @@ These instructions will set you up to run and enjoy the overlay.
 #### Supports
 
 * Windows 10 x64
-* Windows 7 (partial; no scroll support)
-* Linux coming soon
+* Windows 7 x64
+* Linux coming soon (can be compiled manually)
 
 #### Prerequisites
 
