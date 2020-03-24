@@ -36,7 +36,7 @@ export class ItemClipboardService {
         return of(null).pipe(
             flatMap(() => {
                 this.game.forceActive();
-                
+
                 const point = this.mouse.position();
 
                 this.keyboard.setKeyboardDelay(1);
