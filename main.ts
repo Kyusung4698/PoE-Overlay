@@ -116,7 +116,7 @@ ipcMain.on('force-active', event => {
 })
 
 ipcMain.on('register-active-change', event => {
-    hook.on('change', (active, activeWindow) => {
+    hook.on('change', (active, activeWindow, bounds) => {
         gameWindow = activeWindow;
 
         send('active-change', serve ? true : active);
@@ -128,11 +128,9 @@ ipcMain.on('register-active-change', event => {
             win.setAlwaysOnTop(true, 'pop-up-menu', 1);
             win.setVisibleOnAllWorkspaces(true);
 
-            if (activeWindow) {
-                win.setBounds({
-                    ...activeWindow.getBounds()
-                });
-                log.verbose('set bounds to: ', win.getBounds());
+            if (bounds) {
+                win.setBounds(bounds);
+                log.info('set bounds to: ', win.getBounds());
             }
         }
 
