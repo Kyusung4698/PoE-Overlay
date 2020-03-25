@@ -1,4 +1,5 @@
-![GitHub Releases](https://img.shields.io/github/downloads/Kyusung4698/PoE-Overlay/latest/total)
+![GitHub Releases](https://img.shields.io/github/downloads/Kyusung4698/PoE-Overlay/total)
+![GitHub Latest Releases](https://img.shields.io/github/downloads/Kyusung4698/PoE-Overlay/latest/total)
 ![GitHub Release Date](https://img.shields.io/github/release-date/Kyusung4698/PoE-Overlay)
 <a href="https://www.patreon.com/bePatron?u=30666721"><img src="https://c5.patreon.com/external/logo/become_a_patron_button.png" alt="Become a Patron" width="85px" height="20px"></a>
 
