@@ -3,7 +3,7 @@
 		"clickable": "'Click' = In-Game Browser, 'CTRL + Click' Default Browser",
 		"update": {
 			"available": "A new update is available. Will be automatically downloaded unless otherwise specified.",
-			"downloaded": "The new update is now ready to install. Please relaunch your application."
+			"downloaded": "The new update is now ready to install. Please relaunch PoE-Overlay."
 		}
 	},
 	"bookmark": {
