@@ -1,5 +1,6 @@
 ## 0.6.13 (2020-03-25)
 
+- add loading animations
 - add keyboard support toggle as tray menu entry (#460)
 - add `CmdOrCtrl + F` as supported accelerator (#293, #454)
 - update disable keyboard support by defaut (#460)

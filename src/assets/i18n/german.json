@@ -3,7 +3,7 @@
 		"clickable": "'Klick' = Browser im Spiel, 'STRG + Klick' Standardbrowser",
 		"update": {
 			"available": "Ein neues Update ist verfügbar. Wird automatisch heruntergeladen, sofern nicht anders angegeben.",
-			"downloaded": "Das neue Update kann jetzt installiert werden. Bitte starten Sie Ihre Anwendung neu."
+			"downloaded": "Das neue Update kann jetzt installiert werden. Bitte starten Sie PoE Overlay neu."
 		}
 	},
 	"bookmark": {
@@ -79,7 +79,7 @@
 		"searching": "Suchen...",
 		"seller": "Verkäufer",
 		"settings": "Bewertungseinstellungen",
-		"stale": "Daten sind veraltet. Wiederholen in {{counter}}s ... Jetzt?",
+		"stale": "Filter wurde geändert. Wieder holen ... - Jetzt?",
 		"stats": "Stats",
 		"stats-export": "Exportieren der Stats in die Zwischenablage",
 		"stats-import": "Importieren der Stats aus der Zwischenablage",

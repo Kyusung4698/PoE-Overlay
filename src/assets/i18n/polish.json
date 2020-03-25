@@ -3,7 +3,7 @@
 		"clickable": "„Kliknięcie” = przeglądarka w grze, „CTRL + kliknięcie” Domyślna przeglądarka",
 		"update": {
 			"available": "Dostępna jest nowa aktualizacja. Zostanie automatycznie pobrana, chyba, że dokonano innego wyboru.",
-			"downloaded": "Nowa aktualizacja jest już gotowa do zainstalowania. Uruchom ponownie program."
+			"downloaded": "Nowa aktualizacja jest teraz gotowa do zainstalowania. Uruchom ponownie nakładkę PoE."
 		}
 	},
 	"bookmark": {
@@ -79,7 +79,7 @@
 		"searching": "Badawczy...",
 		"seller": "Sprzedawca",
 		"settings": "Ustawienia Wyceny Przedmiotu",
-		"stale": "Dane są nieaktualne. Pobieranie ponownie za {{counter}}s ... Teraz?",
+		"stale": "Filtr został zmieniony. Pobieranie ponownie ... - Teraz?",
 		"stats": "Statystyki",
 		"stats-export": "Wyślij statystyki do schowka",
 		"stats-import": "Wczytaj statystyki ze schowka",
