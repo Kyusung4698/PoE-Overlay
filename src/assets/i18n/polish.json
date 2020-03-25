@@ -20,23 +20,23 @@
 	},
 	"command": {
 		"add": "Dodaj komendę",
-		"name": "Komenda",
+		"name": "Komendy",
 		"shortcut": "Skrót klawiszowy",
 		"text": "Komenda"
 	},
 	"evaluate": {
-		"age": "Wiek",
+		"age": "Wystawiono",
 		"analyzing": "Analiza danych ...",
 		"cancel": "Anuluj?",
 		"canceled": "Wyszukiwanie anulowane. Otwórz w przeglądarce?",
 		"count": "Liczba Aukcji",
 		"currency": "Wyświetlana waluta",
-		"currency-original": "Orginalna Waluta",
+		"currency-original": "Oryginalna Waluta",
 		"days": "ostatnie 7 dni",
-		"debounce-time": "Wyszukaj czas odbicia",
-		"empty": "Brak wyników. Otwórz w przeglądarce?",
+		"debounce-time": "Czas oczekiwania na ponowną wycenę przedmiotu.",
+		"empty": "Brak wyników. Otworzyć w przeglądarce?",
 		"error": "Wystąpił błąd.",
-		"listings": "Znaleziono {{total}}. Pobieranie wpisów ...",
+		"listings": "Znaleziono {{total}}. Pobieranie aukcji ...",
 		"loading": "Ładuję...",
 		"mean": "Średnia",
 		"median": "Mediana",
@@ -46,12 +46,12 @@
 		"range": "Zakres",
 		"result-view": "Okno wyników",
 		"result-views": {
-			"graph": "Wykres",
-			"list": "lista"
+			"graph": "Wykres kolumnowy",
+			"list": "Lista"
 		},
 		"search": {
 			"default": "Domyślne ustawienia wyszukiwania",
-			"disable-max-range": "Wyłącz maksymalny zasięg",
+			"disable-max-range": "Wyłącz maksymalny zakres",
 			"filter": "Filtr Wyszukiwania",
 			"gem": "Poziom gemów, map oraz jakość",
 			"item-default-links": "Z połączonymi gniazdami ",
@@ -63,39 +63,39 @@
 			"item-sockets": "Gniazda",
 			"item-type": "Typ przedmiotu",
 			"max-age": {
-				"any": "Kiedykolwiek",
-				"day": "Do 24 godzin temu",
-				"days": "3 Dni temu",
-				"month": "Miesiąc temu",
-				"months": "2 Miesiące temu",
-				"title": "Data wystawienia",
-				"week": "Tydzień temu",
-				"weeks": "2 Tygodnie temu"
+        "any": "Kiedykolwiek",
+        "day": "Ostatni dzień",
+        "days": "Ostatnie 3 dni",
+        "month": "Ostatni miesiąc",
+        "months": "Ostatnie 2 miesiące",
+        "title": "Data wystawienia",
+        "week": "Ostatni tydzień",
+        "weeks": "Ostatnie 2 tygodnie"
 			},
-			"modifier": "Ustawienia wyszukiwania moda",
-			"modifier-range": "Zakres moda",
-			"online-only": "Gracze Online"
+			"modifier": "Ustawienia wyszukiwania modyfikatora",
+			"modifier-range": "Zakres modyfikatora",
+			"online-only": "Tylko Online"
 		},
-		"searching": "Badawczy...",
+		"searching": "Szukam...",
 		"seller": "Sprzedawca",
 		"settings": "Ustawienia Wyceny Przedmiotu",
-		"stale": "Filtr został zmieniony. Pobieranie ponownie ... - Teraz?",
+		"stale": "Filtr został zmieniony. Ponowne pobranie ... - Teraz?",
 		"stats": "Statystyki",
 		"stats-export": "Wyślij statystyki do schowka",
 		"stats-import": "Wczytaj statystyki ze schowka",
-		"stats-unique-check-all": "Unikaty - sprawdź wszystkie",
-		"switch": "zmień sumę",
+		"stats-unique-check-all": "Dla Unikatów sprawdź wszystkie",
+		"switch": "Odwróć skalę",
 		"tag": {
-			"note": "Tylko elementy bez istniejącej notatki mogą być szybko oznaczone. Notatka została zamiast tego skopiowana.",
-			"outside-stash": "Tylko przedmioty w skrytce można szybko oznaczyć. Notatka została zamiast tego skopiowana."
+			"note": "Tylko przedmioty bez istniejącej notki mogą ją otrzymać. Treść notki została zamiast tego skopiowana.",
+			"outside-stash": "Tylko przedmiotom w skrytce można szybko dodać notkę sprzedaży. Treść notki została zamiast tego skopiowana."
 		},
-		"translate": "Wyceń przetłumaczony przedmiot",
-		"translate-language": "Język przełumaczonego przedmiotu",
-		"translate-settings": "Ustawienia tłumaczenia Wyceny",
-		"value": "Wartość"
+		"translate": "Wyceń przedmiot",
+		"translate-language": "Język wycenianego przedmiotu",
+		"translate-settings": "Ustawienia Językowe",
+		"value": "Cena"
 	},
 	"help": {
-		"browser": "Przytrzymanie klawisza Ctrl i kliknięcie, spowoduje otwarcie odnośnika w domyślnej przeglądarce.",
+		"browser": "Kliknięcie z wciśniętym klawiszem CTRL, spowoduje otwarcie odnośnika w domyślnej przeglądarce.",
 		"browser-title": "Jak mogę otworzyć wyszukiwanie w domyślnej przeglądarce?",
 		"bug": "Zgłoś błąd / zaproponuj sugestię",
 		"bug-title": "Znalazłeś błąd? A może masz sugestię? Proszę zgłoś ją na stronie GitHub projektu.",
@@ -117,17 +117,17 @@
 	"map": {
 		"boss": "Boss",
 		"boss-rating": "Rating Bossa",
-		"boss-rating-info": "5: Wysokie i stałe zadawanie obrażeń, którego trudno niezawodnie uniknąć; pomijane przez wielu graczy.\n4: Wysokie i stałe obrażenia, których można dość dobrze uniknąć, ale nadal są bardzo niebezpieczne.\n3: Czasami wysokie obrażenia, których można dość dobrze uniknąć.\n2: Umiarkowane obrażenia, które można łatwo kite i / lub rozsądnie złagodzić przez większość buildów.\n1: Trywialny dla większości wersji.",
+		"boss-rating-info": "5: Wysokie i stałe zadawanie obrażeń, którego trudno skutecznie uniknąć; pomijany przez wielu graczy.\n4: Wysokie i stałe obrażenia, których można jednak dość dobrze uniknąć, ale nadal są bardzo niebezpieczne.\n3: Czasami wysokie obrażenia, których można dość dobrze uniknąć.\n2: Umiarkowane obrażenia, które można łatwo omijać i / lub rozsądnie osłabiać przez większość buildów.\n1: Trywialny dla większości buildów.",
 		"bosses": "Bossowie",
 		"info": "Informacje",
-		"layout-rating": "Layout Rating",
-		"layout-rating-info": "Odp .: Mapa ma spójny układ, który można niezawodnie całkowicie wyczyścić bez cofania się.\nB: Mapa ma otwarty układ z kilkoma przeszkodami lub ma tylko krótkie i dobrze połączone ścieżki boczne.\nC: Mapa ma otwarty układ z wieloma przeszkodami lub ma długie boczne ścieżki, które wymagają cofnięcia.",
-		"name": "Mapy",
+		"layout-rating": "Ocena Mapy",
+		"layout-rating-info": "A: Mapa ma spójny układ, który można niezawodnie całkowicie wyczyścić bez cofania się.\nB: Mapa ma otwarty układ z kilkoma przeszkodami lub ma tylko krótkie i dobrze połączone ścieżki boczne.\nC: Mapa ma otwarty układ z wieloma przeszkodami lub ma długie boczne ścieżki, które wymagają cofania się.",
+		"name": "Info o Mapie",
 		"no-map": "Przedmiot nie jest mapą.",
 		"not-found": "Nie znaleziono mapy.",
 		"stats-warning": "Statystyki Ostrzeżenia",
 		"stats-warning-export": "Wyślij ostrzeżenia statystyk do schowka",
-		"stats-warning-import": "Wczytaj ostrzeżenia statystyczne ze schowka"
+		"stats-warning-import": "Wczytaj ostrzeżenia statystyk ze schowka"
 	},
 	"material": {
 		"accelerator": {
@@ -147,9 +147,9 @@
 		"name": "Różne",
 		"navigation": "Przełączanie pomiędzy zakładkami",
 		"navigations": {
-			"disabled": "niepełnosprawny",
-			"inverse": "Odwrotność",
-			"normal": "normalna"
+			"disabled": "Wyłączone",
+			"inverse": "Odwrotny kierunek",
+			"normal": "Normalne"
 		},
 		"open-poedb": "Otwórz stronę PoE DB",
 		"open-poedb-external": "Otwórz stronę PoE DB w przeglądarce",
