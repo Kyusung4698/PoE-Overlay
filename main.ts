@@ -31,14 +31,19 @@ Object.assign(console, log.functions);
 log.info('App starting...');
 
 let animationPath = path.join(app.getPath('userData'), 'animation.flag');
-
-log.info(`App checking for animation flag: ${animationPath}.`);
-
 let animationExists = fs.existsSync(animationPath);
+
+log.info(`App checking for animation flag: ${animationExists}.`);
+
 if (animationExists) {
     app.disableHardwareAcceleration();
-    log.info('App disabled hardware acceleration');
+    log.info('App started with disabled hardware acceleration.');
 }
+
+let keyboardPath = path.join(app.getPath('userData'), 'keyboard.flag');
+let keyboardExists = fs.existsSync(keyboardPath);
+
+log.info(`App checking for keyboard flag: ${keyboardExists}.`);
 
 autoUpdater.logger = log;
 
@@ -263,6 +268,7 @@ function createWindow(): BrowserWindow {
             allowRunningInsecureContent: serve,
             webSecurity: false
         },
+        focusable: keyboardExists,
         skipTaskbar: true,
         show: false
     });
@@ -369,6 +375,17 @@ function createTray(): Tray {
         {
             label: 'Relaunch', type: 'normal',
             click: () => send('app-relaunch')
+        },
+        {
+            label: 'Keyboard Support (experimental)', type: 'checkbox',
+            checked: keyboardExists, click: () => {
+                if (keyboardExists) {
+                    fs.unlinkSync(keyboardPath);
+                } else {
+                    fs.writeFileSync(keyboardPath, 'true');
+                }
+                send('app-relaunch');
+            }
         },
         {
             label: 'Hardware Acceleration', type: 'checkbox',
