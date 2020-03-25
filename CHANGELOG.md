@@ -2,6 +2,7 @@
 
 - add keyboard support toggle as tray menu entry (#460)
 - update disable keyboard support by defaut (#460)
+- update data to 3.10.0f
 - fix spacebar closes built in browser by disabling keyboard support (#461)
 - fix tooltips not visible by disabling keyboard support (#464)
 
