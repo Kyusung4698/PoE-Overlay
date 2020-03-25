@@ -3,6 +3,7 @@
 - add loading animations
 - add keyboard support toggle as tray menu entry (#460)
 - add `CmdOrCtrl + F` as supported accelerator (#293, #454)
+- add display default values while holding right click (#335)
 - update disable keyboard support by defaut (#460)
 - update data to 3.10.0f
 - fix spacebar closes built in browser by disabling keyboard support (#461)

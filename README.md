@@ -84,6 +84,13 @@ These instructions will set you up to run and enjoy the overlay.
 
 You can change these shortcuts in the user settings menu.
 
+|Shortcut        |Description
+|---             |---	    
+| `ctrl+d`       | Displays the item in a frame and evaluates the price. You can open the offical trade site on click of the currency value
+| `f7`           | Opens the user settings menu
+
+Full list below. Click on `Details`.
+
 <details>
   
 |Shortcut        |Description

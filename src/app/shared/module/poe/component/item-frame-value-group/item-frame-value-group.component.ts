@@ -17,6 +17,10 @@ export class ItemFrameValueGroupComponent implements AfterViewInit {
     this.children = this.values.toArray();
   }
 
+  public onMouseDown(event: MouseEvent): void {
+    event.stopImmediatePropagation();
+  }
+
   public onMouseUp(event: MouseEvent): void {
     event.stopImmediatePropagation();
     /* tslint:disable */

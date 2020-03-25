@@ -1,16 +1,19 @@
-<span [class.value]="!disabled" [class.changed]="default.min !== value.min || default.max !== value.max"
-    (wheel)="onWheel($event)" (mouseup)="onMouseUp($event)">
-    <ng-container *ngIf="value.min === undefined && value.max === undefined">
-        <span>#</span>
-    </ng-container>
-    <span [class.hidden]="!(value.min !== undefined || value.max !== undefined)">
-        <input class="text" #min [class.hidden]="!(default.min !== value.min || default.max !== value.max)"
-            (blur)="onBlur(min.value, value.max)" (keyup)="onKeyup()" (wheel)="onWheelMin($event)"
-            (mouseup)="onMouseUpMin($event)">
-        <span *ngIf="default.min !== value.min || default.max !== value.max">~</span>
-        <span *ngIf="default.min === value.min && default.max === value.max">{{value.text}}</span>
-        <input class="text" #max [class.hidden]="!(default.min !== value.min || default.max !== value.max)"
-            (blur)="onBlur(value.min, max.value)" (keyup)="onKeyup()" (wheel)="onWheelMax($event)"
-            (mouseup)="onMouseUpMax($event)">
+<span [class.hidden]="text$ | async === false" [class.value]="!disabled">{{value.text}}</span>
+<span [class.hidden]="text$ | async">
+    <span [class.value]="!disabled" [class.changed]="default.min !== value.min || default.max !== value.max"
+        (wheel)="onWheel($event)" (mouseup)="onMouseUp($event)" (mousedown)="onMouseDown($event)">
+        <ng-container *ngIf="value.min === undefined && value.max === undefined">
+            <span>#</span>
+        </ng-container>
+        <span [class.hidden]="!(value.min !== undefined || value.max !== undefined)">
+            <input class="text" #min [class.hidden]="!(default.min !== value.min || default.max !== value.max)"
+                (blur)="onBlur(min.value, value.max)" (keyup)="onKeyup()" (wheel)="onWheelMin($event)"
+                (mouseup)="onMouseUpMin($event)" (mousedown)="onMouseDown($event)">
+            <span *ngIf="default.min !== value.min || default.max !== value.max">~</span>
+            <span *ngIf="default.min === value.min && default.max === value.max">{{value.text}}</span>
+            <input class="text" #max [class.hidden]="!(default.min !== value.min || default.max !== value.max)"
+                (blur)="onBlur(value.min, max.value)" (keyup)="onKeyup()" (wheel)="onWheelMax($event)"
+                (mouseup)="onMouseUpMax($event)" (mousedown)="onMouseDown($event)">
+        </span>
     </span>
 </span>
