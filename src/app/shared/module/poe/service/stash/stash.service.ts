@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { GameService, WindowService } from '@app/service';
-import { ClipboardService, KeyboardService, KeyCode, MouseService } from '@app/service/input';
+import { ClipboardService, KeyboardService, KeyCode, MouseService, ShortcutService } from '@app/service/input';
 import { Point } from '@app/type';
 import { Observable, of } from 'rxjs';
 import { delay, tap } from 'rxjs/operators';
@@ -32,6 +32,7 @@ export class StashService {
     constructor(
         private readonly game: GameService,
         private readonly keyboard: KeyboardService,
+        private readonly shortcut: ShortcutService,
         private readonly mouse: MouseService,
         private readonly window: WindowService,
         private readonly clipboard: ClipboardService) {
@@ -57,9 +58,11 @@ export class StashService {
 
         this.keyboard.setKeyboardDelay(15);
         return of(null).pipe(
+            tap(() => this.shortcut.disable('CmdOrCtrl + F')),
             tap(() => this.keyboard.keyTap(KeyCode.VK_KEY_F, ['control'])),
             delay(175),
             tap(() => this.keyboard.keyTap(KeyCode.VK_KEY_V, ['control'])),
+            tap(() => this.shortcut.enable('CmdOrCtrl + F')),
             delay(75),
             tap(() => this.clipboard.writeText(text))
         );

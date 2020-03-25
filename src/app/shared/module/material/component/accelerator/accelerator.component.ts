@@ -7,7 +7,6 @@ const KEY_CODES = /^(F24|F23|F22|F21|F20|F19|F18|F17|F16|F15|F14|F13|F12|F11|F10
 const PRESERVERED_ACCELERATORS = [
   'CmdOrCtrl + C',
   'CmdOrCtrl + V',
-  'CmdOrCtrl + F',
   'Alt + F4',
 ];
 
