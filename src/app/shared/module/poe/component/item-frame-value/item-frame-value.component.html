@@ -1,4 +1,4 @@
-<span [class.hidden]="text$ | async === false" [class.value]="!disabled">{{value.text}}</span>
+<span [class.hidden]="(text$ | async) === false" [class.value]="!disabled">{{value.text}}</span>
 <span [class.hidden]="text$ | async">
     <span [class.value]="!disabled" [class.changed]="default.min !== value.min || default.max !== value.max"
         (wheel)="onWheel($event)" (mouseup)="onMouseUp($event)" (mousedown)="onMouseDown($event)">
