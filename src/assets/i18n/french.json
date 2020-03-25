@@ -3,7 +3,7 @@
 		"clickable": "'Click' = navigateur en jeu, 'CTRL + Click' navigateur par défaut",
 		"update": {
 			"available": "Une nouvelle mise à jour est disponible. Sera automatiquement téléchargé, sauf indication contraire.",
-			"downloaded": "La nouvelle mise à jour est maintenant prête à installer. Veuillez relancer votre candidature."
+			"downloaded": "La nouvelle mise à jour est maintenant prête à installer. Veuillez relancer PoE Overlay."
 		}
 	},
 	"bookmark": {
@@ -79,7 +79,7 @@
 		"searching": "Recherche...",
 		"seller": "vendeur",
 		"settings": "Paramètres d'évaluation",
-		"stale": "Les données sont périmées. Récupération à nouveau dans {{counter}}s ... maintenant?",
+		"stale": "Le filtre a été changé. Aller chercher à nouveau ... - Maintenant?",
 		"stats": "Statistiques",
 		"stats-export": "Exporter les statistiques vers le presse-papiers",
 		"stats-import": "Importer des statistiques depuis le presse-papiers",

@@ -3,7 +3,7 @@
 		"clickable": "'點擊'=遊戲內瀏覽器，'CTRL +點擊'默認瀏覽器",
 		"update": {
 			"available": "有新的更新。除非另有說明，否則將自動下載。",
-			"downloaded": "現在就可以安裝新更新了。請重新啟動您的應用程序。"
+			"downloaded": "現在就可以安裝新更新了。請重新啟動PoE覆蓋。"
 		}
 	},
 	"bookmark": {
@@ -79,7 +79,7 @@
 		"searching": "搜索...",
 		"seller": "賣家",
 		"settings": "評估設置",
-		"stale": "數據已過時。在 {{counter}}秒內再次獲取...現在？",
+		"stale": "過濾器已更改。再次獲取...-現在？",
 		"stats": "統計資料",
 		"stats-export": "將統計數據導出到剪貼板",
 		"stats-import": "從剪貼板導入統計",

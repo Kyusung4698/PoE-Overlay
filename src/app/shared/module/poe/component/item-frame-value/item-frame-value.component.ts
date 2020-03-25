@@ -1,5 +1,6 @@
 import { DecimalPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Inject, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Subject } from 'rxjs';
 import { ItemValue } from '../../type';
 import { ItemFrameComponent } from '../item-frame/item-frame.component';
 
@@ -34,10 +35,13 @@ export class ItemFrameValueComponent implements OnInit {
   @Output()
   public valueChange = new EventEmitter<ItemValue>();
 
+  public text$: Subject<boolean>;
+
   constructor(
     @Inject(ItemFrameComponent)
     private readonly itemFrame: ItemFrameComponent,
     private readonly decimal: DecimalPipe) {
+    this.text$ = this.itemFrame.text$;
   }
 
   public ngOnInit(): void {
@@ -45,6 +49,10 @@ export class ItemFrameValueComponent implements OnInit {
       this.disabled = true;
     }
     this.init();
+  }
+
+  public onMouseDown(event: MouseEvent): void {
+    event.stopImmediatePropagation();
   }
 
   public onMouseUp(event: MouseEvent): void {

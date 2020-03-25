@@ -26,6 +26,7 @@ export class EvaluateSearchComponent implements OnInit {
   public result$ = new BehaviorSubject<ItemSearchAnalyzeResult>(null);
   public error$ = new BehaviorSubject<boolean>(false);
   public staleCounter$ = new BehaviorSubject<number>(0);
+  public staleProgress$ = new BehaviorSubject<number>(0);
 
   @Input()
   public options: EvaluateOptions;
@@ -105,6 +106,7 @@ export class EvaluateSearchComponent implements OnInit {
     ).subscribe(item => {
       this.clear();
       this.staleCounter$.next(this.settings.evaluateQueryDebounceTime);
+      this.staleProgress$.next(100);
       subscription?.unsubscribe();
       subscription = timer(0, 100).pipe(
         takeUntil(this.queryItemChange),
@@ -114,6 +116,13 @@ export class EvaluateSearchComponent implements OnInit {
           this.search(item);
         } else {
           this.staleCounter$.next(this.staleCounter$.value - 1)
+        }
+
+        const counter = this.staleCounter$.value - 2;
+        if (counter % 3 === 0) {
+          const maxCounter = this.settings.evaluateQueryDebounceTime;
+          const progress = counter / (maxCounter - 2) * 100;
+          this.staleProgress$.next(progress);
         }
       });
     });

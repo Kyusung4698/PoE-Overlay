@@ -57,7 +57,7 @@ body {
 
 .cdk-overlay-dark-backdrop {
   background: rgba(0, 0, 0, 0.01);
-  
+
   & + .cdk-global-overlay-wrapper {
     .mat-dialog-container {
       box-shadow: none;
@@ -86,4 +86,14 @@ mat-card {
 
 .tooltip-val {
   padding: 2px !important;
+}
+
+.mat-progress-bar {
+  > .mat-progress-bar-background {
+    fill: none;
+  }
+
+  > .mat-progress-bar-buffer {
+    background: none;
+  }
 }

@@ -79,7 +79,7 @@
 		"searching": "Searching...",
 		"seller": "Seller",
 		"settings": "Evaluate Settings",
-		"stale": "Data is stale. Fetching again in {{counter}}s... Now?",
+		"stale": "Filter has been changed. Fetching again ... - Now?",
 		"stats": "Stats",
 		"stats-export": "Export Stats to Clipboard",
 		"stats-import": "Import Stats from Clipboard",

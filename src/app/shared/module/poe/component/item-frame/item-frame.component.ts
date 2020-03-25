@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { ContextService } from '../../service';
 import { Item, Language } from '../../type';
 
@@ -39,6 +40,8 @@ export class ItemFrameComponent implements OnInit {
   public state: boolean;
   public influences: boolean;
 
+  public text$ = new BehaviorSubject<boolean>(false);
+
   constructor(private readonly context: ContextService) { }
 
   public ngOnInit(): void {
@@ -56,6 +59,18 @@ export class ItemFrameComponent implements OnInit {
     this.stats = !!(this.item.stats && this.item.stats.length > 0);
     this.state = !!(this.item.corrupted !== undefined || this.item.veiled !== undefined);
     this.influences = !!this.item.influences;
+  }
+
+  public onMouseDown(event: MouseEvent): void {
+    if (event.button === 2) {
+      this.text$.next(true);
+    }
+  }
+
+  public onMouseUp(event: MouseEvent): void {
+    if (event.button === 2) {
+      this.text$.next(false);
+    }
   }
 
   public onPropertyChange(): void {

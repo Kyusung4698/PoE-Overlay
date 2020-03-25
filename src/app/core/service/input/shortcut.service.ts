@@ -50,6 +50,22 @@ export class ShortcutService {
         }
     }
 
+    public disable(accelerator: string): void {
+        const index = this.shortcuts.findIndex(x => x.accelerator === accelerator);
+        if (index !== -1) {
+            const shortcut = this.shortcuts[index];
+            this.unregisterShortcut(shortcut);
+        }
+    }
+
+    public enable(accelerator: string): void {
+        const index = this.shortcuts.findIndex(x => x.accelerator === accelerator);
+        if (index !== -1) {
+            const shortcut = this.shortcuts[index];
+            this.registerShortcut(shortcut);
+        }
+    }
+
     public check(flag: VisibleFlag): void {
         this.shortcuts.forEach(shortcut => {
             this.unregisterShortcut(shortcut);

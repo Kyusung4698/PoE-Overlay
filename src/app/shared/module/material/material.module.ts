@@ -9,15 +9,17 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
+import { TranslateModule } from '@ngx-translate/core';
 import { AcceleratorComponent } from './component/accelerator/accelerator.component';
 import { SelectListComponent } from './component/select-list/select-list.component';
-import { TranslateModule } from '@ngx-translate/core';
 import { DragDirective } from './directive/drag.directive';
+
 
 @NgModule({
   imports: [
@@ -36,6 +38,7 @@ import { DragDirective } from './directive/drag.directive';
     MatSliderModule,
     MatListModule,
     MatExpansionModule,
+    MatProgressBarModule,
 
     // third party
     TranslateModule,
@@ -56,6 +59,7 @@ import { DragDirective } from './directive/drag.directive';
     MatSliderModule,
     MatListModule,
     MatExpansionModule,
+    MatProgressBarModule,
     // custom
     AcceleratorComponent,
     SelectListComponent,

@@ -3,7 +3,7 @@
 		"clickable": "'Click' = Navegador dentro del juego, 'CTRL + Click' Navegador predeterminado",
 		"update": {
 			"available": "Una nueva actualización está disponible. Se descargará automáticamente a menos que se especifique lo contrario.",
-			"downloaded": "La nueva actualización ya está lista para instalar. Por favor, reinicie su aplicación."
+			"downloaded": "La nueva actualización ya está lista para instalar. Vuelva a iniciar PoE Overlay."
 		}
 	},
 	"bookmark": {
@@ -79,7 +79,7 @@
 		"searching": "Buscando...",
 		"seller": "Vendedor",
 		"settings": "Evaluar configuraciones",
-		"stale": "Los datos son obsoletos. Recuperando nuevamente en {{counter}}s ... ¿Ahora?",
+		"stale": "El filtro ha sido cambiado. Buscando de nuevo ... - ¿Ahora?",
 		"stats": "Estadísticas",
 		"stats-export": "Exportar estadísticas al portapapeles",
 		"stats-import": "Importar estadísticas del portapapeles",
