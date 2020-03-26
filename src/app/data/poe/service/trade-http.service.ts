@@ -4,7 +4,7 @@ import { BrowserService } from '@app/service';
 import { environment } from '@env/environment';
 import { Language } from '@shared/module/poe/type';
 import { Observable, of, throwError } from 'rxjs';
-import { delay, flatMap, map, retry, retryWhen } from 'rxjs/operators';
+import { delay, flatMap, map, retryWhen } from 'rxjs/operators';
 import { TradeFetchResult, TradeItemsResult, TradeLeaguesResult, TradeResponse, TradeSearchRequest, TradeSearchResponse, TradeStaticResult, TradeStatsResult } from '../schema/trade';
 
 const RETRY_COUNT = 3;
@@ -44,11 +44,36 @@ export class TradeHttpService {
         return this.http.post(url, request, {
             responseType: 'text',
             observe: 'response'
-        }).pipe(retry(RETRY_COUNT), map(response => {
-            const result = JSON.parse(response.body) as TradeSearchResponse;
-            result.url = `${url.replace('/api', '')}/${encodeURIComponent(result.id)}`;
-            return result;
-        }));
+        }).pipe(
+            retryWhen(errors => errors.pipe(
+                flatMap((response: HttpErrorResponse, count) => {
+                    if (count >= RETRY_COUNT) {
+                        return throwError(response);
+                    }
+                    if (response.status === 400) {
+                        try {
+                            const error = JSON.parse(response.error);
+                            const message = error?.error?.message || 'no message';
+                            const code = error?.error?.code || '-';
+                            return throwError(`${code}: ${message}`);
+                        } catch{
+                            return throwError(response.error);
+                        }
+                    }
+                    if (response.status === 403) {
+                        return this.browser.retrieve(url).pipe(
+                            map(() => null)
+                        );
+                    }
+                    return of(null).pipe(delay(RETRY_DELAY));
+                })
+            )),
+            map(response => {
+                const result = JSON.parse(response.body) as TradeSearchResponse;
+                result.url = `${url.replace('/api', '')}/${encodeURIComponent(result.id)}`;
+                return result;
+            })
+        );
     }
 
     public fetch(itemIds: string[], queryId: string, language: Language): Observable<TradeResponse<TradeFetchResult>> {
@@ -60,18 +85,69 @@ export class TradeHttpService {
                 }
             })
         }).pipe(retryWhen(errors => errors.pipe(
-            flatMap((error: HttpErrorResponse) => {
-                if (error.status === 403) {
+            flatMap((response: HttpErrorResponse) => {
+                if (response.status === 400) {
+                    try {
+                        const error = JSON.parse(response.error);
+                        const message = error?.error?.message || 'no message';
+                        const code = error?.error?.code || '-';
+                        return throwError(`${code}: ${message}`);
+                    } catch{
+                        return throwError(response.error);
+                    }
+                }
+                if (response.status === 403) {
                     return this.browser.retrieve(url).pipe(
                         map(() => null)
                     );
                 }
-                if (error.status === 429) {
-                    return of(error).pipe(delay(RETRY_LIMIT_DELAY));
+                if (response.status === 429) {
+                    return of(response).pipe(delay(RETRY_LIMIT_DELAY));
                 }
-                return throwError(error);
+                return throwError(response);
             })
         )));
+    }
+
+    private getAndTransform<TResponse>(url: string): Observable<TResponse> {
+        return this.http.get(url, {
+            responseType: 'text',
+            observe: 'response'
+        }).pipe(
+            retryWhen(errors => errors.pipe(
+                flatMap((response: HttpErrorResponse, count) => {
+                    if (count >= RETRY_COUNT) {
+                        return throwError(response);
+                    }
+                    if (response.status === 400) {
+                        try {
+                            const error = JSON.parse(response.error);
+                            const message = error?.error?.message || 'no message';
+                            const code = error?.error?.code || '-';
+                            return throwError(`${code}: ${message}`);
+                        } catch{
+                            return throwError(response.error);
+                        }
+                    }
+                    if (response.status === 403) {
+                        return this.browser.retrieve(url).pipe(
+                            map(() => null)
+                        );
+                    }
+                    return of(null).pipe(delay(RETRY_DELAY));
+                })
+            )),
+            map(response => this.transformResponse(response))
+        );
+    }
+
+    private transformResponse<TResponse>(response: HttpResponse<string>): TResponse {
+        const result = response.body.replace(
+            /\\u[\dA-Fa-f]{4}/g,
+            (match) => String.fromCharCode(
+                parseInt(match.replace(/\\u/g, ''), 16))
+        );
+        return JSON.parse(result) as TResponse;
     }
 
     private getApiUrl(postfix: string, language: Language): string {
@@ -112,34 +188,4 @@ export class TradeHttpService {
         return `${baseUrl}/trade/${postfix}`;
     }
 
-    private getAndTransform<TResponse>(url: string): Observable<TResponse> {
-        return this.http.get(url, {
-            responseType: 'text',
-            observe: 'response'
-        }).pipe(
-            retryWhen(errors => errors.pipe(
-                flatMap((error: HttpErrorResponse, count) => {
-                    if (count >= RETRY_COUNT) {
-                        return throwError(error);
-                    }
-                    if (error.status === 403) {
-                        return this.browser.retrieve(url).pipe(
-                            map(() => null)
-                        );
-                    }
-                    return of(null).pipe(delay(RETRY_DELAY));
-                })
-            )),
-            map(response => this.transformResponse(response))
-        );
-    }
-
-    private transformResponse<TResponse>(response: HttpResponse<string>): TResponse {
-        const result = response.body.replace(
-            /\\u[\dA-Fa-f]{4}/g,
-            (match) => String.fromCharCode(
-                parseInt(match.replace(/\\u/g, ''), 16))
-        );
-        return JSON.parse(result) as TResponse;
-    }
 }

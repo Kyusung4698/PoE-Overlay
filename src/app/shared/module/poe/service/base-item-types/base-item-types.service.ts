@@ -62,7 +62,7 @@ export class BaseItemTypesService {
             const expr = cache[key] || (cache[key] = new RegExp('(?<=[\\s,.:;"\']|^)' + map[key] + '(?=[\\s,.:;"\']|$)'));
             const match = expr.exec(name);
             if (match) {
-                const score = map[key].split(' ').length * 10 - match.index;
+                const score = map[key].split(' ').length * 10 - Math.abs(name.length / 2 - match.index);
                 if (score > maxScore) {
                     maxScore = score;
                     maxKey = key;

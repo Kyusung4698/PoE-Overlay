@@ -1,5 +1,5 @@
 import AutoLaunch from 'auto-launch';
-import { app, BrowserWindow, dialog, Display, ipcMain, Menu, MenuItem, MenuItemConstructorOptions, screen, systemPreferences, Tray } from 'electron';
+import { app, BrowserWindow, dialog, Display, ipcMain, Menu, MenuItem, MenuItemConstructorOptions, screen, systemPreferences, Tray, shell } from 'electron';
 import * as log from 'electron-log';
 import { autoUpdater } from 'electron-updater';
 import * as fs from 'fs';
@@ -397,6 +397,10 @@ function createTray(): Tray {
                 }
                 send('app-relaunch');
             }
+        },
+        {
+            label: 'Changelog', type: 'normal',
+            click: () => shell.openExternal('https://github.com/Kyusung4698/PoE-Overlay/blob/master/CHANGELOG.md'),
         },
         {
             label: 'Exit', type: 'normal',
