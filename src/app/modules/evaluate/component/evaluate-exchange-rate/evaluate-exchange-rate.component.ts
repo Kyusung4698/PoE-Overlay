@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { BrowserService } from '@app/service';
+import { BrowserService, LoggerService } from '@app/service';
 import { EvaluateResult } from '@modules/evaluate/type/evaluate.type';
 import { SnackBarService } from '@shared/module/material/service';
 import { ItemExchangeRateResult, ItemExchangeRateService } from '@shared/module/poe/service';
@@ -49,7 +49,8 @@ export class EvaluateExchangeRateComponent implements OnInit {
   constructor(
     private readonly exchangeRateService: ItemExchangeRateService,
     private readonly browser: BrowserService,
-    private readonly snackbar: SnackBarService) { }
+    private readonly snackbar: SnackBarService,
+    private readonly logger: LoggerService) { }
 
   public ngOnInit(): void {
     this.optionsChange.subscribe(() => this.evaluate(this.item));
@@ -96,12 +97,13 @@ export class EvaluateExchangeRateComponent implements OnInit {
           }
           this.result$.next({ rate: result });
         },
-        error => this.handleEvaluateError(error)
+        error => this.handleError(error)
       );
   }
 
-  private handleEvaluateError(error: any): void {
+  private handleError(error: any): void {
     this.result$.next({ error: true });
+    this.logger.warn(error);
     this.snackbar.error(`${typeof error === 'string' ? `${error}` : 'evaluate.error'}`);
   }
 }

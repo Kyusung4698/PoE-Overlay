@@ -7,9 +7,9 @@
 <ng-template #search>
   <ng-container *ngIf="(error$ | async) === false; else error">
     <ng-container *ngIf="search$ | async as search; else searching">
-      <ng-container *ngIf="search.total; else empty">
-        <ng-container *ngIf="listings$ | async as listings; else listings">
-          <ng-container *ngIf="listings.length; else canceled">
+      <ng-container *ngIf="search.total > 0; else empty">
+        <ng-container *ngIf="listings$ | async as listings; else listing">
+          <ng-container *ngIf="listings.length > 0; else canceled">
             <ng-container *ngIf="result$ | async as result; else analyzing">
               <!-- values -->
               <ng-container *ngIf="result.values as values">
@@ -60,7 +60,7 @@
             </div>
           </ng-template>
         </ng-container>
-        <ng-template #listings>
+        <ng-template #listing>
           <div class="clickable" (click)="onSearchCancelClick()">
             {{'evaluate.listings' | translate:{total: search.total | number} }}&nbsp;<span
               class="delayed">{{ 'evaluate.cancel' | translate }}</span>

@@ -59,16 +59,20 @@ export class ItemFrameComponent implements OnInit {
     this.stats = !!(this.item.stats && this.item.stats.length > 0);
     this.state = !!(this.item.corrupted !== undefined || this.item.veiled !== undefined);
     this.influences = !!this.item.influences;
+
+    if (this.queryItemChange.observers.length === 0) {
+      this.text$.next(true);
+    }
   }
 
   public onMouseDown(event: MouseEvent): void {
-    if (event.button === 2) {
+    if (this.queryItemChange.observers.length > 0 && event.button === 2) {
       this.text$.next(true);
     }
   }
 
   public onMouseUp(event: MouseEvent): void {
-    if (event.button === 2) {
+    if (this.queryItemChange.observers.length > 0 && event.button === 2) {
       this.text$.next(false);
     }
   }

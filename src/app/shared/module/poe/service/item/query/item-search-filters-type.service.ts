@@ -70,8 +70,12 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
             case ItemCategory.MonsterBeast:
                 if (item.rarity === ItemRarity.Unique) {
                     query.filters.type_filters.filters.rarity = {
-                        option: item.rarity
+                        option: ItemRarity.Unique
                     };
+                } else {
+                    query.filters.type_filters.filters.rarity = {
+                        option: ItemRarity.NonUnique
+                    }
                 }
                 query.filters.type_filters.filters.category = {
                     option: item.category,

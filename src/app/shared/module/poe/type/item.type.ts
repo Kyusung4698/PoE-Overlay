@@ -35,7 +35,8 @@ export enum ItemRarity {
     Unique = 'unique',
     Currency = 'currency',
     Gem = 'gem',
-    DivinationCard = 'divinationcard'
+    DivinationCard = 'divinationcard',
+    NonUnique = 'nonunique'
 }
 
 export enum ItemCategory {

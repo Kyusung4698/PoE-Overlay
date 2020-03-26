@@ -33,6 +33,9 @@ export class AppService {
         this.ipcRenderer.on('app-relaunch', () => {
             this.ngZone.run(() => this.relaunch());
         });
+        this.ipcRenderer.on('app-quit', () => {
+            this.ngZone.run(() => this.quit());
+        });
         this.ipcRenderer.sendSync('app-download-init', autoDownload);
     }
 
@@ -97,7 +100,11 @@ export class AppService {
     }
 
     public quit(): void {
-        this.electron.app.quit();
+        if (this.updateState$.value === AppUpdateState.Downloaded) {
+            this.ipcRenderer.send('app-quit-and-install', false);
+        } else {
+            this.electron.app.quit();
+        }
     }
 
     /**
@@ -107,7 +114,7 @@ export class AppService {
      */
     public relaunch(): void {
         if (this.updateState$.value === AppUpdateState.Downloaded) {
-            this.ipcRenderer.send('app-quit-and-install');
+            this.ipcRenderer.send('app-quit-and-install', true);
         } else {
             this.electron.app.relaunch();
             this.electron.app.quit();
