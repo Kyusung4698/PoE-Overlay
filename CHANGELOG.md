@@ -1,6 +1,7 @@
 ## 0.6.14 (2020-03-26)
 
 - add nonunique rarity support (#477)
+- fix invisible values at map info (#472)
 
 ## 0.6.13 (2020-03-25)
 
