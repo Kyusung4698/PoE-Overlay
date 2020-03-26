@@ -9,7 +9,7 @@ import { TradeFetchResult, TradeItemsResult, TradeLeaguesResult, TradeResponse, 
 
 const RETRY_COUNT = 3;
 const RETRY_DELAY = 100;
-const RETRY_LIMIT_DELAY = 100;
+const RETRY_LIMIT_DELAY = 300;
 
 @Injectable({
     providedIn: 'root'
@@ -46,27 +46,7 @@ export class TradeHttpService {
             observe: 'response'
         }).pipe(
             retryWhen(errors => errors.pipe(
-                flatMap((response: HttpErrorResponse, count) => {
-                    if (count >= RETRY_COUNT) {
-                        return throwError(response);
-                    }
-                    if (response.status === 400) {
-                        try {
-                            const error = JSON.parse(response.error);
-                            const message = error?.error?.message || 'no message';
-                            const code = error?.error?.code || '-';
-                            return throwError(`${code}: ${message}`);
-                        } catch{
-                            return throwError(response.error);
-                        }
-                    }
-                    if (response.status === 403) {
-                        return this.browser.retrieve(url).pipe(
-                            map(() => null)
-                        );
-                    }
-                    return of(null).pipe(delay(RETRY_DELAY));
-                })
+                flatMap((response, count) => this.handleError(url, response, count))
             )),
             map(response => {
                 const result = JSON.parse(response.body) as TradeSearchResponse;
@@ -85,27 +65,7 @@ export class TradeHttpService {
                 }
             })
         }).pipe(retryWhen(errors => errors.pipe(
-            flatMap((response: HttpErrorResponse) => {
-                if (response.status === 400) {
-                    try {
-                        const error = JSON.parse(response.error);
-                        const message = error?.error?.message || 'no message';
-                        const code = error?.error?.code || '-';
-                        return throwError(`${code}: ${message}`);
-                    } catch{
-                        return throwError(response.error);
-                    }
-                }
-                if (response.status === 403) {
-                    return this.browser.retrieve(url).pipe(
-                        map(() => null)
-                    );
-                }
-                if (response.status === 429) {
-                    return of(response).pipe(delay(RETRY_LIMIT_DELAY));
-                }
-                return throwError(response);
-            })
+            flatMap((response, count) => this.handleError(url, response, count))
         )));
     }
 
@@ -115,27 +75,7 @@ export class TradeHttpService {
             observe: 'response'
         }).pipe(
             retryWhen(errors => errors.pipe(
-                flatMap((response: HttpErrorResponse, count) => {
-                    if (count >= RETRY_COUNT) {
-                        return throwError(response);
-                    }
-                    if (response.status === 400) {
-                        try {
-                            const error = JSON.parse(response.error);
-                            const message = error?.error?.message || 'no message';
-                            const code = error?.error?.code || '-';
-                            return throwError(`${code}: ${message}`);
-                        } catch{
-                            return throwError(response.error);
-                        }
-                    }
-                    if (response.status === 403) {
-                        return this.browser.retrieve(url).pipe(
-                            map(() => null)
-                        );
-                    }
-                    return of(null).pipe(delay(RETRY_DELAY));
-                })
+                flatMap((response, count) => this.handleError(url, response, count))
             )),
             map(response => this.transformResponse(response))
         );
@@ -186,6 +126,30 @@ export class TradeHttpService {
                 throw new Error(`Could not map baseUrl to language: '${language}'.`);
         }
         return `${baseUrl}/trade/${postfix}`;
+    }
+
+    private handleError(url: string, response: HttpErrorResponse, count: number): Observable<void> {
+        if (count >= RETRY_COUNT) {
+            return throwError(response);
+        }
+
+        switch (response.status) {
+            case 400:
+                try {
+                    const error = JSON.parse(response.error);
+                    const message = error?.error?.message || 'no message';
+                    const code = error?.error?.code || '-';
+                    return throwError(`${code}: ${message}`);
+                } catch{
+                    return throwError(response.error);
+                }
+            case 403:
+                return this.browser.retrieve(url);
+            case 429:
+                return of(null).pipe(delay(RETRY_LIMIT_DELAY));
+            default:
+                return of(null).pipe(delay(RETRY_DELAY));
+        }
     }
 
 }

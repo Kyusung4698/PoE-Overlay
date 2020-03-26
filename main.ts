@@ -1,5 +1,5 @@
 import AutoLaunch from 'auto-launch';
-import { app, BrowserWindow, dialog, Display, ipcMain, Menu, MenuItem, MenuItemConstructorOptions, screen, systemPreferences, Tray, shell } from 'electron';
+import { app, BrowserWindow, dialog, Display, ipcMain, Menu, MenuItem, MenuItemConstructorOptions, screen, systemPreferences, Tray } from 'electron';
 import * as log from 'electron-log';
 import { autoUpdater } from 'electron-updater';
 import * as fs from 'fs';
@@ -33,7 +33,7 @@ log.info('App starting...');
 let animationPath = path.join(app.getPath('userData'), 'animation.flag');
 let animationExists = fs.existsSync(animationPath);
 
-log.info(`App checking for animation flag: ${animationExists}.`);
+log.info(`App checking animation flag: ${animationExists}.`);
 
 if (animationExists) {
     app.disableHardwareAcceleration();
@@ -43,9 +43,23 @@ if (animationExists) {
 let keyboardPath = path.join(app.getPath('userData'), 'keyboard.flag');
 let keyboardExists = fs.existsSync(keyboardPath);
 
-log.info(`App checking for keyboard flag: ${keyboardExists}.`);
+log.info(`App checking keyboard flag: ${keyboardExists}.`);
+
+let versionPath = path.join(app.getPath('userData'), 'version.txt');
+let versionExists = fs.existsSync(versionPath);
+
+let versionUpdated = true;
+if (versionExists) {
+    const version = fs.readFileSync(versionPath, 'utf-8').trim();
+    versionUpdated = version !== app.getVersion();
+    log.info(`App checking version: ${version} -> ${app.getVersion()}, ${versionUpdated}`);
+}
+if (versionUpdated) {
+    fs.writeFileSync(versionPath, app.getVersion())
+}
 
 autoUpdater.logger = log;
+autoUpdater.autoInstallOnAppQuit = true;
 
 const args = process.argv.slice(1);
 const serve = args.some(val => val === '--serve');
@@ -116,7 +130,9 @@ ipcMain.on('set-keyboard-delay', (event, delay) => {
 /* hook */
 
 ipcMain.on('force-active', event => {
-    gameWindow?.bringToTop();
+    if (keyboardExists) {
+        gameWindow?.bringToTop();
+    }
     event.returnValue = true;
 })
 
@@ -133,7 +149,7 @@ ipcMain.on('register-active-change', event => {
             win.setAlwaysOnTop(true, 'pop-up-menu', 1);
             win.setVisibleOnAllWorkspaces(true);
 
-            if (bounds) {
+            if (JSON.stringify(bounds) !== JSON.stringify(win.getBounds())) {
                 win.setBounds(bounds);
                 log.info('set bounds to: ', win.getBounds());
             }
@@ -224,8 +240,8 @@ ipcMain.on('app-download-update', event => {
     event.returnValue = true;
 });
 
-ipcMain.on('app-quit-and-install', event => {
-    autoUpdater.quitAndInstall(false, true);
+ipcMain.on('app-quit-and-install', (event, restart) => {
+    autoUpdater.quitAndInstall(false, restart);
     event.returnValue = true;
 });
 
@@ -247,6 +263,16 @@ ipcMain.on('app-auto-launch-change', (event, enabled) => {
         .then(() => event.sender.send('app-auto-launch-change-result', true))
         .catch(() => event.sender.send('app-auto-launch-change-result', false));
 })
+
+/* change log */
+function showChangelog() {
+    const changelog = new BrowserWindow({
+        modal: true,
+        parent: win,
+    });
+    changelog.removeMenu();
+    changelog.loadURL('https://github.com/Kyusung4698/PoE-Overlay/blob/master/CHANGELOG.md#Changelog');
+}
 
 /* main window */
 
@@ -277,6 +303,12 @@ function createWindow(): BrowserWindow {
 
     win.setAlwaysOnTop(true, 'pop-up-menu', 1);
     win.setVisibleOnAllWorkspaces(true);
+
+    win.once('show', () => {
+        if (versionUpdated) {
+            showChangelog();
+        }
+    })
 
     loadApp(win);
 
@@ -400,11 +432,11 @@ function createTray(): Tray {
         },
         {
             label: 'Changelog', type: 'normal',
-            click: () => shell.openExternal('https://github.com/Kyusung4698/PoE-Overlay/blob/master/CHANGELOG.md'),
+            click: () => showChangelog(),
         },
         {
             label: 'Exit', type: 'normal',
-            click: () => app.quit()
+            click: () => send('app-quit')
         }
     ];
 
