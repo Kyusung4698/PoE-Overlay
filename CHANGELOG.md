@@ -3,9 +3,9 @@
 ## 0.6.14 (2020-03-26)
 
 - add nonunique rarity support (#477)
-- add changelog as tray entry (#471)
-- add changelog show after update (#471)
+- add changelog as tray entry and show after update (#471)
 - add display trade page error message (#468)
+- add renderer logging support log to file (#468)
 - fix auto update by calling quit and install even after normal quit (#474)
 - fix invisible values at map info (#472)
 

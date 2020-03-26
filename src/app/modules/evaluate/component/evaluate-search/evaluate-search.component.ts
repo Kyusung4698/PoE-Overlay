@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { BrowserService } from '@app/service';
+import { BrowserService, LoggerService } from '@app/service';
 import { EvaluateResult } from '@modules/evaluate/type/evaluate.type';
 import { SnackBarService } from '@shared/module/material/service';
 import { ItemSearchAnalyzeResult, ItemSearchAnalyzeService, ItemSearchListing, ItemSearchResult, ItemSearchService } from '@shared/module/poe/service';
@@ -50,7 +50,8 @@ export class EvaluateSearchComponent implements OnInit {
     private readonly itemSearchService: ItemSearchService,
     private readonly itemSearchAnalyzeService: ItemSearchAnalyzeService,
     private readonly browser: BrowserService,
-    private readonly snackbar: SnackBarService) { }
+    private readonly snackbar: SnackBarService,
+    private readonly logger: LoggerService) { }
 
   public ngOnInit() {
     this.graph = this.settings.evaluateResultView === EvaluateResultView.Graph;
@@ -172,6 +173,7 @@ export class EvaluateSearchComponent implements OnInit {
   private handleError(error: any): void {
     this.clear();
     this.error$.next(true);
+    this.logger.warn(error);
     this.snackbar.error(`${typeof error === 'string' ? `${error}` : 'evaluate.error'}`);
   }
 }

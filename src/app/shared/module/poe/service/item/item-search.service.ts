@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { LoggerService } from '@app/service';
 import { TradeFetchResult, TradeHttpService, TradeSearchRequest } from '@data/poe';
 import { Currency, Item, Language } from '@shared/module/poe/type';
 import moment from 'moment';
@@ -36,7 +37,8 @@ export class ItemSearchService {
         private readonly context: ContextService,
         private readonly currencyService: CurrencyService,
         private readonly requestService: ItemSearchQueryService,
-        private readonly tradeService: TradeHttpService) { }
+        private readonly tradeService: TradeHttpService,
+        private readonly logger: LoggerService) { }
 
     public search(requestedItem: Item, options?: ItemSearchOptions): Observable<ItemSearchResult> {
         options = options || {};
@@ -117,28 +119,28 @@ export class ItemSearchService {
 
     private mapResult(result: TradeFetchResult): Observable<ItemSearchListing> {
         if (!result || !result.listing || !result.listing.price || !result.listing.account || !result.listing.indexed) {
-            console.warn(`Result was invalid.`, result);
+            this.logger.warn(`Result was invalid.`, result);
             return of(undefined);
         }
 
         const { listing } = result;
-        const { price } = listing;
-
-        const { amount } = price;
-        if (amount <= 0) {
-            console.warn(`Amount was less or equal zero.`);
-            return of(undefined);
-        }
 
         const indexed = moment(listing.indexed);
         if (!indexed.isValid()) {
-            console.warn(`Indexed value: '${listing.indexed}' was not a valid date.`);
+            this.logger.warn(`Indexed value: '${listing.indexed}' was not a valid date.`);
             return of(undefined);
         }
 
         const seller = listing.account.name || '';
         if (seller.length <= 0) {
-            console.warn(`Seller: '${seller}' was empty or undefined.`);
+            this.logger.warn(`Seller: '${seller}' was empty or undefined.`);
+            return of(undefined);
+        }
+
+        const { price } = listing;
+        const { amount } = price;
+        if (amount <= 0) {
+            this.logger.warn(`Amount was less or equal zero. Seller: ${seller}`);
             return of(undefined);
         }
 
@@ -146,7 +148,7 @@ export class ItemSearchService {
         return this.currencyService.searchById(currencyId).pipe(
             map(currency => {
                 if (!currency) {
-                    console.warn(`Could not parse '${currencyId}' as currency.`);
+                    this.logger.warn(`Could not parse '${currencyId}' as currency.`);
                     return undefined;
                 }
                 return {

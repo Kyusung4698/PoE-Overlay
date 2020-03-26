@@ -98,6 +98,13 @@ function send(channel: string, ...args: any[]) {
     }
 }
 
+/* log */
+
+ipcMain.on('log', (event, level, message, ...args) => {
+    log[level](message, ...args);
+    event.returnValue = true;
+});
+
 /* robot js */
 
 ipcMain.on('click-at', (event, button, position) => {
