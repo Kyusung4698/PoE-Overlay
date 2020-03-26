@@ -1,4 +1,4 @@
-import { Window, windowManager, addon } from 'node-window-manager';
+import { addon, Window, windowManager } from 'node-window-manager';
 import { IRectangle } from 'node-window-manager/dist/interfaces';
 import { Subject, Subscription } from 'rxjs';
 import { throttleTime } from 'rxjs/operators';
@@ -55,18 +55,20 @@ function checkActive(): void {
     let orgBounds = bounds;
 
     const possibleWindow = windowManager.getActiveWindow();
-    if (possibleWindow.path) {
-        const lowerPath = possibleWindow.path.toLowerCase();
-        active = lowerPath.endsWith('pathofexile_x64_kg.exe') || lowerPath.endsWith('pathofexile_kg.exe')
-            || lowerPath.endsWith('pathofexile_x64steam.exe') || lowerPath.endsWith('pathofexilesteam.exe')
-            || lowerPath.endsWith('pathofexile_x64.exe') || lowerPath.endsWith('pathofexile.exe');
+    if (possibleWindow?.path) {
+        const title = possibleWindow.getTitle();
+        if (title === 'Path of Exile') {
+            const lowerPath = possibleWindow.path.toLowerCase();
+            active = lowerPath.endsWith('pathofexile_x64_kg.exe') || lowerPath.endsWith('pathofexile_kg.exe')
+                || lowerPath.endsWith('pathofexile_x64steam.exe') || lowerPath.endsWith('pathofexilesteam.exe')
+                || lowerPath.endsWith('pathofexile_x64.exe') || lowerPath.endsWith('pathofexile.exe');
 
+            if (active) {
+                activeWindow = possibleWindow;
 
-        if (active) {
-            activeWindow = possibleWindow;
-            
-            if (addon) {
-                bounds = addon.getWindowBounds(activeWindow.id);
+                if (addon) {
+                    bounds = addon.getWindowBounds(activeWindow.id);
+                }
             }
         }
     }

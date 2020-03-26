@@ -68,4 +68,9 @@ describe('BaseItemTypeService', () => {
         const result = sut.search('Silk Gloves', Language.English);
         expect(result).toBe('GlovesInt3');
     });
+
+    it(`should find 'The Shaper's Amber Amulet of Expulsion`, () => {
+        const result = sut.search('The Shaper\'s Amber Amulet of Expulsion', Language.English);
+        expect(result).toBe('Amulet3');
+    })
 });

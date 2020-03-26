@@ -4,6 +4,7 @@ import { TranslateFakeLoader, TranslateLoader, TranslateModule } from '@ngx-tran
 import { SharedModule } from '@shared/shared.module';
 import { EvaluateExchangeRateChartComponent } from '../evaluate-exchange-rate-chart/evaluate-exchange-rate-chart.component';
 import { EvaluateExchangeRateComponent } from './evaluate-exchange-rate.component';
+import { Subject } from 'rxjs';
 
 class ElectronProviderFake {
   public provideRemote(): Electron.Remote {
@@ -41,6 +42,7 @@ describe('EvaluateExchangeRateComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(EvaluateExchangeRateComponent);
     component = fixture.componentInstance;
+    component.optionsChange = new Subject();
     fixture.detectChanges();
   });
 

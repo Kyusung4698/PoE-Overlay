@@ -6,6 +6,7 @@
 - add changelog as tray entry and show after update (#471)
 - add display trade page error message (#468)
 - add renderer logging support log to file (#468)
+- update data to 3.10.1
 - fix auto update by calling quit and install even after normal quit (#474)
 - fix invisible values at map info (#472)
 
