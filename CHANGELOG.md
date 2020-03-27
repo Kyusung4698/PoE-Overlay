@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.6.15 (2020-03-27)
+
+- fix an error occured while fetching poe.ninja (#468)
+- fix poe overlay does not recognize if poe is no longer active (#485, #486)
+
 ## 0.6.14 (2020-03-26)
 
 - add nonunique rarity support (#477)
