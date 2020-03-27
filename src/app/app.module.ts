@@ -1,18 +1,19 @@
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { Injectable, NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { BookmarkModule } from '@modules/bookmark/bookmark.module';
-import { CommandModule } from '@modules/command/command.module';
-import { EvaluateModule } from '@modules/evaluate/evaluate.module';
-import { MapModule } from '@modules/map/map.module';
-import { MiscModule } from '@modules/misc/misc.module';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { Observable } from 'rxjs';
-import { AppTranslationsLoader } from './app-translations.loader';
-import { AppComponent } from './app.component';
-import { LayoutModule } from './layout/layout.module';
-import { OverlayComponent } from './layout/page/overlay/overlay.component';
-import { UserSettingsComponent } from './layout/page/user-settings/user-settings.component';
+import {HTTP_INTERCEPTORS, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
+import {Injectable, NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {BookmarkModule} from '@modules/bookmark/bookmark.module';
+import {CommandModule} from '@modules/command/command.module';
+import {EvaluateModule} from '@modules/evaluate/evaluate.module';
+import {MapModule} from '@modules/map/map.module';
+import {MiscModule} from '@modules/misc/misc.module';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {Observable} from 'rxjs';
+import {AppTranslationsLoader} from './app-translations.loader';
+import {AppComponent} from './app.component';
+import {LayoutModule} from './layout/layout.module';
+import {OverlayComponent} from './layout/page/overlay/overlay.component';
+import {UserSettingsComponent} from './layout/page/user-settings/user-settings.component';
+import {ForumTradeModule} from '@modules/forum-trade/forum-trade.module';
 
 @Injectable()
 export class CacheInterceptor implements HttpInterceptor {
