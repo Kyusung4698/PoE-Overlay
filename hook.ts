@@ -70,7 +70,11 @@ function checkActive(): void {
                     bounds = addon.getWindowBounds(activeWindow.id);
                 }
             }
+        } else {
+            active = false;
         }
+    } else {
+        active = false;
     }
 
     if (orgActive !== active ||
