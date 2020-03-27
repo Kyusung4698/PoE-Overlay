@@ -7,10 +7,11 @@ export enum LoginType {
   POEId
 }
 
-export interface ForumTradeSettings extends UserSettings {
+export interface ForumTradeUserSettings extends UserSettings {
   enabled: boolean,
   loginType: LoginType,
-  forumTread: string
+  forumThread: string,
+  priceKeyBinding: string
 }
 
 @Component({
@@ -20,7 +21,7 @@ export interface ForumTradeSettings extends UserSettings {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ForumTradeSettingsComponent implements UserSettingsComponent {
-  settings: ForumTradeSettings;
+  settings: ForumTradeUserSettings;
 
   load(): void {
   }

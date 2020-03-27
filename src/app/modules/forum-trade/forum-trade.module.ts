@@ -1,6 +1,6 @@
 import {Feature, FeatureModule} from '@app/type';
 import {UserSettings, UserSettingsFeature} from '../../layout/type';
-import {ForumTradeSettings, ForumTradeSettingsComponent, LoginType} from './component';
+import {ForumTradeUserSettings, ForumTradeSettingsComponent, LoginType} from './component';
 import {NgModule} from '@angular/core';
 import {FEATURE_MODULES} from '@app/token';
 import {SharedModule} from '@shared/shared.module';
@@ -11,15 +11,21 @@ import {SharedModule} from '@shared/shared.module';
   imports: [SharedModule]
 })
 export class ForumTradeModule implements FeatureModule {
-  getFeatures(settings: UserSettings): Feature[] {
-    return [];
+  getFeatures(settings: ForumTradeUserSettings): Feature[] {
+    return [
+      {
+        name: 'price',
+        accelerator: settings.priceKeyBinding
+      }
+    ];
   }
 
   getSettings(): UserSettingsFeature {
-    const defaultSettings: ForumTradeSettings = {
+    const defaultSettings: ForumTradeUserSettings = {
       enabled: false,
-      forumTread: '',
-      loginType: LoginType.Account
+      forumThread: '',
+      loginType: LoginType.Account,
+      priceKeyBinding: 'CmdOrCtrl + P'
     };
     return {
       name: 'trade.name',
