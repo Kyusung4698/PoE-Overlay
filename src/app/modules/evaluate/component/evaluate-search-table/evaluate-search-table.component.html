@@ -2,6 +2,7 @@
     <table class="header">
         <tr>
             <th class="amount">{{'evaluate.value' | translate}}</th>
+            <th></th>
             <th class="seller">{{'evaluate.seller' | translate}}</th>
             <th class="age">{{'evaluate.age' | translate}}</th>
         </tr>
@@ -14,13 +15,15 @@
                 (click)="onRowClick(row)">
                 <td class="amount" *ngIf="!original">
                     <span class="value">{{row.amount}}</span>
+                </td>
+                <td class="amount" *ngIf="original">
+                    <app-currency-frame [amount]="row.originalAmount" [currency]="row.originalCurrency">
+                    </app-currency-frame>
+                </td>
+                <td>
                     <span *ngIf="row.count > 1">
                         <small>&nbsp;x&nbsp;{{row.count}}</small>
                     </span>
-                </td>
-                <td *ngIf="original">
-                    <app-currency-frame [amount]="row.originalAmount" [currency]="row.originalCurrency">
-                    </app-currency-frame>
                 </td>
                 <td class="seller"> {{row.seller}} </td>
                 <td class="age"> <small>{{row.age}}</small> </td>
