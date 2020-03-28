@@ -1,0 +1,14 @@
+.thread {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+
+  > .thread_form {
+    width: 75%;
+  }
+
+  > .thread_result {
+    padding-left: 15px;
+    width: 25%;
+  }
+}

@@ -195,5 +195,22 @@
 		"save": "Save",
 		"ui-language": "UI Language",
 		"zoom": "Zoom"
-	}
+	},
+  "forum-trade": {
+    "name": "Forum trading",
+    "login-type": "Choose a way to log in into pathofexile.com",
+    "account-login": "Log in with login and password",
+    "session-id-login": "Log in with POESESSID",
+    "account-login-form": {
+      "login": "Login",
+      "password": "Password"
+    },
+    "session-id-login-form": {
+      "id": "POESESSID"
+    },
+    "forum-thread": {
+      "form": "URL or thread id of shop",
+      "result": "Thread id: "
+    }
+  }
 }

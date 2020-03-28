@@ -120,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "poe-overlay"
+    }
+  },
+  "defaultProject": "poe-overlay",
+  "cli": {
+    "analytics": "3f93bb49-bb66-48b6-93cc-805e9ef4ac7e"
+  }
 }
