@@ -1,7 +1,7 @@
 <mat-card>
   <mat-form-field>
     <mat-label>{{'forum-trade.login-type' | translate}}</mat-label>
-    <mat-select (valueChange)="setLoginType($event)" required>
+    <mat-select (valueChange)="setLoginType($event)" [ngModel]="settings.loginType.valueOf()">
       <mat-option value="0">{{'forum-trade.account-login' | translate}}</mat-option>
       <mat-option value="1">{{'forum-trade.session-id-login' | translate}}</mat-option>
     </mat-select>
@@ -12,11 +12,11 @@
   <mat-card>
     <mat-form-field>
       <mat-label>{{'forum-trade.account-login-form.login' | translate}}</mat-label>
-      <input matInput [(ngModel)]="settings.credentials.login" [required]="settings.loginType == 0">
+      <input matInput [(ngModel)]="settings.credentials.login">
     </mat-form-field>
     <mat-form-field>
       <mat-label>{{'forum-trade.account-login-form.password' | translate}}</mat-label>
-      <input matInput [(ngModel)]="settings.credentials.password" [required]="settings.loginType == 0">
+      <input type="password" matInput [(ngModel)]="settings.credentials.password">
     </mat-form-field>
   </mat-card>
 </div>
@@ -25,21 +25,14 @@
   <mat-card>
     <mat-form-field>
       <mat-label>{{'forum-trade.session-id-login-form.id' | translate}}</mat-label>
-      <input matInput [(ngModel)]="settings.credentials" [required]="settings.loginType == 1">
+      <input matInput [(ngModel)]="settings.sessionId">
     </mat-form-field>
   </mat-card>
 </div>
 
 <mat-card>
-  <div class="thread">
-    <div class="thread_form">
-      <mat-form-field>
-        <mat-label>{{'forum-trade.forum-thread.form' | translate}}</mat-label>
-        <input matInput #inputElement (input)="updateForumThread(inputElement)" required>
-      </mat-form-field>
-    </div>
-    <div class="thread_result">
-      <mat-label>{{'forum-trade.forum-thread.result' | translate}} {{settings.forumThread}}</mat-label>
-    </div>
-  </div>
+  <mat-form-field>
+    <mat-label>{{'forum-trade.forum-thread.form' | translate}}</mat-label>
+    <input matInput #inputElement (input)="updateForumThread(inputElement)" [value]="settings.forumThread">
+  </mat-form-field>
 </mat-card>

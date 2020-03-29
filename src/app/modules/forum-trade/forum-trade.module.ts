@@ -25,7 +25,8 @@ export class ForumTradeModule implements FeatureModule {
       forumThread: '',
       loginType: LoginType.POE_ID,
       priceKeyBinding: 'CmdOrCtrl + P',
-      credentials: ''
+      credentials: {login: '', password: ''},
+      sessionId: ''
     };
     return {
       name: 'forum-trade.name',

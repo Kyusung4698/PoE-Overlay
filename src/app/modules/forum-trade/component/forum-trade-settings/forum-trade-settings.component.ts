@@ -11,7 +11,8 @@ type Account = { login: string, password: string }
 
 export interface ForumTradeUserSettings extends UserSettings {
   loginType: LoginType,
-  credentials: Account | SessionId,
+  credentials: Account,
+  sessionId: SessionId,
   forumThread: string,
   priceKeyBinding: string
 }
@@ -32,11 +33,9 @@ export class ForumTradeSettingsComponent implements UserSettingsComponent {
     switch (type) {
       case '0':
         this.settings.loginType = LoginType.ACCOUNT;
-        this.settings.credentials = { login: '', password: '' };
         break;
       case '1':
         this.settings.loginType = LoginType.POE_ID;
-        this.settings.credentials = '';
         break;
     }
   }
