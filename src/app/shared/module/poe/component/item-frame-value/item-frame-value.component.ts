@@ -2,6 +2,7 @@ import { DecimalPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Inject, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { Subject } from 'rxjs';
 import { ItemValue } from '../../type';
+import { ItemFrameQueryComponent } from '../item-frame-query/item-frame-query.component';
 import { ItemFrameComponent } from '../item-frame/item-frame.component';
 
 @Component({
@@ -39,15 +40,15 @@ export class ItemFrameValueComponent implements OnInit {
 
   constructor(
     @Inject(ItemFrameComponent)
-    private readonly itemFrame: ItemFrameComponent,
+    itemFrame: ItemFrameComponent,
+    @Inject(ItemFrameQueryComponent)
+    private readonly query: ItemFrameQueryComponent,
     private readonly decimal: DecimalPipe) {
-    this.text$ = this.itemFrame.text$;
+    this.text$ = itemFrame.text$;
+    this.disabled = itemFrame.queryItemChange.observers.length <= 0;
   }
 
   public ngOnInit(): void {
-    if (this.itemFrame.queryItemChange.observers.length <= 0) {
-      this.disabled = true;
-    }
     this.init();
   }
 
@@ -274,7 +275,7 @@ export class ItemFrameValueComponent implements OnInit {
   private emitChange(): void {
     this.updateView();
     this.valueChange.emit(this.value);
-    this.itemFrame.onValueChange(this.value);
+    this.query.checkChange();
   }
 
   private updateView(): void {

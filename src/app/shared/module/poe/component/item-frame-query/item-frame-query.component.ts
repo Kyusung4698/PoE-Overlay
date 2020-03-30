@@ -53,6 +53,12 @@ export class ItemFrameQueryComponent implements OnInit {
     this.emitChange();
   }
 
+  public checkChange(): void {
+    if (this.property) {
+      this.emitChange();
+    }
+  }
+
   private emitChange(): void {
     this.propertyChange.emit(this.property);
     this.itemFrame.onPropertyChange();
