@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.6.16
+
+- fix rare armour searched with type and name instead of term (#506)
+
 ## 0.6.15 (2020-03-27)
 
 - fix an error occured while fetching poe.ninja (#468)
