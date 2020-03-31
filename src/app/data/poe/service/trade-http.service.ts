@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse, HttpParams, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BrowserService } from '@app/service';
+import { BrowserService, SessionService } from '@app/service';
 import { environment } from '@env/environment';
 import { Language } from '@shared/module/poe/type';
 import { Observable, of, throwError } from 'rxjs';
@@ -9,7 +9,7 @@ import { TradeFetchResult, TradeItemsResult, TradeLeaguesResult, TradeResponse, 
 
 const RETRY_COUNT = 3;
 const RETRY_DELAY = 100;
-const RETRY_LIMIT_DELAY = 300;
+const RETRY_LIMIT_DELAY = 1000;
 
 @Injectable({
     providedIn: 'root'
@@ -17,7 +17,8 @@ const RETRY_LIMIT_DELAY = 300;
 export class TradeHttpService {
     constructor(
         private readonly http: HttpClient,
-        private readonly browser: BrowserService) { }
+        private readonly browser: BrowserService,
+        private readonly session: SessionService) { }
 
     public getItems(language: Language): Observable<TradeResponse<TradeItemsResult>> {
         const url = this.getApiUrl('data/items', language);
@@ -148,7 +149,7 @@ export class TradeHttpService {
             case 429:
                 return of(null).pipe(delay(RETRY_LIMIT_DELAY));
             default:
-                return of(null).pipe(delay(RETRY_DELAY));
+                return this.session.clear().pipe(delay(RETRY_DELAY));
         }
     }
 
