@@ -9,7 +9,7 @@ import { TradeFetchResult, TradeItemsResult, TradeLeaguesResult, TradeResponse, 
 
 const RETRY_COUNT = 3;
 const RETRY_DELAY = 100;
-const RETRY_LIMIT_DELAY = 1000;
+const RETRY_LIMIT_DELAY = 300;
 
 @Injectable({
     providedIn: 'root'
