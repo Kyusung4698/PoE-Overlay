@@ -46,7 +46,7 @@ describe('ItemSearchService', () => {
         sut.search(requestedItem).subscribe(result => {
             expect(result.hits.length).toBeGreaterThan(0);
 
-            sut.list(result).subscribe(listings => {
+            sut.list(result, 10).subscribe(listings => {
                 expect(listings.length).toBe(Math.min(result.hits.length, 100));
 
                 done();

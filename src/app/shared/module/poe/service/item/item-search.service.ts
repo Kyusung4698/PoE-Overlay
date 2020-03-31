@@ -10,7 +10,7 @@ import { ContextService } from '../context.service';
 import { CurrencyService } from '../currency/currency.service';
 import { ItemSearchQueryService } from './query/item-search-query.service';
 
-const MAX_FETCH_COUNT = 10;
+const MAX_FETCH_PER_REQUEST_COUNT = 10;
 const MAX_FETCH_CONCURRENT_COUNT = 5;
 
 export interface ItemSearchListing {
@@ -87,12 +87,13 @@ export class ItemSearchService {
         }));
     }
 
-    public list(search: ItemSearchResult): Observable<ItemSearchListing[]> {
+    public list(search: ItemSearchResult, fetchCount: number): Observable<ItemSearchListing[]> {
         const { id, language, hits } = search;
 
         const hitsChunked: string[][] = [];
-        for (let i = 0, j = Math.min(100, hits.length); i < j; i += MAX_FETCH_COUNT) {
-            hitsChunked.push(hits.slice(i, i + MAX_FETCH_COUNT));
+        const maxFetchCount = Math.min(fetchCount, hits.length)
+        for (let i = 0, j = maxFetchCount; i < j; i += MAX_FETCH_PER_REQUEST_COUNT) {
+            hitsChunked.push(hits.slice(i, i + MAX_FETCH_PER_REQUEST_COUNT));
         }
 
         return from(hitsChunked).pipe(

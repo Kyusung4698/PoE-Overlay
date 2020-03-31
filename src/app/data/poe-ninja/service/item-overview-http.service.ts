@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BrowserService, LoggerService } from '@app/service';
+import { BrowserService, LoggerService, SessionService } from '@app/service';
 import { environment } from '@env/environment';
 import { Observable, of, throwError } from 'rxjs';
 import { delay, flatMap, retryWhen } from 'rxjs/operators';
@@ -56,6 +56,7 @@ export class ItemOverviewHttpService {
     constructor(
         private readonly httpClient: HttpClient,
         private readonly browser: BrowserService,
+        private readonly session: SessionService,
         private readonly logger: LoggerService) {
         this.apiUrl = `${environment.poeNinja.baseUrl}/api/data/itemoverview`;
     }
@@ -65,8 +66,7 @@ export class ItemOverviewHttpService {
             fromObject: {
                 league: leagueId,
                 type,
-                language: 'en',
-                t: `${Date.now()}`
+                language: 'en'
             }
         });
         return this.httpClient.get<ItemOverviewResponse>(this.apiUrl, {
@@ -99,7 +99,7 @@ export class ItemOverviewHttpService {
             case 403:
                 return this.browser.retrieve(url);
             default:
-                return of(null).pipe(delay(RETRY_DELAY));
+                return this.session.clear().pipe(delay(RETRY_DELAY));
         }
     }
 }

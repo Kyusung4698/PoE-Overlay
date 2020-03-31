@@ -62,7 +62,7 @@
         </ng-container>
         <ng-template #listing>
           <div class="clickable" (click)="onSearchCancelClick()">
-            {{'evaluate.listings' | translate:{total: search.total | number} }}&nbsp;<span
+            {{'evaluate.listings' | translate:{total: search.total | number, count: (count$ | async) | number} }}&nbsp;<span
               class="delayed">{{ 'evaluate.cancel' | translate }}</span>
           </div>
           <mat-progress-bar mode="indeterminate"></mat-progress-bar>

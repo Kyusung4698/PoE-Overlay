@@ -14,8 +14,7 @@ describe('ItemFrameValueComponent', () => {
       providers: [
         {
           provide: ItemFrameComponent, useValue: {
-            queryItemChange: new EventEmitter(),
-            onValueChange: () => { },
+            queryItemChange: new EventEmitter()
           }
         }
       ]

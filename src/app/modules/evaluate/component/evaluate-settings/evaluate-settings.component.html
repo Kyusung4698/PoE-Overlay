@@ -22,12 +22,20 @@
             </mat-option>
         </mat-select>
     </mat-form-field>
-    <div class="time">
+    <div class="value-range">
         <label class="label"> {{'evaluate.debounce-time' | translate}}:
             {{displayWithTime(settings.evaluateQueryDebounceTime)}}
         </label>
-        <mat-slider min="5" max="100" step="5" tickInterval="2" [displayWith]="displayWithTime"
+        <mat-slider min="5" [max]="debounceTimeMax" step="5" tickInterval="2" [displayWith]="displayWithTime"
             [(value)]="settings.evaluateQueryDebounceTime">
+        </mat-slider>
+    </div>
+    <div class="value-range">
+        <label class="label"> {{'evaluate.fetch-count' | translate}}:
+            {{displayWithCount(settings.evaluateQueryFetchCount)}}
+        </label>
+        <mat-slider min="10" [max]="fetchCountMax" step="10" tickInterval="1" [displayWith]="displayWithCount"
+            [(value)]="settings.evaluateQueryFetchCount">
         </mat-slider>
     </div>
 
