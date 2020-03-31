@@ -55,15 +55,13 @@ export class EvaluateQueryItemProvider {
         }
 
         if (!settings.evaluateQueryDefaultType) {
-            if (!item.nameId && (
-                item.rarity === ItemRarity.Normal ||
+            if (item.rarity === ItemRarity.Normal ||
                 item.rarity === ItemRarity.Magic ||
-                item.rarity === ItemRarity.Rare)
-            ) {
+                item.rarity === ItemRarity.Rare) {
                 if (item.category.startsWith(ItemCategory.Weapon) ||
                     item.category.startsWith(ItemCategory.Armour) ||
                     item.category.startsWith(ItemCategory.Accessory)) {
-                    queryItem.typeId = undefined;
+                    queryItem.typeId = queryItem.nameId = undefined;
                 }
             }
         }

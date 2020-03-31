@@ -41,7 +41,7 @@ describe('ItemSearchAnalyzeService', () => {
 
         forkJoin([
             searchService.search(requestedItem).pipe(
-                flatMap(result => searchService.list(result))
+                flatMap(result => searchService.list(result, 10))
             ),
             currencyService.searchById('chaos')
         ]).subscribe(results => {

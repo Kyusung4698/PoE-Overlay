@@ -59,6 +59,24 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
             case ItemCategory.AccessoryAmulet:
             case ItemCategory.AccessoryBelt:
             case ItemCategory.AccessoryRing:
+                if (item.rarity === ItemRarity.Unique) {
+                    query.filters.type_filters.filters.rarity = {
+                        option: ItemRarity.Unique
+                    };
+                } else {
+                    query.filters.type_filters.filters.rarity = {
+                        option: ItemRarity.NonUnique
+                    };
+
+                    if (query.name) {
+                        query.term = `${query.name || ''} ${query.type || ''}`.trim();
+                        query.name = query.type = undefined;
+                    }
+                }
+                query.filters.type_filters.filters.category = {
+                    option: item.category,
+                };
+                break;
             // jewel
             case ItemCategory.Jewel:
             case ItemCategory.JewelAbyss:
@@ -68,15 +86,11 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
             case ItemCategory.Map:
             // monster
             case ItemCategory.MonsterBeast:
-                if (item.rarity === ItemRarity.Unique) {
-                    query.filters.type_filters.filters.rarity = {
-                        option: ItemRarity.Unique
-                    };
-                } else {
-                    query.filters.type_filters.filters.rarity = {
-                        option: ItemRarity.NonUnique
-                    }
-                }
+                query.filters.type_filters.filters.rarity = {
+                    option: item.rarity === ItemRarity.Unique
+                        ? ItemRarity.Unique
+                        : ItemRarity.NonUnique
+                };
                 query.filters.type_filters.filters.category = {
                     option: item.category,
                 };

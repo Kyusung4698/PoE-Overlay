@@ -8,7 +8,7 @@ import { ItemSearchOptions } from '@shared/module/poe/type/search.type';
 import { BehaviorSubject, Subject, Subscription, timer } from 'rxjs';
 import { debounceTime, takeUntil } from 'rxjs/operators';
 import { EvaluateOptions } from '../evaluate-options/evaluate-options.component';
-import { EvaluateResultView, EvaluateUserSettings } from '../evaluate-settings/evaluate-settings.component';
+import { EvaluateResultView, EvaluateUserSettings, EVALUATE_QUERY_DEBOUNCE_TIME_MAX } from '../evaluate-settings/evaluate-settings.component';
 
 @Component({
   selector: 'app-evaluate-search',
@@ -22,6 +22,7 @@ export class EvaluateSearchComponent implements OnInit {
   public graph: boolean;
 
   public search$ = new BehaviorSubject<ItemSearchResult>(null);
+  public count$ = new BehaviorSubject<number>(0);
   public listings$ = new BehaviorSubject<ItemSearchListing[]>(null);
   public result$ = new BehaviorSubject<ItemSearchAnalyzeResult>(null);
   public error$ = new BehaviorSubject<boolean>(false);
@@ -116,7 +117,9 @@ export class EvaluateSearchComponent implements OnInit {
           subscription?.unsubscribe();
           this.search(item);
         } else {
-          this.staleCounter$.next(this.staleCounter$.value - 1)
+          if (this.settings.evaluateQueryDebounceTime !== EVALUATE_QUERY_DEBOUNCE_TIME_MAX) {
+            this.staleCounter$.next(this.staleCounter$.value - 1)
+          }
         }
 
         const counter = this.staleCounter$.value - 2;
@@ -138,13 +141,15 @@ export class EvaluateSearchComponent implements OnInit {
     ).subscribe(search => {
       this.search$.next(search);
       if (search.total > 0) {
+        const count = Math.min(this.settings.evaluateQueryFetchCount, search.total);
+        this.count$.next(count);
         this.list(search);
       }
     }, error => this.handleError(error));
   }
 
   private list(search: ItemSearchResult): void {
-    this.listSubscription = this.itemSearchService.list(search).pipe(
+    this.listSubscription = this.itemSearchService.list(search, this.settings.evaluateQueryFetchCount).pipe(
       takeUntil(this.queryItemChange)
     ).subscribe(listings => {
       this.listings$.next(listings);

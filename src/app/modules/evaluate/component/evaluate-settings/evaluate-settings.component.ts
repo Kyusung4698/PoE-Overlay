@@ -35,7 +35,11 @@ export interface EvaluateUserSettings extends UserSettings {
   evaluateModifierMinRange: number;
   evaluateModifierMaxRange: number;
   evaluateQueryDebounceTime: number;
+  evaluateQueryFetchCount: number;
 }
+
+export const EVALUATE_QUERY_DEBOUNCE_TIME_MAX = 100;
+export const EVALUATE_QUERY_FETCH_COUNT_MAX = 100;
 
 interface StatSelectListItem extends SelectListItem {
   type: string;
@@ -48,15 +52,6 @@ interface StatSelectListItem extends SelectListItem {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EvaluateSettingsComponent implements UserSettingsComponent {
-  public languages = new EnumValues(Language);
-  public views = new EnumValues(EvaluateResultView);
-  public settings: EvaluateUserSettings;
-
-  public currencies$ = new BehaviorSubject<Currency[]>([]);
-  public stats$ = new BehaviorSubject<StatSelectListItem[]>([]);
-
-  public displayWithTime = (value: number) => `${Math.round(value * 10) / 100}s`;
-  public displayWithStat = (value: number) => value === 50 ? '#' : value;
 
   constructor(
     private readonly currencyService: CurrencyService,
@@ -64,6 +59,20 @@ export class EvaluateSettingsComponent implements UserSettingsComponent {
     private readonly statsService: StatsService,
     private readonly clipboard: ClipboardService,
     private readonly snackbar: SnackBarService) { }
+  public languages = new EnumValues(Language);
+  public views = new EnumValues(EvaluateResultView);
+  public settings: EvaluateUserSettings;
+
+  public currencies$ = new BehaviorSubject<Currency[]>([]);
+  public stats$ = new BehaviorSubject<StatSelectListItem[]>([]);
+
+
+  public debounceTimeMax = EVALUATE_QUERY_DEBOUNCE_TIME_MAX;
+  public fetchCountMax = EVALUATE_QUERY_FETCH_COUNT_MAX;
+
+  public displayWithTime = (value: number) => value === this.debounceTimeMax ? '∞' : `${Math.round(value * 10) / 100}s`;
+  public displayWithCount = (value: number) => `${value} items`;
+  public displayWithStat = (value: number) => value === 50 ? '#' : value;
 
   public load(): void {
     if (this.settings.language) {

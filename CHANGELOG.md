@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.6.16 (2020-03-31)
+
+- add disabled debounce time on max value (#522)
+- add configurable fetch count to ensure the request rate is met (#520)
+- add clear session on application start and unknown http error (#520)
+- update untoggled modifier do now not cancel the search (#512)
+- fix rare armour searched with type and name instead of term (#506)
+
 ## 0.6.15 (2020-03-27)
 
 - fix an error occured while fetching poe.ninja (#468)
