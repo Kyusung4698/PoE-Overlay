@@ -1,1 +1,14 @@
+.login {
+  align-items: center;
+  flex-wrap: nowrap;
+  display: flex;
 
+  > .text {
+    width: 80%;
+  }
+
+  > .button {
+    width: 20%;
+    text-align: center;
+  }
+}

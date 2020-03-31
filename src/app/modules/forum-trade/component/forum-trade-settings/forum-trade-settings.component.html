@@ -1,38 +1,17 @@
 <mat-card>
-  <mat-form-field>
-    <mat-label>{{'forum-trade.login-type' | translate}}</mat-label>
-    <mat-select (valueChange)="setLoginType($event)" [ngModel]="settings.loginType.valueOf()">
-      <mat-option value="0">{{'forum-trade.account-login' | translate}}</mat-option>
-      <mat-option value="1">{{'forum-trade.session-id-login' | translate}}</mat-option>
-    </mat-select>
-  </mat-form-field>
+  <div class="login">
+    <div class="text">
+      <mat-label>{{'forum-trade.login-text' | translate}}</mat-label>
+    </div>
+    <div class="button">
+      <button mat-button (click)="openLoginPage()">{{'forum-trade.login-button' | translate}}</button>
+    </div>
+  </div>
 </mat-card>
-
-<div [hidden]="settings.loginType != 0">
-  <mat-card>
-    <mat-form-field>
-      <mat-label>{{'forum-trade.account-login-form.login' | translate}}</mat-label>
-      <input matInput [(ngModel)]="settings.credentials.login">
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>{{'forum-trade.account-login-form.password' | translate}}</mat-label>
-      <input type="password" matInput [(ngModel)]="settings.credentials.password">
-    </mat-form-field>
-  </mat-card>
-</div>
-
-<div [hidden]="settings.loginType != 1">
-  <mat-card>
-    <mat-form-field>
-      <mat-label>{{'forum-trade.session-id-login-form.id' | translate}}</mat-label>
-      <input matInput [(ngModel)]="settings.sessionId">
-    </mat-form-field>
-  </mat-card>
-</div>
 
 <mat-card>
   <mat-form-field>
     <mat-label>{{'forum-trade.forum-thread.form' | translate}}</mat-label>
-    <input matInput #inputElement (input)="updateForumThread(inputElement)" [value]="settings.forumThread">
+    <input matInput #thread_input (input)="updateForumThread(thread_input)" [value]="settings.forumThread">
   </mat-form-field>
 </mat-card>

@@ -1,6 +1,6 @@
 import { Feature, FeatureModule } from '@app/type';
 import { UserSettings, UserSettingsFeature } from '../../layout/type';
-import { ForumTradeSettingsComponent, ForumTradeUserSettings, LoginType } from './component';
+import { ForumTradeSettingsComponent, ForumTradeUserSettings } from './component';
 import { NgModule } from '@angular/core';
 import { FEATURE_MODULES } from '@app/token';
 import { SharedModule } from '@shared/shared.module';
@@ -23,9 +23,7 @@ export class ForumTradeModule implements FeatureModule {
   getSettings(): UserSettingsFeature {
     const defaultSettings: ForumTradeUserSettings = {
       forumThread: '',
-      loginType: LoginType.POE_ID,
       priceKeyBinding: 'CmdOrCtrl + P',
-      credentials: {login: '', password: ''},
       sessionId: ''
     };
     return {
