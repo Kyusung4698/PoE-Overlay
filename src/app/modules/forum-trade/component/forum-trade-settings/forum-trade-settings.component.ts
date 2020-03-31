@@ -1,11 +1,9 @@
 import { UserSettings, UserSettingsComponent } from '../../../../layout/type';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { AfterContentInit, ChangeDetectionStrategy, Component } from '@angular/core';
 import { LoginService } from "@modules/forum-trade/service/forum-trade-login.service";
 
-type SessionId = string
-
 export interface ForumTradeUserSettings extends UserSettings {
-  sessionId: SessionId,
+  sessionId: string,
   forumThread: string,
   priceKeyBinding: string
 }
@@ -14,10 +12,11 @@ export interface ForumTradeUserSettings extends UserSettings {
   selector: 'app-forum-trade-settings',
   templateUrl: './forum-trade-settings.component.html',
   styleUrls: ['./forum-trade-settings.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.Default
 })
-export class ForumTradeSettingsComponent implements UserSettingsComponent {
+export class ForumTradeSettingsComponent implements UserSettingsComponent, AfterContentInit {
   settings: ForumTradeUserSettings;
+  private accountName: string = 'undefined';
 
   constructor(
     private readonly loginService: LoginService
@@ -27,7 +26,7 @@ export class ForumTradeSettingsComponent implements UserSettingsComponent {
   load(): void {
   }
 
-  updateForumThread(inputElement: HTMLInputElement) {
+  private updateForumThread(inputElement: HTMLInputElement) {
     const forumPageRegex = new RegExp('^https://.*pathofexile.com/forum/view-thread/(\\d{6,8}).*$');
     const rawIdRegex = /^\d{6,8}$/;
     const content = inputElement.value;
@@ -40,7 +39,16 @@ export class ForumTradeSettingsComponent implements UserSettingsComponent {
     }
   }
 
-  openLoginPage() {
+  private openLoginPage() {
     this.loginService.openLoginPage();
+    this.loginService.getAccountName().subscribe((name) =>
+      this.accountName = name
+    )
+  }
+
+  ngAfterContentInit() {
+    this.loginService.getAccountName().subscribe((name) =>
+      this.accountName = name
+    )
   }
 }
