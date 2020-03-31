@@ -198,11 +198,16 @@
 	},
   "forum-trade": {
     "name": "Forum trading",
-    "login-text": "Log in into www.pathofexile.com.",
-    "login-account": "Logged in as: ",
-    "login-button": "Log in",
+    "login": {
+      "name": "Account settings",
+      "account": "Logged in as: ",
+      "button": "Log in"
+    },
     "forum-thread": {
+      "name": "Forum thread settings",
       "form": "Enter URL or thread id of your shop"
-    }
+    },
+    "key-binds": "Key binds settings",
+    "price-key-bind": "Key bind to set price on item"
   }
 }

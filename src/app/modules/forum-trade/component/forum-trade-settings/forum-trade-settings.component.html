@@ -1,18 +1,25 @@
 <mat-card>
+  <mat-label>{{'forum-trade.login.name' | translate}}</mat-label>
   <div class="login">
     <div class="text">
-      <mat-label>{{'forum-trade.login-text' | translate}}</mat-label>
-      <mat-label>{{'forum-trade.login-account' | translate}} {{accountName}}</mat-label>
+      <mat-label>{{'forum-trade.login.account' | translate}} {{accountName}}</mat-label>
     </div>
     <div class="button">
-      <button mat-button (click)="openLoginPage()">{{'forum-trade.login-button' | translate}}</button>
+      <button mat-button (click)="openLoginPage()">{{'forum-trade.login.button' | translate}}</button>
     </div>
   </div>
 </mat-card>
 
 <mat-card>
+  <mat-label>{{'forum-trade.forum-thread.name' | translate}}</mat-label>
   <mat-form-field>
     <mat-label>{{'forum-trade.forum-thread.form' | translate}}</mat-label>
     <input matInput #thread_input (input)="updateForumThread(thread_input)" [value]="settings.forumThread">
   </mat-form-field>
+</mat-card>
+
+<mat-card>
+  <mat-label>{{'forum-trade.key-binds' | translate}}</mat-label>
+  <app-accelerator [label]="'forum-trade.price-key-bind' | translate"
+                   [(value)]="settings.priceKeyBinding"></app-accelerator>
 </mat-card>

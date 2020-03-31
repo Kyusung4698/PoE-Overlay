@@ -1,5 +1,5 @@
 import { Feature, FeatureModule } from '@app/type';
-import { UserSettings, UserSettingsFeature } from '../../layout/type';
+import { UserSettingsFeature } from '../../layout/type';
 import { ForumTradeSettingsComponent, ForumTradeUserSettings } from './component';
 import { NgModule } from '@angular/core';
 import { FEATURE_MODULES } from '@app/token';
@@ -33,6 +33,6 @@ export class ForumTradeModule implements FeatureModule {
     };
   }
 
-  run(feature: string, settings: UserSettings): void {
+  run(feature: string, settings: ForumTradeUserSettings): void {
   }
 }

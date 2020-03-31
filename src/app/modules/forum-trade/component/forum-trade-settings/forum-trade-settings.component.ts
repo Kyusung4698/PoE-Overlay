@@ -16,7 +16,7 @@ export interface ForumTradeUserSettings extends UserSettings {
 })
 export class ForumTradeSettingsComponent implements UserSettingsComponent, AfterContentInit {
   settings: ForumTradeUserSettings;
-  private accountName: string = 'undefined';
+  accountName: string = 'undefined';
 
   constructor(
     private readonly loginService: LoginService
@@ -26,7 +26,7 @@ export class ForumTradeSettingsComponent implements UserSettingsComponent, After
   load(): void {
   }
 
-  private updateForumThread(inputElement: HTMLInputElement) {
+  updateForumThread(inputElement: HTMLInputElement) {
     const forumPageRegex = new RegExp('^https://.*pathofexile.com/forum/view-thread/(\\d{6,8}).*$');
     const rawIdRegex = /^\d{6,8}$/;
     const content = inputElement.value;
@@ -39,7 +39,7 @@ export class ForumTradeSettingsComponent implements UserSettingsComponent, After
     }
   }
 
-  private openLoginPage() {
+  openLoginPage() {
     this.loginService.openLoginPage();
     this.loginService.getAccountName().subscribe((name) =>
       this.accountName = name
