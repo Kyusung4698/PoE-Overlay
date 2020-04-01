@@ -1,15 +1,16 @@
 import { HttpClient, HttpErrorResponse, HttpParams, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BrowserService, SessionService } from '@app/service';
+import { BrowserService, LoggerService, SessionService, StorageService } from '@app/service';
 import { environment } from '@env/environment';
 import { Language } from '@shared/module/poe/type';
 import { Observable, of, throwError } from 'rxjs';
-import { delay, flatMap, map, retryWhen } from 'rxjs/operators';
+import { catchError, delay, flatMap, map, retryWhen } from 'rxjs/operators';
 import { TradeFetchResult, TradeItemsResult, TradeLeaguesResult, TradeResponse, TradeSearchRequest, TradeSearchResponse, TradeStaticResult, TradeStatsResult } from '../schema/trade';
 
 const RETRY_COUNT = 3;
 const RETRY_DELAY = 100;
 const RETRY_LIMIT_DELAY = 300;
+const RETRY_LIMIT_DELAY_FACTOR = [1, 2, 4];
 
 @Injectable({
     providedIn: 'root'
@@ -18,7 +19,9 @@ export class TradeHttpService {
     constructor(
         private readonly http: HttpClient,
         private readonly browser: BrowserService,
-        private readonly session: SessionService) { }
+        private readonly session: SessionService,
+        private readonly storage: StorageService,
+        private readonly logger: LoggerService) { }
 
     public getItems(language: Language): Observable<TradeResponse<TradeItemsResult>> {
         const url = this.getApiUrl('data/items', language);
@@ -78,6 +81,16 @@ export class TradeHttpService {
             retryWhen(errors => errors.pipe(
                 flatMap((response, count) => this.handleError(url, response, count))
             )),
+            catchError(error => this.storage.get<HttpResponse<string>>(url).pipe(
+                flatMap(cachedResponse => {
+                    if (cachedResponse) {
+                        this.logger.warn(`Could not fetch response from: '${url}'. Using cached data for now...`, error);
+                        return of(cachedResponse);
+                    }
+                    return throwError(error);
+                })
+            )),
+            flatMap(response => this.storage.saveCopy(url, response)),
             map(response => this.transformResponse(response))
         );
     }
@@ -129,7 +142,7 @@ export class TradeHttpService {
         return `${baseUrl}/trade/${postfix}`;
     }
 
-    private handleError(url: string, response: HttpErrorResponse, count: number): Observable<void> {
+    private handleError(url: string, response: HttpErrorResponse, count: number): Observable<any> {
         if (count >= RETRY_COUNT) {
             return throwError(response);
         }
@@ -145,9 +158,9 @@ export class TradeHttpService {
                     return throwError(response.error);
                 }
             case 403:
-                return this.browser.retrieve(url);
+                return this.browser.retrieve(url).pipe(delay(RETRY_DELAY));
             case 429:
-                return of(null).pipe(delay(RETRY_LIMIT_DELAY));
+                return of(null).pipe(delay(RETRY_LIMIT_DELAY * RETRY_LIMIT_DELAY_FACTOR[count]));
             default:
                 return this.session.clear().pipe(delay(RETRY_DELAY));
         }

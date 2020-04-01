@@ -25,4 +25,9 @@ export class StorageService {
     public save<TData>(key: string, value: TData): Observable<TData> {
         return from(this.db.setItem<TData>(key, value));
     }
+
+    public saveCopy<TData>(key: string, value: TData): Observable<TData> {
+        const copy = JSON.parse(JSON.stringify(value));
+        return from(this.db.setItem<TData>(key, copy));
+    }
 }
