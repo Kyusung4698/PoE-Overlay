@@ -3,7 +3,7 @@
 ## 0.6.17 (2020-04-01)
 
 - add file cache as last resort to ensure a robust api in cost of fresh data
-
+- add unidentifed items support
 
 ## 0.6.16 (2020-03-31)
 

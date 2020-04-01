@@ -12,6 +12,7 @@ export interface Item {
     type?: string;
     level?: ItemValue;
     corrupted?: boolean;
+    unidentified?: boolean;
     veiled?: boolean;
     damage?: ItemWeaponDamage;
     sockets?: ItemSocket[];
@@ -200,6 +201,7 @@ export interface Section {
 
 export enum ItemSection {
     Corrupted,
+    Unidentified,
     Influences,
     ItemLevel,
     Note,

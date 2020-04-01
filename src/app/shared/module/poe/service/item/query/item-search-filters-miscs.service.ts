@@ -22,6 +22,10 @@ export class ItemSearchFiltersMiscsService implements ItemSearchFiltersService {
             option: `${!!item.corrupted}`
         };
 
+        query.filters.misc_filters.filters.identified = {
+            option: `${!item.unidentified}`
+        };
+
         query.filters.misc_filters.filters.veiled = {
             option: `${!!item.veiled}`
         };
