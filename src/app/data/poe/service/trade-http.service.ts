@@ -68,9 +68,11 @@ export class TradeHttpService {
                     query: queryId
                 }
             })
-        }).pipe(retryWhen(errors => errors.pipe(
-            flatMap((response, count) => this.handleError(url, response, count))
-        )));
+        }).pipe(
+            retryWhen(errors => errors.pipe(
+                flatMap((response, count) => this.handleError(url, response, count))
+            ))
+        );
     }
 
     private getAndTransform<TResponse>(url: string): Observable<TResponse> {

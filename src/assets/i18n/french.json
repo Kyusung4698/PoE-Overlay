@@ -36,6 +36,10 @@
 		"debounce-time": "Rechercher le temps de rebond",
 		"empty": "Aucun résultat. Ouvrir dans le navigateur?",
 		"error": "Une erreur s'est produite.",
+		"errors": {
+			"http": "Impossible de communiquer avec le site Web commercial GGG.\nVeuillez vous assurer que le site Web est accessible.",
+			"rate": "Limite atteinte. Veuillez réessayer plus tard.\nSi cela continue, essayez de réduire le nombre d'articles récupérés."
+		},
 		"fetch-count": "Nombre de recherches",
 		"listings": " {{total}}trouvé. Récupération de {{count}} entrées ...",
 		"loading": "Chargement...",

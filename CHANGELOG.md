@@ -5,6 +5,7 @@
 - add file cache as last resort to ensure a robust api in cost of fresh data
 - add unidentifed items support
 - update use same height for each mod whether selected or not (#540)
+- update evaluate search error display to include the actual reason (#537)
 
 ## 0.6.16 (2020-03-31)
 

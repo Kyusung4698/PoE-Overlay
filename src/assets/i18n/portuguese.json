@@ -36,6 +36,10 @@
 		"debounce-time": "Tempo de devolução da pesquisa",
 		"empty": "Sem resultados. Abra no navegador?",
 		"error": "Um erro ocorreu.",
+		"errors": {
+			"http": "Não foi possível se comunicar com o site comercial do GGG.\nVerifique se o site está acessível.",
+			"rate": "Limite alcançado. Por favor, tente novamente mais tarde.\nSe isso continuar acontecendo, tente diminuir a contagem de itens buscados."
+		},
 		"fetch-count": "Contagem de pesquisas",
 		"listings": "Encontrado {{total}}. Buscando {{count}} entradas ...",
 		"loading": "Carregando...",

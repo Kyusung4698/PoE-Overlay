@@ -72,7 +72,7 @@ export class ItemOverviewHttpService {
                 flatMap((response, count) => this.handleError(url, response, count))
             )),
             flatMap(httpResponse => {
-                const response = <ItemOverviewResponse>JSON.parse(httpResponse.body);
+                const response = JSON.parse(httpResponse.body) as ItemOverviewResponse;
                 if (!response.lines) {
                     this.logger.warn(`Got empty result from '${url}'.`, response);
                     return throwError(`Got empty result from '${url}'.`)
