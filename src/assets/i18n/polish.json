@@ -37,11 +37,11 @@
 		"empty": "Brak wyników. Otworzyć w przeglądarce?",
 		"error": "Wystąpił błąd.",
 		"errors": {
-			"http": "Nie można nawiązać komunikacji ze stroną internetową handlu GGG.\nUpewnij się, że strona jest dostępna.",
-			"rate": "Limit osiągnięty. Spróbuj ponownie później.\nJeśli nadal tak się dzieje, spróbuj zmniejszyć liczbę pobranych przedmiotów."
+      "http": "Nie można nawiązać komunikacji z stroną aukcyjną GGG.\nUpewnij się, że strona jest dostępna.",
+      "rate": "Limit osiągnięty. Spróbuj ponownie później.\nJeśli problem nadal występuje, spróbuj zmniejszyć liczbę pobieranych ofert sprzedaży."
 		},
-		"fetch-count": "Wyszukaj liczbę pobierania",
-		"listings": "Znaleziono {{total}}. Pobieranie {{count}} wpisów ...",
+    "fetch-count": "Liczba wyświetlanych ofert sprzedaży",
+		"listings": "Znaleziono {{total}}. Pobieranie {{count}} aukcji ...",
 		"loading": "Ładuję...",
 		"mean": "Średnia",
 		"median": "Mediana",
