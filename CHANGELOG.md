@@ -7,6 +7,7 @@
 - add armour/ evasion/ energy shield/ dps with 20% quality (#136)
 - update use same height for each mod whether selected or not (#540)
 - update evaluate search error display to include the actual reason (#537)
+- fix `Titan's Arcade Map of Temporal Chains` mismatched with `Temporal Chains` (my patrons)
 
 ## 0.6.16 (2020-03-31)
 

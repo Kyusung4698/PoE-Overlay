@@ -65,10 +65,11 @@ export class BaseItemTypesService {
                 let score = map[key].split(' ').length * 10;
 
                 const len = map[key].length;
-                const pos = name.length / 2 - Math.abs(name.length / 2 - match.index);
+                const pos = name.length / 2 - Math.abs(name.length / 2 - (match.index + len / 2));
 
                 score += pos;
                 score += len;
+
                 if (score > maxScore) {
                     maxScore = score;
                     maxKey = key;
