@@ -204,6 +204,7 @@
       "account": "Logged in as: ",
       "button": "Log in"
     },
+    "logout-button": "Log out",
     "forum-thread": {
       "name": "Forum thread settings",
       "form": "Enter URL or thread id of your shop"

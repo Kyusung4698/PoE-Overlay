@@ -1,6 +1,6 @@
 import { UserSettings, UserSettingsComponent } from '../../../../layout/type';
 import { AfterContentInit, ChangeDetectionStrategy, Component } from '@angular/core';
-import { LoginService } from "@modules/forum-trade/service/forum-trade-login.service";
+import { LoginService } from '@modules/forum-trade/service/forum-trade-login.service';
 
 export interface ForumTradeUserSettings extends UserSettings {
   sessionId: string,
@@ -40,15 +40,20 @@ export class ForumTradeSettingsComponent implements UserSettingsComponent, After
   }
 
   openLoginPage() {
-    this.loginService.openLoginPage();
-    this.loginService.getAccountName().subscribe((name) =>
-      this.accountName = name
-    )
+    this.loginService.openLoginPage().then(() => this.loginService.getAccountName().subscribe(
+      (name) => this.accountName = name, () => this.accountName = 'undefined'
+    ))
   }
 
   ngAfterContentInit() {
-    this.loginService.getAccountName().subscribe((name) =>
-      this.accountName = name
+    this.loginService.getAccountName().subscribe(
+      (name) => this.accountName = name, () => this.accountName = 'undefined'
+    )
+  }
+
+  openLogoutPage() {
+    this.loginService.openLogoutPage().then(() =>
+      this.accountName = 'unknown'
     )
   }
 }
