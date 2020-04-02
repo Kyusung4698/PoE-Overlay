@@ -27,6 +27,12 @@ export interface ItemValue {
     text: string;
     min?: number;
     max?: number;
+    tier?: ItemValueTier;
+}
+
+export interface ItemValueTier {
+    min?: number;
+    max?: number;
 }
 
 export enum ItemRarity {
@@ -114,9 +120,9 @@ export interface ItemSocket {
 }
 
 export interface ItemProperties {
-    weaponPhysicalDamage?: ItemProperty;
-    weaponElementalDamage?: ItemProperty[];
-    weaponChaosDamage?: ItemProperty;
+    weaponPhysicalDamage?: ItemValueProperty;
+    weaponElementalDamage?: ItemValueProperty[];
+    weaponChaosDamage?: ItemValueProperty;
     weaponCriticalStrikeChance?: ItemValueProperty;
     weaponAttacksPerSecond?: ItemValueProperty;
     weaponRange?: ItemProperty;
@@ -187,8 +193,6 @@ export interface ItemsMap {
     label: string;
     items: Item[];
 }
-
-
 
 export interface ExportedItem {
     sections: Section[];
