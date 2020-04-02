@@ -15,7 +15,7 @@
   <mat-label>{{'forum-trade.forum-thread.name' | translate}}</mat-label>
   <mat-form-field>
     <mat-label>{{'forum-trade.forum-thread.form' | translate}}</mat-label>
-    <input matInput #thread_input (input)="updateForumThread(thread_input)" [value]="settings.forumThread">
+    <input matInput [(ngModel)]="forumThread">
   </mat-form-field>
 </mat-card>
 

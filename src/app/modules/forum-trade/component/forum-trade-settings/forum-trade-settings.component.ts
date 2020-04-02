@@ -26,17 +26,20 @@ export class ForumTradeSettingsComponent implements UserSettingsComponent, After
   load(): void {
   }
 
-  updateForumThread(inputElement: HTMLInputElement) {
+  set forumThread(value: string) {
     const forumPageRegex = new RegExp('^https://.*pathofexile.com/forum/view-thread/(\\d{6,8}).*$');
     const rawIdRegex = /^\d{6,8}$/;
-    const content = inputElement.value;
-    const pageMatch: RegExpMatchArray = content.match(forumPageRegex);
+    const pageMatch: RegExpMatchArray = value.match(forumPageRegex);
 
-    if (pageMatch != null) {
+    if (pageMatch !== null) {
       this.settings.forumThread = pageMatch[1];
-    } else if (rawIdRegex.test(content)) {
-      this.settings.forumThread = content;
+    } else if (rawIdRegex.test(value)) {
+      this.settings.forumThread = value;
     }
+  }
+
+  get forumThread(): string {
+    return this.settings.forumThread
   }
 
   openLoginPage() {
