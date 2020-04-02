@@ -22,3 +22,17 @@ Legion Sword Piece
 Item Level: 74
 --------
 This item will transform when correctly arranged with other items.
+
+Rarity: Unique
+Samite Helmet
+--------
+Armour: 276
+--------
+Requirements:
+Strength: 114
+--------
+Sockets: R-R 
+--------
+Item Level: 85
+--------
+Unidentified

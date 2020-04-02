@@ -12,6 +12,7 @@ export interface Item {
     type?: string;
     level?: ItemValue;
     corrupted?: boolean;
+    unidentified?: boolean;
     veiled?: boolean;
     damage?: ItemWeaponDamage;
     sockets?: ItemSocket[];
@@ -24,6 +25,12 @@ export interface Item {
 
 export interface ItemValue {
     text: string;
+    min?: number;
+    max?: number;
+    tier?: ItemValueTier;
+}
+
+export interface ItemValueTier {
     min?: number;
     max?: number;
 }
@@ -113,9 +120,9 @@ export interface ItemSocket {
 }
 
 export interface ItemProperties {
-    weaponPhysicalDamage?: ItemProperty;
-    weaponElementalDamage?: ItemProperty[];
-    weaponChaosDamage?: ItemProperty;
+    weaponPhysicalDamage?: ItemValueProperty;
+    weaponElementalDamage?: ItemValueProperty[];
+    weaponChaosDamage?: ItemValueProperty;
     weaponCriticalStrikeChance?: ItemValueProperty;
     weaponAttacksPerSecond?: ItemValueProperty;
     weaponRange?: ItemProperty;
@@ -187,8 +194,6 @@ export interface ItemsMap {
     items: Item[];
 }
 
-
-
 export interface ExportedItem {
     sections: Section[];
 }
@@ -200,6 +205,7 @@ export interface Section {
 
 export enum ItemSection {
     Corrupted,
+    Unidentified,
     Influences,
     ItemLevel,
     Note,

@@ -36,6 +36,10 @@
 		"debounce-time": "Such-Entprellzeit",
 		"empty": "Keine Ergebnisse. Im Browser öffnen?",
 		"error": "Es ist ein Fehler aufgetreten.",
+		"errors": {
+			"http": "Konnte nicht mit der GGG-Handelswebsite kommunizieren.\nBitte stellen Sie sicher, dass die Website erreichbar ist.",
+			"rate": "Limit erreicht. Bitte versuchen Sie es später noch einmal.\nWenn dies weiterhin geschieht, versuchen Sie bitte, die Anzahl der abgerufenen Artikel zu verringern."
+		},
 		"fetch-count": "Suche Fetch Count",
 		"listings": "Gefunden {{total}}. {{count}} Einträge abrufen ...",
 		"loading": "Wird geladen...",

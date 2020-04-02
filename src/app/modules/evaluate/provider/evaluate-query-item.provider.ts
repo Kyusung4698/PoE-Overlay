@@ -22,6 +22,7 @@ export class EvaluateQueryItemProvider {
             category: item.category,
             rarity: item.rarity,
             corrupted: item.corrupted,
+            unidentified: item.unidentified,
             veiled: item.veiled,
             influences: item.influences || {},
             damage: {},

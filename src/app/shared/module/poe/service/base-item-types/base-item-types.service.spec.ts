@@ -72,5 +72,10 @@ describe('BaseItemTypeService', () => {
     it(`should find 'The Shaper's Amber Amulet of Expulsion`, () => {
         const result = sut.search('The Shaper\'s Amber Amulet of Expulsion', Language.English);
         expect(result).toBe('Amulet3');
-    })
+    });
+
+    it(`should find 'Titan's Arcade Map of Temporal Chains`, () => {
+        const result = sut.search('Titan\'s Arcade Map of Temporal Chains', Language.English);
+        expect(result).toBe('MapTier2_7');
+    });    
 });

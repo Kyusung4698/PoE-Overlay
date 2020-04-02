@@ -24,7 +24,7 @@ export class BrowserService {
             parent,
             show: false
         });
-        win.once('ready-to-show', () => {
+        win.webContents.once('did-finish-load', () => {
             subject.next();
             subject.complete();
             win.close();

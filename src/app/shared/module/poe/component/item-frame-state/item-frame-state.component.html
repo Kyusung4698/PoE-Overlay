@@ -8,3 +8,8 @@
         <div class="corrupted">{{'ItemPopupCorrupted' | clientString:language}} </div>
     </app-item-frame-query>
 </ng-container>
+<ng-container *ngIf="item.unidentified !== undefined">
+    <app-item-frame-query [(property)]="queryItem.unidentified" [value]="item.unidentified">
+        <div class="unidentified">{{'ItemPopupUnidentified' | clientString:language}} </div>
+    </app-item-frame-query>
+</ng-container>
