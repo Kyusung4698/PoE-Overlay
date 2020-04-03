@@ -136,7 +136,7 @@
 	},
 	"material": {
 		"accelerator": {
-			"any": "Press any key",
+			"any": "Press any key... ESC will set it to unbound.",
 			"unbound": "Unbound"
 		},
 		"select-list": {

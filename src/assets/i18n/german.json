@@ -136,7 +136,7 @@
 	},
 	"material": {
 		"accelerator": {
-			"any": "Drücke irgendeine Taste",
+			"any": "Drücken Sie eine beliebige Taste ... ESC setzt sie auf ungebunden.",
 			"unbound": "Ungebunden"
 		},
 		"select-list": {

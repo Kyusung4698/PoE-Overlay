@@ -136,7 +136,7 @@
 	},
 	"material": {
 		"accelerator": {
-			"any": "아무 키나 누르십시오",
+			"any": "아무 키나 누르면 ... ESC가 언 바운드로 설정합니다.",
 			"unbound": "매여 있지 않은"
 		},
 		"select-list": {

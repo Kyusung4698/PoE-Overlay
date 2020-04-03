@@ -48,10 +48,10 @@ export class AppService {
     }
 
     public visibleChange(): Observable<VisibleFlag> {
-        this.ipcRenderer.on('active-change', (event, arg) => {
+        this.ipcRenderer.on('game-active-change', (_, arg) => {
             this.ngZone.run(() => this.activeChange$.next(arg));
         });
-        this.ipcRenderer.send('register-active-change');
+        this.ipcRenderer.sendSync('game-send-active-change');
         return combineLatest([
             this.activeChange$,
             this.dialogRef.dialogCountChange()

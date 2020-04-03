@@ -37,10 +37,10 @@
 		"empty": "Brak wyników. Otworzyć w przeglądarce?",
 		"error": "Wystąpił błąd.",
 		"errors": {
-      "http": "Nie można nawiązać komunikacji ze stroną aukcyjną GGG.\nUpewnij się, że strona jest dostępna.",
-      "rate": "Limit osiągnięty. Spróbuj ponownie później.\nJeśli problem nadal występuje, spróbuj zmniejszyć liczbę pobieranych ofert sprzedaży."
+			"http": "Nie można nawiązać komunikacji ze stroną aukcyjną GGG.\nUpewnij się, że strona jest dostępna.",
+			"rate": "Limit osiągnięty. Spróbuj ponownie później.\nJeśli problem nadal występuje, spróbuj zmniejszyć liczbę pobieranych ofert sprzedaży."
 		},
-    "fetch-count": "Liczba wyświetlanych ofert sprzedaży",
+		"fetch-count": "Liczba wyświetlanych ofert sprzedaży",
 		"listings": "Znaleziono {{total}}. Pobieranie {{count}} aukcji ...",
 		"loading": "Ładuję...",
 		"mean": "Średnia",
@@ -136,7 +136,7 @@
 	},
 	"material": {
 		"accelerator": {
-			"any": "Naciśnij dowolny klawisz",
+			"any": "Naciśnij dowolny klawisz ... ESC ustawi to na niezwiązane.",
 			"unbound": "Nie przypisany"
 		},
 		"select-list": {

@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.6.17 (2020-04-03)
+
+- update run iohook only if required (stash navigation)
+- fix quality higher than 20% showing a lower value as max
+
 ## 0.6.17 (2020-04-02)
 
 - add file cache as last resort to ensure a robust api in cost of fresh data

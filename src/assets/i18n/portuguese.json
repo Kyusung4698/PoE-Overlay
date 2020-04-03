@@ -136,7 +136,7 @@
 	},
 	"material": {
 		"accelerator": {
-			"any": "pressione qualquer tecla",
+			"any": "Pressione qualquer tecla ... ESC irá configurá-lo como ilimitado.",
 			"unbound": "Não consolidado"
 		},
 		"select-list": {

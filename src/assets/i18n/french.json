@@ -136,7 +136,7 @@
 	},
 	"material": {
 		"accelerator": {
-			"any": "Appuyez sur une touche",
+			"any": "Appuyez sur n'importe quelle touche ... ESC le définira comme non lié.",
 			"unbound": "Non lié"
 		},
 		"select-list": {
