@@ -136,7 +136,7 @@
 	},
 	"material": {
 		"accelerator": {
-			"any": "presiona cualquier tecla",
+			"any": "Presione cualquier tecla ... ESC lo establecerá como independiente.",
 			"unbound": "Sin consolidar"
 		},
 		"select-list": {

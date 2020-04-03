@@ -136,7 +136,7 @@
 	},
 	"material": {
 		"accelerator": {
-			"any": "กดปุ่มใด ๆ",
+			"any": "กดปุ่มใด ๆ ... ESC จะตั้งค่าเป็นไม่ได้ผูกไว้",
 			"unbound": "หลุด"
 		},
 		"select-list": {

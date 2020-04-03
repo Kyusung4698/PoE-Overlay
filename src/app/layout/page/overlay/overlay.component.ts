@@ -105,7 +105,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
         this.window.hide();
       } else {
         this.window.show();
-        this.game.forceActive();
+        this.game.focus();
       }
     });
     this.app.triggerVisibleChange();

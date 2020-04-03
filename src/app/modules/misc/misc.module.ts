@@ -22,7 +22,7 @@ export class MiscModule implements FeatureModule {
 
     public getSettings(): UserSettingsFeature {
         const defaultSettings: MiscUserSettings = {
-            miscStashNavigationMode: MiscStashNavigation.Normal,
+            miscStashNavigationMode: MiscStashNavigation.Disabled,
             miscStashHighlightKeybinding: 'Alt + F',
             miscWikiKeybinding: 'Alt + W',
             miscWikiExternalKeybinding: 'CmdOrCtrl + Alt + W',

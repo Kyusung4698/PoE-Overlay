@@ -81,7 +81,7 @@ export class StashService {
         const text = this.clipboard.readText();
         this.copyPrice(tag);
         return of(null).pipe(
-            tap(() => this.game.forceActive()),
+            tap(() => this.game.focus()),
             tap(() => this.mouse.click('right', point)),
             delay(100),
             tap(() => {

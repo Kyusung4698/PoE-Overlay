@@ -136,7 +136,7 @@
 	},
 	"material": {
 		"accelerator": {
-			"any": "按任意键",
+			"any": "按任意键... ESC将其设置为未绑定。",
 			"unbound": "未绑定"
 		},
 		"select-list": {
