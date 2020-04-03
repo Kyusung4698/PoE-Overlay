@@ -65,7 +65,7 @@ export class ItemPostParserQualityService implements ItemPostParserService {
     private calculateTier(property: ItemValueProperty, quality: number, modifier: number = 0): void {
         const value = this.parseValue(property.value.text);
         const min = value / (1 + ((quality + modifier) / 100));
-        const max = min * (1 + ((QUALITY_MAX + modifier) / 100));
+        const max = min * (1 + ((Math.max(quality, QUALITY_MAX) + modifier) / 100));
         property.value.tier = {
             min: Math.round(min),
             max: Math.round(max)
