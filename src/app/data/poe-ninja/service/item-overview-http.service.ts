@@ -64,15 +64,11 @@ export class ItemOverviewHttpService {
 
     public get(leagueId: string, type: ItemOverviewType): Observable<ItemOverviewResponse> {
         const url = this.getUrl(leagueId, type);
-        return this.httpClient.get(url, {
-            observe: 'response',
-            responseType: 'text'
-        }).pipe(
+        return this.httpClient.get<ItemOverviewResponse>(url).pipe(
             retryWhen(errors => errors.pipe(
                 flatMap((response, count) => this.handleError(url, response, count))
             )),
-            flatMap(httpResponse => {
-                const response = JSON.parse(httpResponse.body) as ItemOverviewResponse;
+            flatMap(response => {
                 if (!response.lines) {
                     this.logger.warn(`Got empty result from '${url}'.`, response);
                     return throwError(`Got empty result from '${url}'.`)

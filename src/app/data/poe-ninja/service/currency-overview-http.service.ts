@@ -36,15 +36,11 @@ export class CurrencyOverviewHttpService {
 
     public get(leagueId: string, type: CurrencyOverviewType): Observable<CurrencyOverviewResponse> {
         const url = this.getUrl(leagueId, type);
-        return this.httpClient.get(url, {
-            observe: 'response',
-            responseType: 'text'
-        }).pipe(
+        return this.httpClient.get<CurrencyOverviewResponse>(url).pipe(
             retryWhen(errors => errors.pipe(
                 flatMap((response, count) => this.handleError(url, response, count))
             )),
-            flatMap(httpResponse => {
-                const response = JSON.parse(httpResponse.body) as CurrencyOverviewResponse;
+            flatMap(response => {
                 if (!response.lines) {
                     this.logger.warn(`Got empty result from '${url}'.`, response);
                     return throwError(`Got empty result from '${url}'.`);

@@ -45,17 +45,13 @@ export class TradeHttpService {
 
     public search(request: TradeSearchRequest, language: Language, leagueId: string): Observable<TradeSearchResponse> {
         const url = this.getApiUrl(`search/${encodeURIComponent(leagueId)}`, language);
-        return this.http.post(url, request, {
-            responseType: 'text',
-            observe: 'response'
-        }).pipe(
+        return this.http.post<TradeSearchResponse>(url, request).pipe(
             retryWhen(errors => errors.pipe(
                 flatMap((response, count) => this.handleError(url, response, count))
             )),
             map(response => {
-                const result = JSON.parse(response.body) as TradeSearchResponse;
-                result.url = `${url.replace('/api', '')}/${encodeURIComponent(result.id)}`;
-                return result;
+                response.url = `${url.replace('/api', '')}/${encodeURIComponent(response.id)}`;
+                return response;
             })
         );
     }
@@ -77,8 +73,8 @@ export class TradeHttpService {
 
     private getAndTransform<TResponse>(url: string): Observable<TResponse> {
         return this.http.get(url, {
-            responseType: 'text',
-            observe: 'response'
+            observe: 'response',
+            responseType: 'text'
         }).pipe(
             retryWhen(errors => errors.pipe(
                 flatMap((response, count) => this.handleError(url, response, count))

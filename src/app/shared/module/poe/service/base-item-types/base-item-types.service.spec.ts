@@ -77,5 +77,5 @@ describe('BaseItemTypeService', () => {
     it(`should find 'Titan's Arcade Map of Temporal Chains`, () => {
         const result = sut.search('Titan\'s Arcade Map of Temporal Chains', Language.English);
         expect(result).toBe('MapTier2_7');
-    });    
+    });
 });

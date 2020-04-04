@@ -1,4 +1,4 @@
-import { app, BrowserWindow, dialog, Display, ipcMain, Menu, MenuItemConstructorOptions, screen, systemPreferences, Tray } from 'electron';
+import { app, BrowserWindow, dialog, Display, ipcMain, Menu, MenuItem, MenuItemConstructorOptions, screen, systemPreferences, Tray } from 'electron';
 import * as path from 'path';
 import * as url from 'url';
 import * as launch from './electron/auto-launch';
@@ -43,6 +43,7 @@ const serve = args.some(val => val === '--serve');
 let win: BrowserWindow = null;
 let tray: Tray = null;
 let menu: Menu = null;
+let downloadItem: MenuItem = null;
 
 const childs: {
     [key: string]: BrowserWindow
@@ -65,14 +66,42 @@ function send(channel: string, ...args: any[]) {
 
 launch.register(ipcMain);
 
-update.register(ipcMain, menu, tray, event => {
+update.register(ipcMain, (event, autoDownload) => {
+    switch (event) {
+        case update.AutoUpdaterEvent.UpdateAvailable:
+            tray?.displayBalloon({
+                iconType: 'info',
+                title: 'New update available',
+                content: 'A new update is available. Will be automatically downloaded unless otherwise specified.',
+            });
+            if (!autoDownload && !downloadItem) {
+                downloadItem = new MenuItem({
+                    label: 'Download Update',
+                    type: 'normal',
+                    click: () => {
+                        update.download();
+                        downloadItem.enabled = false;
+                    }
+                });
+                menu?.insert(2, downloadItem);
+            }
+            break;
+        case update.AutoUpdaterEvent.UpdateDownloaded:
+            tray?.displayBalloon({
+                iconType: 'info',
+                title: 'Update ready to install',
+                content: 'The new update is now ready to install. Please relaunch your application.',
+            });
+            break;
+    }
     send(event);
 });
 
 robot.register(ipcMain);
 
 game.register(ipcMain, poe => {
-    send('game-active-change', serve ? true : poe.active);
+    // send('game-active-change', serve ? true : poe.active);
+    send('game-active-change', poe.active);
 
     if (win && poe.active) {
         win.setAlwaysOnTop(false);
@@ -94,14 +123,15 @@ hook.register(ipcMain, event => send(event), () => {
     app.quit();
 });
 
-/* auto-updater */
+/* general */
 
 ipcMain.on('app-version', event => {
     const version = app.getVersion();
     event.returnValue = version;
 });
 
-/* change log */
+/* changelog */
+
 function showChangelog() {
     const changelog = new BrowserWindow({
         modal: true,
@@ -112,7 +142,6 @@ function showChangelog() {
 }
 
 /* main window */
-
 function createWindow(): BrowserWindow {
     const { bounds } = getDisplay();
 
@@ -129,7 +158,8 @@ function createWindow(): BrowserWindow {
         webPreferences: {
             nodeIntegration: true,
             allowRunningInsecureContent: serve,
-            webSecurity: false
+            webSecurity: false,
+            backgroundThrottling: false
         },
         focusable: state.keyboardSupport,
         skipTaskbar: true,
