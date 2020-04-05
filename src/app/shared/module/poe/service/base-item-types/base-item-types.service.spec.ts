@@ -8,7 +8,7 @@ import { BaseItemTypesService } from './base-item-types.service';
 describe('BaseItemTypeService', () => {
     let sut: BaseItemTypesService;
     let contextService: ContextService;
-    beforeEach(async(() => {
+    beforeEach((done => {
         TestBed.configureTestingModule({
             imports: [
                 SharedModule
@@ -19,7 +19,7 @@ describe('BaseItemTypeService', () => {
         contextService = TestBed.inject<ContextService>(ContextService);
         contextService.init({
             language: Language.English
-        });
+        }).subscribe(() => done());
     }));
 
     const languages: Language[] = [

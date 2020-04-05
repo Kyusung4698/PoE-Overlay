@@ -27,7 +27,7 @@ describe('EvaluateDialogComponent', () => {
     let fixture: ComponentFixture<EvaluateDialogComponent>;
     let contextService: ContextService;
 
-    beforeEach(async(() => {
+    beforeEach(((done) => {
         TestBed.configureTestingModule({
             imports: [
                 SharedModule,
@@ -66,7 +66,7 @@ describe('EvaluateDialogComponent', () => {
         contextService = TestBed.inject<ContextService>(ContextService);
         contextService.init({
             language: Language.English
-        });
+        }).subscribe(() => done());
     }));
 
     beforeEach(() => {

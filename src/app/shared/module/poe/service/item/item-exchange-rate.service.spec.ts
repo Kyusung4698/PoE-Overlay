@@ -11,7 +11,7 @@ describe('ItemExchangeRateService', () => {
     let contextService: ContextService;
     let currencyService: CurrencyService;
 
-    beforeEach(async(() => {
+    beforeEach(((done) => {
         TestBed.configureTestingModule({
             imports: [
                 SharedModule
@@ -22,7 +22,7 @@ describe('ItemExchangeRateService', () => {
         contextService = TestBed.inject<ContextService>(ContextService);
         contextService.init({
             language: Language.English
-        });
+        }).subscribe(() => done());
         currencyService = TestBed.inject<CurrencyService>(CurrencyService);
     }));
 

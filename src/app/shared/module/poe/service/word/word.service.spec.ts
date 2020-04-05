@@ -7,7 +7,7 @@ import { WordService } from './word.service';
 describe('WordService', () => {
     let sut: WordService;
     let contextService: ContextService;
-    beforeEach(async(() => {
+    beforeEach((done => {
         TestBed.configureTestingModule({
             imports: [
                 SharedModule
@@ -18,7 +18,7 @@ describe('WordService', () => {
         contextService = TestBed.inject<ContextService>(ContextService);
         contextService.init({
             language: Language.English
-        });
+        }).subscribe(() => done());
     }));
 
     const languages: Language[] = [

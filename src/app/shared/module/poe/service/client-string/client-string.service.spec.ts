@@ -7,7 +7,7 @@ import { ClientStringService } from './client-string.service';
 describe('ClientStringService', () => {
     let sut: ClientStringService;
     let contextService: ContextService;
-    beforeEach(async(() => {
+    beforeEach((done => {
         TestBed.configureTestingModule({
             imports: [
                 SharedModule
@@ -18,7 +18,7 @@ describe('ClientStringService', () => {
         contextService = TestBed.inject<ContextService>(ContextService);
         contextService.init({
             language: Language.English
-        });
+        }).subscribe(() => done());
     }));
 
     const languages: Language[] = [

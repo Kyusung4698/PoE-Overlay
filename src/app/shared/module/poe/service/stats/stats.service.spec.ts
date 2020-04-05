@@ -7,7 +7,7 @@ import { StatsService } from './stats.service';
 describe('StatsService', () => {
     let sut: StatsService;
     let contextService: ContextService;
-    beforeEach(async(() => {
+    beforeEach((done => {
         TestBed.configureTestingModule({
             imports: [
                 SharedModule
@@ -18,7 +18,7 @@ describe('StatsService', () => {
         contextService = TestBed.inject<ContextService>(ContextService);
         contextService.init({
             language: Language.English
-        });
+        }).subscribe(() => done());
     }));
 
     [

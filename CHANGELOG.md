@@ -3,6 +3,7 @@
 ## 0.6.17 (2020-04-03)
 
 - add file cache for all requests to further reduce total request count
+- updata data to 3.10.1c (#555)
 - update run iohook only if required (stash navigation)
 - fix quality higher than 20% showing a lower value as max
 

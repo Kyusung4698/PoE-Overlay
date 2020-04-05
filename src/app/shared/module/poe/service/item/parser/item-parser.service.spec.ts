@@ -7,7 +7,7 @@ import { ItemParserService } from './item-parser.service';
 describe('ItemParserService', () => {
     let sut: ItemParserService;
     let contextService: ContextService;
-    beforeEach(async(() => {
+    beforeEach((done => {
         TestBed.configureTestingModule({
             imports: [
                 SharedModule
@@ -18,7 +18,7 @@ describe('ItemParserService', () => {
         contextService = TestBed.inject<ContextService>(ContextService);
         contextService.init({
             language: Language.English
-        });
+        }).subscribe(() => done());
     }));
 
     const items: string[][] = [

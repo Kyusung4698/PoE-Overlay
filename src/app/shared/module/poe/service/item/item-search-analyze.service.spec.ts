@@ -16,7 +16,7 @@ describe('ItemSearchAnalyzeService', () => {
     let currencyService: CurrencyService;
     let baseItemTypesService: BaseItemTypesService;
 
-    beforeEach(async(() => {
+    beforeEach((done => {
         TestBed.configureTestingModule({
             imports: [
                 SharedModule
@@ -27,7 +27,7 @@ describe('ItemSearchAnalyzeService', () => {
         contextService = TestBed.inject<ContextService>(ContextService);
         contextService.init({
             language: Language.English
-        });
+        }).subscribe(() => done());
 
         searchService = TestBed.inject<ItemSearchService>(ItemSearchService);
         currencyService = TestBed.inject<CurrencyService>(CurrencyService);
