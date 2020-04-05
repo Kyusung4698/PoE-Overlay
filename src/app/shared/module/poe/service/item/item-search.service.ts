@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { LoggerService } from '@app/service';
+import { CacheService, LoggerService } from '@app/service';
 import { TradeFetchResult, TradeHttpService, TradeSearchRequest } from '@data/poe';
 import { Currency, Item, Language } from '@shared/module/poe/type';
 import moment from 'moment';
@@ -12,6 +12,7 @@ import { ItemSearchQueryService } from './query/item-search-query.service';
 
 const MAX_FETCH_PER_REQUEST_COUNT = 10;
 const MAX_FETCH_CONCURRENT_COUNT = 5;
+const CACHE_EXPIRY = 1000 * 60 * 10;
 
 export interface ItemSearchListing {
     seller: string;
@@ -38,6 +39,7 @@ export class ItemSearchService {
         private readonly currencyService: CurrencyService,
         private readonly requestService: ItemSearchQueryService,
         private readonly tradeService: TradeHttpService,
+        private readonly cache: CacheService,
         private readonly logger: LoggerService) { }
 
     public search(requestedItem: Item, options?: ItemSearchOptions): Observable<ItemSearchResult> {
@@ -90,29 +92,60 @@ export class ItemSearchService {
     public list(search: ItemSearchResult, fetchCount: number): Observable<ItemSearchListing[]> {
         const { id, language, hits } = search;
 
-        const hitsChunked: string[][] = [];
-        const maxFetchCount = Math.min(fetchCount, hits.length)
-        for (let i = 0, j = maxFetchCount; i < j; i += MAX_FETCH_PER_REQUEST_COUNT) {
-            hitsChunked.push(hits.slice(i, i + MAX_FETCH_PER_REQUEST_COUNT));
+        const maxFetchCount = Math.min(fetchCount, hits.length);
+        const maxHits = hits.slice(0, maxFetchCount);
+        if (maxHits.length <= 0) {
+            return of([]);
         }
 
-        return from(hitsChunked).pipe(
-            mergeMap(chunk => this.tradeService.fetch(chunk, id, language), MAX_FETCH_CONCURRENT_COUNT),
-            toArray(),
-            flatMap(responses => {
-                const results: TradeFetchResult[] = responses
-                    .filter(x => x.result && x.result.length)
-                    .reduce((a, b) => a.concat(b.result), []);
+        const retrievedHits$ = maxHits.map(hit => {
+            const key = `item_listing_${language}_${hit}`;
+            return this.cache.retrieve<TradeFetchResult>(key).pipe(
+                map(value => {
+                    return { id: hit, value }
+                })
+            )
+        });
 
-                if (results.length <= 0) {
-                    return of([]);
+        return this.cache.clear('item_listing_').pipe(
+            flatMap(() => forkJoin(retrievedHits$)),
+            flatMap(retrievedHits => {
+                const hitsChunked: string[][] = [];
+
+                const hitsMissing = retrievedHits.filter(x => !x.value).map(x => x.id);
+                const hitsCached = retrievedHits.filter(x => x.value).map(x => x.value);
+
+                this.logger.debug(
+                    `missing hits: ${hitsMissing.length}, cached hits: ${hitsCached.length}` +
+                    ` - saved: ${Math.round(hitsCached.length / maxHits.length * 100)}%`)
+
+                for (let i = 0; i < hitsMissing.length; i += MAX_FETCH_PER_REQUEST_COUNT) {
+                    hitsChunked.push(hitsMissing.slice(i, i + MAX_FETCH_PER_REQUEST_COUNT));
                 }
 
-                const listings$ = results
-                    .map(result => this.mapResult(result));
+                return from(hitsChunked).pipe(
+                    mergeMap(chunk => this.tradeService.fetch(chunk, id, language), MAX_FETCH_CONCURRENT_COUNT),
+                    toArray(),
+                    flatMap(responses => {
+                        const results: TradeFetchResult[] = responses
+                            .filter(x => x.result && x.result.length)
+                            .reduce((a, b) => a.concat(b.result), hitsCached);
 
-                return forkJoin(listings$).pipe(
-                    map(listings => listings.filter(x => x !== undefined))
+                        if (results.length <= 0) {
+                            return of([]);
+                        }
+
+                        const listings$ = results.map(result => {
+                            const key = `item_listing_${language}_${result.id}`;
+                            return this.cache.store(key, result, CACHE_EXPIRY).pipe(
+                                flatMap(() => this.mapResult(result))
+                            );
+                        });
+
+                        return forkJoin(listings$).pipe(
+                            map(listings => listings.filter(x => x !== undefined))
+                        );
+                    })
                 );
             })
         );

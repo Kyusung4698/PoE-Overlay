@@ -1,9 +1,9 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BrowserService, LoggerService, SessionService, StorageService } from '@app/service';
+import { BrowserService, LoggerService, SessionService } from '@app/service';
 import { environment } from '@env/environment';
 import { Observable, of, throwError } from 'rxjs';
-import { catchError, delay, flatMap, retryWhen } from 'rxjs/operators';
+import { delay, flatMap, retryWhen } from 'rxjs/operators';
 import { ItemOverviewResponse } from '../schema/item-overview';
 
 export enum ItemOverviewType {
@@ -57,7 +57,6 @@ export class ItemOverviewHttpService {
         private readonly httpClient: HttpClient,
         private readonly browser: BrowserService,
         private readonly session: SessionService,
-        private readonly storage: StorageService,
         private readonly logger: LoggerService) {
         this.baseUrl = `${environment.poeNinja.baseUrl}/api/data/itemoverview`;
     }
@@ -79,17 +78,7 @@ export class ItemOverviewHttpService {
                     url: `${environment.poeNinja.baseUrl}/challenge/${PATH_TYPE_MAP[type]}`
                 };
                 return of(result);
-            }),
-            catchError(error => this.storage.get<ItemOverviewResponse>(url).pipe(
-                flatMap(cachedResponse => {
-                    if (cachedResponse) {
-                        this.logger.warn(`Could not fetch response from: '${url}'. Using cached data for now...`, error);
-                        return of(cachedResponse);
-                    }
-                    return throwError(error);
-                })
-            )),
-            flatMap(response => this.storage.saveCopy(url, response))
+            })
         );
     }
 

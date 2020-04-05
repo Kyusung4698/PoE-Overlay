@@ -1,24 +1,23 @@
 import { Injectable } from '@angular/core';
+import { CacheService } from '@app/service';
 import * as PoE from '@data/poe';
-import { Currency, Language, LanguageMap } from '@shared/module/poe/type';
+import { Currency, Language } from '@shared/module/poe/type';
 import { Observable } from 'rxjs';
-import { map, shareReplay } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
-const CACHE_SIZE = 1;
+const CACHE_EXPIRY = 1000 * 60 * 60;
 
 @Injectable({
     providedIn: 'root'
 })
 export class CurrenciesProvider {
-    private readonly languageMap: LanguageMap<Observable<Currency[]>> = {};
-
     constructor(
-        private readonly tradeHttpService: PoE.TradeHttpService) { }
+        private readonly tradeHttpService: PoE.TradeHttpService,
+        private readonly cache: CacheService) { }
 
     public provide(language: Language): Observable<Currency[]> {
-        return this.languageMap[language] || (
-            this.languageMap[language] = this.fetch(language).pipe(shareReplay(CACHE_SIZE))
-        );
+        const key = `currencies_${language}`;
+        return this.cache.proxy(key, () => this.fetch(language), CACHE_EXPIRY);
     }
 
     private fetch(language: Language): Observable<Currency[]> {
