@@ -4,7 +4,7 @@ import { forkJoin, Observable, of, timer } from 'rxjs';
 import { map, shareReplay, switchMap, take } from 'rxjs/operators';
 import { ItemCategory, ItemRarity } from '../type';
 
-export class ItemCategoryValue {
+export interface ItemCategoryValue {
     name: string;
     type: string;
     mapTier: number;
@@ -15,7 +15,7 @@ export class ItemCategoryValue {
     url: string;
 }
 
-export class ItemCategoryValues {
+export interface ItemCategoryValues {
     values: ItemCategoryValue[];
 }
 

@@ -13,7 +13,7 @@ export enum ItemClipboardResultCode {
     ParserError
 }
 
-export class ItemClipboardResult {
+export interface ItemClipboardResult {
     code: ItemClipboardResultCode;
     item?: Item;
     point?: Point;

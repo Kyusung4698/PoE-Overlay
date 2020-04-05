@@ -9,7 +9,7 @@ export class ClientStringPipe implements PipeTransform {
     constructor(private readonly clientString: ClientStringService) {
     }
 
-    public transform(value: string, language: Language) {
+    public transform(value: string, language: Language): string {
         return this.clientString.translate(value, language);
     }
 }

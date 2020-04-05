@@ -37,7 +37,7 @@ export class ItemSearchQueryService {
         ];
     }
 
-    public map(item: Item, language: Language, query: Query) {
+    public map(item: Item, language: Language, query: Query): void {
         this.filters.forEach(filter => filter.add(item, language, query));
     }
 }

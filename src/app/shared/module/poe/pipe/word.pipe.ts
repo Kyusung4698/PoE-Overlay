@@ -9,7 +9,7 @@ export class WordPipe implements PipeTransform {
     constructor(private readonly wordService: WordService) {
     }
 
-    public transform(value: string, language: Language) {
+    public transform(value: string, language: Language): string {
         return this.wordService.translate(value, language);
     }
 }

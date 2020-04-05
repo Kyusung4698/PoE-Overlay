@@ -81,7 +81,7 @@ export class DragDirective implements OnInit, OnDestroy {
 }
 
 /** Gets the closest ancestor of an element that matches a selector. */
-function getClosestMatchingAncestor(element: HTMLElement, selector: string) {
+function getClosestMatchingAncestor(element: HTMLElement, selector: string): HTMLElement {
   let currentElement = element.parentElement as HTMLElement | null;
 
   while (currentElement) {

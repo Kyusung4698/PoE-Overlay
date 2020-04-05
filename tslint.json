@@ -38,7 +38,7 @@
         "ignore-pattern": "^import |^export {(.*?)}"
       }
     ],
-    "member-access": false,
+    "member-access": true,
     "member-ordering": [
       true,
       {
@@ -80,6 +80,11 @@
       "single"
     ],
     "trailing-comma": false,
+    "typedef": [
+      true,
+      "call-signature",
+      "property-declaration"
+    ],
     "no-conflicting-lifecycle": true,
     "no-host-metadata-property": true,
     "no-input-rename": true,

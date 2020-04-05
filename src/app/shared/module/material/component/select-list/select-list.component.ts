@@ -40,7 +40,7 @@ export class SelectListComponent implements OnInit {
 
   public trackByKey = (_: number, item: SelectListItem) => item.key;
 
-  public ngOnInit() {
+  public ngOnInit(): void {
     this.selected$ = this.items$.pipe(map(x => x.filter(y => !!y.selected)));
     this.deselected$ = this.items$.pipe(map(x => x.filter(y => !y.selected)));
     this.filterItems();

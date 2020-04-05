@@ -54,7 +54,7 @@ export class EvaluateSearchComponent implements OnInit {
     private readonly snackbar: SnackBarService,
     private readonly logger: LoggerService) { }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
     this.graph = this.settings.evaluateResultView === EvaluateResultView.Graph;
 
     this.search(this.queryItem);
