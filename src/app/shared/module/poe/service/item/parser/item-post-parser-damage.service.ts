@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Item, ItemPostParserService, ItemProperty, ItemValueProperty } from '@shared/module/poe/type';
+import { Item, ItemPostParserService, ItemProperties, ItemValue, ItemValueProperty } from '@shared/module/poe/type';
 
 @Injectable({
     providedIn: 'root'
@@ -7,79 +7,99 @@ import { Item, ItemPostParserService, ItemProperty, ItemValueProperty } from '@s
 export class ItemPostParserDamageService implements ItemPostParserService {
 
     public process(item: Item): void {
-        if (!item.properties) {
+        const { properties } = item;
+        if (!properties) {
             return;
         }
 
-        const pdps = this.calculatePhysicalDps(item);
-        const edps = this.calculateElementalDps(item);
-        const cdps = this.calculateChaosDps(item);
+        const pdps = this.calculatePhysicalDps(properties);
+        const edps = this.calculateElementalDps(properties);
+        const cdps = this.calculateChaosDps(properties);
 
-        const dps = edps + pdps + cdps;
-        if (dps <= 0) {
+        if (!pdps && !edps && !cdps) {
             return;
         }
 
-        item.damage = {
-            edps: edps > 0 ? { text: `${edps}` } : null,
-            pdps: pdps > 0 ? { text: `${pdps}` } : null,
-            dps: { text: `${dps}` },
+        const dps: ItemValue = {
+            text: '',
+            tier: {
+                min: 0,
+                max: 0
+            }
         };
+
+        [pdps, edps, cdps].forEach(value => {
+            if (value) {
+                dps.text = `${+dps.text + +value.text}`;
+                if (value.tier) {
+                    dps.tier.min += value.tier.min;
+                    dps.tier.max += value.tier.max;
+                } else {
+                    dps.tier.min += +value.text;
+                    dps.tier.max += +value.text;
+                }
+            }
+        });
+
+        item.damage = { edps, pdps, dps };
     }
 
-    private calculatePhysicalDps(item: Item): number {
-        if (!item.properties.weaponPhysicalDamage) {
-            return 0;
+    private calculatePhysicalDps(properties: ItemProperties): ItemValue {
+        const { weaponPhysicalDamage, weaponAttacksPerSecond } = properties;
+        if (!weaponPhysicalDamage) {
+            return undefined;
         }
 
-        const damage = this.sum(item.properties.weaponPhysicalDamage);
-        if (damage <= 0) {
-            return 0;
-        }
-        return this.addAps(item.properties.weaponAttacksPerSecond, damage * 0.5);
+        const damage = this.sum(weaponPhysicalDamage);
+        const dps = this.addAps(weaponAttacksPerSecond, damage);
+
+        const value: ItemValue = {
+            text: `${dps}`,
+            tier: {
+                min: this.addAps(weaponAttacksPerSecond, weaponPhysicalDamage.value.tier.min),
+                max: this.addAps(weaponAttacksPerSecond, weaponPhysicalDamage.value.tier.max),
+            }
+        };
+        return value;
     }
 
-    private calculateElementalDps(item: Item): number {
-        const damage = this.getElementalSum(item);
-        if (damage <= 0) {
-            return 0;
+    private calculateElementalDps(properties: ItemProperties): ItemValue {
+        const { weaponElementalDamage, weaponAttacksPerSecond } = properties;
+        if (!weaponElementalDamage || weaponElementalDamage.length === 0) {
+            return undefined;
         }
-        return this.addAps(item.properties.weaponAttacksPerSecond, damage * 0.5);
+
+        const totalDamage = weaponElementalDamage.reduce((damage, prop) => this.sum(prop, damage), 0);
+        const dps = this.addAps(weaponAttacksPerSecond, totalDamage);
+
+        const value: ItemValue = {
+            text: `${dps}`
+        };
+        return value;
     }
 
-    private calculateChaosDps(item: Item): number {
-        const damage = this.getChaosSum(item);
-        if (damage <= 0) {
-            return 0;
+    private calculateChaosDps(properties: ItemProperties): ItemValue {
+        const { weaponChaosDamage, weaponAttacksPerSecond } = properties;
+        if (!weaponChaosDamage) {
+            return undefined;
         }
-        return this.addAps(item.properties.weaponAttacksPerSecond, damage * 0.5);
-    }
 
-    private getElementalSum(item: Item): number {
-        let damage = 0;
-        if (item.properties.weaponElementalDamage) {
-            item.properties.weaponElementalDamage.forEach(prop => {
-                damage = this.sum(prop, damage);
-            });
-        }
-        return damage;
-    }
+        const damage = this.sum(weaponChaosDamage)
+        const dps = this.addAps(weaponAttacksPerSecond, damage);
 
-    private getChaosSum(item: Item): number {
-        let damage = 0;
-        if (item.properties.weaponChaosDamage) {
-            damage = this.sum(item.properties.weaponChaosDamage, damage);
-        }
-        return damage;
+        const value: ItemValue = {
+            text: `${dps}`
+        };
+        return value;
     }
 
     private addAps(prop: ItemValueProperty, damage: number): number {
         const aps = prop ? +prop.value.text : 1;
-        return damage * aps;
+        return damage * 0.5 * aps;
     }
 
-    private sum(prop: ItemProperty, sum: number = 0): number {
-        const damage = prop.value.split('-');
+    private sum(prop: ItemValueProperty, sum: number = 0): number {
+        const damage = prop.value.text.split('-');
 
         const min = +damage[0];
         const max = +damage[1];

@@ -14,6 +14,7 @@ import { ItemFrameComponent } from '../item-frame/item-frame.component';
 })
 export class ItemFrameValueComponent implements OnInit {
   public default: ItemValue;
+  public parsed: number;
 
   @ViewChild('min', { static: true })
   public min: ElementRef<HTMLInputElement>;
@@ -224,6 +225,16 @@ export class ItemFrameValueComponent implements OnInit {
       this.value.max = this.default.max;
     }
 
+    // check tier
+    if (this.value.tier) {
+      if (this.value.min < this.value.tier.min) {
+        this.value.min = this.value.tier.min;
+      }
+      if (this.value.max > this.value.tier.max) {
+        this.value.max = this.value.tier.max;
+      }
+    }
+
     // if positive - stay positive!
     if (this.default.min >= 0 && this.value.min < 0) {
       this.value.min = 0;
@@ -242,16 +253,16 @@ export class ItemFrameValueComponent implements OnInit {
   }
 
   private init(): void {
-    const value = this.parseValue(this.value.text);
-    this.value.min = value;
-    this.value.max = value;
+    this.parsed = this.parseValue(this.value.text);
+    this.value.min = this.parsed;
+    this.value.max = this.parsed;
     this.default = { ...this.value };
 
     if (this.modifierMinRange === 0.5) {
-      this.value.min = undefined;
+      this.value.min = this.value.tier?.min;
     } else {
-      this.value.min -= value * this.modifierMinRange;
-      if (Number.isInteger(value)) {
+      this.value.min -= this.parsed * this.modifierMinRange;
+      if (Number.isInteger(this.parsed)) {
         this.value.min = Math.floor(this.value.min);
       } else {
         this.value.min = Math.floor(this.value.min * 10) / 10;
@@ -259,16 +270,17 @@ export class ItemFrameValueComponent implements OnInit {
     }
 
     if (this.modifierMaxRange === 0.5) {
-      this.value.max = undefined;
+      this.value.max = this.value.tier?.max;
     } else {
-      this.value.max += value * this.modifierMaxRange;
-      if (Number.isInteger(value)) {
+      this.value.max += this.parsed * this.modifierMaxRange;
+      if (Number.isInteger(this.parsed)) {
         this.value.max = Math.ceil(this.value.max);
       } else {
         this.value.max = Math.ceil(this.value.max * 10) / 10;
       }
     }
 
+    this.clampValue();
     this.emitChange();
   }
 
@@ -287,8 +299,13 @@ export class ItemFrameValueComponent implements OnInit {
   }
 
   private updateViewWidth(): void {
-    this.min.nativeElement.style.width = `${this.min.nativeElement.value.length}ch`;
-    this.max.nativeElement.style.width = `${this.max.nativeElement.value.length}ch`;
+    const min = this.min.nativeElement.value;
+    const minLength = min.length;
+    this.min.nativeElement.style.width = `${minLength - ((min.split('.').length - 1) * 0.5)}ch`;
+
+    const max = this.max.nativeElement.value;
+    const maxLength = max.length;
+    this.max.nativeElement.style.width = `${maxLength - ((max.split('.').length - 1) * 0.5)}ch`;
   }
 
   private parseValue(text: string): number {

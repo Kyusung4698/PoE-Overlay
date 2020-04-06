@@ -25,7 +25,7 @@ export class EvaluateSearchComponent implements OnInit {
   public count$ = new BehaviorSubject<number>(0);
   public listings$ = new BehaviorSubject<ItemSearchListing[]>(null);
   public result$ = new BehaviorSubject<ItemSearchAnalyzeResult>(null);
-  public error$ = new BehaviorSubject<boolean>(false);
+  public error$ = new BehaviorSubject<string>(undefined);
   public staleCounter$ = new BehaviorSubject<number>(0);
   public staleProgress$ = new BehaviorSubject<number>(0);
 
@@ -169,7 +169,7 @@ export class EvaluateSearchComponent implements OnInit {
   }
 
   private clear(): void {
-    this.error$.next(false);
+    this.error$.next(undefined);
     this.search$.next(null);
     this.listings$.next(null);
     this.result$.next(null);
@@ -177,8 +177,20 @@ export class EvaluateSearchComponent implements OnInit {
 
   private handleError(error: any): void {
     this.clear();
-    this.error$.next(true);
     this.logger.warn(error);
-    this.snackbar.error(`${typeof error === 'string' ? `${error}` : 'evaluate.error'}`);
+    if (typeof error === 'string') {
+      this.error$.next(error);
+    } else if (error && error.status) {
+      switch (error.status) {
+        case 429:
+          this.error$.next('evaluate.errors.rate');
+          break;
+        default:
+          this.error$.next('evaluate.errors.http');
+          break;
+      }
+    } else {
+      this.error$.next('evaluate.error');
+    }
   }
 }

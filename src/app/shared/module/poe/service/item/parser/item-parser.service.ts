@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ExportedItem, Item, ItemPostParserService, ItemSectionParserService, Section } from '../../../type';
 import { ItemPostParserDamageService } from './item-post-parser-damage.service';
 import { ItemPostParserPseudoService } from './item-post-parser-pseudo.service';
+import { ItemPostParserQualityService } from './item-post-parser-quality.service';
 import { ItemSectionCorruptedParserService } from './item-section-corrupted-parser.service';
 import { ItemSectionInfluencesParserService } from './item-section-influences-parser.service';
 import { ItemSectionItemLevelParserService } from './item-section-item-level-parser.service';
@@ -11,6 +12,7 @@ import { ItemSectionRarityParserService } from './item-section-rarity-parser.ser
 import { ItemSectionRequirementsParserService } from './item-section-requirements-parser.service';
 import { ItemSectionSocketsParserService } from './item-section-sockets-parser.service';
 import { ItemSectionStatsParserService } from './item-section-stats-parser.service';
+import { ItemSectionUnidentifiedParserService } from './item-section-unidentified-parser.service';
 import { ItemSectionVeiledParserService } from './item-section-veiled-parser.service';
 
 @Injectable({
@@ -31,6 +33,8 @@ export class ItemParserService {
         itemSectionInfluencesParserService: ItemSectionInfluencesParserService,
         itemSectionVeiledParserService: ItemSectionVeiledParserService,
         itemSectionStatsParserService: ItemSectionStatsParserService,
+        itemSectionUnidentifiedParserService: ItemSectionUnidentifiedParserService,
+        itemPostParserQualityService: ItemPostParserQualityService,
         itemPostParserDamageService: ItemPostParserDamageService,
         itemPostParserPseudoService: ItemPostParserPseudoService) {
         this.parsers = [
@@ -43,11 +47,13 @@ export class ItemParserService {
             itemSectionCorruptedParserService,
             itemSectionVeiledParserService,
             itemSectionInfluencesParserService,
+            itemSectionUnidentifiedParserService,
             itemSectionStatsParserService,
         ];
         this.postParsers = [
+            itemPostParserQualityService,
             itemPostParserDamageService,
-            itemPostParserPseudoService
+            itemPostParserPseudoService,
         ];
     }
 

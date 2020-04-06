@@ -36,6 +36,10 @@
 		"debounce-time": "Search Debounce Time",
 		"empty": "No results. Open in browser?",
 		"error": "An error occured.",
+		"errors": {
+			"http": "Could not communicate with the GGG trade website.\nPlease make sure the website is reachable.",
+			"rate": "Limit reached. Please try again later.\nIf this keeps happening please try lowering the fetched item count. "
+		},
 		"fetch-count": "Search Fetch Count",
 		"listings": "Found {{total}}. Fetching {{count}} entries...",
 		"loading": "Loading...",

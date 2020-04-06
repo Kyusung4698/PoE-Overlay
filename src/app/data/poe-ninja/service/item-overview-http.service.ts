@@ -1,9 +1,9 @@
-import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BrowserService, LoggerService, SessionService } from '@app/service';
+import { BrowserService, LoggerService, SessionService, StorageService } from '@app/service';
 import { environment } from '@env/environment';
 import { Observable, of, throwError } from 'rxjs';
-import { delay, flatMap, retryWhen } from 'rxjs/operators';
+import { catchError, delay, flatMap, retryWhen } from 'rxjs/operators';
 import { ItemOverviewResponse } from '../schema/item-overview';
 
 export enum ItemOverviewType {
@@ -51,42 +51,49 @@ const RETRY_DELAY = 100;
     providedIn: 'root'
 })
 export class ItemOverviewHttpService {
-    private readonly apiUrl: string;
+    private readonly baseUrl: string;
 
     constructor(
         private readonly httpClient: HttpClient,
         private readonly browser: BrowserService,
         private readonly session: SessionService,
+        private readonly storage: StorageService,
         private readonly logger: LoggerService) {
-        this.apiUrl = `${environment.poeNinja.baseUrl}/api/data/itemoverview`;
+        this.baseUrl = `${environment.poeNinja.baseUrl}/api/data/itemoverview`;
     }
 
     public get(leagueId: string, type: ItemOverviewType): Observable<ItemOverviewResponse> {
-        const params = new HttpParams({
-            fromObject: {
-                league: leagueId,
-                type,
-                language: 'en'
-            }
-        });
-        return this.httpClient.get<ItemOverviewResponse>(this.apiUrl, {
-            params
+        const url = this.getUrl(leagueId, type);
+        return this.httpClient.get(url, {
+            observe: 'response',
+            responseType: 'text'
         }).pipe(
             retryWhen(errors => errors.pipe(
-                flatMap((response, count) => this.handleError(this.apiUrl, response, count))
+                flatMap((response, count) => this.handleError(url, response, count))
             )),
-            flatMap(response => {
+            flatMap(httpResponse => {
+                const response = JSON.parse(httpResponse.body) as ItemOverviewResponse;
                 if (!response.lines) {
-                    this.logger.warn(`Got empty result from ${this.apiUrl} with ${leagueId} and ${type}.`, response);
-                    return throwError(`Got empty result from ${this.apiUrl} with ${leagueId} and ${type}.`)
+                    this.logger.warn(`Got empty result from '${url}'.`, response);
+                    return throwError(`Got empty result from '${url}'.`)
                 }
 
                 const result: ItemOverviewResponse = {
-                    ...response,
+                    lines: response.lines,
                     url: `${environment.poeNinja.baseUrl}/challenge/${PATH_TYPE_MAP[type]}`
                 };
                 return of(result);
-            })
+            }),
+            catchError(error => this.storage.get<ItemOverviewResponse>(url).pipe(
+                flatMap(cachedResponse => {
+                    if (cachedResponse) {
+                        this.logger.warn(`Could not fetch response from: '${url}'. Using cached data for now...`, error);
+                        return of(cachedResponse);
+                    }
+                    return throwError(error);
+                })
+            )),
+            flatMap(response => this.storage.saveCopy(url, response))
         );
     }
 
@@ -97,9 +104,13 @@ export class ItemOverviewHttpService {
 
         switch (response.status) {
             case 403:
-                return this.browser.retrieve(url);
+                return this.browser.retrieve(url).pipe(delay(RETRY_DELAY));
             default:
                 return this.session.clear().pipe(delay(RETRY_DELAY));
         }
+    }
+
+    private getUrl(leagueId: string, type: ItemOverviewType): string {
+        return `${this.baseUrl}?league=${encodeURIComponent(leagueId)}&type=${encodeURIComponent(type)}&language=en`;
     }
 }

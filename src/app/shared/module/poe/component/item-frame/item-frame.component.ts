@@ -57,7 +57,7 @@ export class ItemFrameComponent implements OnInit {
     this.req = !!(this.item.level || this.item.requirements);
     this.sockets = !!(this.item.sockets && this.item.sockets.length > 0);
     this.stats = !!(this.item.stats && this.item.stats.length > 0);
-    this.state = !!(this.item.corrupted !== undefined || this.item.veiled !== undefined);
+    this.state = !!(this.item.corrupted !== undefined || this.item.veiled !== undefined || this.item.unidentified !== undefined);
     this.influences = !!this.item.influences;
 
     if (this.queryItemChange.observers.length === 0) {

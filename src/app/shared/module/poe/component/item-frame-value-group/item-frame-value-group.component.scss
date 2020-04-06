@@ -6,7 +6,8 @@
       app-item-frame-value {
         .value {
           background-color: rgba(170, 158, 130, 0.3);
-          outline: auto;
+          outline-style: solid;
+          outline-width: 1px;
         }
       }
     }

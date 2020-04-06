@@ -36,6 +36,10 @@
 		"debounce-time": "Tiempo de rebote de búsqueda",
 		"empty": "No hay resultados. ¿Abierta en el navegador?",
 		"error": "Ocurrió un error.",
+		"errors": {
+			"http": "No se pudo comunicar con el sitio web comercial de GGG.\nAsegúrese de que se pueda acceder al sitio web.",
+			"rate": "Límite alcanzado. Por favor, inténtelo de nuevo más tarde.\nSi esto sigue sucediendo, intente reducir el recuento de elementos recuperados."
+		},
 		"fetch-count": "Buscar recuento de búsqueda",
 		"listings": "Encontrado {{total}}. Obteniendo {{count}} entradas ...",
 		"loading": "Cargando...",

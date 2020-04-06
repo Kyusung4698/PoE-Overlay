@@ -5,7 +5,7 @@
   <mat-progress-bar mode="determinate" [value]="staleProgress$ | async"></mat-progress-bar>
 </ng-container>
 <ng-template #search>
-  <ng-container *ngIf="(error$ | async) === false; else error">
+  <ng-container *ngIf="(error$ | async) === undefined; else error">
     <ng-container *ngIf="search$ | async as search; else searching">
       <ng-container *ngIf="search.total > 0; else empty">
         <ng-container *ngIf="listings$ | async as listings; else listing">
@@ -80,6 +80,6 @@
     </ng-template>
   </ng-container>
   <ng-template #error>
-    <div>{{ 'evaluate.error' | translate }}</div>
+    <div>{{ error$ | async | translate }}</div>
   </ng-template>
 </ng-template>

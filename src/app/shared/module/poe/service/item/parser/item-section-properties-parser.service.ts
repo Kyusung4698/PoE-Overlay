@@ -29,9 +29,9 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
 
         const lines = propertiesSection.lines;
         for (const line of lines) {
-            props.weaponPhysicalDamage = this.parseProperty(line, phrases[0], props.weaponPhysicalDamage);
-            props.weaponElementalDamage = this.parseProperties(line, phrases[1], props.weaponElementalDamage);
-            props.weaponChaosDamage = this.parseProperty(line, phrases[2], props.weaponChaosDamage);
+            props.weaponPhysicalDamage = this.parseValueProperty(line, phrases[0], props.weaponPhysicalDamage);
+            props.weaponElementalDamage = this.parseValueProperties(line, phrases[1], props.weaponElementalDamage);
+            props.weaponChaosDamage = this.parseValueProperty(line, phrases[2], props.weaponChaosDamage);
             props.weaponCriticalStrikeChance = this.parseValueProperty(line, phrases[3], props.weaponCriticalStrikeChance);
             props.weaponAttacksPerSecond = this.parseValueProperty(line, phrases[4], props.weaponAttacksPerSecond);
             props.weaponRange = this.parseProperty(line, phrases[5], props.weaponRange);
