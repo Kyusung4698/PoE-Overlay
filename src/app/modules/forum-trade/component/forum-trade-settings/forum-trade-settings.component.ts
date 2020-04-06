@@ -1,6 +1,7 @@
 import { UserSettings, UserSettingsComponent } from '../../../../layout/type';
 import { AfterContentInit, ChangeDetectionStrategy, Component } from '@angular/core';
 import { LoginService } from '@modules/forum-trade/service/forum-trade-login.service';
+import { PoeAPIService } from '@shared/module/poe/service/api.service';
 
 export interface ForumTradeUserSettings extends UserSettings {
   sessionId: string,
@@ -19,7 +20,8 @@ export class ForumTradeSettingsComponent implements UserSettingsComponent, After
   accountName: string = 'undefined';
 
   constructor(
-    private readonly loginService: LoginService
+    private readonly loginService: LoginService,
+    private readonly api: PoeAPIService
   ) {
   }
 
@@ -43,13 +45,13 @@ export class ForumTradeSettingsComponent implements UserSettingsComponent, After
   }
 
   openLoginPage() {
-    this.loginService.openLoginPage().then(() => this.loginService.getAccountName().subscribe(
+    this.loginService.openLoginPage().then(() => this.api.getAccountName().subscribe(
       (name) => this.accountName = name, () => this.accountName = 'undefined'
     ))
   }
 
   ngAfterContentInit() {
-    this.loginService.getAccountName().subscribe(
+    this.api.getAccountName().subscribe(
       (name) => this.accountName = name, () => this.accountName = 'undefined'
     )
   }
