@@ -4,6 +4,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Language, League } from '@shared/module/poe/type';
 import { LeaguesService } from '@shared/module/poe/service/leagues.service';
 import { fromArray } from 'rxjs/internal/observable/fromArray';
+import { Injectable } from '@angular/core';
 
 export enum CharacterClass {
   Scion,
@@ -48,6 +49,9 @@ interface AccountName {
   accountName: string
 }
 
+@Injectable({
+  providedIn: 'root'
+})
 export class PoeAPIService {
   constructor(
     private readonly httpClient: HttpClient,
