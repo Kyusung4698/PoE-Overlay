@@ -19,6 +19,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { AcceleratorComponent } from './component/accelerator/accelerator.component';
 import { SelectListComponent } from './component/select-list/select-list.component';
 import { DragDirective } from './directive/drag.directive';
+import { CardComponent } from './component/card/card.component';
 
 
 @NgModule({
@@ -63,8 +64,9 @@ import { DragDirective } from './directive/drag.directive';
     // custom
     AcceleratorComponent,
     SelectListComponent,
-    DragDirective
+    DragDirective,
+    CardComponent
   ],
-  declarations: [AcceleratorComponent, SelectListComponent, DragDirective]
+  declarations: [AcceleratorComponent, SelectListComponent, DragDirective, CardComponent]
 })
 export class MaterialModule { }

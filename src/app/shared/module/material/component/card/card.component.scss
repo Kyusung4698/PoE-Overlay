@@ -1,0 +1,11 @@
+::ng-deep {
+    app-card {
+        > .mat-card {
+            padding: 14px 10px;
+        }
+    }
+}
+
+.title {
+    margin-bottom: 12px;
+}

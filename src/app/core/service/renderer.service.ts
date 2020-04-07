@@ -28,7 +28,7 @@ export class RendererService {
             this.ipcRenderer.send('open-route', route);
 
             this.ipcRenderer.once('open-route-reply', (_, result) => {
-                if (result === 'closed') {
+                if (result === 'close' || result === 'hide') {
                     resolve();
                 } else {
                     reject(result);

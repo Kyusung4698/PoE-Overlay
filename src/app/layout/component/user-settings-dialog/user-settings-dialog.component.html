@@ -1,91 +1,20 @@
-<div class="dialog-content" mat-dialog-content>
-    <mat-tab-group mat-stretch-tabs animationDuration="0ms" (selectedIndexChange)="onSelectedIndexChange($event)">
+<ng-container *ngIf="settings && features">
+    <mat-tab-group mat-stretch-tabs animationDuration="0ms" (selectedIndexChange)="onSelectedIndexChange($event)">        
         <mat-tab [label]="'settings.general' | translate">
-            <div class="content">
+            <div class="tab-content">
                 <app-user-settings-form [settings]="settings"></app-user-settings-form>
             </div>
         </mat-tab>
         <mat-tab [label]="feature.name | translate" *ngFor="let feature of features">
-            <div class="content">
+            <div class="tab-content">
                 <app-user-settings-feature-container [component]="feature.component" [settings]="settings">
                 </app-user-settings-feature-container>
             </div>
         </mat-tab>
         <mat-tab [label]="'help.name' | translate">
-            <mat-card>
-                <mat-label>{{'help.faq' | translate}}</mat-label>
-                <mat-accordion>
-                    <mat-expansion-panel>
-                        <mat-expansion-panel-header>
-                            <mat-panel-title> Q.: {{'help.browser-title' | translate}} </mat-panel-title>
-                        </mat-expansion-panel-header>
-                        <p>A.: <span [innerHTML]="'help.browser' | translate"></span></p>
-                    </mat-expansion-panel>
-                    <mat-expansion-panel>
-                        <mat-expansion-panel-header>
-                            <mat-panel-title> Q.: {{'help.graph-title' | translate}}
-                            </mat-panel-title>
-                        </mat-expansion-panel-header>
-                        <p>A.: <span [innerHTML]="'help.graph' | translate"></span></p>
-                        <button mat-button
-                            (click)="openUrl('https://academy.datawrapper.de/article/136-histogram-min-max-median-mean')">
-                            {{'help.graph-url' | translate}} </button>
-                    </mat-expansion-panel>
-                    <mat-expansion-panel>
-                        <mat-expansion-panel-header>
-                            <mat-panel-title> Q.: {{'help.dwm-title' | translate}}
-                            </mat-panel-title>
-                        </mat-expansion-panel-header>
-                        <p>A.: <span [innerHTML]="'help.dwm' | translate"></span></p>
-                    </mat-expansion-panel>
-                    <mat-expansion-panel>
-                        <mat-expansion-panel-header>
-                            <mat-panel-title> Q.: {{'help.graphic-title' | translate}}
-                            </mat-panel-title>
-                        </mat-expansion-panel-header>
-                        <p>A.: <span [innerHTML]="'help.graphic' | translate"></span> </p>
-                    </mat-expansion-panel>
-                    <mat-expansion-panel>
-                        <mat-expansion-panel-header>
-                            <mat-panel-title> {{'help.wiki-title' | translate}} </mat-panel-title>
-                        </mat-expansion-panel-header>
-                        <button mat-button
-                            (click)="openUrl('https://github.com/Kyusung4698/PoE-Overlay/wiki')">{{'help.wiki' | translate}}</button>
-                    </mat-expansion-panel>
-                    <mat-expansion-panel>
-                        <mat-expansion-panel-header>
-                            <mat-panel-title> {{'help.bug-title' | translate}}
-                            </mat-panel-title>
-                        </mat-expansion-panel-header>
-                        <button mat-button
-                            (click)="openUrl('https://github.com/Kyusung4698/PoE-Overlay/issues')">{{'help.bug' | translate}}</button>
-                    </mat-expansion-panel>
-                    <mat-expansion-panel>
-                        <mat-expansion-panel-header>
-                            <mat-panel-title> {{'help.donate-title' | translate}}
-                            </mat-panel-title>
-                        </mat-expansion-panel-header>
-                        <button mat-button
-                            (click)="openUrl('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4S7UYESYQ6UHU&source=url')">
-                            <mat-icon style="color: #ea4aaa">favorite</mat-icon>
-                            {{'help.donate' | translate}}
-                        </button>
-                        <button mat-button
-                            (click)="openUrl('https://www.patreon.com/kyusung4698')">
-                            <mat-icon style="color: #F96854">local_parking</mat-icon>
-                            {{'help.patreon' | translate}}
-                        </button>
-                    </mat-expansion-panel>
-                </mat-accordion>
-            </mat-card>
+            <div class="tab-content">
+                <app-user-settings-help></app-user-settings-help>
+            </div>
         </mat-tab>
     </mat-tab-group>
-</div>
-<div mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close>
-        {{'settings.cancel' | translate}}
-    </button>
-    <button mat-button [mat-dialog-close]="settings">
-        {{'settings.save' | translate}}
-    </button>
-</div>
+</ng-container>

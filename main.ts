@@ -190,34 +190,27 @@ function createWindow(): BrowserWindow {
 ipcMain.on('open-route', (event, route) => {
     try {
         if (!childs[route]) {
-            const bounds = win.getBounds();
             childs[route] = new BrowserWindow({
-                width: bounds.width,
-                height: bounds.height,
-                x: bounds.x,
-                y: bounds.y,
-                transparent: true,
-                frame: false,
-                resizable: false,
-                movable: false,
+                width: 1210,
+                height: 700,
+                frame: false,                
+                closable: false,
+                resizable: true,
+                movable: true,
                 webPreferences: {
                     nodeIntegration: true,
                     allowRunningInsecureContent: serve,
                     webSecurity: false
                 },
-                modal: true,
-                parent: win,
-                show: false
+                center: true,
+                transparent: true
             });
 
             childs[route].removeMenu();
 
-            childs[route].once('ready-to-show', () => {
-                childs[route].show()
-            });
-
-            childs[route].once('closed', () => {
+            childs[route].once('close', () => {
                 childs[route] = null;
+                event.reply('open-route-reply', 'close');
             });
 
             loadApp(childs[route], `#/${route}`);
@@ -226,7 +219,7 @@ ipcMain.on('open-route', (event, route) => {
         }
 
         childs[route].once('hide', () => {
-            event.reply('open-route-reply', 'closed');
+            event.reply('open-route-reply', 'hide');
         });
     }
     catch (error) {

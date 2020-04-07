@@ -1,8 +1,12 @@
 # Changelog
 
-## 0.6.17 (2020-04-03)
+## 0.6.17 (2020-04-05)
 
 - add file cache for all requests to further reduce total request count
+- add temporary cache for listing to reduce detail requests
+- update settings dialog
+  - is now an actual window which can be resized
+  - has now a responsive design to support smaller viewports
 - updata data to 3.10.1c (#555)
 - update run iohook only if required (stash navigation)
 - fix quality higher than 20% showing a lower value as max

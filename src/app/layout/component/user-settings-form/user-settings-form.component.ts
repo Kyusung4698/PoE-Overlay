@@ -11,7 +11,6 @@ import { UserSettings } from '../../type';
 @Component({
   selector: 'app-user-settings-form',
   templateUrl: './user-settings-form.component.html',
-  styleUrls: ['./user-settings-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserSettingsFormComponent implements OnInit {

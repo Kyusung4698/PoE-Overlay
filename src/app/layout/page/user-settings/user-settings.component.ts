@@ -3,15 +3,20 @@ import { AppTranslateService, WindowService } from '@app/service';
 import { FEATURE_MODULES } from '@app/token';
 import { FeatureModule } from '@app/type';
 import { ContextService } from '@shared/module/poe/service';
-import { flatMap, tap } from 'rxjs/operators';
+import { BehaviorSubject, Subject } from 'rxjs';
+import { flatMap } from 'rxjs/operators';
 import { UserSettingsService } from '../../service';
+import { UserSettings, UserSettingsFeature } from '../../type';
 
 @Component({
   selector: 'app-user-settings',
-  template: '',
+  styleUrls: ['./user-settings.component.scss'],
+  templateUrl: './user-settings.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserSettingsComponent implements OnInit, OnDestroy {
+  public settings$ = new BehaviorSubject<UserSettings>(undefined);
+  public features$ = new Subject<UserSettingsFeature[]>();
 
   constructor(
     @Inject(FEATURE_MODULES)
@@ -28,6 +33,17 @@ export class UserSettingsComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit(): void {
+    const { Titlebar, Color } = window.require('custom-electron-titlebar');
+    const titlebar = new Titlebar({
+      backgroundColor: Color.fromHex('#7f7f7f'),
+      menu: null,
+      hideWhenClickingClose: true
+    });
+    titlebar.on('before-close', () => new Promise((resolve, reject) => {
+      this.userSettingsService.save(this.settings$.value).subscribe(resolve, reject);
+    }));
+    titlebar.updateTitle('PoE Overlay - Settings');
+
     this.userSettingsService.init(this.modules).subscribe(settings => {
       this.translate.use(settings.uiLanguage);
       this.window.setZoom(settings.zoom / 100);
@@ -35,13 +51,9 @@ export class UserSettingsComponent implements OnInit, OnDestroy {
         language: settings.language,
         leagueId: settings.leagueId
       });
-      this.userSettingsService.edit(settings).subscribe((saved) => {
-        if (saved) {
-          this.translate.use(saved.uiLanguage);
-        }
-        this.window.hide();
-        this.registerShow();
-      });
+      this.settings$.next(settings);
+      this.features$.next(this.userSettingsService.features());
+      this.registerEvents();
     });
   }
 
@@ -49,21 +61,18 @@ export class UserSettingsComponent implements OnInit, OnDestroy {
     this.removeAllListeners();
   }
 
-  private registerShow(): void {
-    this.window.on('show').subscribe(() => {
-      this.userSettingsService.get().pipe(
-        tap(settings => this.context.update({
-          language: settings.language,
-          leagueId: settings.leagueId
-        })),
-        flatMap(settings => this.userSettingsService.edit(settings))
-      ).subscribe((settings) => {
-        if (settings) {
-          this.translate.use(settings.uiLanguage);
-          this.window.setZoom(settings.zoom / 100);
-        }
-        this.window.hide();
+  private registerEvents(): void {
+    this.window.on('show').pipe(
+      flatMap(() => this.userSettingsService.get())
+    ).subscribe(settings => {
+      this.translate.use(settings.uiLanguage);
+      this.window.setZoom(settings.zoom / 100);
+      this.context.update({
+        language: settings.language,
+        leagueId: settings.leagueId
       });
+      this.settings$.next(settings);
+      this.features$.next(this.userSettingsService.features());
     });
   }
 

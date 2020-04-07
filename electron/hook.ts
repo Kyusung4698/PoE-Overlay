@@ -41,11 +41,14 @@ class Hook {
             } else {
                 try {
                     const iohook = (await import('iohook')).default;
-                    iohook.off('mousewheel', this.callback);
+                    if (this.callback) {
+                        iohook.off('mousewheel', this.callback);
+                    }
+
                     iohook.stop();
 
-                    this.active = false;
                     this.callback = undefined;
+                    this.active = false;
 
                     resolve(true);
                 }

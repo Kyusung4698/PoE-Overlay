@@ -1,6 +1,8 @@
 {
 	"app": {
 		"clickable": "'Click'= 게임 내 브라우저, 'CTRL + 클릭'기본 브라우저",
+		"language": "언어",
+		"shortcut": "단축키",
 		"update": {
 			"available": "새로운 업데이트가 있습니다. 별도로 지정하지 않는 한 자동으로 다운로드됩니다.",
 			"downloaded": "이제 새로운 업데이트를 설치할 준비가되었습니다. PoE 오버레이를 다시 시작하십시오."
@@ -10,7 +12,6 @@
 		"add": "북마크에 추가",
 		"external": "외부",
 		"name": "책갈피",
-		"shortcut": "단축키",
 		"url": "URL"
 	},
 	"clipboard": {
@@ -21,7 +22,6 @@
 	"command": {
 		"add": "명령어 추가",
 		"name": "명령어",
-		"shortcut": "단축키",
 		"text": "명령어"
 	},
 	"evaluate": {
@@ -30,10 +30,12 @@
 		"cancel": "취소?",
 		"canceled": "검색이 취소되었습니다. 브라우저에서 열려?",
 		"count": "카운트",
+		"currencies": "통화",
 		"currency": "표시중인 화폐",
-		"currency-original": "원래 통화",
+		"currency-listing": "리스팅 통화 표시",
 		"days": "최근 7 일",
-		"debounce-time": "검색 디 바운스 시간",
+		"debounce-time": "디 바운스 시간",
+		"debounce-time-max": "무한대",
 		"empty": "결과가 없습니다. 브라우저에서 열려?",
 		"error": "오류가 발생했습니다.",
 		"errors": {
@@ -41,6 +43,7 @@
 			"rate": "한도에 도달했습니다. 나중에 다시 시도하십시오.\n이 문제가 계속 발생하면 가져온 품목 수를 줄이십시오."
 		},
 		"fetch-count": "검색 페치 수",
+		"layout": "형세",
 		"listings": " {{total}}을 (를) 찾았습니다. {{count}} 항목을 가져 오는 중 ...",
 		"loading": "로드 중 ...",
 		"mean": "Mean",
@@ -48,6 +51,11 @@
 		"mode": "Mode",
 		"name": "가격 측정",
 		"not-found": "데이터가 없습니다.",
+		"profile": {
+			"default": "태만"
+		},
+		"profiles": "미리 선택된 프로파일",
+		"query": "질문",
 		"range": "Range",
 		"result-view": "결과보기",
 		"result-views": {
@@ -55,9 +63,8 @@
 			"list": "명부"
 		},
 		"search": {
-			"default": "기본 검색 설정",
 			"disable-max-range": "최대 범위 비활성화",
-			"filter": "검색 필터",
+			"filter": "필터",
 			"gem": "보석 레벨, 지도 등급 및 품질",
 			"item-default-links": "아이템 링크",
 			"item-level": "아이템 레벨",
@@ -77,9 +84,8 @@
 				"week": "1주 전까지",
 				"weeks": "2주 전까지"
 			},
-			"modifier": "수정 자 검색 설정",
-			"modifier-range": "수정 자 범위",
-			"online-only": "온라인만"
+			"online-only": "온라인만",
+			"properties": "속성"
 		},
 		"searching": "수색...",
 		"seller": "파는 사람",
@@ -88,6 +94,7 @@
 		"stats": "통계",
 		"stats-export": "통계를 클립 보드로 내보내기",
 		"stats-import": "클립 보드에서 통계 가져 오기",
+		"stats-range": "최소 최대 범위",
 		"stats-unique-check-all": "모두 확인",
 		"switch": "스위치 금액",
 		"tag": {
@@ -180,7 +187,6 @@
 		"exit-app": "앱 종료",
 		"game-settings": "게임 설정",
 		"general": "일반",
-		"language": "언어",
 		"languages": {
 			"english": "영어",
 			"french": "프랑스 국민",

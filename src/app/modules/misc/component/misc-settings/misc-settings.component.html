@@ -1,27 +1,46 @@
-<mat-card>
-  <mat-label>{{'misc.wiki' | translate}}</mat-label>
-  <app-accelerator [label]="'misc.open-wiki' | translate" [(value)]="settings.miscWikiKeybinding">
-  </app-accelerator>
-  <app-accelerator [label]="'misc.open-wiki-external' | translate" [(value)]="settings.miscWikiExternalKeybinding">
-  </app-accelerator>
-</mat-card>
-<mat-card>
-  <mat-label>{{'misc.poedb' | translate}}</mat-label>
-  <app-accelerator [label]="'misc.open-poedb' | translate" [(value)]="settings.miscPoedbKeybinding">
-  </app-accelerator>
-  <app-accelerator [label]="'misc.open-poedb-external' | translate" [(value)]="settings.miscPoedbExternalKeybinding">
-  </app-accelerator>
-</mat-card>
-<mat-card>
-  <mat-label>{{'misc.stash' | translate}}</mat-label>
-  <mat-form-field>
-    <mat-label>{{'misc.navigation' | translate}} (CTRL + SCROLL)</mat-label>
-    <mat-select [(value)]="settings.miscStashNavigationMode">
-      <mat-option *ngFor="let navigation of navigations.keys" [value]="navigation">        
-        {{'misc.navigations.' + (navigations.values[navigation] | lowercase) | translate}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <app-accelerator [label]="'misc.highlight' | translate" [(value)]="settings.miscStashHighlightKeybinding">
-  </app-accelerator>
-</mat-card>
+<div class="row">
+  <div class="col-md-6 col-lg-4">
+    <app-card [title]="'misc.wiki' | translate">
+      <div class="row">
+        <div class="col">
+          <app-accelerator [label]="'misc.open-wiki' | translate" [(value)]="settings.miscWikiKeybinding">
+          </app-accelerator>
+          <app-accelerator [label]="'misc.open-wiki-external' | translate"
+            [(value)]="settings.miscWikiExternalKeybinding">
+          </app-accelerator>
+        </div>
+      </div>
+    </app-card>
+  </div>
+  <div class="col-md-6 col-lg-4">
+    <app-card [title]="'misc.poedb' | translate">
+      <div class="row">
+        <div class="col">
+          <app-accelerator [label]="'misc.open-poedb' | translate" [(value)]="settings.miscPoedbKeybinding">
+          </app-accelerator>
+          <app-accelerator [label]="'misc.open-poedb-external' | translate"
+            [(value)]="settings.miscPoedbExternalKeybinding">
+          </app-accelerator>
+        </div>
+      </div>
+    </app-card>
+  </div>
+  <div class="col-md-6 col-lg-4">
+    <app-card [title]="'misc.stash' | translate">
+      <div class="row">
+        <div class="col">
+          <mat-form-field>
+            <mat-label>{{'misc.navigation' | translate}} (CTRL + SCROLL)</mat-label>
+            <mat-select [(value)]="settings.miscStashNavigationMode">
+              <mat-option *ngFor="let navigation of navigations.keys" [value]="navigation">
+                {{'misc.navigations.' + (navigations.values[navigation] | lowercase) | translate}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <app-accelerator [label]="'misc.highlight' | translate" [(value)]="settings.miscStashHighlightKeybinding">
+          </app-accelerator>
+        </div>
+      </div>
+    </app-card>
+  </div>
+</div>

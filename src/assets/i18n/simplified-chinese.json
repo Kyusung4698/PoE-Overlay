@@ -1,6 +1,8 @@
 {
 	"app": {
 		"clickable": "'点击'=游戏内浏览器，'CTRL +点击'默认浏览器",
+		"language": "语言",
+		"shortcut": "捷径",
 		"update": {
 			"available": "有新的更新。除非另有说明，否则将自动下载。",
 			"downloaded": "现在就可以安装新更新了。请重新启动PoE覆盖。"
@@ -10,7 +12,6 @@
 		"add": "添加书签",
 		"external": "外部",
 		"name": "书签",
-		"shortcut": "捷径",
 		"url": "网址"
 	},
 	"clipboard": {
@@ -21,7 +22,6 @@
 	"command": {
 		"add": "添加命令",
 		"name": "命令",
-		"shortcut": "捷径",
 		"text": "命令"
 	},
 	"evaluate": {
@@ -30,10 +30,12 @@
 		"cancel": "取消？",
 		"canceled": "搜索已取消。在浏览器中打开？",
 		"count": "计数",
+		"currencies": "货币",
 		"currency": "显示货币",
-		"currency-original": "原始货币",
+		"currency-listing": "显示清单货币",
 		"days": "过去7天",
-		"debounce-time": "搜索反跳时间",
+		"debounce-time": "去抖时间",
+		"debounce-time-max": "无穷",
 		"empty": "没有结果。在浏览器中打开？",
 		"error": "发生错误。",
 		"errors": {
@@ -41,6 +43,7 @@
 			"rate": "已达到限制。请稍后再试。\n如果这种情况持续发生，请尝试减少获取的物品数。"
 		},
 		"fetch-count": "搜索获取计数",
+		"layout": "布局",
 		"listings": "找到 {{total}}。正在获取 {{count}} 个条目...",
 		"loading": "载入中...",
 		"mean": "平均值",
@@ -48,6 +51,11 @@
 		"mode": "模式",
 		"name": "评估",
 		"not-found": "没有找到数据。",
+		"profile": {
+			"default": "默认"
+		},
+		"profiles": "预选个人资料",
+		"query": "询问",
 		"range": "范围",
 		"result-view": "结果视图",
 		"result-views": {
@@ -55,9 +63,8 @@
 			"list": "名单"
 		},
 		"search": {
-			"default": "默认搜索设置",
 			"disable-max-range": "禁用最大范围",
-			"filter": "搜索过滤器",
+			"filter": "过滤",
 			"gem": "宝石等级，地图等级和品质",
 			"item-default-links": "物品链接",
 			"item-level": "物品等级",
@@ -77,9 +84,8 @@
 				"week": "直到一周前",
 				"weeks": "最多2周前"
 			},
-			"modifier": "修改器搜索设置",
-			"modifier-range": "修改范围",
-			"online-only": "仅在线"
+			"online-only": "仅在线",
+			"properties": "属性"
 		},
 		"searching": "搜索...",
 		"seller": "卖家",
@@ -88,6 +94,7 @@
 		"stats": "统计资料",
 		"stats-export": "将统计数据导出到剪贴板",
 		"stats-import": "从剪贴板导入统计",
+		"stats-range": "最小最大范围",
 		"stats-unique-check-all": "唯一检查所有",
 		"switch": "切换量",
 		"tag": {
@@ -180,7 +187,6 @@
 		"exit-app": "退出应用",
 		"game-settings": "游戏设置",
 		"general": "一般",
-		"language": "语言",
 		"languages": {
 			"english": "英语",
 			"french": "法语",
