@@ -9,7 +9,9 @@ import { UserSettingsDialogComponent } from './user-settings-dialog.component';
 
 class ElectronProviderFake {
   public provideRemote(): Electron.Remote {
-    return null;
+    return {
+      getCurrentWindow: () => null,
+    } as any as Electron.Remote;
   }
 
   public provideIpcRenderer(): Electron.IpcRenderer {

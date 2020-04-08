@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { TranslateFakeLoader, TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { SharedModule } from '@shared/shared.module';
 import { UserSettingsHelpComponent } from './user-settings-help.component';
+
 
 describe('UserSettingsHelpComponent', () => {
   let component: UserSettingsHelpComponent;
@@ -8,9 +10,18 @@ describe('UserSettingsHelpComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserSettingsHelpComponent ]
+      imports: [
+        SharedModule,
+        TranslateModule.forRoot({
+          loader: {
+            provide: TranslateLoader,
+            useFactory: () => new TranslateFakeLoader()
+          }
+        })
+      ],
+      declarations: [UserSettingsHelpComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
