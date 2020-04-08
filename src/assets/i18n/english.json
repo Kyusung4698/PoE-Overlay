@@ -35,7 +35,6 @@
 		"currency-listing": "Show Listing Currency",
 		"days": "Last 7 days",
 		"debounce-time": "Debounce Time",
-		"debounce-time-max": "Infinity",
 		"empty": "No results. Open in browser?",
 		"error": "An error occured.",
 		"errors": {

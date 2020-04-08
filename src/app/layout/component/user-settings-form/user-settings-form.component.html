@@ -57,7 +57,7 @@
         <div class="col-md-6">
             <mat-form-field>
                 <mat-label>{{'settings.ui-language' | translate}}</mat-label>
-                <mat-select [(value)]="settings.uiLanguage">
+                <mat-select [(value)]="settings.uiLanguage" (valueChange)="onUiLanguageChange()">
                     <mat-option *ngFor="let language of uiLanguages.keys" [value]="language">
                         {{'settings.languages.' + (uiLanguages.values[language] | lowercase) | translate}}
                     </mat-option>
@@ -67,7 +67,7 @@
         <div class="col-md-6">
             <mat-form-field>
                 <mat-label>{{'settings.zoom' | translate}}</mat-label>
-                <mat-select [(value)]="settings.zoom">
+                <mat-select [(value)]="settings.zoom" (valueChange)="onZoomChange()">
                     <mat-option *ngFor="let value of [25,33,50,67,75,80,90,100,110,125,150,175,200,250,300]"
                         [value]="value">
                         {{value}}%

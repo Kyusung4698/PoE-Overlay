@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { EnumValues } from '@app/class';
 import { ClipboardService } from '@app/service/input';
 import { SelectListItem } from '@shared/module/material/component/select-list/select-list.component';
@@ -52,15 +52,10 @@ interface StatSelectListItem extends SelectListItem {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EvaluateSettingsComponent implements UserSettingsComponent {
-
-  constructor(
-    private readonly currencyService: CurrencyService,
-    private readonly statsProvider: StatsProvider,
-    private readonly statsService: StatsService,
-    private readonly clipboard: ClipboardService,
-    private readonly snackbar: SnackBarService) { }
   public languages = new EnumValues(Language);
   public views = new EnumValues(EvaluateResultView);
+
+  @Input()
   public settings: EvaluateUserSettings;
 
   public currencies$ = new BehaviorSubject<Currency[]>([]);
@@ -73,6 +68,13 @@ export class EvaluateSettingsComponent implements UserSettingsComponent {
   public displayWithTime = (value: number) => value === this.debounceTimeMax ? '∞' : `${Math.round(value * 10) / 100}s`;
   public displayWithCount = (value: number) => `${value} items`;
   public displayWithStat = (value: number) => value === 50 ? '#' : value;
+
+  constructor(
+    private readonly currencyService: CurrencyService,
+    private readonly statsProvider: StatsProvider,
+    private readonly statsService: StatsService,
+    private readonly clipboard: ClipboardService,
+    private readonly snackbar: SnackBarService) { }
 
   public load(): void {
     if (this.settings.language) {

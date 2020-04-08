@@ -26,10 +26,6 @@ const CACHE_EXPIRY = 1000 * 60 * 30;
     providedIn: 'root'
 })
 export class ItemCategoryValuesProvider {
-    private readonly cache1: {
-        [key: string]: Observable<ItemCategoryValues>
-    } = {};
-
     constructor(
         private readonly currencyService: CurrencyOverviewHttpService,
         private readonly itemService: ItemOverviewHttpService,

@@ -158,8 +158,7 @@ function createWindow(): BrowserWindow {
         webPreferences: {
             nodeIntegration: true,
             allowRunningInsecureContent: serve,
-            webSecurity: false,
-            backgroundThrottling: false
+            webSecurity: false
         },
         focusable: state.keyboardSupport,
         skipTaskbar: true,

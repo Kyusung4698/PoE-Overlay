@@ -1,10 +1,9 @@
-import { ChangeDetectionStrategy, Component, HostListener, Inject, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 import { AppTranslateService, WindowService } from '@app/service';
 import { FEATURE_MODULES } from '@app/token';
 import { FeatureModule } from '@app/type';
 import { ContextService } from '@shared/module/poe/service';
-import { BehaviorSubject, Subject } from 'rxjs';
-import { flatMap } from 'rxjs/operators';
+import { BehaviorSubject } from 'rxjs';
 import { UserSettingsService } from '../../service';
 import { UserSettings, UserSettingsFeature } from '../../type';
 
@@ -14,22 +13,19 @@ import { UserSettings, UserSettingsFeature } from '../../type';
   templateUrl: './user-settings.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UserSettingsComponent implements OnInit, OnDestroy {
-  public settings$ = new BehaviorSubject<UserSettings>(undefined);
-  public features$ = new Subject<UserSettingsFeature[]>();
+export class UserSettingsComponent implements OnInit {
+  public init$ = new BehaviorSubject<boolean>(false);
+
+  public settings: UserSettings;
+  public features: UserSettingsFeature[];
 
   constructor(
     @Inject(FEATURE_MODULES)
     private readonly modules: FeatureModule[],
-    private readonly userSettingsService: UserSettingsService,
+    private readonly settingsService: UserSettingsService,
     private readonly window: WindowService,
     private readonly context: ContextService,
     private readonly translate: AppTranslateService) {
-  }
-
-  @HostListener('window:beforeunload', [])
-  public onWindowBeforeUnload(): void {
-    this.removeAllListeners();
   }
 
   public ngOnInit(): void {
@@ -40,43 +36,28 @@ export class UserSettingsComponent implements OnInit, OnDestroy {
       hideWhenClickingClose: true
     });
     titlebar.on('before-close', () => new Promise((resolve, reject) => {
-      this.userSettingsService.save(this.settings$.value).subscribe(resolve, reject);
+      if (this.init$.value) {
+        this.translate.use(this.settings.uiLanguage);
+        this.window.setZoom(this.settings.zoom / 100);
+        this.context.update({
+          language: this.settings.language,
+          leagueId: this.settings.leagueId
+        });
+        this.settingsService.save(this.settings).subscribe(resolve, reject);
+      }
     }));
     titlebar.updateTitle('PoE Overlay - Settings');
 
-    this.userSettingsService.init(this.modules).subscribe(settings => {
+    this.settingsService.init(this.modules).subscribe(settings => {
       this.translate.use(settings.uiLanguage);
       this.window.setZoom(settings.zoom / 100);
       this.context.init({
         language: settings.language,
         leagueId: settings.leagueId
       });
-      this.settings$.next(settings);
-      this.features$.next(this.userSettingsService.features());
-      this.registerEvents();
+      this.settings = settings;
+      this.features = this.settingsService.features();
+      this.init$.next(true);
     });
-  }
-
-  public ngOnDestroy(): void {
-    this.removeAllListeners();
-  }
-
-  private registerEvents(): void {
-    this.window.on('show').pipe(
-      flatMap(() => this.userSettingsService.get())
-    ).subscribe(settings => {
-      this.translate.use(settings.uiLanguage);
-      this.window.setZoom(settings.zoom / 100);
-      this.context.update({
-        language: settings.language,
-        leagueId: settings.leagueId
-      });
-      this.settings$.next(settings);
-      this.features$.next(this.userSettingsService.features());
-    });
-  }
-
-  private removeAllListeners(): void {
-    this.window.removeAllListeners();
   }
 }

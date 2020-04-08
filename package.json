@@ -1,6 +1,6 @@
 {
   "name": "poe-overlay",
-  "version": "0.6.17",
+  "version": "0.6.18",
   "private": true,
   "description": "A Overlay for Path of Exile. Built with Electron and Angular.",
   "main": "main.js",
@@ -18,7 +18,7 @@
     "electron:serve": "wait-on http-get://localhost:4200/ && npm run electron:serve-tsc && electron . --serve",
     "electron:local": "npm run build:prod && electron .",
     "electron:windows": "npm run build:prod && electron-builder build --windows",
-    "electron:linux": "electron-builder build --linux",
+    "electron:linux": "npm run build:prod && electron-builder build --linux",
     "electron:build": "npm run build:prod && electron-builder build --linux --windows",
     "electron:version": "electron -v && electron -a",
     "electron:deps": "electron-builder install-app-deps",

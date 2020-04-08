@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { ClipboardService } from '@app/service/input';
 import { SelectListItem } from '@shared/module/material/component/select-list/select-list.component';
 import { SnackBarService } from '@shared/module/material/service';
@@ -20,6 +20,7 @@ export interface MapUserSettings extends UserSettings {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MapSettingsComponent implements UserSettingsComponent {
+  @Input()
   public settings: MapUserSettings;
 
   public stats$ = new BehaviorSubject<SelectListItem[]>([]);

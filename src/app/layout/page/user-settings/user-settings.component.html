@@ -1,1 +1,3 @@
-<app-user-settings-dialog [settings]="settings$ | async" [features]="features$ | async"></app-user-settings-dialog>
+<ng-container *ngIf="init$ | async">
+    <app-user-settings-dialog [settings]="settings" [features]="features"></app-user-settings-dialog>
+</ng-container>

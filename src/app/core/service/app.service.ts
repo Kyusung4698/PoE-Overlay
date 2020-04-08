@@ -103,7 +103,7 @@ export class AppService {
         if (this.updateState$.value === AppUpdateState.Downloaded) {
             this.ipcRenderer.send('app-quit-and-install', false);
         } else {
-            this.electron.app.quit();
+            this.electron.app.exit();
         }
     }
 
@@ -117,7 +117,7 @@ export class AppService {
             this.ipcRenderer.send('app-quit-and-install', true);
         } else {
             this.electron.app.relaunch();
-            this.electron.app.quit();
+            this.electron.app.exit();
         }
     }
 }

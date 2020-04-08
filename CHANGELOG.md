@@ -1,12 +1,14 @@
 # Changelog
 
-## 0.6.17 (2020-04-05)
+## 0.6.18 (2020-04-08)
 
 - add file cache for all requests to further reduce total request count
-- add temporary cache for listing to reduce detail requests
+- add temporary cache for listings to reduce detail requests
 - update settings dialog
   - is now an actual window which can be resized
   - has now a responsive design to support smaller viewports
+  - ui language is now directly affected
+  - zoom is now applied directly
 - updata data to 3.10.1c (#555)
 - update run iohook only if required (stash navigation)
 - fix quality higher than 20% showing a lower value as max (#584)
