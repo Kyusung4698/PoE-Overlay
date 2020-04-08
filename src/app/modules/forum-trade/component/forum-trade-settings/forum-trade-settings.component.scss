@@ -1,0 +1,16 @@
+.login {
+  align-items: center;
+  flex-wrap: nowrap;
+  display: flex;
+
+  > .text {
+    width: 80%;
+  }
+
+  > .button {
+    flex-wrap: nowrap;
+    display: flex;
+    width: 20%;
+    text-align: center;
+  }
+}

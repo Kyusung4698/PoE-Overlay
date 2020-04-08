@@ -200,5 +200,20 @@
 		"save": "Save",
 		"ui-language": "UI Language",
 		"zoom": "Zoom"
-	}
+	},
+  "forum-trade": {
+    "name": "Forum trading",
+    "login": {
+      "name": "Account settings",
+      "account": "Logged in as: ",
+      "button": "Log in"
+    },
+    "logout-button": "Log out",
+    "forum-thread": {
+      "name": "Forum thread settings",
+      "form": "Enter URL or thread id of your shop"
+    },
+    "key-binds": "Key binds settings",
+    "price-key-bind": "Key bind to set price on item"
+  }
 }
