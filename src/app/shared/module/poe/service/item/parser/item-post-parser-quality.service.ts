@@ -18,6 +18,8 @@ export class ItemPostParserQualityService implements ItemPostParserService {
             ? this.parseValue(properties.quality.value.text)
             : 0;
 
+        const increasedQuality = this.calculateModifier(stats, 'local_item_quality_+');
+
         const { armourArmour } = properties;
         if (armourArmour) {
             const increasedArmour = this.calculateModifier(stats,
@@ -25,7 +27,7 @@ export class ItemPostParserQualityService implements ItemPostParserService {
                 'local_armour_and_energy_shield_+%',
                 'local_armour_and_evasion_+%',
                 'local_armour_and_evasion_and_energy_shield_+%');
-            this.calculateTier(armourArmour, quality, increasedArmour);
+            this.calculateTier(armourArmour, quality, increasedQuality, increasedArmour);
         }
 
         const { armourEnergyShield } = properties;
@@ -34,7 +36,7 @@ export class ItemPostParserQualityService implements ItemPostParserService {
                 'local_energy_shield_+%',
                 'local_armour_and_energy_shield_+%',
                 'local_armour_and_evasion_and_energy_shield_+%');
-            this.calculateTier(armourEnergyShield, quality, increasedEnergyShield);
+            this.calculateTier(armourEnergyShield, quality, increasedQuality, increasedEnergyShield);
         }
 
         const { armourEvasionRating } = properties;
@@ -43,14 +45,14 @@ export class ItemPostParserQualityService implements ItemPostParserService {
                 'local_evasion_rating_+%',
                 'local_armour_and_evasion_+%',
                 'local_armour_and_evasion_and_energy_shield_+%');
-            this.calculateTier(armourEvasionRating, quality, increasedEvasionRating);
+            this.calculateTier(armourEvasionRating, quality, increasedQuality, increasedEvasionRating);
         }
 
         const { weaponPhysicalDamage } = properties;
         if (weaponPhysicalDamage) {
             const increasedPhysicalDamage = this.calculateModifier(stats,
                 'local_physical_damage_+% local_weapon_no_physical_damage');
-            this.calculateTier(weaponPhysicalDamage, quality, increasedPhysicalDamage)
+            this.calculateTier(weaponPhysicalDamage, quality, increasedQuality, increasedPhysicalDamage)
         }
     }
 
@@ -62,10 +64,10 @@ export class ItemPostParserQualityService implements ItemPostParserService {
             .reduce((a, b) => a + b, 0);
     }
 
-    private calculateTier(property: ItemValueProperty, quality: number, modifier: number = 0): void {
+    private calculateTier(property: ItemValueProperty, quality: number, increasedQuality: number, modifier: number = 0): void {
         const value = this.parseValue(property.value.text);
         const min = value / (1 + ((quality + modifier) / 100));
-        const max = min * (1 + ((Math.max(quality, QUALITY_MAX) + modifier) / 100));
+        const max = min * (1 + ((Math.max(quality, QUALITY_MAX + increasedQuality) + modifier) / 100));
         property.value.tier = {
             min: Math.round(min),
             max: Math.round(max)
