@@ -9,7 +9,7 @@ export class BaseItemTypePipe implements PipeTransform {
     constructor(private readonly baseItemTypesService: BaseItemTypesService) {
     }
 
-    public transform(value: string, language: Language) {
+    public transform(value: string, language: Language): string {
         return this.baseItemTypesService.translate(value, language);
     }
 }

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { EnumValues } from '@app/class';
-import { AppService } from '@app/service';
+import { AppService, AppTranslateService, WindowService } from '@app/service';
 import { UiLanguage } from '@app/type';
 import { LeaguesService } from '@shared/module/poe/service';
 import { Language, League } from '@shared/module/poe/type';
@@ -11,7 +11,6 @@ import { UserSettings } from '../../type';
 @Component({
   selector: 'app-user-settings-form',
   templateUrl: './user-settings-form.component.html',
-  styleUrls: ['./user-settings-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserSettingsFormComponent implements OnInit {
@@ -25,8 +24,11 @@ export class UserSettingsFormComponent implements OnInit {
   @Input()
   public settings: UserSettings;
 
-  constructor(private readonly leaguesService: LeaguesService,
-    private readonly app: AppService) { }
+  constructor(
+    private readonly leagues: LeaguesService,
+    private readonly app: AppService,
+    private readonly translate: AppTranslateService,
+    private readonly window: WindowService) { }
 
   public ngOnInit(): void {
     if (this.settings.language) {
@@ -45,8 +47,16 @@ export class UserSettingsFormComponent implements OnInit {
     this.updateLeagues();
   }
 
+  public onUiLanguageChange(): void {
+    this.translate.use(this.settings.uiLanguage);
+  }
+
+  public onZoomChange(): void {
+    this.window.setZoom(this.settings.zoom / 100);
+  }
+
   private updateLeagues(): void {
-    this.leaguesService.get(this.settings.language).subscribe(leagues => {
+    this.leagues.get(this.settings.language).subscribe(leagues => {
       const selectedLeague = leagues.find(league => league.id === this.settings.leagueId);
       if (!selectedLeague) {
         this.settings.leagueId = leagues[0].id;

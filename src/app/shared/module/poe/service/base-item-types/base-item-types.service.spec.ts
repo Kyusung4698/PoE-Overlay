@@ -8,7 +8,7 @@ import { BaseItemTypesService } from './base-item-types.service';
 describe('BaseItemTypeService', () => {
     let sut: BaseItemTypesService;
     let contextService: ContextService;
-    beforeEach(async(() => {
+    beforeEach((done => {
         TestBed.configureTestingModule({
             imports: [
                 SharedModule
@@ -19,7 +19,7 @@ describe('BaseItemTypeService', () => {
         contextService = TestBed.inject<ContextService>(ContextService);
         contextService.init({
             language: Language.English
-        });
+        }).subscribe(() => done());
     }));
 
     const languages: Language[] = [
@@ -77,5 +77,5 @@ describe('BaseItemTypeService', () => {
     it(`should find 'Titan's Arcade Map of Temporal Chains`, () => {
         const result = sut.search('Titan\'s Arcade Map of Temporal Chains', Language.English);
         expect(result).toBe('MapTier2_7');
-    });    
+    });
 });

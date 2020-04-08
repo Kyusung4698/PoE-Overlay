@@ -61,7 +61,7 @@ export class ItemSearchFiltersMiscsService implements ItemSearchFiltersService {
         this.mapQuality(prop, query);
     }
 
-    private mapQuality(prop: ItemProperties, query: Query) {
+    private mapQuality(prop: ItemProperties, query: Query): void {
         if (!prop.quality) {
             return;
         }

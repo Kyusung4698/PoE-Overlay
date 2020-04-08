@@ -1,6 +1,8 @@
 {
 	"app": {
 		"clickable": "'Klick' = Browser im Spiel, 'STRG + Klick' Standardbrowser",
+		"language": "Sprache",
+		"shortcut": "Tastaturkürzel",
 		"update": {
 			"available": "Ein neues Update ist verfügbar. Wird automatisch heruntergeladen, sofern nicht anders angegeben.",
 			"downloaded": "Das neue Update kann jetzt installiert werden. Bitte starten Sie PoE Overlay neu."
@@ -10,7 +12,6 @@
 		"add": "Lesezeichen hinzufügen",
 		"external": "Externe",
 		"name": "Lesezeichen",
-		"shortcut": "Tastaturkürzel",
 		"url": "Url"
 	},
 	"clipboard": {
@@ -21,7 +22,6 @@
 	"command": {
 		"add": "Befehl hinzufügen",
 		"name": "Befehle",
-		"shortcut": "Tastaturkürzel",
 		"text": "Befehl"
 	},
 	"evaluate": {
@@ -30,17 +30,19 @@
 		"cancel": "Abbrechen?",
 		"canceled": "Suche abgebrochen. Im Browser öffnen?",
 		"count": "Anzahl",
+		"currencies": "Währung",
 		"currency": "Angezeigte Währung",
-		"currency-original": "Originalwährung",
+		"currency-listing": "Währung des Angebotes anzeigen",
 		"days": "Letzte 7 Tage",
-		"debounce-time": "Such-Entprellzeit",
+		"debounce-time": "Entprellzeit",
 		"empty": "Keine Ergebnisse. Im Browser öffnen?",
 		"error": "Es ist ein Fehler aufgetreten.",
 		"errors": {
 			"http": "Konnte nicht mit der GGG-Handelswebsite kommunizieren.\nBitte stellen Sie sicher, dass die Website erreichbar ist.",
 			"rate": "Limit erreicht. Bitte versuchen Sie es später noch einmal.\nWenn dies weiterhin geschieht, versuchen Sie bitte, die Anzahl der abgerufenen Artikel zu verringern."
 		},
-		"fetch-count": "Suche Fetch Count",
+		"fetch-count": "Fetch Count",
+		"layout": "Layout",
 		"listings": "Gefunden {{total}}. {{count}} Einträge abrufen ...",
 		"loading": "Wird geladen...",
 		"mean": "Mean",
@@ -48,6 +50,11 @@
 		"mode": "Mode",
 		"name": "Bewerten",
 		"not-found": "Keine Daten gefunden.",
+		"profile": {
+			"default": "Standard"
+		},
+		"profiles": "Vorausgewählte Profile",
+		"query": "Abfrage",
 		"range": "Bereich",
 		"result-view": "Ergebnisansicht",
 		"result-views": {
@@ -55,9 +62,8 @@
 			"list": "Liste"
 		},
 		"search": {
-			"default": "Standardsucheinstellungen",
 			"disable-max-range": "Maximalen Wertebereich deaktivieren",
-			"filter": "Suchfilter",
+			"filter": "Filter",
 			"gem": "Edelsteinstufe, Kartenstufe und -qualität",
 			"item-default-links": "Item Link",
 			"item-level": "Gegenstandsstufe",
@@ -77,9 +83,8 @@
 				"week": "Bis vor einer Woche",
 				"weeks": "Bis vor 2 Wochen"
 			},
-			"modifier": "Einstellungen für die Modifikatorsuche",
-			"modifier-range": "Modifikatorbereich",
-			"online-only": "Nur online"
+			"online-only": "Nur online",
+			"properties": "Eigenschaften"
 		},
 		"searching": "Suchen...",
 		"seller": "Verkäufer",
@@ -88,6 +93,7 @@
 		"stats": "Stats",
 		"stats-export": "Exportieren der Stats in die Zwischenablage",
 		"stats-import": "Importieren der Stats aus der Zwischenablage",
+		"stats-range": "Min-Max-Bereich",
 		"stats-unique-check-all": "Einzigartige Check All",
 		"switch": "Betrag wechseln",
 		"tag": {
@@ -136,7 +142,7 @@
 	},
 	"material": {
 		"accelerator": {
-			"any": "Drücke irgendeine Taste",
+			"any": "Drücken Sie eine beliebige Taste ... ESC setzt sie auf ungebunden.",
 			"unbound": "Ungebunden"
 		},
 		"select-list": {
@@ -180,7 +186,6 @@
 		"exit-app": "App beenden",
 		"game-settings": "Spieleinstellungen",
 		"general": "Allgemeines",
-		"language": "Sprache",
 		"languages": {
 			"english": "Englisch",
 			"french": "Französisch",

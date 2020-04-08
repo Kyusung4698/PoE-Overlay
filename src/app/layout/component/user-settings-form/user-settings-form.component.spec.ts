@@ -6,7 +6,9 @@ import { UserSettingsFormComponent } from './user-settings-form.component';
 
 class ElectronProviderFake {
   public provideRemote(): Electron.Remote {
-    return null;
+    return {
+      getCurrentWindow: () => null,
+    } as any as Electron.Remote;
   }
 
   public provideIpcRenderer(): Electron.IpcRenderer {

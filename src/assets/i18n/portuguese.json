@@ -1,6 +1,8 @@
 {
 	"app": {
 		"clickable": "'Clique' = Navegador no jogo, 'CTRL + Clique em' Navegador padrão",
+		"language": "Língua",
+		"shortcut": "Atalho",
 		"update": {
 			"available": "Uma nova atualização está disponível. Será baixado automaticamente, a menos que seja especificado de outra forma.",
 			"downloaded": "A nova atualização está pronta para instalação. Reinicie o PoE Overlay."
@@ -10,7 +12,6 @@
 		"add": "Adicionar marcador",
 		"external": "Externo",
 		"name": "marca páginas",
-		"shortcut": "Atalho",
 		"url": "URL"
 	},
 	"clipboard": {
@@ -21,7 +22,6 @@
 	"command": {
 		"add": "Comando Adicionar",
 		"name": "Comando",
-		"shortcut": "Atalho",
 		"text": "Comando"
 	},
 	"evaluate": {
@@ -30,10 +30,11 @@
 		"cancel": "Cancelar?",
 		"canceled": "Pesquisa cancelada. Abra no navegador?",
 		"count": "Contagem",
+		"currencies": "Moeda",
 		"currency": "Moeda exibida",
-		"currency-original": "Moeda original",
+		"currency-listing": "Mostrar moeda da listagem",
 		"days": "Últimos 7 dias",
-		"debounce-time": "Tempo de devolução da pesquisa",
+		"debounce-time": "Tempo de Debounce",
 		"empty": "Sem resultados. Abra no navegador?",
 		"error": "Um erro ocorreu.",
 		"errors": {
@@ -41,6 +42,7 @@
 			"rate": "Limite alcançado. Por favor, tente novamente mais tarde.\nSe isso continuar acontecendo, tente diminuir a contagem de itens buscados."
 		},
 		"fetch-count": "Contagem de pesquisas",
+		"layout": "Layout",
 		"listings": "Encontrado {{total}}. Buscando {{count}} entradas ...",
 		"loading": "Carregando...",
 		"mean": "Mean",
@@ -48,6 +50,11 @@
 		"mode": "Mode",
 		"name": "Avalie",
 		"not-found": "Nenhum dado encontrado.",
+		"profile": {
+			"default": "Padrão"
+		},
+		"profiles": "Perfis pré-selecionados",
+		"query": "Inquerir",
 		"range": "Range",
 		"result-view": "Visualização de resultados",
 		"result-views": {
@@ -55,9 +62,8 @@
 			"list": "Lista"
 		},
 		"search": {
-			"default": "Configurações de pesquisa padrão",
 			"disable-max-range": "Desativar intervalo máximo",
-			"filter": "Filtro de pesquisa",
+			"filter": "Filtro",
 			"gem": "Nível da gema, nível do mapa e qualidade",
 			"item-default-links": "Link do item",
 			"item-level": "Nível do Item",
@@ -77,9 +83,8 @@
 				"week": "Até uma semana atrás",
 				"weeks": "Até 2 semanas atrás"
 			},
-			"modifier": "Configurações de pesquisa do modificador",
-			"modifier-range": "Faixa do modificador",
-			"online-only": "Online somente"
+			"online-only": "Online somente",
+			"properties": "Propriedades"
 		},
 		"searching": "Procurando...",
 		"seller": "Vendedor",
@@ -88,6 +93,7 @@
 		"stats": "Estatisticas",
 		"stats-export": "Exportar estatísticas para a área de transferência",
 		"stats-import": "Importar estatísticas da área de transferência",
+		"stats-range": "Min-Max Range",
 		"stats-unique-check-all": "Verificação única de tudo",
 		"switch": "mudar quantidade",
 		"tag": {
@@ -136,7 +142,7 @@
 	},
 	"material": {
 		"accelerator": {
-			"any": "pressione qualquer tecla",
+			"any": "Pressione qualquer tecla ... ESC irá configurá-lo como ilimitado.",
 			"unbound": "Não consolidado"
 		},
 		"select-list": {
@@ -180,7 +186,6 @@
 		"exit-app": "Sair do aplicativo",
 		"game-settings": "Configurações do jogo",
 		"general": "Geral",
-		"language": "Língua",
 		"languages": {
 			"english": "Inglês",
 			"french": "francês",

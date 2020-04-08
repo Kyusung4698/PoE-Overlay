@@ -10,7 +10,7 @@ describe('ItemSearchService', () => {
     let contextService: ContextService;
     let baseItemTypesService: BaseItemTypesService;
 
-    beforeEach(async(() => {
+    beforeEach((done => {
         TestBed.configureTestingModule({
             imports: [
                 SharedModule
@@ -21,7 +21,7 @@ describe('ItemSearchService', () => {
         contextService = TestBed.inject<ContextService>(ContextService);
         contextService.init({
             language: Language.English
-        });
+        }).subscribe(() => done());
         baseItemTypesService = TestBed.inject<BaseItemTypesService>(BaseItemTypesService);
     }));
 
@@ -47,7 +47,7 @@ describe('ItemSearchService', () => {
             expect(result.hits.length).toBeGreaterThan(0);
 
             sut.list(result, 10).subscribe(listings => {
-                expect(listings.length).toBe(Math.min(result.hits.length, 100));
+                expect(listings.length).toBe(Math.min(result.hits.length, 10));
 
                 done();
             }, error => done.fail(error));

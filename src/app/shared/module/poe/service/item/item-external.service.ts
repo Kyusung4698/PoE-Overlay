@@ -96,7 +96,7 @@ export class ItemExternalService {
         return url;
     }
 
-    private getIdentifier(nameId: string, typeId: string) {
+    private getIdentifier(nameId: string, typeId: string): string {
         const name = this.itemService.getName(nameId, Language.English);
         if (name && name.length) {
             return name;

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { UserSettings, UserSettingsComponent } from 'src/app/layout/type';
 
 export interface BookmarkUserSettings extends UserSettings {
@@ -18,6 +18,8 @@ export interface BookmarkUserBookmark {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BookmarkSettingsComponent implements UserSettingsComponent {
+
+  @Input()
   public settings: BookmarkUserSettings;
 
   public load(): void {

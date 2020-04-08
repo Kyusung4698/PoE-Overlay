@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { FeatureModule, UiLanguage } from '@app/type';
 import { Language } from '@shared/module/poe/type';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { flatMap, map } from 'rxjs/operators';
-import { DialogSpawnPosition, UserSettings } from '../type';
-import { UserSettingsDialogService } from './user-settings-dialog.service';
+import { DialogSpawnPosition, UserSettings, UserSettingsFeature } from '../type';
 import { UserSettingsFeatureService } from './user-settings-feature.service';
 import { UserSettingsStorageService } from './user-settings-storage.service';
 
@@ -14,15 +13,24 @@ import { UserSettingsStorageService } from './user-settings-storage.service';
 export class UserSettingsService {
     constructor(
         private readonly userSettingsStorageService: UserSettingsStorageService,
-        private readonly userSettingsFeatureService: UserSettingsFeatureService,
-        private readonly userSettingsDialogService: UserSettingsDialogService) { }
+        private readonly userSettingsFeatureService: UserSettingsFeatureService) { }
 
     public get(): Observable<UserSettings> {
-        return this.userSettingsStorageService.get();
+        const settings = this.userSettingsStorageService.get();
+        return settings;
+    }
+
+    public save(settings: UserSettings): Observable<UserSettings> {
+        return this.userSettingsStorageService.save(settings);
+    }
+
+    public features(): UserSettingsFeature[] {
+        const features = this.userSettingsFeatureService.get();
+        return features;
     }
 
     public init(modules: FeatureModule[]): Observable<UserSettings> {
-        return this.userSettingsStorageService.get().pipe(
+        return this.get().pipe(
             flatMap(savedSettings => {
                 let mergedSettings: UserSettings = {
                     openUserSettingsKeybinding: 'F7',
@@ -51,13 +59,6 @@ export class UserSettingsService {
 
                 return this.userSettingsStorageService.save(mergedSettings);
             })
-        );
-    }
-
-    public edit(settings: UserSettings): Observable<UserSettings> {
-        const features = this.userSettingsFeatureService.get();
-        return this.userSettingsDialogService.open(settings, features).pipe(
-            flatMap(result => result ? this.userSettingsStorageService.save(result) : of(null))
         );
     }
 

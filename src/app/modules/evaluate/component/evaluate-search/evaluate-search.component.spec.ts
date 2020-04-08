@@ -24,7 +24,7 @@ describe('EvaluateSearchComponent', () => {
   let fixture: ComponentFixture<EvaluateSearchComponent>;
   let contextService: ContextService;
 
-  beforeEach(async(() => {
+  beforeEach((done => {
     TestBed.configureTestingModule({
       imports: [
         SharedModule,
@@ -49,7 +49,7 @@ describe('EvaluateSearchComponent', () => {
     contextService = TestBed.inject<ContextService>(ContextService);
     contextService.init({
       language: Language.English
-    });
+  }).subscribe(() => done());
   }));
 
   beforeEach(() => {

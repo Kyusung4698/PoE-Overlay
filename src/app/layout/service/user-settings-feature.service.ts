@@ -11,7 +11,7 @@ export class UserSettingsFeatureService {
         return [...this.feature];
     }
 
-    public register(feature: UserSettingsFeature) {
+    public register(feature: UserSettingsFeature): void {
         this.feature.push(feature);
     }
 }

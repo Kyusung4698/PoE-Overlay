@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
+import { CacheService } from '@app/service';
 import { CurrencyOverviewHttpService, CurrencyOverviewType, ItemOverviewHttpService, ItemOverviewType } from '@data/poe-ninja';
-import { forkJoin, Observable, of, timer } from 'rxjs';
-import { map, shareReplay, switchMap, take } from 'rxjs/operators';
+import { forkJoin, Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { ItemCategory, ItemRarity } from '../type';
 
-export class ItemCategoryValue {
+export interface ItemCategoryValue {
     name: string;
     type: string;
     mapTier: number;
@@ -15,24 +16,20 @@ export class ItemCategoryValue {
     url: string;
 }
 
-export class ItemCategoryValues {
+export interface ItemCategoryValues {
     values: ItemCategoryValue[];
 }
 
-const REFRESH_INTERVAL = 1000 * 60 * 30;
-const CACHE_SIZE = 1;
+const CACHE_EXPIRY = 1000 * 60 * 30;
 
 @Injectable({
     providedIn: 'root'
 })
 export class ItemCategoryValuesProvider {
-    private readonly cache: {
-        [key: string]: Observable<ItemCategoryValues>
-    } = {};
-
     constructor(
         private readonly currencyService: CurrencyOverviewHttpService,
-        private readonly itemService: ItemOverviewHttpService) { }
+        private readonly itemService: ItemOverviewHttpService,
+        private readonly cache: CacheService) { }
 
     public provide(leagueId: string, rarity: ItemRarity, category: ItemCategory): Observable<ItemCategoryValues> {
         switch (category) {
@@ -160,15 +157,7 @@ export class ItemCategoryValuesProvider {
     }
 
     private fetch(key: string, fetch: () => Observable<ItemCategoryValues>): Observable<ItemCategoryValues> {
-        if (!this.cache[key]) {
-            const timer$ = timer(0, REFRESH_INTERVAL);
-
-            this.cache[key] = timer$.pipe(
-                switchMap(_ => fetch()),
-                shareReplay(CACHE_SIZE),
-            );
-        }
-        return this.cache[key].pipe(take(1));
+        return this.cache.proxy(`item_category_${key}`, fetch, CACHE_EXPIRY);
     }
 
     private fetchCurrency(leagueId: string, type: CurrencyOverviewType): Observable<ItemCategoryValues> {

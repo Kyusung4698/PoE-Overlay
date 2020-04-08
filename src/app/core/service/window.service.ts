@@ -17,7 +17,7 @@ export class WindowService {
         this.window = electron.getCurrentWindow();
     }
 
-    public on(event: 'show'): Observable<void> {
+    public on(event: any): Observable<void> {
         const callback = new Subject<void>();
         this.window.on(event, () => {
             this.ngZone.run(() => callback.next());
@@ -52,6 +52,10 @@ export class WindowService {
 
     public setZoom(zoom: number): void {
         this.window.webContents.zoomFactor = zoom;
+    }
+
+    public setSize(width: number, height: number): void {
+        this.window.setSize(width, height);
     }
 
     public disableInput(): void {

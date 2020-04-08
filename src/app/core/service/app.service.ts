@@ -48,10 +48,10 @@ export class AppService {
     }
 
     public visibleChange(): Observable<VisibleFlag> {
-        this.ipcRenderer.on('active-change', (event, arg) => {
+        this.ipcRenderer.on('game-active-change', (_, arg) => {
             this.ngZone.run(() => this.activeChange$.next(arg));
         });
-        this.ipcRenderer.send('register-active-change');
+        this.ipcRenderer.sendSync('game-send-active-change');
         return combineLatest([
             this.activeChange$,
             this.dialogRef.dialogCountChange()
@@ -103,7 +103,7 @@ export class AppService {
         if (this.updateState$.value === AppUpdateState.Downloaded) {
             this.ipcRenderer.send('app-quit-and-install', false);
         } else {
-            this.electron.app.quit();
+            this.electron.app.exit();
         }
     }
 
@@ -117,7 +117,7 @@ export class AppService {
             this.ipcRenderer.send('app-quit-and-install', true);
         } else {
             this.electron.app.relaunch();
-            this.electron.app.quit();
+            this.electron.app.exit();
         }
     }
 }

@@ -13,6 +13,22 @@ $label-color: rgba(200, 200, 200, 0.54);
   }
 }
 
+.profiles {
+  padding: 0;
+
+  > mat-label {
+    padding: 12px 0 0 12px;
+  }
+
+  .profile {
+    padding: 12px 12px 0px 12px;
+
+    .mat-card {
+      background-color: #2a2a2a;
+    }
+  }
+}
+
 label {
   display: block;
   color: $label-color;
@@ -62,8 +78,14 @@ label {
 }
 
 .value-range {
-  .mat-slider {
-    width: 100%;
+  > .slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .mat-slider {
+      width: 100%;
+    }
   }
 }
 

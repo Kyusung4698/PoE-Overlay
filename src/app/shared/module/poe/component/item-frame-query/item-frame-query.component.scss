@@ -1,4 +1,4 @@
-.container {
+.query {
   display: inline-block;
   cursor: pointer;
   user-select: none;
@@ -8,7 +8,7 @@
   line-height: 17px;
   padding: 0 2px;
 
-  &.query {
+  &.active {
     background-color: rgba(170, 158, 130, 0.3);
     outline-style: solid;
     outline-width: 1px;

@@ -13,15 +13,19 @@ export class LoggerService {
         this.ipcRenderer = electronProvider.provideIpcRenderer();
     }
 
+    public debug(message: string, ...args: any[]): void {
+        this.ipcRenderer?.sendSync('log', 'debug', message, ...args);
+    }
+
     public info(message: string, ...args: any[]): void {
-        this.ipcRenderer.sendSync('log', 'info', message, ...args);
+        this.ipcRenderer?.sendSync('log', 'info', message, ...args);
     }
 
     public warn(message: string, ...args: any[]): void {
-        this.ipcRenderer.sendSync('log', 'warn', message, ...args);
+        this.ipcRenderer?.sendSync('log', 'warn', message, ...args);
     }
 
     public error(message: string, ...args: any[]): void {
-        this.ipcRenderer.sendSync('log', 'error', message, ...args);
+        this.ipcRenderer?.sendSync('log', 'error', message, ...args);
     }
 }

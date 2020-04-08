@@ -13,7 +13,7 @@ export enum ItemClipboardResultCode {
     ParserError
 }
 
-export class ItemClipboardResult {
+export interface ItemClipboardResult {
     code: ItemClipboardResultCode;
     item?: Item;
     point?: Point;
@@ -35,7 +35,7 @@ export class ItemClipboardService {
     }): Observable<ItemClipboardResult> {
         return of(null).pipe(
             flatMap(() => {
-                this.game.forceActive();
+                this.game.focus();
 
                 const point = this.mouse.position();
 

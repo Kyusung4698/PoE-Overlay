@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { UserSettings, UserSettingsComponent } from 'src/app/layout/type';
 import { EnumValues } from '@app/class';
 
@@ -27,6 +27,7 @@ export interface MiscUserSettings extends UserSettings {
 export class MiscSettingsComponent implements UserSettingsComponent {
   public navigations = new EnumValues(MiscStashNavigation);
 
+  @Input()
   public settings: MiscUserSettings;
 
   public load(): void {

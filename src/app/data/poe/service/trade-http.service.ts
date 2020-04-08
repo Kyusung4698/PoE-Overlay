@@ -1,10 +1,10 @@
 import { HttpClient, HttpErrorResponse, HttpParams, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BrowserService, LoggerService, SessionService, StorageService } from '@app/service';
+import { BrowserService, SessionService } from '@app/service';
 import { environment } from '@env/environment';
 import { Language } from '@shared/module/poe/type';
 import { Observable, of, throwError } from 'rxjs';
-import { catchError, delay, flatMap, map, retryWhen } from 'rxjs/operators';
+import { delay, flatMap, map, retryWhen } from 'rxjs/operators';
 import { TradeFetchResult, TradeItemsResult, TradeLeaguesResult, TradeResponse, TradeSearchRequest, TradeSearchResponse, TradeStaticResult, TradeStatsResult } from '../schema/trade';
 
 const RETRY_COUNT = 3;
@@ -19,9 +19,7 @@ export class TradeHttpService {
     constructor(
         private readonly http: HttpClient,
         private readonly browser: BrowserService,
-        private readonly session: SessionService,
-        private readonly storage: StorageService,
-        private readonly logger: LoggerService) { }
+        private readonly session: SessionService) { }
 
     public getItems(language: Language): Observable<TradeResponse<TradeItemsResult>> {
         const url = this.getApiUrl('data/items', language);
@@ -45,17 +43,13 @@ export class TradeHttpService {
 
     public search(request: TradeSearchRequest, language: Language, leagueId: string): Observable<TradeSearchResponse> {
         const url = this.getApiUrl(`search/${encodeURIComponent(leagueId)}`, language);
-        return this.http.post(url, request, {
-            responseType: 'text',
-            observe: 'response'
-        }).pipe(
+        return this.http.post<TradeSearchResponse>(url, request).pipe(
             retryWhen(errors => errors.pipe(
                 flatMap((response, count) => this.handleError(url, response, count))
             )),
             map(response => {
-                const result = JSON.parse(response.body) as TradeSearchResponse;
-                result.url = `${url.replace('/api', '')}/${encodeURIComponent(result.id)}`;
-                return result;
+                response.url = `${url.replace('/api', '')}/${encodeURIComponent(response.id)}`;
+                return response;
             })
         );
     }
@@ -77,22 +71,12 @@ export class TradeHttpService {
 
     private getAndTransform<TResponse>(url: string): Observable<TResponse> {
         return this.http.get(url, {
-            responseType: 'text',
-            observe: 'response'
+            observe: 'response',
+            responseType: 'text'
         }).pipe(
             retryWhen(errors => errors.pipe(
                 flatMap((response, count) => this.handleError(url, response, count))
             )),
-            catchError(error => this.storage.get<HttpResponse<string>>(url).pipe(
-                flatMap(cachedResponse => {
-                    if (cachedResponse) {
-                        this.logger.warn(`Could not fetch response from: '${url}'. Using cached data for now...`, error);
-                        return of(cachedResponse);
-                    }
-                    return throwError(error);
-                })
-            )),
-            flatMap(response => this.storage.saveCopy(url, response)),
             map(response => this.transformResponse(response))
         );
     }
@@ -152,9 +136,8 @@ export class TradeHttpService {
         switch (response.status) {
             case 400:
                 try {
-                    const error = JSON.parse(response.error);
-                    const message = error?.error?.message || 'no message';
-                    const code = error?.error?.code || '-';
+                    const message = response?.error?.error?.message || 'no message';
+                    const code = response?.error?.error?.code || '-';
                     return throwError(`${code}: ${message}`);
                 } catch{
                     return throwError(response.error);

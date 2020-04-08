@@ -13,7 +13,7 @@ export class GameService {
         this.ipcRenderer = electronProvider.provideIpcRenderer();
     }
 
-    public forceActive(): void {
-        this.ipcRenderer.sendSync('force-active');
+    public focus(): void {
+        this.ipcRenderer.sendSync('game-focus');
     }
 }

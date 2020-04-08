@@ -10,7 +10,7 @@ export enum ItemSearchIndexed {
     UpTo2MonthsAgo = '2months'
 }
 
-export class ItemSearchOptions {
+export interface ItemSearchOptions {
     online?: boolean;
     indexed?: ItemSearchIndexed;
     leagueId?: string;

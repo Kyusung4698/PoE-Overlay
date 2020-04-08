@@ -10,7 +10,7 @@ describe('EvaluateOptionsComponent', () => {
   let fixture: ComponentFixture<EvaluateOptionsComponent>;
   let contextService: ContextService;
 
-  beforeEach(async(() => {
+  beforeEach(((done) => {
     TestBed.configureTestingModule({
       imports: [SharedModule],
       declarations: [EvaluateOptionsComponent]
@@ -20,7 +20,7 @@ describe('EvaluateOptionsComponent', () => {
     contextService = TestBed.inject<ContextService>(ContextService);
     contextService.init({
       language: Language.English
-    });
+  }).subscribe(() => done());
   }));
 
   beforeEach(() => {

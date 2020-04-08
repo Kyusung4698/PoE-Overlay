@@ -11,7 +11,7 @@ describe('CurrencyConverterService', () => {
     let contextService: ContextService;
     let currencyService: CurrencyService;
 
-    beforeEach(async(() => {
+    beforeEach(done => {
         TestBed.configureTestingModule({
             imports: [
                 SharedModule
@@ -22,10 +22,10 @@ describe('CurrencyConverterService', () => {
         contextService = TestBed.inject<ContextService>(ContextService);
         contextService.init({
             language: Language.English
-        });
+        }).subscribe(() => done());
 
         currencyService = TestBed.inject<CurrencyService>(CurrencyService);
-    }));
+    });
 
     it(`should convert 'Chaos Orb' to 'Chaos Orb' equals to 1`, (done) => {
         currencyService.searchById('chaos').subscribe(currency => {
@@ -40,7 +40,7 @@ describe('CurrencyConverterService', () => {
         });
     });
 
-    it(`should convert 'Perandus Coin' to 'Perandus Coin' equals to 1`, (done) => {
+    it(`should convert 'Perandus Coin' to 'Perandus Coin' equals to 2`, (done) => {
         currencyService.searchById('p').subscribe(currency => {
             sut.convert(currency, currency).subscribe(factor => {
                 expect(factor).toBe(1);

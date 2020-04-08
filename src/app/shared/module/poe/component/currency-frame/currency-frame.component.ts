@@ -18,8 +18,8 @@ export class CurrencyFrameComponent {
   public label: string;
 
   @Input()
-  range: CurrencyRange;
+  public range: CurrencyRange;
 
   @Input()
-  count: number;
+  public count: number;
 }

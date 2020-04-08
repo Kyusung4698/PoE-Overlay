@@ -10,7 +10,7 @@ import { CurrencySelectService, CurrencySelectStrategy } from '../currency/curre
 import { WordService } from '../word/word.service';
 import { ItemSocketService } from './item-socket.service';
 
-export class ItemExchangeRateResult {
+export interface ItemExchangeRateResult {
     currency?: Currency;
     amount?: number;
     inverseAmount?: number;

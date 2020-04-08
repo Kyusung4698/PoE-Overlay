@@ -97,7 +97,8 @@
 				"Her Mask",
 				"The Rabid Rhoa",
 				"Two-Toned Boots",
-				"Two-Toned Boots"
+				"Two-Toned Boots",
+				"The Tinkerer's Table"
 			],
 			"layoutRating": "B",
 			"bosses": [
@@ -1896,7 +1897,8 @@
 				"The Trial",
 				"Her Mask",
 				"The Throne",
-				"Blue Pearl Amulet"
+				"Blue Pearl Amulet",
+				"Vile Power"
 			],
 			"layoutRating": "C",
 			"bosses": [
@@ -1958,7 +1960,8 @@
 			],
 			"bossRating": "3",
 			"bossCount": 1,
-			"url": "https://pathofexile.gamepedia.com/Bog_Map"
+			"url": "https://pathofexile.gamepedia.com/Bog_Map",
+			"encounter": "Skullbeak"
 		},
 		"Cursed Crypt Map": {
 			"items": [
@@ -2173,7 +2176,8 @@
 				"The Trial",
 				"Her Mask",
 				"Fingerless Silk Gloves",
-				"Lingering Remnants"
+				"Lingering Remnants",
+				"The Tinkerer's Table"
 			],
 			"layoutRating": "A",
 			"bosses": [
@@ -2391,7 +2395,10 @@
 			"url": "https://pathofexile.gamepedia.com/Necropolis_Map"
 		},
 		"Death and Taxes": {
-			"items": [],
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness"
+			],
 			"layoutRating": "A",
 			"bosses": [
 				"Avatar of Apocalypse",
@@ -2401,7 +2408,8 @@
 			],
 			"bossRating": "5",
 			"bossCount": 1,
-			"url": "https://pathofexile.gamepedia.com/Death_and_Taxes"
+			"url": "https://pathofexile.gamepedia.com/Death_and_Taxes",
+			"layout": "Map type: Indoor"
 		},
 		"Overgrown Shrine Map": {
 			"items": [
@@ -2844,7 +2852,9 @@
 			],
 			"bossRating": "5",
 			"bossCount": 1,
-			"url": "https://pathofexile.gamepedia.com/Palace_Map"
+			"url": "https://pathofexile.gamepedia.com/Palace_Map",
+			"encounter": "God's Chosen (or The Hallowed Husk in his Ascendant form). He is based on Dominus.",
+			"layout": "This map is based on The Upper Sceptre of God in Act 3."
 		},
 		"Plaza Map": {
 			"items": [

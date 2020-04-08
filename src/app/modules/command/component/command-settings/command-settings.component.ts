@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { UserSettings, UserSettingsComponent } from 'src/app/layout/type';
 
 export interface CommandUserSettings extends UserSettings {
@@ -17,6 +17,8 @@ export interface CommandUserCommand {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CommandSettingsComponent implements UserSettingsComponent {
+
+  @Input()
   public settings: CommandUserSettings;
 
   public load(): void {

@@ -25,7 +25,7 @@ export class UserSettingsFeatureContainerComponent
     private readonly componentFactoryResolver: ComponentFactoryResolver
   ) { }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
     if (!this.component) {
       return;
     }
@@ -39,7 +39,7 @@ export class UserSettingsFeatureContainerComponent
     this.instance.load();
   }
 
-  public ngOnDestroy() {
+  public ngOnDestroy(): void {
     if (this.componentRef) {
       this.componentRef.destroy();
       this.componentRef = null;

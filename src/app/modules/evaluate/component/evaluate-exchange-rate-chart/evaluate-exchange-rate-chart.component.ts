@@ -36,7 +36,7 @@ export class EvaluateExchangeRateChartComponent {
     this.update();
   }
 
-  public get result() {
+  public get result(): ItemExchangeRateResult {
     return this._result;
   }
 
@@ -46,7 +46,7 @@ export class EvaluateExchangeRateChartComponent {
     this.update();
   }
 
-  public get inverse() {
+  public get inverse(): boolean {
     return this._inverse;
   }
 
@@ -61,7 +61,7 @@ export class EvaluateExchangeRateChartComponent {
   }
 
 
-  private update() {
+  private update(): void {
     if (!this.result.history || !this.name) {
       this.display = 'none';
       return;

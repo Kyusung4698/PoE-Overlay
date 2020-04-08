@@ -1,6 +1,8 @@
 {
 	"app": {
 		"clickable": "„Kliknięcie” = przeglądarka w grze, „CTRL + kliknięcie” Domyślna przeglądarka",
+		"language": "Język",
+		"shortcut": "Skrót klawiszowy",
 		"update": {
 			"available": "Dostępna jest nowa aktualizacja. Zostanie automatycznie pobrana, chyba, że dokonano innego wyboru.",
 			"downloaded": "Nowa aktualizacja jest teraz gotowa do zainstalowania. Uruchom ponownie nakładkę PoE."
@@ -10,7 +12,6 @@
 		"add": "Dodaj Odnośnik",
 		"external": "Otwórz w przeglądarce",
 		"name": "Odnośniki",
-		"shortcut": "Skrót klawiszowy",
 		"url": "Url"
 	},
 	"clipboard": {
@@ -21,7 +22,6 @@
 	"command": {
 		"add": "Dodaj komendę",
 		"name": "Komendy",
-		"shortcut": "Skrót klawiszowy",
 		"text": "Komenda"
 	},
 	"evaluate": {
@@ -30,17 +30,19 @@
 		"cancel": "Anuluj?",
 		"canceled": "Wyszukiwanie anulowane. Otwórz w przeglądarce?",
 		"count": "Liczba Aukcji",
+		"currencies": "Waluta",
 		"currency": "Wyświetlana waluta",
-		"currency-original": "Oryginalna Waluta",
+		"currency-listing": "Pokaż walutę oferty",
 		"days": "ostatnie 7 dni",
 		"debounce-time": "Czas oczekiwania na ponowną wycenę przedmiotu.",
 		"empty": "Brak wyników. Otworzyć w przeglądarce?",
 		"error": "Wystąpił błąd.",
 		"errors": {
-      "http": "Nie można nawiązać komunikacji ze stroną aukcyjną GGG.\nUpewnij się, że strona jest dostępna.",
-      "rate": "Limit osiągnięty. Spróbuj ponownie później.\nJeśli problem nadal występuje, spróbuj zmniejszyć liczbę pobieranych ofert sprzedaży."
+			"http": "Nie można nawiązać komunikacji ze stroną aukcyjną GGG.\nUpewnij się, że strona jest dostępna.",
+			"rate": "Limit osiągnięty. Spróbuj ponownie później.\nJeśli problem nadal występuje, spróbuj zmniejszyć liczbę pobieranych ofert sprzedaży."
 		},
-    "fetch-count": "Liczba wyświetlanych ofert sprzedaży",
+		"fetch-count": "Liczba wyświetlanych ofert sprzedaży",
+		"layout": "Układ",
 		"listings": "Znaleziono {{total}}. Pobieranie {{count}} aukcji ...",
 		"loading": "Ładuję...",
 		"mean": "Średnia",
@@ -48,6 +50,11 @@
 		"mode": "Moda",
 		"name": "Wycena przedmiotu",
 		"not-found": "Brak danych.",
+		"profile": {
+			"default": "domyślna"
+		},
+		"profiles": "Wstępnie wybrane profile",
+		"query": "pytanie",
 		"range": "Zakres",
 		"result-view": "Okno wyników",
 		"result-views": {
@@ -55,9 +62,8 @@
 			"list": "Lista"
 		},
 		"search": {
-			"default": "Domyślne ustawienia wyszukiwania",
 			"disable-max-range": "Wyłącz maksymalny zakres",
-			"filter": "Filtr Wyszukiwania",
+			"filter": "filtr",
 			"gem": "Poziom gemów, map oraz jakość",
 			"item-default-links": "Z połączonymi gniazdami ",
 			"item-level": "Poziom przedmiotu",
@@ -77,9 +83,8 @@
 				"week": "Ostatni tydzień",
 				"weeks": "Ostatnie 2 tygodnie"
 			},
-			"modifier": "Ustawienia wyszukiwania modyfikatora",
-			"modifier-range": "Zakres modyfikatora",
-			"online-only": "Tylko Online"
+			"online-only": "Tylko Online",
+			"properties": "Nieruchomości"
 		},
 		"searching": "Szukam...",
 		"seller": "Sprzedawca",
@@ -88,6 +93,7 @@
 		"stats": "Statystyki",
 		"stats-export": "Wyślij statystyki do schowka",
 		"stats-import": "Wczytaj statystyki ze schowka",
+		"stats-range": "Zakres od minimum do maksimum",
 		"stats-unique-check-all": "Dla Unikatów sprawdź wszystkie",
 		"switch": "Odwróć skalę",
 		"tag": {
@@ -136,7 +142,7 @@
 	},
 	"material": {
 		"accelerator": {
-			"any": "Naciśnij dowolny klawisz",
+			"any": "Naciśnij dowolny klawisz ... ESC ustawi to na niezwiązane.",
 			"unbound": "Nie przypisany"
 		},
 		"select-list": {
@@ -180,7 +186,6 @@
 		"exit-app": "Wyjdź z programu",
 		"game-settings": "Ustawienia gry",
 		"general": "Ogólne",
-		"language": "Język",
 		"languages": {
 			"english": "Angielski",
 			"french": "Francuski",

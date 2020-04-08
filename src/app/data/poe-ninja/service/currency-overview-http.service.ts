@@ -1,9 +1,9 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BrowserService, LoggerService, SessionService, StorageService } from '@app/service';
+import { BrowserService, LoggerService, SessionService } from '@app/service';
 import { environment } from '@env/environment';
 import { Observable, of, throwError } from 'rxjs';
-import { catchError, delay, flatMap, retryWhen } from 'rxjs/operators';
+import { delay, flatMap, retryWhen } from 'rxjs/operators';
 import { CurrencyOverviewResponse } from '../schema/currency-overview';
 
 export enum CurrencyOverviewType {
@@ -29,22 +29,17 @@ export class CurrencyOverviewHttpService {
         private readonly httpClient: HttpClient,
         private readonly browser: BrowserService,
         private readonly session: SessionService,
-        private readonly storage: StorageService,
         private readonly logger: LoggerService) {
         this.baseUrl = `${environment.poeNinja.baseUrl}/api/data/currencyoverview`;
     }
 
     public get(leagueId: string, type: CurrencyOverviewType): Observable<CurrencyOverviewResponse> {
         const url = this.getUrl(leagueId, type);
-        return this.httpClient.get(url, {
-            observe: 'response',
-            responseType: 'text'
-        }).pipe(
+        return this.httpClient.get<CurrencyOverviewResponse>(url).pipe(
             retryWhen(errors => errors.pipe(
                 flatMap((response, count) => this.handleError(url, response, count))
             )),
-            flatMap(httpResponse => {
-                const response = JSON.parse(httpResponse.body) as CurrencyOverviewResponse;
+            flatMap(response => {
                 if (!response.lines) {
                     this.logger.warn(`Got empty result from '${url}'.`, response);
                     return throwError(`Got empty result from '${url}'.`);
@@ -55,17 +50,7 @@ export class CurrencyOverviewHttpService {
                     url: `${environment.poeNinja.baseUrl}/challenge/${PATH_TYPE_MAP[type]}`
                 }
                 return of(result);
-            }),
-            catchError(error => this.storage.get<CurrencyOverviewResponse>(url).pipe(
-                flatMap(cachedResponse => {
-                    if (cachedResponse) {
-                        this.logger.warn(`Could not fetch response from: '${url}'. Using cached data for now...`, error);
-                        return of(cachedResponse);
-                    }
-                    return throwError(error);
-                })
-            )),
-            flatMap(response => this.storage.saveCopy(url, response))
+            })
         );
     }
 

@@ -1,76 +1,111 @@
-<mat-card>
-    <mat-label>{{'settings.game-settings' | translate}}</mat-label>
-    <mat-form-field>
-        <mat-label>{{'settings.language' | translate}}</mat-label>
-        <mat-select [(value)]="settings.language" (valueChange)="onLanguageChange()">
-            <mat-option *ngFor="let language of languages.keys" [value]="language">
-                {{'settings.languages.' + (languages.values[language] | lowercase) | translate}}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>{{'settings.league' | translate}}</mat-label>
-        <mat-select [(value)]="settings.leagueId">
-            <mat-option *ngFor="let league of leagues$ | async" [value]="league.id">
-                {{league.text}}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
-</mat-card>
-<mat-card>
-    <mat-label>{{'settings.dialog' | translate}}</mat-label>
-    <mat-form-field>
-        <mat-label>{{'settings.dialog-spawn-position-title' | translate}}</mat-label>
-        <mat-select [(value)]="settings.dialogSpawnPosition">
-            <mat-option [value]="1">{{'settings.dialog-spawn-position.cursor' | translate}}</mat-option>
-            <mat-option [value]="2">{{'settings.dialog-spawn-position.center' | translate}}</mat-option>
-        </mat-select>
-    </mat-form-field>
-</mat-card>
-<mat-card>
-    <mat-label>{{'settings.app' | translate}}</mat-label>
-
-    <div class="toggle">
-        <mat-slide-toggle [checked]="settings.displayVersion" (change)="settings.displayVersion = $event.checked">
-            {{'settings.display-version' | translate}}
-        </mat-slide-toggle>
-        <mat-slide-toggle [checked]="autoLaunchEnabled$ | async" (change)="onAutoLaunchChange($event.checked)">
-            {{'settings.auto-launch' | translate}}
-        </mat-slide-toggle>
-        <mat-slide-toggle [checked]="settings.autoDownload" (change)="settings.autoDownload = $event.checked">
-            {{'settings.auto-download' | translate}}
-        </mat-slide-toggle>
+<app-card [title]="'settings.game-settings' | translate">
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field>
+                <mat-label>{{'app.language' | translate}}</mat-label>
+                <mat-select [(value)]="settings.language" (valueChange)="onLanguageChange()">
+                    <mat-option *ngFor="let language of languages.keys" [value]="language">
+                        {{'settings.languages.' + (languages.values[language] | lowercase) | translate}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field>
+                <mat-label>{{'settings.league' | translate}}</mat-label>
+                <mat-select [(value)]="settings.leagueId">
+                    <mat-option *ngFor="let league of leagues$ | async" [value]="league.id">
+                        {{league.text}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
     </div>
+</app-card>
+<app-card [title]="'settings.dialog' | translate">
+    <div class="row">
+        <div class="col">
+            <mat-form-field>
+                <mat-label>{{'settings.dialog-spawn-position-title' | translate}}</mat-label>
+                <mat-select [(value)]="settings.dialogSpawnPosition">
+                    <mat-option [value]="1">{{'settings.dialog-spawn-position.cursor' | translate}}</mat-option>
+                    <mat-option [value]="2">{{'settings.dialog-spawn-position.center' | translate}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+</app-card>
+<app-card [title]="'settings.app' | translate">
+    <div class="row">
+        <div class="col-md-3">
+            <mat-slide-toggle [checked]="settings.displayVersion" (change)="settings.displayVersion = $event.checked">
+                {{'settings.display-version' | translate}}
+            </mat-slide-toggle>
+        </div>
+        <div class="col-md-3">
+            <mat-slide-toggle [checked]="autoLaunchEnabled$ | async" (change)="onAutoLaunchChange($event.checked)">
+                {{'settings.auto-launch' | translate}}
+            </mat-slide-toggle>
+        </div>
+        <div class="col-md-6">
+            <mat-slide-toggle [checked]="settings.autoDownload" (change)="settings.autoDownload = $event.checked">
+                {{'settings.auto-download' | translate}}
+            </mat-slide-toggle>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field>
+                <mat-label>{{'settings.ui-language' | translate}}</mat-label>
+                <mat-select [(value)]="settings.uiLanguage" (valueChange)="onUiLanguageChange()">
+                    <mat-option *ngFor="let language of uiLanguages.keys" [value]="language">
+                        {{'settings.languages.' + (uiLanguages.values[language] | lowercase) | translate}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field>
+                <mat-label>{{'settings.zoom' | translate}}</mat-label>
+                <mat-select [(value)]="settings.zoom" (valueChange)="onZoomChange()">
+                    <mat-option *ngFor="let value of [25,33,50,67,75,80,90,100,110,125,150,175,200,250,300]"
+                        [value]="value">
+                        {{value}}%
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <app-accelerator [label]="'settings.open-settings' | translate"
+                [(value)]="settings.openUserSettingsKeybinding">
+            </app-accelerator>
+        </div>
+        <div class="col-md-6">
+            <app-accelerator [label]="'settings.exit-app' | translate" [(value)]="settings.exitAppKeybinding">
+            </app-accelerator>
+        </div>
+    </div>
+</app-card>
 
-    <mat-form-field>
-        <mat-label>{{'settings.ui-language' | translate}}</mat-label>
-        <mat-select [(value)]="settings.uiLanguage">
-            <mat-option *ngFor="let language of uiLanguages.keys" [value]="language">
-                {{'settings.languages.' + (uiLanguages.values[language] | lowercase) | translate}}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
-
-    <mat-form-field>
-        <mat-label>{{'settings.zoom' | translate}}</mat-label>
-        <mat-select [(value)]="settings.zoom">
-            <mat-option *ngFor="let value of [25,33,50,67,75,80,90,100,110,125,150,175,200,250,300]" [value]="value">
-                {{value}}%
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
-
-    <app-accelerator [label]="'settings.open-settings' | translate" [(value)]="settings.openUserSettingsKeybinding">
-    </app-accelerator>
-    <app-accelerator [label]="'settings.exit-app' | translate" [(value)]="settings.exitAppKeybinding">
-    </app-accelerator>
-
-    <mat-dialog-actions align="center">
-        <button mat-button (click)="relaunchApp()">
-            {{'settings.relaunch-app' | translate}}
-        </button>
-        <button mat-button (click)="exitApp()">
-            {{'settings.exit-app' | translate}}
-        </button>
-    </mat-dialog-actions>
-</mat-card>
+<app-card>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-2">
+            <div align="center">
+                <button mat-button (click)="relaunchApp()">
+                    {{'settings.relaunch-app' | translate}}
+                </button>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div align="center">
+                <button mat-button (click)="exitApp()">
+                    {{'settings.exit-app' | translate}}
+                </button>
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</app-card>

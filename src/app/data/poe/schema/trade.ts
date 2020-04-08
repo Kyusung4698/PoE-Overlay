@@ -270,5 +270,6 @@ export interface TradeFetchResultListing {
 }
 
 export interface TradeFetchResult {
+    id: string;
     listing: TradeFetchResultListing;
 }

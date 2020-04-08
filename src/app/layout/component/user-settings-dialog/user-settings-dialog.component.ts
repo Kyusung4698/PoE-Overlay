@@ -1,6 +1,5 @@
-import { ChangeDetectionStrategy, Component, Inject, QueryList, ViewChildren } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { BrowserService } from '@app/service';
+import { ChangeDetectionStrategy, Component, Input, QueryList, ViewChildren } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { UserSettings, UserSettingsFeature } from '../../type';
 import { UserSettingsFeatureContainerComponent } from '../user-settings-feature-container/user-settings-feature-container.component';
 
@@ -16,17 +15,14 @@ export interface UserSettingsDialogData {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserSettingsDialogComponent {
+  @Input()
   public settings: UserSettings;
+
+  @Input()
   public features: UserSettingsFeature[];
 
   @ViewChildren(UserSettingsFeatureContainerComponent)
   public containers: QueryList<UserSettingsFeatureContainerComponent>;
-
-  constructor(@Inject(MAT_DIALOG_DATA) data: UserSettingsDialogData,
-              private readonly browser: BrowserService) {
-    this.settings = data.settings;
-    this.features = data.features;
-  }
 
   public onSelectedIndexChange(index: number): void {
     const containerIndex = index - 1;
@@ -34,9 +30,5 @@ export class UserSettingsDialogComponent {
     if (container) {
       container.instance.load();
     }
-  }
-
-  public openUrl(url: string): void {
-    this.browser.open(url, true);
   }
 }

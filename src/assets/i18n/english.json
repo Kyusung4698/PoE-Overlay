@@ -1,6 +1,8 @@
 {
 	"app": {
 		"clickable": "'Click' = In-Game Browser, 'CTRL + Click' Default Browser",
+		"language": "Language",
+		"shortcut": "Shortcut",
 		"update": {
 			"available": "A new update is available. Will be automatically downloaded unless otherwise specified.",
 			"downloaded": "The new update is now ready to install. Please relaunch PoE-Overlay."
@@ -10,7 +12,6 @@
 		"add": "Add Bookmark",
 		"external": "External",
 		"name": "Bookmark",
-		"shortcut": "Shortcut",
 		"url": "Url"
 	},
 	"clipboard": {
@@ -21,7 +22,6 @@
 	"command": {
 		"add": "Add Command",
 		"name": "Commands",
-		"shortcut": "Shortcut",
 		"text": "Command"
 	},
 	"evaluate": {
@@ -30,17 +30,19 @@
 		"cancel": "Cancel?",
 		"canceled": "Search canceled. Open in browser?",
 		"count": "Count",
+		"currencies": "Currency",
 		"currency": "Displayed Currency",
-		"currency-original": "Original Currency",
+		"currency-listing": "Show Listing Currency",
 		"days": "Last 7 days",
-		"debounce-time": "Search Debounce Time",
+		"debounce-time": "Debounce Time",
 		"empty": "No results. Open in browser?",
 		"error": "An error occured.",
 		"errors": {
 			"http": "Could not communicate with the GGG trade website.\nPlease make sure the website is reachable.",
 			"rate": "Limit reached. Please try again later.\nIf this keeps happening please try lowering the fetched item count. "
 		},
-		"fetch-count": "Search Fetch Count",
+		"fetch-count": "Fetch Count",
+		"layout": "Layout",
 		"listings": "Found {{total}}. Fetching {{count}} entries...",
 		"loading": "Loading...",
 		"mean": "Mean",
@@ -48,6 +50,11 @@
 		"mode": "Mode",
 		"name": "Evaluate",
 		"not-found": "No data found.",
+		"profile": {
+			"default": "Default"
+		},
+		"profiles": "Preselected Profiles",
+		"query": "Query",
 		"range": "Range",
 		"result-view": "Result View",
 		"result-views": {
@@ -55,9 +62,8 @@
 			"list": "List"
 		},
 		"search": {
-			"default": "Default Search Settings",
 			"disable-max-range": "Disable Max Range",
-			"filter": "Search Filter",
+			"filter": "Filter",
 			"gem": "Gem Level, Map Tier & Quality",
 			"item-default-links": "Item Link",
 			"item-level": "Item Level",
@@ -77,9 +83,8 @@
 				"week": "Up to a week ago",
 				"weeks": "Up to 2 weeks ago"
 			},
-			"modifier": "Modifier Search Settings",
-			"modifier-range": "Modifier Range",
-			"online-only": "Online Only"
+			"online-only": "Online Only",
+			"properties": "Properties"
 		},
 		"searching": "Searching...",
 		"seller": "Seller",
@@ -88,6 +93,7 @@
 		"stats": "Stats",
 		"stats-export": "Export Stats to Clipboard",
 		"stats-import": "Import Stats from Clipboard",
+		"stats-range": "Min-Max Range",
 		"stats-unique-check-all": "Unique Check All",
 		"switch": "switch amount",
 		"tag": {
@@ -136,7 +142,7 @@
 	},
 	"material": {
 		"accelerator": {
-			"any": "Press any key",
+			"any": "Press any key... ESC will set it to unbound.",
 			"unbound": "Unbound"
 		},
 		"select-list": {
@@ -180,7 +186,6 @@
 		"exit-app": "Exit App",
 		"game-settings": "Game Settings",
 		"general": "General",
-		"language": "Language",
 		"languages": {
 			"english": "English",
 			"french": "French",
