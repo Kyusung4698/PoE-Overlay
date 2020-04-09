@@ -1,22 +1,20 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from '@shared/shared.module';
-import { UserSettingsDialogComponent, UserSettingsFeatureContainerComponent, UserSettingsFormComponent } from './component';
-import { UserSettingsHelpComponent } from './component/user-settings-help/user-settings-help.component';
-import { OverlayComponent } from './page/overlay/overlay.component';
-import { UserSettingsComponent } from './page/user-settings/user-settings.component';
+import { UserSettingsFeatureContainerComponent, UserSettingsFormComponent, UserSettingsHelpComponent } from './component';
 import { ResizeDirective } from './directive/resize.directive';
+import { OverlayComponent, UserSettingsComponent } from './page';
 
 @NgModule({
     declarations: [
         // components
-        UserSettingsDialogComponent,
         UserSettingsFeatureContainerComponent,
         UserSettingsFormComponent,
         UserSettingsHelpComponent,
+        // directives
+        ResizeDirective,
         // pages
         OverlayComponent,
         UserSettingsComponent,
-        ResizeDirective,
     ],
     imports: [SharedModule],
 })

@@ -87,7 +87,7 @@ You can change these shortcuts in the user settings menu.
 
 |Shortcut        |Description
 |---             |---	    
-| `ctrl+d`       | Displays the item in a frame and evaluates the price. You can open the offical trade site on click of the currency value
+| `alt+d`        | Displays the item in a frame and evaluates the price. You can open the offical trade site on click of the currency value
 | `f7`           | Opens the user settings menu
 
 Full list below. Click on `Details`.
@@ -96,8 +96,8 @@ Full list below. Click on `Details`.
   
 |Shortcut        |Description
 |---             |---	    
-| `ctrl+d`       | Displays the item in a frame and evaluates the price. You can open the offical trade site on click of the currency value
-| `ctrl+t`       | As above - displays the item translated
+| `alt+d`        | Displays the item in a frame and evaluates the price. You can open the offical trade site on click of the currency value
+| `alt+t`        | As above - displays the item translated
 | `alt+w`        | Opens item in wiki
 | `ctrl+alt+w`   | As above - but in external browser
 | `alt+g`        | Opens item in poedb
