@@ -1,6 +1,7 @@
-import { app, BrowserWindow, dialog, Display, ipcMain, Menu, MenuItem, MenuItemConstructorOptions, screen, systemPreferences, Tray } from 'electron';
+import { app, BrowserWindow, dialog, Display, ipcMain, Menu, MenuItem, MenuItemConstructorOptions, screen, session, systemPreferences, Tray } from 'electron';
 import * as path from 'path';
 import * as url from 'url';
+import UserAgent from 'user-agents';
 import * as launch from './electron/auto-launch';
 import * as update from './electron/auto-updater';
 import * as game from './electron/game';
@@ -48,6 +49,17 @@ let downloadItem: MenuItem = null;
 const childs: {
     [key: string]: BrowserWindow
 } = {};
+
+/* session */
+
+function setUserAgent() {
+    const userAgent = new UserAgent();
+    const generatedUserAgent = userAgent.random().toString();
+    session.defaultSession.webRequest.onBeforeSendHeaders((details, callback) => {
+        details.requestHeaders['User-Agent'] = generatedUserAgent;
+        callback({ cancel: false, requestHeaders: details.requestHeaders });
+    });
+}
 
 /* helper */
 
@@ -314,6 +326,7 @@ try {
             createWindow();
             createTray();
         }, 300);
+        setUserAgent();
     });
 
     app.on('window-all-closed', () => {
