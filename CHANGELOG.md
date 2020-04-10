@@ -1,8 +1,7 @@
 # Changelog
 
-## 0.6.19
+## 0.6.19 (2020-04-10)
 
-- update `evaluate` default shortcut to `Alt + D` (#590)
 - update `evaluate-translate` default shortcut to `Alt + T` (#590)
 - fix poe overlay not visible after focus change (#587)
 

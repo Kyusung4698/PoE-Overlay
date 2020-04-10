@@ -9,11 +9,11 @@ body {
   height: 100%;
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  user-select: none;
 }
 
 .clickable {
   cursor: pointer;
-  user-select: none;
 }
 
 .mat-snack-bar-container.snack-bar-service {

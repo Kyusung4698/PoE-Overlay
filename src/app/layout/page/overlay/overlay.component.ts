@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, HostListener, Inject, OnDestroy, OnInit } from '@angular/core';
-import { AppService, AppTranslateService, RendererService, SessionService, WindowService } from '@app/service';
+import { AppService, AppTranslateService, GameService, RendererService, SessionService, WindowService } from '@app/service';
 import { DialogRefService } from '@app/service/dialog';
 import { ShortcutService } from '@app/service/input';
 import { FEATURE_MODULES } from '@app/token';
@@ -34,6 +34,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
     private readonly translate: AppTranslateService,
     private readonly snackBar: SnackBarService,
     private readonly window: WindowService,
+    private readonly game: GameService,
     private readonly renderer: RendererService,
     private readonly shortcut: ShortcutService,
     private readonly dialogRef: DialogRefService) {
@@ -104,6 +105,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
         this.window.hide();
       } else {
         this.window.show();
+        this.game.focus();
       }
     });
     this.app.triggerVisibleChange();

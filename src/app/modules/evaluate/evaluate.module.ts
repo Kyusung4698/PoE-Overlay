@@ -62,7 +62,7 @@ export class EvaluateModule implements FeatureModule {
             evaluateQueryFetchCount: 30,
             evaluateModifierMinRange: 10,
             evaluateModifierMaxRange: 50,
-            evaluateKeybinding: 'Alt + D',
+            evaluateKeybinding: 'CmdOrCtrl + D',
             evaluateTranslatedItemLanguage: Language.English,
             evaluateTranslatedKeybinding: 'Alt + T',
         };
