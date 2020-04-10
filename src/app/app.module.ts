@@ -11,8 +11,7 @@ import { Observable } from 'rxjs';
 import { AppTranslationsLoader } from './app-translations.loader';
 import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
-import { OverlayComponent } from './layout/page/overlay/overlay.component';
-import { UserSettingsComponent } from './layout/page/user-settings/user-settings.component';
+import { OverlayComponent, UserSettingsComponent } from './layout/page';
 
 @Injectable()
 export class CacheInterceptor implements HttpInterceptor {

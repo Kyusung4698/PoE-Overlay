@@ -64,7 +64,7 @@ export class EvaluateModule implements FeatureModule {
             evaluateModifierMaxRange: 50,
             evaluateKeybinding: 'CmdOrCtrl + D',
             evaluateTranslatedItemLanguage: Language.English,
-            evaluateTranslatedKeybinding: 'CmdOrCtrl + T',
+            evaluateTranslatedKeybinding: 'Alt + T',
         };
         return {
             name: 'evaluate.name',

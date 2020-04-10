@@ -70,6 +70,9 @@ export class DragDirective implements OnInit, OnDestroy {
       return;
     }
 
+    event.preventDefault();
+    event.stopImmediatePropagation();
+
     const delta: Point = {
       x: event.pageX - this.pointerPosition.x,
       y: event.pageY - this.pointerPosition.y,

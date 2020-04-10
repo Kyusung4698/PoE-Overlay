@@ -69,8 +69,12 @@ export function register(ipcMain: IpcMain, onUpdate: (game: Game) => void): void
         event.returnValue = true;
     });
 
+    let timeout = 0;
     setInterval(() => {
-        if (game.update()) {
+        if (--timeout < 0 && game.update()) {
+            if (game.active) {
+                timeout = 2;
+            }
             onUpdate(game);
         }
     }, 500);

@@ -103,15 +103,17 @@ game.register(ipcMain, poe => {
     send('game-active-change', serve ? true : poe.active);
     // send('game-active-change', poe.active);
 
-    if (win && poe.active) {
-        win.setAlwaysOnTop(false);
-        win.setVisibleOnAllWorkspaces(false);
+    if (win) {
+        if (poe.active) {
+            win.setAlwaysOnTop(true, 'pop-up-menu', 1);
+            win.setVisibleOnAllWorkspaces(true);
 
-        win.setAlwaysOnTop(true, 'pop-up-menu', 1);
-        win.setVisibleOnAllWorkspaces(true);
-
-        if (poe.bounds) {
-            win.setBounds(poe.bounds);
+            if (poe.bounds) {
+                win.setBounds(poe.bounds);
+            }
+        } else {
+            win.setAlwaysOnTop(false);
+            win.setVisibleOnAllWorkspaces(false);
         }
     }
 });
@@ -192,7 +194,7 @@ ipcMain.on('open-route', (event, route) => {
             childs[route] = new BrowserWindow({
                 width: 1210,
                 height: 700,
-                frame: false,                
+                frame: false,
                 closable: false,
                 resizable: true,
                 movable: true,
