@@ -1,6 +1,6 @@
 {
   "name": "poe-overlay",
-  "version": "0.6.19",
+  "version": "0.6.20",
   "private": true,
   "description": "A Overlay for Path of Exile. Built with Electron and Angular.",
   "main": "main.js",
@@ -89,6 +89,7 @@
     "robotjs": "git+https://github.com/Kyusung4698/robotjs.git#a219829c83ff7f3a802c98a9c52a672ca798d80e",
     "rxjs": "~6.5.4",
     "tslib": "^1.11.1",
+    "user-agents": "^1.0.559",
     "zone.js": "^0.10.3"
   },
   "resolutions": {

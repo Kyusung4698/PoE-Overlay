@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.6.20 (2020-04-10)
+
+- fix poe overlay losses focus after clicking on it (#602)
+
 ## 0.6.19 (2020-04-10)
 
 - update `evaluate-translate` default shortcut to `Alt + T` (#590)

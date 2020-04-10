@@ -8,7 +8,7 @@ import { SnackBarService } from '@shared/module/material/service';
 import { ContextService } from '@shared/module/poe/service';
 import { Context } from '@shared/module/poe/type';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { distinctUntilChanged, flatMap, tap } from 'rxjs/operators';
+import { distinctUntilChanged, flatMap, map, tap } from 'rxjs/operators';
 import { UserSettingsService } from '../../service/user-settings.service';
 import { UserSettings } from '../../type';
 
@@ -97,11 +97,13 @@ export class OverlayComponent implements OnInit, OnDestroy {
   }
 
   private registerVisibleChange(): void {
+
     this.app.visibleChange().pipe(
       tap(flag => this.shortcut.check(flag)),
+      map(flag => flag !== VisibleFlag.None),
       distinctUntilChanged()
-    ).subscribe(flag => {
-      if (flag === VisibleFlag.None) {
+    ).subscribe(show => {
+      if (!show) {
         this.window.hide();
       } else {
         this.window.show();
