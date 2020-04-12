@@ -112,8 +112,8 @@ update.register(ipcMain, (event, autoDownload) => {
 robot.register(ipcMain);
 
 game.register(ipcMain, poe => {
-    send('game-active-change', serve ? true : poe.active);
-    // send('game-active-change', poe.active);
+    // send('game-active-change', serve ? true : poe.active);
+    send('game-active-change', poe.active);
 
     if (win) {
         if (poe.active) {
@@ -174,9 +174,9 @@ function createWindow(): BrowserWindow {
             allowRunningInsecureContent: serve,
             webSecurity: false
         },
-        focusable: state.keyboardSupport,
+        focusable: false,
         skipTaskbar: true,
-        show: false
+        show: false,
     });
     win.removeMenu();
     win.setIgnoreMouseEvents(true);
@@ -280,13 +280,6 @@ function createTray(): Tray {
         {
             label: 'Relaunch', type: 'normal',
             click: () => send('app-relaunch')
-        },
-        {
-            label: 'Keyboard Support (experimental)', type: 'checkbox',
-            checked: state.keyboardSupport, click: () => {
-                state.keyboardSupport = !state.keyboardSupport;
-                send('app-relaunch');
-            }
         },
         {
             label: 'Hardware Acceleration', type: 'checkbox',

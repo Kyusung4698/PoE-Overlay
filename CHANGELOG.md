@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.6.21 (2020-04-12)
+
+- add focus game after closing all dialogs (#606)
+- add move poe overlay to top after focusing poe (#608)
+- update keyboard support to be always enabled
+
 ## 0.6.20 (2020-04-10)
 
 - fix poe overlay losses focus after clicking on it (#602)

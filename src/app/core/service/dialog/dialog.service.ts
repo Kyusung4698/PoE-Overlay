@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Point } from '@app/type';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { GameService } from '../game.service';
 import { WindowService } from '../window.service';
 import { DialogRefService } from './dialog-ref.service';
 
@@ -21,7 +22,8 @@ export class DialogService {
     constructor(
         private readonly dialog: MatDialog,
         private readonly dialogRef: DialogRefService,
-        private readonly window: WindowService) { }
+        private readonly window: WindowService,
+        private readonly game: GameService) { }
 
     public open<T, D, R>(
         componentOrTemplateRef: ComponentType<T> | TemplateRef<T>,
@@ -37,7 +39,10 @@ export class DialogService {
         const left = Math.max(Math.min(scaled.x - width * 0.5, bounds.width - width), 0);
         const top = Math.max(Math.min(scaled.y - height * 0.5, bounds.height - height), 0);
 
-        this.window.enableInput();
+        if (this.dialog.openDialogs.length === 0) {
+            this.window.enableInput();
+        }
+
         const dialogRef = this.dialog.open(componentOrTemplateRef, {
             position: {
                 left: `${left}px`,
@@ -51,6 +56,7 @@ export class DialogService {
         return dialogRef.afterClosed().pipe(tap(() => {
             if (this.dialog.openDialogs.length === 0) {
                 this.window.disableInput();
+                this.game.focus();
             }
             this.dialogRef.remove(close);
         }));

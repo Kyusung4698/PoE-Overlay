@@ -2,19 +2,16 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 const ANIMATION_FILE = 'animation.flag'
-const KEYBOARD_FILE = 'keyboard.flag'
 const VERSION_FILE = 'version.txt'
 
 const FLAG_FILE_VALUE = 'true';
 
 export class State {
     private readonly animationPath: string;
-    private readonly keyboardPath: string;
     private readonly versionPath: string;
 
     constructor(private readonly userDataPath: string) {
         this.animationPath = path.join(this.userDataPath, ANIMATION_FILE);
-        this.keyboardPath = path.join(this.userDataPath, KEYBOARD_FILE);
         this.versionPath = path.join(this.userDataPath, VERSION_FILE);
     }
 
@@ -28,19 +25,6 @@ export class State {
             fs.writeFileSync(this.animationPath, FLAG_FILE_VALUE);
         } else {
             fs.unlinkSync(this.animationPath);
-        }
-    }
-
-    public get keyboardSupport(): boolean {
-        const keyboardExists = fs.existsSync(this.keyboardPath);
-        return keyboardExists;
-    }
-
-    public set keyboardSupport(enable: boolean) {
-        if (enable) {
-            fs.writeFileSync(this.keyboardPath, FLAG_FILE_VALUE);
-        } else {
-            fs.unlinkSync(this.keyboardPath);
         }
     }
 
