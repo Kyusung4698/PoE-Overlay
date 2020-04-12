@@ -129,6 +129,49 @@
                 </mat-card>
                 <mat-card>
                     <mat-label> {{'evaluate.search.properties' | translate}} </mat-label>
+
+                    <label class="label"> {{'evaluate.property.range' | translate}}
+                        {{displayWithStat(settings.evaluatePropertyMinRange)}}~{{displayWithStat(settings.evaluatePropertyMaxRange)}}%
+                    </label>
+                    <div class="range">
+                        <span>#</span>
+                        <mat-slider min="0" max="50" step="1" tickInterval="10" invert [displayWith]="displayWithStat"
+                            [(value)]="settings.evaluatePropertyMinRange">
+                        </mat-slider>
+                        <div class="value"
+                            *ngIf="settings.evaluatePropertyMinRange !== 0 || settings.evaluatePropertyMaxRange !== 0;else single">
+                            <span
+                                *ngIf="settings.evaluatePropertyMinRange !== 50;else any">{{50 * ( 1 - (settings.evaluatePropertyMinRange / 100)) | number : '1.0-1'}}</span>
+                            <span>~</span>
+                            <span
+                                *ngIf="settings.evaluatePropertyMaxRange !== 50;else any">{{50 * ( 1 + (settings.evaluatePropertyMaxRange / 100)) | number : '1.0-1'}}</span>
+                            <ng-template #any>#</ng-template>
+                        </div>
+                        <mat-slider min="0" max="50" step="1" tickInterval="10" [displayWith]="displayWithStat"
+                            [(value)]="settings.evaluatePropertyMaxRange">
+                        </mat-slider>
+                        <span>#</span>
+                        <ng-template #single>
+                            <div class="value">
+                                <span>50</span>
+                            </div>
+                        </ng-template>
+                    </div>
+
+                    <div class="toggle">
+                        <mat-slide-toggle [checked]="settings.evaluateQueryDefaultAttack"
+                            (change)="settings.evaluateQueryDefaultAttack = $event.checked">
+                            {{'evaluate.search.attack' | translate}}
+                        </mat-slide-toggle>
+                        <mat-slide-toggle [checked]="settings.evaluateQueryDefaultDefense"
+                            (change)="settings.evaluateQueryDefaultDefense = $event.checked">
+                            {{'evaluate.search.defense' | translate}}
+                        </mat-slide-toggle>
+                        <mat-slide-toggle [checked]="settings.evaluateQueryDefaultMiscs"
+                            (change)="settings.evaluateQueryDefaultMiscs = $event.checked">
+                            {{'evaluate.search.gem' | translate}}
+                        </mat-slide-toggle>
+                    </div>
                     <div class="toggle">
                         <mat-slide-toggle [checked]="settings.evaluateQueryDefaultItemLevel"
                             (change)="settings.evaluateQueryDefaultItemLevel = $event.checked">
@@ -137,10 +180,6 @@
                         <mat-slide-toggle [checked]="settings.evaluateQueryDefaultType"
                             (change)="settings.evaluateQueryDefaultType = $event.checked">
                             {{'evaluate.search.item-type' | translate}}
-                        </mat-slide-toggle>
-                        <mat-slide-toggle [checked]="settings.evaluateQueryDefaultMiscs"
-                            (change)="settings.evaluateQueryDefaultMiscs = $event.checked">
-                            {{'evaluate.search.gem' | translate}}
                         </mat-slide-toggle>
                         <mat-form-field>
                             <mat-label>{{'evaluate.search.item-default-links' | translate}}</mat-label>
@@ -158,12 +197,7 @@
 
                 <mat-card>
                     <mat-label> {{'evaluate.stats' | translate}} </mat-label>
-                    <div class="toggle">
-                        <mat-slide-toggle [checked]="settings.evaluateQueryDefaultStatsUnique"
-                            (change)="settings.evaluateQueryDefaultStatsUnique = $event.checked">
-                            {{'evaluate.stats-unique-check-all' | translate}}
-                        </mat-slide-toggle>
-                    </div>
+                    
                     <label class="label"> {{'evaluate.stats-range' | translate}}
                         {{displayWithStat(settings.evaluateModifierMinRange)}}~{{displayWithStat(settings.evaluateModifierMaxRange)}}%
                     </label>
@@ -190,6 +224,13 @@
                                 <span>50</span>
                             </div>
                         </ng-template>
+                    </div>
+
+                    <div class="toggle">
+                        <mat-slide-toggle [checked]="settings.evaluateQueryDefaultStatsUnique"
+                            (change)="settings.evaluateQueryDefaultStatsUnique = $event.checked">
+                            {{'evaluate.stats-unique-check-all' | translate}}
+                        </mat-slide-toggle>
                     </div>
 
                     <app-select-list [items]="stats$ | async" (itemsChange)="onStatsChange($event)">

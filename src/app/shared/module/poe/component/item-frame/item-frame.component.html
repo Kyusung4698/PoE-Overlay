@@ -1,13 +1,15 @@
-<div class="frame" [style.background]="'rgba(0,0,0,' + opacity + ')'" (mousedown)="onMouseDown($event)" (mouseup)="onMouseUp($event)">
+<div class="frame" [style.background]="'rgba(0,0,0,' + opacity + ')'" (mousedown)="onMouseDown($event)"
+    (mouseup)="onMouseUp($event)">
     <app-item-frame-header [item]="item" [queryItem]="queryItem"
-        [queryable]="item.rarity === 'normal' || item.rarity === 'magic' || item.rarity === 'rare'" [language]="language">
+        [queryable]="item.rarity === 'normal' || item.rarity === 'magic' || item.rarity === 'rare'"
+        [language]="language">
     </app-item-frame-header>
 
     <div class="detail">
         <!-- properties -->
         <ng-container *ngIf="item.properties">
             <app-item-frame-properties [item]="item" [queryItem]="queryItem" [language]="language"
-                [properties]="properties">
+                [properties]="properties" [minRange]="propertyMinRange" [maxRange]="propertyMaxRange">
             </app-item-frame-properties>
             <ng-content select="properties"></ng-content>
             <app-item-frame-separator [item]="item" *ngIf="req || sockets || stats || state || influences || separator">

@@ -89,7 +89,7 @@
                         <span>{{'Quality' | clientString:language}}:&nbsp;</span>
                     </ng-container>
                     <span [class]="prop.augmented ? 'purpel' : 'white'">
-                        <app-item-frame-value [(value)]="prop.value" [modifierMinRange]="0" [modifierMaxRange]="0.5">
+                        <app-item-frame-value [(value)]="prop.value" [minRange]="0" [maxRange]="0.5">
                         </app-item-frame-value>
                     </span>
                 </app-item-frame-value-group>
@@ -107,7 +107,7 @@
         <app-item-frame-value-group>
             <span>{{name}}:&nbsp;</span>
             <span class="white">
-                <app-item-frame-value [(value)]="item.damage[prop]" [modifierMinRange]="0" [modifierMaxRange]="0.5">
+                <app-item-frame-value [(value)]="item.damage[prop]" [minRange]="minRange" [maxRange]="maxRange">
                 </app-item-frame-value>
             </span>
         </app-item-frame-value-group>
@@ -119,7 +119,7 @@
         <app-item-frame-value-group>
             <span>{{key | clientString:language}}:&nbsp;</span>
             <span [class]="prop.augmented ? 'purpel' : 'white'">
-                <app-item-frame-value [(value)]="prop.value" [modifierMinRange]="0" [modifierMaxRange]="0.5">
+                <app-item-frame-value [(value)]="prop.value" [minRange]="minRange" [maxRange]="maxRange">
                 </app-item-frame-value>
             </span>
         </app-item-frame-value-group>

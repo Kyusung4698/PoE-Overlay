@@ -54,6 +54,9 @@
 			"default": "태만"
 		},
 		"profiles": "미리 선택된 프로파일",
+		"property": {
+			"range": "최소 최대 범위"
+		},
 		"query": "질문",
 		"range": "Range",
 		"result-view": "결과보기",
@@ -62,7 +65,8 @@
 			"list": "명부"
 		},
 		"search": {
-			"disable-max-range": "최대 범위 비활성화",
+			"attack": "공격",
+			"defense": "방어",
 			"filter": "필터",
 			"gem": "보석 레벨, 지도 등급 및 품질",
 			"item-default-links": "아이템 링크",
@@ -177,6 +181,7 @@
 		"auto-launch": "부팅시 실행",
 		"cancel": "취소",
 		"dialog": "대화",
+		"dialog-opacity": "대화 상자 불투명도",
 		"dialog-spawn-position": {
 			"center": "센터",
 			"cursor": "커서"

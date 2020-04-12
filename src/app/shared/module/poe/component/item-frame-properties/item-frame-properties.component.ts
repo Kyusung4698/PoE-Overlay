@@ -20,6 +20,12 @@ export class ItemFramePropertiesComponent implements OnInit {
   @Input()
   public properties: string[];
 
+  @Input()
+  public minRange: number;
+
+  @Input()
+  public maxRange: number;
+
   public ngOnInit(): void {
     this.properties = this.properties || [
       'weaponCriticalStrikeChance',

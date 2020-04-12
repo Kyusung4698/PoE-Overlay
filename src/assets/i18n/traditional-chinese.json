@@ -54,6 +54,9 @@
 			"default": "默認"
 		},
 		"profiles": "預選個人資料",
+		"property": {
+			"range": "最小最大範圍"
+		},
 		"query": "詢問",
 		"range": "範圍",
 		"result-view": "結果視圖",
@@ -62,7 +65,8 @@
 			"list": "名單"
 		},
 		"search": {
-			"disable-max-range": "禁用最大範圍",
+			"attack": "攻擊",
+			"defense": "防禦",
 			"filter": "過濾",
 			"gem": "寶石等級，地圖等級和品質",
 			"item-default-links": "物品鏈接",
@@ -177,6 +181,7 @@
 		"auto-launch": "開機運行",
 		"cancel": "取消",
 		"dialog": "對話",
+		"dialog-opacity": "對話不透明度",
 		"dialog-spawn-position": {
 			"center": "中央",
 			"cursor": "光標"

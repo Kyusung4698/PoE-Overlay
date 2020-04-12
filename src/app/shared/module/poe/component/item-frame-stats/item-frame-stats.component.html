@@ -62,7 +62,7 @@
                     <span>{{part}}</span>
                     <span [class]="getValueClass(stat.id)">
                         <app-item-frame-value *ngIf="stat.values[index]" [(value)]="stat.values[index]"
-                            [modifierMinRange]="modifierMinRange" [modifierMaxRange]="modifierMaxRange">
+                            [minRange]="modifierMinRange" [maxRange]="modifierMaxRange">
                         </app-item-frame-value>
                     </span>
                 </ng-container>

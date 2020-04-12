@@ -1,4 +1,4 @@
-<babeledit_project be_version="2.6.1" version="1.2">
+<babeledit_project version="1.2" be_version="2.6.1">
     <!--
 
     BabelEdit project file
@@ -2173,6 +2173,64 @@
                             </translation>
                         </translations>
                     </concept_node>
+                    <folder_node>
+                        <name>property</name>
+                        <children>
+                            <concept_node>
+                                <name>range</name>
+                                <definition_loaded>false</definition_loaded>
+                                <description></description>
+                                <comment></comment>
+                                <default_text></default_text>
+                                <translations>
+                                    <translation>
+                                        <language>de-DE</language>
+                                        <approved>false</approved>
+                                    </translation>
+                                    <translation>
+                                        <language>en-US</language>
+                                        <approved>false</approved>
+                                    </translation>
+                                    <translation>
+                                        <language>es-ES</language>
+                                        <approved>false</approved>
+                                    </translation>
+                                    <translation>
+                                        <language>fr-FR</language>
+                                        <approved>false</approved>
+                                    </translation>
+                                    <translation>
+                                        <language>ko-KR</language>
+                                        <approved>false</approved>
+                                    </translation>
+                                    <translation>
+                                        <language>pl-PL</language>
+                                        <approved>false</approved>
+                                    </translation>
+                                    <translation>
+                                        <language>pt-BR</language>
+                                        <approved>false</approved>
+                                    </translation>
+                                    <translation>
+                                        <language>ru-RU</language>
+                                        <approved>false</approved>
+                                    </translation>
+                                    <translation>
+                                        <language>th-TH</language>
+                                        <approved>false</approved>
+                                    </translation>
+                                    <translation>
+                                        <language>zh-CHS</language>
+                                        <approved>false</approved>
+                                    </translation>
+                                    <translation>
+                                        <language>zh-CHT</language>
+                                        <approved>false</approved>
+                                    </translation>
+                                </translations>
+                            </concept_node>
+                        </children>
+                    </folder_node>
                     <concept_node>
                         <name>query</name>
                         <definition_loaded>false</definition_loaded>
@@ -2447,7 +2505,7 @@
                         <name>search</name>
                         <children>
                             <concept_node>
-                                <name>disable-max-range</name>
+                                <name>attack</name>
                                 <definition_loaded>false</definition_loaded>
                                 <description></description>
                                 <comment></comment>
@@ -2474,6 +2532,10 @@
                                         <approved>false</approved>
                                     </translation>
                                     <translation>
+                                        <language>pl-PL</language>
+                                        <approved>false</approved>
+                                    </translation>
+                                    <translation>
                                         <language>pt-BR</language>
                                         <approved>false</approved>
                                     </translation>
@@ -2486,7 +2548,56 @@
                                         <approved>false</approved>
                                     </translation>
                                     <translation>
+                                        <language>zh-CHS</language>
+                                        <approved>false</approved>
+                                    </translation>
+                                    <translation>
+                                        <language>zh-CHT</language>
+                                        <approved>false</approved>
+                                    </translation>
+                                </translations>
+                            </concept_node>
+                            <concept_node>
+                                <name>defense</name>
+                                <definition_loaded>false</definition_loaded>
+                                <description></description>
+                                <comment></comment>
+                                <default_text></default_text>
+                                <translations>
+                                    <translation>
+                                        <language>de-DE</language>
+                                        <approved>false</approved>
+                                    </translation>
+                                    <translation>
+                                        <language>en-US</language>
+                                        <approved>false</approved>
+                                    </translation>
+                                    <translation>
+                                        <language>es-ES</language>
+                                        <approved>false</approved>
+                                    </translation>
+                                    <translation>
+                                        <language>fr-FR</language>
+                                        <approved>false</approved>
+                                    </translation>
+                                    <translation>
+                                        <language>ko-KR</language>
+                                        <approved>false</approved>
+                                    </translation>
+                                    <translation>
                                         <language>pl-PL</language>
+                                        <approved>false</approved>
+                                    </translation>
+                                    <translation>
+                                        <language>pt-BR</language>
+                                        <approved>false</approved>
+                                    </translation>
+                                    <translation>
+                                        <language>ru-RU</language>
+                                        <approved>false</approved>
+                                    </translation>
+                                    <translation>
+                                        <language>th-TH</language>
                                         <approved>false</approved>
                                     </translation>
                                     <translation>
@@ -7367,6 +7478,59 @@
                             </translation>
                             <translation>
                                 <language>pl-PL</language>
+                                <approved>false</approved>
+                            </translation>
+                            <translation>
+                                <language>zh-CHS</language>
+                                <approved>false</approved>
+                            </translation>
+                            <translation>
+                                <language>zh-CHT</language>
+                                <approved>false</approved>
+                            </translation>
+                        </translations>
+                    </concept_node>
+                    <concept_node>
+                        <name>dialog-opacity</name>
+                        <definition_loaded>false</definition_loaded>
+                        <description></description>
+                        <comment></comment>
+                        <default_text></default_text>
+                        <translations>
+                            <translation>
+                                <language>de-DE</language>
+                                <approved>false</approved>
+                            </translation>
+                            <translation>
+                                <language>en-US</language>
+                                <approved>false</approved>
+                            </translation>
+                            <translation>
+                                <language>es-ES</language>
+                                <approved>false</approved>
+                            </translation>
+                            <translation>
+                                <language>fr-FR</language>
+                                <approved>false</approved>
+                            </translation>
+                            <translation>
+                                <language>ko-KR</language>
+                                <approved>false</approved>
+                            </translation>
+                            <translation>
+                                <language>pl-PL</language>
+                                <approved>false</approved>
+                            </translation>
+                            <translation>
+                                <language>pt-BR</language>
+                                <approved>false</approved>
+                            </translation>
+                            <translation>
+                                <language>ru-RU</language>
+                                <approved>false</approved>
+                            </translation>
+                            <translation>
+                                <language>th-TH</language>
                                 <approved>false</approved>
                             </translation>
                             <translation>

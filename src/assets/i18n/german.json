@@ -54,6 +54,9 @@
 			"default": "Standard"
 		},
 		"profiles": "Vorausgewählte Profile",
+		"property": {
+			"range": "Min-Max-Bereich"
+		},
 		"query": "Abfrage",
 		"range": "Bereich",
 		"result-view": "Ergebnisansicht",
@@ -62,7 +65,8 @@
 			"list": "Liste"
 		},
 		"search": {
-			"disable-max-range": "Maximalen Wertebereich deaktivieren",
+			"attack": "Attacke",
+			"defense": "Verteidigung",
 			"filter": "Filter",
 			"gem": "Edelsteinstufe, Kartenstufe und -qualität",
 			"item-default-links": "Item Link",
@@ -177,6 +181,7 @@
 		"auto-launch": "Beim Booten ausführen",
 		"cancel": "Abbrechen",
 		"dialog": "Dialog",
+		"dialog-opacity": "Dialogopazität",
 		"dialog-spawn-position": {
 			"center": "Center",
 			"cursor": "Mauszeiger"

@@ -54,6 +54,9 @@
 			"default": "默认"
 		},
 		"profiles": "预选个人资料",
+		"property": {
+			"range": "最小最大范围"
+		},
 		"query": "询问",
 		"range": "范围",
 		"result-view": "结果视图",
@@ -62,7 +65,8 @@
 			"list": "名单"
 		},
 		"search": {
-			"disable-max-range": "禁用最大范围",
+			"attack": "攻击",
+			"defense": "防御",
 			"filter": "过滤",
 			"gem": "宝石等级，地图等级和品质",
 			"item-default-links": "物品链接",
@@ -177,6 +181,7 @@
 		"auto-launch": "开机运行",
 		"cancel": "取消",
 		"dialog": "对话",
+		"dialog-opacity": "对话不透明度",
 		"dialog-spawn-position": {
 			"center": "中央",
 			"cursor": "光标"
