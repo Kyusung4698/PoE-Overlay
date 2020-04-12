@@ -40,7 +40,11 @@ export class CurrencyOverviewHttpService {
                 flatMap((response, count) => this.handleError(url, response, count))
             )),
             flatMap(response => {
-                if (!response.lines) {
+                if (!response?.lines) {
+                    if (leagueId !== 'Standard') {
+                        this.logger.info(`Got empty result from '${url}'. Using Standard league for now.`, response);
+                        return this.get('Standard', type);
+                    }
                     this.logger.warn(`Got empty result from '${url}'.`, response);
                     return throwError(`Got empty result from '${url}'.`);
                 }

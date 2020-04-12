@@ -35,7 +35,8 @@ describe('MapDialogComponent', () => {
         {
           provide: MAT_DIALOG_DATA,
           useValue: {
-            item: {}
+            item: {},
+            settings: {}
           }
         },
         { provide: ElectronProvider, useClass: ElectronProviderFake }

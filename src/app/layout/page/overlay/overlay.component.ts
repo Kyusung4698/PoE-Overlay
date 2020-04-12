@@ -7,8 +7,8 @@ import { AppUpdateState, FeatureModule, VisibleFlag } from '@app/type';
 import { SnackBarService } from '@shared/module/material/service';
 import { ContextService } from '@shared/module/poe/service';
 import { Context } from '@shared/module/poe/type';
-import { BehaviorSubject, Observable, of, interval, timer, EMPTY } from 'rxjs';
-import { delayWhen, distinctUntilChanged, flatMap, map, tap, debounce } from 'rxjs/operators';
+import { BehaviorSubject, EMPTY, Observable, timer } from 'rxjs';
+import { debounce, distinctUntilChanged, flatMap, map, tap } from 'rxjs/operators';
 import { UserSettingsService } from '../../service/user-settings.service';
 import { UserSettings } from '../../type';
 
@@ -59,23 +59,24 @@ export class OverlayComponent implements OnInit, OnDestroy {
       this.translate.use(settings.uiLanguage);
       this.displayVersion$.next(settings.displayVersion);
       this.window.setZoom(settings.zoom / 100);
-      this.context.init(this.getContext(settings));
 
-      this.registerEvents(settings);
-      this.register(settings);
-      this.registerVisibleChange();
+      this.context.init(this.getContext(settings)).subscribe(() => {
+        this.registerEvents(settings);
+        this.register(settings);
+        this.registerVisibleChange();
 
-      this.renderer.on('show-user-settings').subscribe(() => {
-        this.openUserSettings();
-      });
-      this.renderer.on('reset-zoom').subscribe(() => {
-        this.userSettingsService.update(x => {
-          x.zoom = 100;
-          return x;
-        }).subscribe(x => {
-          this.window.setZoom(x.zoom / 100);
+        this.renderer.on('show-user-settings').subscribe(() => {
+          this.openUserSettings();
         });
-      })
+        this.renderer.on('reset-zoom').subscribe(() => {
+          this.userSettingsService.update(x => {
+            x.zoom = 100;
+            return x;
+          }).subscribe(x => {
+            this.window.setZoom(x.zoom / 100);
+          });
+        })
+      });
     });
   }
 

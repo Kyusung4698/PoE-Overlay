@@ -4,6 +4,7 @@
 
 - add focus game after closing all dialogs (#606)
 - add item frame opacity setting (#607)
+- add standard league as fallback if poe ninja returns no results for selected league
 - update keyboard support to be always enabled
 - remove quality min/ max restriction (#611)
 - fix move poe overlay to top after focusing poe (#608)

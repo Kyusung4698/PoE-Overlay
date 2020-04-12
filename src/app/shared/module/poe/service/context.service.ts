@@ -26,13 +26,4 @@ export class ContextService {
     public update(context: Context): void {
         this.contextSubject.next(context);
     }
-
-    public change(): Observable<Context> {
-        return this.contextSubject.pipe(
-            map(context => {
-                // return copy
-                return { ...context };
-            })
-        );
-    }
 }
