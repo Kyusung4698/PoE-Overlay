@@ -225,15 +225,15 @@ export class ItemFrameValueComponent implements OnInit {
       this.value.max = this.default.max;
     }
 
-    // check tier
-    if (this.value.tier) {
-      if (this.value.min < this.value.tier.min) {
-        this.value.min = this.value.tier.min;
-      }
-      if (this.value.max > this.value.tier.max) {
-        this.value.max = this.value.tier.max;
-      }
-    }
+    // check tier - remove for now
+    // if (this.value.tier) {
+    //   if (this.value.min < this.value.tier.min) {
+    //     this.value.min = this.value.tier.min;
+    //   }
+    //   if (this.value.max > this.value.tier.max) {
+    //     this.value.max = this.value.tier.max;
+    //   }
+    // }
 
     // if positive - stay positive!
     if (this.default.min >= 0 && this.value.min < 0) {
