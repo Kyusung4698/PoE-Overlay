@@ -39,6 +39,7 @@ export class UserSettingsService {
                     uiLanguage: UiLanguage.English,
                     zoom: 100,
                     dialogSpawnPosition: DialogSpawnPosition.Center,
+                    dialogOpacity: 0.8,
                     displayVersion: true,
                     autoDownload: true
                 };

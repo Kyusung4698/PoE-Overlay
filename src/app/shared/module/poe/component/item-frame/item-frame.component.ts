@@ -32,6 +32,9 @@ export class ItemFrameComponent implements OnInit {
   public modifierMaxRange = 0.1;
 
   @Input()
+  public opacity = 0.8;
+
+  @Input()
   public properties: [];
 
   public req: boolean;

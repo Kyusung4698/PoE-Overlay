@@ -1,4 +1,4 @@
-<div class="frame" (mousedown)="onMouseDown($event)" (mouseup)="onMouseUp($event)">
+<div class="frame" [style.background]="'rgba(0,0,0,' + opacity + ')'" (mousedown)="onMouseDown($event)" (mouseup)="onMouseUp($event)">
     <app-item-frame-header [item]="item" [queryItem]="queryItem"
         [queryable]="item.rarity === 'normal' || item.rarity === 'magic' || item.rarity === 'rare'" [language]="language">
     </app-item-frame-header>

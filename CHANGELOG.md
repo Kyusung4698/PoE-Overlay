@@ -3,9 +3,10 @@
 ## 0.6.21 (2020-04-12)
 
 - add focus game after closing all dialogs (#606)
-- add move poe overlay to top after focusing poe (#608) 
+- add item frame opacity setting (#607)
 - update keyboard support to be always enabled
 - remove quality min/ max restriction (#611)
+- fix move poe overlay to top after focusing poe (#608)
 
 ## 0.6.20 (2020-04-10)
 

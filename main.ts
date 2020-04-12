@@ -112,8 +112,8 @@ update.register(ipcMain, (event, autoDownload) => {
 robot.register(ipcMain);
 
 game.register(ipcMain, poe => {
-    // send('game-active-change', serve ? true : poe.active);
-    send('game-active-change', poe.active);
+    send('game-active-change', serve ? true : poe.active);
+    // send('game-active-change', poe.active);
 
     if (win) {
         if (poe.active) {

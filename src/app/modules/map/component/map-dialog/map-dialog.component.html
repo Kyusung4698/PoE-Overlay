@@ -1,5 +1,6 @@
 <div appDrag=".cdk-overlay-pane">
-    <app-item-frame class="map-frame" [item]="data.item" [properties]="properties" [separator]="true">
+    <app-item-frame class="map-frame" [item]="data.item" [properties]="properties" [separator]="true"
+        [opacity]="data.settings.dialogOpacity">
         <ng-container ngProjectAs="properties">
             <div [title]="'map.layout-rating-info' | translate">{{'map.layout-rating' | translate}}: <span
                     class="white">{{(map || {}).layoutRating || '-'}}</span></div>
