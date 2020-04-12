@@ -54,6 +54,9 @@
 			"default": "Défaut"
 		},
 		"profiles": "Profils présélectionnés",
+		"property": {
+			"range": "Gamme Min-Max"
+		},
 		"query": "Question",
 		"range": "Range",
 		"result-view": "Affichage des résultats",
@@ -62,7 +65,8 @@
 			"list": "liste"
 		},
 		"search": {
-			"disable-max-range": "Désactiver la plage maximale",
+			"attack": "Attaque",
+			"defense": "La défense",
 			"filter": "Filtre",
 			"gem": "Niveau de gemme, pallier de carte et qualité",
 			"item-default-links": "Lien d'objet",
@@ -177,6 +181,7 @@
 		"auto-launch": "Exécuter au démarrage",
 		"cancel": "Annuler",
 		"dialog": "Dialogue",
+		"dialog-opacity": "Opacité de la boîte de dialogue",
 		"dialog-spawn-position": {
 			"center": "Centre",
 			"cursor": "Le curseur"

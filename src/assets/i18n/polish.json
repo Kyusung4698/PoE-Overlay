@@ -54,6 +54,9 @@
 			"default": "domyślna"
 		},
 		"profiles": "Wstępnie wybrane profile",
+		"property": {
+			"range": "Zakres od minimum do maksimum"
+		},
 		"query": "pytanie",
 		"range": "Zakres",
 		"result-view": "Okno wyników",
@@ -62,7 +65,8 @@
 			"list": "Lista"
 		},
 		"search": {
-			"disable-max-range": "Wyłącz maksymalny zakres",
+			"attack": "Atak",
+			"defense": "Obrona",
 			"filter": "filtr",
 			"gem": "Poziom gemów, map oraz jakość",
 			"item-default-links": "Z połączonymi gniazdami ",
@@ -177,6 +181,7 @@
 		"auto-launch": "Uruchom wraz ze startem systemu",
 		"cancel": "Anuluj",
 		"dialog": "Okno dialogowe",
+		"dialog-opacity": "Okno dialogowe Krycie",
 		"dialog-spawn-position": {
 			"center": "Na środku",
 			"cursor": "Kursor myszy"

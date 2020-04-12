@@ -24,7 +24,7 @@
 </app-card>
 <app-card [title]="'settings.dialog' | translate">
     <div class="row">
-        <div class="col">
+        <div class="col-md-6">
             <mat-form-field>
                 <mat-label>{{'settings.dialog-spawn-position-title' | translate}}</mat-label>
                 <mat-select [(value)]="settings.dialogSpawnPosition">
@@ -32,6 +32,19 @@
                     <mat-option [value]="2">{{'settings.dialog-spawn-position.center' | translate}}</mat-option>
                 </mat-select>
             </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <div class="value-range">
+                <label class="label"> {{'settings.dialog-opacity' | translate}}:
+                    {{displayWithOpacity(settings.dialogOpacity)}}
+                </label>
+                <div class="slider">
+                    <mat-slider min="0.6" max="1" step="0.1" tickInterval="1" [displayWith]="displayWithOpacity"
+                        [(value)]="settings.dialogOpacity">
+                    </mat-slider>
+                    <span>100%</span>
+                </div>
+            </div>
         </div>
     </div>
 </app-card>

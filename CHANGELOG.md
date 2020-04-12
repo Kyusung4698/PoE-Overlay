@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.6.21 (2020-04-12)
+
+- add focus game after closing all dialogs (#606)
+- add item frame opacity setting (#607)
+- add standard league as fallback if poe ninja returns no results for selected league
+- add own min max range settings for properties
+- add preselect attack and defense as setting
+- update keyboard support to be always enabled
+- remove quality min/ max restriction (#611)
+- fix move poe overlay to top after focusing poe (#608)
+
 ## 0.6.20 (2020-04-10)
 
 - fix poe overlay losses focus after clicking on it (#602)

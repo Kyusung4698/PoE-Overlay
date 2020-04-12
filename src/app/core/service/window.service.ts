@@ -59,11 +59,15 @@ export class WindowService {
     }
 
     public disableInput(): void {
+        this.window.blur();
         this.window.setIgnoreMouseEvents(true);
+        this.window.setFocusable(false);
     }
 
     public enableInput(): void {
+        this.window.setFocusable(true);
         this.window.setIgnoreMouseEvents(false);
+        this.window.focus();
     }
 
     public convertToLocal(point: Point): Point {

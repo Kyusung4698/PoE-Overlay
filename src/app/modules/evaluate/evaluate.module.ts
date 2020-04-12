@@ -43,6 +43,10 @@ export class EvaluateModule implements FeatureModule {
             evaluateQueryDefaultLinks: 5,
             evaluateQueryDefaultMiscs: true,
             evaluateQueryDefaultType: false,
+            evaluateQueryDefaultAttack: true,
+            evaluateQueryDefaultDefense: true,
+            evaluatePropertyMinRange: 10,
+            evaluatePropertyMaxRange: 50,
             evaluateQueryDefaultStats: {
                 'pseudo.pseudo_total_elemental_resistance': true,
                 'pseudo.pseudo_total_resistance': true,

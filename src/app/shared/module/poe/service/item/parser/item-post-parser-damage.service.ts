@@ -54,7 +54,7 @@ export class ItemPostParserDamageService implements ItemPostParserService {
         const dps = this.addAps(weaponAttacksPerSecond, damage);
 
         const value: ItemValue = {
-            text: `${dps}`,
+            text: `${Math.round(dps * 10) / 10}`,
             tier: {
                 min: this.addAps(weaponAttacksPerSecond, weaponPhysicalDamage.value.tier.min),
                 max: this.addAps(weaponAttacksPerSecond, weaponPhysicalDamage.value.tier.max),
@@ -73,7 +73,7 @@ export class ItemPostParserDamageService implements ItemPostParserService {
         const dps = this.addAps(weaponAttacksPerSecond, totalDamage);
 
         const value: ItemValue = {
-            text: `${dps}`
+            text: `${Math.round(dps * 10) / 10}`
         };
         return value;
     }
@@ -88,7 +88,7 @@ export class ItemPostParserDamageService implements ItemPostParserService {
         const dps = this.addAps(weaponAttacksPerSecond, damage);
 
         const value: ItemValue = {
-            text: `${dps}`
+            text: `${Math.round(dps * 10) / 10}`
         };
         return value;
     }

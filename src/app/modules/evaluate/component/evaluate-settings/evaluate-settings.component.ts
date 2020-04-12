@@ -28,6 +28,10 @@ export interface EvaluateUserSettings extends UserSettings {
   evaluateQueryDefaultLinks: number;
   evaluateQueryDefaultMiscs: boolean;
   evaluateQueryDefaultType: boolean;
+  evaluateQueryDefaultAttack: boolean;
+  evaluateQueryDefaultDefense: boolean;
+  evaluatePropertyMinRange: number;
+  evaluatePropertyMaxRange: number;
   evaluateQueryDefaultStats: any;
   evaluateQueryDefaultStatsUnique: boolean;
   evaluateQueryOnline: boolean;

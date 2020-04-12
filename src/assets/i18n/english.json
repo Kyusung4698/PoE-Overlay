@@ -54,6 +54,9 @@
 			"default": "Default"
 		},
 		"profiles": "Preselected Profiles",
+		"property": {
+			"range": "Min-Max Range"
+		},
 		"query": "Query",
 		"range": "Range",
 		"result-view": "Result View",
@@ -62,7 +65,8 @@
 			"list": "List"
 		},
 		"search": {
-			"disable-max-range": "Disable Max Range",
+			"attack": "Attack",
+			"defense": "Defense",
 			"filter": "Filter",
 			"gem": "Gem Level, Map Tier & Quality",
 			"item-default-links": "Item Link",
@@ -177,6 +181,7 @@
 		"auto-launch": "Run on Boot",
 		"cancel": "Cancel",
 		"dialog": "Dialog",
+		"dialog-opacity": "Dialog Opacity",
 		"dialog-spawn-position": {
 			"center": "Center",
 			"cursor": "Cursor"

@@ -74,12 +74,12 @@ export class UserSettingsComponent implements OnInit {
       this.window.setZoom(settings.zoom / 100);
 
       const { language, leagueId } = settings;
-      this.context.init({ language, leagueId });
+      this.context.init({ language, leagueId }).subscribe(() => {
+        this.settings = settings;
+        this.features = this.settingsService.features();
 
-      this.settings = settings;
-      this.features = this.settingsService.features();
-
-      this.init$.next(true);
+        this.init$.next(true);
+      });
     });
   }
 }

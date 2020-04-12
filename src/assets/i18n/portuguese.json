@@ -54,6 +54,9 @@
 			"default": "Padrão"
 		},
 		"profiles": "Perfis pré-selecionados",
+		"property": {
+			"range": "Min-Max Range"
+		},
 		"query": "Inquerir",
 		"range": "Range",
 		"result-view": "Visualização de resultados",
@@ -62,7 +65,8 @@
 			"list": "Lista"
 		},
 		"search": {
-			"disable-max-range": "Desativar intervalo máximo",
+			"attack": "Ataque",
+			"defense": "Defesa",
 			"filter": "Filtro",
 			"gem": "Nível da gema, nível do mapa e qualidade",
 			"item-default-links": "Link do item",
@@ -177,6 +181,7 @@
 		"auto-launch": "Executar na inicialização",
 		"cancel": "Cancelar",
 		"dialog": "Diálogo",
+		"dialog-opacity": "Opacidade da caixa de diálogo",
 		"dialog-spawn-position": {
 			"center": "centro",
 			"cursor": "Cursor"

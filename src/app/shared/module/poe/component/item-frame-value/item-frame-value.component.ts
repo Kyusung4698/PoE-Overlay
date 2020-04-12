@@ -26,10 +26,10 @@ export class ItemFrameValueComponent implements OnInit {
   public disabled: boolean;
 
   @Input()
-  public modifierMinRange: number;
+  public minRange: number;
 
   @Input()
-  public modifierMaxRange: number;
+  public maxRange: number;
 
   @Input()
   public value: ItemValue;
@@ -225,15 +225,15 @@ export class ItemFrameValueComponent implements OnInit {
       this.value.max = this.default.max;
     }
 
-    // check tier
-    if (this.value.tier) {
-      if (this.value.min < this.value.tier.min) {
-        this.value.min = this.value.tier.min;
-      }
-      if (this.value.max > this.value.tier.max) {
-        this.value.max = this.value.tier.max;
-      }
-    }
+    // check tier - remove for now
+    // if (this.value.tier) {
+    //   if (this.value.min < this.value.tier.min) {
+    //     this.value.min = this.value.tier.min;
+    //   }
+    //   if (this.value.max > this.value.tier.max) {
+    //     this.value.max = this.value.tier.max;
+    //   }
+    // }
 
     // if positive - stay positive!
     if (this.default.min >= 0 && this.value.min < 0) {
@@ -258,10 +258,10 @@ export class ItemFrameValueComponent implements OnInit {
     this.value.max = this.parsed;
     this.default = { ...this.value };
 
-    if (this.modifierMinRange === 0.5) {
-      this.value.min = this.value.tier?.min;
+    if (this.minRange === 0.5) {
+      this.value.min = undefined;
     } else {
-      this.value.min -= this.parsed * this.modifierMinRange;
+      this.value.min -= this.parsed * this.minRange;
       if (Number.isInteger(this.parsed)) {
         this.value.min = Math.floor(this.value.min);
       } else {
@@ -269,10 +269,10 @@ export class ItemFrameValueComponent implements OnInit {
       }
     }
 
-    if (this.modifierMaxRange === 0.5) {
-      this.value.max = this.value.tier?.max;
+    if (this.maxRange === 0.5) {
+      this.value.max = undefined;
     } else {
-      this.value.max += this.parsed * this.modifierMaxRange;
+      this.value.max += this.parsed * this.maxRange;
       if (Number.isInteger(this.parsed)) {
         this.value.max = Math.ceil(this.value.max);
       } else {

@@ -54,6 +54,9 @@
 			"default": "ค่าเริ่มต้น"
 		},
 		"profiles": "โปรไฟล์ที่เลือกไว้ล่วงหน้า",
+		"property": {
+			"range": "ช่วง Min-Max"
+		},
 		"query": "สอบถาม",
 		"range": "Range",
 		"result-view": "ดูผลลัพธ์",
@@ -62,7 +65,8 @@
 			"list": "รายการ"
 		},
 		"search": {
-			"disable-max-range": "ปิดการใช้งาน Max Range",
+			"attack": "โจมตี",
+			"defense": "ป้องกัน",
 			"filter": "กรอง",
 			"gem": "ระดับอัญมณีแผนที่ชั้นและคุณภาพ",
 			"item-default-links": "ลิงค์รายการ",
@@ -177,6 +181,7 @@
 		"auto-launch": "ทำงานบน Boot",
 		"cancel": "ยกเลิก",
 		"dialog": "โต้ตอบ",
+		"dialog-opacity": "ความทึบของไดอะล็อก",
 		"dialog-spawn-position": {
 			"center": "ศูนย์",
 			"cursor": "เคอร์เซอร์"

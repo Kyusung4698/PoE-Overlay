@@ -14,6 +14,7 @@ export interface UserSettings {
     exitAppKeybinding?: string;
     zoom?: number;
     dialogSpawnPosition?: DialogSpawnPosition;
+    dialogOpacity?: number;
     displayVersion?: boolean;
     autoDownload?: boolean;
 }

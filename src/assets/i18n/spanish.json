@@ -54,6 +54,9 @@
 			"default": "Defecto"
 		},
 		"profiles": "Perfiles preseleccionados",
+		"property": {
+			"range": "Rango Min-Max"
+		},
 		"query": "consulta",
 		"range": "Range",
 		"result-view": "Vista de resultados",
@@ -62,7 +65,8 @@
 			"list": "Lista"
 		},
 		"search": {
-			"disable-max-range": "Deshabilitar rango máximo",
+			"attack": "Ataque",
+			"defense": "Defensa",
 			"filter": "Filtrar",
 			"gem": "Nivel de gema, nivel de mapa y calidad",
 			"item-default-links": "Enlace de artículo",
@@ -177,6 +181,7 @@
 		"auto-launch": "Ejecutar en arranque",
 		"cancel": "Cancelar",
 		"dialog": "Diálogo",
+		"dialog-opacity": "Diálogo Opacidad",
 		"dialog-spawn-position": {
 			"center": "Centrar",
 			"cursor": "Cursor"

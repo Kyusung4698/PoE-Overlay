@@ -11,6 +11,7 @@ import { UserSettings } from '../../type';
 @Component({
   selector: 'app-user-settings-form',
   templateUrl: './user-settings-form.component.html',
+  styleUrls: ['./user-settings-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserSettingsFormComponent implements OnInit {
@@ -23,6 +24,8 @@ export class UserSettingsFormComponent implements OnInit {
 
   @Input()
   public settings: UserSettings;
+
+  public displayWithOpacity = (value: number) => `${Math.round(value / 1 * 100)}%`;
 
   constructor(
     private readonly leagues: LeaguesService,
