@@ -5,6 +5,7 @@
 - fix multi dialogs not working
 - fix default range values applied on properties (#615)
 - fix apply range only on attack/ defense properties (#617)
+- fix poe overlay does not skip the task bar (#618)
 
 ## 0.6.21 (2020-04-12)
 
