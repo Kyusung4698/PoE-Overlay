@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { GameService } from '../game.service';
 import { WindowService } from '../window.service';
-import { DialogRefService } from './dialog-ref.service';
+import { Dialog, DialogRefService, DialogType } from './dialog-ref.service';
 
 export interface DialogSettings {
     width: number;
@@ -51,14 +51,18 @@ export class DialogService {
             data
         });
 
-        const close = dialogRef.close.bind(dialogRef);
-        this.dialogRef.add(close);
+        const dialog: Dialog = {
+            close: dialogRef.close.bind(dialogRef),
+            type: DialogType.Dialog
+        };
+
+        this.dialogRef.add(dialog);
         return dialogRef.afterClosed().pipe(tap(() => {
             if (this.dialog.openDialogs.length === 0) {
                 this.window.disableInput();
                 this.game.focus();
             }
-            this.dialogRef.remove(close);
+            this.dialogRef.remove(dialog);
         }));
     }
 }

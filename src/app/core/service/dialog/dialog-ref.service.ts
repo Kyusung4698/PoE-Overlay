@@ -5,12 +5,23 @@ import { ShortcutService } from '../input/shortcut.service';
 
 export type DialogCloseFn = () => void;
 
+export enum DialogType {
+    None = 0,
+    Dialog = 1,
+    Browser = 2
+}
+
+export interface Dialog {
+    close: DialogCloseFn;
+    type: DialogType;
+}
+
 @Injectable({
     providedIn: 'root'
 })
 export class DialogRefService {
-    private readonly dialogCloseFns: DialogCloseFn[] = [];
-    private readonly dialogCountChange$ = new BehaviorSubject<number>(0);
+    private readonly dialogs: Dialog[] = [];
+    private readonly dialogsChange$ = new BehaviorSubject<Dialog[]>([]);
 
     private escapeSubscription: Subscription;
     private spaceSubscription: Subscription;
@@ -19,11 +30,11 @@ export class DialogRefService {
 
     public register(): void {
         this.escapeSubscription = this.shortcutService
-            .add('escape', false, VisibleFlag.Dialog)
+            .add('escape', false, VisibleFlag.Dialog, VisibleFlag.Browser)
             .subscribe(() => this.close());
 
         this.spaceSubscription = this.shortcutService
-            .add('space', false, VisibleFlag.Game | VisibleFlag.Dialog)
+            .add('space', false, VisibleFlag.Dialog)
             .subscribe(() => this.closeAll());
     }
 
@@ -37,32 +48,32 @@ export class DialogRefService {
         this.closeAll();
     }
 
-    public dialogCountChange(): Observable<number> {
-        return this.dialogCountChange$;
+    public dialogsChange(): Observable<Dialog[]> {
+        return this.dialogsChange$;
     }
 
-    public add(close: DialogCloseFn): void {
-        this.dialogCloseFns.push(close);
-        this.dialogCountChange$.next(this.dialogCloseFns.length);
+    public add(dialog: Dialog): void {
+        this.dialogs.push(dialog);
+        this.dialogsChange$.next(this.dialogs);
     }
 
-    public remove(close: DialogCloseFn): void {
-        const index = this.dialogCloseFns.indexOf(close);
+    public remove(dialog: Dialog): void {
+        const index = this.dialogs.indexOf(dialog);
         if (index !== -1) {
-            this.dialogCloseFns.splice(index, 1);
-            this.dialogCountChange$.next(this.dialogCloseFns.length);
+            this.dialogs.splice(index, 1);
+            this.dialogsChange$.next(this.dialogs);
         }
     }
 
     private close(): void {
-        if (this.dialogCloseFns.length > 0) {
-            this.dialogCloseFns.pop()();
-            this.dialogCountChange$.next(this.dialogCloseFns.length);
+        if (this.dialogs.length > 0) {
+            this.dialogs.pop().close();
+            this.dialogsChange$.next(this.dialogs);
         }
     }
 
     private closeAll(): void {
-        while (this.dialogCloseFns.length > 0) {
+        while (this.dialogs.length > 0) {
             this.close();
         }
     }

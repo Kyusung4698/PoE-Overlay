@@ -7,7 +7,7 @@ import { Observable, Subject } from 'rxjs';
 export interface Shortcut {
     accelerator: string;
     passive: boolean;
-    active: VisibleFlag;
+    actives: VisibleFlag[];
     callback: Subject<void>;
 }
 
@@ -26,13 +26,13 @@ export class ShortcutService {
         this.remote = electronProvider.provideRemote();
     }
 
-    public add(accelerator: string, passive: boolean = false, active: VisibleFlag = VisibleFlag.Game): Observable<void> {
+    public add(accelerator: string, passive: boolean = false, ...actives: VisibleFlag[]): Observable<void> {
         this.remove(accelerator);
 
         const shortcut: Shortcut = {
             accelerator,
             passive,
-            active,
+            actives,
             callback: new Subject<void>(),
         };
         this.shortcuts.push(shortcut);
@@ -69,7 +69,7 @@ export class ShortcutService {
     public check(flag: VisibleFlag): void {
         this.shortcuts.forEach(shortcut => {
             this.unregisterShortcut(shortcut);
-            if ((flag & shortcut.active) === shortcut.active) {
+            if (shortcut.actives.some(filter => (flag & filter) === filter)) {
                 this.registerShortcut(shortcut);
             }
         });

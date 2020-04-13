@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ElectronProvider } from '@app/provider';
 import { Remote } from 'electron';
 import { Observable, Subject } from 'rxjs';
-import { DialogRefService } from './dialog/dialog-ref.service';
+import { Dialog, DialogRefService, DialogType } from './dialog/dialog-ref.service';
 
 @Injectable({
     providedIn: 'root'
@@ -51,24 +51,27 @@ export class BrowserService {
                 show: false
             });
 
-            const close = win.close.bind(win);
+            const dialog: Dialog = {
+                close: win.close.bind(win),
+                type: DialogType.Browser
+            };
 
             parent.setEnabled(false);
-            this.dialogRef.add(close);
+            this.dialogRef.add(dialog);
             win.on('minimize', () => {
                 parent.setEnabled(true);
-                this.dialogRef.remove(close);
+                this.dialogRef.remove(dialog);
             });
             const restore = () => {
                 parent.setEnabled(false);
-                this.dialogRef.remove(close);
-                this.dialogRef.add(close);
+                this.dialogRef.remove(dialog);
+                this.dialogRef.add(dialog);
             };
             win.on('restore', () => restore());
             win.on('maximize', () => restore());
             win.once('closed', () => {
                 parent.setEnabled(true);
-                this.dialogRef.remove(close);
+                this.dialogRef.remove(dialog);
             });
             win.once('ready-to-show', () => {
                 win.webContents.zoomFactor = parent.webContents.zoomFactor;

@@ -4,7 +4,7 @@ import { AppUpdateState, VisibleFlag } from '@app/type/app.type';
 import { IpcRenderer, Remote } from 'electron';
 import { BehaviorSubject, combineLatest, Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { DialogRefService } from './dialog/dialog-ref.service';
+import { DialogRefService, DialogType } from './dialog/dialog-ref.service';
 
 @Injectable({
     providedIn: 'root'
@@ -54,14 +54,24 @@ export class AppService {
         this.ipcRenderer.sendSync('game-send-active-change');
         return combineLatest([
             this.activeChange$,
-            this.dialogRef.dialogCountChange()
-        ]).pipe(map(([game, dialogCount]) => {
+            this.dialogRef.dialogsChange()
+        ]).pipe(map(([game, dialogs]) => {
             let result = VisibleFlag.None;
             if (game) {
                 result |= VisibleFlag.Game;
             }
-            if (dialogCount > 0) {
-                result |= VisibleFlag.Dialog;
+
+            if (dialogs.length > 0) {
+                const dialog = dialogs[dialogs.length - 1];
+                switch (dialog.type) {
+                    case DialogType.Dialog:
+                        result |= VisibleFlag.Dialog;
+                        break;
+                    case DialogType.Browser:
+                        result |= VisibleFlag.Browser;
+                        break;
+                    default: break;
+                }
             }
             return result;
         }));
