@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.6.22 (2020-04-13)
+
+- fix default range values applied on properties (#615)
+- fix apply range only on attack/ defense properties (#617)
+
 ## 0.6.21 (2020-04-12)
 
 - add focus game after closing all dialogs (#606)

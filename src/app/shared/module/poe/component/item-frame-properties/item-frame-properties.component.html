@@ -17,12 +17,12 @@
     <div *ngIf="item.properties[property] as prop" [ngSwitch]="property">
         <ng-container *ngSwitchCase="'weaponCriticalStrikeChance'">
             <ng-container
-                *ngTemplateOutlet="value; context: { prop: prop, name: property, key: 'ItemDisplayWeaponCriticalStrikeChance'}">
+                *ngTemplateOutlet="value; context: { prop: prop, name: property, key: 'ItemDisplayWeaponCriticalStrikeChance', range: true}">
             </ng-container>
         </ng-container>
         <ng-container *ngSwitchCase="'weaponAttacksPerSecond'">
             <ng-container
-                *ngTemplateOutlet="value; context: { prop: prop, name: property, key: 'ItemDisplayWeaponAttacksPerSecond'}">
+                *ngTemplateOutlet="value; context: { prop: prop, name: property, key: 'ItemDisplayWeaponAttacksPerSecond', range: true}">
             </ng-container>
         </ng-container>
         <ng-container *ngSwitchCase="'weaponRange'">
@@ -32,22 +32,22 @@
         </ng-container>
         <ng-container *ngSwitchCase="'shieldBlockChance'">
             <ng-container
-                *ngTemplateOutlet="value; context: { prop: prop, name: property, key: 'ItemDisplayShieldBlockChance'}">
+                *ngTemplateOutlet="value; context: { prop: prop, name: property, key: 'ItemDisplayShieldBlockChance', range: true}">
             </ng-container>
         </ng-container>
         <ng-container *ngSwitchCase="'armourArmour'">
             <ng-container
-                *ngTemplateOutlet="value; context: { prop: prop, name: property, key: 'ItemDisplayArmourArmour'}">
+                *ngTemplateOutlet="value; context: { prop: prop, name: property, key: 'ItemDisplayArmourArmour', range: true}">
             </ng-container>
         </ng-container>
         <ng-container *ngSwitchCase="'armourEvasionRating'">
             <ng-container
-                *ngTemplateOutlet="value; context: { prop: prop, name: property, key: 'ItemDisplayArmourEvasionRating'}">
+                *ngTemplateOutlet="value; context: { prop: prop, name: property, key: 'ItemDisplayArmourEvasionRating', range: true}">
             </ng-container>
         </ng-container>
         <ng-container *ngSwitchCase="'armourEnergyShield'">
             <ng-container
-                *ngTemplateOutlet="value; context: { prop: prop, name: property, key: 'ItemDisplayArmourEnergyShield'}">
+                *ngTemplateOutlet="value; context: { prop: prop, name: property, key: 'ItemDisplayArmourEnergyShield', range: true}">
             </ng-container>
         </ng-container>
         <ng-container *ngSwitchCase="'stackSize'">
@@ -56,7 +56,7 @@
             </ng-container>
         </ng-container>
         <ng-container *ngSwitchCase="'gemLevel'">
-            <ng-container *ngTemplateOutlet="value; context: { prop: prop, name: property, key: 'Level'}">
+            <ng-container *ngTemplateOutlet="value; context: { prop: prop, name: property, key: 'Level', range: false}">
             </ng-container>
         </ng-container>
         <ng-container *ngSwitchCase="'mapTier'">
@@ -114,12 +114,12 @@
     </app-item-frame-query>
 </ng-template>
 
-<ng-template #value let-prop="prop" let-name="name" let-key="key">
+<ng-template #value let-prop="prop" let-name="name" let-key="key" let-range="range">
     <app-item-frame-query [(property)]="queryItem.properties[name]" [value]="prop">
         <app-item-frame-value-group>
             <span>{{key | clientString:language}}:&nbsp;</span>
             <span [class]="prop.augmented ? 'purpel' : 'white'">
-                <app-item-frame-value [(value)]="prop.value" [minRange]="minRange" [maxRange]="maxRange">
+                <app-item-frame-value [(value)]="prop.value" [minRange]="range ? minRange : 0" [maxRange]="range ? maxRange : 0.5">
                 </app-item-frame-value>
             </span>
         </app-item-frame-value-group>

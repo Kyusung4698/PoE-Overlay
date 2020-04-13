@@ -3,6 +3,8 @@
         (queryItemChange)="onQueryItemChange($event)" [separator]="true"
         [modifierMinRange]="data.settings.evaluateModifierMinRange / 100"
         [modifierMaxRange]="data.settings.evaluateModifierMaxRange / 100"
+        [propertyMinRange]="data.settings.evaluatePropertyMinRange / 100"
+        [propertyMaxRange]="data.settings.evaluatePropertyMaxRange / 100"
         [opacity]="data.settings.dialogOpacity">
         <ng-container *ngIf="(currencies$ | async) as currencies; else loading">
             <app-evaluate-options [options]="options" (optionsChange)="onOptionsChange($event)" (resetTrigger)="onReset()">
