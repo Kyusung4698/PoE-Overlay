@@ -1,0 +1,39 @@
+.small {
+    font-size: 12px;
+    line-height: 12px;
+}
+
+.values {
+    display: flex;
+    justify-content: center;
+
+    .confidence {
+        display: inline-flex;
+        flex-direction: column;
+        padding: 0 6px;
+
+        .positive {
+            color: lightgreen;
+        }
+
+        .negative {
+            color: red;
+        }
+    }
+}
+
+::ng-deep {
+    app-evaluate-price-prediction {
+        .values {
+            &:hover {
+                app-currency-frame {
+                    .currency {
+                        background-color: rgba(170, 158, 130, 0.3);
+                        outline-style: solid;
+                        outline-width: 1px;
+                    }
+                }
+            }
+        }
+    }
+}

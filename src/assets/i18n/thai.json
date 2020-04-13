@@ -50,6 +50,15 @@
 		"mode": "Mode",
 		"name": "ประเมินผล",
 		"not-found": "ไม่พบข้อมูล.",
+		"prediction": {
+			"confidence": "ความมั่นใจ",
+			"error": "เกิดข้อผิดพลาด.",
+			"errors": {
+				"http": "ไม่สามารถสื่อสารกับ poeprices.info\nโปรดตรวจสอบให้แน่ใจว่าสามารถเข้าถึงเว็บไซต์ได้"
+			},
+			"language": "poeprices.info สนับสนุนภาษาอังกฤษเป็นภาษาลูกค้าเท่านั้น",
+			"source": "การทำนายราคาขึ้นอยู่กับ poeprices.info"
+		},
 		"profile": {
 			"default": "ค่าเริ่มต้น"
 		},

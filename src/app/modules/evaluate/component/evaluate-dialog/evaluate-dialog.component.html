@@ -4,13 +4,20 @@
         [modifierMinRange]="data.settings.evaluateModifierMinRange / 100"
         [modifierMaxRange]="data.settings.evaluateModifierMaxRange / 100"
         [propertyMinRange]="data.settings.evaluatePropertyMinRange / 100"
-        [propertyMaxRange]="data.settings.evaluatePropertyMaxRange / 100"
-        [opacity]="data.settings.dialogOpacity">
+        [propertyMaxRange]="data.settings.evaluatePropertyMaxRange / 100" [opacity]="data.settings.dialogOpacity">
         <ng-container *ngIf="(currencies$ | async) as currencies; else loading">
-            <app-evaluate-options [options]="options" (optionsChange)="onOptionsChange($event)" (resetTrigger)="onReset()">
+            <app-evaluate-options [options]="options" (optionsChange)="onOptionsChange($event)"
+                (resetTrigger)="onReset()">
             </app-evaluate-options>
-            <app-evaluate-exchange-rate [options]="options" [optionsChange]="optionsChange" [item]="data.item"
-                [currencies]="currencies" (evaluateResult)="onEvaluateResult($event)"> </app-evaluate-exchange-rate>
+            <ng-container *ngIf="rate$ | async; else prediction">
+                <app-evaluate-exchange-rate [options]="options" [optionsChange]="optionsChange" [item]="data.item"
+                    [currencies]="currencies" (evaluateResult)="onEvaluateResult($event)"> </app-evaluate-exchange-rate>
+            </ng-container>
+            <ng-template #prediction>
+                <app-evaluate-price-prediction [language]="data.settings.language" [options]="options"
+                    [optionsChange]="optionsChange" [item]="data.item" [currencies]="currencies">
+                </app-evaluate-price-prediction>
+            </ng-template>
             <app-item-frame-separator [item]="data.item"> </app-item-frame-separator>
             <app-evaluate-search *ngIf="init$ | async; else loading" [options]="options" [settings]="data.settings"
                 [queryItem]="queryItem" [queryItemChange]="queryItemChange" [currencies]="currencies"
@@ -19,7 +26,7 @@
         </ng-container>
         <ng-template #loading>
             <div> {{'evaluate.loading' | translate}} </div>
-            <mat-progress-bar mode="indeterminate"></mat-progress-bar>           
+            <mat-progress-bar mode="indeterminate"></mat-progress-bar>
         </ng-template>
     </app-item-frame>
 </div>

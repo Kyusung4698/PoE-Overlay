@@ -176,7 +176,7 @@ function createWindow(): BrowserWindow {
         },
         focusable: false,
         skipTaskbar: true,
-        show: false,
+        show: false
     });
     win.removeMenu();
     win.setIgnoreMouseEvents(true);

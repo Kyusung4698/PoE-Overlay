@@ -15,5 +15,8 @@ export const environment = {
   },
   poeNinja: {
     baseUrl: 'https://poe.ninja'
+  },
+  poePrices: {
+    baseUrl: 'https://www.poeprices.info'
   }
 };

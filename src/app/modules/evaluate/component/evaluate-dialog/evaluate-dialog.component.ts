@@ -4,7 +4,7 @@ import { EvaluateQueryItemProvider } from '@modules/evaluate/provider/evaluate-q
 import { EvaluateResult } from '@modules/evaluate/type/evaluate.type';
 import { StashPriceTagType } from '@shared/module/poe/service';
 import { CurrencyService } from '@shared/module/poe/service/currency/currency.service';
-import { Currency, Item, Language } from '@shared/module/poe/type';
+import { Currency, Item, ItemCategory, ItemRarity, Language } from '@shared/module/poe/type';
 import { BehaviorSubject, forkJoin, Observable, Subject } from 'rxjs';
 import { buffer, debounceTime, shareReplay } from 'rxjs/operators';
 import { EvaluateOptions } from '../evaluate-options/evaluate-options.component';
@@ -36,6 +36,7 @@ export class EvaluateDialogComponent implements OnInit, AfterViewInit, OnDestroy
   public currencies$: Observable<Currency[]>;
 
   public init$ = new BehaviorSubject<boolean>(false);
+  public rate$ = new BehaviorSubject<boolean>(true);
 
   constructor(
     @Inject(MAT_DIALOG_DATA)
@@ -56,6 +57,7 @@ export class EvaluateDialogComponent implements OnInit, AfterViewInit, OnDestroy
     this.queryItem = queryItem;
     this.currencies$ = this.getCurrencies();
     this.registerResultChange();
+    this.checkRate();
   }
 
   public ngAfterViewInit(): void {
@@ -106,5 +108,55 @@ export class EvaluateDialogComponent implements OnInit, AfterViewInit, OnDestroy
     return forkJoin(currencies$).pipe(
       shareReplay(CURRENCIES_CACHE_SIZE)
     );
+  }
+
+  private checkRate(): void {
+    if (this.data.item.rarity === ItemRarity.Rare) {
+      switch (this.data.item.category) {
+        case ItemCategory.Jewel:
+        case ItemCategory.JewelAbyss:
+        case ItemCategory.Flask:
+        case ItemCategory.Weapon:
+        case ItemCategory.WeaponOne:
+        case ItemCategory.WeaponOneMelee:
+        case ItemCategory.WeaponTwoMelee:
+        case ItemCategory.WeaponBow:
+        case ItemCategory.WeaponClaw:
+        case ItemCategory.WeaponDagger:
+        case ItemCategory.WeaponRunedagger:
+        case ItemCategory.WeaponOneAxe:
+        case ItemCategory.WeaponOneMace:
+        case ItemCategory.WeaponOneSword:
+        case ItemCategory.WeaponSceptre:
+        case ItemCategory.WeaponStaff:
+        case ItemCategory.WeaponWarstaff:
+        case ItemCategory.WeaponTwoAxe:
+        case ItemCategory.WeaponTwoMace:
+        case ItemCategory.WeaponTwoSword:
+        case ItemCategory.WeaponWand:
+        case ItemCategory.WeaponRod:
+        case ItemCategory.Armour:
+        case ItemCategory.ArmourChest:
+        case ItemCategory.ArmourBoots:
+        case ItemCategory.ArmourGloves:
+        case ItemCategory.ArmourHelmet:
+        case ItemCategory.ArmourShield:
+        case ItemCategory.ArmourQuiver:
+        case ItemCategory.Accessory:
+        case ItemCategory.AccessoryAmulet:
+        case ItemCategory.AccessoryBelt:
+        case ItemCategory.AccessoryRing:
+        case ItemCategory.Gem:
+        case ItemCategory.GemActivegem:
+        case ItemCategory.GemSupportGem:
+        case ItemCategory.GemSupportGemplus:
+        case ItemCategory.MapScarab:
+        case ItemCategory.Leaguestone:
+        case ItemCategory.MonsterSample:
+        case ItemCategory.CurrencyPiece:
+          this.rate$.next(false);
+          break;
+      }
+    }
   }
 }

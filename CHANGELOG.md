@@ -2,6 +2,7 @@
 
 ## 0.6.22 (2020-04-13)
 
+- add poeprices.info price prediction (#544)
 - fix multi dialogs not working
 - fix default range values applied on properties (#615)
 - fix apply range only on attack/ defense properties (#617)

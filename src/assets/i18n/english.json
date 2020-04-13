@@ -50,6 +50,15 @@
 		"mode": "Mode",
 		"name": "Evaluate",
 		"not-found": "No data found.",
+		"prediction": {
+			"confidence": "Confidence",
+			"error": "An error occured.",
+			"errors": {
+				"http": "Could not communicate with poeprices.info\nPlease make sure the website is reachable."
+			},
+			"language": "poeprices.info only supports English as client language.",
+			"source": "Price prediction based on poeprices.info"
+		},
 		"profile": {
 			"default": "Default"
 		},

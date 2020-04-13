@@ -76,7 +76,10 @@ export class ItemParserService {
                 })
         };
 
-        const target: Item = {};
+        const target: Item = {
+            source: stringifiedItem
+        };
+
         for (const parser of this.parsers) {
             if (sections && !sections[parser.section]) {
                 continue;
