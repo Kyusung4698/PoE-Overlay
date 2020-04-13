@@ -50,6 +50,15 @@
 		"mode": "Mode",
 		"name": "가격 측정",
 		"not-found": "데이터가 없습니다.",
+		"prediction": {
+			"confidence": "자신",
+			"error": "오류가 발생했습니다.",
+			"errors": {
+				"http": "poeprices.info와 통신 할 수 없습니다\n웹 사이트에 접근 할 수 있는지 확인하십시오."
+			},
+			"language": "poeprices.info는 영어를 클라이언트 언어로만 지원합니다.",
+			"source": "poeprices.info에 근거한 가격 예측"
+		},
 		"profile": {
 			"default": "태만"
 		},

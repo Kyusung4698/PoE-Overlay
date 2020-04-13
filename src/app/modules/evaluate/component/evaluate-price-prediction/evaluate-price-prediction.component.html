@@ -1,0 +1,20 @@
+<ng-container *ngIf="(error$ | async) === undefined; else error">
+    <ng-container *ngIf="(result$ | async) as result; else loading">
+        <div class="values" (wheel)="onWheel($event)">
+            <app-currency-frame [currency]="result.currency" [range]="result"></app-currency-frame>
+            <div class="confidence">
+                <span class="small">{{'evaluate.prediction.confidence' | translate}}</span>
+                <span [class.positive]="result.score > 85"
+                    [class.negative]="result.score < 50">{{result.score | number: '1.2-2'}}%</span>
+            </div>
+        </div>
+        <span class="small">{{'evaluate.prediction.source' | translate}}</span>
+    </ng-container>
+    <ng-template #loading>
+        <div>{{ 'evaluate.loading' | translate }}</div>
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </ng-template>
+</ng-container>
+<ng-template #error>
+    <div>{{ error$ | async | translate }}</div>
+</ng-template>

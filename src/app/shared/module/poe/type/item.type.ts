@@ -1,9 +1,9 @@
 import { Query } from '@data/poe';
-import { Currency } from './currency.type';
 import { Language } from './language.type';
 import { StatType } from './stat.type';
 
 export interface Item {
+    source?: string;
     rarity?: ItemRarity;
     category?: ItemCategory;
     nameId?: string;

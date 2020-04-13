@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, HostListener, Inject, OnDestroy, OnInit } from '@angular/core';
-import { AppService, AppTranslateService, GameService, RendererService, SessionService, WindowService } from '@app/service';
+import { AppService, AppTranslateService, RendererService, SessionService, WindowService } from '@app/service';
 import { DialogRefService } from '@app/service/dialog';
 import { ShortcutService } from '@app/service/input';
 import { FEATURE_MODULES } from '@app/token';
@@ -34,7 +34,6 @@ export class OverlayComponent implements OnInit, OnDestroy {
     private readonly translate: AppTranslateService,
     private readonly snackBar: SnackBarService,
     private readonly window: WindowService,
-    private readonly game: GameService,
     private readonly renderer: RendererService,
     private readonly shortcut: ShortcutService,
     private readonly dialogRef: DialogRefService) {
@@ -151,9 +150,10 @@ export class OverlayComponent implements OnInit, OnDestroy {
       const features = mod.getFeatures(settings);
       features.forEach(feature => {
         if (feature.accelerator) {
-          this.shortcut.add(feature.accelerator, !!feature.passive).subscribe(() => {
-            mod.run(feature.name, settings);
-          });
+          this.shortcut.add(feature.accelerator, !!feature.passive,
+            VisibleFlag.Game, VisibleFlag.Dialog).subscribe(() => {
+              mod.run(feature.name, settings);
+            });
         }
       });
     });
@@ -161,10 +161,12 @@ export class OverlayComponent implements OnInit, OnDestroy {
 
   private registerSettings(settings: UserSettings): void {
     if (settings.openUserSettingsKeybinding) {
-      this.shortcut.add(settings.openUserSettingsKeybinding).subscribe(() => this.openUserSettings());
+      this.shortcut.add(settings.openUserSettingsKeybinding, false,
+        VisibleFlag.Game).subscribe(() => this.openUserSettings());
     }
     if (settings.exitAppKeybinding) {
-      this.shortcut.add(settings.exitAppKeybinding).subscribe(() => this.app.quit());
+      this.shortcut.add(settings.exitAppKeybinding, false,
+        VisibleFlag.Game, VisibleFlag.Dialog, VisibleFlag.Browser).subscribe(() => this.app.quit());
     }
   }
 

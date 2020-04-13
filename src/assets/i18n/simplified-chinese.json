@@ -50,6 +50,15 @@
 		"mode": "模式",
 		"name": "评估",
 		"not-found": "没有找到数据。",
+		"prediction": {
+			"confidence": "置信度",
+			"error": "发生错误。",
+			"errors": {
+				"http": "无法与poeprices.info通信\n请确保该网站可访问。"
+			},
+			"language": "poeprices.info仅支持英语作为客户端语言。",
+			"source": "基于poeprices.info的价格预测"
+		},
 		"profile": {
 			"default": "默认"
 		},

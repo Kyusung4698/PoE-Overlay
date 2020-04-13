@@ -66,6 +66,7 @@ export class WindowService {
 
     public enableInput(): void {
         this.window.setFocusable(true);
+        this.window.setSkipTaskbar(true);
         this.window.setIgnoreMouseEvents(false);
         this.window.focus();
     }

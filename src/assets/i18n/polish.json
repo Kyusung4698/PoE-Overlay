@@ -50,6 +50,15 @@
 		"mode": "Moda",
 		"name": "Wycena przedmiotu",
 		"not-found": "Brak danych.",
+		"prediction": {
+			"confidence": "Pewność siebie",
+			"error": "Wystąpił błąd.",
+			"errors": {
+				"http": "Nie można nawiązać komunikacji z poeprices.info\nUpewnij się, że strona jest dostępna."
+			},
+			"language": "poeprices.info obsługuje tylko angielski jako język klienta.",
+			"source": "Prognoza cen na podstawie poeprices.info"
+		},
 		"profile": {
 			"default": "domyślna"
 		},

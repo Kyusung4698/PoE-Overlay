@@ -50,6 +50,15 @@
 		"mode": "Mode",
 		"name": "Evaluar",
 		"not-found": "Datos no encontrados.",
+		"prediction": {
+			"confidence": "confianza",
+			"error": "Ocurrió un error.",
+			"errors": {
+				"http": "No se pudo comunicar con poeprices.info\nAsegúrese de que se pueda acceder al sitio web."
+			},
+			"language": "poeprices.info solo admite inglés como idioma del cliente.",
+			"source": "Predicción de precios basada en poeprices.info"
+		},
 		"profile": {
 			"default": "Defecto"
 		},

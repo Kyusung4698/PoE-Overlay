@@ -14,6 +14,7 @@ import { EvaluateSearchTableComponent } from './component/evaluate-search-table/
 import { EvaluateSearchComponent } from './component/evaluate-search/evaluate-search.component';
 import { EvaluateResultView, EvaluateSettingsComponent, EvaluateUserSettings } from './component/evaluate-settings/evaluate-settings.component';
 import { EvaluateService } from './service/evaluate.service';
+import { EvaluatePricePredictionComponent } from './component/evaluate-price-prediction/evaluate-price-prediction.component';
 
 @NgModule({
     providers: [{ provide: FEATURE_MODULES, useClass: EvaluateModule, multi: true }],
@@ -25,7 +26,8 @@ import { EvaluateService } from './service/evaluate.service';
         EvaluateExchangeRateComponent,
         EvaluateSearchComponent,
         EvaluateSearchTableComponent,
-        EvaluateOptionsComponent
+        EvaluateOptionsComponent,
+        EvaluatePricePredictionComponent
     ],
     imports: [SharedModule]
 })

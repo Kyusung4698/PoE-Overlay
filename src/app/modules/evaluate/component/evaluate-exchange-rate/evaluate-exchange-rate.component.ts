@@ -47,7 +47,7 @@ export class EvaluateExchangeRateComponent implements OnInit {
   public evaluateResult = new EventEmitter<EvaluateResult>();
 
   constructor(
-    private readonly exchangeRateService: ItemExchangeRateService,
+    private readonly exchangeRate: ItemExchangeRateService,
     private readonly browser: BrowserService,
     private readonly snackbar: SnackBarService,
     private readonly logger: LoggerService) { }
@@ -69,6 +69,7 @@ export class EvaluateExchangeRateComponent implements OnInit {
     } else if (index < 0) {
       index = this.currencies.length - 1;
     }
+
     this.result$.next(null);
     this.evaluate(this.item, this.currencies[index]);
   }
@@ -88,7 +89,7 @@ export class EvaluateExchangeRateComponent implements OnInit {
   }
 
   private evaluate(item: Item, currency?: Currency): void {
-    this.exchangeRateService
+    this.exchangeRate
       .get(item, currency ? [currency] : this.currencies, this.options.leagueId)
       .subscribe(
         result => {
