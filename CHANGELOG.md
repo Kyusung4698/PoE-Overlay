@@ -10,6 +10,7 @@
   - is now fully operatable via scrolling (# -> default -> #)
   - change scrolling directions to feel more natural
 - update data to 3.10.1d
+- fix shortcut still active even though poe overlay has no more focus (#627)
 - fix values over 1000 reseting to # (#632)
 
 ## 0.6.22 (2020-04-13)
