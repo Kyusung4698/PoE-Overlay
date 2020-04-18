@@ -2,8 +2,8 @@
 
 ## 0.6.23 (2020-04-18)
 
-- add feedback for poeprices.info price prediction @slug 
-
+- add feedback for poeprices.info price prediction @slug
+- add alternative poe titles support (#539)
 
 ## 0.6.22 (2020-04-13)
 
