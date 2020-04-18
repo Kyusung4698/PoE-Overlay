@@ -33,7 +33,8 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/assets/icons/material-icons.css"
+              "src/assets/icons/material-icons.css",
+              "src/assets/fonts/fonts.css"
             ],
             "scripts": []
           },
@@ -102,7 +103,8 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/assets/icons/material-icons.css"
+              "src/assets/icons/material-icons.css",
+              "src/assets/fonts/fonts.css"
             ],
             "scripts": []
           }

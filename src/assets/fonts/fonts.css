@@ -1,8 +1,8 @@
-
 @font-face {
     font-family: "FontinSmallCaps";
     font-weight: normal;
     font-style: normal;
-    src: local("☺"), url("http://web.poecdn.com/font/fontin-smallcaps-webfont.woff") format("woff");
+    src: url(fontin-smallcaps-webfont.woff) format("woff");
   }
+  
   
