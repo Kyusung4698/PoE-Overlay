@@ -4,6 +4,7 @@ import * as robot from 'robotjs';
 export function register(ipcMain: IpcMain) {
     ipcMain.on('click-at', (event, button, position) => {
         if (position) {
+            robot.updateScreenMetrics();
             robot.moveMouse(position.x, position.y);
         }
         robot.mouseClick(button, false);

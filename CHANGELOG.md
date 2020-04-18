@@ -13,6 +13,7 @@
 - fix font not loading by adding a local fallback (#635)
 - fix shortcut still active even though poe overlay has no more focus (#627)
 - fix values over 1000 reseting to # (#632)
+- fix mouse position incorrect applied after changing window display settings (#629)
 
 ## 0.6.22 (2020-04-13)
 
