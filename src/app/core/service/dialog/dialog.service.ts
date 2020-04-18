@@ -28,7 +28,8 @@ export class DialogService {
     public open<T, D, R>(
         componentOrTemplateRef: ComponentType<T> | TemplateRef<T>,
         data: D,
-        { position: point, width, height }: DialogSettings): Observable<R> {
+        { position: point, width, height }: DialogSettings,
+        focusable: boolean): Observable<R> {
         const bounds = this.window.getBounds();
 
         const local = point
@@ -40,7 +41,7 @@ export class DialogService {
         const top = Math.max(Math.min(scaled.y - height * 0.5, bounds.height - height), 0);
 
         if (this.dialog.openDialogs.length === 0) {
-            this.window.enableInput();
+            this.window.enableInput(focusable);
         }
 
         const dialogRef = this.dialog.open(componentOrTemplateRef, {
@@ -48,6 +49,7 @@ export class DialogService {
                 left: `${left}px`,
                 top: `${top}px`,
             },
+            autoFocus: false,
             data
         });
 
@@ -59,7 +61,7 @@ export class DialogService {
         this.dialogRef.add(dialog);
         return dialogRef.afterClosed().pipe(tap(() => {
             if (this.dialog.openDialogs.length === 0) {
-                this.window.disableInput();
+                this.window.disableInput(focusable);
                 this.game.focus();
             }
             this.dialogRef.remove(dialog);

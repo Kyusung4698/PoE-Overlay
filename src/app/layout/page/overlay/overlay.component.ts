@@ -7,8 +7,8 @@ import { AppUpdateState, FeatureModule, VisibleFlag } from '@app/type';
 import { SnackBarService } from '@shared/module/material/service';
 import { ContextService } from '@shared/module/poe/service';
 import { Context } from '@shared/module/poe/type';
-import { BehaviorSubject, EMPTY, Observable, timer } from 'rxjs';
-import { debounce, distinctUntilChanged, flatMap, map, tap } from 'rxjs/operators';
+import { BehaviorSubject, Observable, EMPTY, timer } from 'rxjs';
+import { distinctUntilChanged, flatMap, map, tap, debounce } from 'rxjs/operators';
 import { UserSettingsService } from '../../service/user-settings.service';
 import { UserSettings } from '../../type';
 
@@ -97,10 +97,9 @@ export class OverlayComponent implements OnInit, OnDestroy {
   }
 
   private registerVisibleChange(): void {
-
     this.app.visibleChange().pipe(
       tap(flag => this.shortcut.check(flag)),
-      map(flag => flag !== VisibleFlag.None),
+      map(flag => flag !== VisibleFlag.None),       
       debounce(show => show ? EMPTY : timer(1500)),
       distinctUntilChanged()
     ).subscribe(show => {
@@ -135,6 +134,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
   }
 
   private reset(): void {
+    this.window.removeAllListeners();
     this.dialogRef.reset();
     this.shortcut.reset();
   }
@@ -151,7 +151,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
       features.forEach(feature => {
         if (feature.accelerator) {
           this.shortcut.add(feature.accelerator, !!feature.passive,
-            VisibleFlag.Game, VisibleFlag.Dialog).subscribe(() => {
+            VisibleFlag.Game, VisibleFlag.Overlay).subscribe(() => {
               mod.run(feature.name, settings);
             });
         }
@@ -162,11 +162,11 @@ export class OverlayComponent implements OnInit, OnDestroy {
   private registerSettings(settings: UserSettings): void {
     if (settings.openUserSettingsKeybinding) {
       this.shortcut.add(settings.openUserSettingsKeybinding, false,
-        VisibleFlag.Game).subscribe(() => this.openUserSettings());
+        VisibleFlag.Game, VisibleFlag.Overlay).subscribe(() => this.openUserSettings());
     }
     if (settings.exitAppKeybinding) {
       this.shortcut.add(settings.exitAppKeybinding, false,
-        VisibleFlag.Game, VisibleFlag.Dialog, VisibleFlag.Browser).subscribe(() => this.app.quit());
+        VisibleFlag.Game, VisibleFlag.Overlay).subscribe(() => this.app.quit());
     }
   }
 

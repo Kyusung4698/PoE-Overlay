@@ -914,7 +914,8 @@
 			"bossRating": "2",
 			"bossCount": 1,
 			"url": "https://pathofexile.gamepedia.com/Ashen_Wood_Map",
-			"encounter": "Lord of the Ashen Arrow"
+			"encounter": "Lord of the Ashen Arrow, a unique bandit with a bow.",
+			"layout": "The map is one large continuous area sprinkled with lots of small walls that only sometimes can be passed with movement skills. The boss doesn't have a separate arena. He waits near a camp with tents. The map was based on Act 2 area The Old Fields and similar to The Ashen Fields that released in Version 3.0.0."
 		},
 		"Cemetery Map": {
 			"items": [
@@ -1007,7 +1008,9 @@
 			],
 			"bossRating": "2",
 			"bossCount": 1,
-			"url": "https://pathofexile.gamepedia.com/Mausoleum_Map"
+			"url": "https://pathofexile.gamepedia.com/Mausoleum_Map",
+			"encounter": "Tolman, the Exhumer, based on the Tolman fight in The Quay. The arena is fairly small, containing 4 bone piles with Tolman, the Exhumer slightly off-center. Upon approaching the boss, a red Ankh appears and zombies begin to spawn from the bone piles. After a short time, Tolman becomes targetable and chases the player. During this phase, red Desecrated Ground spawns, nearby corpses detonate, and red areas with a delayed detonation, similar to the ones cast by an Undying Evangelist, appear.",
+			"layout": "The layout for this indor map is linear, appearing similar to an infinity sign. The boss arena will be near the opposite end of the starting point."
 		},
 		"Phantasmagoria Map": {
 			"items": [
@@ -2370,9 +2373,11 @@
 				"Seven Years Bad Luck",
 				"Divine Justice"
 			],
+			"layoutRating": "A",
 			"bosses": [
 				"Woad, Mockery of Man"
 			],
+			"bossRating": "1",
 			"bossCount": 1,
 			"url": "https://pathofexile.gamepedia.com/Defiled_Cathedral_Map"
 		},
@@ -2426,7 +2431,8 @@
 				"Vanguard Belt",
 				"Opal Ring",
 				"The Garish Power",
-				"Lingering Remnants"
+				"Lingering Remnants",
+				"Echoes of Love"
 			],
 			"layoutRating": "C",
 			"bosses": [
@@ -2451,6 +2457,7 @@
 			"items": [
 				"The Gambler",
 				"The Encroaching Darkness",
+				"The Visionary",
 				"Gripped Gloves",
 				"Spiked Gloves",
 				"Lingering Remnants",
@@ -2521,7 +2528,8 @@
 			],
 			"bossRating": "3",
 			"bossCount": 1,
-			"url": "https://pathofexile.gamepedia.com/Villa_Map"
+			"url": "https://pathofexile.gamepedia.com/Villa_Map",
+			"encounter": "The High Templar"
 		},
 		"Arsenal Map": {
 			"items": [
@@ -2969,6 +2977,16 @@
 			],
 			"bossCount": 1,
 			"url": "https://pathofexile.gamepedia.com/Sunken_City_Map"
+		},
+		"16x16px": {
+			"items": [],
+			"layoutRating": "A",
+			"bosses": [
+				"Guardian of the Minotaur"
+			],
+			"bossRating": "5",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/index.php?title=Special:Upload&wpDestFile=Maze_of_the_Minotaur_Map_(Delirium)_inventory_icon.png"
 		},
 		"Vaal Temple Map": {
 			"items": [

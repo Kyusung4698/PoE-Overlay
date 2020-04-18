@@ -56,8 +56,16 @@
 			"errors": {
 				"http": "无法与poeprices.info通信\n请确保该网站可访问。"
 			},
+			"feedback": "反馈",
+			"feedbacks": {
+				"fair": "公平",
+				"high": "高",
+				"low": "低"
+			},
 			"language": "poeprices.info仅支持英语作为客户端语言。",
-			"source": "基于poeprices.info的价格预测"
+			"sending": "发出",
+			"source": "基于poeprices.info的价格预测",
+			"thanks": "谢谢！"
 		},
 		"profile": {
 			"default": "默认"
@@ -198,6 +206,7 @@
 		"dialog-spawn-position-title": "对话框产生位置",
 		"display-version": "显示版本",
 		"exit-app": "退出应用",
+		"focusable": "重点突出（键盘支持）",
 		"game-settings": "游戏设置",
 		"general": "一般",
 		"languages": {

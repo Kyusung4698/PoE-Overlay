@@ -58,17 +58,25 @@ export class WindowService {
         this.window.setSize(width, height);
     }
 
-    public disableInput(): void {
-        this.window.blur();
+    public disableInput(focusable: boolean): void {
+        if (focusable) {
+            this.window.blur();
+        }
         this.window.setIgnoreMouseEvents(true);
-        this.window.setFocusable(false);
+        if (focusable) {
+            this.window.setFocusable(false);
+        }
     }
 
-    public enableInput(): void {
-        this.window.setFocusable(true);
-        this.window.setSkipTaskbar(true);
+    public enableInput(focusable: boolean): void {
+        if (focusable) {
+            this.window.setFocusable(true);
+            this.window.setSkipTaskbar(true);
+        }
         this.window.setIgnoreMouseEvents(false);
-        this.window.focus();
+        if (focusable) {
+            this.window.focus();
+        }
     }
 
     public convertToLocal(point: Point): Point {

@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.6.23 (2020-04-18)
+
+- add feedback for poeprices.info price prediction @slug
+- add alternative poe titles support (#539)
+- add focusable (keyboard support) as general setting (#620)
+- update value range component (#595)
+  - is now showing both values on hover/ focus even if those are the same
+  - is now fully operatable via scrolling (# -> default -> #)
+  - change scrolling directions to feel more natural
+- update data to 3.10.1d
+- fix font not loading by adding a local fallback (#635)
+- fix shortcut still active even though poe overlay has no more focus (#627)
+- fix values over 1000 reseting to # (#632)
+- fix mouse position incorrect applied after changing window display settings (#629)
+
 ## 0.6.22 (2020-04-13)
 
 - add poeprices.info price prediction (#544)

@@ -21,11 +21,19 @@ export class CacheService {
         private readonly storage: StorageService,
         private readonly logger: LoggerService) { }
 
-    public proxy<TValue>(key: string, valueFn: () => Observable<TValue>, expiry: number): Observable<TValue> {
+    public proxy<TValue>(
+        key: string, valueFn: () => Observable<TValue>,
+        expiry: number,
+        slidingExpiry: boolean = false): Observable<TValue> {
         return this.storage.get<CacheEntry<TValue>>(key).pipe(flatMap(entry => {
             let now = Date.now();
             if (entry && entry.expiry > now) {
-                return of(entry.value);
+                return this.storage.save(key, {
+                    value: entry.value,
+                    expiry: slidingExpiry
+                        ? now + expiry
+                        : entry.expiry
+                }).pipe(map(x => x.value));
             }
             if (!this.cache[key]) {
                 this.cache[key] = valueFn().pipe(

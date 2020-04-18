@@ -30,11 +30,16 @@ export class DialogRefService {
 
     public register(): void {
         this.escapeSubscription = this.shortcutService
-            .add('escape', false, VisibleFlag.Dialog, VisibleFlag.Browser)
+            .add('escape', false,
+                VisibleFlag.Game | VisibleFlag.Dialog,
+                VisibleFlag.Overlay | VisibleFlag.Dialog,
+                VisibleFlag.Browser)
             .subscribe(() => this.close());
 
         this.spaceSubscription = this.shortcutService
-            .add('space', false, VisibleFlag.Dialog)
+            .add('space', false,
+                VisibleFlag.Game | VisibleFlag.Dialog,
+                VisibleFlag.Overlay | VisibleFlag.Dialog)
             .subscribe(() => this.closeAll());
     }
 

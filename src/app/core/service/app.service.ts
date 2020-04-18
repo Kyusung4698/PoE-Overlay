@@ -12,7 +12,10 @@ import { DialogRefService, DialogType } from './dialog/dialog-ref.service';
 export class AppService {
     private readonly electron: Remote;
     private readonly ipcRenderer: IpcRenderer;
+
     private readonly activeChange$ = new BehaviorSubject<boolean>(false);
+    private readonly focusChange$ = new BehaviorSubject<boolean>(false);
+
     private readonly updateState$ = new BehaviorSubject<AppUpdateState>(AppUpdateState.None);
 
     constructor(
@@ -52,13 +55,22 @@ export class AppService {
             this.ngZone.run(() => this.activeChange$.next(arg));
         });
         this.ipcRenderer.sendSync('game-send-active-change');
+
+        const window = this.electron.getCurrentWindow();
+        window.on('focus', () => this.ngZone.run(() => this.focusChange$.next(true)));
+        window.on('blur', () => this.ngZone.run(() => this.focusChange$.next(false)));
+
         return combineLatest([
             this.activeChange$,
+            this.focusChange$,
             this.dialogRef.dialogsChange()
-        ]).pipe(map(([game, dialogs]) => {
+        ]).pipe(map(([game, focus, dialogs]) => {
             let result = VisibleFlag.None;
             if (game) {
                 result |= VisibleFlag.Game;
+            }
+            if (focus) {
+                result |= VisibleFlag.Overlay;
             }
 
             if (dialogs.length > 0) {

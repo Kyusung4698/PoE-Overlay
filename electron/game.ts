@@ -12,6 +12,10 @@ const POE_TITLES = [
     'Path of Exile'
 ];
 
+const POE_ALTERNATIVE_TITLES = [
+    'Path of Exile <---> '
+];
+
 export class Game {
     private window: Window;
 
@@ -27,7 +31,7 @@ export class Game {
             const name = path.basename(windowPath);
             if (POE_NAMES.includes(name)) {
                 const title = window.title();
-                if (POE_TITLES.includes(title)) {
+                if (POE_TITLES.includes(title) || POE_ALTERNATIVE_TITLES.some(x => title.startsWith(x))) {
                     this.window = window;
                     this.active = true;
                     this.bounds = window.bounds();

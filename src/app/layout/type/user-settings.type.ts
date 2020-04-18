@@ -17,4 +17,5 @@ export interface UserSettings {
     dialogOpacity?: number;
     displayVersion?: boolean;
     autoDownload?: boolean;
+    focusable?: boolean;
 }

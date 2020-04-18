@@ -27,6 +27,6 @@ export class MapDialogService {
         const position = settings.dialogSpawnPosition === DialogSpawnPosition.Cursor ? point : undefined;
         return this.dialog.open(MapDialogComponent, data, {
             position, width, height
-        })
+        }, settings.focusable);
     }
 }

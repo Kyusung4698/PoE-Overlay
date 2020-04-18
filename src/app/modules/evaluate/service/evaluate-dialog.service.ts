@@ -36,7 +36,7 @@ export class EvaluateDialogService {
         const position = settings.dialogSpawnPosition === DialogSpawnPosition.Cursor ? point : undefined;
         return this.dialog.open(EvaluateDialogComponent, data, {
             position, width, height
-        });
+        }, settings.focusable);
     }
 
     private estimateBounds(item: Item, settings: EvaluateUserSettings, language: Language): { width: number, height: number } {

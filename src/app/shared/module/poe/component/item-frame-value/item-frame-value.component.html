@@ -1,21 +1,30 @@
-<span [class.hidden]="(text$ | async) === false" [class.value]="!disabled">{{parsed | number:'1.0-1'}}<span *ngIf="value.tier">
-        ({{value.tier.min | number:'1.0-1'}}-{{value.tier.max | number:'1.0-1'}}) </span>
-</span>
-<span [class.hidden]="text$ | async">
-    <span [class.value]="!disabled" [class.changed]="default.min !== value.min || default.max !== value.max"
-        (wheel)="onWheel($event)" (mouseup)="onMouseUp($event)" (mousedown)="onMouseDown($event)">
-        <ng-container *ngIf="value.min === undefined && value.max === undefined">
-            <span>#</span>
-        </ng-container>
-        <span [class.hidden]="!(value.min !== undefined || value.max !== undefined)">
-            <input class="text" #min [class.hidden]="!(default.min !== value.min || default.max !== value.max)"
-                (blur)="onBlur(min.value, value.max)" (keyup)="onKeyup()" (wheel)="onWheelMin($event)"
-                (mouseup)="onMouseUpMin($event)" (mousedown)="onMouseDown($event)">
-            <span *ngIf="default.min !== value.min || default.max !== value.max">~</span>
-            <span *ngIf="default.min === value.min && default.max === value.max">{{parsed | number:'1.0-1'}}</span>
-            <input class="text" #max [class.hidden]="!(default.min !== value.min || default.max !== value.max)"
-                (blur)="onBlur(value.min, max.value)" (keyup)="onKeyup()" (wheel)="onWheelMax($event)"
-                (mouseup)="onMouseUpMax($event)" (mousedown)="onMouseDown($event)">
+<ng-container *ngIf="text$ | async; else input">
+    <span>{{parsed | number:'1.0-1'}}<span *ngIf="value.tier">
+            ({{value.tier.min | number:'1.0-1'}}-{{value.tier.max | number:'1.0-1'}}) </span>
+    </span>
+</ng-container>
+<ng-template #input>
+    <span class="inputs"
+        [class.equals]="(focused$ | async) === false && (value.min | number:'1.0-1') === (value.max | number:'1.0-1')"
+        [class.changed]="value.min !== default.min || value.max !== default.max">
+        <span class="input-double" [class.value]="!disabled">
+            <span class="text" (wheel)="onWheel($event, true, false)" (mouseup)="onMouseUp($event, true, false)"
+                (mousedown)="onMouseDown($event)">
+                <app-item-frame-value-input [value]="value.min" (valueChange)="onValueChange($event, value.max)"
+                    (focusChange)="onFocusChange($event)"></app-item-frame-value-input>
+            </span>
+            <span>~</span>
+            <span class="text" (wheel)="onWheel($event, false, true)" (mouseup)="onMouseUp($event, false, true)"
+                (mousedown)="onMouseDown($event)">
+                <app-item-frame-value-input [value]="value.max" (valueChange)="onValueChange(value.min, $event)"
+                    (focusChange)="onFocusChange($event)"></app-item-frame-value-input>
+            </span>
+        </span>
+        <span class="input-single" [class.value]="!disabled">
+            <span class="text">
+                <ng-container *ngTemplateOutlet="number, context: { value: value.min }"></ng-container>
+            </span>
         </span>
     </span>
-</span>
+    <ng-template #number let-value="value">{{value === undefined ? '#' : value | number:'1.0-1'}}</ng-template>
+</ng-template>
