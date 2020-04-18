@@ -59,8 +59,8 @@
 			"feedback": "Realimentación",
 			"feedbacks": {
 				"fair": "Equitativo",
-				"high": "en lo alto",
-				"low": "Muy bajo"
+				"high": "demasiado alto",
+				"low": "demasiado baja"
 			},
 			"language": "poeprices.info solo admite inglés como idioma del cliente.",
 			"sending": "Enviando",

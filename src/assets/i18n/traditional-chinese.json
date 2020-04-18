@@ -59,8 +59,8 @@
 			"feedback": "反饋",
 			"feedbacks": {
 				"fair": "公平",
-				"high": "高",
-				"low": "低"
+				"high": "太高",
+				"low": "太低"
 			},
 			"language": "poeprices.info僅支持英語作為客戶端語言。",
 			"sending": "正在發送",
