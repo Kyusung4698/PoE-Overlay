@@ -41,7 +41,8 @@ export class UserSettingsService {
                     dialogSpawnPosition: DialogSpawnPosition.Center,
                     dialogOpacity: 0.8,
                     displayVersion: true,
-                    autoDownload: true
+                    autoDownload: true,
+                    focusable: true
                 };
 
                 modules.forEach(x => {

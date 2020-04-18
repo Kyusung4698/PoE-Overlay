@@ -50,12 +50,12 @@
 </app-card>
 <app-card [title]="'settings.app' | translate">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-6">
             <mat-slide-toggle [checked]="settings.displayVersion" (change)="settings.displayVersion = $event.checked">
                 {{'settings.display-version' | translate}}
             </mat-slide-toggle>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-6">
             <mat-slide-toggle [checked]="autoLaunchEnabled$ | async" (change)="onAutoLaunchChange($event.checked)">
                 {{'settings.auto-launch' | translate}}
             </mat-slide-toggle>
@@ -63,6 +63,11 @@
         <div class="col-md-6">
             <mat-slide-toggle [checked]="settings.autoDownload" (change)="settings.autoDownload = $event.checked">
                 {{'settings.auto-download' | translate}}
+            </mat-slide-toggle>
+        </div>        
+        <div class="col-md-6">
+            <mat-slide-toggle [checked]="settings.focusable" (change)="settings.focusable = $event.checked">
+                {{'settings.focusable' | translate}}
             </mat-slide-toggle>
         </div>
     </div>

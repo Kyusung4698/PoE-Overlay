@@ -4,6 +4,7 @@
 
 - add feedback for poeprices.info price prediction @slug
 - add alternative poe titles support (#539)
+- add focusable (keyboard support) as general setting (#620)
 - update value range component (#595)
   - is now showing both values on hover/ focus even if those are the same
   - is now fully operatable via scrolling (# -> default -> #)

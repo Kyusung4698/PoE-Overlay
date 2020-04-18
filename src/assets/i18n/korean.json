@@ -206,6 +206,7 @@
 		"dialog-spawn-position-title": "대화 상자 스폰 위치",
 		"display-version": "디스플레이 버전",
 		"exit-app": "앱 종료",
+		"focusable": "집중 가능 (키보드 지원)",
 		"game-settings": "게임 설정",
 		"general": "일반",
 		"languages": {

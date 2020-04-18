@@ -206,6 +206,7 @@
 		"dialog-spawn-position-title": "Position d'apparition de la boîte de dialogue",
 		"display-version": "Afficher la version",
 		"exit-app": "Quitter l'application",
+		"focusable": "Focusable (prise en charge du clavier)",
 		"game-settings": "Paramètres de jeu",
 		"general": "Général",
 		"languages": {
