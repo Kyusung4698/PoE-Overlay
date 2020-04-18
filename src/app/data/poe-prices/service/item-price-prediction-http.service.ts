@@ -54,7 +54,7 @@ export class ItemPricePredictionHttpService {
         form.set('max', `${max}`);
         form.set('selector', selector);
         form.set('currency', currencyId);
-        form.set('qitem_text', btoa(stringifiedItem));        
+        form.set('qitem_text', btoa(stringifiedItem));
         form.set('debug', `${environment.production ? 0 : 1}`);
         form.set('source', SOURCE);
 

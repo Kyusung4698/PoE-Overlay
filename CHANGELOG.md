@@ -4,6 +4,7 @@
 
 - add feedback for poeprices.info price prediction @slug
 - add alternative poe titles support (#539)
+- fix values over 1000 reseting to # (#632)
 
 ## 0.6.22 (2020-04-13)
 

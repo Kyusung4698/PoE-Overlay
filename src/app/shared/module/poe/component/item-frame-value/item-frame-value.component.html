@@ -9,11 +9,11 @@
         </ng-container>
         <span [class.hidden]="!(value.min !== undefined || value.max !== undefined)">
             <input class="text" #min [class.hidden]="!(default.min !== value.min || default.max !== value.max)"
-                (blur)="onBlur(min.value, value.max)" (keyup)="onKeyup()" (wheel)="onWheelMin($event)"
+                (blur)="onBlur(min.value, value.max)" (focus)="onFocus(min)" (keyup)="onKeyup()" (wheel)="onWheelMin($event)"
                 (mouseup)="onMouseUpMin($event)" (mousedown)="onMouseDown($event)">
             <span *ngIf="default.min !== value.min || default.max !== value.max">~</span>
             <span *ngIf="default.min === value.min && default.max === value.max">{{parsed | number:'1.0-1'}}</span>
-            <input class="text" #max [class.hidden]="!(default.min !== value.min || default.max !== value.max)"
+            <input class="text" #max (focus)="onFocus(max)" [class.hidden]="!(default.min !== value.min || default.max !== value.max)"
                 (blur)="onBlur(value.min, max.value)" (keyup)="onKeyup()" (wheel)="onWheelMax($event)"
                 (mouseup)="onMouseUpMax($event)" (mousedown)="onMouseDown($event)">
         </span>

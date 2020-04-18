@@ -5,6 +5,8 @@ import { ItemValue } from '../../type';
 import { ItemFrameQueryComponent } from '../item-frame-query/item-frame-query.component';
 import { ItemFrameComponent } from '../item-frame/item-frame.component';
 
+const CUSTOM_NUMBER_ATTR = 'custom-number';
+
 @Component({
   selector: 'app-item-frame-value',
   templateUrl: './item-frame-value.component.html',
@@ -118,6 +120,12 @@ export class ItemFrameValueComponent implements OnInit {
     } else {
       this.updateView();
     }
+  }
+
+  public onFocus(element: HTMLInputElement): void {
+    const value = element.getAttribute(CUSTOM_NUMBER_ATTR);
+    const parsed = +value;
+    element.value = isNaN(parsed) ? '' : `${parsed}`;
   }
 
   public onKeyup(): void {
@@ -293,8 +301,10 @@ export class ItemFrameValueComponent implements OnInit {
   private updateView(): void {
     this.min.nativeElement.value = this.value.min === undefined
       ? '#' : this.decimal.transform(this.value.min, '1.0-1');
+    this.min.nativeElement.setAttribute(CUSTOM_NUMBER_ATTR, `${this.value.min}`);
     this.max.nativeElement.value = this.value.max === undefined
       ? '#' : this.decimal.transform(this.value.max, '1.0-1');
+    this.max.nativeElement.setAttribute(CUSTOM_NUMBER_ATTR, `${this.value.max}`);
     this.updateViewWidth();
   }
 
