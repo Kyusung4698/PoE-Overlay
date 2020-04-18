@@ -8,6 +8,7 @@
   - is now showing both values on hover/ focus even if those are the same
   - is now fully operatable via scrolling (# -> default -> #)
   - change scrolling directions to feel more natural
+- update data to 3.10.1d
 - fix values over 1000 reseting to # (#632)
 
 ## 0.6.22 (2020-04-13)
