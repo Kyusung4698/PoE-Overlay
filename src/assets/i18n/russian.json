@@ -56,8 +56,16 @@
 			"errors": {
 				"http": "Не удалось связаться с poeprices.info\nПожалуйста, убедитесь, что сайт доступен."
 			},
+			"feedback": "Обратная связь",
+			"feedbacks": {
+				"fair": "равноправный",
+				"high": "к высокой",
+				"low": "К низкому"
+			},
 			"language": "poeprices.info поддерживает только английский язык как клиентский.",
-			"source": "Прогноз цен на основе poeprices.info"
+			"sending": "Отправка",
+			"source": "Прогноз цен на основе poeprices.info",
+			"thanks": "Спасибо!"
 		},
 		"profile": {
 			"default": "По умолчанию"

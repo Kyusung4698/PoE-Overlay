@@ -9,21 +9,24 @@ import { ItemPricePredictionResponse } from '../schema/item-price-prediction';
 const RETRY_COUNT = 3;
 const RETRY_DELAY = 100;
 
+const SOURCE = 'poeoverlay';
+
 @Injectable({
     providedIn: 'root'
 })
 export class ItemPricePredictionHttpService {
-    private readonly baseUrl: string;
-
     constructor(
         private readonly http: HttpClient,
         private readonly session: SessionService,
         private readonly browser: BrowserService) {
-        this.baseUrl = `${environment.poePrices.baseUrl}/api`;
     }
 
     public get(leagueId: string, stringifiedItem: string): Observable<ItemPricePredictionResponse> {
-        const url = this.getUrl(leagueId, stringifiedItem);
+        const base64Item = btoa(stringifiedItem);
+        const encodedLeagueId = encodeURIComponent(leagueId);
+        const encodedItem = encodeURIComponent(base64Item);
+
+        const url = `${environment.poePrices.baseUrl}/api?l=${encodedLeagueId}&i=${encodedItem}&s=${SOURCE}`;
         return this.http.get<ItemPricePredictionResponse>(url).pipe(
             retryWhen(errors => errors.pipe(
                 flatMap((response, count) => this.handleError(url, response, count))
@@ -37,11 +40,30 @@ export class ItemPricePredictionHttpService {
         );
     }
 
-    private getUrl(leagueId: string, stringifiedItem: string): string {
-        const base64Item = btoa(stringifiedItem);
-        const encodedLeagueId = encodeURIComponent(leagueId);
-        const encodedItem = encodeURIComponent(base64Item);
-        return `${this.baseUrl}?l=${encodedLeagueId}&i=${encodedItem}`;
+    public post(
+        leagueId: string,
+        stringifiedItem: string,
+        selector: 'fair' | 'high' | 'low',
+        min: number,
+        max: number,
+        currencyId: 'chaos' | 'exalt'): Observable<string> {
+
+        const form = new FormData();
+        form.set('league', leagueId);
+        form.set('min', `${min}`);
+        form.set('max', `${max}`);
+        form.set('selector', selector);
+        form.set('currency', currencyId);
+        form.set('qitem_text', btoa(stringifiedItem));        
+        form.set('debug', `${environment.production ? 0 : 1}`);
+        form.set('source', SOURCE);
+
+        const url = `${environment.poePrices.baseUrl}/send_feedback`;
+        return this.http.post<string>(url, form).pipe(
+            retryWhen(errors => errors.pipe(
+                flatMap((response, count) => this.handleError(url, response, count))
+            ))
+        );
     }
 
     private handleError(url: string, response: HttpErrorResponse, count: number): Observable<void> {

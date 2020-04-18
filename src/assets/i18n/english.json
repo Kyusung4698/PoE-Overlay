@@ -56,8 +56,16 @@
 			"errors": {
 				"http": "Could not communicate with poeprices.info\nPlease make sure the website is reachable."
 			},
+			"feedback": "Feedback",
+			"feedbacks": {
+				"fair": "equitable",
+				"high": "to high",
+				"low": "to low"
+			},
 			"language": "poeprices.info only supports English as client language.",
-			"source": "Price prediction based on poeprices.info"
+			"sending": "Sending",
+			"source": "Price prediction based on poeprices.info",
+			"thanks": "Thanks!"
 		},
 		"profile": {
 			"default": "Default"

@@ -56,8 +56,16 @@
 			"errors": {
 				"http": "Nie można nawiązać komunikacji z poeprices.info\nUpewnij się, że strona jest dostępna."
 			},
+			"feedback": "Sprzężenie zwrotne",
+			"feedbacks": {
+				"fair": "Sprawiedliwy",
+				"high": "za wysoko",
+				"low": "Za nisko"
+			},
 			"language": "poeprices.info obsługuje tylko angielski jako język klienta.",
-			"source": "Prognoza cen na podstawie poeprices.info"
+			"sending": "Wysyłanie",
+			"source": "Prognoza cen na podstawie poeprices.info",
+			"thanks": "Dzięki!"
 		},
 		"profile": {
 			"default": "domyślna"

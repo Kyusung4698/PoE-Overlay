@@ -56,8 +56,16 @@
 			"errors": {
 				"http": "poeprices.info와 통신 할 수 없습니다\n웹 사이트에 접근 할 수 있는지 확인하십시오."
 			},
+			"feedback": "피드백",
+			"feedbacks": {
+				"fair": "공평한",
+				"high": "높은",
+				"low": "낮추기 위해"
+			},
 			"language": "poeprices.info는 영어를 클라이언트 언어로만 지원합니다.",
-			"source": "poeprices.info에 근거한 가격 예측"
+			"sending": "배상",
+			"source": "poeprices.info에 근거한 가격 예측",
+			"thanks": "감사!"
 		},
 		"profile": {
 			"default": "태만"

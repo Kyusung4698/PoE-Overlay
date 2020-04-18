@@ -6,18 +6,35 @@
 .values {
     display: flex;
     justify-content: center;
+    align-items: center;
 
-    .confidence {
+    .confidence,
+    .feedback {
         display: inline-flex;
         flex-direction: column;
         padding: 0 6px;
+    }
 
+    .confidence {
         .positive {
             color: lightgreen;
         }
 
         .negative {
             color: red;
+        }
+    }
+
+    .feedback {
+        .icons {
+            height: 19px;
+            cursor: pointer;
+            
+            .icon {
+                width: 19px;
+                height: 19px;
+                font-size: 19px;
+            }
         }
     }
 }

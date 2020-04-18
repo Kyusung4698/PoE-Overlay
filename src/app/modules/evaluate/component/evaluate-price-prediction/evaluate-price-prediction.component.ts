@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { LoggerService } from '@app/service';
-import { ItemPricePredictionResult, ItemPricePredictionService } from '@shared/module/poe/service';
+import { ItemPricePredictionFeedback, ItemPricePredictionResult, ItemPricePredictionService } from '@shared/module/poe/service';
 import { Currency, Item, Language } from '@shared/module/poe/type';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { debounceTime, takeUntil } from 'rxjs/operators';
 import { EvaluateOptions } from '../evaluate-options/evaluate-options.component';
 
@@ -17,6 +17,8 @@ export class EvaluatePricePredictionComponent implements OnInit {
 
   public result$ = new BehaviorSubject<ItemPricePredictionResult>(undefined);
   public error$ = new BehaviorSubject<string>(undefined);
+
+  public feedback$: BehaviorSubject<boolean>;
 
   @Input()
   public language: Language;
@@ -48,6 +50,21 @@ export class EvaluatePricePredictionComponent implements OnInit {
     this.optionsChange.pipe(
       debounceTime(200)
     ).subscribe(() => this.predict(this.item));
+  }
+
+  public onFeedback(feedback: string): void {
+    const { value } = this.result$;
+    if (!value?.id || this.feedback$) {
+      return;
+    }
+
+    this.feedback$ = new BehaviorSubject<boolean>(undefined);
+    this.prediction.feedback(
+      value.id, feedback as ItemPricePredictionFeedback
+    ).subscribe(
+      () => this.feedback$.next(true),
+      () => this.feedback$.next(false)
+    );
   }
 
   public onWheel(event: WheelEvent): void {

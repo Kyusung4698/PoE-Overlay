@@ -56,8 +56,16 @@
 			"errors": {
 				"http": "無法與poeprices.info通信\n請確保該網站可訪問。"
 			},
+			"feedback": "反饋",
+			"feedbacks": {
+				"fair": "公平",
+				"high": "高",
+				"low": "低"
+			},
 			"language": "poeprices.info僅支持英語作為客戶端語言。",
-			"source": "基於poeprices.info的價格預測"
+			"sending": "正在發送",
+			"source": "基於poeprices.info的價格預測",
+			"thanks": "謝謝！"
 		},
 		"profile": {
 			"default": "默認"

@@ -56,8 +56,16 @@
 			"errors": {
 				"http": "Impossible de communiquer avec poeprices.info\nVeuillez vous assurer que le site Web est accessible."
 			},
+			"feedback": "Retour d'information",
+			"feedbacks": {
+				"fair": "Équitable",
+				"high": "trop haut",
+				"low": "Baisser"
+			},
 			"language": "poeprices.info ne prend en charge que l'anglais comme langue client.",
-			"source": "Prédiction des prix basée sur poeprices.info"
+			"sending": "Envoi",
+			"source": "Prédiction des prix basée sur poeprices.info",
+			"thanks": "Merci!"
 		},
 		"profile": {
 			"default": "Défaut"

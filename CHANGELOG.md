@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.6.23 (2020-04-18)
+
+- add feedback for poeprices.info price prediction @slug 
+
+
 ## 0.6.22 (2020-04-13)
 
 - add poeprices.info price prediction (#544)
