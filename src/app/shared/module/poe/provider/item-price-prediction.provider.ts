@@ -39,7 +39,7 @@ export class ItemPricePredictionProvider {
                         };
                         return result;
                     })
-                ), CACHE_EXPIRY)
+                ), CACHE_EXPIRY, true)
             )
         );
     }

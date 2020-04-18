@@ -1,28 +1,19 @@
 import { DecimalPipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Inject, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { Subject } from 'rxjs';
+import { ChangeDetectionStrategy, Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
+import { Subject, BehaviorSubject } from 'rxjs';
 import { ItemValue } from '../../type';
 import { ItemFrameQueryComponent } from '../item-frame-query/item-frame-query.component';
 import { ItemFrameComponent } from '../item-frame/item-frame.component';
-
-const CUSTOM_NUMBER_ATTR = 'custom-number';
 
 @Component({
   selector: 'app-item-frame-value',
   templateUrl: './item-frame-value.component.html',
   styleUrls: ['./item-frame-value.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [DecimalPipe]
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ItemFrameValueComponent implements OnInit {
   public default: ItemValue;
   public parsed: number;
-
-  @ViewChild('min', { static: true })
-  public min: ElementRef<HTMLInputElement>;
-
-  @ViewChild('max', { static: true })
-  public max: ElementRef<HTMLInputElement>;
 
   @Input()
   public disabled: boolean;
@@ -39,14 +30,14 @@ export class ItemFrameValueComponent implements OnInit {
   @Output()
   public valueChange = new EventEmitter<ItemValue>();
 
+  public focused$ = new BehaviorSubject<boolean>(false);
   public text$: Subject<boolean>;
 
   constructor(
     @Inject(ItemFrameComponent)
     itemFrame: ItemFrameComponent,
     @Inject(ItemFrameQueryComponent)
-    private readonly query: ItemFrameQueryComponent,
-    private readonly decimal: DecimalPipe) {
+    private readonly query: ItemFrameQueryComponent) {
     this.text$ = itemFrame.text$;
     this.disabled = itemFrame.queryItemChange.observers.length <= 0;
   }
@@ -59,77 +50,37 @@ export class ItemFrameValueComponent implements OnInit {
     event.stopImmediatePropagation();
   }
 
-  public onMouseUp(event: MouseEvent): void {
+  public onMouseUp(event: MouseEvent, min: boolean, max: boolean): void {
     event.stopImmediatePropagation();
     /* tslint:disable */
     if (event.which === 2) {
-      this.resetValue(true, true);
+      this.resetValue(min, max);
     } else if (event.which === 3) {
-      this.toggleValue(true, true);
+      this.toggleValue(min, max);
     }
     /* tslint:enable */
   }
 
-  public onMouseUpMin(event: MouseEvent): void {
+  public onWheel(event: WheelEvent, min: boolean, max: boolean): void {
     event.stopImmediatePropagation();
-    /* tslint:disable */
-    if (event.which === 2) {
-      this.resetValue(true, false);
-    } else if (event.which === 3) {
-      this.toggleValue(true, false);
-    }
-    /* tslint:enable */
+    this.adjustValue(this.getStepFromEvent(event), min, max);
   }
 
-  public onMouseUpMax(event: MouseEvent): void {
-    event.stopImmediatePropagation();
-    /* tslint:disable */
-    if (event.which === 2) {
-      this.resetValue(false, true);
-    } else if (event.which === 3) {
-      this.toggleValue(false, true);
-    }
-    /* tslint:enable */
-  }
-
-  public onWheel(event: WheelEvent): void {
-    event.stopImmediatePropagation();
-    this.adjustValue(this.getStepFromEvent(event), true, true);
-  }
-
-  public onWheelMin(event: WheelEvent): void {
-    event.stopImmediatePropagation();
-    this.adjustValue(this.getStepFromEvent(event), true, false);
-  }
-
-  public onWheelMax(event: WheelEvent): void {
-    event.stopImmediatePropagation();
-    this.adjustValue(this.getStepFromEvent(event), false, true);
-  }
-
-  public onBlur(viewMin: string | number, viewMax: string | number): void {
+  public onValueChange(newMin: number, newMax: number): void {
     const { min, max } = this.value;
 
-    this.value.min = +viewMin;
-    this.value.max = +viewMax;
+    this.value.min = newMin;
+    this.value.max = newMax;
 
     this.clampValue();
 
     if (min !== this.value.min || max !== this.value.max) {
       this.emitChange();
-    } else {
-      this.updateView();
     }
   }
 
-  public onFocus(element: HTMLInputElement): void {
-    const value = element.getAttribute(CUSTOM_NUMBER_ATTR);
-    const parsed = +value;
-    element.value = isNaN(parsed) ? '' : `${parsed}`;
-  }
-
-  public onKeyup(): void {
-    this.updateViewWidth();
+  public onFocusChange(focus: boolean): void{
+    this.focused$.next(focus);
   }
 
   public resetValue(isMin: boolean, isMax: boolean): void {
@@ -185,15 +136,24 @@ export class ItemFrameValueComponent implements OnInit {
 
     const { min, max } = this.value;
 
-    if (isMin && !isMax) {
+    if (isMin) {
+      if (this.value.min === undefined) {
+        this.value.min = this.default.min;
+      } else {
+        this.value.min -= step;
+      }
+    }
+
+    if (isMin && isMax) {
       step *= -1;
     }
 
-    if (isMin && this.value.min !== undefined) {
-      this.value.min -= step;
-    }
-    if (isMax && this.value.max !== undefined) {
-      this.value.max += step;
+    if (isMax) {
+      if (this.value.max === undefined) {
+        this.value.max = this.default.min;
+      } else {
+        this.value.max -= step;
+      }
     }
 
     this.clampValue();
@@ -211,7 +171,7 @@ export class ItemFrameValueComponent implements OnInit {
       step = 5;
     }
 
-    if (event.deltaY > 0) {
+    if (event.deltaY < 0) {
       step *= -1;
     }
     return step;
@@ -225,38 +185,28 @@ export class ItemFrameValueComponent implements OnInit {
       this.value.max = undefined;
     }
 
-    // stay in range
+    // reset to infinite
     if (this.value.min > this.default.min) {
-      this.value.min = this.default.min;
+      this.value.min = undefined;
     }
     if (this.value.max < this.default.max) {
-      this.value.max = this.default.max;
+      this.value.max = undefined;
     }
-
-    // check tier - remove for now
-    // if (this.value.tier) {
-    //   if (this.value.min < this.value.tier.min) {
-    //     this.value.min = this.value.tier.min;
-    //   }
-    //   if (this.value.max > this.value.tier.max) {
-    //     this.value.max = this.value.tier.max;
-    //   }
-    // }
 
     // if positive - stay positive!
-    if (this.default.min >= 0 && this.value.min < 0) {
-      this.value.min = 0;
+    if (this.default.min >= 1 && this.value.min < 1) {
+      this.value.min = 1;
     }
-    if (this.default.max > 0 && this.value.max < 0) {
-      this.value.max = 0;
+    if (this.default.max > 1 && this.value.max < 1) {
+      this.value.max = 1;
     }
 
     // if negative - stay negative!
-    if (this.default.min < 0 && this.value.min > 0) {
-      this.value.min = 0;
+    if (this.default.min < -1 && this.value.min > -1) {
+      this.value.min = -1;
     }
-    if (this.default.max <= 0 && this.value.max > 0) {
-      this.value.max = 0;
+    if (this.default.max <= 0 && this.value.max > -1) {
+      this.value.max = -1;
     }
   }
 
@@ -293,29 +243,8 @@ export class ItemFrameValueComponent implements OnInit {
   }
 
   private emitChange(): void {
-    this.updateView();
     this.valueChange.emit(this.value);
     this.query.checkChange();
-  }
-
-  private updateView(): void {
-    this.min.nativeElement.value = this.value.min === undefined
-      ? '#' : this.decimal.transform(this.value.min, '1.0-1');
-    this.min.nativeElement.setAttribute(CUSTOM_NUMBER_ATTR, `${this.value.min}`);
-    this.max.nativeElement.value = this.value.max === undefined
-      ? '#' : this.decimal.transform(this.value.max, '1.0-1');
-    this.max.nativeElement.setAttribute(CUSTOM_NUMBER_ATTR, `${this.value.max}`);
-    this.updateViewWidth();
-  }
-
-  private updateViewWidth(): void {
-    const min = this.min.nativeElement.value;
-    const minLength = min.length;
-    this.min.nativeElement.style.width = `${minLength - ((min.split('.').length - 1) * 0.5)}ch`;
-
-    const max = this.max.nativeElement.value;
-    const maxLength = max.length;
-    this.max.nativeElement.style.width = `${maxLength - ((max.split('.').length - 1) * 0.5)}ch`;
   }
 
   private parseValue(text: string): number {

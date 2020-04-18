@@ -4,6 +4,10 @@
 
 - add feedback for poeprices.info price prediction @slug
 - add alternative poe titles support (#539)
+- update value range component (#595)
+  - is now showing both values on hover/ focus even if those are the same
+  - is now fully operatable via scrolling (# -> default -> #)
+  - change scrolling directions to feel more natural
 - fix values over 1000 reseting to # (#632)
 
 ## 0.6.22 (2020-04-13)

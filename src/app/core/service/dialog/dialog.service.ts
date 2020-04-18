@@ -48,6 +48,7 @@ export class DialogService {
                 left: `${left}px`,
                 top: `${top}px`,
             },
+            autoFocus: false,
             data
         });
 
