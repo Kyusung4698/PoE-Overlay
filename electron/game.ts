@@ -6,6 +6,9 @@ const POE_NAMES = [
     'pathofexile_x64_kg.exe', 'pathofexile_kg.exe',
     'pathofexile_x64steam.exe', 'pathofexilesteam.exe',
     'pathofexile_x64.exe', 'pathofexile.exe',
+    'pathofexile_x64_kg', 'pathofexile_kg',
+    'pathofexile_x64steam', 'pathofexilesteam',
+    'pathofexile_x64', 'pathofexile'
 ];
 
 const POE_TITLES = [
@@ -63,27 +66,19 @@ export class Game {
 export function register(ipcMain: IpcMain, onUpdate: (game: Game) => void): void {
     const game = new Game();
 
-    let timeout = undefined;
-    function callback() {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => {
-            onUpdate(game);
-        }, 550);
-    }
-
     ipcMain.on('game-focus', event => {
         game.focus();
         event.returnValue = true;
     });
 
     ipcMain.on('game-send-active-change', event => {
-        callback();
+        onUpdate(game);
         event.returnValue = true;
     });
 
     setInterval(() => {
         if (game.update()) {
-            callback();
+            onUpdate(game);
         }
     }, 500);
 }
