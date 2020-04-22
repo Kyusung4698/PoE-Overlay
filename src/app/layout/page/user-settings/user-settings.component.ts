@@ -3,7 +3,8 @@ import { AppTranslateService, WindowService } from '@app/service';
 import { FEATURE_MODULES } from '@app/token';
 import { FeatureModule } from '@app/type';
 import { ContextService } from '@shared/module/poe/service';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 import { UserSettingsFeatureContainerComponent } from '../../component';
 import { UserSettingsService } from '../../service';
 import { UserSettings, UserSettingsFeature } from '../../type';
@@ -45,6 +46,12 @@ export class UserSettingsComponent implements OnInit {
     }
   }
 
+  public onSave(): void {
+    this.save().subscribe(() => {
+      this.window.hide();
+    });
+  }
+
   private createTitlebar(): void {
     const { Titlebar, Color } = window.require('custom-electron-titlebar');
     const titlebar = new Titlebar({
@@ -53,17 +60,9 @@ export class UserSettingsComponent implements OnInit {
       hideWhenClickingClose: true
     });
 
-    titlebar.on('before-close', () => new Promise((resolve, reject) => {
-      if (this.init$.value) {
-        this.translate.use(this.settings.uiLanguage);
-        this.window.setZoom(this.settings.zoom / 100);
-
-        const { language, leagueId } = this.settings;
-        this.context.update({ language, leagueId });
-
-        this.settingsService.save(this.settings).subscribe(resolve, reject);
-      }
-    }));
+    titlebar.on('before-close',
+      () => new Promise((resolve, reject) => this.save().subscribe(resolve, reject))
+    );
 
     titlebar.updateTitle('PoE Overlay - Settings');
   }
@@ -81,5 +80,21 @@ export class UserSettingsComponent implements OnInit {
         this.init$.next(true);
       });
     });
+  }
+
+  private save(): Observable<boolean> {
+    if (this.init$.value) {
+      this.translate.use(this.settings.uiLanguage);
+      this.window.setZoom(this.settings.zoom / 100);
+
+      const { language, leagueId } = this.settings;
+      this.context.update({ language, leagueId });
+
+      return this.settingsService.save(this.settings).pipe(
+        map(() => true),
+        catchError(() => of(false))
+      );
+    }
+    return of(true);
   }
 }
