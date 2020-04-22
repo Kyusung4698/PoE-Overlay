@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.6.24
+
+- fix poe.ninja showing the relic price variant (#639)
+- fix mouse clicks not registering for price tagging (#629)
+
 ## 0.6.23 (2020-04-18)
 
 - add feedback for poeprices.info price prediction (slug@poeprices)
