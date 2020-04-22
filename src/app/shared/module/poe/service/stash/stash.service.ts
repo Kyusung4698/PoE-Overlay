@@ -82,6 +82,7 @@ export class StashService {
         this.copyPrice(tag);
         return of(null).pipe(
             tap(() => this.game.focus()),
+            delay(100),
             tap(() => this.mouse.click('right', point)),
             delay(100),
             tap(() => {
