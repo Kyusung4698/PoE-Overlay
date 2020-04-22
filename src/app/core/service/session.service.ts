@@ -24,7 +24,6 @@ export class SessionService {
         this.ipcRenderer.on('session-clear', () => {
             this.ngZone.run(() => this.clear().subscribe());
         });
-        this.clear().subscribe();
     }
 
     public clear(): Observable<void> {

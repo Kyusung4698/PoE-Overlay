@@ -59,8 +59,8 @@
 			"feedback": "Feedback",
 			"feedbacks": {
 				"fair": "equitable",
-				"high": "to high",
-				"low": "to low"
+				"high": "too high",
+				"low": "too low"
 			},
 			"language": "poeprices.info only supports English as client language.",
 			"sending": "Sending",

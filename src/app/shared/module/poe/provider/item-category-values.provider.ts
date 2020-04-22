@@ -10,6 +10,7 @@ export interface ItemCategoryValue {
     type: string;
     mapTier: number;
     links: number;
+    relic: boolean;
     chaosAmount: number;
     change: number;
     history: number[];
@@ -173,6 +174,7 @@ export class ItemCategoryValuesProvider {
                         type: undefined,
                         links: undefined,
                         mapTier: undefined,
+                        relic: undefined,
                         change: sparkLine.totalChange,
                         history: sparkLine.data,
                         chaosAmount: line.chaosEquivalent,
@@ -198,6 +200,7 @@ export class ItemCategoryValuesProvider {
                         type: line.baseType,
                         mapTier: line.mapTier,
                         links: line.links,
+                        relic: line.itemClass === 9,
                         change: sparkLine.totalChange,
                         history: sparkLine.data,
                         chaosAmount: line.chaosValue,

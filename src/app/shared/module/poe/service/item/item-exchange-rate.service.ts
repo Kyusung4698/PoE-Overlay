@@ -92,7 +92,7 @@ export class ItemExchangeRateService {
                     x => x.name === type && filterLinks(x) && filterMapTier(x));
             }
             return response.values.find(
-                x => x.name === name && x.type === type && filterLinks(x) && filterMapTier(x));
+                x => x.name === name && x.type === type && !x.relic && filterLinks(x) && filterMapTier(x));
         }));
     }
 }

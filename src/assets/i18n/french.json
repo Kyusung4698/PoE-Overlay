@@ -60,7 +60,7 @@
 			"feedbacks": {
 				"fair": "Équitable",
 				"high": "trop haut",
-				"low": "Baisser"
+				"low": "trop bas"
 			},
 			"language": "poeprices.info ne prend en charge que l'anglais comme langue client.",
 			"sending": "Envoi",

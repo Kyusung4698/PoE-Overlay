@@ -34,15 +34,15 @@ export class ItemClipboardService {
         [section: number]: boolean
     }): Observable<ItemClipboardResult> {
         return of(null).pipe(
-            flatMap(() => {
-                this.game.focus();
-
-                const point = this.mouse.position();
-
+            map(() => this.mouse.position()),
+            tap(() => {
                 this.keyboard.setKeyboardDelay(1);
                 this.keyboard.keyToggle(KeyCode.VK_LMENU, false);
                 this.keyboard.keyToggle(KeyCode.VK_RMENU, false);
-
+            }),
+            tap(() => this.game.focus()),
+            delay(50),
+            flatMap(point => {
                 this.keyboard.setKeyboardDelay(25);
                 this.keyboard.keyTap(KeyCode.VK_KEY_C, ['control']);
 

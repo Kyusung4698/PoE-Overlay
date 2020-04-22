@@ -8,6 +8,7 @@ export interface ItemOverviewLine {
     baseType: string;
     mapTier: number;
     links: number;
+    itemClass: number;
     chaosValue: number;
     sparkline: SparkLine;
 }

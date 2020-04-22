@@ -627,6 +627,35 @@ Hrimnor's presence was as cold as ice,
 but his heart burned for vengeance.
 
 Rarity: Unique
+Crest of Perandus
+Pine Buckler
+--------
+Chance to Block: 31% (augmented)
+Evasion Rating: 43
+--------
+Requirements:
+Level: 8
+Dex: 26
+--------
+Sockets: R-G 
+--------
+Item Level: 26
+--------
+3% increased Movement Speed (implicit)
+--------
++79 to maximum Life
+Regenerate 6.1 Life per second
++30% to Lightning Resistance
+0.6% of Physical Attack Damage Leeched as Life
++5% Chance to Block
+--------
+"With piety and justice."
+- Perandus family motto
+--------
+Note: ~price 1 jew
+
+
+Rarity: Unique
 Brawn
 Crimson Jewel
 --------
