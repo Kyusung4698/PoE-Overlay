@@ -1,8 +1,12 @@
 # Changelog
 
+## 0.6.25
+
+- fix handle leak (#654) 
+
 ## 0.6.24 (2020-04-22)
 
-- add seperate save button to settings menu (#645)
+- add separate save button to settings menu (#645)
 - update data to 3.10.1e
 - fix poe.ninja showing the relic price variant (#639)
 - fix mouse clicks not registering for price tagging (#629)
