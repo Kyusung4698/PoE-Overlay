@@ -137,7 +137,7 @@ export class ItemSearchService {
 
                         const listings$ = results.map(result => {
                             const key = `item_listing_${language}_${result.id}`;
-                            return this.cache.store(key, result, CACHE_EXPIRY).pipe(
+                            return this.cache.store(key, result, CACHE_EXPIRY, false).pipe(
                                 flatMap(() => this.mapResult(result))
                             );
                         });

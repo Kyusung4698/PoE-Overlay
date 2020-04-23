@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Currency } from '@shared/module/poe/type';
 import moment from 'moment';
 import { forkJoin, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { flatMap, map, tap } from 'rxjs/operators';
 import { CurrencyConverterService } from '../currency/currency-converter.service';
 import { CurrencySelectService, CurrencySelectStrategy } from '../currency/currency-select.service';
 import { ItemSearchListing } from './item-search.service';
@@ -144,33 +144,35 @@ export class ItemSearchAnalyzeService {
     }
 
     private convert(currencies: Currency[], listings: ItemSearchListing[]): Observable<SearchAnalyzeEntry[][]> {
-        const converted = currencies.map(target => forkJoin(listings
-            .map(listing => forkJoin([
-                this.currencyConverterService.convert(listing.currency, 'chaos'),
-                this.currencyConverterService.convert(listing.currency, target),
-                this.currencyConverterService.convert('chaos', target),
-            ]).pipe(
-                map(factors => {
-                    const chaosAmount = listing.amount * factors[0];
-                    const chaosAmountRounded = this.round(chaosAmount);
+        const result = currencies.map(currency =>
+            this.currencyConverterService.convert('chaos', currency).pipe(
+                flatMap(currencyChaosFactor => forkJoin(
+                    listings.map(listing =>
+                        forkJoin([
+                            this.currencyConverterService.convert(listing.currency, 'chaos'),
+                            this.currencyConverterService.convert(listing.currency, currency),
+                        ]).pipe(map(([chaosFactor, currencyFactor]) => {
+                            const chaosAmount = listing.amount * chaosFactor;
+                            const chaosAmountRounded = this.round(chaosAmount);
 
-                    const targetAmount = listing.amount * factors[1];
-                    const targetAmountRounded = chaosAmountRounded * factors[2];
+                            const currencyAmount = listing.amount * currencyFactor;
+                            const currencyAmountRounded = chaosAmountRounded * currencyChaosFactor;
 
-                    const evaluateItem: SearchAnalyzeEntry = {
-                        ...listing,
-                        original: listing.currency,
-                        originalAmount: listing.amount,
-                        target,
-                        targetAmount,
-                        targetAmountRounded: Math.round(targetAmountRounded * 10) / 10
-                    };
-
-                    return evaluateItem;
-                })
-            ))
-        ));
-        return forkJoin(converted);
+                            const evaluateItem: SearchAnalyzeEntry = {
+                                ...listing,
+                                original: listing.currency,
+                                originalAmount: listing.amount,
+                                target: currency,
+                                targetAmount: currencyAmount,
+                                targetAmountRounded: Math.round(currencyAmountRounded * 10) / 10
+                            };
+                            return evaluateItem;
+                        }))
+                    ))
+                )
+            )
+        );
+        return forkJoin(result);
     }
 
     private findMinCurrencyWithAtleast1(converted: SearchAnalyzeEntry[][]): SearchAnalyzeEntry[] {

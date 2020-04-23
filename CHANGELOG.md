@@ -2,7 +2,8 @@
 
 ## 0.6.25
 
-- fix handle leak (#654) 
+- update optimize analyze function (#652)
+- fix handle leak (#654)
 
 ## 0.6.24 (2020-04-22)
 
