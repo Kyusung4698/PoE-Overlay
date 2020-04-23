@@ -12,7 +12,7 @@
         maxBufferPx="400">
         <table>
             <tr *cdkVirtualFor="let row of rows;templateCacheSize: 0" class="clickable" [class.fixer]="row.count >= 3"
-                (click)="onRowClick(row)">
+                (click)="onRowClick($event, row)">
                 <td class="amount" *ngIf="!original">
                     <span class="value">{{row.amount}}</span>
                 </td>

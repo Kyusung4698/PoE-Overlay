@@ -2,7 +2,8 @@
 
 ## 0.6.25
 
-- update optimize analyze function (#652)
+- add delay after closing the dialog via fast tagging (#629)
+- fix optimize analyze function (#652)
 - fix stack size over 1000 wrong value used (#656)
 - fix handle leak (#654)
 

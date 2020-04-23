@@ -75,13 +75,17 @@ export class EvaluateExchangeRateComponent implements OnInit {
   }
 
   public onClick(event: MouseEvent): void {
+    event.stopImmediatePropagation();
+
     const result = this.result$.getValue();
     if (result?.rate?.url) {
       this.browser.open(result.rate.url, event.ctrlKey);
     }
   }
 
-  public onAmountClick(amount: number, count?: number): void {
+  public onAmountClick(event: MouseEvent, amount: number, count?: number): void {
+    event.stopImmediatePropagation();
+
     const { currency } = this.result$.value.rate;
     this.evaluateResult.next({
       amount, count, currency
