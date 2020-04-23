@@ -45,9 +45,10 @@ export class ItemExchangeRateService {
                     map(factors => {
                         const values = factors.map(factor => [value.chaosAmount * factor]);
                         const index = this.currencySelectService.select(values, CurrencySelectStrategy.MinWithAtleast1);
+                        const size = (item.properties?.stackSize?.value?.split('/') || ['1'])[0];
                         const result: ItemExchangeRateResult = {
                             amount: Math.ceil(values[index][0] * 100) / 100,
-                            factor: +(item.properties?.stackSize?.value?.split('/') || [1])[0],
+                            factor: +size.replace('.', ''),
                             inverseAmount: Math.ceil((1 / values[index][0]) * 100) / 100,
                             currency: currencies[index],
                             change: value.change,

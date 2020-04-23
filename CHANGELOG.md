@@ -3,6 +3,7 @@
 ## 0.6.25
 
 - update optimize analyze function (#652)
+- fix stack size over 1000 wrong value used (#656)
 - fix handle leak (#654)
 
 ## 0.6.24 (2020-04-22)
