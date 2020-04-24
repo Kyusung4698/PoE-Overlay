@@ -1,6 +1,5 @@
-import { DecimalPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
-import { Subject, BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { ItemValue } from '../../type';
 import { ItemFrameQueryComponent } from '../item-frame-query/item-frame-query.component';
 import { ItemFrameComponent } from '../item-frame/item-frame.component';
@@ -39,7 +38,6 @@ export class ItemFrameValueComponent implements OnInit {
     @Inject(ItemFrameQueryComponent)
     private readonly query: ItemFrameQueryComponent) {
     this.text$ = itemFrame.text$;
-    this.disabled = itemFrame.queryItemChange.observers.length <= 0;
   }
 
   public ngOnInit(): void {
@@ -79,7 +77,7 @@ export class ItemFrameValueComponent implements OnInit {
     }
   }
 
-  public onFocusChange(focus: boolean): void{
+  public onFocusChange(focus: boolean): void {
     this.focused$.next(focus);
   }
 
@@ -194,27 +192,32 @@ export class ItemFrameValueComponent implements OnInit {
     }
 
     // if positive - stay positive!
-    if (this.default.min >= 1 && this.value.min < 1) {
-      this.value.min = 1;
+    if (this.default.min >= 0 && this.value.min < 0) {
+      this.value.min = 0;
     }
-    if (this.default.max > 1 && this.value.max < 1) {
-      this.value.max = 1;
+    if (this.default.max > 0 && this.value.max < 0) {
+      this.value.max = 0;
     }
 
     // if negative - stay negative!
-    if (this.default.min < -1 && this.value.min > -1) {
-      this.value.min = -1;
+    if (this.default.min < 0 && this.value.min > 0) {
+      this.value.min = 0;
     }
-    if (this.default.max <= 0 && this.value.max > -1) {
-      this.value.max = -1;
+    if (this.default.max <= 0 && this.value.max > 0) {
+      this.value.max = 0;
     }
   }
 
   private init(): void {
+    this.disabled = this.query.disabled;
     this.parsed = this.parseValue(this.value.text);
     this.value.min = this.parsed;
     this.value.max = this.parsed;
     this.default = { ...this.value };
+
+    if (this.disabled) {
+      return;
+    }
 
     if (this.minRange === 0.5) {
       this.value.min = undefined;

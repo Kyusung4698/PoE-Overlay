@@ -60,18 +60,22 @@ export class EvaluateQueryItemProvider {
 
             const prop = item.properties;
             if (prop) {
-                queryItem.properties.weaponAttacksPerSecond = prop.weaponAttacksPerSecond;
-                queryItem.properties.weaponCriticalStrikeChance = prop.weaponCriticalStrikeChance;
+                if (item.category.startsWith(ItemCategory.Weapon)) {
+                    queryItem.properties.weaponAttacksPerSecond = prop.weaponAttacksPerSecond;
+                    queryItem.properties.weaponCriticalStrikeChance = prop.weaponCriticalStrikeChance;
+                }
             }
         }
 
         if (settings.evaluateQueryDefaultDefense) {
             const prop = item.properties;
             if (prop) {
-                queryItem.properties.armourArmour = prop.armourArmour;
-                queryItem.properties.armourEvasionRating = prop.armourEvasionRating;
-                queryItem.properties.armourEnergyShield = prop.armourEnergyShield;
-                queryItem.properties.shieldBlockChance = prop.shieldBlockChance;
+                if (item.category.startsWith(ItemCategory.Armour)) {
+                    queryItem.properties.armourArmour = prop.armourArmour;
+                    queryItem.properties.armourEvasionRating = prop.armourEvasionRating;
+                    queryItem.properties.armourEnergyShield = prop.armourEnergyShield;
+                    queryItem.properties.shieldBlockChance = prop.shieldBlockChance;
+                }
             }
         }
 

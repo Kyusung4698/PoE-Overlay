@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { Item, Language } from '../../type';
+import { Item, ItemCategory, Language } from '../../type';
 
 @Component({
   selector: 'app-item-frame-properties',
@@ -26,6 +26,9 @@ export class ItemFramePropertiesComponent implements OnInit {
   @Input()
   public maxRange: number;
 
+  public isWeapon: boolean;
+  public isArmour: boolean;
+
   public ngOnInit(): void {
     this.properties = this.properties || [
       'weaponCriticalStrikeChance',
@@ -44,5 +47,7 @@ export class ItemFramePropertiesComponent implements OnInit {
       'quality',
       'gemExperience',
     ];
+    this.isArmour = this.item.category.startsWith(ItemCategory.Armour);
+    this.isWeapon = this.item.category.startsWith(ItemCategory.Weapon);
   }
 }

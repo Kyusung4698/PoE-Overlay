@@ -1240,3 +1240,31 @@ She said: I prefer "The Goddess Of Swords". Much more dignified. And accurate.
 She said: Every single time, Charan. And still...you'll bathe me, and you'll drink my love. Until you can't.
 --------
 Note: ~price 180 chaos
+
+Rarity: Gem
+Icicle Mine
+--------
+Mine, Spell, Projectile, Cold, Aura, AoE
+Level: 1
+Mana Reserved: 3
+Cast Time: 0.75 sec
+Critical Strike Chance: 6.00%
+Effectiveness of Added Damage: 110%
+Experience: 1/15249
+--------
+Requirements:
+Level: 12
+Dex: 14
+Int: 21
+--------
+Throws a mine that fires projectiles around it when detonated. These projectiles quickly dissipate as they travel, before disappearing
+--------
+Deals 16 to 24 Cold Damage
+Mine lasts 5 seconds
+Base Mine Detonation Time is 0.30 seconds
+Fires 4 additional Projectiles
+Fires Projectiles in a circle
+Fires an additional Projectile for every 2 prior Mines in Detonation Sequence
+Each Mine applies 10% increased Critical Strike Chance to Hits against Enemies near it, up to a maximum of 500%
+--------
+Place into an item socket of the right colour to gain this skill. Right click to remove from a socket.

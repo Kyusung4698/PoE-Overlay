@@ -4,20 +4,20 @@
 
     &:hover {
       app-item-frame-value {
-        .value {
-          background-color: rgba(170, 158, 130, 0.3);
-          outline-style: solid;
-          outline-width: 1px;
-        }
-
         .inputs {
-          > .input-double {
-            width: auto !important;
-            opacity: 1 !important;
-          }
+          > .value {
+            background-color: rgba(170, 158, 130, 0.3);
+            outline-style: solid;
+            outline-width: 1px;
 
-          > .input-single {
-            display: none !important;
+            &.input-double {
+              width: auto !important;
+              opacity: 1 !important;
+            }
+
+            &.input-single {
+              display: none !important;
+            }
           }
         }
       }
