@@ -62,7 +62,9 @@ export class DialogService {
         return dialogRef.afterClosed().pipe(tap(() => {
             if (this.dialog.openDialogs.length === 0) {
                 this.window.disableInput(focusable);
-                this.game.focus();
+                if(focusable){
+                    this.game.focus();
+                }
             }
             this.dialogRef.remove(dialog);
         }));

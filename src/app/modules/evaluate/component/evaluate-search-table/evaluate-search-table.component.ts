@@ -61,7 +61,9 @@ export class EvaluateSearchTableComponent {
   @Output()
   public amountSelect = new EventEmitter<SelectEvent>();
 
-  public onRowClick(row: Row): void {
+  public onRowClick(event: MouseEvent, row: Row): void {
+    event.stopImmediatePropagation();
+
     this.amountSelect.next({
       amount: this.original ? row.originalAmount : row.amount,
       currency: this.original ? row.originalCurrency : undefined

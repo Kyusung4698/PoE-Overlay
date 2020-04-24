@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
-import { catchError, flatMap, map, shareReplay } from 'rxjs/operators';
+import { catchError, flatMap, map, shareReplay, tap } from 'rxjs/operators';
 import { LoggerService } from './logger.service';
 import { StorageService } from './storage.service';
 
@@ -26,14 +26,15 @@ export class CacheService {
         expiry: number,
         slidingExpiry: boolean = false): Observable<TValue> {
         return this.storage.get<CacheEntry<TValue>>(key).pipe(flatMap(entry => {
-            let now = Date.now();
+            const now = Date.now();
             if (entry && entry.expiry > now) {
-                return this.storage.save(key, {
-                    value: entry.value,
-                    expiry: slidingExpiry
-                        ? now + expiry
-                        : entry.expiry
-                }).pipe(map(x => x.value));
+                if (slidingExpiry) {
+                    this.storage.save(key, {
+                        value: entry.value,
+                        expiry: now + expiry
+                    })
+                }
+                return of(entry.value);
             }
             if (!this.cache[key]) {
                 this.cache[key] = valueFn().pipe(
@@ -42,18 +43,16 @@ export class CacheService {
                             this.logger.info(
                                 `Could not update value for key: '${key}'. Using cached value from: '${new Date(entry.expiry).toISOString()}'.`,
                                 error);
-                            // on error do not set cache with increased expiry
-                            now -= expiry;
                             return of(entry.value);
                         }
                         return throwError(error);
                     }),
-                    flatMap(value => {
+                    tap(value => {
                         this.cache[key] = undefined;
-                        return this.storage.save(key, {
+                        this.storage.save(key, {
                             value,
                             expiry: now + expiry
-                        }).pipe(map(x => x.value));
+                        })
                     }),
                     shareReplay(1)
                 );
@@ -62,12 +61,16 @@ export class CacheService {
         }));
     }
 
-    public store<TValue>(key: string, value: TValue, expiry: number): Observable<TValue> {
+    public store<TValue>(key: string, value: TValue, expiry: number, waitForResult: boolean = true): Observable<TValue> {
         const now = Date.now();
-        return this.storage.save(key, {
+        const result = this.storage.save(key, {
             value,
             expiry: now + expiry
-        }).pipe(map(x => x.value));
+        });
+        if (waitForResult) {
+            return result.pipe(map(() => value));
+        }
+        return of(value);
     }
 
     public retrieve<TValue>(key: string): Observable<TValue> {

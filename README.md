@@ -3,7 +3,7 @@
 ![GitHub Release Date](https://img.shields.io/github/release-date/Kyusung4698/PoE-Overlay)
 <a href="https://www.patreon.com/bePatron?u=30666721"><img src="https://c5.patreon.com/external/logo/become_a_patron_button.png" alt="Become a Patron" width="85px" height="20px"></a>
 
-# PoE Overlay 0.6.24
+# PoE Overlay 0.6.25
 
 An Overlay for Path of Exile. The ***core aspect*** is to blend in with the game. Built with Electron and Angular. 
  
@@ -74,11 +74,11 @@ These instructions will set you up to run and enjoy the overlay.
 #### Installing
 
 1. Head over to [Releases](https://github.com/Kyusung4698/PoE-Overlay/releases) and download one of the following files
-    1. `poe-overlay-Setup-0.6.24.exe` to install locally. This supports auto update/ auto launch.
-    2. `poe-overlay-0.6.24.exe` portable version. This does not support auto update/ auto launch.
+    1. `poe-overlay-Setup-0.6.25.exe` to install locally. This supports auto update/ auto launch.
+    2. `poe-overlay-0.6.25.exe` portable version. This does not support auto update/ auto launch.
 2. Run either of your downloaded file
 3. Start Path of Exile
-4. Wait until you can see `PoE Overlay 0.6.24` in the bottom left corner
+4. Wait until you can see `PoE Overlay 0.6.25` in the bottom left corner
 5. Hit `f7` and set `Language` and `League` to meet your game settings
 
 #### Shortcuts

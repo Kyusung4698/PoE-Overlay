@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.6.25 (2020-04-24)
+
+- add delay after closing the dialog via fast tagging (#629)
+- add properties query restriction based on item category (#658)
+- fix optimize analyze function (#652)
+- fix stack size over 1000 wrong value used (#656)
+- fix handle leak (#654)
+
 ## 0.6.24 (2020-04-22)
 
 - add separate save button to settings menu (#645)

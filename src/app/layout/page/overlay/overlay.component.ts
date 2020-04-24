@@ -99,7 +99,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
   private registerVisibleChange(): void {
     this.app.visibleChange().pipe(
       tap(flag => this.shortcut.check(flag)),
-      map(flag => flag !== VisibleFlag.None),       
+      map(flag => flag !== VisibleFlag.None),
       debounce(show => show ? EMPTY : timer(1500)),
       distinctUntilChanged()
     ).subscribe(show => {

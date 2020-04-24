@@ -6,7 +6,7 @@ import { StashPriceTagType } from '@shared/module/poe/service';
 import { CurrencyService } from '@shared/module/poe/service/currency/currency.service';
 import { Currency, Item, ItemCategory, ItemRarity, Language } from '@shared/module/poe/type';
 import { BehaviorSubject, forkJoin, Observable, Subject } from 'rxjs';
-import { buffer, debounceTime, shareReplay } from 'rxjs/operators';
+import { buffer, debounceTime, shareReplay, delay } from 'rxjs/operators';
 import { EvaluateOptions } from '../evaluate-options/evaluate-options.component';
 import { EvaluateUserSettings } from '../evaluate-settings/evaluate-settings.component';
 
@@ -96,7 +96,8 @@ export class EvaluateDialogComponent implements OnInit, AfterViewInit, OnDestroy
     this.resultChange.pipe(
       buffer(this.resultChange.pipe(
         debounceTime(250)
-      ))
+      )),
+      delay(50),
     ).subscribe(([result, double]) => {
       const type = double ? StashPriceTagType.Negotiable : StashPriceTagType.Exact;
       this.ref.close({ ...result, type });

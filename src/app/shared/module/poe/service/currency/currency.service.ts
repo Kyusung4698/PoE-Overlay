@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { CurrenciesProvider } from '@shared/module/poe/provider';
 import { Currency, Language } from '@shared/module/poe/type';
-import { Observable, of } from 'rxjs';
-import { flatMap, map, shareReplay } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { map, shareReplay } from 'rxjs/operators';
 import { ContextService } from '../context.service';
 
 const CACHE_SIZE = 1;
@@ -29,20 +29,24 @@ export class CurrencyService {
         language = language || this.context.get().language;
 
         const key = this.getCacheKey(id, language);
-        return this.cache$[key] || (
+        if (!this.cache$[key]) {
             this.cache$[key] = this.searchByPredicate(language, x => x.id === id).pipe(
                 shareReplay(CACHE_SIZE)
-            ));
+            );
+        }
+        return this.cache$[key];
     }
 
     public searchByNameType(nameType: string, language?: Language): Observable<Currency> {
         language = language || this.context.get().language;
 
         const key = this.getCacheKey(nameType, language);
-        return this.cache$[key] || (
+        if (!this.cache$[key]) {
             this.cache$[key] = this.searchByPredicate(language, x => x.nameType === nameType).pipe(
                 shareReplay(CACHE_SIZE)
-            ));
+            );
+        }
+        return this.cache$[key];
     }
 
     private getCacheKey(id: string, language: Language): string {

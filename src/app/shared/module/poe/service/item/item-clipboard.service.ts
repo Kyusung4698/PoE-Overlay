@@ -41,13 +41,12 @@ export class ItemClipboardService {
                 this.keyboard.keyToggle(KeyCode.VK_RMENU, false);
             }),
             tap(() => this.game.focus()),
-            delay(50),
             flatMap(point => {
-                this.keyboard.setKeyboardDelay(25);
-                this.keyboard.keyTap(KeyCode.VK_KEY_C, ['control']);
-
                 return of(null).pipe(
                     flatMap(() => {
+                        this.keyboard.setKeyboardDelay(25);
+                        this.keyboard.keyTap(KeyCode.VK_KEY_C, ['control']);
+
                         const text = this.clipboard.readText() || '';
                         if (text.length <= 0) {
                             return throwError('empty');

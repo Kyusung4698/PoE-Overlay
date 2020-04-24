@@ -16,7 +16,7 @@ export class StorageService {
 
     public get<TData>(key: string, value?: TData): Observable<TData> {
         return from(this.db.getItem<TData>(key)).pipe(
-            flatMap(settings => settings
+            flatMap(settings => settings || !value
                 ? of(settings)
                 : this.save(key, value))
         );

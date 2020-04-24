@@ -1,6 +1,6 @@
 {
   "name": "poe-overlay",
-  "version": "0.6.24",
+  "version": "0.6.25",
   "private": true,
   "description": "A Overlay for Path of Exile. Built with Electron and Angular.",
   "main": "main.js",
@@ -85,7 +85,7 @@
     "iohook": "^0.6.5",
     "localforage": "^1.7.3",
     "moment": "^2.24.0",
-    "node-window-manager": "^2.2.1",
+    "node-window-manager": "git+https://github.com/SnosMe/node-window-manager.git#61330b0769bfdd09976f6186afe3a55d2b0b4ce8",
     "robotjs": "git+https://github.com/Kyusung4698/robotjs.git#a219829c83ff7f3a802c98a9c52a672ca798d80e",
     "rxjs": "^6.5.5",
     "tslib": "^1.11.1",
