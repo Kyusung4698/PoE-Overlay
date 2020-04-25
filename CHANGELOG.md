@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.6.26
+
+- fix poedb using wrong url for helmets (#663)
+
 ## 0.6.25 (2020-04-24)
 
 - add delay after closing the dialog via fast tagging (#629)

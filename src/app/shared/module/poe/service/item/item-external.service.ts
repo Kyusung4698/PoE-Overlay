@@ -8,7 +8,7 @@ const CATEGORY_CN_MAP = {
     [ItemCategory.ArmourBoots]: 'Boots',
     [ItemCategory.ArmourChest]: 'Body Armour',
     [ItemCategory.ArmourGloves]: 'Gloves',
-    [ItemCategory.ArmourHelmet]: 'Helmets',
+    [ItemCategory.ArmourHelmet]: 'Helmet',
     [ItemCategory.ArmourQuiver]: 'Quiver',
     [ItemCategory.ArmourShield]: 'Shield',
     [ItemCategory.AccessoryAmulet]: 'Amulet',
