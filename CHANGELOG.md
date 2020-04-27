@@ -2,7 +2,8 @@
 
 ## 0.6.26
 
-- fix poedb using wrong url for helmets (#663)
+- remove local package version (#662)
+- fix poedb using wrong cn value for helmets (#663)
 
 ## 0.6.25 (2020-04-24)
 
