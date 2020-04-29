@@ -67,6 +67,12 @@
 			"source": "基於poeprices.info的價格預測",
 			"thanks": "謝謝！"
 		},
+		"pricing": "價錢",
+		"pricing-method": "方法",
+		"pricings": {
+			"clipboard": "剪貼板",
+			"tagging": "標記"
+		},
 		"profile": {
 			"default": "默認"
 		},
@@ -119,6 +125,7 @@
 		"stats-unique-check-all": "唯一檢查全部",
 		"switch": "切換量",
 		"tag": {
+			"clipboard": "筆記已復製到剪貼板。",
 			"note": "只有沒有註釋的物品才能被快速標記。註釋已被複製。",
 			"outside-stash": "只有儲藏櫃中的物品才能被快速標記。註釋已被複製。"
 		},

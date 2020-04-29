@@ -67,6 +67,12 @@
 			"source": "Previsão de preços com base em poeprices.info",
 			"thanks": "Obrigado!"
 		},
+		"pricing": "Preços",
+		"pricing-method": "método",
+		"pricings": {
+			"clipboard": "Prancheta",
+			"tagging": "Marcação"
+		},
 		"profile": {
 			"default": "Padrão"
 		},
@@ -119,6 +125,7 @@
 		"stats-unique-check-all": "Verificação única de tudo",
 		"switch": "mudar quantidade",
 		"tag": {
+			"clipboard": "Nota foi copiada para a área de transferência.",
 			"note": "Somente itens sem uma nota existente podem ser marcados rapidamente. A nota foi copiada.",
 			"outside-stash": "Somente itens dentro do esconderijo podem ser marcados rapidamente. A nota foi copiada."
 		},

@@ -4,7 +4,7 @@ import { ItemClipboardResultCode, ItemClipboardService, ItemProcessorService, St
 import { Language } from '@shared/module/poe/type';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, flatMap, tap } from 'rxjs/operators';
-import { EvaluateUserSettings } from '../component/evaluate-settings/evaluate-settings.component';
+import { EvaluatePricing, EvaluateUserSettings } from '../component/evaluate-settings/evaluate-settings.component';
 import { EvaluateDialogService } from './evaluate-dialog.service';
 
 @Injectable({
@@ -33,16 +33,22 @@ export class EvaluateService {
                                     return of(null);
                                 }
 
-                                if (!this.stash.hovering(point)) {
+                                if (settings.evaluatePricing === EvaluatePricing.Clipboard) {
                                     this.stash.copyPrice(result);
-                                    return this.snackbar.info('evaluate.tag.outside-stash');
-                                }
+                                    return this.snackbar.info('evaluate.tag.clipboard');
+                                } else {
 
-                                if ((item.note || '').length > 0) {
-                                    this.stash.copyPrice(result);
-                                    return this.snackbar.info('evaluate.tag.note');
+                                    if (!this.stash.hovering(point)) {
+                                        this.stash.copyPrice(result);
+                                        return this.snackbar.info('evaluate.tag.outside-stash');
+                                    }
+
+                                    if ((item.note || '').length > 0) {
+                                        this.stash.copyPrice(result);
+                                        return this.snackbar.info('evaluate.tag.note');
+                                    }
+                                    return this.stash.tagPrice(result, point);
                                 }
-                                return this.stash.tagPrice(result, point);
                             })
                         );
                     case ItemClipboardResultCode.Empty:

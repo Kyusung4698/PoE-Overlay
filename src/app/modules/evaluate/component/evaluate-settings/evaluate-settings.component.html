@@ -101,6 +101,21 @@
     </div>
 </app-card>
 
+<app-card [title]="'evaluate.pricing' | translate">
+    <div class="row">
+        <div class="col">
+            <mat-form-field>
+                <mat-label>{{'evaluate.pricing-method' | translate}}</mat-label>
+                <mat-select [(value)]="settings.evaluatePricing">
+                    <mat-option *ngFor="let pricing of pricings.keys" [value]="pricing">
+                        {{'evaluate.pricings.' + (pricings.values[pricing] | lowercase) | translate}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+</app-card>
+
 <mat-card class="profiles">
     <mat-label>{{'evaluate.profiles' | translate}}</mat-label>
     <mat-tab-group>

@@ -67,6 +67,12 @@
 			"source": "Predicción de precios basada en poeprices.info",
 			"thanks": "¡Gracias!"
 		},
+		"pricing": "Precios",
+		"pricing-method": "método",
+		"pricings": {
+			"clipboard": "Portapapeles",
+			"tagging": "Etiquetado"
+		},
 		"profile": {
 			"default": "Defecto"
 		},
@@ -119,6 +125,7 @@
 		"stats-unique-check-all": "Verificación única de todo",
 		"switch": "cantidad de cambio",
 		"tag": {
+			"clipboard": "La nota se ha copiado al portapapeles.",
 			"note": "Solo los artículos sin una nota existente se pueden etiquetar rápidamente. La nota se ha copiado en su lugar.",
 			"outside-stash": "Solo los artículos dentro del alijo se pueden etiquetar rápidamente. La nota se ha copiado en su lugar."
 		},

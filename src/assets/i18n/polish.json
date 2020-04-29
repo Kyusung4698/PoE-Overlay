@@ -67,6 +67,12 @@
 			"source": "Prognoza cen na podstawie poeprices.info",
 			"thanks": "Dzięki!"
 		},
+		"pricing": "cennik",
+		"pricing-method": "metoda",
+		"pricings": {
+			"clipboard": "schowek",
+			"tagging": "Tagowanie"
+		},
 		"profile": {
 			"default": "domyślna"
 		},
@@ -119,6 +125,7 @@
 		"stats-unique-check-all": "Dla Unikatów sprawdź wszystkie",
 		"switch": "Odwróć skalę",
 		"tag": {
+			"clipboard": "Notatka została skopiowana do schowka.",
 			"note": "Tylko przedmioty bez istniejącej notki mogą ją otrzymać. Treść notki została zamiast tego skopiowana.",
 			"outside-stash": "Tylko przedmiotom w skrytce można szybko dodać notkę sprzedaży. Treść notki została zamiast tego skopiowana."
 		},

@@ -17,6 +17,11 @@ export enum EvaluateResultView {
   List = 2,
 }
 
+export enum EvaluatePricing {
+  Clipboard = 1,
+  Tagging = 2
+}
+
 export interface EvaluateUserSettings extends UserSettings {
   evaluateCurrencyOriginal: boolean;
   evaluateCurrencyIds: string[];
@@ -41,6 +46,7 @@ export interface EvaluateUserSettings extends UserSettings {
   evaluateModifierMaxRange: number;
   evaluateQueryDebounceTime: number;
   evaluateQueryFetchCount: number;
+  evaluatePricing: EvaluatePricing;
 }
 
 export const EVALUATE_QUERY_DEBOUNCE_TIME_MAX = 100;
@@ -59,13 +65,13 @@ interface StatSelectListItem extends SelectListItem {
 export class EvaluateSettingsComponent implements UserSettingsComponent {
   public languages = new EnumValues(Language);
   public views = new EnumValues(EvaluateResultView);
+  public pricings = new EnumValues(EvaluatePricing);
 
   @Input()
   public settings: EvaluateUserSettings;
 
   public currencies$ = new BehaviorSubject<Currency[]>([]);
   public stats$ = new BehaviorSubject<StatSelectListItem[]>([]);
-
 
   public debounceTimeMax = EVALUATE_QUERY_DEBOUNCE_TIME_MAX;
   public fetchCountMax = EVALUATE_QUERY_FETCH_COUNT_MAX;

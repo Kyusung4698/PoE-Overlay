@@ -67,6 +67,12 @@
 			"source": "poeprices.info에 근거한 가격 예측",
 			"thanks": "감사!"
 		},
+		"pricing": "가격",
+		"pricing-method": "방법",
+		"pricings": {
+			"clipboard": "클립 보드",
+			"tagging": "태깅"
+		},
 		"profile": {
 			"default": "태만"
 		},
@@ -119,6 +125,7 @@
 		"stats-unique-check-all": "모두 확인",
 		"switch": "스위치 금액",
 		"tag": {
+			"clipboard": "메모가 클립 보드에 복사되었습니다.",
 			"note": "기존 메모가없는 항목 만 빠른 태그를 지정할 수 있습니다. 대신 메모가 복사되었습니다.",
 			"outside-stash": "숨김 안에있는 항목 만 빠르게 태그를 지정할 수 있습니다. 대신 메모가 복사되었습니다."
 		},

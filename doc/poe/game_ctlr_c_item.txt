@@ -64,7 +64,6 @@ Socketed Gems fire Projectiles in a circle
 That which was broken may yet break.
 
 
-
 Rarity: Rare
 Victory Corona
 Steel Circlet

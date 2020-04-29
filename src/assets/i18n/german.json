@@ -67,6 +67,12 @@
 			"source": "Preisvorhersage basierend auf poeprices.info",
 			"thanks": "Vielen Dank!"
 		},
+		"pricing": "Preisgestaltung",
+		"pricing-method": "Methode",
+		"pricings": {
+			"clipboard": "Zwischenablage",
+			"tagging": "Tagging"
+		},
 		"profile": {
 			"default": "Standard"
 		},
@@ -119,6 +125,7 @@
 		"stats-unique-check-all": "Einzigartige Check All",
 		"switch": "Betrag wechseln",
 		"tag": {
+			"clipboard": "Hinweis wurde in die Zwischenablage kopiert.",
 			"note": "Nur Elemente ohne vorhandene Notiz können schnell markiert werden. Notiz wurde stattdessen kopiert.",
 			"outside-stash": "Nur Gegenstände in der Truhe können schnell markiert werden. Notiz wurde stattdessen kopiert."
 		},
