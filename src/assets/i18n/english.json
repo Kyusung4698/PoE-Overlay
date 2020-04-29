@@ -42,6 +42,7 @@
 			"rate": "Limit reached. Please try again later.\nIf this keeps happening please try lowering the fetched item count. "
 		},
 		"fetch-count": "Fetch Count",
+		"initial-search": "Run initial search",
 		"layout": "Layout",
 		"listings": "Found {{total}}. Fetching {{count}} entries...",
 		"loading": "Loading...",
@@ -67,6 +68,12 @@
 			"source": "Price prediction based on poeprices.info",
 			"thanks": "Thanks!"
 		},
+		"pricing": "Pricing",
+		"pricing-method": "Method",
+		"pricings": {
+			"clipboard": "Clipboard",
+			"tagging": "Tagging"
+		},
 		"profile": {
 			"default": "Default"
 		},
@@ -81,6 +88,7 @@
 			"graph": "Graph",
 			"list": "List"
 		},
+		"run-search": "Search",
 		"search": {
 			"attack": "Attack",
 			"defense": "Defense",
@@ -104,6 +112,7 @@
 				"week": "Up to a week ago",
 				"weeks": "Up to 2 weeks ago"
 			},
+			"normalize-quality": "Normalize Quality",
 			"online-only": "Online Only",
 			"properties": "Properties"
 		},
@@ -118,6 +127,7 @@
 		"stats-unique-check-all": "Unique Check All",
 		"switch": "switch amount",
 		"tag": {
+			"clipboard": "Note has been copied to clipboard.",
 			"note": "Only items without an existing note can be fast tagged. Note has been copied instead.",
 			"outside-stash": "Only items inside the stash can be fast tagged. Note has been copied instead."
 		},

@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.6.26 (2020-04-29)
+
+- add enforce rate limit before calling the actual api
+- add initial search toggle - off by default (#672)
+- add custom user agent to identitfy requests against external apis
+- add normalize quality for attack and defense properties (#624)
+- add evaluate pricing (clipboard, tagging) - clipboard by default
+- update data to 3.10.1f
+- remove auto price tagging
+- remove local package version (#662)
+- fix poedb using wrong cn value for helmets (#663)
+
 ## 0.6.25 (2020-04-24)
 
 - add delay after closing the dialog via fast tagging (#629)

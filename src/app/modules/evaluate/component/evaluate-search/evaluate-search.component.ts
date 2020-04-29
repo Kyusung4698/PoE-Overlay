@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { BrowserService, LoggerService } from '@app/service';
 import { EvaluateResult } from '@modules/evaluate/type/evaluate.type';
-import { SnackBarService } from '@shared/module/material/service';
 import { ItemSearchAnalyzeResult, ItemSearchAnalyzeService, ItemSearchListing, ItemSearchResult, ItemSearchService } from '@shared/module/poe/service';
 import { Currency, Item } from '@shared/module/poe/type';
 import { ItemSearchOptions } from '@shared/module/poe/type/search.type';
@@ -22,6 +21,7 @@ export class EvaluateSearchComponent implements OnInit {
   public graph: boolean;
 
   public search$ = new BehaviorSubject<ItemSearchResult>(null);
+  public searched$ = new BehaviorSubject<boolean>(false);
   public count$ = new BehaviorSubject<number>(0);
   public listings$ = new BehaviorSubject<ItemSearchListing[]>(null);
   public result$ = new BehaviorSubject<ItemSearchAnalyzeResult>(null);
@@ -51,14 +51,18 @@ export class EvaluateSearchComponent implements OnInit {
     private readonly itemSearchService: ItemSearchService,
     private readonly itemSearchAnalyzeService: ItemSearchAnalyzeService,
     private readonly browser: BrowserService,
-    private readonly snackbar: SnackBarService,
     private readonly logger: LoggerService) { }
 
   public ngOnInit(): void {
     this.graph = this.settings.evaluateResultView === EvaluateResultView.Graph;
-
-    this.search(this.queryItem);
+    if (this.settings.evaluateQueryInitialSearch) {
+      this.search(this.queryItem);
+    }
     this.registerSearchOnChange();
+  }
+
+  public onSearchClick(): void {
+    this.search(this.queryItem);
   }
 
   public onCurrencyClick(event: MouseEvent): void {
@@ -133,6 +137,7 @@ export class EvaluateSearchComponent implements OnInit {
   }
 
   private search(item: Item): void {
+    this.searched$.next(true);
     const options: ItemSearchOptions = {
       ...this.options
     };

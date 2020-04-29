@@ -1,7 +1,6 @@
 import { app, BrowserWindow, dialog, Display, ipcMain, Menu, MenuItem, MenuItemConstructorOptions, screen, session, systemPreferences, Tray } from 'electron';
 import * as path from 'path';
 import * as url from 'url';
-import UserAgent from 'user-agents';
 import * as launch from './electron/auto-launch';
 import * as update from './electron/auto-updater';
 import * as game from './electron/game';
@@ -53,8 +52,7 @@ const childs: {
 /* session */
 
 function setUserAgent() {
-    const userAgent = new UserAgent();
-    const generatedUserAgent = userAgent.random().toString();
+    const generatedUserAgent = `PoEOverlay/${app.getVersion()}`;
     session.defaultSession.webRequest.onBeforeSendHeaders((details, callback) => {
         details.requestHeaders['User-Agent'] = generatedUserAgent;
         callback({ cancel: false, requestHeaders: details.requestHeaders });

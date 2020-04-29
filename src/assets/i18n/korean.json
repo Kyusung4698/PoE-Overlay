@@ -42,6 +42,7 @@
 			"rate": "한도에 도달했습니다. 나중에 다시 시도하십시오.\n이 문제가 계속 발생하면 가져온 품목 수를 줄이십시오."
 		},
 		"fetch-count": "검색 페치 수",
+		"initial-search": "초기 검색 실행",
 		"layout": "형세",
 		"listings": " {{total}}을 (를) 찾았습니다. {{count}} 항목을 가져 오는 중 ...",
 		"loading": "로드 중 ...",
@@ -67,6 +68,12 @@
 			"source": "poeprices.info에 근거한 가격 예측",
 			"thanks": "감사!"
 		},
+		"pricing": "가격",
+		"pricing-method": "방법",
+		"pricings": {
+			"clipboard": "클립 보드",
+			"tagging": "태깅"
+		},
 		"profile": {
 			"default": "태만"
 		},
@@ -81,6 +88,7 @@
 			"graph": "그래프",
 			"list": "명부"
 		},
+		"run-search": "수색",
 		"search": {
 			"attack": "공격",
 			"defense": "방어",
@@ -104,6 +112,7 @@
 				"week": "1주 전까지",
 				"weeks": "2주 전까지"
 			},
+			"normalize-quality": "품질 표준화",
 			"online-only": "온라인만",
 			"properties": "속성"
 		},
@@ -118,6 +127,7 @@
 		"stats-unique-check-all": "모두 확인",
 		"switch": "스위치 금액",
 		"tag": {
+			"clipboard": "메모가 클립 보드에 복사되었습니다.",
 			"note": "기존 메모가없는 항목 만 빠른 태그를 지정할 수 있습니다. 대신 메모가 복사되었습니다.",
 			"outside-stash": "숨김 안에있는 항목 만 빠르게 태그를 지정할 수 있습니다. 대신 메모가 복사되었습니다."
 		},

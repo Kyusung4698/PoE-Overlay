@@ -42,6 +42,7 @@
 			"rate": "Limite atteinte. Veuillez réessayer plus tard.\nSi cela continue, essayez de réduire le nombre d'articles récupérés."
 		},
 		"fetch-count": "Nombre de recherches",
+		"initial-search": "Lancer la recherche initiale",
 		"layout": "Disposition",
 		"listings": " {{total}}trouvé. Récupération de {{count}} entrées ...",
 		"loading": "Chargement...",
@@ -67,6 +68,12 @@
 			"source": "Prédiction des prix basée sur poeprices.info",
 			"thanks": "Merci!"
 		},
+		"pricing": "Prix",
+		"pricing-method": "Méthode",
+		"pricings": {
+			"clipboard": "Presse-papiers",
+			"tagging": "Marquage"
+		},
 		"profile": {
 			"default": "Défaut"
 		},
@@ -81,6 +88,7 @@
 			"graph": "Graphique",
 			"list": "liste"
 		},
+		"run-search": "Chercher",
 		"search": {
 			"attack": "Attaque",
 			"defense": "La défense",
@@ -104,6 +112,7 @@
 				"week": "Jusqu'à une semaine",
 				"weeks": "Jusqu'à 2 semaines"
 			},
+			"normalize-quality": "Normaliser la qualité",
 			"online-only": "En ligne seulement",
 			"properties": "Propriétés"
 		},
@@ -118,6 +127,7 @@
 		"stats-unique-check-all": "Tout cocher unique",
 		"switch": "inverser les valeurs",
 		"tag": {
+			"clipboard": "La note a été copiée dans le presse-papiers.",
 			"note": "Seuls les éléments sans note existante peuvent être taggés. La note a été copiée à la place.",
 			"outside-stash": "Seuls les objets à l'intérieur de la réserve peuvent être taggés. La note a été copiée à la place."
 		},

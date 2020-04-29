@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { SnackBarService } from '@shared/module/material/service';
-import { ItemClipboardResultCode, ItemClipboardService, StashService } from '@shared/module/poe/service';
+import { ItemClipboardResultCode, ItemClipboardService, ItemProcessorService, StashService } from '@shared/module/poe/service';
 import { Language } from '@shared/module/poe/type';
 import { Observable, of, throwError } from 'rxjs';
-import { catchError, flatMap } from 'rxjs/operators';
-import { EvaluateUserSettings } from '../component/evaluate-settings/evaluate-settings.component';
+import { catchError, flatMap, tap } from 'rxjs/operators';
+import { EvaluatePricing, EvaluateUserSettings } from '../component/evaluate-settings/evaluate-settings.component';
 import { EvaluateDialogService } from './evaluate-dialog.service';
 
 @Injectable({
@@ -13,6 +13,7 @@ import { EvaluateDialogService } from './evaluate-dialog.service';
 export class EvaluateService {
     constructor(
         private readonly item: ItemClipboardService,
+        private readonly processor: ItemProcessorService,
         private readonly stash: StashService,
         private readonly snackbar: SnackBarService,
         private readonly evaluateDialog: EvaluateDialogService) {
@@ -20,6 +21,9 @@ export class EvaluateService {
 
     public evaluate(settings: EvaluateUserSettings, language?: Language): Observable<void> {
         return this.item.copy().pipe(
+            tap(({ item }) => this.processor.process(item, {
+                normalizeQuality: settings.evaluateQueryNormalizeQuality
+            })),
             flatMap(({ code, point, item }) => {
                 switch (code) {
                     case ItemClipboardResultCode.Success:
@@ -29,16 +33,22 @@ export class EvaluateService {
                                     return of(null);
                                 }
 
-                                if (!this.stash.hovering(point)) {
+                                if (settings.evaluatePricing === EvaluatePricing.Clipboard) {
                                     this.stash.copyPrice(result);
-                                    return this.snackbar.info('evaluate.tag.outside-stash');
-                                }
+                                    return this.snackbar.info('evaluate.tag.clipboard');
+                                } else {
 
-                                if ((item.note || '').length > 0) {
-                                    this.stash.copyPrice(result);
-                                    return this.snackbar.info('evaluate.tag.note');
+                                    if (!this.stash.hovering(point)) {
+                                        this.stash.copyPrice(result);
+                                        return this.snackbar.info('evaluate.tag.outside-stash');
+                                    }
+
+                                    if ((item.note || '').length > 0) {
+                                        this.stash.copyPrice(result);
+                                        return this.snackbar.info('evaluate.tag.note');
+                                    }
+                                    return this.stash.tagPrice(result, point);
                                 }
-                                return this.stash.tagPrice(result, point);
                             })
                         );
                     case ItemClipboardResultCode.Empty:

@@ -12,7 +12,7 @@ import { EvaluateOptionsComponent } from './component/evaluate-options/evaluate-
 import { EvaluateSearchChartComponent } from './component/evaluate-search-chart/evaluate-search-chart.component';
 import { EvaluateSearchTableComponent } from './component/evaluate-search-table/evaluate-search-table.component';
 import { EvaluateSearchComponent } from './component/evaluate-search/evaluate-search.component';
-import { EvaluateResultView, EvaluateSettingsComponent, EvaluateUserSettings } from './component/evaluate-settings/evaluate-settings.component';
+import { EvaluateResultView, EvaluateSettingsComponent, EvaluateUserSettings, EvaluatePricing } from './component/evaluate-settings/evaluate-settings.component';
 import { EvaluateService } from './service/evaluate.service';
 import { EvaluatePricePredictionComponent } from './component/evaluate-price-prediction/evaluate-price-prediction.component';
 
@@ -47,6 +47,7 @@ export class EvaluateModule implements FeatureModule {
             evaluateQueryDefaultType: false,
             evaluateQueryDefaultAttack: true,
             evaluateQueryDefaultDefense: true,
+            evaluateQueryNormalizeQuality: true,
             evaluatePropertyMinRange: 10,
             evaluatePropertyMaxRange: 50,
             evaluateQueryDefaultStats: {
@@ -71,6 +72,8 @@ export class EvaluateModule implements FeatureModule {
             evaluateKeybinding: 'CmdOrCtrl + D',
             evaluateTranslatedItemLanguage: Language.English,
             evaluateTranslatedKeybinding: 'Alt + T',
+            evaluatePricing: EvaluatePricing.Clipboard,
+            evaluateQueryInitialSearch: false
         };
         return {
             name: 'evaluate.name',

@@ -1,16 +1,16 @@
 import { HttpClient, HttpErrorResponse, HttpParams, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BrowserService, LoggerService, SessionService } from '@app/service';
+import { BrowserService } from '@app/service';
 import { environment } from '@env/environment';
 import { Language } from '@shared/module/poe/type';
 import { Observable, of, throwError } from 'rxjs';
 import { delay, flatMap, map, retryWhen } from 'rxjs/operators';
 import { TradeFetchResult, TradeItemsResult, TradeLeaguesResult, TradeResponse, TradeSearchRequest, TradeSearchResponse, TradeStaticResult, TradeStatsResult } from '../schema/trade';
+import { TradeRateLimitService } from './trade-rate-limit.service';
 
 const RETRY_COUNT = 3;
 const RETRY_DELAY = 300;
 const RETRY_LIMIT_COUNT = 1;
-const RETRY_LIMIT_DELAY = 2000;
 
 @Injectable({
     providedIn: 'root'
@@ -19,8 +19,7 @@ export class TradeHttpService {
     constructor(
         private readonly http: HttpClient,
         private readonly browser: BrowserService,
-        private readonly session: SessionService,
-        private readonly logger: LoggerService) { }
+        private readonly limit: TradeRateLimitService) { }
 
     public getItems(language: Language): Observable<TradeResponse<TradeItemsResult>> {
         const url = this.getApiUrl('data/items', language);
@@ -44,9 +43,10 @@ export class TradeHttpService {
 
     public search(request: TradeSearchRequest, language: Language, leagueId: string): Observable<TradeSearchResponse> {
         const url = this.getApiUrl(`search/${encodeURIComponent(leagueId)}`, language);
-        return this.http.post<TradeSearchResponse>(url, request, {
-            withCredentials: true
-        }).pipe(
+        return this.limit.throttle('search', () => this.http.post<TradeSearchResponse>(url, request, {
+            withCredentials: true,
+            observe: 'response'
+        })).pipe(
             retryWhen(errors => errors.pipe(
                 flatMap((response, count) => this.handleError(url, response, count))
             )),
@@ -59,14 +59,15 @@ export class TradeHttpService {
 
     public fetch(itemIds: string[], queryId: string, language: Language): Observable<TradeResponse<TradeFetchResult>> {
         const url = this.getApiUrl(`fetch/${itemIds.join(',')}`, language);
-        return this.http.get<TradeResponse<TradeFetchResult>>(url, {
+        return this.limit.throttle('fetch', () => this.http.get<TradeResponse<TradeFetchResult>>(url, {
             params: new HttpParams({
                 fromObject: {
                     query: queryId
                 }
             }),
-            withCredentials: true
-        }).pipe(
+            withCredentials: true,
+            observe: 'response'
+        })).pipe(
             retryWhen(errors => errors.pipe(
                 flatMap((response, count) => this.handleError(url, response, count))
             ))
@@ -152,13 +153,8 @@ export class TradeHttpService {
                     return throwError(response);
                 }
                 return this.browser.retrieve(url).pipe(delay(RETRY_DELAY));
-            case 429:
-                if (count >= RETRY_LIMIT_COUNT) {
-                    return throwError(response);
-                }
-                return of(null).pipe(delay(RETRY_LIMIT_DELAY));
             default:
-                return this.session.clear().pipe(delay(RETRY_DELAY));
+                return of(response).pipe(delay(RETRY_DELAY));
         }
     }
 

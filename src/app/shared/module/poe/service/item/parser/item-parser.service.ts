@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ExportedItem, Item, ItemPostParserService, ItemSectionParserService, Section } from '../../../type';
-import { ItemPostParserDamageService } from './item-post-parser-damage.service';
-import { ItemPostParserPseudoService } from './item-post-parser-pseudo.service';
-import { ItemPostParserQualityService } from './item-post-parser-quality.service';
+import { ExportedItem, Item, ItemSectionParserService, Section } from '../../../type';
 import { ItemSectionCorruptedParserService } from './item-section-corrupted-parser.service';
 import { ItemSectionInfluencesParserService } from './item-section-influences-parser.service';
 import { ItemSectionItemLevelParserService } from './item-section-item-level-parser.service';
@@ -20,7 +17,6 @@ import { ItemSectionVeiledParserService } from './item-section-veiled-parser.ser
 })
 export class ItemParserService {
     private readonly parsers: ItemSectionParserService[];
-    private readonly postParsers: ItemPostParserService[];
 
     constructor(
         itemSectionRarityParser: ItemSectionRarityParserService,
@@ -33,10 +29,7 @@ export class ItemParserService {
         itemSectionInfluencesParserService: ItemSectionInfluencesParserService,
         itemSectionVeiledParserService: ItemSectionVeiledParserService,
         itemSectionStatsParserService: ItemSectionStatsParserService,
-        itemSectionUnidentifiedParserService: ItemSectionUnidentifiedParserService,
-        itemPostParserQualityService: ItemPostParserQualityService,
-        itemPostParserDamageService: ItemPostParserDamageService,
-        itemPostParserPseudoService: ItemPostParserPseudoService) {
+        itemSectionUnidentifiedParserService: ItemSectionUnidentifiedParserService) {
         this.parsers = [
             itemSectionRarityParser,
             itemSectionRequirementsParserService,
@@ -49,11 +42,6 @@ export class ItemParserService {
             itemSectionInfluencesParserService,
             itemSectionUnidentifiedParserService,
             itemSectionStatsParserService,
-        ];
-        this.postParsers = [
-            itemPostParserQualityService,
-            itemPostParserDamageService,
-            itemPostParserPseudoService,
         ];
     }
 
@@ -95,9 +83,6 @@ export class ItemParserService {
             [].concat(sectionOrSections).forEach(section => {
                 exportedItem.sections.splice(exportedItem.sections.indexOf(section), 1);
             });
-        }
-        for (const postParser of this.postParsers) {
-            postParser.process(target);
         }
         return target;
     }

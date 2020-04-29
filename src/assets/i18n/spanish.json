@@ -42,6 +42,7 @@
 			"rate": "Límite alcanzado. Por favor, inténtelo de nuevo más tarde.\nSi esto sigue sucediendo, intente reducir el recuento de elementos recuperados."
 		},
 		"fetch-count": "Buscar recuento de búsqueda",
+		"initial-search": "Ejecutar búsqueda inicial",
 		"layout": "diseño",
 		"listings": "Encontrado {{total}}. Obteniendo {{count}} entradas ...",
 		"loading": "Cargando...",
@@ -67,6 +68,12 @@
 			"source": "Predicción de precios basada en poeprices.info",
 			"thanks": "¡Gracias!"
 		},
+		"pricing": "Precios",
+		"pricing-method": "método",
+		"pricings": {
+			"clipboard": "Portapapeles",
+			"tagging": "Etiquetado"
+		},
 		"profile": {
 			"default": "Defecto"
 		},
@@ -81,6 +88,7 @@
 			"graph": "Gráfico",
 			"list": "Lista"
 		},
+		"run-search": "Buscar",
 		"search": {
 			"attack": "Ataque",
 			"defense": "Defensa",
@@ -104,6 +112,7 @@
 				"week": "Hasta hace una semana",
 				"weeks": "Hasta hace 2 semanas."
 			},
+			"normalize-quality": "Normalizar calidad",
 			"online-only": "Solo online",
 			"properties": "Propiedades"
 		},
@@ -118,6 +127,7 @@
 		"stats-unique-check-all": "Verificación única de todo",
 		"switch": "cantidad de cambio",
 		"tag": {
+			"clipboard": "La nota se ha copiado al portapapeles.",
 			"note": "Solo los artículos sin una nota existente se pueden etiquetar rápidamente. La nota se ha copiado en su lugar.",
 			"outside-stash": "Solo los artículos dentro del alijo se pueden etiquetar rápidamente. La nota se ha copiado en su lugar."
 		},

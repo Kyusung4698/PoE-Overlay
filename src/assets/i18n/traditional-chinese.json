@@ -42,6 +42,7 @@
 			"rate": "已達到限制。請稍後再試。\n如果這種情況持續發生，請嘗試減少獲取的物品數。"
 		},
 		"fetch-count": "搜索獲取計數",
+		"initial-search": "運行初始搜索",
 		"layout": "佈局",
 		"listings": "找到 {{total}}。正在獲取 {{count}} 個條目...",
 		"loading": "載入中...",
@@ -67,6 +68,12 @@
 			"source": "基於poeprices.info的價格預測",
 			"thanks": "謝謝！"
 		},
+		"pricing": "價錢",
+		"pricing-method": "方法",
+		"pricings": {
+			"clipboard": "剪貼板",
+			"tagging": "標記"
+		},
 		"profile": {
 			"default": "默認"
 		},
@@ -81,6 +88,7 @@
 			"graph": "圖形",
 			"list": "名單"
 		},
+		"run-search": "搜索",
 		"search": {
 			"attack": "攻擊",
 			"defense": "防禦",
@@ -104,6 +112,7 @@
 				"week": "直到一周前",
 				"weeks": "最多2週前"
 			},
+			"normalize-quality": "標準化質量",
 			"online-only": "僅在線",
 			"properties": "屬性"
 		},
@@ -118,6 +127,7 @@
 		"stats-unique-check-all": "唯一檢查全部",
 		"switch": "切換量",
 		"tag": {
+			"clipboard": "筆記已復製到剪貼板。",
 			"note": "只有沒有註釋的物品才能被快速標記。註釋已被複製。",
 			"outside-stash": "只有儲藏櫃中的物品才能被快速標記。註釋已被複製。"
 		},

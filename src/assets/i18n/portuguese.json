@@ -42,6 +42,7 @@
 			"rate": "Limite alcançado. Por favor, tente novamente mais tarde.\nSe isso continuar acontecendo, tente diminuir a contagem de itens buscados."
 		},
 		"fetch-count": "Contagem de pesquisas",
+		"initial-search": "Executar pesquisa inicial",
 		"layout": "Layout",
 		"listings": "Encontrado {{total}}. Buscando {{count}} entradas ...",
 		"loading": "Carregando...",
@@ -67,6 +68,12 @@
 			"source": "Previsão de preços com base em poeprices.info",
 			"thanks": "Obrigado!"
 		},
+		"pricing": "Preços",
+		"pricing-method": "método",
+		"pricings": {
+			"clipboard": "Prancheta",
+			"tagging": "Marcação"
+		},
 		"profile": {
 			"default": "Padrão"
 		},
@@ -81,6 +88,7 @@
 			"graph": "Gráfico",
 			"list": "Lista"
 		},
+		"run-search": "Procurar",
 		"search": {
 			"attack": "Ataque",
 			"defense": "Defesa",
@@ -104,6 +112,7 @@
 				"week": "Até uma semana atrás",
 				"weeks": "Até 2 semanas atrás"
 			},
+			"normalize-quality": "Normalizar qualidade",
 			"online-only": "Online somente",
 			"properties": "Propriedades"
 		},
@@ -118,6 +127,7 @@
 		"stats-unique-check-all": "Verificação única de tudo",
 		"switch": "mudar quantidade",
 		"tag": {
+			"clipboard": "Nota foi copiada para a área de transferência.",
 			"note": "Somente itens sem uma nota existente podem ser marcados rapidamente. A nota foi copiada.",
 			"outside-stash": "Somente itens dentro do esconderijo podem ser marcados rapidamente. A nota foi copiada."
 		},

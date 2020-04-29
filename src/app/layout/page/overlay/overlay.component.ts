@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, HostListener, Inject, OnDestroy, OnInit } from '@angular/core';
-import { AppService, AppTranslateService, RendererService, SessionService, WindowService } from '@app/service';
+import { AppService, AppTranslateService, RendererService, WindowService } from '@app/service';
 import { DialogRefService } from '@app/service/dialog';
 import { ShortcutService } from '@app/service/input';
 import { FEATURE_MODULES } from '@app/token';
@@ -7,8 +7,8 @@ import { AppUpdateState, FeatureModule, VisibleFlag } from '@app/type';
 import { SnackBarService } from '@shared/module/material/service';
 import { ContextService } from '@shared/module/poe/service';
 import { Context } from '@shared/module/poe/type';
-import { BehaviorSubject, Observable, EMPTY, timer } from 'rxjs';
-import { distinctUntilChanged, flatMap, map, tap, debounce } from 'rxjs/operators';
+import { BehaviorSubject, EMPTY, Observable, timer } from 'rxjs';
+import { debounce, distinctUntilChanged, flatMap, map, tap } from 'rxjs/operators';
 import { UserSettingsService } from '../../service/user-settings.service';
 import { UserSettings } from '../../type';
 
@@ -30,7 +30,6 @@ export class OverlayComponent implements OnInit, OnDestroy {
     private readonly userSettingsService: UserSettingsService,
     private readonly context: ContextService,
     private readonly app: AppService,
-    private readonly session: SessionService,
     private readonly translate: AppTranslateService,
     private readonly snackBar: SnackBarService,
     private readonly window: WindowService,
@@ -93,7 +92,6 @@ export class OverlayComponent implements OnInit, OnDestroy {
       }
     });
     this.app.registerEvents(settings.autoDownload);
-    this.session.registerEvents();
   }
 
   private registerVisibleChange(): void {

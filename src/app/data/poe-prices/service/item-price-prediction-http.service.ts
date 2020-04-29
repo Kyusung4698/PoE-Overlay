@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BrowserService, SessionService } from '@app/service';
+import { BrowserService } from '@app/service';
 import { environment } from '@env/environment';
 import { Observable, of, throwError } from 'rxjs';
 import { delay, flatMap, retryWhen } from 'rxjs/operators';
@@ -17,7 +17,6 @@ const SOURCE = 'poeoverlay';
 export class ItemPricePredictionHttpService {
     constructor(
         private readonly http: HttpClient,
-        private readonly session: SessionService,
         private readonly browser: BrowserService) {
     }
 
@@ -75,7 +74,7 @@ export class ItemPricePredictionHttpService {
             case 403:
                 return this.browser.retrieve(url).pipe(delay(RETRY_DELAY));
             default:
-                return this.session.clear().pipe(delay(RETRY_DELAY));
+                return of(null).pipe(delay(RETRY_DELAY));
         }
     }
 }

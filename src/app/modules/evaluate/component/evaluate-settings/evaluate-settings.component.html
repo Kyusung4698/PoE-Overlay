@@ -72,6 +72,14 @@
 
 <app-card [title]="'evaluate.query' | translate">
     <div class="row">
+        <div class="col-xs-12">
+            <mat-slide-toggle [checked]="settings.evaluateQueryInitialSearch"
+                (change)="settings.evaluateQueryInitialSearch = $event.checked">
+                {{'evaluate.initial-search' | translate}}
+            </mat-slide-toggle>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-6">
             <div class="value-range">
                 <label class="label"> {{'evaluate.debounce-time' | translate}}:
@@ -97,6 +105,21 @@
                     <span>100</span>
                 </div>
             </div>
+        </div>
+    </div>
+</app-card>
+
+<app-card [title]="'evaluate.pricing' | translate">
+    <div class="row">
+        <div class="col">
+            <mat-form-field>
+                <mat-label>{{'evaluate.pricing-method' | translate}}</mat-label>
+                <mat-select [(value)]="settings.evaluatePricing">
+                    <mat-option *ngFor="let pricing of pricings.keys" [value]="pricing">
+                        {{'evaluate.pricings.' + (pricings.values[pricing] | lowercase) | translate}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
         </div>
     </div>
 </app-card>
@@ -167,9 +190,9 @@
                             (change)="settings.evaluateQueryDefaultDefense = $event.checked">
                             {{'evaluate.search.defense' | translate}}
                         </mat-slide-toggle>
-                        <mat-slide-toggle [checked]="settings.evaluateQueryDefaultMiscs"
-                            (change)="settings.evaluateQueryDefaultMiscs = $event.checked">
-                            {{'evaluate.search.gem' | translate}}
+                        <mat-slide-toggle [checked]="settings.evaluateQueryNormalizeQuality"
+                            (change)="settings.evaluateQueryNormalizeQuality = $event.checked">
+                            {{'evaluate.search.normalize-quality' | translate}}
                         </mat-slide-toggle>
                     </div>
                     <div class="toggle">
@@ -181,6 +204,12 @@
                             (change)="settings.evaluateQueryDefaultType = $event.checked">
                             {{'evaluate.search.item-type' | translate}}
                         </mat-slide-toggle>
+                        <mat-slide-toggle [checked]="settings.evaluateQueryDefaultMiscs"
+                            (change)="settings.evaluateQueryDefaultMiscs = $event.checked">
+                            {{'evaluate.search.gem' | translate}}
+                        </mat-slide-toggle>
+                    </div>
+                    <div>
                         <mat-form-field>
                             <mat-label>{{'evaluate.search.item-default-links' | translate}}</mat-label>
                             <mat-select [(value)]="settings.evaluateQueryDefaultLinks">
@@ -197,7 +226,7 @@
 
                 <mat-card>
                     <mat-label> {{'evaluate.stats' | translate}} </mat-label>
-                    
+
                     <label class="label"> {{'evaluate.stats-range' | translate}}
                         {{displayWithStat(settings.evaluateModifierMinRange)}}~{{displayWithStat(settings.evaluateModifierMaxRange)}}%
                     </label>

@@ -11,7 +11,6 @@ import { CurrencyService } from '../currency/currency.service';
 import { ItemSearchQueryService } from './query/item-search-query.service';
 
 const MAX_FETCH_PER_REQUEST_COUNT = 10;
-const MAX_FETCH_CONCURRENT_COUNT = 5;
 const CACHE_EXPIRY = 1000 * 60 * 10;
 
 export interface ItemSearchListing {
@@ -124,7 +123,7 @@ export class ItemSearchService {
                 }
 
                 return from(hitsChunked).pipe(
-                    mergeMap(chunk => this.tradeService.fetch(chunk, id, language), MAX_FETCH_CONCURRENT_COUNT),
+                    flatMap(chunk => this.tradeService.fetch(chunk, id, language)),
                     toArray(),
                     flatMap(responses => {
                         const results: TradeFetchResult[] = responses
