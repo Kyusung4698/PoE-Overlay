@@ -7,6 +7,7 @@
 - add custom user agent to identitfy requests against external apis
 - add normalize quality for attack and defense properties (#624)
 - add evaluate pricing (clipboard, tagging) - clipboard by default
+- update data to 3.10.1f
 - remove auto price tagging
 - remove local package version (#662)
 - fix poedb using wrong cn value for helmets (#663)
