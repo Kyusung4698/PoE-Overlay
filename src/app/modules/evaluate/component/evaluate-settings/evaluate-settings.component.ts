@@ -46,6 +46,7 @@ export interface EvaluateUserSettings extends UserSettings {
   evaluateModifierMaxRange: number;
   evaluateQueryDebounceTime: number;
   evaluateQueryFetchCount: number;
+  evaluateQueryInitialSearch: boolean;
   evaluatePricing: EvaluatePricing;
 }
 

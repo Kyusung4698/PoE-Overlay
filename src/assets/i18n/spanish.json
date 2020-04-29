@@ -42,6 +42,7 @@
 			"rate": "Límite alcanzado. Por favor, inténtelo de nuevo más tarde.\nSi esto sigue sucediendo, intente reducir el recuento de elementos recuperados."
 		},
 		"fetch-count": "Buscar recuento de búsqueda",
+		"initial-search": "Ejecutar búsqueda inicial",
 		"layout": "diseño",
 		"listings": "Encontrado {{total}}. Obteniendo {{count}} entradas ...",
 		"loading": "Cargando...",
@@ -87,6 +88,7 @@
 			"graph": "Gráfico",
 			"list": "Lista"
 		},
+		"run-search": "Buscar",
 		"search": {
 			"attack": "Ataque",
 			"defense": "Defensa",

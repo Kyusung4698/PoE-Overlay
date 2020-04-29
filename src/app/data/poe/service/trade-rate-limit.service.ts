@@ -3,11 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, delay, flatMap, map, retryWhen } from 'rxjs/operators';
 
-// x-rate-limit-ip: 12:6:60,20:12:300
-// x-rate-limit-ip-state: 1:6:0,1:12:0
-// x-rate-limit-policy: trade-search-request-limit
-// x-rate-limit-rules: Ip
-
 // 1 request
 // x-rate-limit-ip: 12:4:10,16:12:300
 // x-rate-limit-ip-state: 1:4:0,1:12:0

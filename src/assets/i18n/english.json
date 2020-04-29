@@ -42,6 +42,7 @@
 			"rate": "Limit reached. Please try again later.\nIf this keeps happening please try lowering the fetched item count. "
 		},
 		"fetch-count": "Fetch Count",
+		"initial-search": "Run initial search",
 		"layout": "Layout",
 		"listings": "Found {{total}}. Fetching {{count}} entries...",
 		"loading": "Loading...",
@@ -87,6 +88,7 @@
 			"graph": "Graph",
 			"list": "List"
 		},
+		"run-search": "Search",
 		"search": {
 			"attack": "Attack",
 			"defense": "Defense",

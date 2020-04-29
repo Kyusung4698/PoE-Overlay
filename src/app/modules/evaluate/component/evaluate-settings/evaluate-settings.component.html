@@ -72,6 +72,14 @@
 
 <app-card [title]="'evaluate.query' | translate">
     <div class="row">
+        <div class="col-xs-12">
+            <mat-slide-toggle [checked]="settings.evaluateQueryInitialSearch"
+                (change)="settings.evaluateQueryInitialSearch = $event.checked">
+                {{'evaluate.initial-search' | translate}}
+            </mat-slide-toggle>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-6">
             <div class="value-range">
                 <label class="label"> {{'evaluate.debounce-time' | translate}}:
@@ -201,7 +209,7 @@
                             {{'evaluate.search.gem' | translate}}
                         </mat-slide-toggle>
                     </div>
-                    <div>                        
+                    <div>
                         <mat-form-field>
                             <mat-label>{{'evaluate.search.item-default-links' | translate}}</mat-label>
                             <mat-select [(value)]="settings.evaluateQueryDefaultLinks">
@@ -218,7 +226,7 @@
 
                 <mat-card>
                     <mat-label> {{'evaluate.stats' | translate}} </mat-label>
-                    
+
                     <label class="label"> {{'evaluate.stats-range' | translate}}
                         {{displayWithStat(settings.evaluateModifierMinRange)}}~{{displayWithStat(settings.evaluateModifierMaxRange)}}%
                     </label>

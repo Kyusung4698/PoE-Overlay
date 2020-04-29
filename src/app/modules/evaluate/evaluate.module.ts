@@ -72,7 +72,8 @@ export class EvaluateModule implements FeatureModule {
             evaluateKeybinding: 'CmdOrCtrl + D',
             evaluateTranslatedItemLanguage: Language.English,
             evaluateTranslatedKeybinding: 'Alt + T',
-            evaluatePricing: EvaluatePricing.Clipboard
+            evaluatePricing: EvaluatePricing.Clipboard,
+            evaluateQueryInitialSearch: false
         };
         return {
             name: 'evaluate.name',

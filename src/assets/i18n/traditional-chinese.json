@@ -42,6 +42,7 @@
 			"rate": "已達到限制。請稍後再試。\n如果這種情況持續發生，請嘗試減少獲取的物品數。"
 		},
 		"fetch-count": "搜索獲取計數",
+		"initial-search": "運行初始搜索",
 		"layout": "佈局",
 		"listings": "找到 {{total}}。正在獲取 {{count}} 個條目...",
 		"loading": "載入中...",
@@ -87,6 +88,7 @@
 			"graph": "圖形",
 			"list": "名單"
 		},
+		"run-search": "搜索",
 		"search": {
 			"attack": "攻擊",
 			"defense": "防禦",

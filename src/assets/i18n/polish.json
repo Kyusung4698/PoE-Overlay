@@ -42,6 +42,7 @@
 			"rate": "Limit osiągnięty. Spróbuj ponownie później.\nJeśli problem nadal występuje, spróbuj zmniejszyć liczbę pobieranych ofert sprzedaży."
 		},
 		"fetch-count": "Liczba wyświetlanych ofert sprzedaży",
+		"initial-search": "Uruchom wyszukiwanie wstępne",
 		"layout": "Układ",
 		"listings": "Znaleziono {{total}}. Pobieranie {{count}} aukcji ...",
 		"loading": "Ładuję...",
@@ -87,6 +88,7 @@
 			"graph": "Wykres kolumnowy",
 			"list": "Lista"
 		},
+		"run-search": "Szukaj",
 		"search": {
 			"attack": "Atak",
 			"defense": "Obrona",

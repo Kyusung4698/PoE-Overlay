@@ -42,6 +42,7 @@
 			"rate": "Limit erreicht. Bitte versuchen Sie es später noch einmal.\nWenn dies weiterhin geschieht, versuchen Sie bitte, die Anzahl der abgerufenen Artikel zu verringern."
 		},
 		"fetch-count": "Fetch Count",
+		"initial-search": "Führen Sie die erste Suche aus",
 		"layout": "Layout",
 		"listings": "Gefunden {{total}}. {{count}} Einträge abrufen ...",
 		"loading": "Wird geladen...",
@@ -87,6 +88,7 @@
 			"graph": "Graph",
 			"list": "Liste"
 		},
+		"run-search": "Suche",
 		"search": {
 			"attack": "Attacke",
 			"defense": "Verteidigung",

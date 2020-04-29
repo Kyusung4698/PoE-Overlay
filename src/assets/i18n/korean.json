@@ -42,6 +42,7 @@
 			"rate": "한도에 도달했습니다. 나중에 다시 시도하십시오.\n이 문제가 계속 발생하면 가져온 품목 수를 줄이십시오."
 		},
 		"fetch-count": "검색 페치 수",
+		"initial-search": "초기 검색 실행",
 		"layout": "형세",
 		"listings": " {{total}}을 (를) 찾았습니다. {{count}} 항목을 가져 오는 중 ...",
 		"loading": "로드 중 ...",
@@ -87,6 +88,7 @@
 			"graph": "그래프",
 			"list": "명부"
 		},
+		"run-search": "수색",
 		"search": {
 			"attack": "공격",
 			"defense": "방어",

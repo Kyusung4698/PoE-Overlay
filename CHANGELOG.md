@@ -1,9 +1,10 @@
 # Changelog
 
-## 0.6.26
+## 0.6.26 (2020-04-29)
 
 - add enforce rate limit before calling the actual api
-- add custom user agent to identitfy request againts external apis
+- add initial search toggle - off by default (#672)
+- add custom user agent to identitfy requests against external apis
 - add normalize quality for attack and defense properties (#624)
 - add evaluate pricing (clipboard, tagging) - clipboard by default
 - remove auto price tagging

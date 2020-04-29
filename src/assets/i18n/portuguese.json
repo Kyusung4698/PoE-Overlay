@@ -42,6 +42,7 @@
 			"rate": "Limite alcançado. Por favor, tente novamente mais tarde.\nSe isso continuar acontecendo, tente diminuir a contagem de itens buscados."
 		},
 		"fetch-count": "Contagem de pesquisas",
+		"initial-search": "Executar pesquisa inicial",
 		"layout": "Layout",
 		"listings": "Encontrado {{total}}. Buscando {{count}} entradas ...",
 		"loading": "Carregando...",
@@ -87,6 +88,7 @@
 			"graph": "Gráfico",
 			"list": "Lista"
 		},
+		"run-search": "Procurar",
 		"search": {
 			"attack": "Ataque",
 			"defense": "Defesa",
