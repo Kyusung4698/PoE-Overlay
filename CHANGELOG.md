@@ -2,6 +2,7 @@
 
 ## 0.6.26
 
+- add enforce rate limit before calling the actual api
 - add custom user agent to identitfy request againts external apis
 - add normalize quality for attack and defense properties (#624)
 - add evaluate pricing (clipboard, tagging) - clipboard by default
