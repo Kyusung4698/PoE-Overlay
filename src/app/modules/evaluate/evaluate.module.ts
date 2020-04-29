@@ -47,6 +47,7 @@ export class EvaluateModule implements FeatureModule {
             evaluateQueryDefaultType: false,
             evaluateQueryDefaultAttack: true,
             evaluateQueryDefaultDefense: true,
+            evaluateQueryNormalizeQuality: true,
             evaluatePropertyMinRange: 10,
             evaluatePropertyMaxRange: 50,
             evaluateQueryDefaultStats: {

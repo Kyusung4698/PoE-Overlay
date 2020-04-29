@@ -104,6 +104,7 @@
 				"week": "Jusqu'à une semaine",
 				"weeks": "Jusqu'à 2 semaines"
 			},
+			"normalize-quality": "Normaliser la qualité",
 			"online-only": "En ligne seulement",
 			"properties": "Propriétés"
 		},

@@ -104,6 +104,7 @@
 				"week": "Bis vor einer Woche",
 				"weeks": "Bis vor 2 Wochen"
 			},
+			"normalize-quality": "Qualität normalisieren",
 			"online-only": "Nur online",
 			"properties": "Eigenschaften"
 		},

@@ -2,6 +2,7 @@
 
 ## 0.6.26
 
+- add normalize quality for attack and defense properties (#624)
 - remove local package version (#662)
 - fix poedb using wrong cn value for helmets (#663)
 

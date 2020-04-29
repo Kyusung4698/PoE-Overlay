@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Item, ItemPostParserService, ItemStat, ItemValueProperty } from '@shared/module/poe/type';
+import { Item, ItemStat, ItemValueProperty } from '@shared/module/poe/type';
 
 const QUALITY_MAX = 20;
 
 @Injectable({
     providedIn: 'root'
 })
-export class ItemPostParserQualityService implements ItemPostParserService {
+export class ItemQualityProcessorService {
 
-    public process(item: Item): void {
-        const { properties, stats } = item;
-        if (!properties || !stats) {
+    public process(item: Item, normalizeQuality: boolean): void {
+        const { properties, stats, corrupted } = item;
+        if (!properties || !stats || corrupted) {
             return;
         }
 
@@ -27,7 +27,7 @@ export class ItemPostParserQualityService implements ItemPostParserService {
                 'local_armour_and_energy_shield_+%',
                 'local_armour_and_evasion_+%',
                 'local_armour_and_evasion_and_energy_shield_+%');
-            this.calculateTier(armourArmour, quality, increasedQuality, increasedArmour);
+            this.calculateTier(armourArmour, quality, increasedQuality, increasedArmour, normalizeQuality);
         }
 
         const { armourEnergyShield } = properties;
@@ -36,7 +36,7 @@ export class ItemPostParserQualityService implements ItemPostParserService {
                 'local_energy_shield_+%',
                 'local_armour_and_energy_shield_+%',
                 'local_armour_and_evasion_and_energy_shield_+%');
-            this.calculateTier(armourEnergyShield, quality, increasedQuality, increasedEnergyShield);
+            this.calculateTier(armourEnergyShield, quality, increasedQuality, increasedEnergyShield, normalizeQuality);
         }
 
         const { armourEvasionRating } = properties;
@@ -45,14 +45,14 @@ export class ItemPostParserQualityService implements ItemPostParserService {
                 'local_evasion_rating_+%',
                 'local_armour_and_evasion_+%',
                 'local_armour_and_evasion_and_energy_shield_+%');
-            this.calculateTier(armourEvasionRating, quality, increasedQuality, increasedEvasionRating);
+            this.calculateTier(armourEvasionRating, quality, increasedQuality, increasedEvasionRating, normalizeQuality);
         }
 
         const { weaponPhysicalDamage } = properties;
         if (weaponPhysicalDamage) {
             const increasedPhysicalDamage = this.calculateModifier(stats,
                 'local_physical_damage_+% local_weapon_no_physical_damage');
-            this.calculateTier(weaponPhysicalDamage, quality, increasedQuality, increasedPhysicalDamage)
+            this.calculateTier(weaponPhysicalDamage, quality, increasedQuality, increasedPhysicalDamage, normalizeQuality)
         }
     }
 
@@ -64,10 +64,20 @@ export class ItemPostParserQualityService implements ItemPostParserService {
             .reduce((a, b) => a + b, 0);
     }
 
-    private calculateTier(property: ItemValueProperty, quality: number, increasedQuality: number, modifier: number = 0): void {
+    private calculateTier(
+        property: ItemValueProperty, quality: number,
+        increasedQuality: number, modifier: number,
+        normalizeQuality: boolean): void {
+
         const value = this.parseValue(property.value.text);
         const min = value / (1 + ((quality + modifier) / 100));
         const max = min * (1 + ((Math.max(quality, QUALITY_MAX + increasedQuality) + modifier) / 100));
+
+        if (normalizeQuality) {
+            const normalized = min * (1 + ((QUALITY_MAX + modifier) / 100));
+            property.value.value = Math.round(normalized * 100) / 100;
+        }
+
         property.value.tier = {
             min: Math.round(min),
             max: Math.round(max)

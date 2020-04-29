@@ -30,6 +30,7 @@ export interface EvaluateUserSettings extends UserSettings {
   evaluateQueryDefaultType: boolean;
   evaluateQueryDefaultAttack: boolean;
   evaluateQueryDefaultDefense: boolean;
+  evaluateQueryNormalizeQuality: boolean;
   evaluatePropertyMinRange: number;
   evaluatePropertyMaxRange: number;
   evaluateQueryDefaultStats: any;

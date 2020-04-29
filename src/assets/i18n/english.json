@@ -104,6 +104,7 @@
 				"week": "Up to a week ago",
 				"weeks": "Up to 2 weeks ago"
 			},
+			"normalize-quality": "Normalize Quality",
 			"online-only": "Online Only",
 			"properties": "Properties"
 		},

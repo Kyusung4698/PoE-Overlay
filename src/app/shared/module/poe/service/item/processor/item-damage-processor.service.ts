@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Item, ItemPostParserService, ItemProperties, ItemValue, ItemValueProperty } from '@shared/module/poe/type';
+import { Item, ItemProperties, ItemValue, ItemValueProperty } from '@shared/module/poe/type';
 
 @Injectable({
     providedIn: 'root'
 })
-export class ItemPostParserDamageService implements ItemPostParserService {
+export class ItemDamageProcessorService {
 
     public process(item: Item): void {
         const { properties } = item;
@@ -30,6 +30,9 @@ export class ItemPostParserDamageService implements ItemPostParserService {
 
         [pdps, edps, cdps].forEach(value => {
             if (value) {
+                if (value.value) {
+                    dps.value = (dps.value || 0) + value.value;
+                }
                 dps.text = `${+dps.text + +value.text}`;
                 if (value.tier) {
                     dps.tier.min += value.tier.min;
@@ -50,11 +53,14 @@ export class ItemPostParserDamageService implements ItemPostParserService {
             return undefined;
         }
 
-        const damage = this.sum(weaponPhysicalDamage);
-        const dps = this.addAps(weaponAttacksPerSecond, damage);
+        const valueDamage = weaponPhysicalDamage.value.value || 0;
+        const valueDps = this.addAps(weaponAttacksPerSecond, valueDamage);
+        const textDamage = this.sum(weaponPhysicalDamage);
+        const textDps = this.addAps(weaponAttacksPerSecond, textDamage);
 
         const value: ItemValue = {
-            text: `${Math.round(dps * 10) / 10}`,
+            value: valueDps > 0 ? Math.round(valueDps * 10) / 10 : undefined,
+            text: `${Math.round(textDps * 10) / 10}`,
             tier: {
                 min: this.addAps(weaponAttacksPerSecond, weaponPhysicalDamage.value.tier.min),
                 max: this.addAps(weaponAttacksPerSecond, weaponPhysicalDamage.value.tier.max),
@@ -73,7 +79,7 @@ export class ItemPostParserDamageService implements ItemPostParserService {
         const dps = this.addAps(weaponAttacksPerSecond, totalDamage);
 
         const value: ItemValue = {
-            text: `${Math.round(dps * 10) / 10}`
+            text: `${Math.round(dps * 10) / 10}`,
         };
         return value;
     }
@@ -88,7 +94,7 @@ export class ItemPostParserDamageService implements ItemPostParserService {
         const dps = this.addAps(weaponAttacksPerSecond, damage);
 
         const value: ItemValue = {
-            text: `${Math.round(dps * 10) / 10}`
+            text: `${Math.round(dps * 10) / 10}`,
         };
         return value;
     }
@@ -99,13 +105,9 @@ export class ItemPostParserDamageService implements ItemPostParserService {
     }
 
     private sum(prop: ItemValueProperty, sum: number = 0): number {
-        const damage = prop.value.text.split('-');
-
-        const min = +damage[0];
-        const max = +damage[1];
-        if (isNaN(min) || isNaN(max)) {
-            return sum;
-        }
-        return sum + min + max;
+        return prop.value.text
+            .split('-')
+            .map(x => +x.replace('%', ''))
+            .reduce((a, b) => a + b, sum);
     }
 }

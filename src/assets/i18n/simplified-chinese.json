@@ -104,6 +104,7 @@
 				"week": "直到一周前",
 				"weeks": "最多2周前"
 			},
+			"normalize-quality": "标准化质量",
 			"online-only": "仅在线",
 			"properties": "属性"
 		},

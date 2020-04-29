@@ -104,6 +104,7 @@
 				"week": "直到一周前",
 				"weeks": "最多2週前"
 			},
+			"normalize-quality": "標準化質量",
 			"online-only": "僅在線",
 			"properties": "屬性"
 		},

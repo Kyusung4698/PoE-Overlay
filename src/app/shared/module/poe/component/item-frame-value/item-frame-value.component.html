@@ -1,5 +1,5 @@
 <ng-container *ngIf="text$ | async; else input">
-    <span>{{parsed | number:'1.0-1'}}<span *ngIf="value.tier">
+    <span>{{value.text}}<span *ngIf="value.tier">
             ({{value.tier.min | number:'1.0-1'}}-{{value.tier.max | number:'1.0-1'}}) </span>
     </span>
 </ng-container>

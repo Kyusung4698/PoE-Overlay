@@ -210,7 +210,7 @@ export class ItemFrameValueComponent implements OnInit {
 
   private init(): void {
     this.disabled = this.query.disabled;
-    this.parsed = this.parseValue(this.value.text);
+    this.parsed = this.value.value ?? this.parseValue(this.value.text);
     this.value.min = this.parsed;
     this.value.max = this.parsed;
     this.default = { ...this.value };

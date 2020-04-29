@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { SnackBarService } from '@shared/module/material/service';
-import { ItemClipboardResultCode, ItemClipboardService, StashService } from '@shared/module/poe/service';
+import { ItemClipboardResultCode, ItemClipboardService, ItemProcessorService, StashService } from '@shared/module/poe/service';
 import { Language } from '@shared/module/poe/type';
 import { Observable, of, throwError } from 'rxjs';
-import { catchError, flatMap } from 'rxjs/operators';
+import { catchError, flatMap, tap } from 'rxjs/operators';
 import { EvaluateUserSettings } from '../component/evaluate-settings/evaluate-settings.component';
 import { EvaluateDialogService } from './evaluate-dialog.service';
 
@@ -13,6 +13,7 @@ import { EvaluateDialogService } from './evaluate-dialog.service';
 export class EvaluateService {
     constructor(
         private readonly item: ItemClipboardService,
+        private readonly processor: ItemProcessorService,
         private readonly stash: StashService,
         private readonly snackbar: SnackBarService,
         private readonly evaluateDialog: EvaluateDialogService) {
@@ -20,6 +21,9 @@ export class EvaluateService {
 
     public evaluate(settings: EvaluateUserSettings, language?: Language): Observable<void> {
         return this.item.copy().pipe(
+            tap(({ item }) => this.processor.process(item, {
+                normalizeQuality: settings.evaluateQueryNormalizeQuality
+            })),
             flatMap(({ code, point, item }) => {
                 switch (code) {
                     case ItemClipboardResultCode.Success:

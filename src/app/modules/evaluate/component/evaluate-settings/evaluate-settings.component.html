@@ -167,9 +167,9 @@
                             (change)="settings.evaluateQueryDefaultDefense = $event.checked">
                             {{'evaluate.search.defense' | translate}}
                         </mat-slide-toggle>
-                        <mat-slide-toggle [checked]="settings.evaluateQueryDefaultMiscs"
-                            (change)="settings.evaluateQueryDefaultMiscs = $event.checked">
-                            {{'evaluate.search.gem' | translate}}
+                        <mat-slide-toggle [checked]="settings.evaluateQueryNormalizeQuality"
+                            (change)="settings.evaluateQueryNormalizeQuality = $event.checked">
+                            {{'evaluate.search.normalize-quality' | translate}}
                         </mat-slide-toggle>
                     </div>
                     <div class="toggle">
@@ -181,6 +181,12 @@
                             (change)="settings.evaluateQueryDefaultType = $event.checked">
                             {{'evaluate.search.item-type' | translate}}
                         </mat-slide-toggle>
+                        <mat-slide-toggle [checked]="settings.evaluateQueryDefaultMiscs"
+                            (change)="settings.evaluateQueryDefaultMiscs = $event.checked">
+                            {{'evaluate.search.gem' | translate}}
+                        </mat-slide-toggle>
+                    </div>
+                    <div>                        
                         <mat-form-field>
                             <mat-label>{{'evaluate.search.item-default-links' | translate}}</mat-label>
                             <mat-select [(value)]="settings.evaluateQueryDefaultLinks">

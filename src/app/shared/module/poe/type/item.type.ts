@@ -25,6 +25,7 @@ export interface Item {
 
 export interface ItemValue {
     text: string;
+    value?: number;
     min?: number;
     max?: number;
     tier?: ItemValueTier;
@@ -221,10 +222,6 @@ export interface ItemSectionParserService {
     section: ItemSection;
     optional: boolean;
     parse(item: ExportedItem, target: Item): Section | Section[];
-}
-
-export interface ItemPostParserService {
-    process(item: Item): void;
 }
 
 export interface ItemSearchFiltersService {

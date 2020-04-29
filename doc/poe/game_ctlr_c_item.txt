@@ -1268,3 +1268,23 @@ Fires an additional Projectile for every 2 prior Mines in Detonation Sequence
 Each Mine applies 10% increased Critical Strike Chance to Hits against Enemies near it, up to a maximum of 500%
 --------
 Place into an item socket of the right colour to gain this skill. Right click to remove from a socket.
+
+Rarity: Normal
+Superior Thorn Rapier
+--------
+One Handed Sword
+Quality: +12% (augmented)
+Physical Damage: 21-49 (augmented)
+Critical Strike Chance: 5.70%
+Attacks per Second: 1.40
+Weapon Range: 14
+--------
+Requirements:
+Level: 34
+Dex: 113
+--------
+Sockets: G-G-G 
+--------
+Item Level: 58
+--------
++35% to Global Critical Strike Multiplier (implicit)

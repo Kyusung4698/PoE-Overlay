@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { ModifierType, PSEUDO_MODIFIERS } from '@shared/module/poe/config/pseudo.config';
-import { Item, ItemPostParserService, ItemStat, StatType } from '@shared/module/poe/type';
+import { Item, ItemStat, StatType } from '@shared/module/poe/type';
 
 @Injectable({
     providedIn: 'root'
 })
-export class ItemPostParserPseudoService implements ItemPostParserService {
+export class ItemPseudoProcessorService {
     public process(item: Item): void {
         if (!item.stats) {
             item.stats = [];

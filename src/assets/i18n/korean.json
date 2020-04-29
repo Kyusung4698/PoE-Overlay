@@ -104,6 +104,7 @@
 				"week": "1주 전까지",
 				"weeks": "2주 전까지"
 			},
+			"normalize-quality": "품질 표준화",
 			"online-only": "온라인만",
 			"properties": "속성"
 		},
