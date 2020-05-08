@@ -153,6 +153,8 @@ export class TradeHttpService {
                     return throwError(response);
                 }
                 return this.browser.retrieve(url).pipe(delay(RETRY_DELAY));
+            case 429:
+                return throwError(response);
             default:
                 return of(response).pipe(delay(RETRY_DELAY));
         }

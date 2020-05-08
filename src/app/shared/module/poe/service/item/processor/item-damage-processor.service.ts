@@ -21,28 +21,33 @@ export class ItemDamageProcessorService {
         }
 
         const dps: ItemValue = {
-            text: '',
-            tier: {
-                min: 0,
-                max: 0
-            }
+            text: '0',
+            value: 0
         };
+        if (pdps?.tier) {
+            dps.tier = { min: 0, max: 0 }
+        }
 
-        [pdps, edps, cdps].forEach(value => {
-            if (value) {
-                if (value.value) {
-                    dps.value = (dps.value || 0) + value.value;
-                }
-                dps.text = `${+dps.text + +value.text}`;
-                if (value.tier) {
-                    dps.tier.min += value.tier.min;
-                    dps.tier.max += value.tier.max;
-                } else {
-                    dps.tier.min += +value.text;
-                    dps.tier.max += +value.text;
-                }
+        [pdps, edps, cdps].forEach(range => {
+            if (!range) {
+                return;
+            }
+
+            dps.text = `${+dps.text + +range.text}`;
+            dps.value += range.value;
+            if (!dps.tier) {
+                return;
+            }
+
+            if (range.tier) {
+                dps.tier.min += range.tier.min;
+                dps.tier.max += range.tier.max;
+            } else {
+                dps.tier.min += range.value;
+                dps.tier.max += range.value;
             }
         });
+        dps.text = `${Math.round(+dps.text * 10) / 10}`;
 
         item.damage = { edps, pdps, dps };
     }
@@ -53,20 +58,24 @@ export class ItemDamageProcessorService {
             return undefined;
         }
 
-        const valueDamage = weaponPhysicalDamage.value.value || 0;
-        const valueDps = this.addAps(weaponAttacksPerSecond, valueDamage);
-        const textDamage = this.sum(weaponPhysicalDamage);
-        const textDps = this.addAps(weaponAttacksPerSecond, textDamage);
+        const damage = this.sum(weaponPhysicalDamage);
+        const dps = this.addAps(weaponAttacksPerSecond, damage);
 
-        const value: ItemValue = {
-            value: valueDps > 0 ? Math.round(valueDps * 10) / 10 : undefined,
-            text: `${Math.round(textDps * 10) / 10}`,
-            tier: {
-                min: this.addAps(weaponAttacksPerSecond, weaponPhysicalDamage.value.tier.min),
-                max: this.addAps(weaponAttacksPerSecond, weaponPhysicalDamage.value.tier.max),
-            }
+        const range: ItemValue = {
+            text: `${dps}`, value: dps
         };
-        return value;
+
+        const { value, tier } = weaponPhysicalDamage.value;
+        if (value) {
+            range.value = this.addAps(weaponAttacksPerSecond, value);
+        }
+        if (tier) {
+            range.tier = {
+                min: this.addAps(weaponAttacksPerSecond, tier.min),
+                max: this.addAps(weaponAttacksPerSecond, tier.max)
+            }
+        }
+        return range;
     }
 
     private calculateElementalDps(properties: ItemProperties): ItemValue {
@@ -79,7 +88,7 @@ export class ItemDamageProcessorService {
         const dps = this.addAps(weaponAttacksPerSecond, totalDamage);
 
         const value: ItemValue = {
-            text: `${Math.round(dps * 10) / 10}`,
+            text: `${dps}`, value: dps
         };
         return value;
     }
@@ -94,14 +103,15 @@ export class ItemDamageProcessorService {
         const dps = this.addAps(weaponAttacksPerSecond, damage);
 
         const value: ItemValue = {
-            text: `${Math.round(dps * 10) / 10}`,
+            text: `${dps}`, value: dps
         };
         return value;
     }
 
     private addAps(prop: ItemValueProperty, damage: number): number {
         const aps = prop ? +prop.value.text : 1;
-        return damage * 0.5 * aps;
+        const dps = damage * 0.5 * aps;
+        return Math.round(dps * 10) / 10;
     }
 
     private sum(prop: ItemValueProperty, sum: number = 0): number {
