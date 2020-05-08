@@ -2,13 +2,13 @@
 
 ## 0.6.27 (2020-05-08)
 
-- improved rate limiting behavior (#678)
+- updated rate limiting behavior (#678)
   - accounts for external requests aswell (e.g. done through the website)
   - checks current limit with a single request before sending
     multiple requests if current limit is stale
-  - fails instanly if rate is limited
+  - fails instantly if rate is limited
   - fails after 10s if rate is still reached
-- fixed search trigger after changing value if initial search is off (#682)
+- fixed search triggered after changing filter if initial search is off (#682)
 - fixed corrupted weapons unable to parse (#684, #688)
 
 ## 0.6.26 (2020-04-29)
