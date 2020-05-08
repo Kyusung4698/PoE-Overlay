@@ -27,7 +27,7 @@ export class ItemQualityProcessorService {
                 'local_armour_and_energy_shield_+%',
                 'local_armour_and_evasion_+%',
                 'local_armour_and_evasion_and_energy_shield_+%');
-            this.calculateTier(armourArmour, quality, increasedQuality, increasedArmour, normalizeQuality);
+            this.calculateQualityTier(armourArmour, quality, increasedQuality, increasedArmour, normalizeQuality);
         }
 
         const { armourEnergyShield } = properties;
@@ -36,7 +36,7 @@ export class ItemQualityProcessorService {
                 'local_energy_shield_+%',
                 'local_armour_and_energy_shield_+%',
                 'local_armour_and_evasion_and_energy_shield_+%');
-            this.calculateTier(armourEnergyShield, quality, increasedQuality, increasedEnergyShield, normalizeQuality);
+            this.calculateQualityTier(armourEnergyShield, quality, increasedQuality, increasedEnergyShield, normalizeQuality);
         }
 
         const { armourEvasionRating } = properties;
@@ -45,14 +45,14 @@ export class ItemQualityProcessorService {
                 'local_evasion_rating_+%',
                 'local_armour_and_evasion_+%',
                 'local_armour_and_evasion_and_energy_shield_+%');
-            this.calculateTier(armourEvasionRating, quality, increasedQuality, increasedEvasionRating, normalizeQuality);
+            this.calculateQualityTier(armourEvasionRating, quality, increasedQuality, increasedEvasionRating, normalizeQuality);
         }
 
         const { weaponPhysicalDamage } = properties;
         if (weaponPhysicalDamage) {
             const increasedPhysicalDamage = this.calculateModifier(stats,
                 'local_physical_damage_+% local_weapon_no_physical_damage');
-            this.calculateTier(weaponPhysicalDamage, quality, increasedQuality, increasedPhysicalDamage, normalizeQuality)
+            this.calculateQualityTier(weaponPhysicalDamage, quality, increasedQuality, increasedPhysicalDamage, normalizeQuality)
         }
     }
 
@@ -64,24 +64,22 @@ export class ItemQualityProcessorService {
             .reduce((a, b) => a + b, 0);
     }
 
-    private calculateTier(
+    private calculateQualityTier(
         property: ItemValueProperty, quality: number,
         increasedQuality: number, modifier: number,
         normalizeQuality: boolean): void {
 
         const value = this.parseValue(property.value.text);
-        const min = value / (1 + ((quality + modifier) / 100));
-        const max = min * (1 + ((Math.max(quality, QUALITY_MAX + increasedQuality) + modifier) / 100));
+        const base = value / (1 + ((quality + modifier) / 100));
+        const min = base * (1 + (modifier / 100));
+        const max = base * (1 + ((Math.max(quality, QUALITY_MAX + increasedQuality) + modifier) / 100));
 
         if (normalizeQuality) {
-            const normalized = min * (1 + ((QUALITY_MAX + modifier) / 100));
-            property.value.value = Math.round(normalized * 100) / 100;
+            const normalized = base * (1 + ((QUALITY_MAX + modifier) / 100));
+            property.value.value = normalized;
         }
 
-        property.value.tier = {
-            min: Math.round(min),
-            max: Math.round(max)
-        };
+        property.value.tier = { min, max };
     }
 
     private parseValue(text: string): number {
