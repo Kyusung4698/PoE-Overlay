@@ -56,13 +56,12 @@ export class EvaluateSearchComponent implements OnInit {
   public ngOnInit(): void {
     this.graph = this.settings.evaluateResultView === EvaluateResultView.Graph;
     if (this.settings.evaluateQueryInitialSearch) {
-      this.search(this.queryItem);
+      this.initSearch();
     }
-    this.registerSearchOnChange();
   }
 
   public onSearchClick(): void {
-    this.search(this.queryItem);
+    this.initSearch();
   }
 
   public onCurrencyClick(event: MouseEvent): void {
@@ -103,6 +102,11 @@ export class EvaluateSearchComponent implements OnInit {
   public onAmountSelect(amount: number, currency?: Currency): void {
     currency = currency || this.result$.value.currency;
     this.evaluateResult.next({ amount, currency });
+  }
+
+  private initSearch(): void {
+    this.search(this.queryItem);
+    this.registerSearchOnChange();
   }
 
   private registerSearchOnChange(): void {
