@@ -38,7 +38,11 @@ const HEADER_RULE_SEPARATOR = `,`
 const HEADER_RULE_VALUE_SEPARATOR = `:`
 const HEADER_RULE_STATE = `state`
 const HEADER_RULES = `x-rate-limit-rules`;
-const THROTTLE_RETRY_DELAY = 1000;
+
+const RULE_FRESH_DURATION = 1000 * 10;
+
+const WAITING_RETRY_DELAY = 1000;
+const WAITING_RETRY_COUNT = 10;
 
 interface TradeRateLimitRule {
     count: number;
@@ -53,6 +57,14 @@ interface TradeRateLimitRequest {
 interface TradeRateLimit {
     requests: TradeRateLimitRequest[];
     rules: TradeRateLimitRule[];
+    update: number;
+}
+
+enum TradeRateThrottle {
+    None = 1,
+    Stale = 2,
+    Reached = 3,
+    Limited = 4
 }
 
 @Injectable({
@@ -66,31 +78,46 @@ export class TradeRateLimitService {
     public throttle<TResult>(resource: string, getRequest: () => Observable<HttpResponse<TResult>>): Observable<TResult> {
         return of(null).pipe(
             flatMap(() => {
-                if (this.shouldThrottle(resource)) {
-                    return throwError('throttle');
+                const reason = this.shouldThrottle(resource);
+                switch (reason) {
+                    case TradeRateThrottle.Limited:
+                        return throwError('limited');
+                    case TradeRateThrottle.Reached:
+                    case TradeRateThrottle.Stale:
+                        return throwError('waiting');
+                    default:
+                        const request = this.createRequest(resource);
+                        return getRequest().pipe(
+                            map(response => {
+                                request.finished = Date.now();
+                                this.updateRules(resource, response);
+                                this.filterRequests(resource);
+                                return response.body
+                            }),
+                            catchError(response => {
+                                request.finished = Date.now();
+                                if (response.status === 429) {
+                                    this.updateRules(resource, response);
+                                }
+                                this.filterRequests(resource);
+                                return throwError(response);
+                            })
+                        );
                 }
-                const request = this.createRequest(resource);
-                return getRequest().pipe(
-                    map(response => {
-                        request.finished = Date.now();
-                        this.updateRules(resource, response);
-                        this.updateRequests(resource);
-                        return response.body
-                    }),
-                    catchError(response => {
-                        request.finished = Date.now();
-                        if (response.status === 429) {
-                            this.updateRules(resource, response);
-                        }
-                        this.updateRequests(resource);
-                        return throwError(response);
-                    })
-                );
             }),
             retryWhen(errors => errors.pipe(
-                flatMap(error => {
-                    if (error === 'throttle') {
-                        return of(error).pipe(delay(THROTTLE_RETRY_DELAY));
+                flatMap((error, count) => {
+                    if (error === 'limited') {
+                        return throwError({
+                            status: 429
+                        });
+                    } else if (error === 'waiting') {
+                        if (count >= WAITING_RETRY_COUNT) {
+                            return throwError({
+                                status: 429
+                            });
+                        }
+                        return of(error).pipe(delay(WAITING_RETRY_DELAY));
                     }
                     return throwError(error);
                 })
@@ -98,20 +125,29 @@ export class TradeRateLimitService {
         );
     }
 
-    private shouldThrottle(resource: string): boolean {
-        const { rules, requests } = this.getLimit(resource);
-        if (!rules) {
-            // only allow 1 request until rules are filled
-            return requests.some(request => !request.finished);
+    private shouldThrottle(resource: string): TradeRateThrottle {
+        const { rules, requests, update } = this.getLimit(resource);
+
+        const inflight = requests.some(request => !request.finished);
+        if (!inflight) {
+            return TradeRateThrottle.None;
         }
 
+        // only allow 1 request until
+        // > rules are filled
+        // > rules are fresh again
         const now = Date.now();
-        return rules.some(rule => {
-            // throttle while limited is greater than now
-            if (rule.limited && rule.limited > now) {
-                return true;
-            }
+        if (!rules || (now - update) > RULE_FRESH_DURATION) {
+            return TradeRateThrottle.Stale;
+        }
 
+        // only allow a new request if no rule is limited
+        const limited = rules.some(rule => rule.limited && rule.limited > now);
+        if (limited) {
+            return TradeRateThrottle.Limited;
+        }
+
+        const reached = rules.some(rule => {
             // all requests which were made in the period count
             const limit = now - rule.period * 1000;
             const limiting = requests.filter(request => {
@@ -122,6 +158,10 @@ export class TradeRateLimitService {
             });
             return limiting.length >= rule.count;
         });
+        if (reached) {
+            return TradeRateThrottle.Reached;
+        }
+        return TradeRateThrottle.None;
     }
 
     private createRequest(resource: string): TradeRateLimitRequest {
@@ -131,7 +171,7 @@ export class TradeRateLimitService {
         return request;
     }
 
-    private updateRequests(resource: string): void {
+    private filterRequests(resource: string): void {
         const limit = this.getLimit(resource);
         const now = Date.now();
         limit.requests = limit.requests.filter(request => {
@@ -146,47 +186,73 @@ export class TradeRateLimitService {
     }
 
     private updateRules(resource: string, response: HttpResponse<any>): void {
-        const limit = this.getLimit(resource);
+        const current = this.getLimit(resource);
+
         const rules = response?.headers?.get(HEADER_RULES);
-        if (rules) {
-            limit.rules = rules.toLowerCase()
-                .split(HEADER_RULE_SEPARATOR)
-                .map(name => name.trim())
-                .map(name => {
-                    const limits = response.headers.get(`${HEADER_RULE}-${name}`).split(HEADER_RULE_SEPARATOR);
-                    const states = response.headers.get(`${HEADER_RULE}-${name}-${HEADER_RULE_STATE}`).split(HEADER_RULE_SEPARATOR);
-                    if (limits.length === states.length) {
-                        return limits.map((_, index) => {
-                            const [count, period, timeoff] = limits[index].split(HEADER_RULE_VALUE_SEPARATOR).map(x => +x);
-                            const [currentCount, , currentTimeoff] = states[index].split(HEADER_RULE_VALUE_SEPARATOR).map(x => +x);
-                            let limited = currentTimeoff;
-                            if (limited <= 0 && currentCount > count) {
-                                limited = timeoff;
-                            }
-                            const rule: TradeRateLimitRule = {
-                                count, period,
-                                limited: limited > 0
-                                    ? Date.now() + limited * 1000
-                                    : undefined
-                            };
-                            return rule;
-                        });
-                    } else {
-                        return undefined;
-                    }
-                })
-                .reduce((a, b) => a.concat(b), [])
-                .filter(rule => rule !== undefined);
-        } else {
-            limit.rules = undefined;
+        if (!rules) {
+            current.rules = undefined;
+            return;
         }
+
+        const now = Date.now();
+
+        current.update = now;
+        current.rules = rules.toLowerCase()
+            .split(HEADER_RULE_SEPARATOR)
+            .map(name => name.trim())
+            .map(name => {
+                const limits = response.headers.get(`${HEADER_RULE}-${name}`).split(HEADER_RULE_SEPARATOR);
+                const states = response.headers.get(`${HEADER_RULE}-${name}-${HEADER_RULE_STATE}`).split(HEADER_RULE_SEPARATOR);
+                if (limits.length !== states.length) {
+                    return undefined;
+                }
+
+                return limits.map((_, index) => {
+                    const [count, period, timeoff] = limits[index].split(HEADER_RULE_VALUE_SEPARATOR).map(x => +x);
+                    const [currentCount, , currentTimeoff] = states[index].split(HEADER_RULE_VALUE_SEPARATOR).map(x => +x);
+
+                    let limited = currentTimeoff;
+                    if (limited <= 0 && currentCount > count) {
+                        limited = timeoff;
+                    }
+
+                    const rule: TradeRateLimitRule = {
+                        count, period,
+                        limited: limited > 0
+                            ? now + limited * 1000
+                            : undefined
+                    };
+
+                    if (!rule.limited) {
+                        const limit = now - rule.period * 1000;
+                        const limiting = current.requests.filter(request => {
+                            if (!request.finished) {
+                                return true;
+                            }
+                            return request.finished >= limit;
+                        });
+
+                        let missing = currentCount - limiting.length;
+                        while (missing > 0) {
+                            current.requests.push({
+                                finished: now,
+                            });
+                            --missing;
+                        }
+                    }
+                    return rule;
+                });
+            })
+            .reduce((a, b) => a.concat(b), [])
+            .filter(rule => rule !== undefined);
     }
 
     private getLimit(resource: string): TradeRateLimit {
         if (!this.limits[resource]) {
             this.limits[resource] = {
                 requests: [],
-                rules: undefined
+                rules: undefined,
+                update: undefined
             };
         }
         return this.limits[resource];
