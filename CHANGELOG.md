@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.6.28 (2020-05-09)
+
+- fixed a rate limit issue which was caused by requests not getting marked as finished (#695)
+
 ## 0.6.27 (2020-05-08)
 
 - updated rate limiting behavior (#678)

@@ -1,7 +1,7 @@
 import { HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
-import { catchError, delay, flatMap, map, retryWhen } from 'rxjs/operators';
+import { catchError, delay, finalize, flatMap, map, retryWhen } from 'rxjs/operators';
 
 // 1 request
 // x-rate-limit-ip: 12:4:10,16:12:300
@@ -62,9 +62,10 @@ interface TradeRateLimit {
 
 enum TradeRateThrottle {
     None = 1,
-    Stale = 2,
-    Reached = 3,
-    Limited = 4
+    NoRules = 2,
+    Stale = 3,
+    Reached = 4,
+    Limited = 5
 }
 
 @Injectable({
@@ -82,20 +83,22 @@ export class TradeRateLimitService {
                 switch (reason) {
                     case TradeRateThrottle.Limited:
                         return throwError('limited');
+                    case TradeRateThrottle.NoRules:
                     case TradeRateThrottle.Reached:
                     case TradeRateThrottle.Stale:
                         return throwError('waiting');
                     default:
                         const request = this.createRequest(resource);
-                        return getRequest().pipe(
+                        return of(null).pipe(
+                            flatMap(() => getRequest().pipe(
+                                finalize(() => request.finished = Date.now())
+                            )),
                             map(response => {
-                                request.finished = Date.now();
                                 this.updateRules(resource, response);
                                 this.filterRequests(resource);
                                 return response.body
                             }),
                             catchError(response => {
-                                request.finished = Date.now();
                                 if (response.status === 429) {
                                     this.updateRules(resource, response);
                                 }
@@ -129,15 +132,20 @@ export class TradeRateLimitService {
         const { rules, requests, update } = this.getLimit(resource);
 
         const inflight = requests.some(request => !request.finished);
-        if (!inflight) {
-            return TradeRateThrottle.None;
+        if (!rules) {
+            if (!inflight) {
+                // allow a new request to gather rules
+                return TradeRateThrottle.None;
+            }
+            // request made for gathering rules
+            // do not allow any further requests
+            return TradeRateThrottle.NoRules;
         }
 
-        // only allow 1 request until
-        // > rules are filled
-        // > rules are fresh again
         const now = Date.now();
-        if (!rules || (now - update) > RULE_FRESH_DURATION) {
+        if (inflight && (now - update) > RULE_FRESH_DURATION) {
+            // a request was made and data is stale
+            // wait for request to be finished before allowing further requests
             return TradeRateThrottle.Stale;
         }
 
@@ -173,16 +181,22 @@ export class TradeRateLimitService {
 
     private filterRequests(resource: string): void {
         const limit = this.getLimit(resource);
+
+        const { rules, requests } = limit;
+        if (!rules) {
+            return;
+        }
+
         const now = Date.now();
-        limit.requests = limit.requests.filter(request => {
+        limit.requests = requests.filter(request => {
             if (!request.finished) {
                 return true;
             }
-            return limit.rules.some(rule => {
+            return rules.some(rule => {
                 const min = now - rule.period * 1000;
                 return request.finished >= min;
             });
-        })
+        });
     }
 
     private updateRules(resource: string, response: HttpResponse<any>): void {
