@@ -9,6 +9,7 @@ export interface EvaluateOptions {
   online: boolean;
   indexed: ItemSearchIndexed;
   leagueId: string;
+  fetchCount: number;
 }
 
 type LeagueMap = {
@@ -53,6 +54,24 @@ export class EvaluateOptionsComponent implements OnInit {
     this.optionsChange.emit(this.options);
   }
 
+  public onLeaguesWheel(event: WheelEvent, leagues: LeagueMap): void {
+    const factor = event.deltaY > 0 ? -1 : 1;
+    const keys = Object.getOwnPropertyNames(leagues);
+
+    let index = keys.findIndex(id => id === this.options.leagueId);
+    index += factor;
+
+    if (index >= keys.length) {
+      index = 0;
+    } else if (index < 0) {
+      index = keys.length - 1;
+    }
+
+    const key = keys[index];
+    this.options.leagueId = key;
+    this.optionsChange.emit(this.options);
+  }
+
   public onIndexedWheel(event: WheelEvent): void {
     const factor = event.deltaY > 0 ? -1 : 1;
     const keys = Object.getOwnPropertyNames(ItemSearchIndexed);
@@ -71,22 +90,20 @@ export class EvaluateOptionsComponent implements OnInit {
     this.optionsChange.emit(this.options);
   }
 
-  public onLeaguesWheel(event: WheelEvent, leagues: LeagueMap): void {
+  public onFetchCountWheel(event: WheelEvent): void {
     const factor = event.deltaY > 0 ? -1 : 1;
-    const keys = Object.getOwnPropertyNames(leagues);
 
-    let index = keys.findIndex(id => id === this.options.leagueId);
-    index += factor;
-
-    if (index >= keys.length) {
-      index = 0;
-    } else if (index < 0) {
-      index = keys.length - 1;
+    let fetchCount = this.options.fetchCount + factor * 10;
+    if (fetchCount > 100) {
+      fetchCount = 10;
+    } else if (fetchCount < 10) {
+      fetchCount = 100;
     }
 
-    const key = keys[index];
-    this.options.leagueId = key;
-    this.optionsChange.emit(this.options);
+    if (fetchCount !== this.options.fetchCount) {
+      this.options.fetchCount = fetchCount;
+      this.optionsChange.emit(this.options);
+    }
   }
 
   public onResetClick(): void {

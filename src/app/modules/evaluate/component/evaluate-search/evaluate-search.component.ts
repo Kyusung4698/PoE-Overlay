@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { BrowserService, LoggerService } from '@app/service';
 import { EvaluateResult } from '@modules/evaluate/type/evaluate.type';
 import { ItemSearchAnalyzeResult, ItemSearchAnalyzeService, ItemSearchListing, ItemSearchResult, ItemSearchService } from '@shared/module/poe/service';
@@ -15,8 +15,10 @@ import { EvaluateResultView, EvaluateUserSettings, EVALUATE_QUERY_DEBOUNCE_TIME_
   styleUrls: ['./evaluate-search.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class EvaluateSearchComponent implements OnInit {
+export class EvaluateSearchComponent implements OnInit, OnDestroy {
+  private searchSubscription: Subscription;
   private listSubscription: Subscription;
+  private analyzeSubscription: Subscription;
 
   public graph: boolean;
 
@@ -58,6 +60,12 @@ export class EvaluateSearchComponent implements OnInit {
     if (this.settings.evaluateQueryInitialSearch) {
       this.initSearch();
     }
+  }
+
+  public ngOnDestroy(): void {
+    this.searchSubscription?.unsubscribe();
+    this.listSubscription?.unsubscribe();
+    this.analyzeSubscription?.unsubscribe();
   }
 
   public onSearchClick(): void {
@@ -145,12 +153,12 @@ export class EvaluateSearchComponent implements OnInit {
     const options: ItemSearchOptions = {
       ...this.options
     };
-    this.itemSearchService.search(item, options).pipe(
+    this.searchSubscription = this.itemSearchService.search(item, options).pipe(
       takeUntil(this.queryItemChange)
     ).subscribe(search => {
       this.search$.next(search);
       if (search.total > 0) {
-        const count = Math.min(this.settings.evaluateQueryFetchCount, search.total);
+        const count = Math.min(this.options.fetchCount, search.total);
         this.count$.next(count);
         this.list(search);
       }
@@ -158,7 +166,7 @@ export class EvaluateSearchComponent implements OnInit {
   }
 
   private list(search: ItemSearchResult): void {
-    this.listSubscription = this.itemSearchService.list(search, this.settings.evaluateQueryFetchCount).pipe(
+    this.listSubscription = this.itemSearchService.list(search, this.options.fetchCount).pipe(
       takeUntil(this.queryItemChange)
     ).subscribe(listings => {
       this.listings$.next(listings);
@@ -170,7 +178,7 @@ export class EvaluateSearchComponent implements OnInit {
 
   private analyze(listings: ItemSearchListing[], currency?: Currency): void {
     const currencies = currency ? [currency] : this.currencies;
-    this.itemSearchAnalyzeService.analyze(listings, currencies).pipe(
+    this.analyzeSubscription = this.itemSearchAnalyzeService.analyze(listings, currencies).pipe(
       takeUntil(this.queryItemChange)
     ).subscribe(
       result => this.result$.next(result),
