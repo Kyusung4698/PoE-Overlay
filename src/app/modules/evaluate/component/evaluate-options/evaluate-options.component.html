@@ -9,25 +9,30 @@
           {{ leagues[options.leagueId] }}
         </span>
       </ng-container>
+    <span class="divider"></span>
     </ng-container>
+
 
     <!-- online -->
-    <ng-container *ngIf="options.online; else offline">
-      <span class="clickable" title="online" (click)="onToggleOnlineClick()">
-        <mat-icon>wifi</mat-icon>
-      </span>
-    </ng-container>
-    <ng-template #offline>
-      <span class="clickable" title="offline" (click)="onToggleOnlineClick()">
-        <mat-icon>wifi_off</mat-icon>
-      </span>
-    </ng-template>
-
+    <span class="clickable" title="online" (click)="onToggleOnlineClick()">
+      <mat-icon>{{options.online ? 'wifi' : 'wifi_off'}}</mat-icon>
+    </span>
     <!-- indexed -->
     <ng-container *ngIf="options.indexed">
       <span class="option" (wheel)="onIndexedWheel($event)">
         {{ options.indexed }}
       </span>
+      <span class="divider"></span>
+    </ng-container>
+
+
+    <!-- fetch-count -->
+    <ng-container *ngIf="options.fetchCount">
+      <span class="option" (wheel)="onFetchCountWheel($event)">
+        {{ options.fetchCount }}
+        <span>{{'evaluate.count' | translate}}</span>
+      </span>    
+      <span class="divider"></span>  
     </ng-container>
 
     <!-- reset -->

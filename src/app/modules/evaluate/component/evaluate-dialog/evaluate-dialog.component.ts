@@ -6,7 +6,7 @@ import { StashPriceTagType } from '@shared/module/poe/service';
 import { CurrencyService } from '@shared/module/poe/service/currency/currency.service';
 import { Currency, Item, ItemCategory, ItemRarity, Language } from '@shared/module/poe/type';
 import { BehaviorSubject, forkJoin, Observable, Subject } from 'rxjs';
-import { buffer, debounceTime, shareReplay, delay } from 'rxjs/operators';
+import { buffer, debounceTime, delay, shareReplay } from 'rxjs/operators';
 import { EvaluateOptions } from '../evaluate-options/evaluate-options.component';
 import { EvaluateUserSettings } from '../evaluate-settings/evaluate-settings.component';
 
@@ -47,12 +47,14 @@ export class EvaluateDialogComponent implements OnInit, AfterViewInit, OnDestroy
   }
 
   public ngOnInit(): void {
+    const { settings, item } = this.data;
     this.options = {
-      indexed: this.data.settings.evaluateQueryIndexedRange,
-      online: this.data.settings.evaluateQueryOnline,
-      leagueId: this.data.settings.leagueId
+      indexed: settings.evaluateQueryIndexedRange,
+      online: settings.evaluateQueryOnline,
+      leagueId: settings.leagueId,
+      fetchCount: settings.evaluateQueryFetchCount
     };
-    const { defaultItem, queryItem } = this.evaluateQueryItemProvider.provide(this.data.item, this.data.settings);
+    const { defaultItem, queryItem } = this.evaluateQueryItemProvider.provide(item, settings);
     this.defaultItem = defaultItem;
     this.queryItem = queryItem;
     this.currencies$ = this.getCurrencies();

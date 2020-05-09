@@ -23,5 +23,12 @@
         outline-width: 1px;
       }
     }
+
+    .divider{
+      border-bottom: 1px solid $light-grey;
+      width: 50%;
+      padding-top: 5px;
+      margin-bottom: 5px;
+    }
   }
 }

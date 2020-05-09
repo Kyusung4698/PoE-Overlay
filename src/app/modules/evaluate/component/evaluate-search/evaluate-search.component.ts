@@ -158,7 +158,7 @@ export class EvaluateSearchComponent implements OnInit, OnDestroy {
     ).subscribe(search => {
       this.search$.next(search);
       if (search.total > 0) {
-        const count = Math.min(this.settings.evaluateQueryFetchCount, search.total);
+        const count = Math.min(this.options.fetchCount, search.total);
         this.count$.next(count);
         this.list(search);
       }
@@ -166,7 +166,7 @@ export class EvaluateSearchComponent implements OnInit, OnDestroy {
   }
 
   private list(search: ItemSearchResult): void {
-    this.listSubscription = this.itemSearchService.list(search, this.settings.evaluateQueryFetchCount).pipe(
+    this.listSubscription = this.itemSearchService.list(search, this.options.fetchCount).pipe(
       takeUntil(this.queryItemChange)
     ).subscribe(listings => {
       this.listings$.next(listings);
