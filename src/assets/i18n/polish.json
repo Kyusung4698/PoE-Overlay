@@ -30,7 +30,7 @@
 		"cancel": "Anuluj?",
 		"canceled": "Wyszukiwanie anulowane. Otwórz w przeglądarce?",
 		"count": "Liczba Aukcji",
-		"currencies": "Waluta",
+		"currencies": "Waluty",
 		"currency": "Wyświetlana waluta",
 		"currency-listing": "Pokaż walutę oferty",
 		"days": "ostatnie 7 dni",
@@ -43,7 +43,7 @@
 		},
 		"fetch-count": "Liczba wyświetlanych ofert sprzedaży",
 		"initial-search": "Uruchom wyszukiwanie wstępne",
-		"layout": "Układ",
+		"layout": "Wyświetlanie wyników",
 		"listings": "Znaleziono {{total}}. Pobieranie {{count}} aukcji ...",
 		"loading": "Ładuję...",
 		"mean": "Średnia",
@@ -52,36 +52,36 @@
 		"name": "Wycena przedmiotu",
 		"not-found": "Brak danych.",
 		"prediction": {
-			"confidence": "Pewność siebie",
+			"confidence": "Zgodność",
 			"error": "Wystąpił błąd.",
 			"errors": {
 				"http": "Nie można nawiązać komunikacji z poeprices.info\nUpewnij się, że strona jest dostępna."
 			},
-			"feedback": "Sprzężenie zwrotne",
+			"feedback": "Czy cena się zgadza?",
 			"feedbacks": {
-				"fair": "Sprawiedliwy",
-				"high": "za wysoko",
-				"low": "Za nisko"
+				"fair": "Akurat",
+				"high": "Za wysoka",
+				"low": "Za niska"
 			},
-			"language": "poeprices.info obsługuje tylko angielski jako język klienta.",
+			"language": "poeprices.info obsługuje tylko język angielski.",
 			"sending": "Wysyłanie",
 			"source": "Prognoza cen na podstawie poeprices.info",
 			"thanks": "Dzięki!"
 		},
-		"pricing": "cennik",
-		"pricing-method": "metoda",
+		"pricing": "Wycena",
+		"pricing-method": "Metoda wyceny",
 		"pricings": {
-			"clipboard": "schowek",
-			"tagging": "Tagowanie"
+			"clipboard": "Schowek systemowy",
+			"tagging": "Notka przedmiotu"
 		},
 		"profile": {
-			"default": "domyślna"
+			"default": "Domyślny"
 		},
 		"profiles": "Wstępnie wybrane profile",
 		"property": {
 			"range": "Zakres od minimum do maksimum"
 		},
-		"query": "pytanie",
+		"query": "Zapytania wyceny",
 		"range": "Zakres",
 		"result-view": "Okno wyników",
 		"result-views": {
@@ -92,7 +92,7 @@
 		"search": {
 			"attack": "Atak",
 			"defense": "Obrona",
-			"filter": "filtr",
+			"filter": "Filtr wyszukiwania",
 			"gem": "Poziom gemów, map oraz jakość",
 			"item-default-links": "Z połączonymi gniazdami ",
 			"item-level": "Poziom przedmiotu",
@@ -114,7 +114,7 @@
 			},
 			"normalize-quality": "Normalizuj jakość",
 			"online-only": "Tylko Online",
-			"properties": "Nieruchomości"
+			"properties": "Właściwości"
 		},
 		"searching": "Szukam...",
 		"seller": "Sprzedawca",
@@ -127,7 +127,7 @@
 		"stats-unique-check-all": "Dla Unikatów sprawdź wszystkie",
 		"switch": "Odwróć skalę",
 		"tag": {
-			"clipboard": "Notatka została skopiowana do schowka.",
+			"clipboard": "Notka została skopiowana do schowka.",
 			"note": "Tylko przedmioty bez istniejącej notki mogą ją otrzymać. Treść notki została zamiast tego skopiowana.",
 			"outside-stash": "Tylko przedmiotom w skrytce można szybko dodać notkę sprzedaży. Treść notki została zamiast tego skopiowana."
 		},
@@ -173,7 +173,7 @@
 	},
 	"material": {
 		"accelerator": {
-			"any": "Naciśnij dowolny klawisz ... ESC ustawi to na niezwiązane.",
+			"any": "Naciśnij dowolny klawisz ... ESC pozostawi nie przypisany.",
 			"unbound": "Nie przypisany"
 		},
 		"select-list": {
@@ -208,7 +208,7 @@
 		"auto-launch": "Uruchom wraz ze startem systemu",
 		"cancel": "Anuluj",
 		"dialog": "Okno dialogowe",
-		"dialog-opacity": "Okno dialogowe Krycie",
+		"dialog-opacity": "Przezroczystość Okna Dialogowego",
 		"dialog-spawn-position": {
 			"center": "Na środku",
 			"cursor": "Kursor myszy"
