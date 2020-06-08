@@ -1,5 +1,33 @@
 # Changelog
 
+## 1.0.0 (2020-06-10)
+
+- added interactive introduction
+- added market module
+  - item search
+  - bulk exchange
+- added replay module
+  - player death
+  - boss kill
+- added inspect module
+  - item
+    - poedb url
+    - official wiki url
+    - drop location
+  - map
+    - stat warnings
+    - bosses
+    - loot
+- added placeholder support for commands (@char)
+- added vulkan support
+- added native fullscreen support
+- removed misc module
+  - poedb shortcut
+  - official wiki shortcut
+  - stash navigation
+  - stash highlight
+- removed stash price tagging
+
 ## 0.6.29 (2020-06-10)
 
 - added deprecated warning

@@ -8,11 +8,15 @@ The current version you're using is deprecated and may no longer work after a ma
 2. Download the new version from <REPLACE_ME>
 3. Run the downloaded installer
 
+A complete installation guide with pictures can be found [here](INSTALLING.md).
+
 ## What is new?
 
-The new version is no longer built with Electron but Overwolf instead. Overwolf provides a platform for building performant in-game overlays. They also work closely with game publishers to make sure you never get banned. See more of their [commitment to gamers here](https://www.overwolf.com/our-commitment).
+The new version is built on Overwolf - a platform for building performant in-game overlays. They also work closely with game publishers to make sure you never get banned. See more of their [commitment to gamers here](https://www.overwolf.com/our-commitment).
 
-- added interactive introduction
+### The 1.0.0 Update
+
+- added a interactive introduction
 - added market module
   - item search
   - bulk exchange
