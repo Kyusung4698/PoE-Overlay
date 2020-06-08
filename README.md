@@ -31,15 +31,15 @@ The complete guide with pictures can be found [here](INSTALLING.md).
 
 🚧 In Progress 📚 Backlog ⚡ Blocked 🐺 Overwolf 
 
-## 🚀 You want to request a feature?
+### 🚀 You want to request a feature?
 
 Great! Just click on [create a issue](https://github.com/Kyusung4698/PoE-Overlay/issues/new/choose) and choose the feature request template.
 
-## 🐞 You want to submit a bug?
+### 🐞 You want to submit a bug?
 
 Click on [create a issue](https://github.com/Kyusung4698/PoE-Overlay/issues/new/choose) and choose the bug template.
 
-## 📰 You want to know what's new?
+### 📰 You want to know what's new?
 
 View the changelog of this application [here](CHANGELOG.md).
 

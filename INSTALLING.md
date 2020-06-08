@@ -1,4 +1,4 @@
-# 🚩 Installing
+# Installing
 
 1. Download the new version from <REPLACE_ME>
 2. Run the downloaded installer

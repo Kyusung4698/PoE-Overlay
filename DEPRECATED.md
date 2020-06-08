@@ -1,4 +1,4 @@
-# ⚡ Deprecated
+# Deprecated
 
 The current version you're using is deprecated and may no longer work after a major PoE update.
 
