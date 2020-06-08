@@ -14,7 +14,7 @@ A complete installation guide with pictures can be found [here](INSTALLING.md).
 
 The new version is built on Overwolf - a platform for building performant in-game overlays. They also work closely with game publishers to make sure you never get banned. See more of their [commitment to gamers here](https://www.overwolf.com/our-commitment).
 
-### ✨ The 1.0.0 Update
+### The 1.0.0 Update
 
 - added a interactive introduction
 - added market module
