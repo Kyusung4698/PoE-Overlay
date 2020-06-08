@@ -4,21 +4,19 @@ PoE Overlay lets you search the market and request items and helps you to evalua
 
 It also offers a seamless integrated user interface with **all client languages** available.
 
-## Features
+## ✨ Features
 
 A complete overview of all features can be found [here](FEATURES.md).
 [![Feature Overview As Video](img/video.jpg)](https://www.youtube.com/watch?v=_cJmW8QkQnM)
 
-## Installing
+## 🚩 Installing
 
 1. Download the new version from <REPLACE_ME>
 2. Run the downloaded installer
 
 The complete guide with pictures can be found [here](INSTALLING.md).
 
-## Roadmap
-
-🚧 In Progress 📚 Backlog ⚡ Blocked 🐺 Overwolf 
+## ⭐ Roadmap
 
 | Module        | Feature         | Status | Note     
 | ------------- | --------------- | ------ | ---------
@@ -31,15 +29,21 @@ The complete guide with pictures can be found [here](INSTALLING.md).
 | Trade         | Parsing Offers  | ⚡     | Waiting 🐺
 | Commands      | @latest_whisper | ⚡     | Waiting 🐺
 
-## You want to request a feature?
+🚧 In Progress 📚 Backlog ⚡ Blocked 🐺 Overwolf 
+
+## 🚀 You want to request a feature?
 
 Great! Just click on [create a issue](https://github.com/Kyusung4698/PoE-Overlay/issues/new/choose) and choose the feature request template.
 
-## You want to know what's new?
+## 🐞 You want to submit a bug?
+
+Great! Just click on [create a issue](https://github.com/Kyusung4698/PoE-Overlay/issues/new/choose) and choose the feature request template.
+
+## 📰 You want to know what's new?
 
 View the changelog of this application [here](CHANGELOG.md).
 
-## Acknowledgments
+## 🔥 Acknowledgments
 
 - [Grinding Gear Games](https://www.pathofexile.com/) - PoE
 - [poe.ninja](https://poe.ninja/) - Market Statistics
