@@ -37,7 +37,7 @@ Great! Just click on [create a issue](https://github.com/Kyusung4698/PoE-Overlay
 
 ## 🐞 You want to submit a bug?
 
-Great! Just click on [create a issue](https://github.com/Kyusung4698/PoE-Overlay/issues/new/choose) and choose the feature request template.
+Click on [create a issue](https://github.com/Kyusung4698/PoE-Overlay/issues/new/choose) and choose the bug template.
 
 ## 📰 You want to know what's new?
 
