@@ -153,6 +153,15 @@ function showChangelog() {
     changelog.loadURL('https://github.com/Kyusung4698/PoE-Overlay/blob/master/CHANGELOG.md#Changelog');
 }
 
+function showDeprecated() {
+    const deprecated = new BrowserWindow({
+        modal: true,
+        parent: win,
+    });
+    deprecated.removeMenu();
+    deprecated.loadURL('https://github.com/Kyusung4698/PoE-Overlay/blob/master/DEPRECATED.md#Deprecated');
+}
+
 /* main window */
 function createWindow(): BrowserWindow {
     const { bounds } = getDisplay();
@@ -183,10 +192,8 @@ function createWindow(): BrowserWindow {
     win.setVisibleOnAllWorkspaces(true);
 
     win.once('show', () => {
-        if (state.isVersionUpdated(app.getVersion())) {
-            showChangelog();
-        }
-    })
+        showDeprecated();
+    });
 
     loadApp(win);
 
