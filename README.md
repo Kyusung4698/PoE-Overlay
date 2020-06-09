@@ -1,10 +1,10 @@
 # PoE Overlay
 
-[![Feature Overview As Video](img/video.jpg)](https://www.youtube.com/watch?v=u3M0P7yAVpU)
-
 PoE Overlay lets you search the market and request items and helps you to evaluate the price of your items. As well as getting insights for your maps before running them and allows you to rewatch important game events like your player death.
 
 It also offers a seamless integrated user interface with **all client languages** available.
+
+[![Feature Overview As Video](img/video.jpg)](https://www.youtube.com/watch?v=u3M0P7yAVpU)
 
 ## ✨ Features
 
