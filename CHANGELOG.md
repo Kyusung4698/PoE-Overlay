@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.6.29 (2020-06-10)
+
+- added deprecated warning
+
 ## 0.6.28 (2020-05-09)
 
 - added fetch count at the option menu (#692)
