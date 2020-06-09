@@ -1,5 +1,7 @@
 # PoE Overlay
 
+[![Feature Overview As Video](img/video.jpg)](https://www.youtube.com/watch?v=u3M0P7yAVpU)
+
 PoE Overlay lets you search the market and request items and helps you to evaluate the price of your items. As well as getting insights for your maps before running them and allows you to rewatch important game events like your player death.
 
 It also offers a seamless integrated user interface with **all client languages** available.
@@ -8,7 +10,7 @@ It also offers a seamless integrated user interface with **all client languages*
 
 ### Evaluate
 
-Quickly evaluate the worth of your items. Properties can be added and removed from the query with a simple click. Values can be adjusted with scrolling. The results will update accordingly.
+Quickly evaluate your items. Properties can be added and removed from the query with a simple click. Values can be adjusted with scrolling. Clicking a listing will then copy a formatted note.
 
 ![Downloaded](img/feature_evaluate.jpg)
 
@@ -47,7 +49,7 @@ Bind useful websites to hotkeys and visit them while playing without leaving the
 
 ## 🚩 Installing
 
-1. Download the new version from <REPLACE_ME>
+1. Download the new version from the [Overwolf Store](https://www.overwolf.com/app/Kyusung4698-PoE_Overlay)
 2. Run the downloaded installer
 
 The complete guide with pictures can be found [here](INSTALLING.md).
