@@ -1,5 +1,5 @@
 # Installing
-1. Visit the Overwolf Store and click on download.<br>https://www.overwolf.com/app/Kyusung4698-PoE_Overlay<br>![Store](img/install_store.jpg)
+1. [Visit the Overwolf Store](https://www.overwolf.com/app/Kyusung4698-PoE_Overlay) and click on download.<br>![Store](img/install_store.jpg)
 2. Run the downloaded installer. <br>![Downloaded](img/install_downloaded.jpg)
 3. Select your language and follow the installer instructions. <br>
 ![Start](img/install_start.jpg)
