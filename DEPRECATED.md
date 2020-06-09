@@ -2,17 +2,21 @@
 
 The current version you're using is deprecated and may no longer work after a major PoE update.
 
-## How to update
+## 🚩 How to update
 
 1. Uninstall the current version
 2. Download the new version from <REPLACE_ME>
 3. Run the downloaded installer
 
-## What is new?
+A complete installation guide with pictures can be found [here](INSTALLING.md).
 
-The new version is no longer built with Electron but Overwolf instead. Overwolf provides a platform for building performant in-game overlays. They also work closely with game publishers to make sure you never get banned. See more of their [commitment to gamers here](https://www.overwolf.com/our-commitment).
+## 📰 What is new?
 
-- added interactive introduction
+The new version is built on Overwolf - a platform for building performant in-game overlays. They also work closely with game publishers to make sure you never get banned. See more of their [commitment to gamers here](https://www.overwolf.com/our-commitment).
+
+### The 1.0.0 Update
+
+- added a interactive introduction
 - added market module
   - item search
   - bulk exchange
