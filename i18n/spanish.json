@@ -1,0 +1,393 @@
+{
+	"annotation": {
+		"bookmarks": {
+			"message": "Abre una página web al presionar teclas de acceso rápido en el navegador del juego.\n\nPruebe la tecla de acceso rápido a continuación para abrir poe.ninja.",
+			"title": "Marcadores"
+		},
+		"commands": {
+			"message": "Todos los comandos del juego pueden estar vinculados a teclas de acceso rápido.\n\nTambién hay marcadores de posición como @char disponibles que serán reemplazados antes de ejecutar el comando.\n\nPrueba la tecla de acceso rápido a continuación para teletransportarte a tu escondite.",
+			"title": "comandos"
+		},
+		"continue": "Continuar",
+		"evaluate": {
+			"close": {
+				"message": "La ventana se puede cerrar haciendo clic fuera de la ventana o presionando esc si la ventana estaba enfocada.",
+				"title": "Cerrar ventana de evaluación"
+			},
+			"message": "Le permite evaluar elementos con sus ajustes preestablecidos de filtros de búsqueda.\n\nDesplácese sobre un elemento y presione la tecla de acceso rápido a continuación:",
+			"options": {
+				"message": "Las opciones se pueden alternar haciendo clic en el icono resaltado.\n\nSe utilizan para ajustar rápidamente ciertas configuraciones como la liga para esta búsqueda.\n\nLos valores se pueden cambiar desplazándose.",
+				"title": "Opciones"
+			},
+			"price": {
+				"message": "La sección de precios muestra el tipo de cambio de poe.ninja o, para artículos raros, el precio previsto de poeprices.info.",
+				"title": "Precio"
+			},
+			"properties": {
+				"message": "Las propiedades incluyen el cálculo de DPS.\n\nSe normalizan exactamente al 20% de calidad, independientemente de si la calidad real es mayor o menor.\nEsto se puede desactivar en la configuración.\n\nAl hacer clic en una propiedad, se agrega a la consulta de búsqueda. Más sobre esto en las estadísticas.",
+				"title": "Propiedades"
+			},
+			"search": {
+				"message": "La búsqueda muestra todos los listados basados en sus filtros.\n\nPuede elegir entre una vista gráfica o una vista de lista.\nLa vista gráfica agrupa los artículos según su precio y muestra el recuento de esos grupos. La vista de lista simplemente muestra el listado ordenado por la cantidad.\nAmbas vistas se filtran adicionalmente para posibles fijadores de precios al agrupar su listado en uno.\n\nAl hacer clic en un listado, se copiará una nota de precio con formato en su portapapeles.",
+				"title": "Buscar"
+			},
+			"settings": {
+				"message": "La configuración se puede ajustar haciendo clic en el icono resaltado. La mayoría de las configuraciones definen qué propiedades del elemento se agregan a la búsqueda inicial.\n\nPor ejemplo, puede ajustar las estadísticas preseleccionadas en la configuración.",
+				"title": "Ajustes"
+			},
+			"stats": {
+				"message": "Al hacer clic en una estadística, se agregará a la consulta de búsqueda.\n\nPuede modificar el rango desplazándose mientras está suspendido. Si desea ajustar un solo valor, simplemente desplace el mouse sobre él.\nManteniendo ALT puede ajustar el tamaño del paso a 0.1 y a 5 manteniendo presionado SHIFT.\n\nPara establecer un valor en infinito, haga clic derecho en él.\nPara restablecer un valor, haga clic en él.",
+				"title": "Estadísticas"
+			},
+			"title": "Evaluar"
+		},
+		"inspect": {
+			"close": {
+				"message": "La ventana se puede cerrar haciendo clic fuera de la ventana o presionando esc si la ventana estaba enfocada.",
+				"title": "Cerrar ventana de inspección"
+			},
+			"loot": {
+				"message": "Muestra el posible botín de un mapa o la ubicación del botín para un artículo determinado.",
+				"title": "Botín"
+			},
+			"message": "Le permite abrir el elemento en la wiki o poe.db. También muestra las estadísticas peligrosas de un mapa determinado o la ubicación de colocación de ciertas cartas de adivinación.\n\nDesplácese sobre un elemento y presione la tecla de acceso rápido a continuación:",
+			"settings": {
+				"message": "La configuración se puede ajustar haciendo clic en el icono resaltado.\n\nPor ejemplo, puede ajustar las advertencias de estadísticas del mapa en la configuración.",
+				"title": "Ajustes"
+			},
+			"title": "Inspeccionar",
+			"urls": {
+				"message": "Abra el elemento en la wiki oficial o poe.db haciendo clic en uno de los iconos resaltados.",
+				"title": "Urls"
+			}
+		},
+		"market": {
+			"close": {
+				"message": "El mercado mantendrá los resultados actuales. Se puede cerrar presionando la tecla de acceso rápido nuevamente o haciendo clic en la x en la esquina superior derecha.",
+				"title": "Mercado cerrado"
+			},
+			"filter": {
+				"message": "Haga clic en el icono resaltado para abrir el filtro. Ajusta los valores a tu gusto.",
+				"title": ""
+			},
+			"message": "El mercado te permite navegar por los artículos listados e intercambiar monedas dentro del juego.\n\nSe puede activar presionando la tecla de acceso rápido a continuación:",
+			"reset": {
+				"message": "El filtro se puede restablecer haciendo clic en el símbolo resaltado.",
+				"title": "Reajustar el filtro"
+			},
+			"search": {
+				"message": "La búsqueda muestra los resultados filtrados. Buscará automáticamente nuevos elementos una vez que llegue al final de la lista.\n\nAl hacer clic en el botón enviar, enviarás un susurro con tu oferta.",
+				"title": "Buscar"
+			},
+			"title": ""
+		},
+		"replay": {
+			"message": "Captura videos cortos de eventos del juego como tu muerte o si matas a un jefe importante.\n\nSe puede habilitar en la configuración. Esto está deshabilitado de forma predeterminada porque puede reducir su FPS.",
+			"title": "Repetición"
+		},
+		"settings": {
+			"app-settings": {
+				"message": "El idioma de la aplicación se puede ajustar a su gusto.",
+				"title": "Ajustes de Aplicacion"
+			},
+			"close": {
+				"message": "Todos los ajustes se aplican directamente. La ventana se puede cerrar presionando la misma tecla de acceso rápido nuevamente.",
+				"title": "Cerrar configuraciones"
+			},
+			"game-settings": {
+				"message": "El idioma del juego debe coincidir con el idioma de su cliente.\nLa liga debe ser la misma que tu personaje actual.\n\nTambién tenga en cuenta que una vez que llegue una nueva liga, debe ajustar su configuración en consecuencia.",
+				"title": "Configuraciones de juego"
+			},
+			"message": "Abra la ventana de configuración presionando la siguiente tecla de acceso rápido:",
+			"title": "Ajustes"
+		},
+		"thanks": {
+			"message": "Eso es todo por ahora. Espero que disfrutes mi aplicación.\n\n- Saludos cordiales, Kyusung4698",
+			"title": ""
+		},
+		"welcome": {
+			"message": "Las siguientes anotaciones lo guiarán a través de la funcionalidad básica.",
+			"title": "¡Bienvenido a PoE Overlay!"
+		}
+	},
+	"app": {
+		"clickable": "'Click' = Navegador dentro del juego, 'CTRL + Click' Navegador predeterminado",
+		"hotkey": "Atajo",
+		"language": "idioma"
+	},
+	"bookmarks": {
+		"external": "Externo",
+		"name": "Marcador",
+		"url": "Url"
+	},
+	"clipboard": {
+		"empty": "El portapapeles estaba vacío",
+		"error": "Se produjo un error al analizar el elemento.",
+		"parser-error": "El artículo no se pudo analizar. Asegúrese de tener seleccionado el idioma correcto."
+	},
+	"commands": {
+		"execute-error": "Se produjo un error inesperado al ejecutar el comando.",
+		"name": "Mando",
+		"text": "Mando"
+	},
+	"evaluate": {
+		"cancel": "¿Cancelar?",
+		"canceled": "Búsqueda cancelada ¿Abierta en el navegador?",
+		"currencies": {
+			"displayed": "desplegado",
+			"name": "moneda",
+			"original": "Mostrar original"
+		},
+		"item-search": {
+			"filter": {
+				"max-age": {
+					"any": "EN CUALQUIER MOMENTO",
+					"day": "Hasta hace un día",
+					"days": "Hasta hace 3 días.",
+					"month": "Hasta 1 mes atrás",
+					"months": "Hasta hace 2 meses",
+					"name": "Listado de edad máxima",
+					"week": "Hasta hace una semana",
+					"weeks": "Hasta hace 2 semanas."
+				},
+				"name": "Filtrar",
+				"online-only": "Solo online"
+			},
+			"profile": {
+				"default": "Defecto",
+				"name": "Perfiles preseleccionados"
+			},
+			"property": {
+				"attack": "Ataque",
+				"defense": "Defensa",
+				"item-level": "Nivel de objeto",
+				"item-type": "Tipo de artículo",
+				"link": "Enlace de artículo",
+				"links": {
+					"always": "siempre",
+					"never": "Nunca"
+				},
+				"miscs": "Nivel de gema, nivel de mapa y calidad",
+				"name": "Propiedades",
+				"normalize-quality": "Normalizar calidad",
+				"range": "Rango Min-Max"
+			},
+			"query": {
+				"debounce-time": "Tiempo de rebote",
+				"fetch-count": "Buscar recuento de búsqueda",
+				"initial": "Ejecutar búsqueda inicial",
+				"name": "consulta"
+			},
+			"stat": {
+				"name": "Estadísticas",
+				"range": "Rango Min-Max",
+				"stats-export": "Exportar estadísticas al portapapeles",
+				"stats-import": "Importar estadísticas del portapapeles",
+				"unique-all": "Verificación única de todo"
+			}
+		},
+		"layout": {
+			"name": "diseño",
+			"value": "Vista de resultados",
+			"values": {
+				"graph": "Gráfico",
+				"list": "Lista"
+			}
+		},
+		"name": "Evaluar",
+		"options": {
+			"count": "Contar"
+		},
+		"prediction": {
+			"confidence": "confianza",
+			"error": "Ocurrió un error.",
+			"errors": {
+				"http": "No se pudo comunicar con poeprices.info\nAsegúrese de que se pueda acceder al sitio web."
+			},
+			"feedback": "Realimentación",
+			"feedbacks": {
+				"fair": "Equitativo",
+				"high": "demasiado alto",
+				"low": "demasiado baja"
+			},
+			"language": "poeprices.info solo admite inglés como idioma del cliente.",
+			"sending": "Enviando",
+			"source": "Predicción de precios basada en poeprices.info",
+			"thanks": "¡Gracias!"
+		},
+		"rate": {
+			"days": "Los últimos 7 días",
+			"error": "Ocurrió un error.",
+			"errors": {
+				"http": "No se pudo comunicar con poe.ninja\nAsegúrese de que se pueda acceder al sitio web."
+			},
+			"switch": "cantidad de cambio",
+			"value": "Valor"
+		},
+		"table": {
+			"age": "años",
+			"seller": "Vendedor",
+			"value": "Valor"
+		},
+		"tag": {
+			"exact": "El precio exacto ha sido copiado. Doble toque por precio negociable.",
+			"negotiable": "El precio negociable ha sido copiado."
+		},
+		"translate": {
+			"name": "Evaluar Traducir"
+		},
+		"values": {
+			"mean": "Mean",
+			"median": "Mediana",
+			"mode": "Mode",
+			"range": "Range"
+		}
+	},
+	"event": {
+		"start-error": "No se pudo comenzar a escuchar los eventos del juego."
+	},
+	"help": {
+		"browser": "Si mantiene presionada la tecla CTRL mientras hace clic, se abrirá el enlace en el navegador predeterminado.",
+		"browser-title": "¿Cómo abro la búsqueda en mi navegador predeterminado?",
+		"bug": "Crear un problema",
+		"bug-title": "Encontrado un error? ¿O tienes una sugerencia? Por favor crea un problema en GitHub",
+		"donate": "Done a través de PayPal",
+		"donate-title": "Me encanta el proyecto? Siéntase libre de dejar una donación. ¡Gracias por su apoyo!",
+		"dwm": "Esto es causado principalmente por un Aero / DWM deshabilitado. Por lo tanto, intente habilitar esta función de Windows.<br> Como se requiere para crear ventanas transparentes.",
+		"dwm-title": "¿Por qué mi pantalla se vuelve negra / blanca después de alternar alguna función?",
+		"faq": "Preguntas más frecuentes",
+		"graph": "La barra indica la distribución del valor del artículo. Básicamente agrupa los valores por valor y los cuenta.<br> La barra más alta es el Modo. También llamado 'valor más común'. La media es el promedio. La mediana es el valor centrado de todos los valores.",
+		"graph-title": "¿Qué representa el gráfico? ¿Qué es la moda / media / mediana?",
+		"graph-url": "Abra 'Cómo leer un histograma Min Max Median Mean' por 'academy.datawrapper.de'",
+		"graphic": "Esto se debe principalmente a controladores gráficos incompatibles para la versión actual de Chrome.<br> Deshabilite la Aceleración de hardware dentro del menú de la bandeja.",
+		"graphic-title": "Los gráficos son borrosos / error gráfico?",
+		"name": "Ayuda",
+		"patreon": "Apóyame en Patreon",
+		"wiki": "Open Project Wiki",
+		"wiki-title": "Vea el wiki del proyecto para más documentación"
+	},
+	"inspect": {
+		"map": {
+			"boss": "Jefe",
+			"boss-rating": "Calificación del jefe",
+			"boss-rating-info": "5: Salida de daño alta y constante que es difícil de evitar de manera confiable; omitido por muchos jugadores.\n4: Salida de daño alta y constante que puede evitarse razonablemente bien pero que sigue siendo muy peligrosa.\n3: Ocasionalmente, alto daño producido que puede evitarse razonablemente bien.\n2: Salida de daño moderada que puede ser fácilmente eliminada y / o mitigada razonablemente por la mayoría de las construcciones.\n1: Trivial para la mayoría de las compilaciones.",
+			"bosses": "Jefes",
+			"layout-rating": "Calificación de diseño",
+			"layout-rating-info": "R: El mapa tiene un diseño consistente que puede borrarse completamente de manera confiable sin retroceder.\nB: El mapa tiene un diseño abierto con pocos obstáculos, o solo tiene caminos laterales cortos y bien conectados.\nC: El mapa tiene un diseño abierto con muchos obstáculos, o tiene caminos laterales largos que requieren retroceso.",
+			"name": "Mapa",
+			"no-map": "El artículo no es un mapa.",
+			"not-found": "Mapa no encontrado",
+			"stats-warning": "Advertencias de estadísticas",
+			"stats-warning-export": "Exportar advertencias de estadísticas al portapapeles",
+			"stats-warning-import": "Importar advertencias de estadísticas desde el portapapeles"
+		},
+		"name": "Inspeccionar",
+		"open-poedb": "Abrir PoE DB",
+		"open-wiki": "Wiki abierto"
+	},
+	"market": {
+		"bar": {
+			"reset": "Filtro claro",
+			"search": "Buscar",
+			"toggle": "Filtro de palanca"
+		},
+		"exchange": {
+			"get": "Lo que obtienes",
+			"have": "Artículo (s) que tengo ({{count}})",
+			"highlight": "Destacar elementos ...",
+			"pay": "Lo que pagas",
+			"want": "Artículo (s) que quiero ({{count}})"
+		},
+		"name": "Mercado",
+		"search": {
+			"search": "Buscar artículos ..."
+		},
+		"status": {
+			"afk": "Afk",
+			"offline": "Desconectado",
+			"online": "En línea"
+		}
+	},
+	"material": {
+		"select-list": {
+			"add": "agregar a seleccionado",
+			"remove": "eliminar de seleccionado",
+			"search": "Buscar",
+			"selected": "Seleccionado",
+			"unselected": "No seleccionado"
+		}
+	},
+	"misc": {
+		"highlight": "Realce",
+		"name": "Misceláneos",
+		"navigation": "Navegación",
+		"navigations": {
+			"disabled": "Discapacitado",
+			"inverse": "Inverso",
+			"normal": "Normal"
+		}
+	},
+	"replay": {
+		"capture": "Capturar",
+		"capture-error": "El evento no pudo ser capturado.",
+		"death": "Evento de muerte",
+		"future-duration": "Duración futura",
+		"kill": "Evento de muerte",
+		"name": "Repetición",
+		"past-duration": "Duración pasada",
+		"start-error": "No se pudo iniciar la captura de eventos.",
+		"started": "La captura de eventos ha comenzado.",
+		"stop-error": "No se pudo detener la captura de eventos.",
+		"stopped": "La captura de eventos ha sido detenida."
+	},
+	"settings": {
+		"app": "aplicación",
+		"auto-download": "Descargar actualización automáticamente",
+		"auto-launch": "Ejecutar en arranque",
+		"cancel": "Cancelar",
+		"dialog": "Diálogo",
+		"dialog-opacity": "Diálogo Opacidad",
+		"dialog-spawn-position": {
+			"center": "Centrar",
+			"cursor": "Cursor"
+		},
+		"dialog-spawn-position-title": "Posición de generación de diálogo",
+		"display-version": "Versión de pantalla",
+		"exit-app": "Salir de la aplicacion",
+		"focusable": "Enfocable (soporte de teclado)",
+		"game-settings": "Configuraciones de juego",
+		"general": "general",
+		"languages": {
+			"english": "Inglés",
+			"french": "francés",
+			"german": "alemán",
+			"korean": "coreano",
+			"polish": "polaco",
+			"portuguese": "portugués",
+			"russian": "ruso",
+			"simplifiedchinese": "Chino simplificado",
+			"spanish": "español",
+			"thai": "tailandés",
+			"traditionalchinese": "Chino tradicional"
+		},
+		"league": "liga",
+		"relaunch-app": "Relanzar aplicación",
+		"save": "Salvar",
+		"ui-language": "Idioma de la interfaz de usuario",
+		"zoom": "Enfocar"
+	},
+	"trade": {
+		"analyzing": "Analizando datos ...",
+		"empty": "No hay resultados. ¿Abierta en el navegador?",
+		"error": "Ocurrió un error.",
+		"errors": {
+			"http": "No se pudo comunicar con el sitio web comercial de GGG.\nAsegúrese de que se pueda acceder al sitio web.",
+			"rate": "Límite alcanzado. Por favor, inténtelo de nuevo más tarde.\nSi esto sigue sucediendo, intente reducir el recuento de elementos recuperados."
+		},
+		"fetching": "Encontrado {{total}}. Obteniendo {{count}} entradas ...",
+		"not-found": "Datos no encontrados.",
+		"search": "Buscar",
+		"searching": "Buscando...",
+		"stale": "El filtro ha sido cambiado. Buscando de nuevo ... - ¿Ahora?"
+	}
+}
