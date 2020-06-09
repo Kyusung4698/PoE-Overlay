@@ -2,7 +2,7 @@
 
 ## 1.0.0 (2020-06-10)
 
-- added interactive introduction
+- added added a interactive introduction
 - added market module
   - item search
   - bulk exchange
