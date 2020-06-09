@@ -6,4 +6,4 @@
 4. The installer should now download all required files. This may take a few seconds.<br>![Download](img/install_download.jpg)
 5. Once everything is finished you can launch PoE Overlay. <br>![Launch](img/install_launch.jpg)
 6. Unless PoE is running you should now see following launcher. <br> ![Launcher](img/install_launcher.jpg)
-7. Once PoE is launched you will be greated with a interactive guide through the basic functionality. <br>![Introduction](img/install_introduction.jpg)
+7. Once PoE is launched you will be greeted with a interactive guide through the basic functionality. <br>![Introduction](img/install_introduction.jpg)
