@@ -1,0 +1,13 @@
+<div class="content">
+    <span *ngIf="label">{{ label }}:&nbsp;</span>
+    <span *ngIf="amount !== undefined && amount !== null" class="amount">
+        {{ amount | number: "1.2-2" }}&nbsp;
+    </span>
+    <!-- <span *ngIf="count" class="amount">{{ count | number: "1.0-0" }}&nbsp;</span> -->
+    <span *ngIf="range" class="amount">{{ range.min | number: "1.2-2" }}&nbsp;-&nbsp;{{
+            range.max | number: "1.2-2"
+          }}&nbsp;</span>
+    <span class="currency" *ngIf="((currency | currency) | async) as currency">
+        <img [src]="'https://web.poecdn.com' + currency.image" />
+    </span>
+</div>

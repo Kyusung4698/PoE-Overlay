@@ -1,0 +1,9 @@
+<div class="clickable values" (click)="onClick($event)" [title]="'app.clickable' | translate">
+    <span class="value" [class.negative]="rate.change < 0" [class.positive]="rate.change > 0">
+        <mat-icon *ngIf="rate.change < 0">trending_down</mat-icon>
+        <mat-icon *ngIf="rate.change === 0">trending_flat</mat-icon>
+        <mat-icon *ngIf="rate.change > 0">trending_up</mat-icon>
+        <span> {{rate.change}}%</span>
+    </span>
+    <span class="info">{{'evaluate.rate.days' | translate}}</span>
+</div>

@@ -1,0 +1,17 @@
+<div class="input-container">
+    <input #input [placeholder]="'market.search.search' | translate" (keyup)="onKeyup()" (focus)="onFocus()"
+        (blur)="onBlur($event)">
+    <button class="small" appAnnotation="market.filter" (click)="onToggleClick()" [title]="'market.bar.toggle' | translate">
+        <mat-icon> filter_list </mat-icon>
+    </button>
+    <button class="small" appAnnotation="market.reset" (click)="onClearClick()" [title]="'market.bar.reset' | translate">
+        <mat-icon> history </mat-icon>
+    </button>
+    <button (click)="onSearch()" appAnnotation="market.search">{{'market.bar.search' | translate}}</button>
+    <cdk-virtual-scroll-viewport class="filter" [class.shown]="filterVisible$ | async" itemSize="30" minBufferPx="200"
+        maxBufferPx="400">
+        <div class="entry" [class.group]="entry.group" [class.item]="!entry.group" [innerHTML]="entry.text"
+            (click)="onItemClick(entry.value)" *cdkVirtualFor="let entry of entries$ | async; templateCacheSize: 0">
+        </div>
+    </cdk-virtual-scroll-viewport>
+</div>

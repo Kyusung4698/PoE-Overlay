@@ -1,0 +1,37 @@
+<ng-container *ngIf="rate$ | async as rate; else empty">
+    <ng-container *ngIf="loading$ | async; else loaded">
+        <ng-container *ngIf="(message$ | async) as message">
+            {{message.key | translate:message.value}}
+        </ng-container>
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </ng-container>
+    <ng-template #loaded>
+        <div class="content" (wheel)="onWheel($event, rate.currency)">
+            <div class="factor">
+                <app-evaluate-item-price-rate-factors [rate]="rate" [inverse]="inverse$ | async"
+                    (inverseToggle)="onInverseToggle()" (evaluateSelect)="evaluateSelect.next($event)">
+                </app-evaluate-item-price-rate-factors>
+            </div>
+            <div class="spacer"></div>
+            <div class="graph">
+                <app-evaluate-item-price-rate-values [rate]="rate" (browse)="onRateBrowse(rate, $event)">
+                </app-evaluate-item-price-rate-values>
+                <app-evaluate-item-price-rate-graph [rate]="rate" [inverse]="inverse$ | async"
+                    [name]="'evaluate.rate.value' | translate"></app-evaluate-item-price-rate-graph>
+            </div>
+        </div>
+    </ng-template>
+</ng-container>
+<ng-template #empty>
+    <ng-container *ngIf="(message$ | async) as message">
+        {{message.key | translate:message.value}}
+    </ng-container>
+    <ng-container *ngIf="loading$ | async">
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </ng-container>
+    <ng-container *ngIf="(error$ | async) as error">
+        <div class="error">
+            {{error.key | translate:error.value}}
+        </div>
+    </ng-container>
+</ng-template>

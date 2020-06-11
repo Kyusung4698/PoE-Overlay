@@ -1,0 +1,72 @@
+<ng-container *ngIf="item.stats | statGroup as groups">
+    <ng-container *ngIf="groups.enchant">
+        <ng-container *ngFor="let stat of groups.enchant; let last = last">
+            <div class="blue">
+                <ng-container *ngTemplateOutlet="statQuery, context: { stat: stat }"></ng-container>
+            </div>
+            <app-item-frame-separator [item]="item"
+                *ngIf="last && (groups.implicit || groups.fractured || groups.explicit || groups.crafted)">
+            </app-item-frame-separator>
+        </ng-container>
+    </ng-container>
+    <ng-container *ngIf="groups.implicit">
+        <ng-container *ngFor="let stat of groups.implicit; let last = last">
+            <div class="purpel">
+                <ng-container *ngTemplateOutlet="statQuery, context: { stat: stat }"></ng-container>
+            </div>
+            <app-item-frame-separator [item]="item"
+                *ngIf="last && (groups.fractured || groups.explicit || groups.crafted)">
+            </app-item-frame-separator>
+        </ng-container>
+    </ng-container>
+    <ng-container *ngIf="groups.fractured">
+        <ng-container *ngFor="let stat of groups.fractured">
+            <div class="blue">
+                <ng-container *ngTemplateOutlet="statQuery, context: { stat: stat }"></ng-container>
+            </div>
+        </ng-container>
+    </ng-container>
+    <ng-container *ngIf="groups.explicit">
+        <ng-container *ngFor="let stat of groups.explicit">
+            <div class="purpel">
+                <ng-container *ngTemplateOutlet="statQuery, context: { stat: stat }"></ng-container>
+            </div>
+        </ng-container>
+    </ng-container>
+    <ng-container *ngIf="groups.crafted">
+        <ng-container *ngFor="let stat of groups.crafted">
+            <div class="blue">
+                <ng-container *ngTemplateOutlet="statQuery, context: { stat: stat }"></ng-container>
+            </div>
+        </ng-container>
+    </ng-container>
+    <ng-container *ngIf="groups.fractured || groups.explicit || groups.crafted">
+        <app-item-frame-separator [item]="item" *ngIf="groups.pseudo">
+        </app-item-frame-separator>
+    </ng-container>
+    <ng-container *ngIf="groups.pseudo">
+        <ng-container *ngFor="let stat of groups.pseudo">
+            <div>
+                <ng-container *ngTemplateOutlet="statQuery, context: { stat: stat }"></ng-container>
+            </div>
+        </ng-container>
+    </ng-container>
+</ng-container>
+
+<!-- template -->
+<ng-template #statQuery let-stat="stat">
+    <app-item-frame-query [(property)]="queryItem.stats[stat.index]" [value]="stat">
+        <app-item-frame-value-group>
+            <ng-container *ngIf="(stat|statTransform:language) as parts">
+                <ng-container *ngFor="let part of parts; let index = index">
+                    <span>{{part}}</span>
+                    <span [class]="getValueClass(stat.id)">
+                        <app-item-frame-value *ngIf="stat.values[index]" [(value)]="stat.values[index]"
+                            [minRange]="modifierMinRange" [maxRange]="modifierMaxRange">
+                        </app-item-frame-value>
+                    </span>
+                </ng-container>
+            </ng-container>
+        </app-item-frame-value-group>
+    </app-item-frame-query>
+</ng-template>

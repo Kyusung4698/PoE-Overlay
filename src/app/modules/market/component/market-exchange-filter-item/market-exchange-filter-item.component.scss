@@ -1,0 +1,25 @@
+@import "../../../../../styles/variables";
+
+.items {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+  line-height: 0;
+
+  .item {
+    background: $black-transparent;
+    padding: $gutter-half;
+    margin: 2px;
+    cursor: pointer;
+
+    &:hover,
+    &.active {
+      background: rgba(170, 158, 130, 0.3);
+      outline: 1px solid;
+    }
+
+    &.highlight {
+      outline: 1px solid $brown;
+    }
+  }
+}

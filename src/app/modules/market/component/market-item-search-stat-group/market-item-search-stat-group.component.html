@@ -1,0 +1,33 @@
+<div class="filters">
+    <div class="filter" *ngFor="let filter of filters$ | async; let i = index">
+        <ng-container *ngIf="(filter.id | tradeStats | async) as stat">
+            <div class="filter-content">
+                <ng-container *ngIf="stat.option && stat.option.options; else range">
+                    <app-market-input>
+                        <ng-container ngProjectAs="label">
+                            <app-market-item-search-stat [stat]="stat"></app-market-item-search-stat>
+                        </ng-container>
+                        <app-market-input-select [prefix]="prefix" [path]="'filters[' + i + '].value'" [request]="request">
+                            <app-market-input-select-option *ngFor="let option of stat.option.options | keyvalue"
+                                [text]="option.value.text" [value]="option.value.id"></app-market-input-select-option>
+                        </app-market-input-select>
+                    </app-market-input>
+                </ng-container>
+                <ng-template #range>
+                    <app-market-input>
+                        <ng-container ngProjectAs="label">
+                            <app-market-item-search-stat [stat]="stat"></app-market-item-search-stat>
+                        </ng-container>
+                        <app-market-input-number name="min" [prefix]="prefix" [path]="'filters[' + i + '].value'"
+                            [request]="request"></app-market-input-number>
+                        <app-market-input-number name="max" [prefix]="prefix" [path]="'filters[' + i + '].value'"
+                            [request]="request"></app-market-input-number>
+                    </app-market-input>
+                </ng-template>
+            </div>
+            <div class="filter-remove" (click)="onFilterRemove(i)">
+                <mat-icon>close</mat-icon>
+            </div>
+        </ng-container>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+@import "../../../../../styles/variables";
+
+.panel {
+  position: relative;
+  display: flex;
+  border-bottom: 1px solid $light-orange;
+  cursor: pointer;
+
+  & + .panel {
+    margin-top: $gutter-half;
+  }
+
+  .indicator {
+    position: absolute;
+    right: $gutter;
+    top: 3px;
+    will-change: transform, top;
+    transition: transform ease-in-out 200ms, top ease-in 100ms;
+
+    &.open {
+      top: 0px;
+      transform: rotateZ(-180deg);
+      transform-origin: center;
+    }
+  }
+}
+
+.panel-content {
+  padding-left: $gutter;
+  margin: $gutter-half 0;
+}

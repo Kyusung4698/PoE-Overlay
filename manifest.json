@@ -1,0 +1,260 @@
+{
+    "manifest_version": 1,
+    "type": "WebApp",
+    "meta": {
+        "name": "PoE Overlay",
+        "author": "Kyusung4698",
+        "version": "1.0.1",
+        "minimum-overwolf-version": "0.147.0",
+        "description": "Search the market and send trade offers. Get current market values for your item. View insights for maps and items.",
+        "dock_button_title": "PoE Overlay",
+        "icon": "assets/logo.png",
+        "icon_gray": "assets/logo_gray.png",
+        "launcher_icon": "assets/logo.ico",
+        "splash_image": "assets/logo.png",
+        "window_icon": "assets/logo.png"
+    },
+    "permissions": [
+        "Hotkeys",
+        "GameInfo",
+        "GameControl",
+        "Clipboard",
+        "VideoCaptureSettings"
+    ],
+    "data": {
+        "start_window": "background",
+        "windows": {
+            "background": {
+                "file": "dist/poe-overlay-overwolf/index.html",
+                "is_background_page": true
+            },
+            "settings": {
+                "file": "dist/poe-overlay-overwolf/index.html",
+                "block_top_window_navigation": true,
+                "disable_rightclick": true,
+                "keep_window_location": true,
+                "resizable": true,
+                "transparent": true,
+                "show_in_taskbar": false,
+                "size": {
+                    "width": 1212,
+                    "height": 699
+                },
+                "min_size": {
+                    "width": 1212,
+                    "height": 699
+                }
+            },
+            "evaluate": {
+                "file": "dist/poe-overlay-overwolf/index.html",
+                "in_game_only": true,
+                "block_top_window_navigation": true,
+                "disable_restore_animation": true,
+                "transparent": true,
+                "resizable": true,
+                "grab_keyboard_focus": true,
+                "size": {
+                    "width": 1212,
+                    "height": 699
+                }
+            },
+            "inspect": {
+                "file": "dist/poe-overlay-overwolf/index.html",
+                "in_game_only": true,
+                "block_top_window_navigation": true,
+                "disable_restore_animation": true,
+                "disable_rightclick": true,
+                "transparent": true,
+                "resizable": true,
+                "grab_keyboard_focus": true,
+                "size": {
+                    "width": 1212,
+                    "height": 699
+                }
+            },
+            "notification": {
+                "file": "dist/poe-overlay-overwolf/index.html",
+                "in_game_only": true,
+                "block_top_window_navigation": true,
+                "disable_restore_animation": true,
+                "transparent": true,
+                "clickthrough": true,
+                "topmost": true,
+                "size": {
+                    "width": 1212,
+                    "height": 699
+                }
+            },
+            "market": {
+                "file": "dist/poe-overlay-overwolf/index.html",
+                "in_game_only": true,
+                "block_top_window_navigation": true,
+                "disable_restore_animation": true,
+                "disable_rightclick": true,
+                "transparent": true,
+                "grab_keyboard_focus": true,
+                "size": {
+                    "width": 1212,
+                    "height": 699
+                }
+            },
+            "replay": {
+                "file": "dist/poe-overlay-overwolf/index.html",
+                "in_game_only": true,
+                "block_top_window_navigation": true,
+                "disable_restore_animation": true,
+                "disable_rightclick": true,
+                "transparent": true,                
+                "size": {
+                    "width": 1212,
+                    "height": 699
+                }
+            },
+            "launcher": {
+                "file": "dist/poe-overlay-overwolf/index.html",
+                "block_top_window_navigation": true,
+                "disable_restore_animation": true,
+                "disable_rightclick": true,
+                "desktop_only": true,
+                "native_window": true,
+                "transparent": true,
+                "override_on_update": true,
+                "show_in_taskbar": true,
+                "size": {
+                    "width": 278,
+                    "height": 327
+                }
+            },
+            "annotation": {                
+                "file": "dist/poe-overlay-overwolf/index.html",
+                "in_game_only": true,
+                "block_top_window_navigation": true,
+                "disable_restore_animation": true,
+                "disable_rightclick": true,
+                "transparent": true,
+                "size": {
+                    "width": 1212,
+                    "height": 699
+                }
+            }
+        },
+        "game_targeting": {
+            "type": "dedicated",
+            "game_ids": [
+                7212
+            ]
+        },
+        "game_events": [
+            7212
+        ],
+        "launch_events": [
+            {
+                "event": "GameLaunch",
+                "event_data": {
+                    "game_ids": [
+                        7212
+                    ]
+                },
+                "start_minimized": false
+            }
+        ],
+        "hotkeys": {
+            "evaluate": {
+                "title": "Evaluate Item",
+                "action-type": "custom",
+                "default": "Alt+D"
+            },
+            "evaluate-translate": {
+                "title": "Evaluate Translated Item",
+                "action-type": "custom",
+                "default": "Alt+T"
+            },
+            "inspect": {
+                "title": "Inspect Item",
+                "action-type": "custom",
+                "default": "Alt+Q"
+            },
+            "market-toggle": {
+                "title": "Toggle Market",
+                "action-type": "custom",
+                "default": "Alt+M"
+            },
+            "settings-toggle": {
+                "title": "Toggle Settings",
+                "action-type": "custom",
+                "default": "F7"
+            },
+            "command1": {
+                "title": "Execute Command 1",
+                "action-type": "custom",
+                "default": "F5"
+            },
+            "command2": {
+                "title": "Execute Command 2",
+                "action-type": "custom",
+                "default": "F6"
+            },
+            "command3": {
+                "title": "Execute Command 3",
+                "action-type": "custom",
+                "default": "F4"
+            },
+            "command4": {
+                "title": "Execute Command 4",
+                "action-type": "custom"
+            },
+            "command5": {
+                "title": "Execute Command 5",
+                "action-type": "custom"
+            },
+            "command6": {
+                "title": "Execute Command 6",
+                "action-type": "custom"
+            },
+            "bookmark1": {
+                "title": "Open Bookmark 1",
+                "action-type": "custom",
+                "default": "Alt+NumPad1"
+            },
+            "bookmark2": {
+                "title": "Open Bookmark 2",
+                "action-type": "custom",
+                "default": "Alt+NumPad2"
+            },
+            "bookmark3": {
+                "title": "Open Bookmark 3",
+                "action-type": "custom"
+            },
+            "bookmark4": {
+                "title": "Open Bookmark 4",
+                "action-type": "custom"
+            },
+            "bookmark5": {
+                "title": "Open Bookmark 5",
+                "action-type": "custom"
+            },
+            "bookmark6": {
+                "title": "Open Bookmark 6",
+                "action-type": "custom"
+            }
+        },
+        "externally_connectable": {
+            "matches": [
+                "https://*.pathofexile.com",
+                "https://poe.game.daum.net",
+                "https://poe.game.qq.com",
+                "https://web.poe.garena.tw",
+                "https://pathofexile.gamepedia.com",
+                "https://poedb.tw",
+                "https://poe.ninja",
+                "https://www.poeprices.info"
+            ]
+        },
+        "force_browser": "user",
+        "developer": {
+            "enable_auto_refresh": true,
+            "reload_delay": 1000,
+            "filter": "dist/*.*"
+        }
+    }
+}

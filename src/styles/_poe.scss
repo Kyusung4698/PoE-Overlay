@@ -1,0 +1,83 @@
+.poe-close {
+  background: url(./assets/poe/interface/close.png) no-repeat;
+  height: 28px;
+  width: 28px;
+  cursor: pointer;
+
+  &:hover {
+    background: url(./assets/poe/interface/close-active.png) no-repeat;
+  }
+}
+
+.poe-settings {
+  background: url(./assets/poe/interface/settings.png) no-repeat;
+  height: 28px;
+  width: 28px;
+  cursor: pointer;
+
+  &:hover {
+    background: url(./assets/poe/interface/settings-active.png) no-repeat;
+  }
+}
+
+.poe-control {
+  outline: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  padding: $gutter $gutter * 2;
+  cursor: pointer;
+}
+
+.poe-input,
+.poe-label {
+  width: 100%;
+  background: $black-transparent;
+}
+
+.poe-input {
+  border: 1px solid $brown;
+}
+
+.poe-label {
+  border: none;
+}
+
+.poe-button {
+  background: linear-gradient(
+    180deg,
+    rgba(24, 6, 0, 1) 0%,
+    rgba(41, 18, 0, 1) 25%,
+    rgba(33, 16, 0, 1) 50%,
+    rgba(66, 25, 7, 1) 94%,
+    rgba(103, 49, 8, 1) 98%,
+    rgba(74, 33, 6, 1) 100%
+  );
+  border: 1px solid $brown;
+
+  &:hover {
+    background: linear-gradient(
+      180deg,
+      rgba(41, 5, 0, 1) 0%,
+      rgba(67, 20, 0, 1) 25%,
+      rgba(97, 39, 8, 1) 50%,
+      rgba(172, 62, 15, 1) 94%,
+      rgba(223, 116, 16, 1) 98%,
+      rgba(176, 87, 12, 1) 100%
+    );
+  }
+
+  &:disabled,
+  &.disabled {
+    background: linear-gradient(
+      180deg,
+      rgba(12, 12, 12, 1) 0%,
+      rgba(24, 24, 24, 1) 25%,
+      rgba(20, 20, 20, 1) 50%,
+      rgba(50, 50, 50, 1) 94%,
+      rgba(69, 69, 69, 1) 98%,
+      rgba(48, 48, 48, 1) 100%
+    );
+    color: $light-grey;
+  }
+}

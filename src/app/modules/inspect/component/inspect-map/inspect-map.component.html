@@ -1,0 +1,48 @@
+<app-item-frame [item]="item" [properties]="properties" [separator]="true" [opacity]="settings.dialogOpacity">
+    <ng-content></ng-content>
+    <ng-container ngProjectAs="properties">
+        <div [title]="'inspect.map.layout-rating-info' | translate">{{'inspect.map.layout-rating' | translate}}: <span
+                class="white">{{(map || {}).layoutRating || '-'}}</span></div>
+        <div [title]="'inspect.map.boss-rating-info' | translate">{{'inspect.map.boss-rating' | translate}}: <span
+                class="white">{{(map || {}).bossRating || '-'}}/5</span></div>
+    </ng-container>
+    <ng-container *ngIf="map; else notfound">
+        <ng-container *ngIf="layout">
+            <div class="description">
+                {{map.layout}}
+                <app-item-frame-separator [item]="item" *ngIf="bosses || encounter || items">
+                </app-item-frame-separator>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="bosses">
+            <div class="description">
+                <div *ngIf="map.bossCount > 1"> {{'inspect.map.bosses' | translate}} ({{map.bossCount}}) </div>
+                <div *ngIf="map.bossCount <= 1"> {{'inspect.map.boss' | translate}} </div>
+                <ul class="bosses" *ngIf="map.bosses && map.bosses.length > 0">
+                    <li *ngFor="let boss of map.bosses">{{boss}}</li>
+                </ul>
+                <app-item-frame-separator [item]="item" *ngIf="encounter || items">
+                </app-item-frame-separator>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="encounter">
+            <div class="description">
+                {{map.encounter}}
+            </div>
+            <app-item-frame-separator [item]="item" *ngIf="items">
+            </app-item-frame-separator>
+        </ng-container>
+        <ng-container *ngIf="items">
+            <div class="description" appAnnotation="inspect.loot">
+                <span *ngFor="let item of map.items;let last = last">
+                    {{item}}<span *ngIf="!last">,</span>
+                </span>
+            </div>
+        </ng-container>
+        <app-item-frame-separator [item]="item"></app-item-frame-separator>
+        <app-inspect-links [item]="item"></app-inspect-links>
+    </ng-container>
+    <ng-template #notfound>
+        <div>{{'inspect.map.not-found' | translate}}</div>
+    </ng-template>
+</app-item-frame>

@@ -1,0 +1,54 @@
+<app-card [title]="'settings.game-settings' | translate" appAnnotation="settings.game-settings">
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field>
+                <mat-label>{{'app.language' | translate}}</mat-label>
+                <mat-select [(value)]="settings.language" (valueChange)="onLanguageChange()">
+                    <mat-option *ngFor="let language of languages.keys" [value]="language">
+                        {{'settings.languages.' + (languages.values[language] | lowercase) | translate}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field>
+                <mat-label>{{'settings.league' | translate}}</mat-label>
+                <mat-select [(value)]="settings.leagueId" (valueChange)="onChange()">
+                    <mat-option *ngFor="let league of leagues$ | async" [value]="league.id">
+                        {{league.text}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+</app-card>
+
+<div class="row">
+    <div class="col-md-6">
+        <app-card [title]="'settings.dialog' | translate">
+            <div class="value-range">
+                <label class="label"> {{'settings.dialog-opacity' | translate}}:
+                    {{displayWithOpacity(settings.dialogOpacity)}}
+                </label>
+                <div class="slider">
+                    <mat-slider min="0.6" max="1" step="0.1" tickInterval="1" [displayWith]="displayWithOpacity"
+                        [(value)]="settings.dialogOpacity">
+                    </mat-slider>
+                    <span>100%</span>
+                </div>
+            </div>
+        </app-card>
+    </div>
+    <div class="col-md-6">
+        <app-card [title]="'settings.app' | translate" appAnnotation="settings.app-settings">
+            <mat-form-field>
+                <mat-label>{{'settings.ui-language' | translate}}</mat-label>
+                <mat-select [(value)]="settings.uiLanguage" (valueChange)="onChange()">
+                    <mat-option *ngFor="let language of uiLanguages.keys" [value]="language">
+                        {{'settings.languages.' + (uiLanguages.values[language] | lowercase) | translate}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </app-card>
+    </div>
+</div>

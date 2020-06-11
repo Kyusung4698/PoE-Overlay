@@ -1,0 +1,23 @@
+@import "../../../../../styles/variables";
+
+.header {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  width: 360px;
+
+  > span {
+    display: flex;
+  }
+
+  > .spacer {
+    flex-grow: 1;
+  }
+
+  .active {
+    color: $light-grey;
+    background-color: rgba(170, 158, 130, 0.3);
+    outline-style: solid;
+    outline-width: 1px;
+  }
+}

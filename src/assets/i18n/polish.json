@@ -1,0 +1,393 @@
+{
+	"annotation": {
+		"bookmarks": {
+			"message": "Otwiera stronę internetową po naciśnięciu klawisza skrótu w przeglądarce gry.\n\nSpróbuj użyć skrótu poniżej, aby otworzyć poe.ninja.",
+			"title": "Zakładki"
+		},
+		"commands": {
+			"message": "Wszystkie polecenia gry można przypisać do klawiszy skrótu.\n\nDostępne są również symbole zastępcze, takie jak @char, które zostaną zastąpione przed wykonaniem polecenia.\n\nWypróbuj poniższy skrót, aby teleportować się do swojej kryjówki.",
+			"title": "Polecenia"
+		},
+		"continue": "Dalej",
+		"evaluate": {
+			"close": {
+				"message": "Okno można zamknąć, klikając poza oknem lub naciskając klawisz esc, jeśli okno było skupione.",
+				"title": "Zamknij okno oceny"
+			},
+			"message": "Umożliwia ocenę elementów z zadanymi ustawieniami filtrów wyszukiwania.\n\nNajedź kursorem na element i naciśnij poniższy skrót:",
+			"options": {
+				"message": "Opcje można przełączać, klikając podświetloną ikonę.\n\nSłużą do szybkiego dostosowania niektórych ustawień, takich jak liga dla tego wyszukiwania.\n\nWartości można zmieniać poprzez przewijanie.",
+				"title": "Opcje"
+			},
+			"price": {
+				"message": "Sekcja cenowa pokazuje kurs wymiany z poe.ninja lub dla rzadkich przedmiotów przewidywaną cenę z poeprices.info.",
+				"title": "Cena £"
+			},
+			"properties": {
+				"message": "Właściwości obejmują obliczanie DPS.\n\nSą one znormalizowane dokładnie do 20% jakości - niezależnie od tego, czy rzeczywista jakość jest wyższa / niższa.\nMożna to wyłączyć w ustawieniach.\n\nKliknięcie właściwości dodaje ją do zapytania wyszukiwania. Więcej na ten temat w statystykach.",
+				"title": "Nieruchomości"
+			},
+			"search": {
+				"message": "Wyszukiwanie pokazuje wszystkie oferty na podstawie filtrów.\n\nMożesz wybrać widok graficzny lub widok listy.\nWidok wykresu grupuje elementy na podstawie ich ceny i wyświetla liczbę tych grup. Widok listy pokazuje listę posortowaną według ilości.\nOba widoki są dodatkowo filtrowane pod kątem potencjalnych ustalaczy cen, grupując ich wykaz w jednym.\n\nPo kliknięciu aukcji sformatowana notatka cenowa zostanie skopiowana do schowka.",
+				"title": "Szukaj"
+			},
+			"settings": {
+				"message": "Ustawienia można dostosować, klikając podświetloną ikonę. Większość ustawień określa, jakie właściwości elementu są dodawane podczas pierwszego wyszukiwania.\n\nNa przykład możesz dostosować wstępnie wybrane statystyki w ustawieniach.",
+				"title": "Ustawienia"
+			},
+			"stats": {
+				"message": "Kliknięcie statystyki doda ją do zapytania wyszukiwania.\n\nMożesz zmodyfikować zakres, przewijając, gdy najedziesz kursorem. Jeśli chcesz dostosować jedną wartość - po prostu najedź nią.\nPrzytrzymując ALT, można dostosować rozmiar kroku do 0,1 i do 5, przytrzymując SHIFT.\n\nAby ustawić wartość nieskończoną, kliknij ją prawym przyciskiem myszy.\nAby zresetować wartość, kliknij kółko.",
+				"title": "Statystyki"
+			},
+			"title": "Oceniać"
+		},
+		"inspect": {
+			"close": {
+				"message": "Okno można zamknąć, klikając poza oknem lub naciskając klawisz esc, jeśli okno było skupione.",
+				"title": "Zamknij okno inspekcji"
+			},
+			"loot": {
+				"message": "Pokazuje możliwe łupy na mapie lub lokalizację łupów dla danego przedmiotu.",
+				"title": "Łup"
+			},
+			"message": "Pozwala otworzyć przedmiot na wiki lub poe.db. Pokazuje także niebezpieczne statystyki danej mapy lub miejsca zrzutu dla niektórych kart wróżbiarstwa.\n\nNajedź kursorem na element i naciśnij poniższy skrót:",
+			"settings": {
+				"message": "Ustawienia można dostosować, klikając podświetloną ikonę.\n\nNa przykład możesz dostosować ostrzeżenia statystyki mapy w ustawieniach.",
+				"title": "Ustawienia"
+			},
+			"title": "Sprawdzać",
+			"urls": {
+				"message": "Otwórz element na oficjalnej wiki lub poe.db, klikając jedną z podświetlonych ikon.",
+				"title": "URL"
+			}
+		},
+		"market": {
+			"close": {
+				"message": "Rynek zachowa aktualne wyniki. Można go zamknąć, naciskając ponownie klawisz skrótu lub klikając x w prawym górnym rogu.",
+				"title": "Zamknij rynek"
+			},
+			"filter": {
+				"message": "Kliknij podświetloną ikonę, aby otworzyć filtr. Dostosuj wartości do swoich potrzeb.",
+				"title": ""
+			},
+			"message": "Rynek pozwala przeglądać wymienione przedmioty i wymieniać waluty w grze.\n\nMożna go przełączać, naciskając poniższy skrót:",
+			"reset": {
+				"message": "Filtr można zresetować, klikając podświetlony symbol.",
+				"title": "Zresetuj filtr"
+			},
+			"search": {
+				"message": "Wyszukiwanie pokazuje przefiltrowane wyniki. Automatycznie pobierze nowe elementy po osiągnięciu końca listy.\n\nKlikając przycisk wyślij, wyślesz szept z ofertą.",
+				"title": "Szukaj"
+			},
+			"title": ""
+		},
+		"replay": {
+			"message": "Przechwytuje krótkie filmy z wydarzeń w grze, takich jak Twoja śmierć lub zabicie znaczącego bossa.\n\nMożna włączyć w ustawieniach. Jest to domyślnie wyłączone, ponieważ może zmniejszyć liczbę klatek na sekundę.",
+			"title": "Powtórna rozgrywka"
+		},
+		"settings": {
+			"app-settings": {
+				"message": "Język aplikacji można dowolnie dostosowywać.",
+				"title": "Ustawienia aplikacji"
+			},
+			"close": {
+				"message": "Wszystkie ustawienia są stosowane bezpośrednio. Okno można zamknąć, ponownie naciskając ten sam skrót.",
+				"title": "Zamknij ustawienia"
+			},
+			"game-settings": {
+				"message": "Język gry musi być zgodny z językiem klienta.\nLiga powinna być taka sama jak twoja obecna postać.\n\nPamiętaj też, że gdy pojawi się nowa liga, musisz odpowiednio dostosować ustawienia.",
+				"title": "Ustawienia gry"
+			},
+			"message": "Otwórz okno ustawień, naciskając następujący skrót:",
+			"title": "Ustawienia"
+		},
+		"thanks": {
+			"message": "Na razie tyle. Mam nadzieję, że podoba Ci się moja aplikacja.\n\n- Z pozdrowieniami, Kyusung4698",
+			"title": ""
+		},
+		"welcome": {
+			"message": "Poniższe adnotacje poprowadzą Cię przez podstawową funkcjonalność.",
+			"title": "Witamy w nakładce PoE!"
+		}
+	},
+	"app": {
+		"clickable": "„Kliknięcie” = przeglądarka w grze, „CTRL + kliknięcie” Domyślna przeglądarka",
+		"hotkey": "Skrót klawiszowy",
+		"language": "Język"
+	},
+	"bookmarks": {
+		"external": "Otwórz w przeglądarce",
+		"name": "Odnośniki",
+		"url": "Url"
+	},
+	"clipboard": {
+		"empty": "Schowek był pusty",
+		"error": "Wystąpił błąd podczas przetwarzania przedmiotu.",
+		"parser-error": "Nie można przetworzyć przedmiotu. Upewnij się, że wybrano właściwy język gry."
+	},
+	"commands": {
+		"execute-error": "Wystąpił nieoczekiwany błąd podczas wykonywania polecenia.",
+		"name": "Komendy",
+		"text": "Komenda"
+	},
+	"evaluate": {
+		"cancel": "Anuluj?",
+		"canceled": "Wyszukiwanie anulowane. Otwórz w przeglądarce?",
+		"currencies": {
+			"displayed": "Wystawiany",
+			"name": "Waluta",
+			"original": "Pokaż oryginał"
+		},
+		"item-search": {
+			"filter": {
+				"max-age": {
+					"any": "Kiedykolwiek",
+					"day": "Ostatni dzień",
+					"days": "Ostatnie 3 dni",
+					"month": "Ostatni miesiąc",
+					"months": "Ostatnie 2 miesiące",
+					"name": "Data wystawienia",
+					"week": "Ostatni tydzień",
+					"weeks": "Ostatnie 2 tygodnie"
+				},
+				"name": "filtr",
+				"online-only": "Tylko Online"
+			},
+			"profile": {
+				"default": "domyślna",
+				"name": "Wstępnie wybrane profile"
+			},
+			"property": {
+				"attack": "Atak",
+				"defense": "Obrona",
+				"item-level": "Poziom przedmiotu",
+				"item-type": "Typ przedmiotu",
+				"link": "Z połączonymi gniazdami ",
+				"links": {
+					"always": "Zawsze",
+					"never": "Nigdy"
+				},
+				"miscs": "Poziom gemów, map oraz jakość",
+				"name": "Nieruchomości",
+				"normalize-quality": "Normalizuj jakość",
+				"range": "Zakres od minimum do maksimum"
+			},
+			"query": {
+				"debounce-time": "Czas oczekiwania na ponowną wycenę przedmiotu.",
+				"fetch-count": "Liczba wyświetlanych ofert sprzedaży",
+				"initial": "Uruchom wyszukiwanie wstępne",
+				"name": "pytanie"
+			},
+			"stat": {
+				"name": "Statystyki",
+				"range": "Zakres od minimum do maksimum",
+				"stats-export": "Wyślij statystyki do schowka",
+				"stats-import": "Wczytaj statystyki ze schowka",
+				"unique-all": "Dla Unikatów sprawdź wszystkie"
+			}
+		},
+		"layout": {
+			"name": "Układ",
+			"value": "Okno wyników",
+			"values": {
+				"graph": "Wykres kolumnowy",
+				"list": "Lista"
+			}
+		},
+		"name": "Wycena przedmiotu",
+		"options": {
+			"count": "Liczba Aukcji"
+		},
+		"prediction": {
+			"confidence": "Pewność siebie",
+			"error": "Wystąpił błąd.",
+			"errors": {
+				"http": "Nie można nawiązać komunikacji z poeprices.info\nUpewnij się, że strona jest dostępna."
+			},
+			"feedback": "Sprzężenie zwrotne",
+			"feedbacks": {
+				"fair": "Sprawiedliwy",
+				"high": "za wysoko",
+				"low": "Za nisko"
+			},
+			"language": "poeprices.info obsługuje tylko angielski jako język klienta.",
+			"sending": "Wysyłanie",
+			"source": "Prognoza cen na podstawie poeprices.info",
+			"thanks": "Dzięki!"
+		},
+		"rate": {
+			"days": "ostatnie 7 dni",
+			"error": "Wystąpił błąd.",
+			"errors": {
+				"http": "Nie można nawiązać komunikacji z poe.ninja\nUpewnij się, że strona jest dostępna."
+			},
+			"switch": "Odwróć skalę",
+			"value": "Cena"
+		},
+		"table": {
+			"age": "Wystawiono",
+			"seller": "Sprzedawca",
+			"value": "Cena"
+		},
+		"tag": {
+			"exact": "Dokładna cena została skopiowana. Kliknij dwukrotnie, aby uzyskać cenę do negocjacji.",
+			"negotiable": "Cena do negocjacji została skopiowana."
+		},
+		"translate": {
+			"name": "Wyceń przedmiot"
+		},
+		"values": {
+			"mean": "Średnia",
+			"median": "Mediana",
+			"mode": "Moda",
+			"range": "Zakres"
+		}
+	},
+	"event": {
+		"start-error": "Nie można rozpocząć słuchania wydarzeń z gry."
+	},
+	"help": {
+		"browser": "Kliknięcie z wciśniętym klawiszem CTRL, spowoduje otwarcie odnośnika w domyślnej przeglądarce.",
+		"browser-title": "Jak mogę otworzyć wyszukiwanie w domyślnej przeglądarce?",
+		"bug": "Zgłoś błąd / zaproponuj sugestię",
+		"bug-title": "Znalazłeś błąd? A może masz sugestię? Proszę zgłoś ją na stronie GitHub projektu.",
+		"donate": "Przekaż darowiznę przez PayPal",
+		"donate-title": "Podoba ci się ten projekt? Jeśli chcesz, możesz przekazać darowiznę. Dziękuję za Twoje wsparcie!",
+		"dwm": "Jest to głównie spowodowane wyłączonym trybem Aero / DWM. Spróbuj więc włączyć tę funkcję systemu Windows.<br> Jest wymagana aby tworzyć przezroczyste okna.",
+		"dwm-title": "Dlaczego mój ekran zmienia kolor na czarny / biały po przełączeniu jakiejkolwiek funkcji?",
+		"faq": "FAQ - najczęściej zadawane pytania",
+		"graph": "Kolumny/paski wskazują podział cen przedmiotu. Grupują ceny o takiej samej wartości i sumują ich liczbę.<br> Najwyższa kolumna/pasek to Moda często zwana \"wartością najczęstszą\", czyli w tym przypadku cena pojawiająca się najczęściej. Średnia to poprostu średnia cena przedmiotu. Mediana to cena zajmująca środkową pozycję między wszystkimi wartościami cen.",
+		"graph-title": "Co przedstawia wykres? Co to jest moda / średnia / mediana?",
+		"graph-url": "Otwórz artykuł \"Jak odczytać histogram Minimum Maksimum Mediana i Średnia\", autorstwa \"academy.datawrapper.de\"",
+		"graphic": "Jest to głównie spowodowane niekompatybilnością sterowników graficznych obecnej wersji chromium.<br> Wyłącz proszę przyspieszenie sprzętowe w pasku narzędzi.",
+		"graphic-title": "Czemu obraz jest rozmyty / wystąpił błąd graficzny?",
+		"name": "Pomoc",
+		"patreon": "Wesprzyj mnie na Patreonie",
+		"wiki": "Otwórz stronę Wiki projektu",
+		"wiki-title": "Zobacz stronę wiki projektu dla uzyskania dodatkowych informacji."
+	},
+	"inspect": {
+		"map": {
+			"boss": "Boss",
+			"boss-rating": "Rating Bossa",
+			"boss-rating-info": "5: Wysokie i stałe zadawanie obrażeń, którego trudno skutecznie uniknąć; pomijany przez wielu graczy.\n4: Wysokie i stałe obrażenia, których można jednak dość dobrze uniknąć, ale nadal są bardzo niebezpieczne.\n3: Czasami wysokie obrażenia, których można dość dobrze uniknąć.\n2: Umiarkowane obrażenia, które można łatwo omijać i / lub rozsądnie osłabiać przez większość buildów.\n1: Trywialny dla większości buildów.",
+			"bosses": "Bossowie",
+			"layout-rating": "Ocena Mapy",
+			"layout-rating-info": "A: Mapa ma spójny układ, który można niezawodnie całkowicie wyczyścić bez cofania się.\nB: Mapa ma otwarty układ z kilkoma przeszkodami lub ma tylko krótkie i dobrze połączone ścieżki boczne.\nC: Mapa ma otwarty układ z wieloma przeszkodami lub ma długie boczne ścieżki, które wymagają cofania się.",
+			"name": "Mapa",
+			"no-map": "Przedmiot nie jest mapą.",
+			"not-found": "Nie znaleziono mapy.",
+			"stats-warning": "Statystyki Ostrzeżenia",
+			"stats-warning-export": "Wyślij ostrzeżenia statystyk do schowka",
+			"stats-warning-import": "Wczytaj ostrzeżenia statystyk ze schowka"
+		},
+		"name": "Sprawdzać",
+		"open-poedb": "Otwórz stronę PoE DB",
+		"open-wiki": "Otwórz stronę Wiki"
+	},
+	"market": {
+		"bar": {
+			"reset": "Czysty filtr",
+			"search": "Szukaj",
+			"toggle": "Przełącz filtr"
+		},
+		"exchange": {
+			"get": "Co dostałeś",
+			"have": "Produkty, które mam ({{count}})",
+			"highlight": "Zaznacz elementy ...",
+			"pay": "Co płacisz",
+			"want": "Produkty, które chcę ({{count}})"
+		},
+		"name": "Rynek",
+		"search": {
+			"search": "Szukaj przedmiotów ..."
+		},
+		"status": {
+			"afk": "Afk",
+			"offline": "Offline",
+			"online": "online"
+		}
+	},
+	"material": {
+		"select-list": {
+			"add": "Dodaj do wybranych",
+			"remove": "Usuń z wybranych",
+			"search": "Szukaj",
+			"selected": "Wybrane",
+			"unselected": "Nie Wybrane"
+		}
+	},
+	"misc": {
+		"highlight": "Podświetl przedmiot",
+		"name": "Różne",
+		"navigation": "Przełączanie pomiędzy zakładkami",
+		"navigations": {
+			"disabled": "Wyłączone",
+			"inverse": "Odwrotny kierunek",
+			"normal": "Normalne"
+		}
+	},
+	"replay": {
+		"capture": "Zdobyć",
+		"capture-error": "Nie można zarejestrować zdarzenia.",
+		"death": "Zdarzenie śmierci",
+		"future-duration": "Przyszły czas trwania",
+		"kill": "Zabij zdarzenie",
+		"name": "Powtórna rozgrywka",
+		"past-duration": "Czas przeszły",
+		"start-error": "Nie można rozpocząć przechwytywania zdarzeń.",
+		"started": "Przechwytywanie zdarzeń zostało rozpoczęte.",
+		"stop-error": "Przechwytywania zdarzeń nie można zatrzymać.",
+		"stopped": "Przechwytywanie zdarzeń zostało zatrzymane."
+	},
+	"settings": {
+		"app": "Program",
+		"auto-download": "Pobierz aktualizację automatycznie",
+		"auto-launch": "Uruchom wraz ze startem systemu",
+		"cancel": "Anuluj",
+		"dialog": "Okno dialogowe",
+		"dialog-opacity": "Okno dialogowe Krycie",
+		"dialog-spawn-position": {
+			"center": "Na środku",
+			"cursor": "Kursor myszy"
+		},
+		"dialog-spawn-position-title": "Pozycja okna dialogowego",
+		"display-version": "Wyświetl wersję",
+		"exit-app": "Wyjdź z programu",
+		"focusable": "Aktywowalny (obsługa klawiatury)",
+		"game-settings": "Ustawienia gry",
+		"general": "Ogólne",
+		"languages": {
+			"english": "Angielski",
+			"french": "Francuski",
+			"german": "Niemiecki",
+			"korean": "Koreański",
+			"polish": "Polski",
+			"portuguese": "Portugalski",
+			"russian": "Rosyjski",
+			"simplifiedchinese": "Chiński uproszczony",
+			"spanish": "Hiszpański",
+			"thai": "Tajski",
+			"traditionalchinese": "Chiński tradycyjny"
+		},
+		"league": "Liga",
+		"relaunch-app": "Uruchom program ponownie",
+		"save": "Zapisz",
+		"ui-language": "Język programu",
+		"zoom": "Powiększenie"
+	},
+	"trade": {
+		"analyzing": "Analiza danych ...",
+		"empty": "Brak wyników. Otworzyć w przeglądarce?",
+		"error": "Wystąpił błąd.",
+		"errors": {
+			"http": "Nie można nawiązać komunikacji ze stroną aukcyjną GGG.\nUpewnij się, że strona jest dostępna.",
+			"rate": "Limit osiągnięty. Spróbuj ponownie później.\nJeśli problem nadal występuje, spróbuj zmniejszyć liczbę pobieranych ofert sprzedaży."
+		},
+		"fetching": "Znaleziono {{total}}. Pobieranie {{count}} aukcji ...",
+		"not-found": "Nie znaleziono danych.",
+		"search": "Szukaj",
+		"searching": "Szukam...",
+		"stale": "Filtr został zmieniony. Ponowne pobranie ... - Teraz?"
+	}
+}

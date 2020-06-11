@@ -1,0 +1,50 @@
+@import "../../../../../styles/variables";
+
+.stat {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  .type {
+    padding: 0 $gutter;
+    margin-right: $gutter-half;
+    font-style: italic;
+    height: 19px;
+
+    &.explicit {
+      display: none;
+    }
+
+    &.pseudo {
+      background-color: $pseudo;
+    }
+
+    &.implicit {
+      background-color: $implicit;
+    }
+
+    &.crafted {
+      background-color: $crafted;
+    }
+
+    &.enchant {
+      background-color: $enchant;
+    }
+
+    &.fractured {
+      background-color: $fractured;
+    }
+
+    &.monster {
+      background-color: $monster;
+    }
+
+    &.delve {
+      background-color: $delve;
+    }
+  }
+
+  .text {
+    width: 100%;
+  }
+}

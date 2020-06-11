@@ -1,0 +1,14 @@
+<ng-container *ngIf="groups$ | async as groups">
+    <app-market-panel-group>
+        <app-market-panel *ngFor="let group of groups; let first = first" [label]="group.name" [active]="first">
+            <ng-template>
+                <div class="items">
+                    <div class="item" [class.active]="items.includes(item.id)" [class.highlight]="isHighlighted(item)"
+                        *ngFor="let item of group.items" (click)="onToggleItem(item.id)">
+                        <app-trade-static-frame [id]="item.id"></app-trade-static-frame>
+                    </div>
+                </div>
+            </ng-template>
+        </app-market-panel>
+    </app-market-panel-group>
+</ng-container>

@@ -1,0 +1,61 @@
+@import "../../../../../styles/variables";
+
+.error {
+  margin: 0 $gutter-half $gutter-half 0;
+  background: $black-transparent;
+  text-align: center;
+  padding: $gutter-half 120px - 32px - $gutter-half * 2 $gutter-half 0;
+  color: $red;
+}
+
+.content {
+  position: relative;
+  height: calc(100% - 33px);
+  padding-top: $gutter;
+
+  .header {
+    display: flex;
+    position: absolute;
+    top: $gutter;
+    left: 0;
+    right: 0;
+    background: #000;
+    padding: $gutter-half 122px $gutter-half 0;
+    z-index: 1;
+
+    &.scroll {
+      right: 17px;
+    }
+
+    .get,
+    .pay {
+      width: 100%;
+    }
+
+    .get {
+      padding-left: 15px;
+    }
+
+    .pay {
+      padding-right: 15px;
+      text-align: right;
+    }
+  }
+
+  .header-spacer {
+    padding-top: 24px + $gutter-half;
+  }
+
+  .results {
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    height: 100%;
+    box-shadow: inset 0px -100px 200px -200px #000;
+
+    .error {
+      margin-top: $gutter-half;
+      margin-bottom: 0;
+    }
+  }
+}

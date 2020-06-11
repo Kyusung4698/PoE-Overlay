@@ -1,0 +1,25 @@
+<div class="frames">
+    <div class="frame">
+        <app-background>
+            <div class="poe-close" (click)="onToggle()"></div>
+            <div class="poe-settings" (click)="onToggleSettings()"></div>
+            <app-market-tab-group (tabChange)="onTabChange($event)">
+                <app-market-tab label="Search">
+                    <app-market-item-search (toggleFilter)="onToggleFilter(0, $event)"></app-market-item-search>
+                </app-market-tab>
+                <app-market-tab label="Exchange">
+                    <app-market-exchange (toggleFilter)="onToggleFilter(1, $event)"></app-market-exchange>
+                </app-market-tab>
+            </app-market-tab-group>
+        </app-background>
+    </div>
+    <ng-container *ngIf="templates$ | async as templates">
+        <ng-container *ngIf="templates[active$ | async] as template">
+            <div class="frame">
+                <app-background>
+                    <ng-container *ngTemplateOutlet="template"></ng-container>
+                </app-background>
+            </div>
+        </ng-container>
+    </ng-container>
+</div>

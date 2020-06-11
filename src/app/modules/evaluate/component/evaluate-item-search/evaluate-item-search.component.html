@@ -1,0 +1,63 @@
+<ng-container *ngIf="analyze$; else search">
+    <ng-container *ngIf="(analyze$ | async) as analyze; else empty">
+        <ng-container *ngIf="loading$ | async; else loaded">
+            <ng-container *ngIf="(message$ | async) as message">
+                {{message.key | translate:message.value}}
+            </ng-container>
+            <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        </ng-container>
+        <ng-template #loaded>
+            <ng-container *ngIf="timer$ | async as timer; else content">
+                <div class="clickable" (click)="onSearch()">
+                    {{'trade.stale' | translate}}
+                </div>
+                <mat-progress-bar mode="determinate" [value]="timer | async"></mat-progress-bar>
+            </ng-container>
+            <ng-template #content>
+                <ng-container *ngIf="analyze.entries.length > 0; else empty">
+                    <app-evaluate-item-search-values *ngIf="analyze.values" [values]="analyze.values"
+                        [currency]="analyze.currency" [currencies]="currencies"
+                        (currencySelect)="onCurrencySelect($event)" (browse)="onSearchBrowse(analyze, $event)">
+                    </app-evaluate-item-search-values>
+                    <app-evaluate-item-search-header [count]="analyze.entries.length" [total]="analyze.total"
+                        [(graph)]="graph">
+                    </app-evaluate-item-search-header>
+                    <ng-container *ngIf="graph; else table">
+                        <app-evaluate-item-search-graph [result]="analyze"
+                            (evaluateSelect)="evaluateSelect.next($event)">
+                        </app-evaluate-item-search-graph>
+                    </ng-container>
+                    <ng-template #table>
+                        <app-evaluate-item-search-table [result]="analyze"
+                            [original]="settings.evaluateCurrenciesOriginal"
+                            (evaluateSelect)="evaluateSelect.next($event)"></app-evaluate-item-search-table>
+                    </ng-template>
+                </ng-container>
+                <ng-template #empty>
+                    <div class="clickable" (click)="onSearchBrowse(analyze, $event.ctrlKey)"
+                        [title]="'app.clickable' | translate">
+                        {{'trade.empty' | translate}}
+                    </div>
+                </ng-template>
+            </ng-template>
+        </ng-template>
+    </ng-container>
+    <ng-template #empty>
+        <ng-container *ngIf="loading$ | async">
+            <ng-container *ngIf="(message$ | async) as message">
+                {{message.key | translate:message.value}}
+            </ng-container>
+            <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        </ng-container>
+        <ng-container *ngIf="(error$ | async) as error">
+            <div class="error">
+                {{error.key | translate:error.value}}
+            </div>
+        </ng-container>
+    </ng-template>
+</ng-container>
+<ng-template #search>
+    <div class="clickable" (click)="onSearch()">
+        {{'trade.search' | translate}}
+    </div>
+</ng-template>

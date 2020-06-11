@@ -1,0 +1,13 @@
+<app-item-frame [item]="item" [properties]="properties" [separator]="true" [opacity]="settings.dialogOpacity">
+    <ng-content></ng-content>
+    <ng-container *ngIf="maps && maps.length">
+        <div class="description" appAnnotation="inspect.loot">
+            <ul class="maps">
+                <li *ngFor="let map of maps">{{map}}</li>
+            </ul>
+            <app-item-frame-separator [item]="item">
+            </app-item-frame-separator>
+        </div>
+    </ng-container>
+    <app-inspect-links [item]="item"></app-inspect-links>
+</app-item-frame>

@@ -1,0 +1,26 @@
+@import "../../../../../styles/variables";
+
+::ng-deep {
+  app-inspect-map {
+    .purpel,
+    .blue {
+      color: $red !important;
+    }
+  }
+}
+
+.white {
+  color: $white;
+}
+
+.description {
+  max-width: 400px;
+  white-space: normal;
+
+  .bosses {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+  }
+}

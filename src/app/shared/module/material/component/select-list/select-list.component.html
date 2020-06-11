@@ -1,0 +1,43 @@
+<mat-form-field>
+    <input matInput (keyup)="onFilterKeyUp()" [placeholder]="'material.select-list.search' | translate" />
+</mat-form-field>
+<div class="content">
+    <div class="list">
+        <mat-label>{{'material.select-list.unselected' | translate}}</mat-label>
+        <mat-selection-list #deselected>
+            <cdk-virtual-scroll-viewport class="viewport" itemSize="48" minBufferPx="200" maxBufferPx="400">
+                <mat-list-option class="item"
+                    *cdkVirtualFor="let item of deselected$ | async;trackBy:trackByKey; templateCacheSize: 0"
+                    [value]="item" (dblclick)="selectItem(item)">
+                    <ng-container *ngTemplateOutlet="itemTemplate; context: { $implicit: item  }"></ng-container>
+                </mat-list-option>
+            </cdk-virtual-scroll-viewport>
+        </mat-selection-list>
+    </div>
+    <div class="control">
+        <div class="buttons">
+            <button mat-icon-button (click)="selectOptions(deselected.selectedOptions.selected)"
+                [disabled]="!deselected.selectedOptions.selected.length"
+                [title]="'material.select-list.add' | translate">
+                <mat-icon>keyboard_arrow_right</mat-icon>
+            </button>
+            <button mat-icon-button (click)="deselectOptions(selected.selectedOptions.selected)"
+                [disabled]="!selected.selectedOptions.selected.length"
+                [title]="'material.select-list.remove' | translate">
+                <mat-icon>keyboard_arrow_left</mat-icon>
+            </button>
+        </div>
+    </div>
+    <div class="list">
+        <mat-label>{{'material.select-list.selected' | translate}}</mat-label>
+        <mat-selection-list #selected>
+            <cdk-virtual-scroll-viewport class="viewport" itemSize="48" minBufferPx="200" maxBufferPx="400">
+                <mat-list-option class="item"
+                    *cdkVirtualFor="let item of selected$ | async;trackBy:trackByKey; templateCacheSize: 0"
+                    [value]="item" (dblclick)="deselectItem(item)">
+                    <ng-container *ngTemplateOutlet="itemTemplate; context: { $implicit: item  }"></ng-container>
+                </mat-list-option>
+            </cdk-virtual-scroll-viewport>
+        </mat-selection-list>
+    </div>
+</div>

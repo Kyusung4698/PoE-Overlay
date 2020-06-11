@@ -1,0 +1,41 @@
+<div *ngIf="item.level">
+    <app-item-frame-query [(property)]="queryItem.level" [value]="item.level">
+        <app-item-frame-value-group>
+            <span>{{'ItemDisplayStringItemLevel' | clientString:language}}:&nbsp;</span>
+            <span class="white">
+                <app-item-frame-value [(value)]="item.level" [minRange]="0" [maxRange]="0.5">
+                </app-item-frame-value>
+            </span>
+        </app-item-frame-value-group>
+    </app-item-frame-query>
+</div>
+<div *ngIf="item.requirements">
+    <span>{{'ItemRequirementsLabel' | clientString:language}}&nbsp;</span>
+    <ng-container *ngIf="item.requirements.level">
+        <app-item-frame-query [(property)]="queryItem.requirements.level" [value]="item.requirements.level">
+            <span>{{'Level' | clientString:language}}&nbsp;</span>
+            <span class="white">{{item.requirements.level}}</span>
+        </app-item-frame-query>
+        <span *ngIf="item.requirements.str || item.requirements.dex || item.requirements.int">,&nbsp;</span>
+    </ng-container>
+    <ng-container *ngIf="item.requirements.str">
+        <app-item-frame-query [(property)]="queryItem.requirements.str" [value]="item.requirements.str">
+            <span class="white">{{item.requirements.str}}&nbsp;</span>
+            <span>{{'StrengthShort' | clientString:language}}</span>
+        </app-item-frame-query>
+        <span *ngIf="item.requirements.dex || item.requirements.int">,&nbsp;</span>
+    </ng-container>
+    <ng-container *ngIf="item.requirements.dex">
+        <app-item-frame-query [(property)]="queryItem.requirements.dex" [value]="item.requirements.dex">
+            <span class="white">{{item.requirements.dex}}&nbsp;</span>
+            <span>{{'DexterityShort' | clientString:language}}</span>
+        </app-item-frame-query>
+        <span *ngIf="item.requirements.int">,&nbsp;</span>
+    </ng-container>
+    <ng-container *ngIf="item.requirements.int">
+        <app-item-frame-query [(property)]="queryItem.requirements.int" [value]="item.requirements.int">
+            <span class="white">{{item.requirements.int}}&nbsp;</span>
+            <span>{{'IntelligenceShort' | clientString:language}}</span>
+        </app-item-frame-query>
+    </ng-container>
+</div>

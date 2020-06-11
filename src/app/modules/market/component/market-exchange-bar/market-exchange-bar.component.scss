@@ -1,0 +1,16 @@
+@import "../../../../../styles/variables";
+
+.wrapper {
+  position: relative;
+  display: flex;
+
+  button {
+    margin-left: $gutter-half;
+    width: 120px;
+
+    &.small {
+      padding: 0;
+      width: 50px;
+    }
+  }
+}

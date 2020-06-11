@@ -1,0 +1,65 @@
+<app-market-item-search-bar [request]="request" (search)="onSearch()" (toggle)="onToggle($event)" (clear)="onClear()">
+</app-market-item-search-bar>
+
+<div class="content">
+    <div class="results" #root>
+        <ng-container *ngIf="(result$ | async) as result; else empty">
+            <ng-container *ngIf="(searching$ | async) === false; else searching">
+                <div class="count">
+                    <span>{{result.ids.length}}</span>
+                    <span *ngIf="result.ids.length !== result.total"> ({{result.total}}) </span>
+                </div>
+                <ng-container *ngFor="let entry of result.entries;trackBy:trackResult; let last = last">
+                    <div class="result">
+                        <app-market-infinite-scroll *ngIf="last" [root]="root" (visible)="onNext()">
+                        </app-market-infinite-scroll>
+                        <div class="item">
+                            <app-item-frame [item]="entry.item | tradeFetchItem"></app-item-frame>
+                        </div>
+                        <div class="listing">
+                            <app-market-listing-status class="status" [status]="entry.listing.status">
+                            </app-market-listing-status>
+                            <div class="spacer"></div>
+                            <div class="currency">
+                                <app-currency-frame [currency]="entry.listing.price.currency"
+                                    [amount]="entry.listing.price.amount">
+                                </app-currency-frame>
+                            </div>
+                            <div class="spacer"></div>
+                            <div class="actions">
+                                <button mat-button (click)="onSend(entry.listing)">
+                                    <mat-icon>send</mat-icon>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="fetching$ | async">
+                    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+                </ng-container>
+            </ng-container>
+            <ng-template #searching>
+                <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+            </ng-template>
+            <ng-container *ngIf="(error$ | async) as error">
+                <div class="error">
+                    {{error.key | translate:error.value}}
+                </div>
+            </ng-container>
+        </ng-container>
+        <ng-template #empty>
+            <ng-container *ngIf="searching$ | async">
+                <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+            </ng-container>
+            <ng-container *ngIf="(error$ | async) as error">
+                <div class="error">
+                    {{error.key | translate:error.value}}
+                </div>
+            </ng-container>
+        </ng-template>
+    </div>
+</div>
+
+<ng-template #filter>
+    <app-market-item-search-filter [request]="request"></app-market-item-search-filter>
+</ng-template>

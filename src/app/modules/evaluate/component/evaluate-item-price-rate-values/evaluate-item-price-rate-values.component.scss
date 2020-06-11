@@ -1,0 +1,24 @@
+.values {
+  display: flex;
+  flex-direction: column;
+  line-height: 18px;
+  padding: 0 6px;
+
+  .value {
+    display: flex;
+    align-items: center;
+
+    &.positive {
+      color: lightgreen;
+    }
+
+    &.negative {
+      color: red;
+    }
+  }
+
+  .info {
+    font-size: 12px;
+    line-height: 12px;
+  }
+}

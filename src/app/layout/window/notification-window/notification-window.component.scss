@@ -1,0 +1,30 @@
+::ng-deep {
+  html,
+  body {
+    height: auto;
+    display: inline-block;
+    text-align: center;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.notification {
+  font-family: FontinSmallCaps;
+  font-size: 20px;
+  transition: opacity ease 200ms;
+  will-change: opacity;
+  opacity: 0;
+  padding: 5px;
+  background: radial-gradient(ellipse at center, rgba(45, 16, 21, 1) 0%, rgba(24, 12, 12, 0.9) 100%);
+  border-radius: 2px;
+  color: #875516;
+  white-space: nowrap;
+
+  &.shown {
+    transition: opacity ease 500ms;
+    opacity: 1;
+  }
+}

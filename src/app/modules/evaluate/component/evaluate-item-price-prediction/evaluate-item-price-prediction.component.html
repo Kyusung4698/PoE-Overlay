@@ -1,0 +1,56 @@
+<ng-container *ngIf="prediction$ | async as prediction; else empty">
+    <ng-container *ngIf="loading$ | async; else loaded">
+        <ng-container *ngIf="(message$ | async) as message">
+            {{message.key | translate:message.value}}
+        </ng-container>
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </ng-container>
+    <ng-template #loaded>
+        <div class="values" (wheel)="onWheel($event, prediction.currency)">
+            <app-currency-frame [currency]="prediction.currency" [range]="prediction"></app-currency-frame>
+            <div class="confidence">
+                <span class="small">{{'evaluate.prediction.confidence' | translate}}</span>
+                <span [class.positive]="prediction.score > 60"
+                    [class.negative]="prediction.score <= 60">{{prediction.score | number: '1.2-2'}}%</span>
+            </div>
+            <div class="feedback">
+                <ng-container *ngIf="feedback$; else feedback">
+                    <ng-container *ngIf="(feedback$ | async) !== undefined; else sending">
+                        <span class="small">{{'evaluate.prediction.thanks' | translate}}</span>
+                    </ng-container>
+                    <ng-template #sending>
+                        <span class="small">{{'evaluate.prediction.sending' | translate}}</span>
+                    </ng-template>
+                </ng-container>
+                <ng-template #feedback>
+                    <span class="small">{{'evaluate.prediction.feedback' | translate}}</span>
+                    <span class="icons">
+                        <mat-icon class="icon" (click)="onFeedback(prediction, 'low')"
+                            [title]="'evaluate.prediction.feedbacks.low' | translate">
+                            arrow_upward</mat-icon>
+                        <mat-icon class="icon" (click)="onFeedback(prediction, 'fair')"
+                            [title]="'evaluate.prediction.feedbacks.fair' | translate">
+                            check</mat-icon>
+                        <mat-icon class="icon" (click)="onFeedback(prediction, 'high')"
+                            [title]="'evaluate.prediction.feedbacks.high' | translate">
+                            arrow_downward</mat-icon>
+                    </span>
+                </ng-template>
+            </div>
+        </div>
+        <span class="small">{{'evaluate.prediction.source' | translate}}</span>
+    </ng-template>
+</ng-container>
+<ng-template #empty>
+    <ng-container *ngIf="loading$ | async">
+        <ng-container *ngIf="(message$ | async) as message">
+            {{message.key | translate:message.value}}
+        </ng-container>
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </ng-container>
+    <ng-container *ngIf="(error$ | async) as error">
+        <div class="error">
+            {{error.key | translate:error.value}}
+        </div>
+    </ng-container>
+</ng-template>

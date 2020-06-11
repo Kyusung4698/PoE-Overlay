@@ -1,0 +1,38 @@
+@import "../../../../../styles/variables";
+
+::ng-deep app-market-input-select {
+  .highlight {
+    background: $light-orange;
+    font-weight: bold;
+  }
+}
+
+:host {
+  display: flex;
+  height: 100%;
+}
+
+input {
+  width: 110px + $gutter-half;
+  text-align: center;
+  margin-left: $gutter-half;
+}
+
+.options {
+  position: absolute;
+  z-index: 2000;
+  top: 35px;
+  left: 0;
+  right: 0;
+  background: $black;
+  border: 1px solid $brown;
+
+  .option {
+    padding: $gutter $gutter * 2;
+    cursor: pointer;
+
+    &:hover {
+      background: $light-brown;
+    }
+  }
+}

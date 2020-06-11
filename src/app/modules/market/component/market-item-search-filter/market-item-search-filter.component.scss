@@ -1,0 +1,16 @@
+@import "../../../../../styles/variables";
+
+.content {
+  height: 100%;
+
+  .filters {
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    height: 100%;
+
+    .inner-content {
+      margin-right: $gutter-half;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+::ng-deep {
+  app-item-frame-value-group {
+    display: inline-block;
+
+    &:hover {
+      app-item-frame-value {
+        .inputs {
+          > .value {
+            background-color: rgba(170, 158, 130, 0.3);
+            outline-style: solid;
+            outline-width: 1px;
+
+            &.input-double {
+              width: auto !important;
+              opacity: 1 !important;
+            }
+
+            &.input-single {
+              display: none !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
