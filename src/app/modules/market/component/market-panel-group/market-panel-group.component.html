@@ -1,0 +1,11 @@
+<ng-container *ngFor="let panel of (panels$ | async)">
+    <div class="panel" (click)="panel.toggle()">
+        <label>{{panel.label | translate}}</label>
+        <span class="indicator" [class.open]="panel.active$ | async">
+            <mat-icon>keyboard_arrow_down</mat-icon>
+        </span>
+    </div>
+    <div class="panel-content" *ngIf="panel.active$ | async">
+        <ng-container *ngTemplateOutlet="panel.content"></ng-container>
+    </div>
+</ng-container>

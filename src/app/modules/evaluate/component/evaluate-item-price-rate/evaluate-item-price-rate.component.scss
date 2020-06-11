@@ -1,0 +1,41 @@
+@import "../../../../../styles/variables";
+
+.error {
+  color: $red;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  overscroll-behavior: none;
+  padding-left: 60px;
+  max-width: 340px;
+  margin: 0 auto;
+
+  .spacer {
+    flex-grow: 1;
+  }
+
+  .graph {
+    display: flex;
+    align-items: center;
+  }
+}
+
+::ng-deep {
+  app-evaluate-item-price-rate {
+    .content {
+      &:hover {
+        app-currency-frame {
+          .currency {
+            background-color: rgba(170, 158, 130, 0.3);
+            outline-style: solid;
+            outline-width: 1px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,134 @@
+@import "../../../../../styles/variables";
+
+::ng-deep {
+  html,
+  body {
+    height: 100%;
+    color: $light-white;
+    font-size: 14.3px;
+    font-family: FontinSmallCaps;
+  }
+
+  ::-webkit-scrollbar {
+    width: 14px;
+    background: $black-transparent;
+    border: 1px $black solid;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      90deg,
+      rgba(84, 81, 70, 1) 0%,
+      rgba(49, 24, 8, 1) 10%,
+      rgba(118, 44, 18, 1) 90%,
+      rgba(121, 115, 105, 1) 100%
+    );
+    border: 1px $light-brown solid;
+    border-radius: 3px;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  }
+
+  app-market-window {
+    display: block;
+    height: 100%;
+    width: 50vw;
+    will-change: width;
+
+    &.filter-visible {
+      width: 100vw;
+    }
+  }
+
+  /* input */
+
+  input,
+  label,
+  button {
+    outline: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    padding: $gutter $gutter * 2;
+    cursor: pointer;
+  }
+
+  input,
+  label {
+    width: 100%;
+    background: $black-transparent;
+  }
+
+  input {
+    border: 1px solid $brown;
+  }
+
+  label {
+    border: none;
+  }
+
+  button {
+    &:not(.mat-button) {
+      background: linear-gradient(
+        180deg,
+        rgba(24, 6, 0, 1) 0%,
+        rgba(41, 18, 0, 1) 25%,
+        rgba(33, 16, 0, 1) 50%,
+        rgba(66, 25, 7, 1) 94%,
+        rgba(103, 49, 8, 1) 98%,
+        rgba(74, 33, 6, 1) 100%
+      );
+      border: 1px solid $brown;
+
+      &:hover {
+        background: linear-gradient(
+          180deg,
+          rgba(41, 5, 0, 1) 0%,
+          rgba(67, 20, 0, 1) 25%,
+          rgba(97, 39, 8, 1) 50%,
+          rgba(172, 62, 15, 1) 94%,
+          rgba(223, 116, 16, 1) 98%,
+          rgba(176, 87, 12, 1) 100%
+        );
+      }
+
+      &:disabled,
+      &.disabled {
+        background: linear-gradient(
+          180deg,
+          rgba(12, 12, 12, 1) 0%,
+          rgba(24, 24, 24, 1) 25%,
+          rgba(20, 20, 20, 1) 50%,
+          rgba(50, 50, 50, 1) 94%,
+          rgba(69, 69, 69, 1) 98%,
+          rgba(48, 48, 48, 1) 100%
+        );
+        color: $light-grey;
+      }
+    }
+  }
+
+  .market-row {
+    display: flex;
+
+    .market-col {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      width: 100%;
+
+      & + .market-col {
+        margin-left: $gutter-half;
+      }
+    }
+
+    & + .market-row {
+      margin-top: $gutter-half;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+@import "../../../../../styles/variables";
+
+:host {
+  display: flex;
+  height: 100%;
+}
+
+input {
+  position: relative;
+  width: 55px;
+  text-align: center;
+  margin-left: $gutter-half;
+
+  &.r,
+  &.g,
+  &.b,
+  &.w {
+    width: 34px;
+    padding: $gutter 0;
+  }
+
+  &.r {
+    box-shadow: 0 -1px 0 inset red;
+  }
+
+  &.g {
+    box-shadow: 0 -1px 0 inset green;
+  }
+
+  &.b {
+    box-shadow: 0 -1px 0 inset blue;
+  }
+
+  &.w {
+    box-shadow: 0 -1px 0 inset white;
+  }
+}

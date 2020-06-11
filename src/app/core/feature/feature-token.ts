@@ -1,0 +1,1 @@
+export const FEATURE_MODULES = 'FEATURE_MODULES';

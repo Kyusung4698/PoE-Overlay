@@ -1,0 +1,10 @@
+<div class="header" (mousedown)="draggable && onDrag($event)">
+    <div class="icon"></div>
+    <div class="name">{{name}}</div>
+    <div class="controls">
+        <mat-icon (click)="onClose($event)" *ngIf="closeable">close</mat-icon>
+    </div>
+</div>
+<div class="content">
+    <ng-content></ng-content>
+</div>

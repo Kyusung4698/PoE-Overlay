@@ -1,0 +1,15 @@
+<div *ngIf="item.veiled !== undefined">
+    <app-item-frame-query [(property)]="queryItem.veiled" [value]="item.veiled">
+        <div class="veiled"> </div>
+    </app-item-frame-query>
+</div>
+<ng-container *ngIf="item.corrupted !== undefined">
+    <app-item-frame-query [(property)]="queryItem.corrupted" [value]="item.corrupted">
+        <div class="corrupted">{{'ItemPopupCorrupted' | clientString:language}} </div>
+    </app-item-frame-query>
+</ng-container>
+<ng-container *ngIf="item.unidentified !== undefined">
+    <app-item-frame-query [(property)]="queryItem.unidentified" [value]="item.unidentified">
+        <div class="unidentified">{{'ItemPopupUnidentified' | clientString:language}} </div>
+    </app-item-frame-query>
+</ng-container>

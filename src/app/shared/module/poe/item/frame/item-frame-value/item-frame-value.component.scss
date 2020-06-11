@@ -1,0 +1,33 @@
+@import "./../../../../../../../styles/variables";
+
+span {
+  display: inline-block;
+}
+
+.inputs {
+  &.equals {
+    > .input-double {
+      &.value {
+        display: inline-block;
+        width: 0;
+        opacity: 0;
+      }
+
+      display: none;
+    }
+
+    > .input-single {
+      display: inline-block;
+    }
+  }
+
+  &.changed {
+    .text {
+      color: $light-grey;
+    }
+  }
+
+  > .input-single {
+    display: none;
+  }
+}

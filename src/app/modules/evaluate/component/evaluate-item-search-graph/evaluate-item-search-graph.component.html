@@ -1,0 +1,13 @@
+<ngx-charts-bar-vertical [view]="view" [results]="items" [scheme]="scheme" [animations]="true" [xAxis]="true"
+    [yAxis]="false" [legend]="false" barPadding="4" [tooltipDisabled]="false" [roundDomains]="true" [roundEdges]="true"
+    [showDataLabel]="false" [xAxisTickFormatting]="xAxisTickFormatting" (select)="onSelect($event)">
+    <ng-template #tooltipTemplate let-model="model">
+        <span class="tooltip-val">
+            <span>{{model.value | number}}</span>
+            <span style="color: #b00" *ngIf="groups[model.name].hidden">+{{groups[model.name].hidden | number}}</span>
+        </span>
+        <span class="tooltip-val">
+            <span>{{groups[model.name].mean}}</span>
+        </span>
+    </ng-template>
+</ngx-charts-bar-vertical>

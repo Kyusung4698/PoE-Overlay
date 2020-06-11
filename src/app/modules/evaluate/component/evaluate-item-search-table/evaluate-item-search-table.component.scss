@@ -1,0 +1,34 @@
+@import "../../../../../styles/variables";
+
+table {
+  width: 100%;
+
+  th,
+  td {
+    padding: 0;
+  }
+
+  &.header {
+    border-bottom: 1px solid $light-dark-grey;
+  }
+
+  .seller {
+    width: 100%;
+  }
+
+  .amount {
+    min-width: 70px;
+
+    .value {
+      color: $light-grey;
+    }
+  }
+
+  .age {
+    min-width: 115px;
+  }
+
+  .fixer {
+    color: $red;
+  }
+}

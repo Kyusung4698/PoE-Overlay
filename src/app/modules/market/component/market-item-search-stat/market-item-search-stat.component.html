@@ -1,0 +1,4 @@
+<div class="stat">
+    <span [class]="'type ' + (stat | tradeStatsType)">{{stat.type}}</span>
+    <span class="text" [innerHTML]="text || stat.text"></span>
+</div>

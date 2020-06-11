@@ -1,0 +1,44 @@
+$header-background: #131313;
+$header-color: #a3a3a3;
+$header-size: 30px;
+$header-font-size: 14px;
+$icon-size: 16px;
+
+$border-color: #1a1a1a;
+
+.header {
+  position: relative;
+  height: $header-size;
+  line-height: $header-size + 2px;
+  background: $header-background;
+  color: $header-color;
+  font-size: $header-font-size;
+  font-family: FontinSmallCaps;
+
+  .name {
+    text-align: center;
+  }
+}
+
+.controls {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  right: 10px;
+  height: $header-size;
+  line-height: $header-size + 8px;
+
+  > .mat-icon {
+    height: $icon-size;
+    width: $icon-size;
+    font-size: $icon-size;
+    line-height: $icon-size;
+  }
+}
+
+.content {
+  border: 1px solid $border-color;
+  border-top: none;
+  height: calc(100% - 30px);
+  width: 100%;
+}

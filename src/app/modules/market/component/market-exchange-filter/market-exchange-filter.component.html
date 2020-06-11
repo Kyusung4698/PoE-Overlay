@@ -1,0 +1,25 @@
+<div class="items">
+    <app-market-tab-group>
+        <app-market-tab [label]="'market.exchange.have' | translate:{count: haveCount$ | async}">
+            <div class="tab-content">
+                <div class="tab-inner-content">
+                    <app-market-exchange-filter-item [items]="request.exchange.have" [highlightTerm]="highlightTerm"
+                        (update)="haveCount$.next(request.exchange.have.length)"></app-market-exchange-filter-item>
+                </div>
+            </div>
+        </app-market-tab>
+        <app-market-tab [label]="'market.exchange.want' | translate:{count: wantCount$ | async}">
+            <div class="tab-content">
+                <div class="tab-inner-content">
+                    <app-market-exchange-filter-item [items]="request.exchange.want" [highlightTerm]="highlightTerm"
+                        (update)="wantCount$.next(request.exchange.want.length)"></app-market-exchange-filter-item>
+                </div>
+            </div>
+        </app-market-tab>
+    </app-market-tab-group>
+</div>
+<div class="filters">
+    <app-market-input label="Stock">
+        <app-market-input-number name="minimum" path="exchange" prefix="" width="110px" [request]="request"></app-market-input-number>
+    </app-market-input>
+</div>

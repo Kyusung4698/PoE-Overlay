@@ -1,0 +1,103 @@
+@import "../../../../../styles/variables";
+
+label {
+  display: block;
+  color: $label-color;
+  font-size: 12px;
+  transform: perspective(100px) translateZ(0.001px);
+}
+
+.value-range {
+  > .slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .mat-slider {
+      width: 100%;
+    }
+  }
+}
+
+.range {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .mat-slider {
+    width: 50%;
+  }
+
+  .value {
+    width: 80px;
+    text-align: center;
+  }
+}
+
+.profiles {
+  padding: 0;
+
+  > mat-label {
+    padding: 12px 0 0 12px;
+  }
+
+  .profile {
+    padding: 12px 12px 0px 12px;
+
+    .mat-card {
+      background-color: #2a2a2a;
+    }
+  }
+}
+
+.toggle {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+
+  > * {
+    width: 33.333%;
+    padding-right: 15px;
+  }
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+
+  > .text {
+    overflow: hidden;
+    max-height: 38px;
+  }
+
+  > .type {
+    display: inline-block;
+    padding: 3px;
+    margin-right: 6px;
+    border-radius: 4px;
+
+    &.explicit {
+      display: none;
+    }
+
+    &.pseudo {
+      background-color: $pseudo;
+    }
+
+    &.implicit {
+      background-color: $implicit;
+    }
+
+    &.crafted {
+      background-color: $crafted;
+    }
+
+    &.enchant {
+      background-color: $enchant;
+    }
+
+    &.fractured {
+      background-color: $fractured;
+    }
+  }
+}

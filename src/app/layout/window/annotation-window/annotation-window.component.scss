@@ -1,0 +1,48 @@
+@import "../../../../styles/variables";
+
+::ng-deep {
+  html,
+  body {
+    height: auto;
+    display: inline-block;
+    color: $light-white;
+    font-size: 14.3px;
+    font-family: FontinSmallCaps;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.content {
+  padding: 5px;
+  width: 280px;
+}
+
+.title {
+  font-size: 20px;
+  text-decoration: underline;
+  text-decoration-color: $orange;
+  display: inline-block;
+  text-align: center;
+}
+
+.actions {
+  text-align: right;
+}
+
+.message {
+  padding: $gutter 0;
+  white-space: pre-line;
+}
+
+.hotkey {
+  text-align: center;
+
+  .text {
+    background: $black-transparent;
+    padding: $gutter $gutter * 2;
+    display: inline-block;
+  }
+}

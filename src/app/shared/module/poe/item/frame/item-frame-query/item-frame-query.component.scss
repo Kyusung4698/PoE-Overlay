@@ -1,0 +1,18 @@
+.content {
+  display: inline-block;
+  border-radius: 2px;
+  margin-bottom: 2px;
+  line-height: 17px;
+  padding: 0 2px;
+
+  &.query {
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &.active {
+      background-color: rgba(170, 158, 130, 0.3);
+      outline-style: solid;
+      outline-width: 1px;
+    }
+  }
+}

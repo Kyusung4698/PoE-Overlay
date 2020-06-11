@@ -1,0 +1,72 @@
+<app-card [title]="'replay.death' | translate" appAnnotation="replay">
+    <div class="row">
+        <div class="col">
+            <mat-slide-toggle [checked]="settings.replayCaptureDeath"
+                (change)="settings.replayCaptureDeath = $event.checked" (change)="onCaptureChange()">
+                {{'replay.capture' | translate}}
+            </mat-slide-toggle>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="value-range">
+                <label class="label"> {{'replay.past-duration' | translate}}:
+                    {{displayDuration(settings.replayCaptureDeathPastDuration)}}
+                </label>
+                <div class="slider">
+                    <mat-slider min="3" max="15" step="1" tickInterval="1" invert [displayWith]="displayDuration"
+                        [(value)]="settings.replayCaptureDeathPastDuration" (valueChange)="onDurationChange()">
+                    </mat-slider>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="value-range">
+                <label class="label"> {{'replay.future-duration' | translate}}:
+                    {{displayDuration(settings.replayCaptureDeathFutureDuration)}}
+                </label>
+                <div class="slider">
+                    <mat-slider min="0" max="5" step="1" tickInterval="1" [displayWith]="displayDuration"
+                        [(value)]="settings.replayCaptureDeathFutureDuration" (valueChange)="onDurationChange()">
+                    </mat-slider>
+                </div>
+            </div>
+        </div>
+    </div>
+</app-card>
+<app-card [title]="'replay.kill' | translate" appAnnotation="replay">
+    <div class="row">
+        <div class="col">
+            <mat-slide-toggle [checked]="settings.replayCaptureKill"
+                (change)="settings.replayCaptureKill = $event.checked" (change)="onCaptureChange()">
+                {{'replay.capture' | translate}}
+            </mat-slide-toggle>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="value-range">
+                <label class="label"> {{'replay.past-duration' | translate}}:
+                    {{displayDuration(settings.replayCaptureKillPastDuration)}}
+                </label>
+                <div class="slider">
+                    <mat-slider min="3" max="15" step="1" tickInterval="1" invert [displayWith]="displayDuration"
+                        [(value)]="settings.replayCaptureKillPastDuration" (valueChange)="onDurationChange()">
+                    </mat-slider>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="value-range">
+                <label class="label"> {{'replay.future-duration' | translate}}:
+                    {{displayDuration(settings.replayCaptureKillFutureDuration)}}
+                </label>
+                <div class="slider">
+                    <mat-slider min="0" max="5" step="1" tickInterval="1" [displayWith]="displayDuration"
+                        [(value)]="settings.replayCaptureKillFutureDuration" (valueChange)="onDurationChange()">
+                    </mat-slider>
+                </div>
+            </div>
+        </div>
+    </div>
+</app-card>

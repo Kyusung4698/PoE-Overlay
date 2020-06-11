@@ -1,0 +1,14 @@
+<ng-container *ngIf="window$ | async as window">
+    <ng-container [ngSwitch]="window.name">
+        <app-background-window *ngSwitchCase="'background'"></app-background-window>
+        <app-evaluate-window *ngSwitchCase="'evaluate'"></app-evaluate-window>
+        <app-inspect-window *ngSwitchCase="'inspect'"></app-inspect-window>
+        <app-settings-window *ngSwitchCase="'settings'"></app-settings-window>
+        <app-notification-window *ngSwitchCase="'notification'"></app-notification-window>
+        <app-market-window *ngSwitchCase="'market'"></app-market-window>
+        <app-replay-window *ngSwitchCase="'replay'"></app-replay-window>
+        <app-launcher-window *ngSwitchCase="'launcher'"></app-launcher-window>
+        <app-annotation-window *ngSwitchCase="'annotation'"></app-annotation-window>
+        <div *ngSwitchDefault>Could not match window with name: {{window.name}}</div>
+    </ng-container>
+</ng-container>

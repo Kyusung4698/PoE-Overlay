@@ -1,0 +1,20 @@
+@import "../../../../../styles/variables";
+
+.filters {
+  .filter {
+    display: flex;
+    margin-bottom: $gutter-half;
+
+    .filter-content {
+      width: 100%;
+    }
+
+    .filter-remove {
+      display: flex;
+      align-items: center;
+      margin-left: $gutter-half;
+      background-color: $black-transparent;
+      cursor: pointer;
+    }
+  }
+}

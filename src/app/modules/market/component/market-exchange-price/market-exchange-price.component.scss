@@ -1,0 +1,105 @@
+@import "../../../../../styles/variables";
+
+::ng-deep {
+  app-market-exchange-price {
+    display: flex;
+
+    &:nth-child(even) {
+      > .item,
+      > .values,
+      > .actions {
+        background: rgba(0, 0, 0, 0.4);
+      }
+    }
+
+    & + app-market-exchange-price {
+      margin-top: $gutter-half;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.item,
+.values,
+.actions {
+  display: flex;
+  background: $black-transparent;
+  flex-grow: 1;
+  margin-right: $gutter-half;
+}
+
+.item {
+  padding: $gutter-half 0;
+  width: 100%;
+  flex-direction: row;
+
+  > .offer {
+    display: flex;
+    align-self: center;
+    width: 100%;
+
+    > .value {
+      width: 100%;
+
+      &.left {
+        text-align: right;
+      }
+
+      > .rate {
+        color: $light-dark-grey;
+        font-size: 12px;
+      }
+    }
+
+    > .dir {
+      display: flex;
+      align-self: center;
+      flex-flow: column;
+      padding: 0 $gutter;
+
+      > .pay {
+        height: 10px;
+        color: red;
+      }
+
+      > .get {
+        height: 20px;
+        color: lightgreen;
+      }
+    }
+  }
+}
+
+.actions,
+.values {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.actions {
+  position: relative;
+  color: $purple;
+
+  .status {
+    position: absolute;
+    top: $gutter-half;
+    right: $gutter-half;
+  }
+
+  button {
+    min-width: auto;
+  }
+}
+
+.values {
+  .sub,
+  .add {
+    display: flex;
+  }
+
+  button {
+    padding: 3px 6px;
+    width: 30px;
+  }
+}

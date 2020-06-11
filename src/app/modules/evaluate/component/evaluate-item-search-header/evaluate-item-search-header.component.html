@@ -1,0 +1,10 @@
+<div class="header">
+    <span>
+        {{count}}/{{total | number}}
+    </span>
+    <span class="spacer"></span>
+    <span class="clickable">
+        <mat-icon [class.active]="graph" (click)="onClick(true)">bar_chart</mat-icon>
+        <mat-icon [class.active]="!graph" (click)="onClick(false)">list</mat-icon>
+    </span>
+</div>

@@ -1,0 +1,20 @@
+<div appResize>
+    <app-header name="PoE Overlay" [closeable]="false">
+        <ng-container *ngIf="message$ | async as message">
+            <app-background>
+                <div class="content">
+                    <div class="title">{{message.title | translate}}</div>
+                    <div class="message">{{message.message | translate}}</div>
+                    <div class="hotkey" *ngIf="message.hotkey">
+                        <span class="text">{{message.hotkey | hotkey}}</span>
+                    </div>
+                    <div class="actions" *ngIf="message.skippable">
+                        <button class="poe-control poe-button" (click)="onContinue()">
+                            {{'annotation.continue' | translate}}
+                        </button>
+                    </div>
+                </div>
+            </app-background>
+        </ng-container>
+    </app-header>
+</div>

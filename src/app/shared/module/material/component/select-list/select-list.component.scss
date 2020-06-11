@@ -1,0 +1,23 @@
+.content {
+  display: flex;
+  flex-wrap: nowrap;
+
+  .list {
+    width: 550px;
+  }
+
+  .control {
+    display: flex;
+    align-items: center;
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .viewport {
+    height: 240px;
+    width: 550px;
+  }
+}

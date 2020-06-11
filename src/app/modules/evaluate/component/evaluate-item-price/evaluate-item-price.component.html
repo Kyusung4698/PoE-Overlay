@@ -1,0 +1,9 @@
+<ng-container *ngIf="prediction$ | async; else rate">
+    <app-evaluate-item-price-prediction [item]="item" [currencies]="currencies" [options]="options"
+        [optionsChange]="optionsChange">
+    </app-evaluate-item-price-prediction>
+</ng-container>
+<ng-template #rate>
+    <app-evaluate-item-price-rate [item]="item" [currencies]="currencies" [options]="options"
+        [optionsChange]="optionsChange" (evaluateSelect)="evaluateSelect.next($event)"></app-evaluate-item-price-rate>
+</ng-template>

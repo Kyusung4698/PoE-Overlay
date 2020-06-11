@@ -1,0 +1,53 @@
+<div class="item">
+    <div class="offer">
+        <div class="value left">
+            <app-trade-static-frame [count]="price.exchange.amount * value" [id]="price.exchange.currency"
+                [reverse]="true">
+            </app-trade-static-frame>
+            <div class="rate">
+                <app-trade-static-frame [count]="1" [id]="price.exchange.currency" [small]="true" [reverse]="true">
+                </app-trade-static-frame>
+                <span>&nbsp;≈&nbsp;</span>
+                <app-trade-static-frame [amount]="price.item.amount / price.exchange.amount" [id]="price.item.currency"
+                    [small]="true">
+                </app-trade-static-frame>
+            </div>
+        </div>
+        <div class="dir">
+            <div class="pay">
+                <mat-icon>arrow_right</mat-icon>
+            </div>
+            <div class="get">
+                <mat-icon>arrow_left</mat-icon>
+            </div>
+        </div>
+        <div class="value">
+            <app-trade-static-frame [count]="price.item.amount * value" [id]="price.item.currency">
+            </app-trade-static-frame>
+            <div class="rate">
+                <app-trade-static-frame [count]="1" [id]="price.item.currency" [small]="true" [reverse]="true">
+                </app-trade-static-frame>
+                <span>&nbsp;≈&nbsp;</span>
+                <app-trade-static-frame [amount]="price.exchange.amount / price.item.amount"
+                    [id]="price.exchange.currency" [small]="true">
+                </app-trade-static-frame>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="values">
+    <div class="sub">
+        <button (click)="onSub()" [disabled]="value === min">-</button>
+        <button (click)="value = min" [disabled]="value === min">{{min}}</button>
+    </div>
+    <div class="add">
+        <button (click)="onAdd()" [disabled]="value === max">+</button>
+        <button (click)="value = max" [disabled]="value === max">{{max}}</button>
+    </div>
+</div>
+<div class="actions">
+    <app-market-listing-status class="status" [status]="status"></app-market-listing-status>
+    <button mat-button (click)="onSend(price.item.amount * value, price.exchange.amount * value)">
+        <mat-icon>send</mat-icon>
+    </button>
+</div>

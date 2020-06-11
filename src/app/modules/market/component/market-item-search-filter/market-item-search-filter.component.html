@@ -1,0 +1,212 @@
+<div class="content">
+    <div class="filters">
+        <div class="inner-content">
+            <app-market-panel-group>
+                <app-market-panel label="Stats Filters" [active]="true">
+                    <div class="market-row">
+                        <div class="market-col">
+                            <app-market-item-search-stat-group prefix="query.stats[0]" [request]="request" #group>
+                            </app-market-item-search-stat-group>
+                            <app-market-item-search-stats (add)="group.addFilter($event)">
+                            </app-market-item-search-stats>
+                        </div>
+                    </div>
+                </app-market-panel>
+                <app-market-panel label="Type Filters">
+                    <app-market-item-search-filter-type [request]="request"></app-market-item-search-filter-type>
+                </app-market-panel>
+                <app-market-panel label="Weapon Filters">
+                    <div class="market-row">
+                        <div class="market-col">
+                            <app-market-input-range label="Damage" path="weapon_filters.filters.damage"
+                                [request]="request">
+                            </app-market-input-range>
+                        </div>
+                        <div class="market-col">
+                            <app-market-input-range label="DPS" path="weapon_filters.filters.dps" [request]="request">
+                            </app-market-input-range>
+                        </div>
+                    </div>
+                    <div class="market-row">
+                        <div class="market-col">
+                            <app-market-input-range label="Attacks Per Second" path="weapon_filters.filters.aps"
+                                [request]="request">
+                            </app-market-input-range>
+                        </div>
+                        <div class="market-col">
+                            <app-market-input-range label="Physical DPS" path="weapon_filters.filters.pdps"
+                                [request]="request">
+                            </app-market-input-range>
+                        </div>
+                    </div>
+                    <div class="market-row">
+                        <div class="market-col">
+                            <app-market-input-range label="Critical Chance" path="weapon_filters.filters.crit"
+                                [request]="request">
+                            </app-market-input-range>
+                        </div>
+                        <div class="market-col">
+                            <app-market-input-range label="Elemental DPS" path="weapon_filters.filters.edps"
+                                [request]="request">
+                            </app-market-input-range>
+                        </div>
+                    </div>
+                </app-market-panel>
+                <app-market-panel label="Armour Filters">
+                    <div class="market-row">
+                        <div class="market-col">
+                            <app-market-input-range label="Armour" path="armour_filters.filters.ar" [request]="request">
+                            </app-market-input-range>
+                        </div>
+                        <div class="market-col">
+                            <app-market-input-range label="Evasion" path="armour_filters.filters.ev"
+                                [request]="request">
+                            </app-market-input-range>
+                        </div>
+                    </div>
+                    <div class="market-row">
+                        <div class="market-col">
+                            <app-market-input-range label="Energy Shield" path="armour_filters.filters.es"
+                                [request]="request">
+                            </app-market-input-range>
+                        </div>
+                        <div class="market-col">
+                            <app-market-input-range label="Block" path="armour_filters.filters.block"
+                                [request]="request">
+                            </app-market-input-range>
+                        </div>
+                    </div>
+                </app-market-panel>
+                <app-market-panel label="Socket Filters">
+                    <div class="market-row">
+                        <div class="market-col">
+                            <app-market-input label="Sockets">
+                                <app-market-input-number name="r" path="socket_filters.filters.sockets"
+                                    [request]="request"></app-market-input-number>
+                                <app-market-input-number name="g" path="socket_filters.filters.sockets"
+                                    [request]="request"></app-market-input-number>
+                                <app-market-input-number name="b" path="socket_filters.filters.sockets"
+                                    [request]="request"></app-market-input-number>
+                                <app-market-input-number name="w" path="socket_filters.filters.sockets"
+                                    [request]="request"></app-market-input-number>
+                                <app-market-input-number name="min" path="socket_filters.filters.sockets"
+                                    [request]="request"></app-market-input-number>
+                                <app-market-input-number name="max" path="socket_filters.filters.sockets"
+                                    [request]="request"></app-market-input-number>
+                            </app-market-input>
+                        </div>
+                    </div>
+                    <div class="market-row">
+                        <div class="market-col">
+                            <app-market-input label="Links">
+                                <app-market-input-number name="r" path="socket_filters.filters.links"
+                                    [request]="request"></app-market-input-number>
+                                <app-market-input-number name="g" path="socket_filters.filters.links"
+                                    [request]="request"></app-market-input-number>
+                                <app-market-input-number name="b" path="socket_filters.filters.links"
+                                    [request]="request"></app-market-input-number>
+                                <app-market-input-number name="w" path="socket_filters.filters.links"
+                                    [request]="request"></app-market-input-number>
+                                <app-market-input-number name="min" path="socket_filters.filters.links"
+                                    [request]="request"></app-market-input-number>
+                                <app-market-input-number name="max" path="socket_filters.filters.links"
+                                    [request]="request"></app-market-input-number>
+                            </app-market-input>
+                        </div>
+                    </div>
+                </app-market-panel>
+                <app-market-panel label="Requirements Filters">
+                    <div class="market-row">
+                        <div class="market-col">
+                            <app-market-input-range label="Level" path="req_filters.filters.lvl" [request]="request">
+                            </app-market-input-range>
+                        </div>
+                        <div class="market-col">
+                            <app-market-input-range label="Strength" path="req_filters.filters.str" [request]="request">
+                            </app-market-input-range>
+                        </div>
+                    </div>
+                    <div class="market-row">
+                        <div class="market-col">
+                            <app-market-input-range label="Dexterity" path="req_filters.filters.dex"
+                                [request]="request">
+                            </app-market-input-range>
+                        </div>
+                        <div class="market-col">
+                            <app-market-input-range label="Intelligence" path="req_filters.filters.int"
+                                [request]="request">
+                            </app-market-input-range>
+                        </div>
+                    </div>
+                </app-market-panel>
+                <app-market-panel label="Map Filters">
+                    <div class="market-row">
+                        <div class="market-col">
+                            <app-market-input-range label="Map Tier" path="map_filters.filters.map_tier"
+                                [request]="request">
+                            </app-market-input-range>
+                        </div>
+                        <div class="market-col">
+                            <app-market-input-range label="Map Packsize" path="map_filters.filters.map_packsize"
+                                [request]="request">
+                            </app-market-input-range>
+                        </div>
+                    </div>
+                    <div class="market-row">
+                        <div class="market-col">
+                            <app-market-input-range label="Map IIQ" path="map_filters.filters.map_iiq"
+                                [request]="request">
+                            </app-market-input-range>
+                        </div>
+                        <div class="market-col">
+                            <app-market-input-range label="Map IIR" path="map_filters.filters.map_iir"
+                                [request]="request">
+                            </app-market-input-range>
+                        </div>
+                    </div>
+                    <div class="market-row">
+                        <div class="market-col">
+                            <app-market-input-boolean label="Shaped Map" path="map_filters.filters.map_shaped"
+                                [request]="request">
+                            </app-market-input-boolean>
+                        </div>
+                        <div class="market-col">
+                            <app-market-input-boolean label="Elder Map" path="map_filters.filters.map_elder"
+                                [request]="request">
+                            </app-market-input-boolean>
+                        </div>
+                    </div>
+                    <div class="market-row">
+                        <div class="market-col">
+                            <app-market-input-boolean label="Blighted Map" path="map_filters.filters.map_blighted"
+                                [request]="request">
+                            </app-market-input-boolean>
+                        </div>
+                        <div class="market-col">
+                            <app-market-input label="Map Region">
+                                <app-market-input-select path="map_filters.filters.map_region" [request]="request">
+                                    <app-market-input-select-option text="Any"></app-market-input-select-option>
+                                    <app-market-input-select-option value="otl" text="Haewark Hamlet"></app-market-input-select-option>
+                                    <app-market-input-select-option value="itl" text="Tirn's End"></app-market-input-select-option>
+                                    <app-market-input-select-option value="itr" text="Lex Proxima"></app-market-input-select-option>
+                                    <app-market-input-select-option value="otr" text="Lex Ejoris"></app-market-input-select-option>
+                                    <app-market-input-select-option value="obl" text="New Vastir"></app-market-input-select-option>
+                                    <app-market-input-select-option value="ibl" text="Glennach Cairns"></app-market-input-select-option>
+                                    <app-market-input-select-option value="ibr" text="Valdo's Rest"></app-market-input-select-option>
+                                    <app-market-input-select-option value="obr" text="Lira Arthain"></app-market-input-select-option>
+                                </app-market-input-select>
+                            </app-market-input>
+                        </div>
+                    </div>
+                </app-market-panel>
+                <app-market-panel label="Misc Filters">
+                    <app-market-item-search-filter-misc [request]="request"></app-market-item-search-filter-misc>
+                </app-market-panel>
+
+                <app-market-panel label="Trade Filters">
+                    <app-market-item-search-filter-trade [request]="request"></app-market-item-search-filter-trade>
+                </app-market-panel>
+            </app-market-panel-group>
+        </div>
+    </div>
+</div>

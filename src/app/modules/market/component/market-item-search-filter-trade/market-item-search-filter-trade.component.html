@@ -1,0 +1,29 @@
+<div class="market-row">
+    <div class="market-col">
+        <app-market-input label="Buyout Price">
+            <app-market-input-select path="trade_filters.filters.price" width="180px" [request]="request">
+                <app-market-input-select-option text="Chaos Orb Equivalent"></app-market-input-select-option>
+                <app-market-input-select-option value="blessed" text="Blessed Orb"></app-market-input-select-option>
+                <app-market-input-select-option value="chisel" text="Cartographer's Chisel"></app-market-input-select-option>
+                <app-market-input-select-option value="chaos" text="Chaos Orb"></app-market-input-select-option>
+                <app-market-input-select-option value="chrom" text="Chromatic Orb"></app-market-input-select-option>
+                <app-market-input-select-option value="divine" text="Divine Orb"></app-market-input-select-option>
+                <app-market-input-select-option value="exa" text="Exalted Orb"></app-market-input-select-option>
+                <app-market-input-select-option value="gcp" text="Gemcutter's Prism"></app-market-input-select-option>
+                <app-market-input-select-option value="jew" text="Jeweller's Orb"></app-market-input-select-option>
+                <app-market-input-select-option value="scour" text="Orb of Scouring"></app-market-input-select-option>
+                <app-market-input-select-option value="regret" text="Orb of Regret"></app-market-input-select-option>
+                <app-market-input-select-option value="fusing" text="Orb of Fusing"></app-market-input-select-option>
+                <app-market-input-select-option value="chance" text="Orb of Chance"></app-market-input-select-option>
+                <app-market-input-select-option value="alt" text="Orb of Alteration"></app-market-input-select-option>
+                <app-market-input-select-option value="alch" text="Orb of Alchemy"></app-market-input-select-option>
+                <app-market-input-select-option value="regal" text="Regal Orb"></app-market-input-select-option>
+                <app-market-input-select-option value="vaal" text="Vaal Orb"></app-market-input-select-option>
+            </app-market-input-select>
+            <app-market-input-number name="min" path="trade_filters.filters.price" [request]="request">
+            </app-market-input-number>
+            <app-market-input-number name="max" path="trade_filters.filters.price" [request]="request">
+            </app-market-input-number>
+        </app-market-input>
+    </div>
+</div>
