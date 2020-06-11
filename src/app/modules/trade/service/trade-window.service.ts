@@ -7,7 +7,7 @@ import { TradeChatOffer, TradeChatRequest } from '@shared/module/poe/trade/chat'
 import { Observable } from 'rxjs';
 
 const WINDOW_DATA_KEY = 'TRADE_WINDOW_DATA';
-1;
+
 export interface TradeWindowData {
     offers: TradeChatOffer[];
     requests: TradeChatRequest[];
