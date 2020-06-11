@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { TradeChatParserService } from '@shared/module/poe/trade/chat';
+import { TradeChatParserService, TradeParserBase, ParserResultType, TradeMessageBase } from '@shared/module/poe/trade/chat';
 import { Observable } from 'rxjs';
 import { TradeWindowService } from './trade-window.service';
 
@@ -15,18 +15,22 @@ export class TradeService {
     public onLogLineAdd(line: string): Observable<void> {
         const data = this.window.data$.get();
 
-        const { offer, request } = this.parser.parse(line);
-        if (offer || request) {
-            if (offer) {
-                data.offers.push(offer);
-            }
-            if (request) {
-                data.requests.push(request);
-            }
-            this.window.data$.next(data);
+        let result : TradeParserBase = this.parser.parse(line);
+        switch(result.parseType)
+        {
+            case ParserResultType.TradeItem:
+            case ParserResultType.TradeBulk:
+            case ParserResultType.TradeMap:
+                data.tradeList.push(<TradeMessageBase>result);
+                this.window.data$.next(data);
+                break;
+            case ParserResultType.Whisper:
+                break;
+            case ParserResultType.PlayerJoinedArea:
+                break;
         }
 
-        if (data.offers.length || data.requests.length) {
+        if (data.tradeList.length) {
             return this.window.restore();
         }
         return this.window.close();

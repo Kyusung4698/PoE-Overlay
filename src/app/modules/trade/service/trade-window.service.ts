@@ -3,14 +3,13 @@ import { WindowName } from '@app/config';
 import { EventEmitter } from '@app/event';
 import { OWWindow } from '@app/odk';
 import { ProcessStorageService } from '@app/storage';
-import { TradeChatOffer, TradeChatRequest } from '@shared/module/poe/trade/chat';
+import { TradeMessageBase } from '@shared/module/poe/trade/chat';
 import { Observable } from 'rxjs';
 
 const WINDOW_DATA_KEY = 'TRADE_WINDOW_DATA';
 
 export interface TradeWindowData {
-    offers: TradeChatOffer[];
-    requests: TradeChatRequest[];
+    tradeList: TradeMessageBase[];
 }
 
 @Injectable({
@@ -25,8 +24,7 @@ export class TradeWindowService {
 
     public get data$(): EventEmitter<TradeWindowData> {
         return this.storage.get(WINDOW_DATA_KEY, () => new EventEmitter<TradeWindowData>({
-            offers: [],
-            requests: []
+            tradeList: []
         }));
     }
 

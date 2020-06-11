@@ -1,17 +1,11 @@
 import { Injectable } from '@angular/core';
-import { TradeChatParseResult } from './trade-chat';
+import { TradeParserBase } from './trade-chat';
 
 @Injectable({
     providedIn: 'root'
 })
 export class TradeChatParserService {
-    public parse(line: string): TradeChatParseResult {
-        // TODO: @Hyve
-        return {
-            offer: {
-                item: '123',
-                seller: line
-            }
-        };
+    public parse(line: string): TradeParserBase {
+        return null;
     }
 }
