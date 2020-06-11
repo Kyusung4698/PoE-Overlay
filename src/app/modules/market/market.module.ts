@@ -81,8 +81,4 @@ export class MarketModule implements FeatureModule<MarketFeatureSettings> {
                 throw new Error(`Hotkey: '${hotkey}' out of range.`);
         }
     }
-
-    public onSettingsChange(): void { }
-    public onGameEvent(): void { }
-    public onInfo(): void { }
 }

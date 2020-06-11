@@ -1,0 +1,11 @@
+<div appResize>
+    <app-header name="PoE Overlay - Trade" [closeable]="false">
+        <ng-container *ngIf="data$ | async as data">
+            <app-background>
+                <div class="content">
+                    {{data | json}}
+                </div>
+            </app-background>
+        </ng-container>
+    </app-header>
+</div>

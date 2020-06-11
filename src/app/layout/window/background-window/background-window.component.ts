@@ -7,7 +7,7 @@ import { EventSubscription } from '@app/event';
 import { FeatureModule, FeatureSettings, FEATURE_MODULES } from '@app/feature';
 import { FeatureSettingsService } from '@app/feature/feature-settings.service';
 import { NotificationService } from '@app/notification';
-import { InfoUpdatesEvent, NewGameEvents, OnPressedEvent, OWGameClassId, OWGameListener, OWGamesEventsListener, OWHotkeysListener, OWWindow, OWWindowsListener, RunningGameInfo, WindowState, WindowStateChangedEvent } from '@app/odk';
+import { InfoUpdatesEvent, NewGameEvents, OnPressedEvent, OWFileListener, OWGameClassId, OWGameListener, OWGamesEventsListener, OWHotkeysListener, OWWindow, OWWindowsListener, RunningGameInfo, WindowState, WindowStateChangedEvent } from '@app/odk';
 import { concat, forkJoin } from 'rxjs';
 import { flatMap } from 'rxjs/operators';
 import { AnnotationWindowService, LauncherWindowService, NotificationWindowService, SettingsWindowService } from '../../service';
@@ -20,10 +20,12 @@ import { AnnotationWindowService, LauncherWindowService, NotificationWindowServi
 export class BackgroundWindowComponent implements OnInit, OnDestroy {
     private settingsChange: EventSubscription;
     private shouldQuit = false;
+
     private readonly game: OWGameListener;
     private readonly events: OWGamesEventsListener;
     private readonly hotkeys: OWHotkeysListener;
     private readonly windows: OWWindowsListener;
+    private readonly log: OWFileListener;
 
     constructor(
         @Inject(FEATURE_MODULES)
@@ -52,6 +54,10 @@ export class BackgroundWindowComponent implements OnInit, OnDestroy {
         this.windows = new OWWindowsListener({
             onStateChange: this.onStateChange.bind(this)
         });
+        this.log = new OWFileListener('log', {
+            onLineAdd: this.onLogLineAdd.bind(this),
+            onError: this.onLogError.bind(this),
+        });
     }
 
     public ngOnInit(): void {
@@ -61,7 +67,11 @@ export class BackgroundWindowComponent implements OnInit, OnDestroy {
         this.asset.load().subscribe(() => {
             this.settingsChange = this.settings.change().on(settings => {
                 this.ngZone.run(() => {
-                    this.modules.forEach(module => module.onSettingsChange(settings));
+                    this.modules.forEach(module => {
+                        if (module.onSettingsChange) {
+                            module.onSettingsChange(settings);
+                        }
+                    });
                 });
             });
             this.hotkeys.start();
@@ -84,13 +94,17 @@ export class BackgroundWindowComponent implements OnInit, OnDestroy {
                 break;
             default:
                 for (const module of this.modules) {
+                    if (!module.onKeyPressed) {
+                        continue;
+                    }
                     for (const feature of module.getFeatures()) {
-                        if (feature.hotkey === event.name) {
-                            this.settings.get().subscribe(settings => {
-                                module.onKeyPressed(feature.hotkey, settings);
-                            });
-                            break;
+                        if (feature.hotkey !== event.name) {
+                            continue;
                         }
+                        this.settings.get().subscribe(
+                            settings => module.onKeyPressed(feature.hotkey, settings)
+                        );
+                        return;
                     }
                 }
         }
@@ -104,6 +118,12 @@ export class BackgroundWindowComponent implements OnInit, OnDestroy {
         this.shouldQuit = false;
         this.launcherWindow.close();
 
+        const path = info.executionPath.split('/');
+        path.pop();
+        const log = `${path.join('/')}/logs/Client.txt`;
+        console.log(log);
+        this.log.start(log);
+
         forkJoin([
             this.annotationWindow.open(info.width, info.height),
             this.notificationWindow.open(info.width, info.height)
@@ -111,7 +131,11 @@ export class BackgroundWindowComponent implements OnInit, OnDestroy {
             flatMap(() => this.events.start()),
         ).subscribe(result => {
             this.settings.get().subscribe(settings => {
-                this.modules.forEach(module => module.onInfo(info, settings));
+                this.modules.forEach(module => {
+                    if (module.onInfo) {
+                        module.onInfo(info, settings);
+                    }
+                });
             });
             if (!result) {
                 this.notification.show('event.start-error');
@@ -126,7 +150,11 @@ export class BackgroundWindowComponent implements OnInit, OnDestroy {
 
         this.events.stop();
         this.settings.get().subscribe(settings => {
-            this.modules.forEach(module => module.onInfo(info, settings));
+            this.modules.forEach(module => {
+                if (module.onInfo) {
+                    module.onInfo(info, settings);
+                }
+            });
 
             forkJoin([
                 this.settingsWindow.close(),
@@ -140,14 +168,26 @@ export class BackgroundWindowComponent implements OnInit, OnDestroy {
 
     private onInfoUpdates(event: InfoUpdatesEvent): void {
         this.settings.get().subscribe(settings => {
-            this.modules.forEach(module => module.onGameEvent(event, settings));
+            this.modules.forEach(module => {
+                if (module.onGameEvent) {
+                    module.onGameEvent(event, settings);
+                }
+            });
         });
     }
 
     private onNewEvents(event: NewGameEvents): void {
+        if (!event?.events?.length) {
+            return;
+        }
+
         this.settings.get().subscribe(settings => {
             this.modules.forEach(module => {
-                event?.events?.forEach(e => module.onGameEvent(e, settings));
+                event.events.forEach(e => {
+                    if (module.onGameEvent) {
+                        module.onGameEvent(e, settings);
+                    }
+                });
             });
         });
     }
@@ -196,5 +236,17 @@ export class BackgroundWindowComponent implements OnInit, OnDestroy {
             default:
                 break;
         }
+    }
+
+    public onLogLineAdd(line: string): void {
+        this.modules.forEach(module => {
+            if (module.onLogLineAdd) {
+                module.onLogLineAdd(line);
+            }
+        });
+    }
+
+    public onLogError(error: string): void {
+        console.error('An unexpected error occured while listening to the Client.txt file.', error);
     }
 }

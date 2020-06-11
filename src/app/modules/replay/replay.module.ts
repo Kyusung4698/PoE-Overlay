@@ -46,8 +46,6 @@ export class ReplayModule implements FeatureModule<ReplayFeatureSettings> {
         return features;
     }
 
-    public onKeyPressed(): void { }
-
     public onSettingsChange(settings: ReplayFeatureSettings): void {
         const shouldCapture = settings.replayCaptureDeath || settings.replayCaptureKill;
         if (shouldCapture !== this.shouldCapture) {
