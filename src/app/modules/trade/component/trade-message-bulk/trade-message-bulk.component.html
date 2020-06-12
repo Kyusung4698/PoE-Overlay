@@ -1,0 +1,25 @@
+<div class="item">
+    <div class="value left">
+        <app-trade-static-frame [count]="message.count1" [id]="message.type1" [reverse]="true">
+        </app-trade-static-frame>
+        <div class="rate">
+            <app-trade-static-frame [count]="1" [id]="message.type1" [small]="true" [reverse]="true">
+            </app-trade-static-frame>
+            <span>&nbsp;≈&nbsp;</span>
+            <app-trade-static-frame [amount]="message.count2 / message.count1" [id]="message.type2" [small]="true">
+            </app-trade-static-frame>
+        </div>
+    </div>
+    <app-trade-message-direction></app-trade-message-direction>
+    <div class="value">
+        <app-trade-static-frame [count]="message.count2" [id]="message.type2">
+        </app-trade-static-frame>
+        <div class="rate">
+            <app-trade-static-frame [count]="1" [id]="message.type2" [small]="true" [reverse]="true">
+            </app-trade-static-frame>
+            <span>&nbsp;≈&nbsp;</span>
+            <app-trade-static-frame [amount]="message.count1 / message.count2" [id]="message.type1" [small]="true">
+            </app-trade-static-frame>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<div [class]="'message ' + message.tradeDirection">
+    <div class="content">
+        <ng-container [ngSwitch]="message.parseType">
+            <app-trade-message-item *ngSwitchCase="'item'" [message]="message"></app-trade-message-item>
+            <app-trade-message-bulk *ngSwitchCase="'bulk'" [message]="message"></app-trade-message-bulk>
+            <app-trade-message-map *ngSwitchCase="'map'" [message]="message"></app-trade-message-map>
+            <div *ngSwitchDefault>Could not match message type: {{message.parseType}}</div>
+        </ng-container>
+    </div>
+    <div class="actions">
+        <app-trade-message-action action="wait" [visible]="visible" (execute)="onActionExecute($event)">
+        </app-trade-message-action>
+        <app-trade-message-action action="resend" [visible]="visible" (execute)="onActionExecute($event)">
+        </app-trade-message-action>
+        <app-trade-message-action action="whisper" [visible]="visible" (execute)="onActionExecute($event)">
+        </app-trade-message-action>
+        <app-trade-message-action action="invite" [visible]="visible" (execute)="onActionExecute($event)">
+        </app-trade-message-action>
+        <app-trade-message-action action="trade" [visible]="visible" (execute)="onActionExecute($event)">
+        </app-trade-message-action>
+        <app-trade-message-action action="item-highlight" [visible]="visible" (execute)="onActionExecute($event)">
+        </app-trade-message-action>
+        <app-trade-message-action action="item-gone" [visible]="visible" (execute)="onActionExecute($event)">
+        </app-trade-message-action>
+        <app-trade-message-action action="finished" [visible]="visible" (execute)="onActionExecute($event)">
+        </app-trade-message-action>
+        <app-trade-message-action action="dismiss" [visible]="visible" (execute)="onActionExecute($event)">
+        </app-trade-message-action>
+    </div>
+</div>

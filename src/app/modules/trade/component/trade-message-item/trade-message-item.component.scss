@@ -1,0 +1,9 @@
+.item {
+  display: flex;
+  flex-direction: row;
+  line-height: 32px;
+
+  &.reverse {
+    flex-direction: row-reverse;
+  }
+}

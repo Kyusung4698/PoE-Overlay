@@ -1,25 +1,25 @@
 export enum ParserResultType {
-    Ignored,
-    TradeItem,
-    TradeBulk,
-    TradeMap,
-    Whisper,
-    PlayerJoinedArea,
+    Ignored = 'ignored',
+    TradeItem = 'item',
+    TradeBulk = 'bulk',
+    TradeMap = 'map',
+    Whisper = 'whisper',
+    PlayerJoinedArea = 'player',
 }
 
 export enum TradeDirection {
-    Incoming,
-    Outgoing,
+    Incoming = 'incoming',
+    Outgoing = 'outgoing',
 }
 
 export interface TradeParserBase {
     parseType: ParserResultType;
-    name: string;
 }
 
 export interface Whisper extends TradeParserBase {
     timeReceived: Date;
     tradeDirection: TradeDirection;
+    name: string;
     message: string;
 }
 

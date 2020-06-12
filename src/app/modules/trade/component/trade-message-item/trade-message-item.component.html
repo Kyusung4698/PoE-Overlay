@@ -1,0 +1,8 @@
+<div class="item" [class.reverse]="message.tradeDirection === 'outgoing'">
+    <div class="name">{{message.itemName}}</div>
+    <app-trade-message-direction></app-trade-message-direction>
+    <div class="price" *ngIf="message.price && message.currencyType">
+        <app-trade-static-frame [count]="message.price" [id]="message.currencyType">
+        </app-trade-static-frame>
+    </div>
+</div>

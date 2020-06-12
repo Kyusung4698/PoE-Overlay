@@ -1,0 +1,24 @@
+@import "../../../../../styles/variables";
+
+:host {
+  align-self: center;
+}
+
+.dir {
+  display: flex;
+  align-self: center;
+  flex-flow: column;
+  padding: 0 $gutter;
+  height: 20px;
+
+  > .pay {
+    height: 10px;
+    color: red;
+    margin-top: -7px;
+  }
+
+  > .get {
+    height: 10px;
+    color: lightgreen;
+  }
+}
