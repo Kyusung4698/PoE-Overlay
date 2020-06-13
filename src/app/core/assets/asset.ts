@@ -5,5 +5,6 @@ export enum Asset {
     Stats = 'stats',
     StatsLocal = 'StatsLocal',
     Words = 'Words',
-    Maps = 'Maps'
+    Maps = 'Maps',
+    TradeRegex = 'TradeRegex'
 }

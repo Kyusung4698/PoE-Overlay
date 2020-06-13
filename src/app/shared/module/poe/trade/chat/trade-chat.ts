@@ -16,6 +16,11 @@ export interface TradeParserBase {
     parseType: ParserResultType;
 }
 
+export interface PlayerJoinedArea extends TradeParserBase
+{
+    name: string;
+}
+
 export interface Whisper extends TradeParserBase {
     timeReceived: Date;
     tradeDirection: TradeDirection;
@@ -26,6 +31,7 @@ export interface Whisper extends TradeParserBase {
 export interface TradeMessageBase extends Whisper {
     extendedMessage: string[];
     league: string;
+    joined: boolean;
 }
 
 export interface TradeItemMessage extends TradeMessageBase {
