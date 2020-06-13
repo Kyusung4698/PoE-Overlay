@@ -1,18 +1,18 @@
 @import "../../../../../styles/variables";
 
+:host,
 .list {
   display: flex;
+  width: 100%;
+}
+
+.list {
+  &.left {
+    justify-content: flex-end;
+  }
 }
 
 .tier {
   color: $light-dark-grey;
   padding-right: $gutter-half;
-}
-
-.map {
-  display: block;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 100px;
 }

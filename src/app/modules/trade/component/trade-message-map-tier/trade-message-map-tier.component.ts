@@ -10,4 +10,7 @@ import { TradeMapList } from '@shared/module/poe/trade/chat';
 export class TradeMessageMapTierComponent {
   @Input()
   public list: TradeMapList;
+
+  @Input()
+  public left: boolean;
 }

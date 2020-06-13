@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, OnDestroy, OnInit, Output, TemplateRef, ViewChild } from '@angular/core';
-import { environment } from '@env/environment';
 import { ChatService } from '@shared/module/poe/chat';
 import { TradeFetchEntryListing, TradeFetchResultEntry, TradeFetchService, TradeSearchRequest, TradeSearchResponse, TradeSearchService } from '@shared/module/poe/trade';
 import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
@@ -108,12 +107,7 @@ export class MarketItemSearchComponent implements OnInit, OnDestroy {
   }
 
   public onSend(listing: TradeFetchEntryListing): void {
-    if (environment.production) {
-      this.chat.send(listing.whisper);
-    } else {
-      console.log(listing.whisper);
-      this.chat.send('/dnd');
-    }
+    this.chat.send(listing.whisper);
   }
 
   private clear(): void {

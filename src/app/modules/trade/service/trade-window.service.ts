@@ -9,7 +9,10 @@ import { Observable } from 'rxjs';
 const WINDOW_DATA_KEY = 'TRADE_WINDOW_DATA';
 
 export interface TradeWindowData {
+    // only modified by the background window
     messages: TradeExchangeMessage[];
+    // only modified by the trade window
+    removed: TradeExchangeMessage[];
 }
 
 @Injectable({
@@ -143,7 +146,8 @@ export class TradeWindowService {
                         ]
                     } as TradeMapList,
                 } as TradeMapMessage
-            ]
+            ],
+            removed: []
         }));
     }
 

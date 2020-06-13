@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { TradeParserType, TradeChatParserService, TradeExchangeMessage, TradeMessage, TradePlayerJoinedArea } from '@shared/module/poe/trade/chat';
+import { TradeChatParserService, TradeExchangeMessage, TradeMessage, TradeParserType, TradePlayerJoinedArea } from '@shared/module/poe/trade/chat';
 import { Observable } from 'rxjs';
-import { TradeWindowService } from './trade-window.service';
+import { TradeWindowData, TradeWindowService } from './trade-window.service';
 
 @Injectable({
     providedIn: 'root'
@@ -14,6 +14,9 @@ export class TradeService {
 
     public onLogLineAdd(line: string): Observable<void> {
         const data = this.window.data$.get();
+        if (this.processRemoved(data)) {
+            this.window.data$.next(data);
+        }
 
         const result = this.parser.parse(line);
         switch (result.type) {
@@ -79,5 +82,19 @@ export class TradeService {
             }
         }
         return shouldUpdate;
+    }
+
+    private processRemoved(data: TradeWindowData): boolean {
+        let needUpdate = false;
+
+        while (data.removed.length) {
+            const message = data.removed.pop();
+            const index = data.messages.indexOf(message);
+            if (index !== -1) {
+                data.messages.splice(index, 1);
+                needUpdate = true;
+            }
+        }
+        return needUpdate;
     }
 }

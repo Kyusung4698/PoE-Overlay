@@ -10,6 +10,8 @@
     <div class="actions">
         <app-trade-message-action action="wait" [visible]="visible" (execute)="onActionExecute($event)">
         </app-trade-message-action>
+        <app-trade-message-action action="interested" [visible]="visible" (execute)="onActionExecute($event)">
+        </app-trade-message-action>
         <app-trade-message-action action="resend" [visible]="visible" (execute)="onActionExecute($event)">
         </app-trade-message-action>
         <app-trade-message-action action="whisper" [visible]="visible" (execute)="onActionExecute($event)">
@@ -20,9 +22,11 @@
         </app-trade-message-action>
         <app-trade-message-action action="item-highlight" [visible]="visible" (execute)="onActionExecute($event)">
         </app-trade-message-action>
+        <app-trade-message-action action="finished" [visible]="visible" (execute)="onActionExecute($event)">
+        </app-trade-message-action>
         <app-trade-message-action action="item-gone" [visible]="visible" (execute)="onActionExecute($event)">
         </app-trade-message-action>
-        <app-trade-message-action action="finished" [visible]="visible" (execute)="onActionExecute($event)">
+        <app-trade-message-action action="offer-expired" [visible]="visible" (execute)="onActionExecute($event)">
         </app-trade-message-action>
         <app-trade-message-action action="dismiss" [visible]="visible" (execute)="onActionExecute($event)">
         </app-trade-message-action>

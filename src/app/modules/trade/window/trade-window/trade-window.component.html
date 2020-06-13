@@ -2,7 +2,11 @@
 <app-header name="PoE Overlay - Trade">
     <app-background>
         <ng-container *ngIf="data$ | async as data">
-            <app-trade-message *ngFor="let message of data.messages" [message]="message"></app-trade-message>
+            <ng-container *ngFor="let message of data.messages">
+                <app-trade-message *ngIf="!data.removed.includes(message)" [message]="message"
+                    (dismiss)="onDismiss(message)">
+                </app-trade-message>
+            </ng-container>
         </ng-container>
     </app-background>
 </app-header>

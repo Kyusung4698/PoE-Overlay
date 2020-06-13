@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, NgZone, OnDestroy, OnInit } from '@angular/core';
 import { EventSubscription } from '@app/event';
 import { TradeWindowData, TradeWindowService } from '@modules/trade/service';
+import { TradeExchangeMessage } from '@shared/module/poe/trade/chat';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
@@ -27,5 +28,11 @@ export class TradeWindowComponent implements OnInit, OnDestroy {
 
   public ngOnDestroy(): void {
     this.subscription?.unsubscribe();
+  }
+
+  public onDismiss(message: TradeExchangeMessage): void {
+    const data = this.window.data$.get();
+    data.removed.push(message);
+    this.window.data$.next(data);
   }
 }
