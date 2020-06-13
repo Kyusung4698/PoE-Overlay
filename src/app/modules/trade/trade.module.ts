@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Feature, FeatureConfig, FeatureModule, FEATURE_MODULES } from '@app/feature';
 import { SharedModule } from '@shared/shared.module';
-import { TradeMessageActionComponent, TradeMessageBulkComponent, TradeMessageComponent, TradeMessageDirectionComponent, TradeMessageItemComponent, TradeMessageMapComponent, TradeMessageMapTierComponent, TradeMessagesComponent, TradeSettingsComponent } from './component';
+import { TradeMessageActionComponent, TradeMessageBulkComponent, TradeMessageComponent, TradeMessageDirectionComponent, TradeMessageItemComponent, TradeMessageMapComponent, TradeMessageMapTierComponent, TradeSettingsComponent } from './component';
 import { TradeService } from './service';
 import { TradeFeatureSettings } from './trade-feature-settings';
 import { TradeWindowComponent } from './window';
@@ -11,7 +11,6 @@ import { TradeWindowComponent } from './window';
     declarations: [
         TradeSettingsComponent,
         TradeWindowComponent,
-        TradeMessagesComponent,
         TradeMessageComponent,
         TradeMessageItemComponent,
         TradeMessageMapComponent,

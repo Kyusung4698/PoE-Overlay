@@ -5,6 +5,5 @@ export * from './trade-message-item/trade-message-item.component';
 export * from './trade-message-map-tier/trade-message-map-tier.component';
 export * from './trade-message-map/trade-message-map.component';
 export * from './trade-message/trade-message.component';
-export * from './trade-messages/trade-messages.component';
 export * from './trade-settings/trade-settings.component';
 

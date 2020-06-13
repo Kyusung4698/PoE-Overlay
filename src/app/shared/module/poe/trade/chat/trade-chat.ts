@@ -1,4 +1,4 @@
-export enum ParserResultType {
+export enum TradeParserType {
     Ignored = 'ignored',
     TradeItem = 'item',
     TradeBulk = 'bulk',
@@ -7,34 +7,36 @@ export enum ParserResultType {
     PlayerJoinedArea = 'player',
 }
 
-export enum TradeDirection {
+export enum TradeWhisperDirection {
     Incoming = 'incoming',
     Outgoing = 'outgoing',
 }
 
 export interface TradeParserBase {
-    parseType: ParserResultType;
+    type: TradeParserType;
 }
 
-export interface PlayerJoinedArea extends TradeParserBase
-{
+export interface TradePlayerJoinedArea extends TradeParserBase {
     name: string;
 }
 
-export interface Whisper extends TradeParserBase {
+export interface TradeWhisper {
     timeReceived: Date;
-    tradeDirection: TradeDirection;
-    name: string;
+    direction: TradeWhisperDirection;
     message: string;
 }
 
-export interface TradeMessageBase extends Whisper {
-    extendedMessage: string[];
+export interface TradeMessage extends TradeParserBase, TradeWhisper {
+    name: string;
+}
+
+export interface TradeExchangeMessage extends TradeMessage {
+    whispers: TradeWhisper[];
     league: string;
     joined: boolean;
 }
 
-export interface TradeItemMessage extends TradeMessageBase {
+export interface TradeItemMessage extends TradeExchangeMessage {
     itemName: string;
     price?: number;
     currencyType?: string;
@@ -43,7 +45,7 @@ export interface TradeItemMessage extends TradeMessageBase {
     top: number;
 }
 
-export interface TradeBulkMessage extends TradeMessageBase {
+export interface TradeBulkMessage extends TradeExchangeMessage {
     count1: number;
     type1: string;
     count2: number;
@@ -55,7 +57,7 @@ export interface TradeMapList {
     maps: string[];
 }
 
-export interface TradeMapMessage extends TradeMessageBase {
+export interface TradeMapMessage extends TradeExchangeMessage {
     maps1: TradeMapList;
     maps2: TradeMapList;
 }

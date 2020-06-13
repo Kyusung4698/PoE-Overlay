@@ -1,8 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { TradeMessageAction, TradeMessageActionState } from '@modules/trade/class';
-import { TradeDirection, TradeMessageBase } from '@shared/module/poe/trade/chat';
-
-
+import { TradeExchangeMessage, TradeWhisperDirection } from '@shared/module/poe/trade/chat';
 
 @Component({
   selector: 'app-trade-message',
@@ -15,10 +13,10 @@ export class TradeMessageComponent implements OnInit {
   public activated: TradeMessageActionState = {};
 
   @Input()
-  public message: TradeMessageBase;
+  public message: TradeExchangeMessage;
 
   public ngOnInit(): void {
-    if (this.message.tradeDirection === TradeDirection.Incoming) {
+    if (this.message.direction === TradeWhisperDirection.Incoming) {
       this.visible[TradeMessageAction.Invite] = true;
       this.visible[TradeMessageAction.Trade] = true;
       this.visible[TradeMessageAction.Wait] = true;

@@ -1,10 +1,10 @@
-<div [class]="'message ' + message.tradeDirection">
+<div [class]="'message ' + message.direction">
     <div class="content">
-        <ng-container [ngSwitch]="message.parseType">
+        <ng-container [ngSwitch]="message.type">
             <app-trade-message-item *ngSwitchCase="'item'" [message]="message"></app-trade-message-item>
             <app-trade-message-bulk *ngSwitchCase="'bulk'" [message]="message"></app-trade-message-bulk>
             <app-trade-message-map *ngSwitchCase="'map'" [message]="message"></app-trade-message-map>
-            <div *ngSwitchDefault>Could not match message type: {{message.parseType}}</div>
+            <div *ngSwitchDefault>Could not match message type: {{message.type}}</div>
         </ng-container>
     </div>
     <div class="actions">

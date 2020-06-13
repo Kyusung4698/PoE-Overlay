@@ -1,123 +1,175 @@
 import { Injectable } from '@angular/core';
-import { ParserResultType, TradeParserBase, TradeDirection, TradeItemMessage, TradeBulkMessage, TradeMapMessage, TradeMapList, PlayerJoinedArea } from './trade-chat';
 import { Asset, AssetService } from '@app/assets';
+import { TradeBulkMessage, TradeItemMessage, TradeMapMessage, TradeParserBase, TradeParserType, TradePlayerJoinedArea, TradeWhisperDirection } from './trade-chat';
+
+interface TradeRegexs {
+    JoinedArea: {
+        [language: string]: string
+    };
+    Whisper: {
+        Universal: string;
+    };
+    TradeItemPrice: {
+        [language: string]: string
+    };
+    TradeItemNoPrice: {
+        [language: string]: string
+    };
+    TradeBulk: {
+        [language: string]: string
+    };
+    TradeMap: {
+        Universal: string;
+    };
+}
 
 @Injectable({
     providedIn: 'root'
 })
 export class TradeChatParserService {
-    constructor(private readonly asset: AssetService){ }
+    private get regexs(): TradeRegexs {
+        return this.asset.get(Asset.TradeRegex);
+    }
+
+    constructor(private readonly asset: AssetService) { }
 
     public parse(line: string): TradeParserBase {
-        const tradeRegexAsset = this.asset.get(Asset.TradeRegex);
-        
-        let regexResult = new RegExp(tradeRegexAsset.Whisper.Universal, "gi").exec(line);
-        if(regexResult)
-        {
-            let direction: TradeDirection = regexResult.groups.from ? TradeDirection.Incoming : TradeDirection.Outgoing;
-            let player: string = regexResult.groups.player;
+        let regexResult = new RegExp(this.regexs.Whisper.Universal, 'gi').exec(line);
+        if (regexResult) {
+            const direction = regexResult.groups.from ? TradeWhisperDirection.Incoming : TradeWhisperDirection.Outgoing;
+            const player = regexResult.groups.player;
             regexResult = null;
-            
-            let regexArray = Object.values(tradeRegexAsset.TradeItemPrice);
-            for (var i = 0; i < regexArray.length; i++) {
-                regexResult = new RegExp(regexArray[i] as string, "gi").exec(line);
+
+            let regexArray = Object.values(this.regexs.TradeItemPrice);
+            for (const regex of regexArray) {
+                regexResult = new RegExp(regex, 'gi').exec(line);
                 if (regexResult) {
                     break;
                 }
             }
-            if(!regexResult)
-            {
-                regexArray = Object.values(tradeRegexAsset.TradeItemNoPrice);
-                for (var i = 0; i < regexArray.length; i++) {
-                    regexResult = new RegExp(regexArray[i] as string, "gi").exec(line);
+            if (!regexResult) {
+                regexArray = Object.values(this.regexs.TradeItemNoPrice);
+                for (const regex of regexArray) {
+                    regexResult = new RegExp(regex, 'gi').exec(line);
                     if (regexResult) {
                         break;
                     }
                 }
             }
-            if(regexResult)
-            {
-                return <TradeItemMessage>{
-                    parseType: ParserResultType.TradeItem,
-                    name: player,
-                    tradeDirection: direction,
-                    timeReceived: new Date(),
-                    extendedMessage: regexResult.groups.message ? [ "<--| " + regexResult.groups.message.trim() ] : [],
-                    message: regexResult[0],
-                    league: regexResult.groups.league,
-                    joined: false,
-                    itemName: regexResult.groups.name,
-                    stash: regexResult.groups.stash,
-                    left: +regexResult.groups.left,
-                    top: +regexResult.groups.top,
-                    price: 'price' in regexResult.groups ? +regexResult.groups.price : null,
-                    currencyType: 'currency' in regexResult.groups ? regexResult.groups.currency : null                
-                }
-            }
-            else
-            {
-                regexArray = Object.values(tradeRegexAsset.TradeBulk);
-                for (var i = 0; i < regexArray.length; i++) {
-                    regexResult = new RegExp(regexArray[i] as string, "gi").exec(line);
+            if (regexResult) {
+                return this.mapItemMessage(player, direction, regexResult);
+            } else {
+                regexArray = Object.values(this.regexs.TradeBulk);
+                for (const regex of regexArray) {
+                    regexResult = new RegExp(regex, 'gi').exec(line);
                     if (regexResult) {
-                        return <TradeBulkMessage>{
-                            parseType: ParserResultType.TradeBulk,
-                            name: player,
-                            tradeDirection: direction,
-                            timeReceived: new Date(),
-                            extendedMessage: regexResult.groups.message ? [ "<--| " + regexResult.groups.message.trim() ] : [],
-                            message: regexResult[0],
-                            league: regexResult.groups.league,
-                            joined: false,
-                            count1: +regexResult.groups.count,
-                            type1: regexResult.groups.name,
-                            count2: +regexResult.groups.price,
-                            type2: regexResult.groups.currency
-                        }
+                        return this.mapBulkMessage(player, direction, regexResult);
                     }
                 }
-                regexResult = new RegExp(tradeRegexAsset.TradeMap.Universal, "gi").exec(line);
-                if(regexResult)
-                {
-                    return <TradeMapMessage>{
-                        parseType: ParserResultType.TradeMap,
-                        name: player,
-                        tradeDirection: direction,
-                        timeReceived: new Date(),
-                        extendedMessage: regexResult.groups.message ? [ "<--| " + regexResult.groups.message.trim() ] : [],
-                        message: regexResult[0],
-                        league: regexResult.groups.league,
-                        joined: false,
-                        maps1: <TradeMapList>{
-                            tier: regexResult.groups.tier1,
-                            maps: regexResult.groups.maps1.split(",").map(function(item) {
-                                return item.trim();
-                              })
-                        },
-                        maps2: <TradeMapList>{
-                            tier: regexResult.groups.tier2,
-                            maps: regexResult.groups.maps2.split(",").map(function(item) {
-                                return item.trim();
-                              })
-                        }
-                    }
+                regexResult = new RegExp(this.regexs.TradeMap.Universal, 'gi').exec(line);
+                if (regexResult) {
+                    return this.mapMapMessage(player, direction, regexResult);
                 }
             }
-        }
-        else
-        {
-            const regexArray = Object.values(tradeRegexAsset.JoinedArea);
-            for (var i = 0; i < regexArray.length; i++) {
-                regexResult = new RegExp(regexArray[i] as string, "gi").exec(line);
-                if (regexResult) {
-                    return <PlayerJoinedArea>{
-                        parseType: ParserResultType.PlayerJoinedArea,
-                        name: regexResult.groups.player
-                    }
-                }
+        } else {
+            const playerJoinedArea = this.parseJoinedArea(line);
+            if (playerJoinedArea) {
+                return playerJoinedArea;
             }
         }
 
-        return { parseType: ParserResultType.Ignored };
+        return { type: TradeParserType.Ignored };
+    }
+
+    private mapMapMessage(player: string, direction: TradeWhisperDirection, result: RegExpExecArray): TradeMapMessage {
+        const { groups } = result;
+        return {
+            type: TradeParserType.TradeMap,
+            name: player,
+            direction,
+            timeReceived: new Date(),
+            whispers: groups.message ? [
+                {
+                    direction,
+                    timeReceived: new Date(),
+                    message: groups.message.trim()
+                }
+            ] : [],
+            message: result[0],
+            league: groups.league,
+            joined: false,
+            maps1: {
+                tier: groups.tier1,
+                maps: groups.maps1.split(',').map(x => x.trim())
+            },
+            maps2: {
+                tier: groups.tier2,
+                maps: groups.maps2.split(',').map(x => x.trim())
+            }
+        };
+    }
+
+    private mapItemMessage(player: string, direction: TradeWhisperDirection, result: RegExpExecArray): TradeItemMessage {
+        const { groups } = result;
+        return {
+            type: TradeParserType.TradeItem,
+            name: player,
+            direction,
+            timeReceived: new Date(),
+            whispers: groups.message ? [
+                {
+                    direction,
+                    timeReceived: new Date(),
+                    message: groups.message.trim()
+                }
+            ] : [],
+            message: result[0],
+            league: groups.league,
+            joined: false,
+            itemName: groups.name,
+            stash: groups.stash,
+            left: +groups.left,
+            top: +groups.top,
+            price: 'price' in groups ? +groups.price : null,
+            currencyType: 'currency' in groups ? groups.currency : null
+        };
+    }
+
+    private mapBulkMessage(player: string, direction: TradeWhisperDirection, result: RegExpExecArray): TradeBulkMessage {
+        const { groups } = result;
+        return {
+            type: TradeParserType.TradeBulk,
+            name: player,
+            direction,
+            timeReceived: new Date(),
+            whispers: groups.message ? [
+                {
+                    direction,
+                    timeReceived: new Date(),
+                    message: groups.message.trim()
+                }
+            ] : [],
+            message: result[0],
+            league: groups.league,
+            joined: false,
+            count1: +groups.count,
+            type1: groups.name,
+            count2: +groups.price,
+            type2: groups.currency
+        };
+    }
+
+    private parseJoinedArea(line: string): TradePlayerJoinedArea {
+        const regexArray = Object.values(this.regexs.JoinedArea);
+        for (const regex of regexArray) {
+            const result = new RegExp(regex, 'gi').exec(line);
+            if (result) {
+                return {
+                    type: TradeParserType.PlayerJoinedArea,
+                    name: result.groups.player
+                };
+            }
+        }
+        return undefined;
     }
 }

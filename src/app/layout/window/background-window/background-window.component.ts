@@ -12,6 +12,12 @@ import { concat, forkJoin } from 'rxjs';
 import { flatMap } from 'rxjs/operators';
 import { AnnotationWindowService, LauncherWindowService, NotificationWindowService, SettingsWindowService } from '../../service';
 
+const logs = [
+    `2020/06/04 16:17:19 325004765 acf [INFO Client 3172] @To MamaBetra: Hi, I'd like to buy your 34 Orb of Alchemy for my 10 Chaos Orb in Standard.`,
+    `2020/06/04 16:16:57 324981828 acf [INFO Client 3172] @To Ana_Ivanovic: Hi, I would like to buy your Chimeric Vise Fingerless Silk Gloves listed for 1 chaos in Standard (stash tab "mapz"; position: left 3, top 13)`,
+    `2020/06/04 16:16:57 324981828 acf [INFO Client 3172] @To Ana_Ivanovic: Hi, I would like to buy your Chimeric Vise Fingerless Silk Gloves listed for 1 chaos in Standard (stash tab "mapz"; position: left 3, top 13) offer 2c`
+];
+
 @Component({
     selector: 'app-background-window',
     template: '',
@@ -90,7 +96,15 @@ export class BackgroundWindowComponent implements OnInit, OnDestroy {
     private onKeyPressed(event: OnPressedEvent): void {
         switch (event.name) {
             case Hotkey.SettingsToggle:
-                this.settingsWindow.toggle().subscribe();
+                const log = logs.pop();
+                if (log) {
+                    this.modules.forEach(module => {
+                        if (module.onLogLineAdd) {
+                            module.onLogLineAdd(log);
+                        }
+                    });
+                }
+                // this.settingsWindow.toggle().subscribe();
                 break;
             default:
                 for (const module of this.modules) {
@@ -121,7 +135,6 @@ export class BackgroundWindowComponent implements OnInit, OnDestroy {
         const path = info.executionPath.split('/');
         path.pop();
         const log = `${path.join('/')}/logs/Client.txt`;
-        console.log(log);
         this.log.start(log);
 
         forkJoin([

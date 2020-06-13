@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { TradeBulkMessage, TradeDirection } from '@shared/module/poe/trade/chat';
+import { TradeBulkMessage, TradeWhisperDirection } from '@shared/module/poe/trade/chat';
 
 @Component({
   selector: 'app-trade-message-bulk',
@@ -17,7 +17,7 @@ export class TradeMessageBulkComponent {
   @Input()
   public set message(message: TradeBulkMessage) {
     this._message = JSON.parse(JSON.stringify(message));
-    if (this._message.tradeDirection === TradeDirection.Outgoing) {
+    if (this._message.direction === TradeWhisperDirection.Outgoing) {
       const count = this._message.count1;
       this._message.count1 = this._message.count2;
       this._message.count2 = count;

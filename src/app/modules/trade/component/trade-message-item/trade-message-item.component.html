@@ -1,4 +1,4 @@
-<div class="item" [class.reverse]="message.tradeDirection === 'outgoing'">
+<div class="item" [class.reverse]="message.direction === 'outgoing'">
     <div class="name">{{message.itemName}}</div>
     <app-trade-message-direction></app-trade-message-direction>
     <div class="price" *ngIf="message.price && message.currencyType">

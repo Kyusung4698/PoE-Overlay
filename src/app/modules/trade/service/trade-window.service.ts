@@ -3,13 +3,13 @@ import { WindowName } from '@app/config';
 import { EventEmitter } from '@app/event';
 import { OWWindow } from '@app/odk';
 import { ProcessStorageService } from '@app/storage';
-import { ParserResultType, TradeBulkMessage, TradeDirection, TradeItemMessage, TradeMapList, TradeMapMessage, TradeMessageBase } from '@shared/module/poe/trade/chat';
+import { TradeBulkMessage, TradeExchangeMessage, TradeItemMessage, TradeMapList, TradeMapMessage, TradeParserType, TradeWhisperDirection } from '@shared/module/poe/trade/chat';
 import { Observable } from 'rxjs';
 
 const WINDOW_DATA_KEY = 'TRADE_WINDOW_DATA';
 
 export interface TradeWindowData {
-    messages: TradeMessageBase[];
+    messages: TradeExchangeMessage[];
 }
 
 @Injectable({
@@ -26,13 +26,32 @@ export class TradeWindowService {
         return this.storage.get(WINDOW_DATA_KEY, () => new EventEmitter<TradeWindowData>({
             messages: [
                 {
-                    parseType: ParserResultType.TradeItem,
-                    tradeDirection: TradeDirection.Incoming,
+                    type: TradeParserType.TradeItem,
+                    direction: TradeWhisperDirection.Incoming,
                     timeReceived: new Date(),
                     name: 'Hyve747',
                     message: 'Hi, I would like to buy your Rusted Sulphite Scarab listed for 2.5 chaos in Delirium (stash tab "C"; position: left 47, top 1) Offer 2c',
                     league: 'Delirium',
-                    extendedMessage: ['Offer 2c'],
+                    whispers: [{
+                        message: 'Offer 2c'
+                    }],
+                    itemName: 'Rusted Sulphite Scarab',
+                    left: 47,
+                    top: 1,
+                    stash: 'C',
+                    currencyType: 'chaos',
+                    price: 2.5
+                } as TradeItemMessage,
+                {
+                    type: TradeParserType.TradeItem,
+                    direction: TradeWhisperDirection.Outgoing,
+                    timeReceived: new Date(),
+                    name: 'Hyve747',
+                    message: 'Hi, I would like to buy your Rusted Sulphite Scarab listed for 2.5 chaos in Delirium (stash tab "C"; position: left 47, top 1) Offer 2c',
+                    league: 'Delirium',
+                    whispers: [{
+                        message: 'Offer 2c'
+                    }],
                     itemName: 'Rusted Sulphite Scarab',
                     left: 47,
                     top: 1,
@@ -41,54 +60,45 @@ export class TradeWindowService {
                     price: 2.5,
                 } as TradeItemMessage,
                 {
-                    parseType: ParserResultType.TradeItem,
-                    tradeDirection: TradeDirection.Outgoing,
-                    timeReceived: new Date(),
-                    name: 'Hyve747',
-                    message: 'Hi, I would like to buy your Rusted Sulphite Scarab listed for 2.5 chaos in Delirium (stash tab "C"; position: left 47, top 1) Offer 2c',
-                    league: 'Delirium',
-                    extendedMessage: ['Offer 2c'],
-                    itemName: 'Rusted Sulphite Scarab',
-                    left: 47,
-                    top: 1,
-                    stash: 'C',
-                    currencyType: 'chaos',
-                    price: 2.5,
-                } as TradeItemMessage,
-                {
-                    parseType: ParserResultType.TradeBulk,
-                    tradeDirection: TradeDirection.Incoming,
+                    type: TradeParserType.TradeBulk,
+                    direction: TradeWhisperDirection.Incoming,
                     timeReceived: new Date(),
                     name: 'Hyve747',
                     message: 'Hi, I\'d like to buy your 1 Rusted Sulphite Scarab for my 2.5 Chaos Orb in Delirium. TEST',
                     league: 'Delirium',
-                    extendedMessage: ['TEST'],
+                    whispers: [{
+                        message: 'Offer 2c'
+                    }],
                     count1: 1,
                     type1: 'Rusted Sulphite Scarab',
                     count2: 2.5,
                     type2: 'Chaos Orb',
                 } as TradeBulkMessage,
                 {
-                    parseType: ParserResultType.TradeBulk,
-                    tradeDirection: TradeDirection.Outgoing,
+                    type: TradeParserType.TradeBulk,
+                    direction: TradeWhisperDirection.Outgoing,
                     timeReceived: new Date(),
                     name: 'Hyve747',
                     message: 'Hi, I\'d like to buy your 1 Rusted Sulphite Scarab for my 2.5 Chaos Orb in Delirium. TEST',
                     league: 'Delirium',
-                    extendedMessage: ['TEST'],
+                    whispers: [{
+                        message: 'Offer 2c'
+                    }],
                     count1: 1,
                     type1: 'Rusted Sulphite Scarab',
                     count2: 2.5,
                     type2: 'Chaos Orb',
                 } as TradeBulkMessage,
                 {
-                    parseType: ParserResultType.TradeMap,
-                    tradeDirection: TradeDirection.Incoming,
+                    type: TradeParserType.TradeMap,
+                    direction: TradeWhisperDirection.Incoming,
                     timeReceived: new Date(),
                     name: 'Hyve747',
                     message: 'I\'d like to exchange my XIV: (Sulphur Vents Map) for your XIV: (Iceberg Map, Glacier Map, Volcano Map, Wharf Map, Laboratory Map, Museum Map, Wasteland Map) in Delirium.',
                     league: 'Delirium',
-                    extendedMessage: ['Offer 2c'],
+                    whispers: [{
+                        message: 'Offer 2c'
+                    }],
                     maps1: {
                         tier: 'XIV',
                         maps: ['Sulphur Vents Map']
@@ -107,13 +117,15 @@ export class TradeWindowService {
                     } as TradeMapList,
                 } as TradeMapMessage,
                 {
-                    parseType: ParserResultType.TradeMap,
-                    tradeDirection: TradeDirection.Outgoing,
+                    type: TradeParserType.TradeMap,
+                    direction: TradeWhisperDirection.Outgoing,
                     timeReceived: new Date(),
                     name: 'Hyve747',
                     message: 'I\'d like to exchange my XIV: (Sulphur Vents Map) for your XIV: (Iceberg Map, Glacier Map, Volcano Map, Wharf Map, Laboratory Map, Museum Map, Wasteland Map) in Delirium.',
                     league: 'Delirium',
-                    extendedMessage: ['Offer 2c'],
+                    whispers: [{
+                        message: 'Offer 2c'
+                    }],
                     maps1: {
                         tier: 'XIV',
                         maps: ['Sulphur Vents Map']
