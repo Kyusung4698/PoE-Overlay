@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Asset, AssetService } from '@app/assets';
-import { TradeBulkMessage, TradeItemMessage, TradeMapMessage, TradeParserBase, TradeParserType, TradePlayerJoinedArea, TradeWhisperDirection } from './trade-chat';
+import { TradeBulkMessage, TradeItemMessage, TradeMapMessage, TradeParserBase, TradeParserType, TradePlayerJoinedArea, TradeWhisperDirection, TradeMessage } from './trade-chat';
 
 interface TradeRegexs {
     JoinedArea: {
@@ -38,6 +38,7 @@ export class TradeChatParserService {
         if (regexResult) {
             const direction = regexResult.groups.from ? TradeWhisperDirection.Incoming : TradeWhisperDirection.Outgoing;
             const player = regexResult.groups.player;
+            const message = regexResult.groups.message;
             regexResult = null;
 
             let regexArray = Object.values(this.regexs.TradeItemPrice);
@@ -70,6 +71,10 @@ export class TradeChatParserService {
                 if (regexResult) {
                     return this.mapMapMessage(player, direction, regexResult);
                 }
+                else
+                {
+                    return this.mapWhisperMessage(player, direction, message);
+                }
             }
         } else {
             const playerJoinedArea = this.parseJoinedArea(line);
@@ -79,6 +84,16 @@ export class TradeChatParserService {
         }
 
         return { type: TradeParserType.Ignored };
+    }
+
+    private mapWhisperMessage(player: string, direction: TradeWhisperDirection, message: string): TradeMessage {
+        return {
+            type: TradeParserType.Whisper,
+            name: player,
+            direction,
+            timeReceived: new Date(),
+            message 
+        };
     }
 
     private mapMapMessage(player: string, direction: TradeWhisperDirection, result: RegExpExecArray): TradeMapMessage {

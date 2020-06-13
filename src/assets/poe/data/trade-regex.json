@@ -10,7 +10,7 @@
         "Korean": ": (?<player>.*?) 님이 지역에 들어왔습니다"
     },
     "Whisper": {
-        "Universal": "@((?<from>from|de|von|от кого|จาก)|(?<to>to|à|an|para|кому|ถึง)) (<.*?> )*(?<player>.*?):"
+        "Universal": "@((?<from>from|de|von|от кого|จาก)|(?<to>to|à|an|para|кому|ถึง)) (<.*?> )*(?<player>.*?):(?<message>.*)"
     },
     "TradeItemPrice": {
         "English": "(((Hi, )?I would like to buy your)|wtb) (?<name>.*) listed for (?<price>\\d*([.|,]\\d*)?) (?<currency>.*) in (?<league>.*) \\(stash( tab)? \"(?<stash>.*)\";( position:)? left (?<left>\\d*), top (?<top>\\d*)\\)(?<message>.*)?",
