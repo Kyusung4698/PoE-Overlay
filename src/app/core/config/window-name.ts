@@ -8,5 +8,6 @@ export enum WindowName {
     Replay = 'replay',
     Launcher = 'launcher',
     Annotation = 'annotation',
-    Trade = 'trade'
+    Trade = 'trade',
+    TradeHighlight = 'tradehighlight'
 }

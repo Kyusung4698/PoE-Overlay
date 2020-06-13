@@ -1,4 +1,5 @@
-<button class="poe-control poe-button" (click)="execute.next(action)" [title]="'trade.action.' + action | translate">
+<button class="poe-control poe-button" (click)="onExecute($event)"
+    [title]="('trade.action.' + action | translate) + title">
     <ng-container [ngSwitch]="action">
         <mat-icon *ngSwitchCase="'invite'">how_to_reg</mat-icon>
         <mat-icon *ngSwitchCase="'wait'">pan_tool</mat-icon>
@@ -9,8 +10,6 @@
         <mat-icon *ngSwitchCase="'whisper'">chat</mat-icon>
         <mat-icon *ngSwitchCase="'finished'">done</mat-icon>
         <mat-icon *ngSwitchCase="'dismiss'">close</mat-icon>
-        <mat-icon *ngSwitchCase="'interested'">hearing</mat-icon>        
-        <mat-icon *ngSwitchCase="'offer-expired'">hearing_disabled</mat-icon>        
+        <mat-icon *ngSwitchCase="'interested'">hearing</mat-icon>
     </ng-container>
 </button>
-

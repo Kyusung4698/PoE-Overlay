@@ -141,7 +141,7 @@ export class BackgroundWindowComponent implements OnInit, OnDestroy {
             this.annotationWindow.open(info.width, info.height),
             this.notificationWindow.open(info.width, info.height)
         ]).pipe(
-            flatMap(() => this.events.start()),
+            flatMap(() => this.events.start(false)),
         ).subscribe(result => {
             this.settings.get().subscribe(settings => {
                 this.modules.forEach(module => {

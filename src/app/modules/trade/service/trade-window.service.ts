@@ -36,10 +36,11 @@ export class TradeWindowService {
                     message: 'Hi, I would like to buy your Rusted Sulphite Scarab listed for 2.5 chaos in Delirium (stash tab "C"; position: left 47, top 1) Offer 2c',
                     league: 'Delirium',
                     whispers: [{
-                        message: 'Offer 2c'
+                        message: 'Offer 2c',
+                        timeReceived: new Date()
                     }],
                     itemName: 'Rusted Sulphite Scarab',
-                    left: 47,
+                    left: 22,
                     top: 1,
                     stash: 'C',
                     currencyType: 'chaos',
@@ -53,10 +54,11 @@ export class TradeWindowService {
                     message: 'Hi, I would like to buy your Rusted Sulphite Scarab listed for 2.5 chaos in Delirium (stash tab "C"; position: left 47, top 1) Offer 2c',
                     league: 'Delirium',
                     whispers: [{
-                        message: 'Offer 2c'
+                        message: 'Offer 2c',
+                        timeReceived: new Date()
                     }],
                     itemName: 'Rusted Sulphite Scarab',
-                    left: 47,
+                    left: 22,
                     top: 1,
                     stash: 'C',
                     currencyType: 'chaos',
@@ -70,7 +72,8 @@ export class TradeWindowService {
                     message: 'Hi, I\'d like to buy your 1 Rusted Sulphite Scarab for my 2.5 Chaos Orb in Delirium. TEST',
                     league: 'Delirium',
                     whispers: [{
-                        message: 'Offer 2c'
+                        message: 'Offer 2c',
+                        timeReceived: new Date()
                     }],
                     count1: 1,
                     type1: 'Rusted Sulphite Scarab',
@@ -85,7 +88,8 @@ export class TradeWindowService {
                     message: 'Hi, I\'d like to buy your 1 Rusted Sulphite Scarab for my 2.5 Chaos Orb in Delirium. TEST',
                     league: 'Delirium',
                     whispers: [{
-                        message: 'Offer 2c'
+                        message: 'Offer 2c',
+                        timeReceived: new Date()
                     }],
                     count1: 1,
                     type1: 'Rusted Sulphite Scarab',
@@ -100,7 +104,8 @@ export class TradeWindowService {
                     message: 'I\'d like to exchange my XIV: (Sulphur Vents Map) for your XIV: (Iceberg Map, Glacier Map, Volcano Map, Wharf Map, Laboratory Map, Museum Map, Wasteland Map) in Delirium.',
                     league: 'Delirium',
                     whispers: [{
-                        message: 'Offer 2c'
+                        message: 'Offer 2c',
+                        timeReceived: new Date()
                     }],
                     maps1: {
                         tier: 'XIV',
@@ -127,7 +132,8 @@ export class TradeWindowService {
                     message: 'I\'d like to exchange my XIV: (Sulphur Vents Map) for your XIV: (Iceberg Map, Glacier Map, Volcano Map, Wharf Map, Laboratory Map, Museum Map, Wasteland Map) in Delirium.',
                     league: 'Delirium',
                     whispers: [{
-                        message: 'Offer 2c'
+                        message: 'Offer 2c',
+                        timeReceived: new Date()
                     }],
                     maps1: {
                         tier: 'XIV',

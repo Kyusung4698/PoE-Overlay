@@ -14,6 +14,9 @@ export class TradeMessageActionComponent {
   }
 
   @Input()
+  public title = '';
+
+  @Input()
   public action: TradeMessageAction;
 
   @Input()
@@ -21,4 +24,9 @@ export class TradeMessageActionComponent {
 
   @Output()
   public execute = new EventEmitter<string>();
+
+  public onExecute(event: MouseEvent): void {
+    event.stopPropagation();
+    this.execute.next(this.action);
+  }
 }

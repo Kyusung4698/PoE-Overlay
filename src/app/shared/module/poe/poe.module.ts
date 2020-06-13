@@ -1,6 +1,7 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule as NgCommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { AnnotationModule } from '../annotation/annotation.module';
+import { CommonModule } from '../common/common.module';
 import { ClientStringPipe } from './client-string';
 import { BackgroundComponent } from './common';
 import { CurrencyPipe } from './currency';
@@ -10,6 +11,7 @@ import { ItemFrameComponent, ItemFrameHeaderComponent, ItemFrameInfluencesCompon
 import { StatGroupPipe, StatTransformPipe } from './item/stat';
 import { WordPipe } from './item/word';
 import { TradeFetchItemPipe, TradeStatsPipe, TradeStatsTypePipe } from './trade';
+import { TradeWhisperTitle } from './trade/chat';
 import { TradeStaticFrameComponent, TradeStaticPipe } from './trade/statics';
 
 const COMPONENTS = [
@@ -23,7 +25,8 @@ const COMPONENTS = [
 const PIPES = [
     TradeStatsPipe,
     TradeStatsTypePipe,
-    TradeFetchItemPipe
+    TradeFetchItemPipe,
+    TradeWhisperTitle
 ];
 
 @NgModule({
@@ -50,7 +53,7 @@ const PIPES = [
         CurrencyPipe,
         TradeStaticPipe,
     ],
-    imports: [CommonModule, AnnotationModule],
+    imports: [NgCommonModule, CommonModule, AnnotationModule],
     exports: [...COMPONENTS, ...PIPES]
 })
 export class PoeModule { }

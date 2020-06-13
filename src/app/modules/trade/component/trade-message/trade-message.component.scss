@@ -2,43 +2,63 @@
 
 ::ng-deep {
   app-trade-message {
-    display: block;
+    &:nth-child(even) {
+      .message {
+        background: adjust-color($black-transparent, $alpha: 0.25);
+      }
+    }
 
     & + app-trade-message {
-      margin-top: $gutter-half;
+      margin-top: 1px;
     }
   }
+}
+
+:host {
+  display: block;
+}
+
+.poe-close {
+  width: 18px;
+  height: 18px;
+  background-size: contain;
 }
 
 .message {
   position: relative;
   display: flex;
+  width: 300px;
+  flex-direction: column;
   border-left: 6px solid;
+  background: adjust-color($black-transparent, $alpha: 0.3);
+  cursor: pointer;
+  padding: $gutter-half $gutter;
 
   &.incoming {
-    border-color: lightgreen;
+    border-color: adjust-color($color: $orange, $alpha: -0.2);
   }
 
   &.outgoing {
-    border-color: red;
+    border-color: adjust-color($color: $purple, $alpha: -0.2);
   }
-}
 
-.content {
-  background: $black-transparent;
-  padding: 0 $gutter-half * 2;
-  width: 300px;
-  justify-content: center;
+  .dismiss {
+    position: absolute;
+    top: -6px;
+    right: -2px;
+    display: none;
+  }
+
+  &:hover {
+    .dismiss {
+      display: block;
+    }
+  }
 }
 
 .content,
 .actions {
   display: flex;
   flex-direction: row;
-}
-
-.actions {
-  &.spacer {
-    margin-left: 35px;
-  }
+  justify-content: center;
 }

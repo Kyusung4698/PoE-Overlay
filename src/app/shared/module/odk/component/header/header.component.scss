@@ -6,6 +6,19 @@ $icon-size: 16px;
 
 $border-color: #1a1a1a;
 
+::ng-deep {
+  app-header {
+    .controls {
+      .mat-icon {
+        height: $icon-size;
+        width: $icon-size;
+        font-size: $icon-size;
+        line-height: $icon-size;
+      }
+    }
+  }
+}
+
 .header {
   position: relative;
   height: $header-size;
@@ -24,21 +37,39 @@ $border-color: #1a1a1a;
   position: absolute;
   cursor: pointer;
   top: 0;
-  right: 10px;
   height: $header-size;
   line-height: $header-size + 8px;
 
-  > .mat-icon {
-    height: $icon-size;
-    width: $icon-size;
-    font-size: $icon-size;
-    line-height: $icon-size;
+  &:not(.left) {
+    right: 10px;
+  }
+
+  &.left {
+    left: 10px;
+  }
+
+  .pin {
+    height: $icon-size - 3px;
+    width: $icon-size - 3px;
+    font-size: $icon-size - 3px;
+    line-height: $icon-size - 3px;
+
+    will-change: transform, top;
+    transition: transform ease-in-out 200ms, top ease-in 100ms;
+
+    &.pinned {
+      top: 0px;
+      transform: rotateZ(40deg);
+      transform-origin: center;
+    }
   }
 }
 
 .content {
+  &:not(.inline) {
+    height: calc(100% - 30px);
+  }
   border: 1px solid $border-color;
   border-top: none;
-  height: calc(100% - 30px);
   width: 100%;
 }

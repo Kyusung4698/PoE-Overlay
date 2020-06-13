@@ -11,10 +11,18 @@
   }
 }
 
+$size: 21px;
+
 button {
   display: inline-flex;
   justify-content: center;
   padding: 0;
-  height: 32px;
-  width: 32px;
+  height: $size + 7px;
+  width: $size + 7px;
+
+  .mat-icon {
+    height: $size;
+    width: $size;
+    font-size: $size;
+  }
 }

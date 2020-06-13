@@ -4,13 +4,18 @@ import { SharedModule } from '@shared/shared.module';
 import { TradeMessageActionComponent, TradeMessageBulkComponent, TradeMessageComponent, TradeMessageDirectionComponent, TradeMessageItemComponent, TradeMessageMapComponent, TradeMessageMapTierComponent, TradeSettingsComponent } from './component';
 import { TradeService } from './service';
 import { TradeFeatureSettings } from './trade-feature-settings';
-import { TradeWindowComponent } from './window';
+import { TradeHighlightWindowComponent, TradeWindowComponent } from './window';
+
+const WINDOWS = [
+    TradeWindowComponent,
+    TradeHighlightWindowComponent
+];
 
 @NgModule({
     providers: [{ provide: FEATURE_MODULES, useClass: TradeModule, multi: true }],
     declarations: [
+        ...WINDOWS,
         TradeSettingsComponent,
-        TradeWindowComponent,
         TradeMessageComponent,
         TradeMessageItemComponent,
         TradeMessageMapComponent,
@@ -19,7 +24,7 @@ import { TradeWindowComponent } from './window';
         TradeMessageDirectionComponent,
         TradeMessageMapTierComponent,
     ],
-    exports: [TradeWindowComponent],
+    exports: [...WINDOWS],
     imports: [SharedModule]
 })
 export class TradeModule implements FeatureModule<TradeFeatureSettings> {

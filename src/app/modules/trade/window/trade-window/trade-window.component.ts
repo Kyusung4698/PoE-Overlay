@@ -13,6 +13,7 @@ import { BehaviorSubject } from 'rxjs';
 export class TradeWindowComponent implements OnInit, OnDestroy {
   private subscription: EventSubscription;
 
+  public toggle = true;
   public data$ = new BehaviorSubject<TradeWindowData>(null);
 
   constructor(

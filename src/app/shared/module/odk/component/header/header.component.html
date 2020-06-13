@@ -1,10 +1,15 @@
 <div class="header" (mousedown)="draggable && onDrag($event)">
+    <div class="controls left">
+        <ng-content select="controls"></ng-content>
+    </div>
     <div class="icon"></div>
     <div class="name">{{name}}</div>
     <div class="controls">
+        <ng-content select="controlsRight"></ng-content>
         <mat-icon (click)="onClose($event)" *ngIf="closeable">close</mat-icon>
+        <mat-icon (click)="onPinned($event)" class="pin" [class.pinned]="pinned" *ngIf="pinnable">push_pin</mat-icon>
     </div>
 </div>
-<div class="content">
+<div class="content" [class.inline]="inline" [style.width.px]="width">
     <ng-content></ng-content>
 </div>

@@ -1,36 +1,32 @@
 @import "../../../../../styles/variables";
 
+:host {
+  display: inline-block;
+}
+
 ::ng-deep {
   html,
   body {
     height: 100%;
     color: $light-white;
-    font-size: 14.3px;
+    font-size: 13.3px;
     font-family: FontinSmallCaps;
+    width: 300px;
   }
 
-  ::-webkit-scrollbar {
-    width: 14px;
-    background: $black-transparent;
-    border: 1px $black solid;
-    border-radius: 3px;
-  }
-
+  ::-webkit-scrollbar,
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(
-      90deg,
-      rgba(84, 81, 70, 1) 0%,
-      rgba(49, 24, 8, 1) 10%,
-      rgba(118, 44, 18, 1) 90%,
-      rgba(121, 115, 105, 1) 100%
-    );
-    border: 1px $light-brown solid;
-    border-radius: 3px;
+    display: none;
   }
+}
 
-  input::-webkit-outer-spin-button,
-  input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+.indicator {
+  will-change: transform, top;
+  transition: transform ease-in-out 200ms, top ease-in 100ms;
+
+  &.open {
+    top: 0px;
+    transform: rotateZ(-180deg);
+    transform-origin: center;
   }
 }

@@ -1,13 +1,18 @@
-<!-- <div appResize> -->
-<app-header name="PoE Overlay - Trade">
-    <app-background>
-        <ng-container *ngIf="data$ | async as data">
-            <ng-container *ngFor="let message of data.messages">
-                <app-trade-message *ngIf="!data.removed.includes(message)" [message]="message"
-                    (dismiss)="onDismiss(message)">
-                </app-trade-message>
+<div appResize>
+    <ng-container *ngIf="data$ | async as data">
+        <app-header [name]="'PoE Overlay - Trade (' + (data.messages.length - data.removed.length) + ')'" [width]="300"
+            [closeable]="false" [pinnable]="true">
+            <ng-container ngProjectAs="controls">
+                <mat-icon (click)="toggle = !toggle" class="indicator" [class.open]="toggle">keyboard_arrow_down
+                </mat-icon>
             </ng-container>
-        </ng-container>
-    </app-background>
-</app-header>
-<!-- </div> -->
+            <ng-container *ngIf="toggle">
+                <ng-container *ngFor="let message of data.messages">
+                    <app-trade-message *ngIf="!data.removed.includes(message)" [message]="message"
+                        (dismiss)="onDismiss(message)">
+                    </app-trade-message>
+                </ng-container>
+            </ng-container>
+        </app-header>
+    </ng-container>
+</div>

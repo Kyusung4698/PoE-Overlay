@@ -150,6 +150,19 @@
                     "width": 1212,
                     "height": 699
                 }
+            },
+            "tradehighlight": {
+                "file": "dist/poe-overlay-overwolf/index.html",
+                "in_game_only": true,
+                "block_top_window_navigation": true,
+                "disable_restore_animation": true,
+                "disable_rightclick": true,
+                "transparent": true,
+                "resizable": true,
+                "size": {
+                    "width": 1212,
+                    "height": 699
+                }
             }
         },
         "game_targeting": {
