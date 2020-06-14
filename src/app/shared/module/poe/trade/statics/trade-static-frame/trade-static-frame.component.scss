@@ -1,4 +1,5 @@
 $size: 32px;
+$size-medium: 24px;
 $size-small: 16px;
 
 .frame {
@@ -18,6 +19,17 @@ $size-small: 16px;
     .image {
       > img {
         height: $size-small;
+      }
+    }
+  }
+
+  &.medium {
+    line-height: $size-medium;
+    height: $size-medium;
+
+    .image {
+      > img {
+        height: $size-medium;
       }
     }
   }

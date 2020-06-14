@@ -318,7 +318,7 @@
 		}
 	},
 	"misc": {
-		"highlight": "Surbrillance",
+		"highlight": "Surbrillance Stash",
 		"name": "Divers",
 		"navigation": "Défilement",
 		"navigations": {
@@ -377,14 +377,34 @@
 		"zoom": "Zoom"
 	},
 	"trade": {
+		"action": {
+			"finished": "Merci et au revoir",
+			"interested": "Toujours intéressé?",
+			"invite": "Inviter",
+			"item-gone": "Élément disparu",
+			"item-highlight": "Mettre en surbrillance l'élément dans Stash",
+			"resend": "Renvoyer l'offre",
+			"trade": "commerce",
+			"wait": "Attendre?",
+			"whisper": "Chuchotement"
+		},
 		"analyzing": "Analyse des données ...",
 		"empty": "Aucun résultat. Ouvrir dans le navigateur?",
+		"enabled": "Activée",
 		"error": "Une erreur s'est produite.",
 		"errors": {
 			"http": "Impossible de communiquer avec le site Web commercial GGG.\nVeuillez vous assurer que le site Web est accessible.",
 			"rate": "Limite atteinte. Veuillez réessayer plus tard.\nSi cela continue, essayez de réduire le nombre d'articles récupérés."
 		},
 		"fetching": " {{total}}trouvé. Récupération de {{count}} entrées ...",
+		"message": {
+			"item-gone": "Message d'élément disparu",
+			"still-interested": "Message toujours intéressé",
+			"thanks": "Message de remerciement",
+			"wait": "Message d'attente"
+		},
+		"name": "commerce",
+		"no-price": "Pas de prix",
 		"not-found": "Aucune donnée disponible.",
 		"search": "Chercher",
 		"searching": "Recherche...",

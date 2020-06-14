@@ -31,6 +31,7 @@ export class AssetService {
             this.import(Asset.StatsLocal, 'stats-local.json'),
             this.import(Asset.Words, 'words.json'),
             this.import(Asset.Maps, 'maps.json'),
+            this.import(Asset.TradeRegex, 'trade-regex.json'),
         ];
         return forkJoin(tasks).pipe(
             map(() => true)

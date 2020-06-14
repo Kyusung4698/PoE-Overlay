@@ -1,0 +1,20 @@
+@import "../../../../../styles/variables";
+
+:host,
+.item {
+  display: flex;
+  width: 100%;
+}
+
+.value {
+  width: 100%;
+
+  &.left {
+    text-align: right;
+  }
+
+  > .rate {
+    color: $light-dark-grey;
+    font-size: 12px;
+  }
+}

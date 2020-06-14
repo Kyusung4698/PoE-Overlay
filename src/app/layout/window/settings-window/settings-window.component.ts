@@ -37,7 +37,7 @@ export class SettingsWindowComponent implements OnInit, AfterViewInit, OnDestroy
         this.settings$ = this.settings.get();
         this.features = this.modules.map(x => x.getConfig());
         this.queueSubscription = this.settingsQueue.pipe(
-            throttleTime(500),
+            throttleTime(500, undefined, { trailing: true, leading: false }),
             flatMap(settings => this.settings.put(settings))
         ).subscribe();
         this.dataSubscription = this.window.data$.on(({ activeFeature }) => {

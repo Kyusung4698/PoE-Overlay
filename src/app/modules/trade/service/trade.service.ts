@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { TradeChatParserService } from '@shared/module/poe/trade/chat';
-import { Observable } from 'rxjs';
-import { TradeWindowService } from './trade-window.service';
+import { TradeChatParserService, TradeExchangeMessage, TradeMessage, TradeParserType, TradePlayerJoinedArea } from '@shared/module/poe/trade/chat';
+import { TradeWindowData, TradeWindowService } from './trade-window.service';
 
 @Injectable({
     providedIn: 'root'
@@ -12,23 +11,89 @@ export class TradeService {
         private readonly window: TradeWindowService,
         private readonly parser: TradeChatParserService) { }
 
-    public onLogLineAdd(line: string): Observable<void> {
+    public onLogLineAdd(line: string): void {
         const data = this.window.data$.get();
-
-        const { offer, request } = this.parser.parse(line);
-        if (offer || request) {
-            if (offer) {
-                data.offers.push(offer);
-            }
-            if (request) {
-                data.requests.push(request);
-            }
+        if (this.processRemoved(data)) {
             this.window.data$.next(data);
         }
 
-        if (data.offers.length || data.requests.length) {
-            return this.window.restore();
+        const result = this.parser.parse(line);
+        switch (result.type) {
+            case TradeParserType.TradeItem:
+            case TradeParserType.TradeBulk:
+            case TradeParserType.TradeMap:
+                const message = result as TradeExchangeMessage;
+                if (!this.processMessage(message, data.messages)) {
+                    data.messages.push(message);
+                }
+                this.window.data$.next(data);
+                break;
+            case TradeParserType.Whisper:
+                if (this.processWhisper(result as TradeMessage, data.messages)) {
+                    this.window.data$.next(data);
+                }
+                break;
+            case TradeParserType.PlayerJoinedArea:
+                const { name } = result as TradePlayerJoinedArea;
+                if (this.processPlayerJoined(name, data.messages)) {
+                    this.window.data$.next(data);
+                }
+                break;
+            case TradeParserType.Ignored:
+                break;
         }
-        return this.window.close();
+    }
+
+    public clear(): void {
+        const data = this.window.data$.get();
+        data.messages = [];
+    }
+
+    private processMessage(newMessage: TradeExchangeMessage, messages: TradeExchangeMessage[]): boolean {
+        for (const message of messages) {
+            if (newMessage.direction === message.direction &&
+                newMessage.name === message.name &&
+                newMessage.message === message.message) {
+                message.timeReceived = new Date();
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private processWhisper(whisper: TradeMessage, messages: TradeExchangeMessage[]): boolean {
+        let shouldUpdate = false;
+        for (const message of messages) {
+            if (message.name === whisper.name) {
+                message.whispers$.next([...message.whispers$.value, whisper]);
+                shouldUpdate = true;
+            }
+        }
+        return shouldUpdate;
+    }
+
+    private processPlayerJoined(name: string, messages: TradeExchangeMessage[]): boolean {
+        let shouldUpdate = false;
+        for (const message of messages) {
+            if (message.name === name) {
+                message.joined$.next(true);
+                shouldUpdate = true;
+            }
+        }
+        return shouldUpdate;
+    }
+
+    private processRemoved(data: TradeWindowData): boolean {
+        let needUpdate = false;
+
+        while (data.removed.length) {
+            const message = data.removed.pop();
+            const index = data.messages.indexOf(message);
+            if (index !== -1) {
+                data.messages.splice(index, 1);
+                needUpdate = true;
+            }
+        }
+        return needUpdate;
     }
 }

@@ -121,14 +121,13 @@ export class BackgroundWindowComponent implements OnInit, OnDestroy {
         const path = info.executionPath.split('/');
         path.pop();
         const log = `${path.join('/')}/logs/Client.txt`;
-        console.log(log);
         this.log.start(log);
 
         forkJoin([
             this.annotationWindow.open(info.width, info.height),
             this.notificationWindow.open(info.width, info.height)
         ]).pipe(
-            flatMap(() => this.events.start()),
+            flatMap(() => this.events.start(false)),
         ).subscribe(result => {
             this.settings.get().subscribe(settings => {
                 this.modules.forEach(module => {

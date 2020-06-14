@@ -3,6 +3,7 @@
   "version": "1.0.1",
   "scripts": {
     "watch": "ng build --watch",
+    "watch:prod": "ng build --watch --prod",
     "lint": "ng lint --fix",
     "test": "ng test",
     "prepack": "ng build --prod",

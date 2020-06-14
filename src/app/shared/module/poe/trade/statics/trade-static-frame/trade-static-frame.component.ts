@@ -21,4 +21,7 @@ export class TradeStaticFrameComponent {
 
   @Input()
   public small: boolean;
+
+  @Input()
+  public medium: boolean;
 }

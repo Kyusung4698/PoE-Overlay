@@ -16,9 +16,12 @@ export class OWGamesEventsListener {
         private readonly delegate: OWGamesEventListenerDelegate,
         private readonly requiredFeatures: string[]) { }
 
-    public start(): Observable<boolean> {
+    public start(passive: boolean): Observable<boolean> {
         this.unregisterEvents();
         this.registerEvents();
+        if (passive) {
+            return of(true);
+        }
         return this.setRequiredFeatures();
     }
 

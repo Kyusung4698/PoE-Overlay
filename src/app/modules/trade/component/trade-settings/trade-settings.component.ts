@@ -10,4 +10,8 @@ import { TradeFeatureSettings } from '@modules/trade/trade-feature-settings';
 })
 export class TradeSettingsComponent extends FeatureSettingsComponent<TradeFeatureSettings> {
   public load(): void { }
+
+  public onChange(): void {
+    this.save();
+  }
 }

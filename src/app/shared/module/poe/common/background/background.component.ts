@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-background',
@@ -6,4 +6,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: ['./background.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BackgroundComponent { }
+export class BackgroundComponent {
+  @Input()
+  public inline = false;
+}

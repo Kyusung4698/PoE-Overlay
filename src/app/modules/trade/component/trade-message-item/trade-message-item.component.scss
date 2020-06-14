@@ -1,0 +1,30 @@
+:host,
+.item {
+  display: flex;
+  width: 100%;
+}
+
+.name,
+.price {
+  display: flex;
+  width: 100%;
+}
+
+.item {
+  flex-direction: row;
+  line-height: 24px;
+
+  &.reverse {
+    flex-direction: row-reverse;
+
+    .price {
+      justify-content: flex-end;
+    }
+  }
+
+  &:not(.reverse) {
+    .name {
+      justify-content: flex-end;
+    }
+  }
+}

@@ -1,3 +1,32 @@
-.content {
-  color: #fff;
+@import "../../../../../styles/variables";
+
+:host {
+  display: inline-block;
+}
+
+::ng-deep {
+  html,
+  body {
+    height: 100%;
+    color: $light-white;
+    font-size: 13.3px;
+    font-family: FontinSmallCaps;
+    width: 300px;
+  }
+
+  ::-webkit-scrollbar,
+  ::-webkit-scrollbar-thumb {
+    display: none;
+  }
+}
+
+.indicator {
+  will-change: transform, top;
+  transition: transform ease-in-out 200ms, top ease-in 100ms;
+
+  &.open {
+    top: 0px;
+    transform: rotateZ(-180deg);
+    transform-origin: center;
+  }
 }

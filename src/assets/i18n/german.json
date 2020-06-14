@@ -318,7 +318,7 @@
 		}
 	},
 	"misc": {
-		"highlight": "Markieren",
+		"highlight": "Stash Highlight",
 		"name": "Sonstiges",
 		"navigation": "Navigation",
 		"navigations": {
@@ -377,14 +377,34 @@
 		"zoom": "Skalierung"
 	},
 	"trade": {
+		"action": {
+			"finished": "Danke und auf Wiedersehen",
+			"interested": "Noch interessiert?",
+			"invite": "Einladen",
+			"item-gone": "Gegenstand weg",
+			"item-highlight": "Markiere das Element in der Truhe",
+			"resend": "Angebot erneut senden",
+			"trade": "Handel",
+			"wait": "Warten?",
+			"whisper": "Flüstern"
+		},
 		"analyzing": "Daten analysieren...",
 		"empty": "Keine Ergebnisse. Im Browser öffnen?",
+		"enabled": "aktiviert",
 		"error": "Es ist ein Fehler aufgetreten.",
 		"errors": {
 			"http": "Konnte nicht mit der GGG-Handelswebsite kommunizieren.\nBitte stellen Sie sicher, dass die Website erreichbar ist.",
 			"rate": "Limit erreicht. Bitte versuchen Sie es später noch einmal.\nWenn dies weiterhin geschieht, versuchen Sie bitte, die Anzahl der abgerufenen Artikel zu verringern."
 		},
 		"fetching": "Gefunden {{total}}. {{count}} Einträge abrufen ...",
+		"message": {
+			"item-gone": "Artikel weg Nachricht",
+			"still-interested": "Immer noch interessierte Nachricht",
+			"thanks": "Danke Nachricht",
+			"wait": "Warte Nachricht"
+		},
+		"name": "Handel",
+		"no-price": "Kein Preis",
 		"not-found": "Keine Daten gefunden.",
 		"search": "Suche",
 		"searching": "Suchen...",

@@ -318,7 +318,7 @@
 		}
 	},
 	"misc": {
-		"highlight": "Realçar",
+		"highlight": "Stash Highlight",
 		"name": "Misc",
 		"navigation": "Navegação",
 		"navigations": {
@@ -377,14 +377,34 @@
 		"zoom": "Zoom"
 	},
 	"trade": {
+		"action": {
+			"finished": "Obrigado e adeus",
+			"interested": "Ainda interessado?",
+			"invite": "convite",
+			"item-gone": "Item desaparecido",
+			"item-highlight": "Realçar item no esconderijo",
+			"resend": "Reenviar oferta",
+			"trade": "Comércio",
+			"wait": "Esperar?",
+			"whisper": "Sussurro"
+		},
 		"analyzing": "Analisando dados ...",
 		"empty": "Sem resultados. Abra no navegador?",
+		"enabled": "ativado",
 		"error": "Um erro ocorreu.",
 		"errors": {
 			"http": "Não foi possível se comunicar com o site comercial do GGG.\nVerifique se o site está acessível.",
 			"rate": "Limite alcançado. Por favor, tente novamente mais tarde.\nSe isso continuar acontecendo, tente diminuir a contagem de itens buscados."
 		},
 		"fetching": "Encontrado {{total}}. Buscando {{count}} entradas ...",
+		"message": {
+			"item-gone": "Mensagem de item desaparecido",
+			"still-interested": "Mensagem ainda interessada",
+			"thanks": "Obrigado mensagem",
+			"wait": "Mensagem de espera"
+		},
+		"name": "Comércio",
+		"no-price": "Gratuito",
 		"not-found": "Nenhum dado encontrado.",
 		"search": "Procurar",
 		"searching": "Procurando...",
