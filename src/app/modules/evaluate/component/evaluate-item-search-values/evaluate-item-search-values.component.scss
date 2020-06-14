@@ -1,0 +1,15 @@
+::ng-deep {
+  app-evaluate-item-search-values {
+    .values {
+      &:hover {
+        app-currency-frame {
+          .currency {
+            background-color: rgba(170, 158, 130, 0.3);
+            outline-style: solid;
+            outline-width: 1px;
+          }
+        }
+      }
+    }
+  }
+}

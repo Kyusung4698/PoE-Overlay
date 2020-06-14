@@ -1,0 +1,24 @@
+:host,
+.wrapper {
+  height: 100%;
+}
+
+.wrapper,
+.label,
+.input {
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper {
+  position: relative;
+
+  .label {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .input {
+    flex-direction: row;
+  }
+}

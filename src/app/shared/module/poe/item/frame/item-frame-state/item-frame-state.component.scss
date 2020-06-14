@@ -1,0 +1,22 @@
+@import "./../../../../../../../styles/variables";
+
+.unidentified,
+.corrupted {
+  color: $red;
+}
+
+.veiled {
+  background-image: url(../../../../../../../assets/poe/item/veiled.png);
+  background-repeat: no-repeat;
+  background-position: -14220px;
+  animation: animate-veiled-mod 3s steps(90) reverse infinite;
+  will-change: background-position;
+  width: 158px;
+  height: 18px;
+
+  @keyframes animate-veiled-mod {
+    100% {
+      background-position: 0;
+    }
+  }
+}

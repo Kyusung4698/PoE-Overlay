@@ -1,0 +1,13 @@
+@import "../../../../../styles/variables";
+
+::ng-deep {
+  app-evaluate-item-search-graph {
+    margin: 0 auto;
+
+    .ngx-charts {
+      text {
+        fill: $white;
+      }
+    }
+  }
+}

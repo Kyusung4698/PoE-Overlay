@@ -12,11 +12,14 @@ module.exports = function (config) {
       require('karma-coverage-istanbul-reporter'),
       require('@angular-devkit/build-angular/plugins/karma')
     ],
+    files: [
+      './karma-odk.js'
+    ],
     client: {
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
     coverageIstanbulReporter: {
-      dir: require('path').join(__dirname, './coverage/poe-overlay'),
+      dir: require('path').join(__dirname, './coverage/poe-overlay-overwolf'),
       reports: ['html', 'lcovonly', 'text-summary'],
       fixWebpackSourcePaths: true
     },
@@ -27,8 +30,8 @@ module.exports = function (config) {
     autoWatch: true,
     browsers: ['ChromeWithoutSecurity'],
     singleRun: false,
-    restartOnFileChange: true,
-    customLaunchers: {
+		restartOnFileChange: true,
+		customLaunchers: {
       ChromeWithoutSecurity: {
         base: 'Chrome',
         flags: ['--disable-web-security']

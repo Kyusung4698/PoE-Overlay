@@ -1,22 +1,6 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { UserSettings, UserSettingsComponent } from 'src/app/layout/type';
-import { EnumValues } from '@app/class';
-
-
-export enum MiscStashNavigation {
-  Disabled = 0,
-  Normal = 1,
-  Inverse = 2
-}
-
-export interface MiscUserSettings extends UserSettings {
-  miscStashNavigationMode: MiscStashNavigation;
-  miscStashHighlightKeybinding: string;
-  miscWikiKeybinding: string;
-  miscWikiExternalKeybinding: string;
-  miscPoedbKeybinding: string;
-  miscPoedbExternalKeybinding: string;
-}
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { FeatureSettingsComponent } from '@app/feature';
+import { MiscFeatureSettings } from '@modules/misc/misc-feature-settings';
 
 @Component({
   selector: 'app-misc-settings',
@@ -24,13 +8,6 @@ export interface MiscUserSettings extends UserSettings {
   styleUrls: ['./misc-settings.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MiscSettingsComponent implements UserSettingsComponent {
-  public navigations = new EnumValues(MiscStashNavigation);
-
-  @Input()
-  public settings: MiscUserSettings;
-
-  public load(): void {
-    // stub
-  }
+export class MiscSettingsComponent extends FeatureSettingsComponent<MiscFeatureSettings> {
+  public load(): void { }
 }

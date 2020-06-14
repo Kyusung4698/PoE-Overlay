@@ -1,0 +1,18 @@
+::ng-deep {
+  html,
+  body {
+    height: auto;
+    display: inline-block;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.settings {
+  position: absolute;
+  z-index: 1;
+  top: 3px;
+  right: 3px;
+}

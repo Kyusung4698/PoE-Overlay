@@ -1,0 +1,15 @@
+<div class="values clickable" (wheel)="onWheel($event)" (click)="onClick($event)">
+    <div>
+        <app-currency-frame [label]="'evaluate.values.mean' | translate" [amount]="values.mean">
+        </app-currency-frame>
+        <app-currency-frame [label]="'evaluate.values.median' | translate" [amount]="values.median">
+        </app-currency-frame>
+        <app-currency-frame [label]="'evaluate.values.mode' | translate" [amount]="values.mode">
+        </app-currency-frame>
+    </div>
+    <div>
+        <app-currency-frame [label]="'evaluate.values.range' | translate" [currency]="currency"
+            [range]="{ min: values.min, max: values.max }">
+        </app-currency-frame>
+    </div>
+</div>

@@ -41,6 +41,5 @@ Steps to reproduce the behavior:
 
 ## 🌍  Your Environment
 
-- OS: <!-- ✍️edit:--> e.g. Win7 x64
 - Version: <!-- ✍️edit:--> e.g. 0.6.9 portable
 - PoE: <!-- ✍️edit:--> e.g. Steam 3.10.0/e English

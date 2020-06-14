@@ -1,8 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { TranslateFakeLoader, TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { SharedModule } from '@shared/shared.module';
-import { MiscSettingsComponent } from './misc-settings.component';
 
+import { MiscSettingsComponent } from './misc-settings.component';
 
 describe('MiscSettingsComponent', () => {
   let component: MiscSettingsComponent;
@@ -10,24 +8,14 @@ describe('MiscSettingsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        SharedModule,
-        TranslateModule.forRoot({
-          loader: {
-            provide: TranslateLoader,
-            useFactory: () => new TranslateFakeLoader()
-          }
-        })
-      ],
-      declarations: [MiscSettingsComponent]
+      declarations: [ MiscSettingsComponent ]
     })
-      .compileComponents();
+    .compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(MiscSettingsComponent);
     component = fixture.componentInstance;
-    component.settings = {} as any;
     fixture.detectChanges();
   });
 

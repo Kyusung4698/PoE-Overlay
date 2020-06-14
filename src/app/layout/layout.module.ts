@@ -1,20 +1,26 @@
 import { NgModule } from '@angular/core';
-import { SharedModule } from '@shared/shared.module';
-import { UserSettingsFeatureContainerComponent, UserSettingsFormComponent, UserSettingsHelpComponent } from './component';
-import { ResizeDirective } from './directive/resize.directive';
-import { OverlayComponent, UserSettingsComponent } from './page';
+import { SharedModule } from '../shared/shared.module';
+import { SettingsFeatureContainerComponent, SettingsFormComponent, SettingsHelpComponent } from './component';
+import { AnnotationWindowComponent, BackgroundWindowComponent, LauncherWindowComponent, NotificationWindowComponent, SettingsWindowComponent } from './window';
+
+const WINDOWS = [
+    BackgroundWindowComponent,
+    SettingsWindowComponent,
+    NotificationWindowComponent,
+    LauncherWindowComponent,
+    AnnotationWindowComponent
+];
 
 @NgModule({
     declarations: [
-        // components
-        UserSettingsFeatureContainerComponent,
-        UserSettingsFormComponent,
-        UserSettingsHelpComponent,
-        // directives
-        ResizeDirective,
-        // pages
-        OverlayComponent,
-        UserSettingsComponent,
+        ...WINDOWS,
+        SettingsFeatureContainerComponent,
+        SettingsFormComponent,
+        SettingsHelpComponent,
+        AnnotationWindowComponent,
+    ],
+    exports: [
+        ...WINDOWS
     ],
     imports: [SharedModule],
 })

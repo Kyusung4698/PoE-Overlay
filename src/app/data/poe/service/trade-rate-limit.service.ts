@@ -2,6 +2,8 @@ import { HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, delay, finalize, flatMap, map, retryWhen } from 'rxjs/operators';
+import { TradeRateLimitProvider } from '../provider/trade-rate-limit.provider';
+import { TradeRateLimitRequest, TradeRateLimitRule } from './trade-rate-limit';
 
 // 1 request
 // x-rate-limit-ip: 12:4:10,16:12:300
@@ -33,32 +35,16 @@ import { catchError, delay, finalize, flatMap, map, retryWhen } from 'rxjs/opera
 // x-rate-limit-policy: trade-fetch-request-limit
 // x-rate-limit-rules: Ip
 
-const HEADER_RULE = `x-rate-limit`
-const HEADER_RULE_SEPARATOR = `,`
-const HEADER_RULE_VALUE_SEPARATOR = `:`
-const HEADER_RULE_STATE = `state`
+const HEADER_RULE = `x-rate-limit`;
+const HEADER_RULE_SEPARATOR = `,`;
+const HEADER_RULE_VALUE_SEPARATOR = `:`;
+const HEADER_RULE_STATE = `state`;
 const HEADER_RULES = `x-rate-limit-rules`;
 
 const RULE_FRESH_DURATION = 1000 * 10;
 
 const WAITING_RETRY_DELAY = 1000;
 const WAITING_RETRY_COUNT = 10;
-
-interface TradeRateLimitRule {
-    count: number;
-    period: number;
-    limited: number;
-}
-
-interface TradeRateLimitRequest {
-    finished?: number;
-}
-
-interface TradeRateLimit {
-    requests: TradeRateLimitRequest[];
-    rules: TradeRateLimitRule[];
-    update: number;
-}
 
 enum TradeRateThrottle {
     None = 1,
@@ -72,9 +58,8 @@ enum TradeRateThrottle {
     providedIn: 'root'
 })
 export class TradeRateLimitService {
-    private readonly limits: {
-        [resource: string]: TradeRateLimit
-    } = {};
+
+    constructor(private readonly limit: TradeRateLimitProvider) { }
 
     public throttle<TResult>(resource: string, getRequest: () => Observable<HttpResponse<TResult>>): Observable<TResult> {
         return of(null).pipe(
@@ -96,7 +81,7 @@ export class TradeRateLimitService {
                             map(response => {
                                 this.updateRules(resource, response);
                                 this.filterRequests(resource);
-                                return response.body
+                                return response.body;
                             }),
                             catchError(response => {
                                 if (response.status === 429) {
@@ -129,7 +114,7 @@ export class TradeRateLimitService {
     }
 
     private shouldThrottle(resource: string): TradeRateThrottle {
-        const { rules, requests, update } = this.getLimit(resource);
+        const { rules, requests, update } = this.limit.provide(resource);
 
         const inflight = requests.some(request => !request.finished);
         if (!rules) {
@@ -173,14 +158,14 @@ export class TradeRateLimitService {
     }
 
     private createRequest(resource: string): TradeRateLimitRequest {
-        const limit = this.getLimit(resource);
+        const limit = this.limit.provide(resource);
         const request: TradeRateLimitRequest = {};
         limit.requests.push(request);
         return request;
     }
 
     private filterRequests(resource: string): void {
-        const limit = this.getLimit(resource);
+        const limit = this.limit.provide(resource);
 
         const { rules, requests } = limit;
         if (!rules) {
@@ -200,7 +185,7 @@ export class TradeRateLimitService {
     }
 
     private updateRules(resource: string, response: HttpResponse<any>): void {
-        const current = this.getLimit(resource);
+        const current = this.limit.provide(resource);
 
         const rules = response?.headers?.get(HEADER_RULES);
         if (!rules) {
@@ -259,16 +244,5 @@ export class TradeRateLimitService {
             })
             .reduce((a, b) => a.concat(b), [])
             .filter(rule => rule !== undefined);
-    }
-
-    private getLimit(resource: string): TradeRateLimit {
-        if (!this.limits[resource]) {
-            this.limits[resource] = {
-                requests: [],
-                rules: undefined,
-                update: undefined
-            };
-        }
-        return this.limits[resource];
     }
 }

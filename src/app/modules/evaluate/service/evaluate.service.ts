@@ -1,66 +1,43 @@
 import { Injectable } from '@angular/core';
-import { SnackBarService } from '@shared/module/material/service';
-import { ItemClipboardResultCode, ItemClipboardService, ItemProcessorService, StashService } from '@shared/module/poe/service';
-import { Language } from '@shared/module/poe/type';
+import { NotificationService } from '@app/notification';
+import { Language } from '@data/poe/schema';
+import { ItemClipboardResultCode, ItemClipboardService } from '@shared/module/poe/item/clipboard';
+import { ItemProcessorService } from '@shared/module/poe/item/processor';
 import { Observable, of, throwError } from 'rxjs';
-import { catchError, flatMap, tap } from 'rxjs/operators';
-import { EvaluatePricing, EvaluateUserSettings } from '../component/evaluate-settings/evaluate-settings.component';
-import { EvaluateDialogService } from './evaluate-dialog.service';
+import { flatMap } from 'rxjs/operators';
+import { EvaluateFeatureSettings } from '../evaluate-feature-settings';
+import { EvaluateWindowService } from './evaluate-window.service';
 
 @Injectable({
     providedIn: 'root'
 })
 export class EvaluateService {
-    constructor(
-        private readonly item: ItemClipboardService,
-        private readonly processor: ItemProcessorService,
-        private readonly stash: StashService,
-        private readonly snackbar: SnackBarService,
-        private readonly evaluateDialog: EvaluateDialogService) {
-    }
 
-    public evaluate(settings: EvaluateUserSettings, language?: Language): Observable<void> {
-        return this.item.copy().pipe(
-            tap(({ item }) => this.processor.process(item, {
-                normalizeQuality: settings.evaluateQueryNormalizeQuality
-            })),
-            flatMap(({ code, point, item }) => {
+    constructor(
+        private readonly clipboard: ItemClipboardService,
+        private readonly window: EvaluateWindowService,
+        private readonly itemProcessor: ItemProcessorService,
+        private readonly notification: NotificationService) { }
+
+    public evaluate(settings: EvaluateFeatureSettings, language?: Language): Observable<void> {
+        return this.clipboard.copy().pipe(
+            flatMap(({ code, item }) => {
                 switch (code) {
                     case ItemClipboardResultCode.Success:
-                        return this.evaluateDialog.open(point, item, settings, language).pipe(
-                            flatMap(result => {
-                                if (!result) {
-                                    return of(null);
-                                }
-
-                                if (settings.evaluatePricing === EvaluatePricing.Clipboard) {
-                                    this.stash.copyPrice(result);
-                                    return this.snackbar.info('evaluate.tag.clipboard');
-                                } else {
-
-                                    if (!this.stash.hovering(point)) {
-                                        this.stash.copyPrice(result);
-                                        return this.snackbar.info('evaluate.tag.outside-stash');
-                                    }
-
-                                    if ((item.note || '').length > 0) {
-                                        this.stash.copyPrice(result);
-                                        return this.snackbar.info('evaluate.tag.note');
-                                    }
-                                    return this.stash.tagPrice(result, point);
-                                }
-                            })
-                        );
+                        this.itemProcessor.process(item, {
+                            normalizeQuality: settings.evaluateItemSearchPropertyNormalizeQuality
+                        });
+                        return this.window.open({ item, settings, language });
                     case ItemClipboardResultCode.Empty:
-                        return this.snackbar.warning('clipboard.empty');
+                        this.notification.show('clipboard.empty');
+                        break;
                     case ItemClipboardResultCode.ParserError:
-                        return this.snackbar.warning('clipboard.parser-error');
+                        this.notification.show('clipboard.parser-error');
+                        break;
                     default:
                         return throwError(`code: '${code}' out of range`);
                 }
-            }),
-            catchError(() => {
-                return this.snackbar.error('clipboard.error');
+                return of(null);
             })
         );
     }

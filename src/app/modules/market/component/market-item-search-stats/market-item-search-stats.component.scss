@@ -1,0 +1,47 @@
+@import "../../../../../styles/variables";
+
+::ng-deep app-market-item-search-stats {
+  .highlight {
+    display: inline-block;
+    background: $light-orange;
+    font-weight: bold;
+  }
+}
+
+.wrapper {
+  position: relative;
+  display: flex;
+
+  .options {
+    position: absolute;
+    display: none;
+    z-index: 2000;
+    top: 35px;
+    left: 0;
+    right: 0;
+    height: 240px;
+    background: $black;
+    border: 1px solid $brown;
+
+    &.shown {
+      display: block;
+    }
+
+    .option {
+      padding: $gutter $gutter * 2;
+
+      &.group {
+        font-weight: bold;
+      }
+
+      &.item {
+        padding: $gutter $gutter * 2 $gutter $gutter * 3;
+        cursor: pointer;
+
+        &:hover {
+          background: $light-brown;
+        }
+      }
+    }
+  }
+}

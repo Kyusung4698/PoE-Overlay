@@ -1,0 +1,18 @@
+<div appResize>
+    <app-header name="PoE Overlay - Inspect">
+        <ng-container *ngIf="data$ | async as data">
+            <ng-container [ngSwitch]="data.item.category">
+                <app-inspect-map [item]="data.item" [settings]="data.settings" *ngSwitchCase="'map'">
+                    <div class="settings clickable" (click)="onToggleSettings()" appAnnotation="inspect.settings">
+                        <mat-icon>settings</mat-icon>
+                    </div>
+                </app-inspect-map>
+                <app-inspect-item [item]="data.item" [settings]="data.settings" *ngSwitchDefault>
+                    <div class="settings clickable" (click)="onToggleSettings()" appAnnotation="inspect.settings">
+                        <mat-icon>settings</mat-icon>
+                    </div>
+                </app-inspect-item>
+            </ng-container>
+        </ng-container>
+    </app-header>
+</div>

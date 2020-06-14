@@ -1,0 +1,35 @@
+<div *ngIf="!inverse; else inversed">
+    <div class="factor">
+        <span class="amount-column">
+            <span class="amount">1&nbsp;</span>
+            <span class="amount" *ngIf="rate.factor > 1">{{rate.factor}}&nbsp;</span>
+        </span>
+        <mat-icon class="clickable" [title]="'evaluate.rate.switch' | translate" (click)="onToggleInverse()">
+            compare_arrows
+        </mat-icon>
+        <span class="amount-column">
+            <span class="amount clickable" (click)="onAmountClick($event, rate.amount)">
+                {{rate.amount | number:'1.2-2'}}&nbsp;</span>
+            <span class="amount clickable" (click)="onAmountClick($event, rate.amount * rate.factor, rate.factor)"
+                *ngIf="rate.factor > 1">
+                {{rate.amount * rate.factor | number:'1.2-2'}}&nbsp;</span>
+        </span>
+        <app-currency-frame class="clickable" [currency]="rate.currency">
+        </app-currency-frame>
+    </div>
+</div>
+<ng-template #inversed>
+    <div class="factor">
+        <span class="amount-column">
+            <span class="amount">{{rate.inverseAmount | number:'1.2-2'}}&nbsp;</span>
+        </span>
+        <mat-icon class="clickable" [title]="'evaluate.rate.switch' | translate" (click)="onToggleInverse()">
+            compare_arrows
+        </mat-icon>
+        <span class="amount-column">
+            <span class="amount">1&nbsp;</span>
+        </span>
+        <app-currency-frame [currency]="rate.currency">
+        </app-currency-frame>
+    </div>
+</ng-template>

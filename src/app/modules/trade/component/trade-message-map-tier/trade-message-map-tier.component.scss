@@ -1,0 +1,18 @@
+@import "../../../../../styles/variables";
+
+:host,
+.list {
+  display: flex;
+  width: 100%;
+}
+
+.list {
+  &.left {
+    justify-content: flex-end;
+  }
+}
+
+.tier {
+  color: $light-dark-grey;
+  padding-right: $gutter-half;
+}

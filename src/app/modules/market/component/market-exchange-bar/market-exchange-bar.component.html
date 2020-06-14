@@ -1,0 +1,10 @@
+<div class="wrapper">
+    <input #input (keyup)="onKeyup(input)" [placeholder]="'market.exchange.highlight' | translate">
+    <button class="small" appAnnotation="market.filter" (click)="onToggleClick()" [title]="'market.bar.toggle' | translate">
+        <mat-icon> filter_list </mat-icon>
+    </button>
+    <button class="small" appAnnotation="market.reset" (click)="onClearClick()" [title]="'market.bar.reset' | translate">
+        <mat-icon> history </mat-icon>
+    </button>
+    <button (click)="onSearch()" appAnnotation="market.search">{{'market.bar.search' | translate}}</button>
+</div>

@@ -1,6 +1,5 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BrowserService } from '@app/service';
 import { environment } from '@env/environment';
 import { Observable, of, throwError } from 'rxjs';
 import { delay, flatMap, retryWhen } from 'rxjs/operators';
@@ -16,8 +15,7 @@ const SOURCE = 'poeoverlay';
 })
 export class ItemPricePredictionHttpService {
     constructor(
-        private readonly http: HttpClient,
-        private readonly browser: BrowserService) {
+        private readonly http: HttpClient) {
     }
 
     public get(leagueId: string, stringifiedItem: string): Observable<ItemPricePredictionResponse> {
@@ -28,7 +26,7 @@ export class ItemPricePredictionHttpService {
         const url = `${environment.poePrices.baseUrl}/api?l=${encodedLeagueId}&i=${encodedItem}&s=${SOURCE}`;
         return this.http.get<ItemPricePredictionResponse>(url).pipe(
             retryWhen(errors => errors.pipe(
-                flatMap((response, count) => this.handleError(url, response, count))
+                flatMap((response, count) => this.handleError(response, count))
             )),
             flatMap(response => {
                 if (response.error_msg && response.error_msg.length > 0) {
@@ -45,7 +43,7 @@ export class ItemPricePredictionHttpService {
         selector: 'fair' | 'high' | 'low',
         min: number,
         max: number,
-        currencyId: 'chaos' | 'exalt'): Observable<string> {
+        currencyId: string): Observable<string> {
 
         const form = new FormData();
         form.set('league', leagueId);
@@ -60,21 +58,15 @@ export class ItemPricePredictionHttpService {
         const url = `${environment.poePrices.baseUrl}/send_feedback`;
         return this.http.post<string>(url, form).pipe(
             retryWhen(errors => errors.pipe(
-                flatMap((response, count) => this.handleError(url, response, count))
+                flatMap((response, count) => this.handleError(response, count))
             ))
         );
     }
 
-    private handleError(url: string, response: HttpErrorResponse, count: number): Observable<void> {
+    private handleError(response: HttpErrorResponse, count: number): Observable<void> {
         if (count >= RETRY_COUNT) {
             return throwError(response);
         }
-
-        switch (response.status) {
-            case 403:
-                return this.browser.retrieve(url).pipe(delay(RETRY_DELAY));
-            default:
-                return of(null).pipe(delay(RETRY_DELAY));
-        }
+        return of(null).pipe(delay(RETRY_DELAY));
     }
 }

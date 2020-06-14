@@ -1,0 +1,9 @@
+<div class="tabs">
+    <div class="tab" [class.active]="tab === (active$ | async)" (click)="onTabChange(tab)"
+        *ngFor="let tab of tabs$ | async">
+        {{tab.label$ | async}}
+    </div>
+</div>
+<div class="tab-content" *ngIf="active$ | async as tab">
+    <ng-container *ngTemplateOutlet="tab.content"></ng-container>
+</div>

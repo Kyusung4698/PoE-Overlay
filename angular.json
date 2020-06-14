@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "poe-overlay": {
+    "poe-overlay-overwolf": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -15,28 +15,29 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
-            "outputPath": "dist",
+            "outputPath": "dist/poe-overlay-overwolf",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": [
-              "src/favicon.ico",
-              "src/favicon.png",
-              "src/favicon@2x.png",
-              "src/favicon@3x.png",
-              "src/favicon@4x.png",
-              "src/assets/i18n"
+              "src/assets/images"
             ],
             "styles": [
               "src/styles.scss",
-              "src/assets/icons/material-icons.css",
               "src/assets/fonts/fonts.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "customWebpackConfig": {
+              "path": "./extra-webpack.config.js",
+              "replaceDuplicatePlugins": true,
+              "mergeStrategies": {
+                "externals": "prepend"
+              }
+            }
           },
           "configurations": {
             "production": {
@@ -57,8 +58,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "10mb",
-                  "maximumError": "20mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -72,18 +73,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "poe-overlay:build"
+            "browserTarget": "poe-overlay-overwolf:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "poe-overlay:build:production"
+              "browserTarget": "poe-overlay-overwolf:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "poe-overlay:build"
+            "browserTarget": "poe-overlay-overwolf:build"
           }
         },
         "test": {
@@ -93,17 +94,9 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": [
-              "src/favicon.ico",
-              "src/favicon.png",
-              "src/favicon@2x.png",
-              "src/favicon@3x.png",
-              "src/favicon@4x.png",
-              "src/assets/i18n"
-            ],
+            "assets": [],
             "styles": [
               "src/styles.scss",
-              "src/assets/icons/material-icons.css",
               "src/assets/fonts/fonts.css"
             ],
             "scripts": []
@@ -122,6 +115,7 @@
           }
         }
       }
-    }},
-  "defaultProject": "poe-overlay"
+    }
+  },
+  "defaultProject": "poe-overlay-overwolf"
 }

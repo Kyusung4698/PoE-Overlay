@@ -1,0 +1,25 @@
+@import "../../../../styles/variables";
+
+.content {
+  padding-bottom: 36px;
+
+  .tab-content {
+    padding: 12px 12px 0px 12px;
+  }
+}
+
+::ng-deep {
+  body {
+    background: $dark-grey;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: $light-dark-grey;
+    border-radius: 3px;
+  }
+}

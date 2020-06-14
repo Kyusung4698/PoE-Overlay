@@ -1,21 +1,22 @@
 <div class="row">
     <div class="col-md-6">
         <app-card [title]="'evaluate.name' | translate">
-            <div class="row">
-                <div class="col">
-                    <app-accelerator [label]="'app.shortcut' | translate" [(value)]="settings.evaluateKeybinding">
-                    </app-accelerator>
-                </div>
-            </div>
+            <mat-form-field>
+                <mat-label>{{'app.hotkey' | translate}}</mat-label>
+                <input matInput [value]="'evaluate' | hotkey" readonly>
+                <a matSuffix [href]="'evaluate' | hotkeyUrl">
+                    <mat-icon> keyboard </mat-icon>
+                </a>
+            </mat-form-field>
         </app-card>
     </div>
     <div class="col-md-6">
-        <app-card [title]="'evaluate.translate' | translate">
+        <app-card [title]="'evaluate.translate.name' | translate">
             <div class="row">
                 <div class="col-md-6">
                     <mat-form-field>
                         <mat-label>{{'app.language' | translate}}</mat-label>
-                        <mat-select [(value)]="settings.evaluateTranslatedItemLanguage">
+                        <mat-select [(value)]="settings.evaluateTranslateLanguage" (valueChange)="onChange()">
                             <mat-option *ngFor="let language of languages.keys" [value]="language">
                                 {{'settings.languages.' + (languages.values[language] | lowercase) | translate}}
                             </mat-option>
@@ -23,71 +24,71 @@
                     </mat-form-field>
                 </div>
                 <div class="col-md-6">
-                    <app-accelerator [label]="'app.shortcut' | translate"
-                        [(value)]="settings.evaluateTranslatedKeybinding">
-                    </app-accelerator>
+                    <mat-form-field>
+                        <mat-label>{{'app.hotkey' | translate}}</mat-label>
+                        <input matInput [value]="'evaluate-translate' | hotkey" readonly>
+                        <a matSuffix [href]="'evaluate-translate' | hotkeyUrl">
+                            <mat-icon> keyboard </mat-icon>
+                        </a>
+                    </mat-form-field>
                 </div>
             </div>
         </app-card>
     </div>
 </div>
 
-<app-card [title]="'evaluate.currencies' | translate">
-    <div class="row">
-        <div class="col">
-            <mat-slide-toggle [checked]="settings.evaluateCurrencyOriginal"
-                (change)="settings.evaluateCurrencyOriginal = $event.checked">
-                {{'evaluate.currency-listing' | translate}}
+<div class="row">
+    <div class="col-md-6">
+        <app-card [title]="'evaluate.currencies.name' | translate">
+            <mat-slide-toggle [checked]="settings.evaluateCurrenciesOriginal"
+                (change)="settings.evaluateCurrenciesOriginal = $event.checked" (change)="onChange()">
+                {{'evaluate.currencies.original' | translate}}
             </mat-slide-toggle>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
             <mat-form-field>
-                <mat-label>{{'evaluate.currency' | translate}}</mat-label>
-                <mat-select [(value)]="settings.evaluateCurrencyIds" (valueChange)="onCurrenciesValueChange()" multiple>
-                    <mat-option *ngFor="let currency of currencies$ | async" [value]="currency.id">
+                <mat-label>{{'evaluate.currencies.displayed' | translate}}</mat-label>
+                <mat-select [(value)]="settings.evaluateCurrencies" (valueChange)="onCurrenciesValueChange()" multiple>
+                    <mat-option *ngFor="let currency of (currencies$ | async)" [value]="currency.id">
                         <span> {{currency.nameType}} </span>
                     </mat-option>
                 </mat-select>
             </mat-form-field>
-        </div>
+        </app-card>
     </div>
-</app-card>
-
-<app-card [title]="'evaluate.layout' | translate">
-    <div class="row">
-        <div class="col">
+    <div class="col-md-6">
+        <app-card [title]="'evaluate.layout.name' | translate">
             <mat-form-field>
-                <mat-label>{{'evaluate.result-view' | translate}}</mat-label>
-                <mat-select [(value)]="settings.evaluateResultView">
-                    <mat-option *ngFor="let view of views.keys" [value]="view">
-                        {{'evaluate.result-views.' + (views.values[view] | lowercase) | translate}}
+                <mat-label>{{'evaluate.layout.value' | translate}}</mat-label>
+                <mat-select [(value)]="settings.evaluateItemSearchLayout" (valueChange)="onChange()">
+                    <mat-option *ngFor="let layout of layouts.keys" [value]="layout">
+                        {{'evaluate.layout.values.' + (layouts.values[layout] | lowercase) | translate}}
                     </mat-option>
                 </mat-select>
             </mat-form-field>
-        </div>
+        </app-card>
     </div>
-</app-card>
+</div>
 
-<app-card [title]="'evaluate.query' | translate">
+
+<app-card [title]="'evaluate.item-search.query.name' | translate">
     <div class="row">
         <div class="col-xs-12">
-            <mat-slide-toggle [checked]="settings.evaluateQueryInitialSearch"
-                (change)="settings.evaluateQueryInitialSearch = $event.checked">
-                {{'evaluate.initial-search' | translate}}
+            <mat-slide-toggle [checked]="settings.evaluateItemSearchQueryInitial"
+                (change)="settings.evaluateItemSearchQueryInitial = $event.checked" (change)="onChange()">
+                {{'evaluate.item-search.query.initial' | translate}}
             </mat-slide-toggle>
         </div>
     </div>
+
     <div class="row">
         <div class="col-md-6">
             <div class="value-range">
-                <label class="label"> {{'evaluate.debounce-time' | translate}}:
-                    {{displayWithTime(settings.evaluateQueryDebounceTime)}}
+                <label class="label"> {{'evaluate.item-search.query.debounce-time' | translate}}:
+                    {{displayWithTime(settings.evaluateItemSearchQueryDebounceTime)}}
                 </label>
                 <div class="slider">
                     <mat-slider min="5" [max]="debounceTimeMax" step="5" tickInterval="2"
-                        [displayWith]="displayWithTime" [(value)]="settings.evaluateQueryDebounceTime">
+                        [displayWith]="displayWithTime" [(value)]="settings.evaluateItemSearchQueryDebounceTime"
+                        (valueChange)="onChange()">
                     </mat-slider>
                     <span>&nbsp;∞</span>
                 </div>
@@ -95,12 +96,13 @@
         </div>
         <div class="col-md-6">
             <div class="value-range">
-                <label class="label"> {{'evaluate.fetch-count' | translate}}:
-                    {{displayWithCount(settings.evaluateQueryFetchCount)}}
+                <label class="label"> {{'evaluate.item-search.query.fetch-count' | translate}}:
+                    {{displayWithCount(settings.evaluateItemSearchQueryFetchCount)}}
                 </label>
                 <div class="slider">
                     <mat-slider min="10" [max]="fetchCountMax" step="10" tickInterval="1"
-                        [displayWith]="displayWithCount" [(value)]="settings.evaluateQueryFetchCount">
+                        [displayWith]="displayWithCount" [(value)]="settings.evaluateItemSearchQueryFetchCount"
+                        (valueChange)="onChange()">
                     </mat-slider>
                     <span>100</span>
                 </div>
@@ -109,69 +111,63 @@
     </div>
 </app-card>
 
-<app-card [title]="'evaluate.pricing' | translate">
-    <div class="row">
-        <div class="col">
-            <mat-form-field>
-                <mat-label>{{'evaluate.pricing-method' | translate}}</mat-label>
-                <mat-select [(value)]="settings.evaluatePricing">
-                    <mat-option *ngFor="let pricing of pricings.keys" [value]="pricing">
-                        {{'evaluate.pricings.' + (pricings.values[pricing] | lowercase) | translate}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-        </div>
-    </div>
-</app-card>
-
 <mat-card class="profiles">
-    <mat-label>{{'evaluate.profiles' | translate}}</mat-label>
+    <mat-label>{{'evaluate.item-search.profile.name' | translate}}</mat-label>
     <mat-tab-group>
-        <mat-tab [label]="'evaluate.profile.default' | translate">
+        <mat-tab [label]="'evaluate.item-search.profile.default' | translate">
             <div class="profile">
                 <mat-card>
-                    <mat-label>{{'evaluate.search.filter' | translate}}</mat-label>
+                    <mat-label>{{'evaluate.item-search.filter.name' | translate}}</mat-label>
                     <div class="toggle">
-                        <mat-slide-toggle [checked]="settings.evaluateQueryOnline"
-                            (change)="settings.evaluateQueryOnline = $event.checked">
-                            {{'evaluate.search.online-only' | translate}}
+                        <mat-slide-toggle [checked]="settings.evaluateItemSearchFilterOnlineOnly"
+                            (change)="settings.evaluateItemSearchFilterOnlineOnly = $event.checked"
+                            (change)="onChange()">
+                            {{'evaluate.item-search.filter.online-only' | translate}}
                         </mat-slide-toggle>
                     </div>
                     <mat-form-field>
-                        <mat-label>{{'evaluate.search.max-age.title' | translate}}</mat-label>
-                        <mat-select [(value)]="settings.evaluateQueryIndexedRange">
-                            <mat-option value="any"> {{'evaluate.search.max-age.any' | translate}} </mat-option>
-                            <mat-option value="1day"> {{'evaluate.search.max-age.day' | translate}} </mat-option>
-                            <mat-option value="3days"> {{'evaluate.search.max-age.days' | translate}} </mat-option>
-                            <mat-option value="1week"> {{'evaluate.search.max-age.week' | translate}} </mat-option>
-                            <mat-option value="2weeks"> {{'evaluate.search.max-age.weeks' | translate}} </mat-option>
-                            <mat-option value="1month"> {{'evaluate.search.max-age.month' | translate}} </mat-option>
-                            <mat-option value="2months"> {{'evaluate.search.max-age.months' | translate}} </mat-option>
+                        <mat-label>{{'evaluate.item-search.filter.max-age.name' | translate}}</mat-label>
+                        <mat-select [(value)]="settings.evaluateItemSearchFilterIndexed" (valueChange)="onChange()">
+                            <mat-option value="any"> {{'evaluate.item-search.filter.max-age.any' | translate}}
+                            </mat-option>
+                            <mat-option value="1day"> {{'evaluate.item-search.filter.max-age.day' | translate}}
+                            </mat-option>
+                            <mat-option value="3days"> {{'evaluate.item-search.filter.max-age.days' | translate}}
+                            </mat-option>
+                            <mat-option value="1week"> {{'evaluate.item-search.filter.max-age.week' | translate}}
+                            </mat-option>
+                            <mat-option value="2weeks"> {{'evaluate.item-search.filter.max-age.weeks' | translate}}
+                            </mat-option>
+                            <mat-option value="1month"> {{'evaluate.item-search.filter.max-age.month' | translate}}
+                            </mat-option>
+                            <mat-option value="2months"> {{'evaluate.item-search.filter.max-age.months' | translate}}
+                            </mat-option>
                         </mat-select>
                     </mat-form-field>
                 </mat-card>
-                <mat-card>
-                    <mat-label> {{'evaluate.search.properties' | translate}} </mat-label>
 
-                    <label class="label"> {{'evaluate.property.range' | translate}}
-                        {{displayWithStat(settings.evaluatePropertyMinRange)}}~{{displayWithStat(settings.evaluatePropertyMaxRange)}}%
+                <mat-card>
+                    <mat-label> {{'evaluate.item-search.property.name' | translate}} </mat-label>
+
+                    <label class="label"> {{'evaluate.item-search.property.range' | translate}}
+                        {{displayWithStat(settings.evaluateItemSearchPropertyMinRange)}}~{{displayWithStat(settings.evaluateItemSearchPropertyMaxRange)}}%
                     </label>
                     <div class="range">
                         <span>#</span>
                         <mat-slider min="0" max="50" step="1" tickInterval="10" invert [displayWith]="displayWithStat"
-                            [(value)]="settings.evaluatePropertyMinRange">
+                            [(value)]="settings.evaluateItemSearchPropertyMinRange" (valueChange)="onChange()">
                         </mat-slider>
                         <div class="value"
-                            *ngIf="settings.evaluatePropertyMinRange !== 0 || settings.evaluatePropertyMaxRange !== 0;else single">
+                            *ngIf="settings.evaluateItemSearchPropertyMinRange !== 0 || settings.evaluateItemSearchPropertyMaxRange !== 0;else single">
                             <span
-                                *ngIf="settings.evaluatePropertyMinRange !== 50;else any">{{50 * ( 1 - (settings.evaluatePropertyMinRange / 100)) | number : '1.0-1'}}</span>
+                                *ngIf="settings.evaluateItemSearchPropertyMinRange !== 50;else any">{{50 * ( 1 - (settings.evaluateItemSearchPropertyMinRange / 100)) | number : '1.0-1'}}</span>
                             <span>~</span>
                             <span
-                                *ngIf="settings.evaluatePropertyMaxRange !== 50;else any">{{50 * ( 1 + (settings.evaluatePropertyMaxRange / 100)) | number : '1.0-1'}}</span>
+                                *ngIf="settings.evaluateItemSearchPropertyMaxRange !== 50;else any">{{50 * ( 1 + (settings.evaluateItemSearchPropertyMaxRange / 100)) | number : '1.0-1'}}</span>
                             <ng-template #any>#</ng-template>
                         </div>
                         <mat-slider min="0" max="50" step="1" tickInterval="10" [displayWith]="displayWithStat"
-                            [(value)]="settings.evaluatePropertyMaxRange">
+                            [(value)]="settings.evaluateItemSearchPropertyMaxRange" (valueChange)="onChange()">
                         </mat-slider>
                         <span>#</span>
                         <ng-template #single>
@@ -182,42 +178,49 @@
                     </div>
 
                     <div class="toggle">
-                        <mat-slide-toggle [checked]="settings.evaluateQueryDefaultAttack"
-                            (change)="settings.evaluateQueryDefaultAttack = $event.checked">
-                            {{'evaluate.search.attack' | translate}}
+                        <mat-slide-toggle [checked]="settings.evaluateItemSearchPropertyAttack"
+                            (change)="settings.evaluateItemSearchPropertyAttack = $event.checked" (change)="onChange()">
+                            {{'evaluate.item-search.property.attack' | translate}}
                         </mat-slide-toggle>
-                        <mat-slide-toggle [checked]="settings.evaluateQueryDefaultDefense"
-                            (change)="settings.evaluateQueryDefaultDefense = $event.checked">
-                            {{'evaluate.search.defense' | translate}}
+                        <mat-slide-toggle [checked]="settings.evaluateItemSearchPropertyDefense"
+                            (change)="settings.evaluateItemSearchPropertyDefense = $event.checked"
+                            (change)="onChange()">
+                            {{'evaluate.item-search.property.defense' | translate}}
                         </mat-slide-toggle>
-                        <mat-slide-toggle [checked]="settings.evaluateQueryNormalizeQuality"
-                            (change)="settings.evaluateQueryNormalizeQuality = $event.checked">
-                            {{'evaluate.search.normalize-quality' | translate}}
+                        <mat-slide-toggle [checked]="settings.evaluateItemSearchPropertyNormalizeQuality"
+                            (change)="settings.evaluateItemSearchPropertyNormalizeQuality = $event.checked"
+                            (change)="onChange()">
+                            {{'evaluate.item-search.property.normalize-quality' | translate}}
                         </mat-slide-toggle>
                     </div>
                     <div class="toggle">
-                        <mat-slide-toggle [checked]="settings.evaluateQueryDefaultItemLevel"
-                            (change)="settings.evaluateQueryDefaultItemLevel = $event.checked">
-                            {{'evaluate.search.item-level' | translate}}
+                        <mat-slide-toggle [checked]="settings.evaluateItemSearchPropertyItemLevel"
+                            (change)="settings.evaluateItemSearchPropertyItemLevel = $event.checked"
+                            (change)="onChange()">
+                            {{'evaluate.item-search.property.item-level' | translate}}
                         </mat-slide-toggle>
-                        <mat-slide-toggle [checked]="settings.evaluateQueryDefaultType"
-                            (change)="settings.evaluateQueryDefaultType = $event.checked">
-                            {{'evaluate.search.item-type' | translate}}
+                        <mat-slide-toggle [checked]="settings.evaluateItemSearchPropertyItemType"
+                            (change)="settings.evaluateItemSearchPropertyItemType = $event.checked"
+                            (change)="onChange()">
+                            {{'evaluate.item-search.property.item-type' | translate}}
                         </mat-slide-toggle>
-                        <mat-slide-toggle [checked]="settings.evaluateQueryDefaultMiscs"
-                            (change)="settings.evaluateQueryDefaultMiscs = $event.checked">
-                            {{'evaluate.search.gem' | translate}}
+                        <mat-slide-toggle [checked]="settings.evaluateItemSearchPropertyMiscs"
+                            (change)="settings.evaluateItemSearchPropertyMiscs = $event.checked" (change)="onChange()">
+                            {{'evaluate.item-search.property.miscs' | translate}}
                         </mat-slide-toggle>
                     </div>
+
                     <div>
                         <mat-form-field>
-                            <mat-label>{{'evaluate.search.item-default-links' | translate}}</mat-label>
-                            <mat-select [(value)]="settings.evaluateQueryDefaultLinks">
-                                <mat-option [value]="0"> {{'evaluate.search.item-links.always' | translate}}
+                            <mat-label>{{'evaluate.item-search.property.link' | translate}}</mat-label>
+                            <mat-select [(value)]="settings.evaluateItemSearchPropertyLinks" (valueChange)="onChange()">
+                                <mat-option [value]="0">
+                                    {{'evaluate.item-search.property.links.always' | translate}}
                                 </mat-option>
                                 <mat-option [value]="5"> 5-6 </mat-option>
                                 <mat-option [value]="6"> 6 </mat-option>
-                                <mat-option [value]="999"> {{'evaluate.search.item-links.never' | translate}}
+                                <mat-option [value]="999">
+                                    {{'evaluate.item-search.property.links.never' | translate}}
                                 </mat-option>
                             </mat-select>
                         </mat-form-field>
@@ -225,27 +228,27 @@
                 </mat-card>
 
                 <mat-card>
-                    <mat-label> {{'evaluate.stats' | translate}} </mat-label>
+                    <mat-label> {{'evaluate.item-search.stat.name' | translate}} </mat-label>
 
-                    <label class="label"> {{'evaluate.stats-range' | translate}}
-                        {{displayWithStat(settings.evaluateModifierMinRange)}}~{{displayWithStat(settings.evaluateModifierMaxRange)}}%
+                    <label class="label"> {{'evaluate.item-search.stat.range' | translate}}
+                        {{displayWithStat(settings.evaluateItemSearchStatMinRange)}}~{{displayWithStat(settings.evaluateItemSearchStatMaxRange)}}%
                     </label>
                     <div class="range">
                         <span>#</span>
                         <mat-slider min="0" max="50" step="1" tickInterval="10" invert [displayWith]="displayWithStat"
-                            [(value)]="settings.evaluateModifierMinRange">
+                            [(value)]="settings.evaluateItemSearchStatMinRange" (valueChange)="onChange()">
                         </mat-slider>
                         <div class="value"
-                            *ngIf="settings.evaluateModifierMinRange !== 0 || settings.evaluateModifierMaxRange !== 0;else single">
+                            *ngIf="settings.evaluateItemSearchStatMinRange !== 0 || settings.evaluateItemSearchStatMaxRange !== 0;else single">
                             <span
-                                *ngIf="settings.evaluateModifierMinRange !== 50;else any">{{50 * ( 1 - (settings.evaluateModifierMinRange / 100)) | number : '1.0-1'}}</span>
+                                *ngIf="settings.evaluateItemSearchStatMinRange !== 50;else any">{{50 * ( 1 - (settings.evaluateItemSearchStatMinRange / 100)) | number : '1.0-1'}}</span>
                             <span>~</span>
                             <span
-                                *ngIf="settings.evaluateModifierMaxRange !== 50;else any">{{50 * ( 1 + (settings.evaluateModifierMaxRange / 100)) | number : '1.0-1'}}</span>
+                                *ngIf="settings.evaluateItemSearchStatMaxRange !== 50;else any">{{50 * ( 1 + (settings.evaluateItemSearchStatMaxRange / 100)) | number : '1.0-1'}}</span>
                             <ng-template #any>#</ng-template>
                         </div>
                         <mat-slider min="0" max="50" step="1" tickInterval="10" [displayWith]="displayWithStat"
-                            [(value)]="settings.evaluateModifierMaxRange">
+                            [(value)]="settings.evaluateItemSearchStatMaxRange" (valueChange)="onChange()">
                         </mat-slider>
                         <span>#</span>
                         <ng-template #single>
@@ -256,9 +259,9 @@
                     </div>
 
                     <div class="toggle">
-                        <mat-slide-toggle [checked]="settings.evaluateQueryDefaultStatsUnique"
-                            (change)="settings.evaluateQueryDefaultStatsUnique = $event.checked">
-                            {{'evaluate.stats-unique-check-all' | translate}}
+                        <mat-slide-toggle [checked]="settings.evaluateItemSearchStatUniqueAll"
+                            (change)="settings.evaluateItemSearchStatUniqueAll = $event.checked">
+                            {{'evaluate.item-search.stat.unique-all' | translate}}
                         </mat-slide-toggle>
                     </div>
 
@@ -270,10 +273,11 @@
                             </span>
                         </ng-template>
                     </app-select-list>
-                    <div align="end">
+                    
+                    <!-- <div align="end">
                         <button mat-button (click)="onImportStats()">{{'evaluate.stats-import' | translate}}</button>
                         <button mat-button (click)="onExportStats()">{{'evaluate.stats-export' | translate}}</button>
-                    </div>
+                    </div> -->
                 </mat-card>
             </div>
         </mat-tab>

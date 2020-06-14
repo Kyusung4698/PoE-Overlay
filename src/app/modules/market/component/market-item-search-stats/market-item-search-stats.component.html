@@ -1,0 +1,12 @@
+<div class="wrapper">
+    <input #input placeholder="Add Stat Filter" (keyup)="onKeyup()" (focus)="onFocus()" (blur)="onBlur($event)">
+    <cdk-virtual-scroll-viewport class="options" [class.shown]="optionsVisible$ | async" itemSize="30" minBufferPx="200"
+        maxBufferPx="400">
+        <div class="option" (click)="onOptionClick(option)" [class.group]="option.group" [class.item]="!option.group"
+            *cdkVirtualFor="let option of options$ | async; templateCacheSize: 0">
+            <app-market-item-search-stat *ngIf="option.value; else text" [stat]="option.value" [text]="option.text">
+            </app-market-item-search-stat>
+            <ng-template #text>{{option.text}}</ng-template>
+        </div>
+    </cdk-virtual-scroll-viewport>
+</div>

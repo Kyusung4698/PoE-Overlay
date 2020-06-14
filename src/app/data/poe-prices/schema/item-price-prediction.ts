@@ -4,5 +4,5 @@ export interface ItemPricePredictionResponse {
     currency: 'chaos' | 'exalt';
     warning_msg: string;
     error_msg: string;
-    pred_confidence_score: number
+    pred_confidence_score: number;
 }

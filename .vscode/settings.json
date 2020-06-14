@@ -1,10 +1,6 @@
 {
-    "files.exclude": {
-        "**/*.js": {
-            "when": "$(basename).ts"
-        },
-        "**/*.js.map": true,
-        "release": true,
-        "dist": true
-    }
+  "files.exclude": {
+      "dist": true,
+      "node_modules": true,
+  }
 }

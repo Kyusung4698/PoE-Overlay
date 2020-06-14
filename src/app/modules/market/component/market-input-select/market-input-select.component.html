@@ -1,0 +1,6 @@
+<input #input [style.width]="width" (keyup)="onKeyup()" (focus)="onFocus()" (blur)="onBlur($event)">
+<div class="options" *ngIf="optionsVisible$ | async">
+    <div class="option" [innerHTML]="option.html" (click)="onOptionClick(option)"
+        *ngFor="let option of optionsFiltered$ | async">
+    </div>
+</div>

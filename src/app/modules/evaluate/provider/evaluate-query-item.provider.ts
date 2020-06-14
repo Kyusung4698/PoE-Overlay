@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { ItemSocketService } from '@shared/module/poe/service/item/item-socket.service';
-import { Item, ItemCategory, ItemRarity } from '@shared/module/poe/type';
-import { EvaluateUserSettings } from '../component/evaluate-settings/evaluate-settings.component';
+import { Item, ItemRarity, ItemSocketsService } from '@shared/module/poe/item';
+import { ItemCategory } from '@shared/module/poe/item/base-item-type';
+import { EvaluateFeatureSettings } from '../evaluate-feature-settings';
 
 export interface EvaluateQueryItemResult {
     queryItem: Item;
@@ -13,9 +13,9 @@ export interface EvaluateQueryItemResult {
 })
 export class EvaluateQueryItemProvider {
 
-    constructor(private readonly itemSocketService: ItemSocketService) { }
+    constructor(private readonly sockets: ItemSocketsService) { }
 
-    public provide(item: Item, settings: EvaluateUserSettings): EvaluateQueryItemResult {
+    public provide(item: Item, settings: EvaluateFeatureSettings): EvaluateQueryItemResult {
         const defaultItem: Item = this.copy({
             nameId: item.nameId,
             typeId: item.typeId,
@@ -35,16 +35,16 @@ export class EvaluateQueryItemProvider {
         });
         const queryItem = this.copy(defaultItem);
 
-        if (settings.evaluateQueryDefaultItemLevel) {
+        if (settings.evaluateItemSearchPropertyItemLevel) {
             queryItem.level = item.level;
         }
 
-        const count = this.itemSocketService.getLinkCount(item.sockets);
-        if (count >= settings.evaluateQueryDefaultLinks) {
+        const count = this.sockets.getLinkCount(item.sockets);
+        if (count >= settings.evaluateItemSearchPropertyLinks) {
             queryItem.sockets = item.sockets;
         }
 
-        if (settings.evaluateQueryDefaultMiscs) {
+        if (settings.evaluateItemSearchPropertyMiscs) {
             const prop = item.properties;
             if (prop) {
                 queryItem.properties.gemLevel = prop.gemLevel;
@@ -55,7 +55,7 @@ export class EvaluateQueryItemProvider {
             }
         }
 
-        if (settings.evaluateQueryDefaultAttack) {
+        if (settings.evaluateItemSearchPropertyAttack) {
             queryItem.damage = item.damage;
 
             const prop = item.properties;
@@ -67,7 +67,7 @@ export class EvaluateQueryItemProvider {
             }
         }
 
-        if (settings.evaluateQueryDefaultDefense) {
+        if (settings.evaluateItemSearchPropertyDefense) {
             const prop = item.properties;
             if (prop) {
                 if (item.category.startsWith(ItemCategory.Armour)) {
@@ -79,7 +79,7 @@ export class EvaluateQueryItemProvider {
             }
         }
 
-        if (!settings.evaluateQueryDefaultType) {
+        if (!settings.evaluateItemSearchPropertyItemType) {
             if (item.rarity === ItemRarity.Normal ||
                 item.rarity === ItemRarity.Magic ||
                 item.rarity === ItemRarity.Rare) {
@@ -92,12 +92,12 @@ export class EvaluateQueryItemProvider {
         }
 
         if (item.stats) {
-            if (item.rarity === ItemRarity.Unique && settings.evaluateQueryDefaultStatsUnique) {
+            if (item.rarity === ItemRarity.Unique && settings.evaluateItemSearchStatUniqueAll) {
                 queryItem.stats = item.stats;
             } else {
                 queryItem.stats = item.stats.map(stat => {
                     const key = `${stat.type}.${stat.tradeId}`;
-                    return settings.evaluateQueryDefaultStats[key] ? stat : undefined;
+                    return settings.evaluateItemSearchStats[key] ? stat : undefined;
                 });
             }
         }

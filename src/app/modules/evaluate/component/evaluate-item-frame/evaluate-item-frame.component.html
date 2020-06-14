@@ -1,0 +1,17 @@
+<app-item-frame [item]="item" [language]="language" [queryItem]="queryItem"
+    (queryItemChange)="onQueryItemChange($event)" [separator]="true"
+    [modifierMinRange]="settings.evaluateItemSearchStatMinRange / 100"
+    [modifierMaxRange]="settings.evaluateItemSearchStatMaxRange / 100"
+    [propertyMinRange]="settings.evaluateItemSearchPropertyMinRange / 100"
+    [propertyMaxRange]="settings.evaluateItemSearchPropertyMaxRange / 100" [opacity]="settings.dialogOpacity">
+    <ng-content></ng-content>
+    <app-evaluate-item-options [options]="options" (optionsChange)="onOptionsChange($event)" (resetTrigger)="onReset()">
+    </app-evaluate-item-options>
+    <app-evaluate-item-price [item]="item" [currencies]="currencies" [options]="options" [optionsChange]="optionsChange"
+        (evaluateSelect)="evaluateSelect.next($event)" appAnnotation="evaluate.price"></app-evaluate-item-price>
+    <app-item-frame-separator [item]="item"></app-item-frame-separator>
+    <app-evaluate-item-search [graph]="true" [currencies]="currencies" [queryItem]="queryItem"
+        [queryItemChange]="queryItemChange" [options]="options" [optionsChange]="optionsChange" [settings]="settings"
+        (evaluateSelect)="evaluateSelect.next($event)" appAnnotation="evaluate.search">
+    </app-evaluate-item-search>
+</app-item-frame>

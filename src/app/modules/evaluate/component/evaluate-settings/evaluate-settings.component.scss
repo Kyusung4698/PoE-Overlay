@@ -1,15 +1,36 @@
-@import "./../../../../../styles/variables";
+@import "../../../../../styles/variables";
 
-$label-color: rgba(200, 200, 200, 0.54);
+label {
+  display: block;
+  color: $label-color;
+  font-size: 12px;
+  transform: perspective(100px) translateZ(0.001px);
+}
 
-.toggle {
+.value-range {
+  > .slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .mat-slider {
+      width: 100%;
+    }
+  }
+}
+
+.range {
   display: flex;
-  flex-wrap: nowrap;
   align-items: center;
+  justify-content: center;
 
-  > * {
-    width: 33.333%;
-    padding-right: 15px;
+  .mat-slider {
+    width: 50%;
+  }
+
+  .value {
+    width: 80px;
+    text-align: center;
   }
 }
 
@@ -29,11 +50,15 @@ $label-color: rgba(200, 200, 200, 0.54);
   }
 }
 
-label {
-  display: block;
-  color: $label-color;
-  font-size: 12px;
-  transform: perspective(100px) translateZ(0.001px);
+.toggle {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+
+  > * {
+    width: 33.333%;
+    padding-right: 15px;
+  }
 }
 
 .stat {
@@ -74,32 +99,5 @@ label {
     &.fractured {
       background-color: $fractured;
     }
-  }
-}
-
-.value-range {
-  > .slider {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    .mat-slider {
-      width: 100%;
-    }
-  }
-}
-
-.range {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  .mat-slider {
-    width: 50%;
-  }
-
-  .value {
-    width: 80px;
-    text-align: center;
   }
 }

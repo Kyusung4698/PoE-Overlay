@@ -1,0 +1,14 @@
+<ng-container *ngIf="id | tradeStatic | async as static">
+    <div class="frame" [class.reverse]="reverse" [class.small]="small" [class.medium]="medium">
+        <span class="value" *ngIf="count !== null && count !== undefined">{{count | number: '1.0-2'}}</span>
+        <span class="value" *ngIf="amount !== null && amount !== undefined">{{amount | number: '1.0-4'}}</span>
+        <span
+            *ngIf="(count !== null && count !== undefined) || (amount !== null && amount !== undefined)">&nbsp;×&nbsp;</span>
+        <span class="image" *ngIf="static.image; else text" [title]="static.name">
+            <img [src]="'https://web.poecdn.com' + static.image" />
+        </span>
+        <ng-template #text>
+            <span class="text">{{static.name | truncateText:16}}</span>
+        </ng-template>
+    </div>
+</ng-container>

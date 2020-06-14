@@ -38,7 +38,7 @@
         "ignore-pattern": "^import |^export {(.*?)}"
       }
     ],
-    "member-access": true,
+    "member-access": false,
     "member-ordering": [
       true,
       {

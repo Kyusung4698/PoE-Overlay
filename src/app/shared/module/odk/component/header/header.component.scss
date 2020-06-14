@@ -1,0 +1,82 @@
+$header-background: #131313;
+$header-color: #a3a3a3;
+$header-size: 30px;
+$header-font-size: 14px;
+$icon-size: 16px;
+
+$border-color: #1a1a1a;
+
+::ng-deep {
+  app-header {
+    .controls {
+      .mat-icon {
+        height: $icon-size;
+        width: $icon-size;
+        font-size: $icon-size;
+        line-height: $icon-size;
+
+        & + .mat-icon{
+          margin-left: 3px;
+        }
+      }
+    }
+  }
+}
+
+.header {
+  position: relative;
+  height: $header-size;
+  line-height: $header-size + 2px;
+  background: $header-background;
+  color: $header-color;
+  font-size: $header-font-size;
+  font-family: FontinSmallCaps;
+
+  .name {
+    text-align: center;
+  }
+}
+
+.controls {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  height: $header-size;
+  line-height: $header-size + 8px;
+
+  &:not(.left) {
+    right: 10px;
+  }
+
+  &.left {
+    left: 10px;
+  }
+
+  .settings,
+  .pin {
+    height: $icon-size - 3px;
+    width: $icon-size - 3px;
+    font-size: $icon-size - 3px;
+    line-height: $icon-size - 3px;
+  }
+
+  .pin {
+    will-change: transform, top;
+    transition: transform ease-in-out 200ms, top ease-in 100ms;
+
+    &.pinned {
+      top: 0px;
+      transform: rotateZ(40deg);
+      transform-origin: center;
+    }
+  }
+}
+
+.content {
+  &:not(.inline) {
+    height: calc(100% - 30px);
+  }
+  border: 1px solid $border-color;
+  border-top: none;
+  width: 100%;
+}

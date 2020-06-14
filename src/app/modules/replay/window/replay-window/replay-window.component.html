@@ -1,0 +1,9 @@
+<app-header name="PoE Overlay - Replay" [closeable]="false" [draggable]="false">
+    <div class="content">
+        <div class="poe-close" (click)="onVideoClose()"> </div>
+        <div class="poe-settings" (click)="onSettingsToggle()"> </div>
+        <video #video class="video-js vjs-playback-rate" autoplay controls (ended)="onVideoEnded()">
+            <source [src]="url" />
+        </video>
+    </div>
+</app-header>

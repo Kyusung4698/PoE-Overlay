@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-md-6">
+        <app-card>
+            <mat-form-field>
+                <mat-label>{{'app.hotkey' | translate}}</mat-label>
+                <input matInput [value]="inspect | hotkey" readonly>
+                <a matSuffix [href]="inspect | hotkeyUrl">
+                    <mat-icon> keyboard </mat-icon>
+                </a>
+            </mat-form-field>
+        </app-card>
+    </div>
+</div>
+
+<app-card [title]="'inspect.map.name' | translate">
+    <div class="row">
+        <div class="col">
+            <label class="label"> {{'inspect.map.stats-warning' | translate}} </label>
+            <app-select-list [items]="stats$ | async" (itemsChange)="onStatsChange($event)">
+                <ng-template let-item>
+                    <span class="stat" [title]="item.text">
+                        <span class="text"> {{item.text}} </span>
+                    </span>
+                </ng-template>
+            </app-select-list>
+        </div>
+    </div>
+</app-card>

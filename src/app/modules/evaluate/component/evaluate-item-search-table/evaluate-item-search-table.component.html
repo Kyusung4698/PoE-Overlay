@@ -1,0 +1,33 @@
+<ng-container *ngIf="rows.length > 0">
+    <table class="header">
+        <tr>
+            <th class="amount">{{'evaluate.table.value' | translate}}</th>
+            <th></th>
+            <th class="seller">{{'evaluate.table.seller' | translate}}</th>
+            <th class="age">{{'evaluate.table.age' | translate}}</th>
+        </tr>
+    </table>
+    <cdk-virtual-scroll-viewport class="viewport"
+        [style.height.px]="rows.length > 20 ? 20 * 20 : (rows.length + 1) * 20" itemSize="19" minBufferPx="200"
+        maxBufferPx="400">
+        <table>
+            <tr *cdkVirtualFor="let row of rows;templateCacheSize: 0" class="clickable" [class.fixer]="row.count >= 3"
+                (click)="onRowClick($event, row)">
+                <td class="amount" *ngIf="!original">
+                    <span class="value">{{row.amount}}</span>
+                </td>
+                <td class="amount" *ngIf="original">
+                    <app-currency-frame [amount]="row.originalAmount" [currency]="row.originalCurrency">
+                    </app-currency-frame>
+                </td>
+                <td>
+                    <span *ngIf="row.count > 1">
+                        <small>&nbsp;x&nbsp;{{row.count}}</small>
+                    </span>
+                </td>
+                <td class="seller"> {{row.seller}} </td>
+                <td class="age"> <small>{{row.age}}</small> </td>
+            </tr>
+        </table>
+    </cdk-virtual-scroll-viewport>
+</ng-container>

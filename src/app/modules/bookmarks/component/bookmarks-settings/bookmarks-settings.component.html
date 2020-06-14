@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-md-6" *ngFor="let bookmark of settings.bookmarks; let index = index">
+        <mat-card class="card">
+            <div class="row align-items-center">
+                <div class="col-8">
+                    <mat-form-field>
+                        <mat-label>{{'bookmarks.url' | translate}}</mat-label>
+                        <input matInput [(ngModel)]="bookmark.url" (ngModelChange)="onChange()">
+                    </mat-form-field>
+                </div>
+                <div class="col-4 text-center">
+                    <mat-slide-toggle [checked]="bookmark.external"
+                        (change)="onExternalChange(bookmark, $event.checked)">
+                        {{'bookmarks.external' | translate}}
+                    </mat-slide-toggle>
+                </div>
+            </div>
+            <div class=" row">
+                <div class="col">
+                    <mat-form-field>
+                        <mat-label>{{'app.hotkey' | translate}}</mat-label>
+                        <input matInput [value]="bookmark.hotkey | hotkey" readonly>
+                        <a matSuffix [href]="bookmark.hotkey | hotkeyUrl">
+                            <mat-icon> keyboard </mat-icon>
+                        </a>
+                    </mat-form-field>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+</div>

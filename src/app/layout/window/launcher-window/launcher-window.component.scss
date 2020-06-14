@@ -1,0 +1,41 @@
+@import "../../../../styles/variables";
+
+$pad: 12px;
+
+.launcher {
+  border: 2px solid #413b70;
+  background: linear-gradient(40deg, #03080c, #413b70, #141f4a);
+  background-size: 600% 600%;
+
+  animation: loading 5s ease infinite;
+
+  @keyframes loading {
+    0% {
+      background-position: 51% 0%;
+    }
+    50% {
+      background-position: 50% 100%;
+    }
+    100% {
+      background-position: 51% 0%;
+    }
+  }
+
+  .image {
+    display: block;
+    margin: 0 auto;
+    width: 256px - $pad * 2;
+  }
+
+  .message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-bottom: $pad;
+    color: #fff;
+    font-family: FontinSmallCaps;
+    font-size: 15px;
+    height: 60px;
+  }
+}

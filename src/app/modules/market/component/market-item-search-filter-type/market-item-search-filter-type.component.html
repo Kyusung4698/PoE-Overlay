@@ -1,0 +1,77 @@
+<div class="market-row">
+    <div class="market-col">
+        <app-market-input label="Item Category">
+            <app-market-input-select path="type_filters.filters.category" [request]="request">
+                <app-market-input-select-option text="Any"></app-market-input-select-option>
+                <app-market-input-select-option value="weapon" text="Any Weapon"></app-market-input-select-option>
+                <app-market-input-select-option value="weapon.one" text="One-Handed Weapon"></app-market-input-select-option>
+                <app-market-input-select-option value="weapon.onemelee" text="One-Handed Melee Weapon"></app-market-input-select-option>
+                <app-market-input-select-option value="weapon.twomelee" text="Two-Handed Melee Weapon"></app-market-input-select-option>
+                <app-market-input-select-option value="weapon.bow" text="Bow"></app-market-input-select-option>
+                <app-market-input-select-option value="weapon.claw" text="Claw"></app-market-input-select-option>
+                <app-market-input-select-option value="weapon.dagger" text="Any Dagger"></app-market-input-select-option>
+                <app-market-input-select-option value="weapon.runedagger" text="Rune Dagger"></app-market-input-select-option>
+                <app-market-input-select-option value="weapon.oneaxe" text="One-Handed Axe"></app-market-input-select-option>
+                <app-market-input-select-option value="weapon.onemac" text="One-Handed Mac"></app-market-input-select-option>
+                <app-market-input-select-option value="weapon.onesword" text="One-Handed Sword"></app-market-input-select-option>
+                <app-market-input-select-option value="weapon.sceptre" text="Sceptre"></app-market-input-select-option>
+                <app-market-input-select-option value="weapon.staff" text="Any Staff"></app-market-input-select-option>
+                <app-market-input-select-option value="weapon.warstaff" text="Warstaff"></app-market-input-select-option>
+                <app-market-input-select-option value="weapon.twoaxe" text="Two-Handed Axe"></app-market-input-select-option>
+                <app-market-input-select-option value="weapon.twomac" text="Two-Handed Mac"></app-market-input-select-option>
+                <app-market-input-select-option value="weapon.twosword" text="Two-Handed Sword"></app-market-input-select-option>
+                <app-market-input-select-option value="weapon.wand" text="Wand"></app-market-input-select-option>
+                <app-market-input-select-option value="weapon.rod" text="Fishing Rod"></app-market-input-select-option>
+                <app-market-input-select-option value="armour" text="Any Armour"></app-market-input-select-option>
+                <app-market-input-select-option value="armour.chest" text="Body Armour"></app-market-input-select-option>
+                <app-market-input-select-option value="armour.boots" text="Boots"></app-market-input-select-option>
+                <app-market-input-select-option value="armour.gloves" text="Gloves"></app-market-input-select-option>
+                <app-market-input-select-option value="armour.helmet" text="Helmet"></app-market-input-select-option>
+                <app-market-input-select-option value="armour.shield" text="Shield"></app-market-input-select-option>
+                <app-market-input-select-option value="armour.quiver" text="Quiver"></app-market-input-select-option>
+                <app-market-input-select-option value="accessory" text="Any Accessory"></app-market-input-select-option>
+                <app-market-input-select-option value="accessory.amulet" text="Amulet"></app-market-input-select-option>
+                <app-market-input-select-option value="accessory.belt" text="Belt"></app-market-input-select-option>
+                <app-market-input-select-option value="accessory.ring" text="Ring"></app-market-input-select-option>
+                <app-market-input-select-option value="gem" text="Any Gem"></app-market-input-select-option>
+                <app-market-input-select-option value="gem.activegem" text="Skill Gem"></app-market-input-select-option>
+                <app-market-input-select-option value="gem.supportgem" text="Support Gem"></app-market-input-select-option>
+                <app-market-input-select-option value="gem.supportgemplus" text="Awakened Support Gem"></app-market-input-select-option>
+                <app-market-input-select-option value="jewel" text="Any Jewel"></app-market-input-select-option>
+                <app-market-input-select-option value="jewel.base" text="Base Jewel"></app-market-input-select-option>
+                <app-market-input-select-option value="jewel.abyss" text="Abyss Jewel"></app-market-input-select-option>
+                <app-market-input-select-option value="jewel.cluster" text="Cluster Jewel"></app-market-input-select-option>
+                <app-market-input-select-option value="flask" text="Flask"></app-market-input-select-option>
+                <app-market-input-select-option value="map" text="Map"></app-market-input-select-option>
+                <app-market-input-select-option value="map.fragment" text="Map Fragment"></app-market-input-select-option>
+                <app-market-input-select-option value="map.scarab" text="Scarab"></app-market-input-select-option>
+                <app-market-input-select-option value="watchstone" text="Watchstone"></app-market-input-select-option>
+                <app-market-input-select-option value="leaguestone" text="Leaguestone"></app-market-input-select-option>
+                <app-market-input-select-option value="prophecy" text="Prophecy"></app-market-input-select-option>
+                <app-market-input-select-option value="card" text="Card"></app-market-input-select-option>
+                <app-market-input-select-option value="monster.beast" text="Captured Beast"></app-market-input-select-option>
+                <app-market-input-select-option value="monster.sample" text="Metamorph Sample"></app-market-input-select-option>
+                <app-market-input-select-option value="currency" text="Any Currency"></app-market-input-select-option>
+                <app-market-input-select-option value="currency.piece" text="Unique Fragment"></app-market-input-select-option>
+                <app-market-input-select-option value="currency.resonator" text="Resonator"></app-market-input-select-option>
+                <app-market-input-select-option value="currency.fossil" text="Fossil"></app-market-input-select-option>
+                <app-market-input-select-option value="currency.incubator" text="Incubator"></app-market-input-select-option>
+            </app-market-input-select>
+        </app-market-input>
+    </div>
+</div>
+<div class="market-row">
+    <div class="market-col">
+        <app-market-input label="Item Rarity">
+            <app-market-input-select path="type_filters.filters.rarity" [request]="request">
+                <app-market-input-select-option text="Any"></app-market-input-select-option>
+                <app-market-input-select-option text="Normal" value="normal"></app-market-input-select-option>
+                <app-market-input-select-option text="Magic" value="magic"></app-market-input-select-option>
+                <app-market-input-select-option text="Rare" value="rare"></app-market-input-select-option>
+                <app-market-input-select-option text="Unique" value="unique"></app-market-input-select-option>
+                <app-market-input-select-option text="Unique (Relic)" value="uniquefoil"></app-market-input-select-option>
+                <app-market-input-select-option text="Any Non-Unique" value="nonunique"></app-market-input-select-option>
+            </app-market-input-select>
+        </app-market-input>
+    </div>
+</div>

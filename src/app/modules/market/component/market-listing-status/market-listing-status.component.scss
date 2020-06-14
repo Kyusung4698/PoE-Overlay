@@ -1,0 +1,27 @@
+$afk: #f1c40f;
+$online: #27ae60;
+$offline: #2c3e50;
+$size: 12px;
+
+div {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+
+  &.afk {
+    background: $afk;
+    box-shadow: 0px 0px 3px darken($color: $afk, $amount: 30%), inset 0px 1px 2px lighten($color: $afk, $amount: 3%);
+  }
+
+  &.online {
+    background: $online;
+    box-shadow: 0px 0px 3px darken($color: $online, $amount: 30%),
+      inset 0px 1px 2px lighten($color: $online, $amount: 3%);
+  }
+
+  &.offline {
+    background: $offline;
+    box-shadow: 0px 0px 3px darken($color: $offline, $amount: 30%),
+      inset 0px 1px 2px lighten($color: $offline, $amount: 3%);
+  }
+}

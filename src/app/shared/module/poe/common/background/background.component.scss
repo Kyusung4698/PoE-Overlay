@@ -1,0 +1,64 @@
+:host,
+.background,
+.content {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.background {
+  position: relative;
+  background: url(../../../../../../assets/poe/interface/background.jpg);
+  padding: 14px;
+
+  &.inline {
+    display: inline-block;
+    width: auto;
+    height: auto;
+  }
+
+  > .bottom,
+  > .top,
+  > .left,
+  > .right {
+    position: absolute;
+  }
+
+  > .bottom,
+  > .top {
+    left: 0;
+    right: 0;
+    height: 8px;
+  }
+
+  > .left,
+  > .right {
+    top: 8px;
+    bottom: 8px;
+    width: 8px;
+  }
+
+  > .bottom {
+    bottom: 0;
+    background: url(../../../../../../assets/poe/interface/border-corner-bottom-left.jpg) top left no-repeat,
+      url(../../../../../../assets/poe/interface/border-corner-bottom-right.jpg) top right no-repeat,
+      url(../../../../../../assets/poe/interface/border-bottom.jpg) top center repeat-x;
+  }
+
+  > .top {
+    top: 0;
+    background: url(../../../../../../assets/poe/interface/border-corner-top-left.jpg) top left no-repeat,
+      url(../../../../../../assets/poe/interface/border-corner-top-right.jpg) top right no-repeat,
+      url(../../../../../../assets/poe/interface/border-top.jpg) top center repeat-x;
+  }
+
+  > .left {
+    left: 0;
+    background: url(../../../../../../assets/poe/interface/border-left.jpg);
+  }
+
+  > .right {
+    right: 0;
+    background: url(../../../../../../assets/poe/interface/border-right.jpg);
+  }
+}

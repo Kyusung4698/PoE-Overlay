@@ -1,0 +1,49 @@
+<app-market-exchange-bar (search)="onSearch()" (toggle)="onToggle($event)" (highlight)="onHighlight($event)"
+    (clear)="onClear()">
+</app-market-exchange-bar>
+
+<div class="content">
+    <div class="results" #root>
+        <ng-container *ngIf="(result$ | async) as result; else empty">
+            <ng-container *ngIf="(searching$ | async) === false; else searching">
+                <div class="header scroll">
+                    <span class="pay"> {{'market.exchange.pay' | translate}} </span>
+                    <span class="get"> {{'market.exchange.get' | translate}} </span>
+                </div>
+                <div class="header-spacer"></div>
+                <ng-container *ngFor="let entry of result.entries;trackBy:trackResult; let last = last">
+                    <app-market-exchange-price [status]="entry.listing.status" [price]="entry.listing.price"
+                        (send)="onSend(entry.listing.whisper, $event)"></app-market-exchange-price>
+                    <app-market-infinite-scroll *ngIf="last" [root]="root" (visible)="onNext()">
+                    </app-market-infinite-scroll>
+                </ng-container>
+                <ng-container *ngIf="fetching$ | async">
+                    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+                </ng-container>
+            </ng-container>
+            <ng-template #searching>
+                <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+            </ng-template>
+            <ng-container *ngIf="(error$ | async) as error">
+                <div class="error">
+                    {{error.key | translate:error.value}}
+                </div>
+            </ng-container>
+        </ng-container>
+        <ng-template #empty>
+            <ng-container *ngIf="searching$ | async">
+                <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+            </ng-container>
+            <ng-container *ngIf="(error$ | async) as error">
+                <div class="error">
+                    {{error.key | translate:error.value}}
+                </div>
+            </ng-container>
+        </ng-template>
+    </div>
+</div>
+
+<ng-template #filter>
+    <app-market-exchange-filter [request]="request" [highlightTerm]="highlightTerm$ | async">
+    </app-market-exchange-filter>
+</ng-template>

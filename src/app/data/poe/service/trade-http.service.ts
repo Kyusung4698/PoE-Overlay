@@ -1,16 +1,13 @@
 import { HttpClient, HttpErrorResponse, HttpParams, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BrowserService } from '@app/service';
 import { environment } from '@env/environment';
-import { Language } from '@shared/module/poe/type';
 import { Observable, of, throwError } from 'rxjs';
 import { delay, flatMap, map, retryWhen } from 'rxjs/operators';
-import { TradeFetchResult, TradeItemsResult, TradeLeaguesResult, TradeResponse, TradeSearchRequest, TradeSearchResponse, TradeStaticResult, TradeStatsResult } from '../schema/trade';
+import { Language, TradeExchangeHttpRequest, TradeExchangeHttpResponse, TradeFetchHttpResponse, TradeItemsHttpResponse, TradeLeaguesHttpResponse, TradeSearchHttpRequest, TradeSearchHttpResponse, TradeStaticHttpResponse, TradeStatsHttpResponse } from '../schema';
 import { TradeRateLimitService } from './trade-rate-limit.service';
 
 const RETRY_COUNT = 3;
 const RETRY_DELAY = 300;
-const RETRY_LIMIT_COUNT = 1;
 
 @Injectable({
     providedIn: 'root'
@@ -18,32 +15,32 @@ const RETRY_LIMIT_COUNT = 1;
 export class TradeHttpService {
     constructor(
         private readonly http: HttpClient,
-        private readonly browser: BrowserService,
         private readonly limit: TradeRateLimitService) { }
 
-    public getItems(language: Language): Observable<TradeResponse<TradeItemsResult>> {
+    public getItems(language: Language): Observable<TradeItemsHttpResponse> {
         const url = this.getApiUrl('data/items', language);
         return this.getAndTransform(url);
     }
 
-    public getLeagues(language: Language): Observable<TradeResponse<TradeLeaguesResult>> {
+    public getLeagues(language: Language): Observable<TradeLeaguesHttpResponse> {
         const url = this.getApiUrl('data/leagues', language);
         return this.getAndTransform(url);
     }
 
-    public getStatic(language: Language): Observable<TradeResponse<TradeStaticResult>> {
+    public getStatics(language: Language): Observable<TradeStaticHttpResponse> {
         const url = this.getApiUrl('data/static', language);
         return this.getAndTransform(url);
     }
 
-    public getStats(language: Language): Observable<TradeResponse<TradeStatsResult>> {
+    public getStats(language: Language): Observable<TradeStatsHttpResponse> {
         const url = this.getApiUrl('data/stats', language);
         return this.getAndTransform(url);
     }
 
-    public search(request: TradeSearchRequest, language: Language, leagueId: string): Observable<TradeSearchResponse> {
-        const url = this.getApiUrl(`search/${encodeURIComponent(leagueId)}`, language);
-        return this.limit.throttle('search', () => this.http.post<TradeSearchResponse>(url, request, {
+    public exchange(request: TradeExchangeHttpRequest, language: Language, leagueId: string): Observable<TradeExchangeHttpResponse> {
+        const path = 'exchange';
+        const url = this.getApiUrl(`${path}/${encodeURIComponent(leagueId)}`, language);
+        return this.limit.throttle(path, () => this.http.post<TradeExchangeHttpResponse>(url, request, {
             withCredentials: true,
             observe: 'response'
         })).pipe(
@@ -57,13 +54,33 @@ export class TradeHttpService {
         );
     }
 
-    public fetch(itemIds: string[], queryId: string, language: Language): Observable<TradeResponse<TradeFetchResult>> {
-        const url = this.getApiUrl(`fetch/${itemIds.join(',')}`, language);
-        return this.limit.throttle('fetch', () => this.http.get<TradeResponse<TradeFetchResult>>(url, {
+    public search(request: TradeSearchHttpRequest, language: Language, leagueId: string): Observable<TradeSearchHttpResponse> {
+        const path = 'search';
+        const url = this.getApiUrl(`${path}/${encodeURIComponent(leagueId)}`, language);
+        return this.limit.throttle(path, () => this.http.post<TradeSearchHttpResponse>(url, request, {
+            withCredentials: true,
+            observe: 'response'
+        })).pipe(
+            retryWhen(errors => errors.pipe(
+                flatMap((response, count) => this.handleError(url, response, count))
+            )),
+            map(response => {
+                response.url = `${url.replace('/api', '')}/${encodeURIComponent(response.id)}`;
+                return response;
+            })
+        );
+    }
+
+    public fetch(ids: string[], query: string, language: Language, exchange: boolean = false): Observable<TradeFetchHttpResponse> {
+        const params: any = { query };
+        if (exchange) {
+            params.exchange = undefined;
+        }
+        const path = 'fetch';
+        const url = this.getApiUrl(`${path}/${ids.join(',')}`, language);
+        return this.limit.throttle(path, () => this.http.get<TradeFetchHttpResponse>(url, {
             params: new HttpParams({
-                fromObject: {
-                    query: queryId
-                }
+                fromObject: params
             }),
             withCredentials: true,
             observe: 'response'
@@ -134,7 +151,7 @@ export class TradeHttpService {
         return `${baseUrl}/trade/${postfix}`;
     }
 
-    private handleError(url: string, response: HttpErrorResponse, count: number): Observable<any> {
+    private handleError(url: string, response: HttpErrorResponse, count: number): Observable<HttpErrorResponse> {
         if (count >= RETRY_COUNT) {
             return throwError(response);
         }
@@ -145,14 +162,9 @@ export class TradeHttpService {
                     const message = response?.error?.error?.message || 'no message';
                     const code = response?.error?.error?.code || '-';
                     return throwError(`${code}: ${message}`);
-                } catch{
+                } catch {
                     return throwError(response.error);
                 }
-            case 403:
-                if (count >= RETRY_LIMIT_COUNT) {
-                    return throwError(response);
-                }
-                return this.browser.retrieve(url).pipe(delay(RETRY_DELAY));
             case 429:
                 return throwError(response);
             default:

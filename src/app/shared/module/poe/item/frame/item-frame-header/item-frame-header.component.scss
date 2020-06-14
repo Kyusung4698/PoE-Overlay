@@ -1,0 +1,104 @@
+@import "../../../../../../../styles/variables";
+
+.header {
+  font-size: 19px;
+  line-height: 1em;
+  height: 33px;
+  padding: 0 20px;
+
+  > .name {
+    padding: 7.23428px 0;
+    white-space: nowrap;
+  }
+
+  &.double {
+    height: 53px;
+
+    > .name {
+      padding: 5.18323px 45px 2.59162px 45px;
+      height: 24px;
+    }
+  }
+
+  &.normal {
+    background: url(../../../../../../../assets/poe/item/header-normal-left.png) top left no-repeat,
+      url(../../../../../../../assets/poe/item/header-normal-right.png) top right no-repeat,
+      url(../../../../../../../assets/poe/item/header-normal-middle.png) top center repeat-x;
+
+    > .name {
+      color: $light-grey;
+    }
+  }
+
+  &.magic {
+    background: url(../../../../../../../assets/poe/item/header-magic-left.png) top left no-repeat,
+      url(../../../../../../../assets/poe/item/header-magic-right.png) top right no-repeat,
+      url(../../../../../../../assets/poe/item/header-magic-middle.png) top center repeat-x;
+
+    > .name {
+      color: $purple;
+    }
+  }
+
+  &.rare {
+    background: url(../../../../../../../assets/poe/item/header-rare-left.png) top left no-repeat,
+      url(../../../../../../../assets/poe/item/header-rare-right.png) top right no-repeat,
+      url(../../../../../../../assets/poe/item/header-rare-middle.png) top center repeat-x;
+
+    &.double {
+      background: url(../../../../../../../assets/poe/item/header-double-rare-left.png) top left no-repeat,
+        url(../../../../../../../assets/poe/item/header-double-rare-right.png) top right no-repeat,
+        url(../../../../../../../assets/poe/item/header-double-rare-middle.png) top center repeat-x;
+    }
+
+    > .name {
+      color: $yellow;
+    }
+  }
+
+  &.unique {
+    background: url(../../../../../../../assets/poe/item/header-unique-left.png) top left no-repeat,
+      url(../../../../../../../assets/poe/item/header-unique-right.png) top right no-repeat,
+      url(../../../../../../../assets/poe/item/header-unique-middle.png) top center repeat-x;
+
+    &.double {
+      background: url(../../../../../../../assets/poe/item/header-double-unique-left.png) top left no-repeat,
+        url(../../../../../../../assets/poe/item/header-double-unique-right.png) top right no-repeat,
+        url(../../../../../../../assets/poe/item/header-double-unique-middle.png) top center repeat-x;
+    }
+
+    > .name {
+      color: $orange;
+    }
+  }
+
+  &.currency {
+    background: url(../../../../../../../assets/poe/item/header-currency-left.png) top left no-repeat,
+      url(../../../../../../../assets/poe/item/header-currency-right.png) top right no-repeat,
+      url(../../../../../../../assets/poe/item/header-currency-middle.png) top center repeat-x;
+
+    > .name {
+      color: $light-orange;
+    }
+  }
+
+  &.divinationcard {
+    background: url(../../../../../../../assets/poe/item/header-card-left.png) top left no-repeat,
+      url(../../../../../../../assets/poe/item/header-card-right.png) top right no-repeat,
+      url(../../../../../../../assets/poe/item/header-card-middle.png) top center repeat-x;
+
+    > .name {
+      color: $black;
+    }
+  }
+
+  &.gem {
+    background: url(../../../../../../../assets/poe/item/header-gem-left.png) top left no-repeat,
+      url(../../../../../../../assets/poe/item/header-gem-right.png) top right no-repeat,
+      url(../../../../../../../assets/poe/item/header-gem-middle.png) top center repeat-x;
+
+    > .name {
+      color: $aqua;
+    }
+  }
+}

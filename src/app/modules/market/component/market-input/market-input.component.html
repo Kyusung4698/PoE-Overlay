@@ -1,0 +1,9 @@
+<div class="wrapper">
+    <label class="label">
+        <ng-container *ngIf="label">{{label | translate}} </ng-container>
+        <ng-content select="label"></ng-content>
+    </label>
+    <div class="input">
+        <ng-content></ng-content>
+    </div>
+</div>

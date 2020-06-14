@@ -1,0 +1,30 @@
+mat-form-field {
+  width: 100%;
+}
+
+mat-label {
+  display: block;
+}
+
+mat-card {
+  margin-bottom: 12px;
+
+  > mat-label {
+    margin-bottom: 12px;
+  }
+}
+
+.mat-form-field-prefix .mat-icon,
+.mat-form-field-suffix .mat-icon {
+  vertical-align: middle;
+}
+
+.mat-slide-toggle {
+  margin-bottom: 12px;
+}
+
+.mat-tab-labels {
+  > .mat-tab-label {
+    min-width: auto;
+  }
+}

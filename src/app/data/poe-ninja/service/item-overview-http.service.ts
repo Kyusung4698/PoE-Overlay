@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BrowserService, LoggerService } from '@app/service';
+import { TradeLeaguesHttpLeague } from '@data/poe/schema';
 import { environment } from '@env/environment';
 import { Observable, of, throwError } from 'rxjs';
 import { delay, flatMap, retryWhen } from 'rxjs/operators';
@@ -22,7 +22,8 @@ export enum ItemOverviewType {
     Beast = 'Beast',
     Fossil = 'Fossil',
     Map = 'Map',
-    UniqueMap = 'UniqueMap'
+    UniqueMap = 'UniqueMap',
+    SkillGem = 'SkillGem'
 }
 
 const PATH_TYPE_MAP = {
@@ -42,6 +43,7 @@ const PATH_TYPE_MAP = {
     [ItemOverviewType.Fossil]: 'fossils',
     [ItemOverviewType.Map]: 'maps',
     [ItemOverviewType.UniqueMap]: 'unique-maps',
+    [ItemOverviewType.SkillGem]: 'skill-gems',
 };
 
 const RETRY_COUNT = 3;
@@ -54,9 +56,7 @@ export class ItemOverviewHttpService {
     private readonly baseUrl: string;
 
     constructor(
-        private readonly httpClient: HttpClient,
-        private readonly browser: BrowserService,
-        private readonly logger: LoggerService) {
+        private readonly httpClient: HttpClient) {
         this.baseUrl = `${environment.poeNinja.baseUrl}/api/data/itemoverview`;
     }
 
@@ -64,16 +64,16 @@ export class ItemOverviewHttpService {
         const url = this.getUrl(leagueId, type);
         return this.httpClient.get<ItemOverviewResponse>(url).pipe(
             retryWhen(errors => errors.pipe(
-                flatMap((response, count) => this.handleError(url, response, count))
+                flatMap((response, count) => this.handleError(response, count))
             )),
             flatMap(response => {
                 if (!response?.lines) {
-                    if (leagueId !== 'Standard') {
-                        this.logger.info(`Got empty result from '${url}'. Using Standard league for now.`, response);
-                        return this.get('Standard', type);
+                    if (leagueId !== TradeLeaguesHttpLeague.Standard) {
+                        console.log(`Got empty result from '${url}'. Using Standard league for now.`, response);
+                        return this.get(TradeLeaguesHttpLeague.Standard, type);
                     }
-                    this.logger.warn(`Got empty result from '${url}'.`, response);
-                    return throwError(`Got empty result from '${url}'.`)
+                    console.warn(`Got empty result from '${url}'.`, response);
+                    return throwError(`Got empty result from '${url}'.`);
                 }
 
                 const result: ItemOverviewResponse = {
@@ -85,17 +85,11 @@ export class ItemOverviewHttpService {
         );
     }
 
-    private handleError(url: string, response: HttpErrorResponse, count: number): Observable<void> {
+    private handleError(response: HttpErrorResponse, count: number): Observable<void> {
         if (count >= RETRY_COUNT) {
             return throwError(response);
         }
-
-        switch (response.status) {
-            case 403:
-                return this.browser.retrieve(url).pipe(delay(RETRY_DELAY));
-            default:
-                return of(null).pipe(delay(RETRY_DELAY));
-        }
+        return of(null).pipe(delay(RETRY_DELAY));
     }
 
     private getUrl(leagueId: string, type: ItemOverviewType): string {

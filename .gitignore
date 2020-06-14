@@ -4,11 +4,6 @@
 /dist
 /tmp
 /out-tsc
-/release
-*.js
-*.js.map
-!karma.conf.js
-
 # Only exists if Bazel was run
 /bazel-out
 
@@ -49,6 +44,3 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-
-# custom
-animation.flag

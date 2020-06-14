@@ -1,0 +1,46 @@
+$size: 32px;
+$size-medium: 24px;
+$size-small: 16px;
+
+.frame {
+  display: inline-flex;
+  justify-content: center;
+  line-height: $size;
+  height: $size;
+
+  &.reverse {
+    flex-direction: row-reverse;
+  }
+
+  &.small {
+    line-height: $size-small;
+    height: $size-small;
+
+    .image {
+      > img {
+        height: $size-small;
+      }
+    }
+  }
+
+  &.medium {
+    line-height: $size-medium;
+    height: $size-medium;
+
+    .image {
+      > img {
+        height: $size-medium;
+      }
+    }
+  }
+
+  .text {
+    overflow: hidden;
+  }
+
+  .image {
+    > img {
+      height: $size;
+    }
+  }
+}

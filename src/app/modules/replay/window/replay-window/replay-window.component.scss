@@ -1,0 +1,31 @@
+::ng-deep {
+  body {
+    background: #000;
+  }
+}
+
+.content,
+video {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.content {
+  position: relative;
+
+  .poe-close,
+  .poe-settings {
+    position: absolute;
+    top: 5px;
+    z-index: 2000;
+  }
+
+  .poe-close {
+    right: 5px;
+  }
+
+  .poe-settings {
+    right: 5px + 28px;
+  }
+}
