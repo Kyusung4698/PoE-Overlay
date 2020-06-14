@@ -404,6 +404,7 @@
 			"wait": "等待訊息"
 		},
 		"name": "貿易",
+		"no-price": "沒有價格",
 		"not-found": "沒有找到數據。",
 		"search": "搜尋",
 		"searching": "搜尋...",

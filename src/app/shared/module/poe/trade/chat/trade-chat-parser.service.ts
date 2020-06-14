@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Asset, AssetService } from '@app/assets';
 import { TradeBulkMessage, TradeItemMessage, TradeMapMessage, TradeParserBase, TradeParserType, TradePlayerJoinedArea, TradeWhisperDirection, TradeMessage } from './trade-chat';
+import { BehaviorSubject } from 'rxjs';
 
 interface TradeRegexs {
     JoinedArea: {
@@ -101,16 +102,16 @@ export class TradeChatParserService {
             name: player,
             direction,
             timeReceived: new Date(),
-            whispers: groups.message ? [
+            whispers$: new BehaviorSubject(groups.message ? [
                 {
                     direction,
                     timeReceived: new Date(),
                     message: groups.message.trim()
                 }
-            ] : [],
+            ] : []),
             message: result[0],
             league: groups.league,
-            joined: false,
+            joined$: new BehaviorSubject(false),
             maps1: {
                 tier: groups.tier1,
                 maps: groups.maps1.split(',').map(x => x.trim())
@@ -129,16 +130,16 @@ export class TradeChatParserService {
             name: player,
             direction,
             timeReceived: new Date(),
-            whispers: groups.message ? [
+            whispers$: new BehaviorSubject(groups.message ? [
                 {
                     direction,
                     timeReceived: new Date(),
                     message: groups.message.trim()
                 }
-            ] : [],
+            ] : []),
             message: result[0],
             league: groups.league,
-            joined: false,
+            joined$: new BehaviorSubject(false),
             itemName: groups.name,
             stash: groups.stash,
             left: +groups.left,
@@ -155,16 +156,16 @@ export class TradeChatParserService {
             name: player,
             direction,
             timeReceived: new Date(),
-            whispers: groups.message ? [
+            whispers$: new BehaviorSubject(groups.message ? [
                 {
                     direction,
                     timeReceived: new Date(),
                     message: groups.message.trim()
                 }
-            ] : [],
+            ] : []),
             message: result[0],
             league: groups.league,
-            joined: false,
+            joined$: new BehaviorSubject(false),
             count1: +groups.count,
             type1: groups.name,
             count2: +groups.price,

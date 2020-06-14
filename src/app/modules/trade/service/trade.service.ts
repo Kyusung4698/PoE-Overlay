@@ -65,7 +65,7 @@ export class TradeService {
         let shouldUpdate = false;
         for (const message of messages) {
             if (message.name === whisper.name) {
-                message.whispers.push(whisper);
+                message.whispers$.next([...message.whispers$.value, whisper]);
                 shouldUpdate = true;
             }
         }
@@ -76,7 +76,7 @@ export class TradeService {
         let shouldUpdate = false;
         for (const message of messages) {
             if (message.name === name) {
-                message.joined = true;
+                message.joined$.next(true);
                 shouldUpdate = true;
             }
         }

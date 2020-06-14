@@ -43,7 +43,7 @@ export class TradeModule implements FeatureModule<TradeFeatureSettings> {
                 tradeEnabled: true,
                 tradeMessageWait: 'Currently in @zone. Do you want to wait until finished?',
                 tradeMessageStillInterested: 'Do you still want @itemname for @price?',
-                tradeMessageItemGone: 'Sorry, @itemname already sold. Good luck on your search.',
+                tradeMessageItemGone: 'Sorry, @itemname already gone. Good luck on your search.',
                 tradeMessageThanks: 'Thank you for the trade. Have a nice day and good luck.',
                 tradeStashFactor: {},
                 tradeWindowPinned: false

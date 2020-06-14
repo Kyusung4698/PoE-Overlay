@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Roman } from '@app/helper';
 import { NotificationService } from '@app/notification';
 import { OWGamesEvents } from '@app/odk';
 import { TradeMessageAction, TradeMessageActionState } from '@modules/trade/class';
@@ -7,8 +8,14 @@ import { TradeFeatureSettings } from '@modules/trade/trade-feature-settings';
 import { ChatService } from '@shared/module/poe/chat';
 import { EventInfo } from '@shared/module/poe/poe-event-info';
 import { TradeBulkMessage, TradeExchangeMessage, TradeItemMessage, TradeMapMessage, TradeParserType, TradeWhisperDirection } from '@shared/module/poe/trade/chat';
-import { Observable, of, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
 import { catchError, flatMap, map } from 'rxjs/operators';
+
+interface MessageContext {
+  zone: string;
+  itemname: string;
+  price: string;
+}
 
 @Component({
   selector: 'app-trade-message',
@@ -19,7 +26,7 @@ import { catchError, flatMap, map } from 'rxjs/operators';
 export class TradeMessageComponent implements OnInit {
   public visible: TradeMessageActionState = {};
   public activated: TradeMessageActionState = {};
-  public toggle = false;
+  public toggle$ = new BehaviorSubject(false);
 
   @Input()
   public message: TradeExchangeMessage;
@@ -36,23 +43,41 @@ export class TradeMessageComponent implements OnInit {
     private readonly highlight: TradeHighlightWindowService) { }
 
   public ngOnInit(): void {
-    const type = this.message.type;
     this.visible[TradeMessageAction.Invite] = true;
     this.visible[TradeMessageAction.Trade] = true;
     this.visible[TradeMessageAction.Whisper] = true;
     if (this.message.direction === TradeWhisperDirection.Incoming) {
       this.visible[TradeMessageAction.Wait] = true;
       this.visible[TradeMessageAction.ItemGone] = true;
-      this.visible[TradeMessageAction.ItemHighlight] = type === TradeParserType.TradeItem;
+      this.visible[TradeMessageAction.ItemHighlight] = true;
+      // TODO: Cleanup
+      this.createMessageContext().subscribe(context => {
+        this.toggle$.next([
+          'Hideout',
+          'Refúgio',
+          'убежище',
+          'Hideout',
+          'Versteck',
+          'Repaire',
+          'Guarida',
+          '은신처에',
+        ].some(x => context.zone.includes(x)));
+      });
     } else {
+      this.toggle$.next(true);
       this.visible[TradeMessageAction.Resend] = true;
       this.visible[TradeMessageAction.Finished] = true;
-      // this.visible[TradeMessageAction.ItemHighlight] = type === TradeParserType.TradeMap;
+      this.visible[TradeMessageAction.ItemHighlight] = this.message.type === TradeParserType.TradeMap;
     }
   }
 
   public onDismiss(): void {
     this.close();
+  }
+
+  public onWait(event: MouseEvent): void {
+    event.stopPropagation();
+    this.onActionExecute(TradeMessageAction.Wait);
   }
 
   public onActionExecute(action: TradeMessageAction): void {
@@ -115,21 +140,33 @@ export class TradeMessageComponent implements OnInit {
       case TradeParserType.TradeItem:
         {
           const message = this.message as TradeItemMessage;
-          this.highlight.toggle({
+          this.highlight.restore({
             left: message.left,
             top: message.top,
             stash: message.stash,
-            items: [message.itemName]
+            items: [{ name: message.itemName }]
           }).subscribe();
+        }
+        break;
+      case TradeParserType.TradeBulk:
+        {
+          const message = this.message as TradeBulkMessage;
+          this.highlight.restore({ items: [{ name: message.type1 }] }).subscribe();
         }
         break;
       case TradeParserType.TradeMap:
         {
           const message = this.message as TradeMapMessage;
-          this.highlight.toggle({
-            items: message.direction === TradeWhisperDirection.Incoming
-              ? message.maps1.maps
-              : message.maps2.maps
+          const maps = message.direction === TradeWhisperDirection.Incoming
+            ? message.maps2
+            : message.maps1;
+          this.highlight.restore({
+            items: maps.maps.map(x => {
+              return {
+                name: `${maps.tier}: ${x}`,
+                value: `${x} tier:${Roman.toArabic(maps.tier)}`
+              };
+            })
           }).subscribe();
         }
         break;
@@ -163,8 +200,8 @@ export class TradeMessageComponent implements OnInit {
     }
   }
 
-  private createMessageContext(): Observable<any> {
-    const context = {
+  private createMessageContext(): Observable<MessageContext> {
+    const context: MessageContext = {
       zone: 'unknown',
       itemname: 'unknown',
       price: 'unknown'
@@ -190,8 +227,8 @@ export class TradeMessageComponent implements OnInit {
       case TradeParserType.TradeMap:
         {
           const message = this.message as TradeMapMessage;
-          context.itemname = message.maps1.maps.join(', ');
-          context.price = message.maps2.maps.join(', ');
+          context.itemname = `${message.maps2.tier}: (${message.maps2.maps.join(', ')})`;
+          context.price = `${message.maps1.tier}: (${message.maps1.maps.join(', ')})`;
         }
         break;
     }

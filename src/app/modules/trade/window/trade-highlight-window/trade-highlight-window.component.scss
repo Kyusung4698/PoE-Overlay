@@ -8,15 +8,39 @@
     font-size: 14.3px;
     font-family: FontinSmallCaps;
   }
-  
+
   ::-webkit-scrollbar,
   ::-webkit-scrollbar-thumb {
     display: none;
   }
 }
 
-app-background {
+.background {
+  position: absolute;
   display: inline;
+  max-width: 60vw;
+}
+
+.stash {
+  color: rgb(50, 205, 50);
+}
+
+.name,
+.item {
+  display: inline-flex;
+}
+
+.item {
+  flex-direction: row;
+  line-height: 15px;
+  background: $black-transparent;
+  align-items: center;
+  margin: 1px;
+
+  .name {
+    padding: $gutter $gutter;
+    cursor: pointer;
+  }
 }
 
 .grid {
@@ -33,6 +57,6 @@ app-background {
 
   .highlight {
     position: absolute;
-    border: 2px solid rgba(255, 255, 255, 0.6);
+    border: 2px solid rgb(50, 205, 50);
   }
 }

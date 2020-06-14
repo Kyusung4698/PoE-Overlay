@@ -8,22 +8,30 @@ import { TradeBulkMessage, TradeWhisperDirection } from '@shared/module/poe/trad
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TradeMessageBulkComponent {
-  private _message: TradeBulkMessage;
+  @Input()
+  public type1: string;
 
-  public get message(): TradeBulkMessage {
-    return this._message;
-  }
+  @Input()
+  public type2: string;
+
+  @Input()
+  public count1: number;
+
+  @Input()
+  public count2: number;
 
   @Input()
   public set message(message: TradeBulkMessage) {
-    this._message = JSON.parse(JSON.stringify(message));
-    if (this._message.direction === TradeWhisperDirection.Outgoing) {
-      const count = this._message.count1;
-      this._message.count1 = this._message.count2;
-      this._message.count2 = count;
-      const type = this._message.type1;
-      this._message.type1 = this._message.type2;
-      this._message.type2 = type;
+    if (message.direction === TradeWhisperDirection.Outgoing) {
+      this.count1 = message.count2;
+      this.count2 = message.count1;
+      this.type1 = message.type2;
+      this.type2 = message.type1;
+    } else {
+      this.count1 = message.count1;
+      this.count2 = message.count2;
+      this.type1 = message.type1;
+      this.type2 = message.type2;
     }
   }
 }

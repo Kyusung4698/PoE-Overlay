@@ -404,6 +404,7 @@
 			"wait": "대기 메시지"
 		},
 		"name": "무역",
+		"no-price": "가격 없음",
 		"not-found": "데이터가 없습니다.",
 		"search": "수색",
 		"searching": "수색...",

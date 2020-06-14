@@ -9,11 +9,16 @@ import { flatMap } from 'rxjs/operators';
 
 const WINDOW_DATA_KEY = 'TRADE_HIGHLIGHT_WINDOW_DATA';
 
+export interface TradeHighlightItem {
+    name: string;
+    value?: string;
+}
+
 export interface TradeHighlightWindowData {
     top?: number;
     left?: number;
     stash?: string;
-    items: string[];
+    items: TradeHighlightItem[];
     gridTop?: number;
     gridSize?: number;
 }
@@ -34,7 +39,7 @@ export class TradeHighlightWindowService {
         return this.storage.get(WINDOW_DATA_KEY, () => new EventEmitter<TradeHighlightWindowData>());
     }
 
-    public toggle(data: TradeHighlightWindowData): Observable<void> {
+    public restore(data: TradeHighlightWindowData): Observable<void> {
         return OWGames.getRunningGameInfo().pipe(
             flatMap(({ height }) => {
                 const width = this.poeWindow.calculateWidth(height);
@@ -53,7 +58,7 @@ export class TradeHighlightWindowService {
                 }
                 this.data$.next(data);
 
-                return this.window.toggle().pipe(
+                return this.window.restore().pipe(
                     flatMap(() => this.window.changeSize(width, height).pipe(
                         flatMap(() => this.window.changePosition(0, 0))
                     ))

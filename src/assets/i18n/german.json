@@ -404,6 +404,7 @@
 			"wait": "Warte Nachricht"
 		},
 		"name": "Handel",
+		"no-price": "Kein Preis",
 		"not-found": "Keine Daten gefunden.",
 		"search": "Suche",
 		"searching": "Suchen...",

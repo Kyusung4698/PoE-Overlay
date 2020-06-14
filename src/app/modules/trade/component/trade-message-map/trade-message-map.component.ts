@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { TradeMapMessage, TradeWhisperDirection } from '@shared/module/poe/trade/chat';
+import { TradeMapList, TradeMapMessage, TradeWhisperDirection } from '@shared/module/poe/trade/chat';
 
 @Component({
   selector: 'app-trade-message-map',
@@ -8,19 +8,20 @@ import { TradeMapMessage, TradeWhisperDirection } from '@shared/module/poe/trade
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TradeMessageMapComponent {
-  private _message: TradeMapMessage;
+  @Input()
+  public maps1: TradeMapList;
 
-  public get message(): TradeMapMessage {
-    return this._message;
-  }
+  @Input()
+  public maps2: TradeMapList;
 
   @Input()
   public set message(message: TradeMapMessage) {
-    this._message = JSON.parse(JSON.stringify(message));
-    if (this._message.direction === TradeWhisperDirection.Outgoing) {
-      const maps = this._message.maps1;
-      this._message.maps1 = this._message.maps2;
-      this._message.maps2 = maps;
+    if (message.direction === TradeWhisperDirection.Outgoing) {
+      this.maps1 = message.maps1;
+      this.maps2 = message.maps2;
+    } else {
+      this.maps1 = message.maps2;
+      this.maps2 = message.maps1;
     }
   }
 }

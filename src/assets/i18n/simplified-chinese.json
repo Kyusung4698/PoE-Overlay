@@ -404,6 +404,7 @@
 			"wait": "等待讯息"
 		},
 		"name": "贸易",
+		"no-price": "没有价格",
 		"not-found": "没有找到数据。",
 		"search": "搜索",
 		"searching": "搜索...",

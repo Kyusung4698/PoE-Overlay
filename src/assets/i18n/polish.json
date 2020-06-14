@@ -404,6 +404,7 @@
 			"wait": "Wiadomość oczekująca"
 		},
 		"name": "Handel",
+		"no-price": "Bez ceny",
 		"not-found": "Nie znaleziono danych.",
 		"search": "Szukaj",
 		"searching": "Szukam...",

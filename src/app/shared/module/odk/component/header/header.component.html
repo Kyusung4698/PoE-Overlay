@@ -3,7 +3,10 @@
         <ng-content select="controls"></ng-content>
     </div>
     <div class="icon"></div>
-    <div class="name">{{name}}</div>
+    <div class="name">
+        {{name}}
+        <ng-content select="name"></ng-content>
+    </div>
     <div class="controls">
         <ng-content select="controlsRight"></ng-content>
         <mat-icon (click)="onClose($event)" *ngIf="closeable">close</mat-icon>

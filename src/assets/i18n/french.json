@@ -404,6 +404,7 @@
 			"wait": "Message d'attente"
 		},
 		"name": "commerce",
+		"no-price": "Pas de prix",
 		"not-found": "Aucune donnée disponible.",
 		"search": "Chercher",
 		"searching": "Recherche...",

@@ -3,6 +3,7 @@ import { EventSubscription } from '@app/event';
 import { FeatureSettingsService } from '@app/feature/feature-settings.service';
 import { TradeHighlightWindowData, TradeHighlightWindowService } from '@modules/trade/service';
 import { TradeFeatureSettings } from '@modules/trade/trade-feature-settings';
+import { StashService } from '@shared/module/poe/stash';
 import { BehaviorSubject } from 'rxjs';
 
 enum TradeStashFactor {
@@ -26,6 +27,7 @@ export class TradeHighlightWindowComponent implements OnInit, OnDestroy {
   constructor(
     private readonly window: TradeHighlightWindowService,
     private readonly settings: FeatureSettingsService,
+    private readonly stash: StashService,
     private readonly ngZone: NgZone) { }
 
   public ngOnInit(): void {
@@ -37,6 +39,10 @@ export class TradeHighlightWindowComponent implements OnInit, OnDestroy {
 
   public ngOnDestroy(): void {
     this.subscription?.unsubscribe();
+  }
+
+  public onSearch(item: string): void {
+    this.stash.highlight(item);
   }
 
   public onFactorChange(stash?: string): void {

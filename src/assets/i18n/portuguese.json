@@ -404,6 +404,7 @@
 			"wait": "Mensagem de espera"
 		},
 		"name": "Comércio",
+		"no-price": "Gratuito",
 		"not-found": "Nenhum dado encontrado.",
 		"search": "Procurar",
 		"searching": "Procurando...",

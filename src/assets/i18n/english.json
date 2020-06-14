@@ -404,6 +404,7 @@
 			"wait": "Wait message"
 		},
 		"name": "Trade",
+		"no-price": "No price",
 		"not-found": "No data found.",
 		"search": "Search",
 		"searching": "Searching...",

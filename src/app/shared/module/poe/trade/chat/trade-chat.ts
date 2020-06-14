@@ -1,3 +1,5 @@
+import { BehaviorSubject } from 'rxjs';
+
 export enum TradeParserType {
     Ignored = 'ignored',
     TradeItem = 'item',
@@ -31,9 +33,9 @@ export interface TradeMessage extends TradeParserBase, TradeWhisper {
 }
 
 export interface TradeExchangeMessage extends TradeMessage {
-    whispers: TradeWhisper[];
+    whispers$: BehaviorSubject<TradeWhisper[]>;
     league: string;
-    joined: boolean;
+    joined$: BehaviorSubject<boolean>;
 }
 
 export interface TradeItemMessage extends TradeExchangeMessage {
