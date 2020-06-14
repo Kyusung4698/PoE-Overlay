@@ -8,6 +8,8 @@
         <ng-content select="controlsRight"></ng-content>
         <mat-icon (click)="onClose($event)" *ngIf="closeable">close</mat-icon>
         <mat-icon (click)="onPinned($event)" class="pin" [class.pinned]="pinned" *ngIf="pinnable">push_pin</mat-icon>
+        <mat-icon (click)="onSettings($event)" class="settings" *ngIf="settingsToggle.observers.length">settings
+        </mat-icon>
     </div>
 </div>
 <div class="content" [class.inline]="inline" [style.width.px]="width" [style.margin-right.px]="margin">

@@ -105,7 +105,7 @@
                 "block_top_window_navigation": true,
                 "disable_restore_animation": true,
                 "disable_rightclick": true,
-                "transparent": true,                
+                "transparent": true,
                 "size": {
                     "width": 1212,
                     "height": 699
@@ -126,7 +126,7 @@
                     "height": 327
                 }
             },
-            "annotation": {                
+            "annotation": {
                 "file": "dist/poe-overlay-overwolf/index.html",
                 "in_game_only": true,
                 "block_top_window_navigation": true,
@@ -263,6 +263,11 @@
             "bookmark6": {
                 "title": "Open Bookmark 6",
                 "action-type": "custom"
+            },
+            "misc-stash-highlight": {
+                "title": "Highlight Item in Stash",
+                "action-type": "custom",
+                "default": "Alt+F"
             }
         },
         "externally_connectable": {

@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.0.2 (x)
+
+- added misc module
+  - stash highlight on `alt+f`
+- added trade module
+  - support for poe.app, poemap.live, poetrade, official trade
+  - view incoming/ outgoing trades
+  - invite/ trade player
+  - highlight item in stash
+- fixed a first time launching error occuring if the GGG API could not be reached
+
 ## 1.0.0 (2020-06-10)
 
 - added added a interactive introduction

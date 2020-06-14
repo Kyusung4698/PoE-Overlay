@@ -5,6 +5,7 @@ import { CommandsModule } from '@modules/commands/commands.module';
 import { EvaluateModule } from '@modules/evaluate/evaluate.module';
 import { InspectModule } from '@modules/inspect/inspect.module';
 import { MarketModule } from '@modules/market/market.module';
+import { MiscModule } from '@modules/misc/misc.module';
 import { ReplayModule } from '@modules/replay/replay.module';
 import { TradeModule } from '@modules/trade/trade.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -29,10 +30,11 @@ import { LayoutModule } from './layout/layout.module';
         // app
         EvaluateModule,
         MarketModule,
-        InspectModule,
         TradeModule,
+        InspectModule,
         CommandsModule,
         ReplayModule,
+        MiscModule,
         BookmarksModule
     ],
     providers: [{ provide: ErrorHandler, useClass: AppErrorHandler }],

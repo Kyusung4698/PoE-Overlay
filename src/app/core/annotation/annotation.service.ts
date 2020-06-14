@@ -44,6 +44,15 @@ const ANNOTATIONS: Annotation[] = [
             }
         ]
     },
+    // TODO
+    // {
+    //     id: 'trade',
+    //     children: [
+    //         { id: 'filter' },
+    //         { id: 'search' },
+    //         { id: 'reset' },
+    //     ]
+    // },
     {
         id: 'evaluate',
         hotkey: Hotkey.Evaluate,

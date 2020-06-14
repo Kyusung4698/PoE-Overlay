@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, NgZone, OnDestroy, OnInit } from '@angular/core';
 import { EventSubscription } from '@app/event';
 import { FeatureSettingsService } from '@app/feature/feature-settings.service';
+import { SettingsWindowService } from '@layout/service';
 import { TradeWindowData, TradeWindowService } from '@modules/trade/service';
 import { TradeFeatureSettings } from '@modules/trade/trade-feature-settings';
 import { TradeExchangeMessage } from '@shared/module/poe/trade/chat';
@@ -21,7 +22,8 @@ export class TradeWindowComponent implements OnInit, OnDestroy {
   constructor(
     private readonly window: TradeWindowService,
     private readonly ngZone: NgZone,
-    private readonly settings: FeatureSettingsService) { }
+    private readonly settings: FeatureSettingsService,
+    private readonly settingsWindow: SettingsWindowService) { }
 
   public ngOnInit(): void {
     this.data$.next(this.window.data$.get());
@@ -44,5 +46,9 @@ export class TradeWindowComponent implements OnInit, OnDestroy {
     this.settings.update((settings: TradeFeatureSettings) =>
       settings.tradeWindowPinned = pinned
     ).subscribe();
+  }
+
+  public onSettingsToggle(): void {
+    this.settingsWindow.toggle('trade.name').subscribe();
   }
 }

@@ -14,6 +14,10 @@ $border-color: #1a1a1a;
         width: $icon-size;
         font-size: $icon-size;
         line-height: $icon-size;
+
+        & + .mat-icon{
+          margin-left: 3px;
+        }
       }
     }
   }
@@ -48,12 +52,15 @@ $border-color: #1a1a1a;
     left: 10px;
   }
 
+  .settings,
   .pin {
     height: $icon-size - 3px;
     width: $icon-size - 3px;
     font-size: $icon-size - 3px;
     line-height: $icon-size - 3px;
+  }
 
+  .pin {
     will-change: transform, top;
     transition: transform ease-in-out 200ms, top ease-in 100ms;
 

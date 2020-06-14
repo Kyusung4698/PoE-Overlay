@@ -40,6 +40,9 @@ export class HeaderComponent implements OnInit {
   @Input()
   public margin: number;
 
+  @Output()
+  public settingsToggle = new EventEmitter<void>();
+
   public ngOnInit(): void {
     this.obtained$ = this.window.assureObtained()
       .pipe(
@@ -67,5 +70,10 @@ export class HeaderComponent implements OnInit {
     event.preventDefault();
     this.pinned = !this.pinned;
     this.pinnedChange.next(this.pinned);
+  }
+
+  public onSettings(event: MouseEvent): void {
+    event.preventDefault();
+    this.settingsToggle.next();
   }
 }
