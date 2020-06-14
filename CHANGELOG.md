@@ -9,6 +9,7 @@
   - view incoming/ outgoing trades
   - invite/ trade player
   - highlight items in stash
+- added open poeprices.info url on source click
 - fixed a first time launching error occuring if the GGG API could not be reached
 
 ## 1.0.0 (2020-06-10)

@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { flatMap, map } from 'rxjs/operators';
 
 export interface ItemPricePrediction {
+    url: string;
     min: number;
     max: number;
     currency: 'chaos' | 'exalt';
@@ -32,6 +33,7 @@ export class ItemPricePredictionProvider {
                     map(response => {
                         const currencyId = response.currency === 'exalt' ? 'exa' : response.currency;
                         const result: ItemPricePrediction = {
+                            url: response.url,
                             currencyId, currency: response.currency,
                             max: response.max, min: response.min,
                             score: response.pred_confidence_score

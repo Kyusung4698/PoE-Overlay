@@ -32,6 +32,7 @@ export class ItemPricePredictionHttpService {
                 if (response.error_msg && response.error_msg.length > 0) {
                     return throwError(response.error_msg);
                 }
+                response.url = `${url}&w=1`;
                 return of(response);
             })
         );

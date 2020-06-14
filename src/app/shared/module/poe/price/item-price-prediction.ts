@@ -1,5 +1,6 @@
 export interface ItemPricePredictionResult {
     id: ItemPricePredictionResultId;
+    url: string;
     currency: string;
     min: number;
     max: number;

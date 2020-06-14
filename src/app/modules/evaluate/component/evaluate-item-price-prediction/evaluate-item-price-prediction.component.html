@@ -38,7 +38,7 @@
                 </ng-template>
             </div>
         </div>
-        <span class="small">{{'evaluate.prediction.source' | translate}}</span>
+        <span class="small pointer" (click)="onSourceClick($event, prediction.url)">{{'evaluate.prediction.source' | translate}}</span>
     </ng-template>
 </ng-container>
 <ng-template #empty>

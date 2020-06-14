@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { OWUtils } from '@app/odk/ow-utils';
 import { Item } from '@shared/module/poe/item';
 import { ItemPricePredictionFeedback, ItemPricePredictionResult, ItemPricePredictionService } from '@shared/module/poe/price';
 import { BehaviorSubject, merge, Observable, of, Subject } from 'rxjs';
@@ -65,6 +66,10 @@ export class EvaluateItemPricePredictionComponent implements OnInit, OnDestroy {
     this.loading$.complete();
     this.message$.complete();
     this.error$.complete();
+  }
+
+  public onSourceClick(event: MouseEvent, url: string): void {
+    OWUtils.openUrl(url, event.ctrlKey);
   }
 
   public onFeedback(prediction: ItemPricePredictionResult, feedback: string): void {
