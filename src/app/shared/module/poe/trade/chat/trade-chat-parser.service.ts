@@ -70,9 +70,7 @@ export class TradeChatParserService {
                 regexResult = new RegExp(this.regexs.TradeMap.Universal, 'gi').exec(line);
                 if (regexResult) {
                     return this.mapMapMessage(player, direction, regexResult);
-                }
-                else
-                {
+                } else {
                     return this.mapWhisperMessage(player, direction, message);
                 }
             }
@@ -92,7 +90,7 @@ export class TradeChatParserService {
             name: player,
             direction,
             timeReceived: new Date(),
-            message 
+            message
         };
     }
 

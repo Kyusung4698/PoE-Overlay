@@ -1,4 +1,5 @@
-<div [class]="'message ' + message.direction" (click)="toggle = !toggle">
+<div class="message" [class.incoming]="message.direction === 'incoming'" [class.toggled]="toggle"
+    (click)="toggle = !toggle">
     <div class="content">
         <ng-container [ngSwitch]="message.type">
             <app-trade-message-item *ngSwitchCase="'item'" [message]="message"></app-trade-message-item>
@@ -8,24 +9,31 @@
         </ng-container>
     </div>
     <div class="actions" *ngIf="toggle">
-        <app-trade-message-action action="wait" [visible]="visible" (execute)="onActionExecute($event)">
-        </app-trade-message-action>
-        <app-trade-message-action action="interested" [visible]="visible" (execute)="onActionExecute($event)">
-        </app-trade-message-action>
-        <app-trade-message-action action="resend" [visible]="visible" (execute)="onActionExecute($event)">
-        </app-trade-message-action>
-        <app-trade-message-action action="whisper" [visible]="visible" [title]="message.whispers | tradeWhisperTitle"
+        <app-trade-message-action action="wait" [visible]="visible" [title]="' @' + message.name"
             (execute)="onActionExecute($event)">
         </app-trade-message-action>
-        <app-trade-message-action action="invite" [visible]="visible" (execute)="onActionExecute($event)">
+        <app-trade-message-action action="interested" [visible]="visible" [title]="' @' + message.name"
+            (execute)="onActionExecute($event)">
         </app-trade-message-action>
-        <app-trade-message-action action="trade" [visible]="visible" (execute)="onActionExecute($event)">
+        <app-trade-message-action action="resend" [visible]="visible" [title]="' @' + message.name"
+            (execute)="onActionExecute($event)">
+        </app-trade-message-action>
+        <app-trade-message-action action="whisper" [visible]="visible" [title]="' @' + message.name + (message.whispers | tradeWhisperTitle)"
+            (execute)="onActionExecute($event)">
+        </app-trade-message-action>
+        <app-trade-message-action action="invite" [visible]="visible" [title]="' @' + message.name"
+            (execute)="onActionExecute($event)">
+        </app-trade-message-action>
+        <app-trade-message-action action="trade" [visible]="visible" [title]="' @' + message.name"
+            (execute)="onActionExecute($event)">
         </app-trade-message-action>
         <app-trade-message-action action="item-highlight" [visible]="visible" (execute)="onActionExecute($event)">
         </app-trade-message-action>
-        <app-trade-message-action action="finished" [visible]="visible" (execute)="onActionExecute($event)">
+        <app-trade-message-action action="finished" [visible]="visible" [title]="' @' + message.name"
+            (execute)="onActionExecute($event)">
         </app-trade-message-action>
-        <app-trade-message-action action="item-gone" [visible]="visible" (execute)="onActionExecute($event)">
+        <app-trade-message-action action="item-gone" [visible]="visible" [title]="' @' + message.name"
+            (execute)="onActionExecute($event)">
         </app-trade-message-action>
     </div>
     <div class="dismiss">

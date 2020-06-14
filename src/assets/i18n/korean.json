@@ -377,14 +377,33 @@
 		"zoom": "줌"
 	},
 	"trade": {
+		"action": {
+			"finished": "감사와 안녕",
+			"interested": "여전히 관심이 있습니까?",
+			"invite": "초대",
+			"item-gone": "사라진 항목",
+			"item-highlight": "보관소에서 강조 표시 항목",
+			"resend": "쿠폰 재전송",
+			"trade": "무역",
+			"wait": "기다림?",
+			"whisper": "속삭임"
+		},
 		"analyzing": "데이터 분석 중 ...",
 		"empty": "결과가 없습니다. 브라우저에서 열려?",
+		"enabled": "사용",
 		"error": "오류가 발생했습니다.",
 		"errors": {
 			"http": "GGG 무역 웹 사이트와 통신 할 수 없습니다.\n웹 사이트에 접근 할 수 있는지 확인하십시오.",
 			"rate": "한도에 도달했습니다. 나중에 다시 시도하십시오.\n이 문제가 계속 발생하면 가져온 품목 수를 줄이십시오."
 		},
 		"fetching": " {{total}}을 (를) 찾았습니다. {{count}} 항목을 가져 오는 중 ...",
+		"message": {
+			"item-gone": "사라진 항목 메시지",
+			"still-interested": "여전히 관심있는 메시지",
+			"thanks": "감사 메시지",
+			"wait": "대기 메시지"
+		},
+		"name": "무역",
 		"not-found": "데이터가 없습니다.",
 		"search": "수색",
 		"searching": "수색...",

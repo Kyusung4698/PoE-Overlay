@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { TradeChatParserService, TradeExchangeMessage, TradeMessage, TradeParserType, TradePlayerJoinedArea } from '@shared/module/poe/trade/chat';
-import { Observable } from 'rxjs';
 import { TradeWindowData, TradeWindowService } from './trade-window.service';
 
 @Injectable({
@@ -12,7 +11,7 @@ export class TradeService {
         private readonly window: TradeWindowService,
         private readonly parser: TradeChatParserService) { }
 
-    public onLogLineAdd(line: string): Observable<void> {
+    public onLogLineAdd(line: string): void {
         const data = this.window.data$.get();
         if (this.processRemoved(data)) {
             this.window.data$.next(data);
@@ -43,11 +42,11 @@ export class TradeService {
             case TradeParserType.Ignored:
                 break;
         }
+    }
 
-        if (data.messages.length) {
-            return this.window.restore();
-        }
-        return this.window.close();
+    public clear(): void {
+        const data = this.window.data$.get();
+        data.messages = [];
     }
 
     private processMessage(newMessage: TradeExchangeMessage, messages: TradeExchangeMessage[]): boolean {

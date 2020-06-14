@@ -377,14 +377,33 @@
 		"zoom": "放大"
 	},
 	"trade": {
+		"action": {
+			"finished": "謝謝，再見",
+			"interested": "還感興趣嗎？",
+			"invite": "邀請",
+			"item-gone": "物品不見了",
+			"item-highlight": "高亮顯示藏匿物品",
+			"resend": "重新發送報價",
+			"trade": "貿易",
+			"wait": "等待？",
+			"whisper": "耳語"
+		},
 		"analyzing": "正在分析數據...",
 		"empty": "查無結果。是否瀏覽器中打開？",
+		"enabled": "啟用",
 		"error": "發生錯誤。",
 		"errors": {
 			"http": "無法連上GGG交易網站。\n請確保該網站可訪問。",
 			"rate": "已達到限制。請稍後再試。\n如果這種情況持續發生，請嘗試減少獲取的物品數。"
 		},
 		"fetching": "已找到 {{total}}。正在獲取 {{count}} 個條目...",
+		"message": {
+			"item-gone": "物品消失的消息",
+			"still-interested": "仍然感興趣的消息",
+			"thanks": "謝謝留言",
+			"wait": "等待訊息"
+		},
+		"name": "貿易",
 		"not-found": "沒有找到數據。",
 		"search": "搜尋",
 		"searching": "搜尋...",

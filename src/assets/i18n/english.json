@@ -377,14 +377,33 @@
 		"zoom": "Zoom"
 	},
 	"trade": {
+		"action": {
+			"finished": "Thanks and Goodbye",
+			"interested": "Still interested?",
+			"invite": "Invite",
+			"item-gone": "Item gone",
+			"item-highlight": "Highlight Item in Stash",
+			"resend": "Resend offer",
+			"trade": "Trade",
+			"wait": "Wait?",
+			"whisper": "Whisper"
+		},
 		"analyzing": "Analyzing data...",
 		"empty": "No results. Open in browser?",
+		"enabled": "Enabled",
 		"error": "An error occured.",
 		"errors": {
 			"http": "Could not communicate with the GGG trade website.\nPlease make sure the website is reachable.",
 			"rate": "Limit reached. Please try again later.\nIf this keeps happening please try lowering the fetched item count. "
 		},
 		"fetching": "Found {{total}}. Fetching {{count}} entries...",
+		"message": {
+			"item-gone": "Item gone message",
+			"still-interested": "Still interested message",
+			"thanks": "Thanks message",
+			"wait": "Wait message"
+		},
+		"name": "Trade",
 		"not-found": "No data found.",
 		"search": "Search",
 		"searching": "Searching...",

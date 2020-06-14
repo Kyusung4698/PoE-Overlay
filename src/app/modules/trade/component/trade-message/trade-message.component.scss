@@ -4,7 +4,7 @@
   app-trade-message {
     &:nth-child(even) {
       .message {
-        background: adjust-color($black-transparent, $alpha: 0.25);
+        background: adjust-color($black-transparent, $alpha: -0.2);
       }
     }
 
@@ -26,26 +26,28 @@
 
 .message {
   position: relative;
-  display: flex;
-  width: 300px;
-  flex-direction: column;
-  border-left: 6px solid;
-  background: adjust-color($black-transparent, $alpha: 0.3);
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
   padding: $gutter-half $gutter;
+  width: 300px;
+  background: $black-transparent;
+  border-left: 6px solid;
+  border-color: adjust-color($color: $purple, $alpha: -0.2);
 
   &.incoming {
     border-color: adjust-color($color: $orange, $alpha: -0.2);
   }
 
-  &.outgoing {
-    border-color: adjust-color($color: $purple, $alpha: -0.2);
+  &:hover,
+  &.toggled {
+    background: $black;
   }
 
   .dismiss {
     position: absolute;
     top: -6px;
-    right: -2px;
+    right: -6px;
     display: none;
   }
 

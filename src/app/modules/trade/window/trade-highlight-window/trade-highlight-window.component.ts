@@ -1,7 +1,14 @@
 import { ChangeDetectionStrategy, Component, NgZone, OnDestroy, OnInit } from '@angular/core';
 import { EventSubscription } from '@app/event';
+import { FeatureSettingsService } from '@app/feature/feature-settings.service';
 import { TradeHighlightWindowData, TradeHighlightWindowService } from '@modules/trade/service';
+import { TradeFeatureSettings } from '@modules/trade/trade-feature-settings';
 import { BehaviorSubject } from 'rxjs';
+
+enum TradeStashFactor {
+  Normal = 1,
+  Quad = 0.5
+}
 
 @Component({
   selector: 'app-trade-highlight-window',
@@ -14,16 +21,17 @@ export class TradeHighlightWindowComponent implements OnInit, OnDestroy {
 
   public data$ = new BehaviorSubject<TradeHighlightWindowData>(null);
 
-  public factor = 1;
+  public factor = TradeStashFactor.Normal;
 
   constructor(
     private readonly window: TradeHighlightWindowService,
+    private readonly settings: FeatureSettingsService,
     private readonly ngZone: NgZone) { }
 
   public ngOnInit(): void {
-    this.data$.next(this.window.data$.get());
+    this.updateData(this.window.data$.get());
     this.subscription = this.window.data$.on(data => this.ngZone.run(() => {
-      this.data$.next(data);
+      this.updateData(data);
     }));
   }
 
@@ -31,7 +39,26 @@ export class TradeHighlightWindowComponent implements OnInit, OnDestroy {
     this.subscription?.unsubscribe();
   }
 
-  public onQuadChange(): void {
-    this.factor = this.factor === 0.5 ? 1 : 0.5;
+  public onFactorChange(stash?: string): void {
+    this.factor = this.factor === TradeStashFactor.Quad
+      ? TradeStashFactor.Normal : TradeStashFactor.Quad;
+    if (stash) {
+      this.settings.update((settings: TradeFeatureSettings) => {
+        settings.tradeStashFactor[stash] = this.factor;
+      }).subscribe();
+    }
+  }
+
+  private updateData(data: TradeHighlightWindowData): void {
+    this.settings.get().subscribe((settings: TradeFeatureSettings) => {
+      const factor = settings.tradeStashFactor[data.stash];
+      if (factor) {
+        this.factor = factor;
+      } else {
+        this.factor = data.left > 13 || data.top > 13
+          ? TradeStashFactor.Quad : TradeStashFactor.Normal;
+      }
+      this.data$.next(data);
+    });
   }
 }

@@ -2,7 +2,7 @@
     <app-header [name]="'PoE Overlay - Trade Highlight - Stash: ' + (data.stash || '-') " [inline]="true"
         [closeable]="false">
         <ng-container ngProjectAs="controlsRight">
-            <mat-icon (click)="onQuadChange()" [title]="'trade.stash-size' | translate">
+            <mat-icon (click)="onFactorChange(data.stash)" [title]="'trade.stash-size' | translate">
                 {{factor === 0.5 ? 'grid_on' : 'border_all'}} </mat-icon>
         </ng-container>
     </app-header>

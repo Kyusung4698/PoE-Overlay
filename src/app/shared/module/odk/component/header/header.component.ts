@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { OWWindow } from '@app/odk';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
@@ -12,8 +12,6 @@ import { map, shareReplay } from 'rxjs/operators';
 export class HeaderComponent implements OnInit {
   private readonly window = new OWWindow();
   private obtained$: Observable<boolean>;
-
-  public pinned = false;
 
   @Input()
   public name: string;
@@ -31,7 +29,16 @@ export class HeaderComponent implements OnInit {
   public pinnable = false;
 
   @Input()
+  public pinned = false;
+
+  @Output()
+  public pinnedChange = new EventEmitter<boolean>();
+
+  @Input()
   public width: number;
+
+  @Input()
+  public margin: number;
 
   public ngOnInit(): void {
     this.obtained$ = this.window.assureObtained()
@@ -59,5 +66,6 @@ export class HeaderComponent implements OnInit {
   public onPinned(event: MouseEvent): void {
     event.preventDefault();
     this.pinned = !this.pinned;
+    this.pinnedChange.next(this.pinned);
   }
 }

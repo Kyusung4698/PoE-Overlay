@@ -377,14 +377,33 @@
 		"zoom": "Enfocar"
 	},
 	"trade": {
+		"action": {
+			"finished": "Gracias y adiós",
+			"interested": "¿Aún interesado?",
+			"invite": "invitación",
+			"item-gone": "Artículo desaparecido",
+			"item-highlight": "Destacar artículo en alijo",
+			"resend": "Reenviar oferta",
+			"trade": "Comercio",
+			"wait": "¿Espere?",
+			"whisper": "Susurro"
+		},
 		"analyzing": "Analizando datos ...",
 		"empty": "No hay resultados. ¿Abierta en el navegador?",
+		"enabled": "Habilitado",
 		"error": "Ocurrió un error.",
 		"errors": {
 			"http": "No se pudo comunicar con el sitio web comercial de GGG.\nAsegúrese de que se pueda acceder al sitio web.",
 			"rate": "Límite alcanzado. Por favor, inténtelo de nuevo más tarde.\nSi esto sigue sucediendo, intente reducir el recuento de elementos recuperados."
 		},
 		"fetching": "Encontrado {{total}}. Obteniendo {{count}} entradas ...",
+		"message": {
+			"item-gone": "Mensaje de artículo desaparecido",
+			"still-interested": "Mensaje aún interesado",
+			"thanks": "Mensaje de agradecimiento",
+			"wait": "Mensaje de espera"
+		},
+		"name": "Comercio",
 		"not-found": "Datos no encontrados.",
 		"search": "Buscar",
 		"searching": "Buscando...",

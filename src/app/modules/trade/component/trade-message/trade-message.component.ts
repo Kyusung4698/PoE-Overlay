@@ -3,10 +3,11 @@ import { NotificationService } from '@app/notification';
 import { OWGamesEvents } from '@app/odk';
 import { TradeMessageAction, TradeMessageActionState } from '@modules/trade/class';
 import { TradeHighlightWindowService } from '@modules/trade/service';
+import { TradeFeatureSettings } from '@modules/trade/trade-feature-settings';
 import { ChatService } from '@shared/module/poe/chat';
 import { EventInfo } from '@shared/module/poe/poe-event-info';
-import { TradeExchangeMessage, TradeItemMessage, TradeMapMessage, TradeParserType, TradeWhisperDirection } from '@shared/module/poe/trade/chat';
-import { of, throwError } from 'rxjs';
+import { TradeBulkMessage, TradeExchangeMessage, TradeItemMessage, TradeMapMessage, TradeParserType, TradeWhisperDirection } from '@shared/module/poe/trade/chat';
+import { Observable, of, throwError } from 'rxjs';
 import { catchError, flatMap, map } from 'rxjs/operators';
 
 @Component({
@@ -23,6 +24,9 @@ export class TradeMessageComponent implements OnInit {
   @Input()
   public message: TradeExchangeMessage;
 
+  @Input()
+  public settings: TradeFeatureSettings;
+
   @Output()
   public dismiss = new EventEmitter<void>();
 
@@ -37,13 +41,13 @@ export class TradeMessageComponent implements OnInit {
     this.visible[TradeMessageAction.Trade] = true;
     this.visible[TradeMessageAction.Whisper] = true;
     if (this.message.direction === TradeWhisperDirection.Incoming) {
-      this.visible[TradeMessageAction.Wait] = type === TradeParserType.TradeItem;
+      this.visible[TradeMessageAction.Wait] = true;
       this.visible[TradeMessageAction.ItemGone] = true;
-      this.visible[TradeMessageAction.ItemHighlight] = type === TradeParserType.TradeItem || type === TradeParserType.TradeMap;
+      this.visible[TradeMessageAction.ItemHighlight] = type === TradeParserType.TradeItem;
     } else {
       this.visible[TradeMessageAction.Resend] = true;
       this.visible[TradeMessageAction.Finished] = true;
-      this.visible[TradeMessageAction.ItemHighlight] = type === TradeParserType.TradeMap;
+      // this.visible[TradeMessageAction.ItemHighlight] = type === TradeParserType.TradeMap;
     }
   }
 
@@ -59,15 +63,21 @@ export class TradeMessageComponent implements OnInit {
         this.chat.invite(this.message.name);
         break;
       case TradeMessageAction.Wait:
-        this.wait();
+        this.createMessageContext().subscribe(context => {
+          this.chat.whisper(this.message.name, this.settings.tradeMessageWait, context);
+        });
         this.visible[TradeMessageAction.Wait] = false;
         this.visible[TradeMessageAction.Interested] = true;
         break;
       case TradeMessageAction.Interested:
-        this.chat.whisper(this.message.name, 'interested');
+        this.createMessageContext().subscribe(context => {
+          this.chat.whisper(this.message.name, this.settings.tradeMessageStillInterested, context);
+        });
         break;
       case TradeMessageAction.ItemGone:
-        this.chat.whisper(this.message.name, 'item gone');
+        this.createMessageContext().subscribe(context => {
+          this.chat.whisper(this.message.name, this.settings.tradeMessageItemGone, context);
+        });
         this.close();
         break;
       case TradeMessageAction.Resend:
@@ -86,7 +96,9 @@ export class TradeMessageComponent implements OnInit {
         this.chat.whisper(this.message.name);
         break;
       case TradeMessageAction.Finished:
-        this.chat.whisper(this.message.name, 'thanks');
+        this.createMessageContext().subscribe(context => {
+          this.chat.whisper(this.message.name, this.settings.tradeMessageThanks, context);
+        });
         this.kick();
         this.close();
         break;
@@ -151,19 +163,48 @@ export class TradeMessageComponent implements OnInit {
     }
   }
 
-  private wait(): void {
-    OWGamesEvents.getInfo<EventInfo>().pipe(
+  private createMessageContext(): Observable<any> {
+    const context = {
+      zone: 'unknown',
+      itemname: 'unknown',
+      price: 'unknown'
+    };
+
+    switch (this.message.type) {
+      case TradeParserType.TradeItem:
+        {
+          const message = this.message as TradeItemMessage;
+          context.itemname = message.itemName;
+          if (message.price && message.currencyType) {
+            context.price = `${message.price} ${message.currencyType}`;
+          }
+        }
+        break;
+      case TradeParserType.TradeBulk:
+        {
+          const message = this.message as TradeBulkMessage;
+          context.itemname = `${message.count1} × ${message.type1}`;
+          context.price = `${message.count2} × ${message.type2}`;
+        }
+        break;
+      case TradeParserType.TradeMap:
+        {
+          const message = this.message as TradeMapMessage;
+          context.itemname = message.maps1.maps.join(', ');
+          context.price = message.maps2.maps.join(', ');
+        }
+        break;
+    }
+
+    return OWGamesEvents.getInfo<EventInfo>().pipe(
       catchError(() => of(null)),
       map((info: EventInfo) => {
-        const context = { location: 'unknown' };
         if (info?.match_info?.current_zone?.length > 2) {
           const zone = info.match_info.current_zone;
-          context.location = zone.slice(1, zone.length - 1);
+          context.zone = zone.slice(1, zone.length - 1);
         }
         return context;
       })
-    ).subscribe(context => {
-      this.chat.whisper(this.message.name, 'wait @location', context);
-    });
+    );
   }
 }
