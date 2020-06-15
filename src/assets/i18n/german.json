@@ -79,7 +79,11 @@
 				"message": "Die Suche zeigt die gefilterten Ergebnisse. Sobald Sie das Ende der Liste erreicht haben, werden automatisch neue Elemente abgerufen.\n\nDurch Klicken auf die Schaltfläche \"Senden\" senden Sie ein Flüstern mit Ihrem Angebot.",
 				"title": "Suche"
 			},
-			"title": ""
+			"title": "Markt"
+		},
+		"misc": {
+			"message": "Mit der Funktion zum Hervorheben von Verstecken können Sie den Versteck für bestimmte Elemente filtern.\n\nÖffnen Sie Ihren Vorrat und drücken Sie den Hotkey unten, während Sie mit der Maus über einen Gegenstand fahren.",
+			"title": "Sonstiges"
 		},
 		"replay": {
 			"message": "Nimmt kurze Videos von Spielereignissen wie Ihrem Tod auf oder wenn Sie einen bedeutenden Boss töten.\n\nKann in den Einstellungen aktiviert werden. Dies ist standardmäßig deaktiviert, da dies Ihre FPS verringern kann.",
@@ -104,6 +108,28 @@
 		"thanks": {
 			"message": "Das war es fürs Erste. Hoffe dir gefällt meine App.\n\n- Mit freundlichen Grüßen, Kyusung4698",
 			"title": ""
+		},
+		"trade": {
+			"highlight": {
+				"message": "Um den gewünschten Artikel in Ihrem Vorrat zu finden, können Sie auf das hervorgehobene Symbol klicken.\n\nOben sehen Sie den Namen der Registerkarte \"Stash\". Mit dem Symbol rechts können Sie zwischen einem normalen und einem Quad-Stash-Layout wechseln.\n\nSie können den Stash filtern, indem Sie auf die Namen unten klicken.",
+				"title": "Elemente hervorheben"
+			},
+			"incoming": {
+				"message": "Durch Klicken auf den oberen Teil einer Nachricht wird die Aktionsleiste angezeigt. Wenn Sie sich in Ihrem Versteck befinden, wird dies automatisch angezeigt.",
+				"title": "Eingehende Nachrichten"
+			},
+			"init": {
+				"message": "Das Handelsmodul bietet eine Benutzeroberfläche für eingehende und ausgehende Handelsnachrichten.\n\nSie können den Spieler einladen, den Handel einleiten und den Gegenstand im Vorrat markieren.",
+				"title": "Handel"
+			},
+			"outgoing": {
+				"message": "Diese sind durch eine andere Farbe gekennzeichnet. Die Aktionsleiste wird immer angezeigt.",
+				"title": "Ausgehende Nachrichten"
+			},
+			"settings": {
+				"message": "In den Einstellungen können Sie die Sende-Nachrichten anpassen und auch die Benutzeroberfläche deaktivieren.",
+				"title": "die Einstellungen"
+			}
 		},
 		"welcome": {
 			"message": "Die folgenden Anmerkungen führen Sie durch die Grundfunktionen.",
@@ -408,6 +434,11 @@
 		"not-found": "Keine Daten gefunden.",
 		"search": "Suche",
 		"searching": "Suchen...",
-		"stale": "Filter wurde geändert. Wieder holen ... - Jetzt?"
+		"sound": {
+			"name": "Benachrichtigungston",
+			"volume": "Volumen"
+		},
+		"stale": "Filter wurde geändert. Wieder holen ... - Jetzt?",
+		"stash-size": "Stash-Größe ändern (Normal, Quad)"
 	}
 }

@@ -79,7 +79,11 @@
 				"message": "La recherche affiche les résultats filtrés. Il récupérera automatiquement les nouveaux éléments une fois que vous atteindrez la fin de la liste.\n\nEn cliquant sur le bouton envoyer, vous enverrez un chuchotement avec votre offre.",
 				"title": "Chercher"
 			},
-			"title": ""
+			"title": "marché"
+		},
+		"misc": {
+			"message": "La fonction de surbrillance de la cachette vous permet de filtrer la cachette pour un élément donné.\n\nOuvrez votre cachette et appuyez sur la touche de raccourci ci-dessous tout en survolant un élément.",
+			"title": "Misc"
 		},
 		"replay": {
 			"message": "Capture de courtes vidéos d'événements de jeu comme votre mort ou si vous tuez un boss important.\n\nPeut être activé dans les paramètres. Ceci est désactivé par défaut car cela peut réduire votre FPS.",
@@ -104,6 +108,28 @@
 		"thanks": {
 			"message": "C'est tout pour le moment. J'espère que vous apprécierez mon application.\n\n- Cordialement, Kyusung4698",
 			"title": ""
+		},
+		"trade": {
+			"highlight": {
+				"message": "Pour trouver l'élément demandé dans votre cachette, vous pouvez cliquer sur l'icône en surbrillance.\n\nEn haut, vous pouvez voir le nom de l'onglet de dissimulation. L'icône à droite vous permet de basculer entre une disposition normale et une disposition de stockage quadruple.\n\nVous pouvez filtrer la cachette en cliquant sur les noms en bas.",
+				"title": "Mettre les éléments en surbrillance"
+			},
+			"incoming": {
+				"message": "En cliquant sur la partie supérieure d'un message, la barre d'action sera révélée. Si vous êtes dans votre cachette, elle sera révélée automatiquement.",
+				"title": "Messages entrants"
+			},
+			"init": {
+				"message": "Le module d'échange fournit une interface utilisateur pour les messages commerciaux entrants et sortants.\n\nVous pouvez inviter le joueur, lancer l'échange et mettre en surbrillance l'objet dans la cachette.",
+				"title": "commerce"
+			},
+			"outgoing": {
+				"message": "Ceux-ci sont marqués par une couleur différente. La barre d'action est toujours révélée.",
+				"title": "Messages sortants"
+			},
+			"settings": {
+				"message": "Dans les paramètres, vous pouvez personnaliser les messages d'envoi et également désactiver l'interface utilisateur.",
+				"title": "Réglages"
+			}
 		},
 		"welcome": {
 			"message": "Les annotations suivantes vous guideront à travers les fonctionnalités de base.",
@@ -408,6 +434,11 @@
 		"not-found": "Aucune donnée disponible.",
 		"search": "Chercher",
 		"searching": "Recherche...",
-		"stale": "Le filtre a été changé. Aller chercher à nouveau ... - Maintenant?"
+		"sound": {
+			"name": "Son de notification",
+			"volume": "Le volume"
+		},
+		"stale": "Le filtre a été changé. Aller chercher à nouveau ... - Maintenant?",
+		"stash-size": "Modifier la taille de la réserve (normale, quadruple)"
 	}
 }

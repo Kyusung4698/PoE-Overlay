@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { OWGamesEvents } from '@app/odk';
 import { ChatService } from '@shared/module/poe/chat';
-import { EventInfo } from '@shared/module/poe/poe-event-info';
+import { EventService } from '@shared/module/poe/event';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 
@@ -10,14 +9,16 @@ import { map, tap } from 'rxjs/operators';
 })
 export class CommandService {
 
-    constructor(private readonly chat: ChatService) { }
+    constructor(
+        private readonly chat: ChatService,
+        private readonly event: EventService) { }
 
     public execute(command: string): Observable<void> {
         // TODO: Error handling
-        return OWGamesEvents.getInfo<EventInfo>().pipe(
-            tap(info => {
-                if (info?.me?.character_name?.length > 2) {
-                    command = command.replace('@char', info.me.character_name.slice(1, info.me.character_name.length - 1));
+        return this.event.getCharacter().pipe(
+            tap(character => {
+                if (character?.name.length) {
+                    command = command.replace('@char', character.name);
                 }
                 this.chat.send(command);
             }),

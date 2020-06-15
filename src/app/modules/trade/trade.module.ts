@@ -1,9 +1,14 @@
-import { NgModule } from '@angular/core';
+import { NgModule, NgZone } from '@angular/core';
+import { AnnotationService } from '@app/annotation';
 import { Feature, FeatureConfig, FeatureModule, FEATURE_MODULES } from '@app/feature';
 import { RunningGameInfo } from '@app/odk';
+import { EventService } from '@shared/module/poe/event';
+import { TradeItemMessage, TradeParserType, TradeWhisperDirection } from '@shared/module/poe/trade/chat';
 import { SharedModule } from '@shared/shared.module';
+import { BehaviorSubject, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { TradeMessageActionComponent, TradeMessageBulkComponent, TradeMessageComponent, TradeMessageDirectionComponent, TradeMessageItemComponent, TradeMessageMapComponent, TradeMessageMapTierComponent, TradeSettingsComponent } from './component';
-import { TradeService, TradeWindowService } from './service';
+import { TradeHighlightWindowService, TradeService, TradeWindowService } from './service';
 import { TradeFeatureSettings } from './trade-feature-settings';
 import { TradeHighlightWindowComponent, TradeWindowComponent } from './window';
 
@@ -32,8 +37,12 @@ export class TradeModule implements FeatureModule<TradeFeatureSettings> {
     private enabled = false;
 
     constructor(
+        private readonly event: EventService,
         private readonly trade: TradeService,
-        private readonly window: TradeWindowService) { }
+        private readonly tradeWindow: TradeWindowService,
+        private readonly highlightWindow: TradeHighlightWindowService,
+        private readonly annotation: AnnotationService,
+        private readonly ngZone: NgZone, ) { }
 
     public getConfig(): FeatureConfig<TradeFeatureSettings> {
         const config: FeatureConfig<TradeFeatureSettings> = {
@@ -46,7 +55,9 @@ export class TradeModule implements FeatureModule<TradeFeatureSettings> {
                 tradeMessageItemGone: 'Sorry, @itemname already gone. Good luck on your search.',
                 tradeMessageThanks: 'Thank you for the trade. Have a nice day and good luck.',
                 tradeStashFactor: {},
-                tradeWindowPinned: false
+                tradeWindowPinned: false,
+                tradeSoundEnabled: true,
+                tradeSoundVolume: 75
             }
         };
         return config;
@@ -59,9 +70,10 @@ export class TradeModule implements FeatureModule<TradeFeatureSettings> {
 
     public onSettingsChange(settings: TradeFeatureSettings): void {
         if (settings.tradeEnabled) {
-            this.window.restore(settings).subscribe();
+            this.tradeWindow.restore(settings).subscribe();
         } else {
-            this.window.close().subscribe();
+            this.tradeWindow.close().subscribe();
+            this.highlightWindow.close().subscribe();
             this.trade.clear();
         }
         this.enabled = settings.tradeEnabled;
@@ -71,10 +83,12 @@ export class TradeModule implements FeatureModule<TradeFeatureSettings> {
         const { isRunning } = info;
         if (isRunning) {
             if (settings.tradeEnabled) {
-                this.window.restore(settings).subscribe();
+                this.tradeWindow.restore(settings).subscribe();
+                this.registerAnnotation();
             }
         } else {
-            this.window.close().subscribe();
+            this.tradeWindow.close().subscribe();
+            this.highlightWindow.close().subscribe();
             this.trade.clear();
         }
         this.enabled = settings.tradeEnabled;
@@ -84,5 +98,51 @@ export class TradeModule implements FeatureModule<TradeFeatureSettings> {
         if (this.enabled) {
             this.trade.onLogLineAdd(line);
         }
+    }
+
+    private registerAnnotation(): void {
+        let lastId = '';
+        this.annotation.message$.on(message => this.ngZone.run(() => {
+            const id = message?.id || '';
+            if (id === lastId) {
+                return;
+            }
+            lastId = id;
+
+            switch (id) {
+                case 'trade.outgoing':
+                case 'trade.incoming':
+                    this.event.getCharacter().pipe(
+                        catchError(() => of(null))
+                    ).subscribe(character => {
+                        const item: TradeItemMessage = {
+                            direction: id === 'trade.outgoing'
+                                ? TradeWhisperDirection.Outgoing
+                                : TradeWhisperDirection.Incoming,
+                            itemName: 'Apocalypse Horn Decimation Bow',
+                            joined$: new BehaviorSubject(false),
+                            league: 'Standard',
+                            left: 4,
+                            top: 6,
+                            // tslint:disable:max-line-length
+                            message: 'Hi, I would like to buy your Apocalypse Horn Decimation Bow for 2 chaos in Delirium (stash tab "Annotation"; position: left 4, top 6)',
+                            // tslint:enable:max-line-length
+                            name: character?.name || 'PoEOverlayUnknownCharacter',
+                            stash: 'Annotation',
+                            timeReceived: new Date(),
+                            type: TradeParserType.TradeItem,
+                            whispers$: new BehaviorSubject([]),
+                            currencyType: 'chaos',
+                            price: 2
+                        };
+                        this.trade.set(item);
+                    });
+                    break;
+                case 'trade.settings':
+                    this.highlightWindow.close().subscribe();
+                    this.trade.clear();
+                    break;
+            }
+        }));
     }
 }

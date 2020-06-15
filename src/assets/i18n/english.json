@@ -81,6 +81,10 @@
 			},
 			"title": "Market"
 		},
+		"misc": {
+			"message": "The stash highlight feature lets you filter the stash for given item.\n\nOpen your stash and press the hotkey below while hovering a item.",
+			"title": "Misc"
+		},
 		"replay": {
 			"message": "Captures short videos of game events like your death or if you kill a significant boss.\n\nCan be enabled at the settings. This is disabled by default because it may reduce your FPS.",
 			"title": "Replay"
@@ -104,6 +108,28 @@
 		"thanks": {
 			"message": "That's it for now. Hope you enjoy my app. \n\n- Best regards, Kyusung4698",
 			"title": "Thank you!"
+		},
+		"trade": {
+			"highlight": {
+				"message": "To find the requested item in your stash you can click the highlighted icon.\n\nAt the top you can see the stash tab name. The icon on the right lets you switch between a normal and a quad stash layout.\n\nYou can filter the stash by clicking on the names at the bottom.",
+				"title": "Highlight items"
+			},
+			"incoming": {
+				"message": "By clicking on the upper part of a message the action bar will be revealed. If you're at your hideout it'll be revealed automatically.",
+				"title": "Incoming messages"
+			},
+			"init": {
+				"message": "The trade module provides a UI for incoming and outgoing trade messages.\n\nYou can invite the player, initiate the trade and highlight the item in the stash.",
+				"title": "Trade"
+			},
+			"outgoing": {
+				"message": "These are marked by a different color. The action bar is always revealed.",
+				"title": "Outgoing Messages"
+			},
+			"settings": {
+				"message": "In the settings you can customize the send messages and also disable the UI.",
+				"title": "Settings"
+			}
 		},
 		"welcome": {
 			"message": "The following annotations will guide you through the basic functionality.",
@@ -408,6 +434,11 @@
 		"not-found": "No data found.",
 		"search": "Search",
 		"searching": "Searching...",
-		"stale": "Filter has been changed. Fetching again ... - Now?"
+		"sound": {
+			"name": "Notification Sound",
+			"volume": "Volume"
+		},
+		"stale": "Filter has been changed. Fetching again ... - Now?",
+		"stash-size": "Change Stash Size (Normal, Quad)"
 	}
 }

@@ -10,4 +10,6 @@ export interface TradeFeatureSettings extends FeatureSettings {
     tradeStashFactor: {
         [key: string]: number
     };
+    tradeSoundEnabled: boolean;
+    tradeSoundVolume: number;
 }

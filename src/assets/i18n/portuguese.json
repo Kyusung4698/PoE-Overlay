@@ -79,7 +79,11 @@
 				"message": "A pesquisa mostra os resultados filtrados. Ele buscará novos itens automaticamente assim que você chegar ao final da lista.\n\nAo clicar no botão enviar, você enviará um sussurro com sua oferta.",
 				"title": "Procurar"
 			},
-			"title": ""
+			"title": "Mercado"
+		},
+		"misc": {
+			"message": "O recurso de destaque do stash permite filtrar o stash para um determinado item.\n\nAbra o seu esconderijo e pressione a tecla de atalho abaixo enquanto passe o mouse sobre um item.",
+			"title": "Misc"
 		},
 		"replay": {
 			"message": "Captura vídeos curtos de eventos como sua morte ou se você matar um chefe importante.\n\nPode ser ativado nas configurações. Isso está desativado por padrão, pois pode reduzir seu FPS.",
@@ -104,6 +108,28 @@
 		"thanks": {
 			"message": "Por enquanto é isso. Espero que você goste do meu aplicativo.\n\n- Atenciosamente, Kyusung4698",
 			"title": ""
+		},
+		"trade": {
+			"highlight": {
+				"message": "Para encontrar o item solicitado no seu esconderijo, clique no ícone destacado.\n\nNa parte superior, você pode ver o nome da guia stash. O ícone à direita permite alternar entre um layout normal e um esconderijo quádruplo.\n\nVocê pode filtrar o esconderijo clicando nos nomes na parte inferior.",
+				"title": "Realçar itens"
+			},
+			"incoming": {
+				"message": "Ao clicar na parte superior de uma mensagem, a barra de ação será revelada. Se você estiver no seu esconderijo, ele será revelado automaticamente.",
+				"title": "Mensagens recebidas"
+			},
+			"init": {
+				"message": "O módulo de negociação fornece uma interface do usuário para mensagens comerciais de entrada e saída.\n\nVocê pode convidar o jogador, iniciar a troca e destacar o item no estoque.",
+				"title": "Comércio"
+			},
+			"outgoing": {
+				"message": "Estes são marcados por uma cor diferente. A barra de ação é sempre revelada.",
+				"title": "Mensagens enviadas"
+			},
+			"settings": {
+				"message": "Nas configurações, você pode personalizar as mensagens enviadas e também desativar a interface do usuário.",
+				"title": "Definições"
+			}
 		},
 		"welcome": {
 			"message": "As anotações a seguir o guiarão pela funcionalidade básica.",
@@ -408,6 +434,11 @@
 		"not-found": "Nenhum dado encontrado.",
 		"search": "Procurar",
 		"searching": "Procurando...",
-		"stale": "O filtro foi alterado. Buscando de novo ... - Agora?"
+		"sound": {
+			"name": "Som de notificação",
+			"volume": "Volume"
+		},
+		"stale": "O filtro foi alterado. Buscando de novo ... - Agora?",
+		"stash-size": "Alterar tamanho do esconderijo (Normal, Quad)"
 	}
 }

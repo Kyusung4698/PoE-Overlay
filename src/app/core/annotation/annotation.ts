@@ -11,6 +11,7 @@ export enum AnnotationCondition {
     EvaluateClose,
     CommandExecuted,
     BookmarkOpened,
+    MiscStashHighlightExecuted
 }
 
 export interface AnnotationConditionMap {

@@ -16,5 +16,5 @@ export enum Hotkey {
     Bookmark4 = 'bookmark4',
     Bookmark5 = 'bookmark5',
     Bookmark6 = 'bookmark6',
-    MiscStasHighlight = 'misc-stash-highlight'
+    MiscStashHighlight = 'misc-stash-highlight'
 }

@@ -1,0 +1,22 @@
+@import "../../../../../styles/variables";
+
+label {
+  display: block;
+  color: $label-color;
+  font-size: 12px;
+  transform: perspective(100px) translateZ(0.001px);
+}
+
+.value-range {
+  width: 100%;
+
+  > .slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .mat-slider {
+      width: 100%;
+    }
+  }
+}

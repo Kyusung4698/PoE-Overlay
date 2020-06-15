@@ -44,15 +44,16 @@ const ANNOTATIONS: Annotation[] = [
             }
         ]
     },
-    // TODO
-    // {
-    //     id: 'trade',
-    //     children: [
-    //         { id: 'filter' },
-    //         { id: 'search' },
-    //         { id: 'reset' },
-    //     ]
-    // },
+    {
+        id: 'trade',
+        children: [
+            { id: 'init' },
+            { id: 'incoming' },
+            { id: 'highlight' },
+            { id: 'outgoing' },
+            { id: 'settings' }
+        ]
+    },
     {
         id: 'evaluate',
         hotkey: Hotkey.Evaluate,
@@ -81,6 +82,12 @@ const ANNOTATIONS: Annotation[] = [
     {
         id: 'replay',
         hotkey: Hotkey.SettingsToggle,
+        skippable: true,
+    },
+    {
+        id: 'misc',
+        hotkey: Hotkey.MiscStashHighlight,
+        expressions: [AnnotationCondition.MiscStashHighlightExecuted],
         skippable: true,
     },
     {

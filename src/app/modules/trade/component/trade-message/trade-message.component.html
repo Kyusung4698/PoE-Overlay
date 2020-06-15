@@ -1,5 +1,6 @@
 <div class="message" [class.incoming]="message.direction === 'incoming'" [class.toggled]="toggle$ | async"
-    [class.joined]="message.joined$ | async" (click)="toggle$.next(!toggle$.value)">
+    [class.joined]="message.joined$ | async" (click)="toggle$.next(!toggle$.value)"
+    [appAnnotation]="'trade.' + message.direction">
     <div class="content">
         <div class="action" *ngIf="(toggle$ | async) === false">
             <mat-icon (click)="onWait($event)" *ngIf="visible['wait']">pan_tool</mat-icon>
@@ -31,7 +32,8 @@
         <app-trade-message-action action="trade" [visible]="visible" [title]="' @' + message.name"
             (execute)="onActionExecute($event)">
         </app-trade-message-action>
-        <app-trade-message-action action="item-highlight" [visible]="visible" (execute)="onActionExecute($event)">
+        <app-trade-message-action action="item-highlight" [visible]="visible" (execute)="onActionExecute($event)"
+            appAnnotation="trade.highlight">
         </app-trade-message-action>
         <app-trade-message-action action="finished" [visible]="visible" [title]="' @' + message.name"
             (execute)="onActionExecute($event)">

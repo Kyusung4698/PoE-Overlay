@@ -11,6 +11,18 @@ export class TradeService {
         private readonly window: TradeWindowService,
         private readonly parser: TradeChatParserService) { }
 
+    public set(message: TradeExchangeMessage): void {
+        const data = this.window.data$.get();
+        data.messages = [message];
+        this.window.data$.next(data);
+    }
+
+    public clear(): void {
+        const data = this.window.data$.get();
+        data.messages = [];
+        this.window.data$.next(data);
+    }
+
     public onLogLineAdd(line: string): void {
         const data = this.window.data$.get();
         if (this.processRemoved(data)) {
@@ -42,11 +54,6 @@ export class TradeService {
             case TradeParserType.Ignored:
                 break;
         }
-    }
-
-    public clear(): void {
-        const data = this.window.data$.get();
-        data.messages = [];
     }
 
     private processMessage(newMessage: TradeExchangeMessage, messages: TradeExchangeMessage[]): boolean {

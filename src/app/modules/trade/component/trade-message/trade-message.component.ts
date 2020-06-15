@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AudioFile, AudioService } from '@app/audio';
 import { Roman } from '@app/helper';
 import { NotificationService } from '@app/notification';
-import { OWGamesEvents } from '@app/odk';
 import { TradeMessageAction, TradeMessageActionState } from '@modules/trade/class';
-import { TradeHighlightWindowService } from '@modules/trade/service';
+import { TradeHighlightWindowData, TradeHighlightWindowService } from '@modules/trade/service';
 import { TradeFeatureSettings } from '@modules/trade/trade-feature-settings';
 import { ChatService } from '@shared/module/poe/chat';
-import { EventInfo } from '@shared/module/poe/poe-event-info';
+import { EventService } from '@shared/module/poe/event';
 import { TradeBulkMessage, TradeExchangeMessage, TradeItemMessage, TradeMapMessage, TradeParserType, TradeWhisperDirection } from '@shared/module/poe/trade/chat';
 import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
 import { catchError, flatMap, map } from 'rxjs/operators';
@@ -39,8 +39,10 @@ export class TradeMessageComponent implements OnInit {
 
   constructor(
     private readonly chat: ChatService,
+    private readonly event: EventService,
+    private readonly audio: AudioService,
     private readonly notification: NotificationService,
-    private readonly highlight: TradeHighlightWindowService) { }
+    private readonly highlightWindow: TradeHighlightWindowService) { }
 
   public ngOnInit(): void {
     this.visible[TradeMessageAction.Invite] = true;
@@ -50,19 +52,10 @@ export class TradeMessageComponent implements OnInit {
       this.visible[TradeMessageAction.Wait] = true;
       this.visible[TradeMessageAction.ItemGone] = true;
       this.visible[TradeMessageAction.ItemHighlight] = true;
-      // TODO: Cleanup
-      this.createMessageContext().subscribe(context => {
-        this.toggle$.next([
-          'Hideout',
-          'Refúgio',
-          'убежище',
-          'Hideout',
-          'Versteck',
-          'Repaire',
-          'Guarida',
-          '은신처에',
-        ].some(x => context.zone.includes(x)));
-      });
+      if (this.settings.tradeSoundEnabled) {
+        this.audio.play(AudioFile.Notification, this.settings.tradeSoundVolume / 100);
+      }
+      this.event.isHideout().subscribe(value => this.toggle$.next(value));
     } else {
       this.toggle$.next(true);
       this.visible[TradeMessageAction.Resend] = true;
@@ -136,22 +129,23 @@ export class TradeMessageComponent implements OnInit {
   }
 
   private toggleHighlight(): void {
+    let data: TradeHighlightWindowData;
     switch (this.message.type) {
       case TradeParserType.TradeItem:
         {
           const message = this.message as TradeItemMessage;
-          this.highlight.restore({
+          data = {
             left: message.left,
             top: message.top,
             stash: message.stash,
             items: [{ name: message.itemName }]
-          }).subscribe();
+          };
         }
         break;
       case TradeParserType.TradeBulk:
         {
           const message = this.message as TradeBulkMessage;
-          this.highlight.restore({ items: [{ name: message.type1 }] }).subscribe();
+          data = { items: [{ name: message.type1 }] };
         }
         break;
       case TradeParserType.TradeMap:
@@ -160,38 +154,37 @@ export class TradeMessageComponent implements OnInit {
           const maps = message.direction === TradeWhisperDirection.Incoming
             ? message.maps2
             : message.maps1;
-          this.highlight.restore({
+          data = {
             items: maps.maps.map(x => {
               return {
                 name: `${maps.tier}: ${x}`,
                 value: `${x} tier:${Roman.toArabic(maps.tier)}`
               };
             })
-          }).subscribe();
+          };
         }
         break;
       default:
-        break;
+        return;
     }
+
+    this.highlightWindow.toggle(data).subscribe();
   }
 
   private hideHighlight(): void {
-    this.highlight.close().subscribe();
+    this.highlightWindow.close().subscribe();
   }
 
   private kick(): void {
     if (this.message.direction === TradeWhisperDirection.Outgoing) {
-      OWGamesEvents.getInfo<EventInfo>().pipe(
-        flatMap((info: EventInfo) => {
-          if (info?.me?.character_name?.length > 2) {
-            const name = info.me.character_name;
-            return of(name.slice(1, name.length - 1));
+      this.event.getCharacter().pipe(
+        flatMap(character => {
+          if (character?.name?.length) {
+            return of(character.name);
           }
           return throwError('character name was not set.');
         })
-      ).subscribe(name => {
-        this.chat.kick(name);
-      }, error => {
+      ).subscribe(name => this.chat.kick(name), error => {
         console.warn(`Could not kick character.`, error);
         this.notification.show('trade.kick-error');
       });
@@ -233,12 +226,11 @@ export class TradeMessageComponent implements OnInit {
         break;
     }
 
-    return OWGamesEvents.getInfo<EventInfo>().pipe(
+    return this.event.getMatch().pipe(
       catchError(() => of(null)),
-      map((info: EventInfo) => {
-        if (info?.match_info?.current_zone?.length > 2) {
-          const zone = info.match_info.current_zone;
-          context.zone = zone.slice(1, zone.length - 1);
+      map(match => {
+        if (match?.zone?.length) {
+          context.zone = match.zone;
         }
         return context;
       })

@@ -36,3 +36,29 @@
         </div>
     </div>
 </app-card>
+
+<app-card [title]="'trade.sound.name' | translate">
+    <div class="row">
+        <div class="col-12">
+            <mat-slide-toggle [checked]="settings.tradeSoundEnabled"
+                (change)="settings.tradeSoundEnabled = $event.checked" (change)="onChange()">
+                {{'trade.enabled' | translate}}
+            </mat-slide-toggle>
+        </div>
+    </div>
+    <div class="row">
+        <div class="value-range">
+            <label class="label"> {{'trade.sound.volume' | translate}}:
+                {{displayWithVolume(settings.tradeSoundVolume)}}
+            </label>
+            <div class="slider">
+                <mat-slider min="0" max="100" step="5" tickInterval="2" [displayWith]="displayWithVolume"
+                    [(value)]="settings.tradeSoundVolume" (valueChange)="onChange()">
+                </mat-slider>
+                <button mat-button (click)="onPlay()">
+                    <mat-icon>play_arrow</mat-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+</app-card>
