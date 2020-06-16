@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.0.2 (x)
+## 1.0.2 (2020-06-16)
 
 - added misc module
   - stash highlight on `alt+f`
