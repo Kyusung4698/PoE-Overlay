@@ -3,7 +3,7 @@ import { UiLanguage } from '@app/config';
 import { EventEmitter } from '@app/event';
 import { Language } from '@data/poe/schema';
 import { Observable } from 'rxjs';
-import { flatMap } from 'rxjs/operators';
+import { flatMap, tap } from 'rxjs/operators';
 import { FeatureModule } from './feature-module';
 import { FeatureSettings } from './feature-settings';
 import { FeatureSettingsStorageService } from './feature-settings-storage.service';
@@ -30,6 +30,13 @@ export class FeatureSettingsService {
 
     public put(settings: FeatureSettings): Observable<FeatureSettings> {
         return this.featureSettingsStorageService.put(settings);
+    }
+
+    public update(updateFn: (settings: FeatureSettings) => void): Observable<FeatureSettings> {
+        return this.get().pipe(
+            tap(settings => updateFn(settings)),
+            flatMap(settings => this.put(settings))
+        );
     }
 
     public init(modules: FeatureModule<FeatureSettings>[]): Observable<FeatureSettings> {

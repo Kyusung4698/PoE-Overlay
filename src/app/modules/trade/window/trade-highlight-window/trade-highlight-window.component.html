@@ -1,0 +1,29 @@
+<ng-container *ngIf="data$ | async as data">
+    <app-header [inline]="true" [closeable]="false">
+        <ng-container ngProjectAs="name">
+            PoE Overlay - Trade Highlight - Stash: <span class="stash">{{data.stash || '-'}}</span>
+        </ng-container>
+        <ng-container ngProjectAs="controlsRight">
+            <mat-icon (click)="onFactorChange(data.stash)" [title]="'trade.stash-size' | translate">
+                {{factor === 0.5 ? 'grid_on' : 'border_all'}} </mat-icon>
+        </ng-container>
+    </app-header>
+    <ng-container *ngIf="data.top && data.left">
+        <div class="grid" [style.top.px]="data.gridTop - 2" [style.width.px]="data.gridSize * 12"
+            [style.height.px]="data.gridSize * 12">
+            <div class="inner">
+                <div class="highlight" [style.top.px]="data.gridSize * (data.top - 1) * factor - 0.25"
+                    [style.left.px]="data.gridSize * (data.left - 1) * factor - 0.25"
+                    [style.width.px]="data.gridSize * factor" [style.height.px]="data.gridSize * factor">
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <app-background class="background" [inline]="true" [style.top.px]="data.gridTop + data.gridSize * 12">
+        <div class="items">
+            <div class="item" *ngFor="let item of data.items">
+                <div class="name" (click)="onSearch(item.value || item.name)">{{item.name}}</div>
+            </div>
+        </div>
+    </app-background>
+</ng-container>

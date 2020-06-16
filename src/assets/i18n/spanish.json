@@ -79,7 +79,11 @@
 				"message": "La búsqueda muestra los resultados filtrados. Buscará automáticamente nuevos elementos una vez que llegue al final de la lista.\n\nAl hacer clic en el botón enviar, enviarás un susurro con tu oferta.",
 				"title": "Buscar"
 			},
-			"title": ""
+			"title": "Mercado"
+		},
+		"misc": {
+			"message": "La función de resaltado de alijo te permite filtrar el alijo para un artículo determinado.\n\nAbra su alijo y presione la tecla de acceso rápido a continuación mientras se desplaza un elemento.",
+			"title": "Misceláneos"
 		},
 		"replay": {
 			"message": "Captura videos cortos de eventos del juego como tu muerte o si matas a un jefe importante.\n\nSe puede habilitar en la configuración. Esto está deshabilitado de forma predeterminada porque puede reducir su FPS.",
@@ -104,6 +108,28 @@
 		"thanks": {
 			"message": "Eso es todo por ahora. Espero que disfrutes mi aplicación.\n\n- Saludos cordiales, Kyusung4698",
 			"title": ""
+		},
+		"trade": {
+			"highlight": {
+				"message": "Para encontrar el elemento solicitado en su escondite, puede hacer clic en el icono resaltado.\n\nEn la parte superior puede ver el nombre de la pestaña de alijo. El ícono a la derecha le permite cambiar entre un diseño normal y uno cuádruple.\n\nPuede filtrar el alijo haciendo clic en los nombres en la parte inferior.",
+				"title": "Destacar elementos"
+			},
+			"incoming": {
+				"message": "Al hacer clic en la parte superior de un mensaje, se mostrará la barra de acción. Si estás en tu escondite, se revelará automáticamente.",
+				"title": "Mensajes entrantes"
+			},
+			"init": {
+				"message": "El módulo comercial proporciona una IU para mensajes comerciales entrantes y salientes.\n\nPuedes invitar al jugador, iniciar el intercambio y resaltar el elemento en el alijo.",
+				"title": "Comercio"
+			},
+			"outgoing": {
+				"message": "Estos están marcados por un color diferente. La barra de acción siempre se revela.",
+				"title": "Mensajes salientes"
+			},
+			"settings": {
+				"message": "En la configuración, puede personalizar los mensajes enviados y también deshabilitar la IU.",
+				"title": "Ajustes"
+			}
 		},
 		"welcome": {
 			"message": "Las siguientes anotaciones lo guiarán a través de la funcionalidad básica.",
@@ -318,7 +344,7 @@
 		}
 	},
 	"misc": {
-		"highlight": "Realce",
+		"highlight": "Stash Highlight",
 		"name": "Misceláneos",
 		"navigation": "Navegación",
 		"navigations": {
@@ -377,17 +403,42 @@
 		"zoom": "Enfocar"
 	},
 	"trade": {
+		"action": {
+			"finished": "Gracias y adiós",
+			"interested": "¿Aún interesado?",
+			"invite": "invitación",
+			"item-gone": "Artículo desaparecido",
+			"item-highlight": "Destacar artículo en alijo",
+			"resend": "Reenviar oferta",
+			"trade": "Comercio",
+			"wait": "¿Espere?",
+			"whisper": "Susurro"
+		},
 		"analyzing": "Analizando datos ...",
 		"empty": "No hay resultados. ¿Abierta en el navegador?",
+		"enabled": "Habilitado",
 		"error": "Ocurrió un error.",
 		"errors": {
 			"http": "No se pudo comunicar con el sitio web comercial de GGG.\nAsegúrese de que se pueda acceder al sitio web.",
 			"rate": "Límite alcanzado. Por favor, inténtelo de nuevo más tarde.\nSi esto sigue sucediendo, intente reducir el recuento de elementos recuperados."
 		},
 		"fetching": "Encontrado {{total}}. Obteniendo {{count}} entradas ...",
+		"message": {
+			"item-gone": "Mensaje de artículo desaparecido",
+			"still-interested": "Mensaje aún interesado",
+			"thanks": "Mensaje de agradecimiento",
+			"wait": "Mensaje de espera"
+		},
+		"name": "Comercio",
+		"no-price": "Sin precio",
 		"not-found": "Datos no encontrados.",
 		"search": "Buscar",
 		"searching": "Buscando...",
-		"stale": "El filtro ha sido cambiado. Buscando de nuevo ... - ¿Ahora?"
+		"sound": {
+			"name": "Sonido de notificación",
+			"volume": "Volumen"
+		},
+		"stale": "El filtro ha sido cambiado. Buscando de nuevo ... - ¿Ahora?",
+		"stash-size": "Cambiar tamaño de alijo (Normal, Cuádruple)"
 	}
 }

@@ -1,0 +1,64 @@
+<app-card [title]="'trade.name' | translate">
+    <div class="row">
+        <div class="col-12">
+            <mat-slide-toggle [checked]="settings.tradeEnabled" (change)="settings.tradeEnabled = $event.checked"
+                (change)="onChange()">
+                {{'trade.enabled' | translate}}
+            </mat-slide-toggle>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <mat-form-field>
+                <mat-label>{{'trade.message.wait' | translate}}</mat-label>
+                <input matInput [(ngModel)]="settings.tradeMessageWait" (ngModelChange)="onChange()">
+            </mat-form-field>
+        </div>
+        <div class="col-6">
+            <mat-form-field>
+                <mat-label>{{'trade.message.still-interested' | translate}}</mat-label>
+                <input matInput [(ngModel)]="settings.tradeMessageStillInterested" (ngModelChange)="onChange()">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <mat-form-field>
+                <mat-label>{{'trade.message.item-gone' | translate}}</mat-label>
+                <input matInput [(ngModel)]="settings.tradeMessageItemGone" (ngModelChange)="onChange()">
+            </mat-form-field>
+        </div>
+        <div class="col-6">
+            <mat-form-field>
+                <mat-label>{{'trade.message.thanks' | translate}}</mat-label>
+                <input matInput [(ngModel)]="settings.tradeMessageThanks" (ngModelChange)="onChange()">
+            </mat-form-field>
+        </div>
+    </div>
+</app-card>
+
+<app-card [title]="'trade.sound.name' | translate">
+    <div class="row">
+        <div class="col-12">
+            <mat-slide-toggle [checked]="settings.tradeSoundEnabled"
+                (change)="settings.tradeSoundEnabled = $event.checked" (change)="onChange()">
+                {{'trade.enabled' | translate}}
+            </mat-slide-toggle>
+        </div>
+    </div>
+    <div class="row">
+        <div class="value-range">
+            <label class="label"> {{'trade.sound.volume' | translate}}:
+                {{displayWithVolume(settings.tradeSoundVolume)}}
+            </label>
+            <div class="slider">
+                <mat-slider min="0" max="100" step="5" tickInterval="2" [displayWith]="displayWithVolume"
+                    [(value)]="settings.tradeSoundVolume" (valueChange)="onChange()">
+                </mat-slider>
+                <button mat-button (click)="onPlay()">
+                    <mat-icon>play_arrow</mat-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+</app-card>

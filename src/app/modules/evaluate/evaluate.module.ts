@@ -104,8 +104,4 @@ export class EvaluateModule implements FeatureModule<EvaluateFeatureSettings> {
                 throw new Error(`Hotkey: '${hotkey}' out of range.`);
         }
     }
-
-    public onSettingsChange(): void { }
-    public onGameEvent(): void { }
-    public onInfo(): void { }
 }

@@ -11,6 +11,10 @@ export class EventEmitter<TEvent> {
     private latest: TEvent;
     private counter = 0;
 
+    constructor(first?: TEvent) {
+        this.latest = first;
+    }
+
     public get(): TEvent {
         return this.latest;
     }

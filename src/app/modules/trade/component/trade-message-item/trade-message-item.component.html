@@ -1,0 +1,14 @@
+<div class="item" [class.reverse]="message.direction === 'outgoing'">
+    <div class="name" [title]="message.itemName">{{message.itemName | truncateText: 18}}</div>
+    <app-trade-message-direction></app-trade-message-direction>
+    <div class="price">
+        <ng-container *ngIf="message.price && message.currencyType; else empty">
+            <app-trade-static-frame [count]="message.price" [id]="message.currencyType"
+                [reverse]="message.direction === 'outgoing'" [medium]="true">
+            </app-trade-static-frame>
+        </ng-container>
+        <ng-template #empty>
+            {{'trade.no-price' | translate}}
+        </ng-template>
+    </div>
+</div>

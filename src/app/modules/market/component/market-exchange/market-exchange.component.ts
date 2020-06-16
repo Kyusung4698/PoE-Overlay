@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, OnDestroy, OnInit, Output, TemplateRef, ViewChild } from '@angular/core';
-import { environment } from '@env/environment';
 import { ChatService } from '@shared/module/poe/chat';
 import { TradeFetchResultEntry, TradeFetchService } from '@shared/module/poe/trade';
 import { TradeExchangeRequest, TradeExchangeResponse, TradeExchangeService } from '@shared/module/poe/trade/exchange';
@@ -104,13 +103,7 @@ export class MarketExchangeComponent implements OnInit, OnDestroy {
     let copy = whisper.slice();
     copy = copy.replace('{0}', `${event.itemAmount}`);
     copy = copy.replace('{1}', `${event.valueAmount}`);
-
-    if (environment.production) {
-      this.chat.send(copy);
-    } else {
-      console.log(copy);
-      this.chat.send('/dnd');
-    }
+    this.chat.send(copy);
   }
 
   private clear(): void {

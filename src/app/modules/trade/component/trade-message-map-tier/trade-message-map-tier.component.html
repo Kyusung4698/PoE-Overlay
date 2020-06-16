@@ -1,0 +1,9 @@
+<div class="list" [class.left]="left">
+    <div class="tier">{{list.tier}}</div>
+    <div class="maps">
+        <div *ngFor="let map of list.maps;last as last" [title]="map">
+            <ng-container *ngIf="last">{{map | truncateText:14}}</ng-container>
+            <ng-container *ngIf="!last">{{map | truncateText:14}},&nbsp;</ng-container>
+        </div>
+    </div>
+</div>

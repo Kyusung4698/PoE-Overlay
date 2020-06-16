@@ -6,6 +6,12 @@ Quickly evaluate your items. Properties can be added and removed from the query 
 
 ![Downloaded](img/feature_evaluate.jpg)
 
+### Trade
+
+Manage incoming and outgoing trade requests by sending messages, inviting players and initiating trades via simple clicks.
+
+![Downloaded](img/feature_trade.jpg)
+
 ### Market
 
 Filter the listings to find your perfect item on the market and finally request the item with a single click.

@@ -7,8 +7,9 @@ import { FeatureSettings } from './feature-settings';
 export interface FeatureModule<TSettings extends FeatureSettings> {
     getConfig(): FeatureConfig<TSettings>;
     getFeatures(): Feature[];
-    onKeyPressed(hotkey: Hotkey, settings: TSettings): void;
-    onSettingsChange(settings: TSettings): void;
-    onGameEvent(event: GameEvent | InfoUpdatesEvent, settings: TSettings): void;
-    onInfo(info: RunningGameInfo, settings: TSettings): void;
+    onKeyPressed?(hotkey: Hotkey, settings: TSettings): void;
+    onSettingsChange?(settings: TSettings): void;
+    onGameEvent?(event: GameEvent | InfoUpdatesEvent, settings: TSettings): void;
+    onInfo?(info: RunningGameInfo, settings: TSettings): void;
+    onLogLineAdd?(line: string): void;
 }

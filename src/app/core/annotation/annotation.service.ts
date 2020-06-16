@@ -45,6 +45,16 @@ const ANNOTATIONS: Annotation[] = [
         ]
     },
     {
+        id: 'trade',
+        children: [
+            { id: 'init' },
+            { id: 'incoming' },
+            { id: 'highlight' },
+            { id: 'outgoing' },
+            { id: 'settings' }
+        ]
+    },
+    {
         id: 'evaluate',
         hotkey: Hotkey.Evaluate,
         expressions: [AnnotationCondition.EvaluateOpen],
@@ -72,6 +82,12 @@ const ANNOTATIONS: Annotation[] = [
     {
         id: 'replay',
         hotkey: Hotkey.SettingsToggle,
+        skippable: true,
+    },
+    {
+        id: 'misc',
+        hotkey: Hotkey.MiscStashHighlight,
+        expressions: [AnnotationCondition.MiscStashHighlightExecuted],
         skippable: true,
     },
     {

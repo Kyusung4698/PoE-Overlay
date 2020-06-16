@@ -79,7 +79,11 @@
 				"message": "Wyszukiwanie pokazuje przefiltrowane wyniki. Automatycznie pobierze nowe elementy po osiągnięciu końca listy.\n\nKlikając przycisk wyślij, wyślesz szept z ofertą.",
 				"title": "Szukaj"
 			},
-			"title": ""
+			"title": "Rynek"
+		},
+		"misc": {
+			"message": "Funkcja podświetlania skrytki pozwala filtrować skrytkę dla danego przedmiotu.\n\nOtwórz skrytkę i naciśnij klawisz skrótu poniżej, jednocześnie przesuwając element.",
+			"title": "Misc"
 		},
 		"replay": {
 			"message": "Przechwytuje krótkie filmy z wydarzeń w grze, takich jak Twoja śmierć lub zabicie znaczącego bossa.\n\nMożna włączyć w ustawieniach. Jest to domyślnie wyłączone, ponieważ może zmniejszyć liczbę klatek na sekundę.",
@@ -104,6 +108,28 @@
 		"thanks": {
 			"message": "Na razie tyle. Mam nadzieję, że podoba Ci się moja aplikacja.\n\n- Z pozdrowieniami, Kyusung4698",
 			"title": ""
+		},
+		"trade": {
+			"highlight": {
+				"message": "Aby znaleźć żądany przedmiot w skrytce, kliknij podświetloną ikonę.\n\nU góry możesz zobaczyć nazwę zakładki skrytki. Ikona po prawej stronie pozwala przełączać się między układem zwykłym a poczwórnym.\n\nMożesz filtrować skrytkę, klikając nazwy na dole.",
+				"title": "Podświetl przedmioty"
+			},
+			"incoming": {
+				"message": "Kliknięcie górnej części wiadomości spowoduje wyświetlenie paska akcji. Jeśli jesteś w swojej kryjówce, zostanie to ujawnione automatycznie.",
+				"title": "Wiadomości przychodzące"
+			},
+			"init": {
+				"message": "Moduł handlu zapewnia interfejs użytkownika dla przychodzących i wychodzących wiadomości handlowych.\n\nMożesz zaprosić gracza, zainicjować wymianę i podświetlić przedmiot w skrytce.",
+				"title": "Handel"
+			},
+			"outgoing": {
+				"message": "Są one oznaczone innym kolorem. Pasek akcji jest zawsze widoczny.",
+				"title": "Wiadomości wychodzące"
+			},
+			"settings": {
+				"message": "W ustawieniach możesz dostosować wysyłane wiadomości, a także wyłączyć interfejs użytkownika.",
+				"title": "Ustawienia"
+			}
 		},
 		"welcome": {
 			"message": "Poniższe adnotacje poprowadzą Cię przez podstawową funkcjonalność.",
@@ -318,7 +344,7 @@
 		}
 	},
 	"misc": {
-		"highlight": "Podświetl przedmiot",
+		"highlight": "Podświetl Skrytkę",
 		"name": "Różne",
 		"navigation": "Przełączanie pomiędzy zakładkami",
 		"navigations": {
@@ -377,17 +403,42 @@
 		"zoom": "Powiększenie"
 	},
 	"trade": {
+		"action": {
+			"finished": "Dzięki i do widzenia",
+			"interested": "Nadal jesteś zainteresowany?",
+			"invite": "Zapraszam",
+			"item-gone": "Element zniknął",
+			"item-highlight": "Podświetl przedmiot w schowku",
+			"resend": "Wyślij ponownie ofertę",
+			"trade": "Handel",
+			"wait": "Czekać?",
+			"whisper": "Szept"
+		},
 		"analyzing": "Analiza danych ...",
 		"empty": "Brak wyników. Otworzyć w przeglądarce?",
+		"enabled": "Włączone",
 		"error": "Wystąpił błąd.",
 		"errors": {
 			"http": "Nie można nawiązać komunikacji ze stroną aukcyjną GGG.\nUpewnij się, że strona jest dostępna.",
 			"rate": "Limit osiągnięty. Spróbuj ponownie później.\nJeśli problem nadal występuje, spróbuj zmniejszyć liczbę pobieranych ofert sprzedaży."
 		},
 		"fetching": "Znaleziono {{total}}. Pobieranie {{count}} aukcji ...",
+		"message": {
+			"item-gone": "Wiadomość zniknęła z produktu",
+			"still-interested": "Wciąż zainteresowana wiadomość",
+			"thanks": "Dzięki wiadomość",
+			"wait": "Wiadomość oczekująca"
+		},
+		"name": "Handel",
+		"no-price": "Bez ceny",
 		"not-found": "Nie znaleziono danych.",
 		"search": "Szukaj",
 		"searching": "Szukam...",
-		"stale": "Filtr został zmieniony. Ponowne pobranie ... - Teraz?"
+		"sound": {
+			"name": "Dźwięk powiadomienia",
+			"volume": "Tom"
+		},
+		"stale": "Filtr został zmieniony. Ponowne pobranie ... - Teraz?",
+		"stash-size": "Zmień rozmiar skrytki (normalny, poczwórny)"
 	}
 }

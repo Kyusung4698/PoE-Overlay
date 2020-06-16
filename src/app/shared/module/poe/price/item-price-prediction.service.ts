@@ -28,11 +28,12 @@ export class ItemPricePredictionService {
             flatMap(prediction => forkJoin(
                 currencies.map(currency => this.currencyConverter.getConversionRate(prediction.currencyId, currency))
             ).pipe(map(factors => {
-                const { min, max } = prediction;
+                const { min, max, url } = prediction;
                 const values = factors.map(factor => [min * factor, max * factor]);
                 const index = this.currencySelect.select(values, CurrencySelectStrategy.MinWithAtleast1);
                 const { score, currency } = prediction;
                 const result: ItemPricePredictionResult = {
+                    url,
                     id: {
                         content, leagueId,
                         currency, min, max

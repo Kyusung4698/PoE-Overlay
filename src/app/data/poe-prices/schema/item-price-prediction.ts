@@ -1,4 +1,5 @@
 export interface ItemPricePredictionResponse {
+    url: string;
     min: number;
     max: number;
     currency: 'chaos' | 'exalt';

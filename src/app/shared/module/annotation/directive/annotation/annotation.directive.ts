@@ -1,5 +1,5 @@
 import { AfterViewInit, ChangeDetectorRef, Directive, HostBinding, Input, NgZone, OnDestroy, OnInit } from '@angular/core';
-import { AnnotationMessage, AnnotationService } from '@app/annotation';
+import { AnnotationService } from '@app/annotation';
 import { EventSubscription } from '@app/event';
 
 @Directive({
@@ -8,8 +8,14 @@ import { EventSubscription } from '@app/event';
 export class AnnotationDirective implements OnInit, AfterViewInit, OnDestroy {
     private subscription: EventSubscription;
 
+    private currentId: string;
+    private expectedId: string;
+
     @Input()
-    public appAnnotation: string;
+    public set appAnnotation(annotation: string) {
+        this.expectedId = annotation;
+        this.updateHighlight();
+    }
 
     @HostBinding('class.annotation-highlight')
     public highlight: boolean;
@@ -21,20 +27,25 @@ export class AnnotationDirective implements OnInit, AfterViewInit, OnDestroy {
 
     public ngOnInit(): void {
         this.subscription = this.annotation.message$.on(message => {
-            this.ngZone.run(() => this.updateClass(message));
+            this.currentId = message?.id;
+            this.ngZone.run(() => this.updateHighlight());
         });
     }
 
     public ngAfterViewInit(): void {
-        setTimeout(() => this.updateClass(this.annotation.message$.get()));
+        setTimeout(() => {
+            const message = this.annotation.message$.get();
+            this.currentId = message?.id;
+            this.updateHighlight();
+        });
     }
 
     public ngOnDestroy(): void {
         this.subscription?.unsubscribe();
     }
 
-    private updateClass(message: AnnotationMessage): void {
-        this.highlight = message?.id === this.appAnnotation;
+    private updateHighlight(): void {
+        this.highlight = this.currentId === this.expectedId;
         this.ref.markForCheck();
     }
 }

@@ -4,7 +4,7 @@
     "meta": {
         "name": "PoE Overlay",
         "author": "Kyusung4698",
-        "version": "1.0.1",
+        "version": "1.0.2",
         "minimum-overwolf-version": "0.147.0",
         "description": "Search the market and send trade offers. Get current market values for your item. View insights for maps and items.",
         "dock_button_title": "PoE Overlay",
@@ -19,7 +19,8 @@
         "GameInfo",
         "GameControl",
         "Clipboard",
-        "VideoCaptureSettings"
+        "VideoCaptureSettings",
+        "FileSystem"
     ],
     "data": {
         "start_window": "background",
@@ -104,7 +105,7 @@
                 "block_top_window_navigation": true,
                 "disable_restore_animation": true,
                 "disable_rightclick": true,
-                "transparent": true,                
+                "transparent": true,
                 "size": {
                     "width": 1212,
                     "height": 699
@@ -125,13 +126,39 @@
                     "height": 327
                 }
             },
-            "annotation": {                
+            "annotation": {
                 "file": "dist/poe-overlay-overwolf/index.html",
                 "in_game_only": true,
                 "block_top_window_navigation": true,
                 "disable_restore_animation": true,
                 "disable_rightclick": true,
                 "transparent": true,
+                "size": {
+                    "width": 1212,
+                    "height": 699
+                }
+            },
+            "trade": {
+                "file": "dist/poe-overlay-overwolf/index.html",
+                "in_game_only": true,
+                "block_top_window_navigation": true,
+                "disable_restore_animation": true,
+                "disable_rightclick": true,
+                "transparent": true,
+                "resizable": true,
+                "size": {
+                    "width": 1212,
+                    "height": 699
+                }
+            },
+            "tradehighlight": {
+                "file": "dist/poe-overlay-overwolf/index.html",
+                "in_game_only": true,
+                "block_top_window_navigation": true,
+                "disable_restore_animation": true,
+                "disable_rightclick": true,
+                "transparent": true,
+                "resizable": true,
                 "size": {
                     "width": 1212,
                     "height": 699
@@ -236,6 +263,11 @@
             "bookmark6": {
                 "title": "Open Bookmark 6",
                 "action-type": "custom"
+            },
+            "misc-stash-highlight": {
+                "title": "Highlight Item in Stash",
+                "action-type": "custom",
+                "default": "Alt+F"
             }
         },
         "externally_connectable": {
