@@ -102,47 +102,49 @@ export class TradeModule implements FeatureModule<TradeFeatureSettings> {
 
     private registerAnnotation(): void {
         let lastId = '';
-        this.annotation.message$.on(message => this.ngZone.run(() => {
-            const id = message?.id || '';
-            if (id === lastId) {
-                return;
-            }
-            lastId = id;
+        this.annotation.message$.on(message => {
+            this.ngZone.run(() => {
+                const id = message?.id || '';
+                if (id === lastId) {
+                    return;
+                }
+                lastId = id;
 
-            switch (id) {
-                case 'trade.outgoing':
-                case 'trade.incoming':
-                    this.event.getCharacter().pipe(
-                        catchError(() => of(null))
-                    ).subscribe(character => {
-                        const item: TradeItemMessage = {
-                            direction: id === 'trade.outgoing'
-                                ? TradeWhisperDirection.Outgoing
-                                : TradeWhisperDirection.Incoming,
-                            itemName: 'Apocalypse Horn Decimation Bow',
-                            joined$: new BehaviorSubject(false),
-                            league: 'Standard',
-                            left: 4,
-                            top: 6,
-                            // tslint:disable:max-line-length
-                            message: 'Hi, I would like to buy your Apocalypse Horn Decimation Bow for 2 chaos in Delirium (stash tab "Annotation"; position: left 4, top 6)',
-                            // tslint:enable:max-line-length
-                            name: character?.name || 'PoEOverlayUnknownCharacter',
-                            stash: 'Annotation',
-                            timeReceived: new Date(),
-                            type: TradeParserType.TradeItem,
-                            whispers$: new BehaviorSubject([]),
-                            currencyType: 'chaos',
-                            price: 2
-                        };
-                        this.trade.set(item);
-                    });
-                    break;
-                case 'trade.settings':
-                    this.highlightWindow.close().subscribe();
-                    this.trade.clear();
-                    break;
-            }
-        }));
+                switch (id) {
+                    case 'trade.outgoing':
+                    case 'trade.incoming':
+                        this.event.getCharacter().pipe(
+                            catchError(() => of(null))
+                        ).subscribe(character => {
+                            const item: TradeItemMessage = {
+                                direction: id === 'trade.outgoing'
+                                    ? TradeWhisperDirection.Outgoing
+                                    : TradeWhisperDirection.Incoming,
+                                itemName: 'Apocalypse Horn Decimation Bow',
+                                joined$: new BehaviorSubject(false),
+                                league: 'Standard',
+                                left: 4,
+                                top: 6,
+                                // tslint:disable:max-line-length
+                                message: 'Hi, I would like to buy your Apocalypse Horn Decimation Bow for 2 chaos in Delirium (stash tab "Annotation"; position: left 4, top 6)',
+                                // tslint:enable:max-line-length
+                                name: character?.name || 'PoEOverlayUnknownCharacter',
+                                stash: 'Annotation',
+                                timeReceived: new Date(),
+                                type: TradeParserType.TradeItem,
+                                whispers$: new BehaviorSubject([]),
+                                currencyType: 'chaos',
+                                price: 2
+                            };
+                            this.trade.set(item);
+                        });
+                        break;
+                    case 'trade.settings':
+                        this.highlightWindow.close().subscribe();
+                        this.trade.clear();
+                        break;
+                }
+            });
+        });
     }
 }

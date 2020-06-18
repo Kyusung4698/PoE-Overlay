@@ -21,7 +21,10 @@ export class EventEmitter<TEvent> {
 
     public next(event: TEvent): void {
         Object.getOwnPropertyNames(this.registry).forEach(key => {
-            this.registry[key](event);
+            const fn = this.registry[key];
+            if (fn) {
+                fn(event);
+            }
         });
         this.latest = event;
     }

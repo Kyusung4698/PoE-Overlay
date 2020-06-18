@@ -27,9 +27,11 @@ export class TradeWindowComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.data$.next(this.window.data$.get());
-    this.subscription = this.window.data$.on(data => this.ngZone.run(() => {
-      this.data$.next(data);
-    }));
+    this.subscription = this.window.data$.on(data => {
+      this.ngZone.run(() => {
+        this.data$.next(data);
+      });
+    });
   }
 
   public ngOnDestroy(): void {

@@ -74,7 +74,6 @@ export class BackgroundWindowComponent implements OnInit, OnDestroy {
                     });
                 });
             });
-            this.hotkeys.start();
             this.game.start();
         });
     }
@@ -118,11 +117,6 @@ export class BackgroundWindowComponent implements OnInit, OnDestroy {
         this.shouldQuit = false;
         this.launcherWindow.close();
 
-        const path = info.executionPath.split('/');
-        path.pop();
-        const log = `${path.join('/')}/logs/Client.txt`;
-        this.log.start(log);
-
         forkJoin([
             this.annotationWindow.open(info.width, info.height),
             this.notificationWindow.open(info.width, info.height)
@@ -135,6 +129,13 @@ export class BackgroundWindowComponent implements OnInit, OnDestroy {
                         module.onInfo(info, settings);
                     }
                 });
+
+                const path = info.executionPath.split('/');
+                path.pop();
+                const log = `${path.join('/')}/logs/Client.txt`;
+                this.log.start(log);
+
+                this.hotkeys.start();
             });
             if (!result) {
                 this.notification.show('event.start-error');

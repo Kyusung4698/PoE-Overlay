@@ -32,9 +32,11 @@ export class TradeHighlightWindowComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.updateData(this.window.data$.get());
-    this.subscription = this.window.data$.on(data => this.ngZone.run(() => {
-      this.updateData(data);
-    }));
+    this.subscription = this.window.data$.on(data => {
+      this.ngZone.run(() => {
+        this.updateData(data);
+      });
+    });
   }
 
   public ngOnDestroy(): void {

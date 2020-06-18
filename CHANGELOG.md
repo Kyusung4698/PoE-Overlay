@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.3 (2020-06-18)
+
+- fixed a unhandled error if no event data is available
+
 ## 1.0.2 (2020-06-16)
 
 - added misc module

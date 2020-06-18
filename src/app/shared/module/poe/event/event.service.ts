@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { OWGamesEvents } from '@app/odk';
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 
 interface EventInfo {
     match_info: {

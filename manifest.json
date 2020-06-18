@@ -4,7 +4,7 @@
     "meta": {
         "name": "PoE Overlay",
         "author": "Kyusung4698",
-        "version": "1.0.2",
+        "version": "1.0.3",
         "minimum-overwolf-version": "0.147.0",
         "description": "Search the market and send trade offers. Get current market values for your item. View insights for maps and items.",
         "dock_button_title": "PoE Overlay",
@@ -38,11 +38,11 @@
                 "transparent": true,
                 "show_in_taskbar": false,
                 "size": {
-                    "width": 1212,
+                    "width": 1242,
                     "height": 699
                 },
                 "min_size": {
-                    "width": 1212,
+                    "width": 1242,
                     "height": 699
                 }
             },
@@ -180,8 +180,11 @@
                 "event_data": {
                     "game_ids": [
                         7212
-                    ]
+                    ],
+                    "wait_for_stable_framerate": 30
                 },
+                "tracked": false,
+                "include_launchers": false,
                 "start_minimized": false
             }
         ],
