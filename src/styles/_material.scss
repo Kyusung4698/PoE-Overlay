@@ -6,14 +6,12 @@ mat-label {
   display: block;
 }
 
-app-card {
-  padding-bottom: 12px;
+mat-card {
+  margin-bottom: 12px;
 
-  mat-card {
-    > div {
-      > mat-label {
-        margin-bottom: 12px;
-      }
+  > div {
+    > mat-label {
+      margin-bottom: 12px;
     }
   }
 }
