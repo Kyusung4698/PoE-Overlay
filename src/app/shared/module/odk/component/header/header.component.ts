@@ -20,6 +20,9 @@ export class HeaderComponent implements OnInit {
   public inline = false;
 
   @Input()
+  public scrollable = false;
+
+  @Input()
   public closeable = true;
 
   @Input()

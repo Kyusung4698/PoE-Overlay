@@ -1,3 +1,4 @@
+import { APP_UID } from '@app/config';
 import { from, Observable } from 'rxjs';
 import { SystemInfo } from './ow-types';
 
@@ -24,6 +25,13 @@ export class OWUtils {
             return this.openUrlInDefaultBrowser(url);
         }
         return this.openUrlInOverwolfBrowser(url);
+    }
+
+    public static openSubscriptionPage(): void {
+        overwolf.utils.openStore({
+            page: overwolf.utils.enums.eStorePage.SubscriptionPage,
+            uid: APP_UID
+        });
     }
 
     public static openUrlInOverwolfBrowser(url: string): void {

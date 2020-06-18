@@ -47,17 +47,19 @@
         </div>
     </div>
     <div class="row">
-        <div class="value-range">
-            <label class="label"> {{'trade.sound.volume' | translate}}:
-                {{displayWithVolume(settings.tradeSoundVolume)}}
-            </label>
-            <div class="slider">
-                <mat-slider min="0" max="100" step="5" tickInterval="2" [displayWith]="displayWithVolume"
-                    [(value)]="settings.tradeSoundVolume" (valueChange)="onChange()">
-                </mat-slider>
-                <button mat-button (click)="onPlay()">
-                    <mat-icon>play_arrow</mat-icon>
-                </button>
+        <div class="col-12">
+            <div class="value-range">
+                <label class="label"> {{'trade.sound.volume' | translate}}:
+                    {{displayWithVolume(settings.tradeSoundVolume)}}
+                </label>
+                <div class="slider">
+                    <mat-slider min="0" max="100" step="5" tickInterval="2" [displayWith]="displayWithVolume"
+                        [(value)]="settings.tradeSoundVolume" (valueChange)="onChange()">
+                    </mat-slider>
+                    <button mat-raised-button color="primary" (click)="onPlay()">
+                        <mat-icon>play_arrow</mat-icon>
+                    </button>
+                </div>
             </div>
         </div>
     </div>

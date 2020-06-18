@@ -402,6 +402,20 @@
 		"ui-language": "Sprache der Benutzeroberfläche",
 		"zoom": "Skalierung"
 	},
+	"support": {
+		"developer": {
+			"open": "Öffnen Sie die Abonnementseite",
+			"text": "Wenn Sie die App lieben, können Sie mich durch ein Abonnement unterstützen. Dadurch kann ich mehr Zeit für die Entwicklung dieser App aufwenden und sie auf dem neuesten Stand halten. Sie erhalten auch frühzeitig Zugriff auf neue Funktionen.",
+			"title": "Unterstützen Sie den Entwickler"
+		},
+		"name": "Unterstützung",
+		"question": {
+			"discord": "Tritt der Discord-Community bei",
+			"github": "Senden Sie ein Problem beim GitHub-Projekt",
+			"text": "Hast du eine Frage? Oder möchten Sie eine neue Funktion anfordern?",
+			"title": "Holen Sie sich Unterstützung"
+		}
+	},
 	"trade": {
 		"action": {
 			"finished": "Danke und auf Wiedersehen",

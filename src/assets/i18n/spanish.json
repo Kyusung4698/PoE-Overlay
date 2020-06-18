@@ -402,6 +402,20 @@
 		"ui-language": "Idioma de la interfaz de usuario",
 		"zoom": "Enfocar"
 	},
+	"support": {
+		"developer": {
+			"open": "Abra la página de suscripción",
+			"text": "Si amas la aplicación, considera apoyarme suscribiéndote. Esto me permitirá pasar más tiempo desarrollando esta aplicación y mantenerla actualizada. También obtendrá acceso temprano a nuevas funciones.",
+			"title": "Apoye al desarrollador"
+		},
+		"name": "Apoyo",
+		"question": {
+			"discord": "Únete a la comunidad Discord",
+			"github": "Enviar un problema en el proyecto GitHub",
+			"text": "¿Tienes una pregunta? ¿O quieres solicitar una nueva función?",
+			"title": "Obtener apoyo"
+		}
+	},
 	"trade": {
 		"action": {
 			"finished": "Gracias y adiós",

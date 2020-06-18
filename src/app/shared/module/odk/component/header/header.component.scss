@@ -15,7 +15,7 @@ $border-color: #1a1a1a;
         font-size: $icon-size;
         line-height: $icon-size;
 
-        & + .mat-icon{
+        & + .mat-icon {
           margin-left: 3px;
         }
       }
@@ -79,4 +79,9 @@ $border-color: #1a1a1a;
   border: 1px solid $border-color;
   border-top: none;
   width: 100%;
+
+  &.scrollable {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
 }

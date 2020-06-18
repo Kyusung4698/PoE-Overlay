@@ -402,6 +402,20 @@
 		"ui-language": "UI语言",
 		"zoom": "放大"
 	},
+	"support": {
+		"developer": {
+			"open": "打开订阅页面",
+			"text": "如果您喜欢该应用程序，请考虑通过订阅支持我。这将使我花更多的时间来开发此应用程序并保持最新状态。您还将尽早使用新功能。",
+			"title": "支持开发商"
+		},
+		"name": "支持",
+		"question": {
+			"discord": "加入不和谐社区",
+			"github": "在GitHub Project上提交问题",
+			"text": "你有问题吗还是要请求一项新功能？",
+			"title": "得到支持"
+		}
+	},
 	"trade": {
 		"action": {
 			"finished": "谢谢，再见",

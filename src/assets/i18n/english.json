@@ -402,6 +402,20 @@
 		"ui-language": "UI Language",
 		"zoom": "Zoom"
 	},
+	"support": {
+		"developer": {
+			"open": "Open the Subscription Page",
+			"text": "If you love the app, consider supporting me by subscribing. This will allow me to spend more time developing this app and keep it up-to-date. You will also get early access to new features.",
+			"title": "Support the Developer"
+		},
+		"name": "Support",
+		"question": {
+			"discord": "Join the Discord-Community",
+			"github": "Submit an Issue at the GitHub Project",
+			"text": "You have a question? Or do you want to request a new feature?",
+			"title": "Get Support"
+		}
+	},
 	"trade": {
 		"action": {
 			"finished": "Thanks and Goodbye",

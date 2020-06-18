@@ -402,6 +402,20 @@
 		"ui-language": "介面語言",
 		"zoom": "放大"
 	},
+	"support": {
+		"developer": {
+			"open": "打開訂閱頁面",
+			"text": "如果您喜歡該應用程序，請考慮通過訂閱支持我。這將使我花更多的時間來開發此應用程序並保持最新狀態。您還將儘早使用新功能。",
+			"title": "支持開發商"
+		},
+		"name": "支持",
+		"question": {
+			"discord": "加入不和諧社區",
+			"github": "在GitHub Project上提交問題",
+			"text": "你有問題嗎還是要請求一項新功能？",
+			"title": "得到支持"
+		}
+	},
 	"trade": {
 		"action": {
 			"finished": "謝謝，再見",
