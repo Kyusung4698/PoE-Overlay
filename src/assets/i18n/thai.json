@@ -371,6 +371,7 @@
 		"auto-download": "ดาวน์โหลดอัปเดตโดยอัตโนมัติ",
 		"auto-launch": "ทำงานบน Boot",
 		"cancel": "ยกเลิก",
+		"character-name": "ชื่อตัวเลือกทางเลือก",
 		"dialog": "โต้ตอบ",
 		"dialog-opacity": "ความทึบของไดอะล็อก",
 		"dialog-spawn-position": {

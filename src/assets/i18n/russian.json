@@ -371,6 +371,7 @@
 		"auto-download": "Скачивать обновления автоматически",
 		"auto-launch": "Запустить на включении",
 		"cancel": "Отменить",
+		"character-name": "Имя персонажа",
 		"dialog": "Диалог",
 		"dialog-opacity": "Непрозрачность диалога",
 		"dialog-spawn-position": {

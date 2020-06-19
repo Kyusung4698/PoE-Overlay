@@ -371,6 +371,7 @@
 		"auto-download": "自动下载更新",
 		"auto-launch": "开机运行",
 		"cancel": "取消",
+		"character-name": "角色名称后备",
 		"dialog": "对话",
 		"dialog-opacity": "对话不透明度",
 		"dialog-spawn-position": {

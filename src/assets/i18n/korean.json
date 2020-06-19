@@ -371,6 +371,7 @@
 		"auto-download": "업데이트 자동 다운로드",
 		"auto-launch": "부팅시 실행",
 		"cancel": "취소",
+		"character-name": "캐릭터 이름 대체",
 		"dialog": "대화",
 		"dialog-opacity": "대화 상자 불투명도",
 		"dialog-spawn-position": {

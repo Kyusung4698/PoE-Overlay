@@ -6,4 +6,5 @@ export interface FeatureSettings {
     leagueId?: string;
     uiLanguage?: UiLanguage;
     dialogOpacity?: number;
+    characterName?: string;
 }

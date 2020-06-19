@@ -371,6 +371,7 @@
 		"auto-download": "Pobierz aktualizację automatycznie",
 		"auto-launch": "Uruchom wraz ze startem systemu",
 		"cancel": "Anuluj",
+		"character-name": "Nazwa postaci Fallback",
 		"dialog": "Okno dialogowe",
 		"dialog-opacity": "Okno dialogowe Krycie",
 		"dialog-spawn-position": {

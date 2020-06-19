@@ -81,7 +81,7 @@ export class CommandsModule implements FeatureModule<CommandsFeatureSettings> {
                 const index = +hotkey.replace('command', '');
                 const { text } = settings.commands[index - 1];
                 if (text?.length) {
-                    this.command.execute(text).subscribe(() => { }, error => {
+                    this.command.execute(text, settings).subscribe(() => { }, error => {
                         console.warn(`Could not execute command.`, error, text);
                         this.notification.show('commands.execute-error');
                     });

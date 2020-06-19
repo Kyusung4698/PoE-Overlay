@@ -371,6 +371,7 @@
 		"auto-download": "Update automatisch herunterladen",
 		"auto-launch": "Beim Booten ausführen",
 		"cancel": "Abbrechen",
+		"character-name": "Charaktername Fallback",
 		"dialog": "Dialog",
 		"dialog-opacity": "Dialogopazität",
 		"dialog-spawn-position": {

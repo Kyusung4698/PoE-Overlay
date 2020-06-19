@@ -371,6 +371,7 @@
 		"auto-download": "Baixar atualização automaticamente",
 		"auto-launch": "Executar na inicialização",
 		"cancel": "Cancelar",
+		"character-name": "Nome do personagem Fallback",
 		"dialog": "Diálogo",
 		"dialog-opacity": "Opacidade da caixa de diálogo",
 		"dialog-spawn-position": {

@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.4 (2020-06-19)
+
+- added 3.11 data
+- added `Character Name` setting as fallback
+
 ## 1.0.3 (2020-06-18)
 
 - fixed a unhandled error if no event data is available

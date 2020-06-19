@@ -182,6 +182,9 @@ export class TradeMessageComponent implements OnInit {
           if (character?.name?.length) {
             return of(character.name);
           }
+          if (this.settings.characterName?.length) {
+            return of(this.settings.characterName);
+          }
           return throwError('character name was not set.');
         })
       ).subscribe(name => this.chat.kick(name), error => {
