@@ -105,6 +105,10 @@
 			"message": "Otwórz okno ustawień, naciskając następujący skrót:",
 			"title": "Ustawienia"
 		},
+		"support": {
+			"message": "Masz pytanie? A może chcesz poprosić o nową funkcję?\n\nSprawdź kartę pomocy w menu ustawień, aby uzyskać dodatkowe informacje.\n\nRównież jeśli podoba Ci się aplikacja, rozważ wsparcie, subskrybując ją.",
+			"title": "Wsparcie"
+		},
 		"thanks": {
 			"message": "Na razie tyle. Mam nadzieję, że podoba Ci się moja aplikacja.\n\n- Z pozdrowieniami, Kyusung4698",
 			"title": "Dziękuję Ci!"

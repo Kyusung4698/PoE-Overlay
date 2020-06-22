@@ -105,6 +105,10 @@
 			"message": "Öffnen Sie das Einstellungsfenster, indem Sie den folgenden Hotkey drücken:",
 			"title": "Einstellungen"
 		},
+		"support": {
+			"message": "Hast du eine Frage? Oder möchten Sie eine neue Funktion anfordern?\n\nWeitere Informationen finden Sie auf der Registerkarte Support im Einstellungsmenü.\n\nWenn Sie die App lieben, können Sie mich durch ein Abonnement unterstützen.",
+			"title": "Unterstützung"
+		},
 		"thanks": {
 			"message": "Das war es fürs Erste. Hoffe dir gefällt meine App.\n\n- Mit freundlichen Grüßen, Kyusung4698",
 			"title": "Vielen Dank!"

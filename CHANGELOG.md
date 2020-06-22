@@ -2,13 +2,15 @@
 
 ## 1.0.5 (2020-06-22)
 
-- added support page with discord and github issues
+- added support page with discord and GitHub issues
+- added colors for life, mana and energy shield pseudo stats
 - added trade filter setting (Incoming & Outgoing, Incoming)
 - added trade layout setting (Top To Bottom, Bottom To Top)
 - added trade window to be transparent if no active trades and the window is pinned
-- update trade action finished to be always shown even if no trade have been initalized
-- fixed a focus issue occuring when using the trade whisper button
-- fixed a sorting issue at the market result list
+- update trade action finished to be always shown even if no trade have been initialized
+- fixed an focus issue occurring when using the trade whisper button
+- fixed an sorting issue at the market result list
+- fixed an issue at the inspect frame not showing dps
 
 ## 1.0.4 (2020-06-19)
 

@@ -105,6 +105,10 @@
 			"message": "Abra la ventana de configuración presionando la siguiente tecla de acceso rápido:",
 			"title": "Ajustes"
 		},
+		"support": {
+			"message": "¿Tienes una pregunta? ¿O quieres solicitar una nueva función?\n\nConsulte la pestaña de soporte en el menú de configuración para obtener más información.\n\nAdemás, si te encanta la aplicación, considera apoyarme suscribiéndote.",
+			"title": "Apoyo"
+		},
 		"thanks": {
 			"message": "Eso es todo por ahora. Espero que disfrutes mi aplicación.\n\n- Saludos cordiales, Kyusung4698",
 			"title": "¡Gracias!"

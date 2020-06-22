@@ -5,7 +5,7 @@
 			"title": "Bookmarks"
 		},
 		"changelog-1-0-5": {
-			"message": "- added support page with discord and github issues\n- added trade filter setting (Incoming & Outgoing, Incoming)\n- added trade layout setting (Top To Bottom, Bottom To Top)\n- added trade window to be transparent if no active trades and the window is pinned\n- update trade action finished to be always shown even if no trade have been initalized\n- fixed a focus issue occuring when using the trade whisper button\n- fixed a sorting issue at the market result list",
+			"message": "- added support page with discord and GitHub issues\n- added colors for life, mana and energy shield pseudo stats\n- added trade filter setting (Incoming & Outgoing, Incoming)\n- added trade layout setting (Top To Bottom, Bottom To Top)\n- added trade window to be transparent if no active trades and the window is pinned\n- update trade action finished to be always shown even if no trade have been initialized\n- fixed an focus issue occurring when using the trade whisper button\n- fixed an sorting issue at the market result list\n- fixed an issue at the inspect frame not showing dps",
 			"title": "What's new in 1.0.5?"
 		},
 		"commands": {
@@ -108,6 +108,10 @@
 			},
 			"message": "Open the settings window by pressing following hotkey:",
 			"title": "Settings"
+		},
+		"support": {
+			"message": "Do you have a question? Or do you want to request a new feature?\n\nCheck the support tab at the settings menu for further information.\n\nAlso if you love the app, consider supporting me by subscribing.",
+			"title": "Support"
 		},
 		"thanks": {
 			"message": "That's it for now. Hope you enjoy my app. \n\n- Best regards, Kyusung4698",

@@ -105,6 +105,10 @@
 			"message": "Ouvrez la fenêtre des paramètres en appuyant sur la touche de raccourci suivante:",
 			"title": "Réglages"
 		},
+		"support": {
+			"message": "As-tu une question? Ou souhaitez-vous demander une nouvelle fonctionnalité?\n\nVérifiez l'onglet d'assistance dans le menu des paramètres pour plus d'informations.\n\nAussi, si vous aimez l'application, pensez à me soutenir en vous abonnant.",
+			"title": "Soutien"
+		},
 		"thanks": {
 			"message": "C'est tout pour le moment. J'espère que vous apprécierez mon application.\n\n- Cordialement, Kyusung4698",
 			"title": "Je vous remercie!"
