@@ -11,14 +11,14 @@ import { TradeFeatureSettings, TradeFilter, TradeLayout } from '@modules/trade/t
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TradeSettingsComponent extends FeatureSettingsComponent<TradeFeatureSettings> {
-  public displayWithVolume = (volume: number) => `${volume}%`;
-
-  public layouts = new EnumValues(TradeLayout);
-  public filters = new EnumValues(TradeFilter);
 
   constructor(private readonly audio: AudioService) {
     super();
   }
+
+  public layouts = new EnumValues(TradeLayout);
+  public filters = new EnumValues(TradeFilter);
+  public displayWithVolume = (volume: number) => `${volume}%`;
 
   public load(): void { }
 

@@ -68,7 +68,7 @@
 			},
 			"filter": {
 				"message": "Klicken Sie auf das hervorgehobene Symbol, um den Filter zu öffnen. Passen Sie die Werte an Ihre Bedürfnisse an.",
-				"title": ""
+				"title": "Filter"
 			},
 			"message": "Auf dem Markt können Sie aufgelistete Gegenstände durchsuchen und Währungen im Spiel austauschen.\n\nKann durch Drücken des folgenden Hotkeys umgeschaltet werden:",
 			"reset": {
@@ -107,7 +107,7 @@
 		},
 		"thanks": {
 			"message": "Das war es fürs Erste. Hoffe dir gefällt meine App.\n\n- Mit freundlichen Grüßen, Kyusung4698",
-			"title": ""
+			"title": "Vielen Dank!"
 		},
 		"trade": {
 			"highlight": {

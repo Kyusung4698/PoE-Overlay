@@ -1,5 +1,5 @@
 <div appResize>
-    <app-header name="PoE Overlay - Inspect">
+    <app-header name="PoE Overlay - Inspect" [fixed]="true">
         <ng-container *ngIf="data$ | async as data">
             <ng-container [ngSwitch]="data.item.category">
                 <app-inspect-map [item]="data.item" [settings]="data.settings" *ngSwitchCase="'map'">

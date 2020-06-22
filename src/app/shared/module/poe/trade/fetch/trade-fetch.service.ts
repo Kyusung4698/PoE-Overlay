@@ -57,7 +57,9 @@ export class TradeFetchService {
                     map(responses => responses
                         .filter(x => x.result?.length)
                         .reduce<TradeFetchHttpResult[]>((a, b) => a.concat(b.result), cached)
-                        .filter(x => x?.id?.length)),
+                        .filter(x => x?.id?.length)
+                        .sort((a, b) => ids.indexOf(a.id) - ids.indexOf(b.id))
+                    ),
                     map(results => results.map(result => {
                         const key = `${CACHE_PREFIX}_${exchange}_${result.id}`;
                         return this.cache.store(key, result, CACHE_EXPIRY);

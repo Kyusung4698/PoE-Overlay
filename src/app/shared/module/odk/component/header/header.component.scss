@@ -24,10 +24,7 @@ $border-color: #1a1a1a;
 }
 
 .header {
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  right: 0;
+  position: relative;
   height: $header-size;
   line-height: $header-size + 2px;
   background: $header-background;
@@ -39,12 +36,19 @@ $border-color: #1a1a1a;
     text-align: center;
   }
 
-  &:not(.reverse) {
-    top: 0;
-  }
+  &.fixed {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    right: 0;
 
-  &.reverse {
-    bottom: 0;
+    &:not(.reverse) {
+      top: 0;
+    }
+
+    &.reverse {
+      bottom: 0;
+    }
   }
 }
 
@@ -84,18 +88,22 @@ $border-color: #1a1a1a;
 }
 
 .content {
+  width: 100%;
+
   &:not(.inline) {
     height: calc(100% - 30px);
   }
-  width: 100%;
-  padding: 30px 0 0 0;
+
+  &.fixed {
+    padding: 30px 0 0 0;
+
+    &.reverse {
+      padding: 0 0 30px 0;
+    }
+  }
 
   &.frame {
     border: 1px solid $border-color;
     border-top: none;
-  }
-
-  &.reverse {
-    padding: 0 0 30px 0;
   }
 }

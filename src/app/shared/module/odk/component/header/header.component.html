@@ -1,4 +1,5 @@
-<div class="header" [style.width.px]="width" [class.reverse]="reverse" (mousedown)="draggable && onDrag($event)">
+<div class="header" [style.width.px]="width" [class.reverse]="reverse" [class.fixed]="fixed"
+    (mousedown)="draggable && onDrag($event)">
     <div class="controls left">
         <ng-content select="controls"></ng-content>
     </div>
@@ -16,6 +17,7 @@
         </mat-icon>
     </div>
 </div>
-<div class="content" [class.frame]="frame" [class.inline]="inline" [style.width.px]="width" [class.reverse]="reverse">
+<div class="content" [class.frame]="frame" [class.inline]="inline" [class.fixed]="fixed" [style.width.px]="width"
+    [class.reverse]="reverse">
     <ng-content></ng-content>
 </div>

@@ -68,7 +68,7 @@
 			},
 			"filter": {
 				"message": "Haga clic en el icono resaltado para abrir el filtro. Ajusta los valores a tu gusto.",
-				"title": ""
+				"title": "Filtrar"
 			},
 			"message": "El mercado te permite navegar por los artículos listados e intercambiar monedas dentro del juego.\n\nSe puede activar presionando la tecla de acceso rápido a continuación:",
 			"reset": {
@@ -107,7 +107,7 @@
 		},
 		"thanks": {
 			"message": "Eso es todo por ahora. Espero que disfrutes mi aplicación.\n\n- Saludos cordiales, Kyusung4698",
-			"title": ""
+			"title": "¡Gracias!"
 		},
 		"trade": {
 			"highlight": {

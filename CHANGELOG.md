@@ -6,8 +6,9 @@
 - added trade filter setting (Incoming & Outgoing, Incoming)
 - added trade layout setting (Top To Bottom, Bottom To Top)
 - added trade window to be transparent if no active trades and the window is pinned
-- update trade action finished to be always shown even if no trade has been initalized
+- update trade action finished to be always shown even if no trade have been initalized
 - fixed a focus issue occuring when using the trade whisper button
+- fixed a sorting issue at the market result list
 
 ## 1.0.4 (2020-06-19)
 

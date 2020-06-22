@@ -2,8 +2,9 @@
     <ng-container *ngIf="getMessages(data) as messages">
         <div class="content" [class.pinned]="data.settings.tradeWindowPinned" [class.active]="messages.length">
             <app-header [name]="'PoE Overlay - Trade (' + messages.length + ')'" [closeable]="false" [pinnable]="true"
-                [frame]="false" [pinned]="data.settings.tradeWindowPinned" [reverse]="data.settings.tradeLayout === 1"
-                (pinnedChange)="onPinnedChange($event)" (settingsToggle)="onSettingsToggle()">
+                [fixed]="true" [frame]="false" [pinned]="data.settings.tradeWindowPinned"
+                [reverse]="data.settings.tradeLayout === 1" (pinnedChange)="onPinnedChange($event)"
+                (settingsToggle)="onSettingsToggle()">
                 <ng-container ngProjectAs="controls">
                     <mat-icon (click)="toggle = !toggle" class="indicator"
                         [class.open]="data.settings.tradeLayout === 1 ? !toggle : toggle">keyboard_arrow_down

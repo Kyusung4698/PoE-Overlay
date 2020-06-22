@@ -68,7 +68,7 @@
 			},
 			"filter": {
 				"message": "Kliknij podświetloną ikonę, aby otworzyć filtr. Dostosuj wartości do swoich potrzeb.",
-				"title": ""
+				"title": "filtr"
 			},
 			"message": "Rynek pozwala przeglądać wymienione przedmioty i wymieniać waluty w grze.\n\nMożna go przełączać, naciskając poniższy skrót:",
 			"reset": {
@@ -107,7 +107,7 @@
 		},
 		"thanks": {
 			"message": "Na razie tyle. Mam nadzieję, że podoba Ci się moja aplikacja.\n\n- Z pozdrowieniami, Kyusung4698",
-			"title": ""
+			"title": "Dziękuję Ci!"
 		},
 		"trade": {
 			"highlight": {

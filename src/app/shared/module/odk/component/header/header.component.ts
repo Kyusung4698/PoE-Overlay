@@ -41,6 +41,9 @@ export class HeaderComponent implements OnInit {
   public reverse = false;
 
   @Input()
+  public fixed = false;
+
+  @Input()
   public frame = true;
 
   @Output()

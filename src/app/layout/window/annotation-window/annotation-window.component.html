@@ -1,5 +1,5 @@
 <div appResize>
-    <app-header name="PoE Overlay" [closeable]="false">
+    <app-header name="PoE Overlay" [closeable]="false" [fixed]="true">
         <ng-container *ngIf="message$ | async as message">
             <app-background>
                 <div class="content">

@@ -68,7 +68,7 @@
 			},
 			"filter": {
 				"message": "Cliquez sur l'icône en surbrillance pour ouvrir le filtre. Ajustez les valeurs à votre guise.",
-				"title": ""
+				"title": "Filtre"
 			},
 			"message": "Le marché vous permet de parcourir les articles listés et d'échanger des devises dans le jeu.\n\nPeut être basculé en appuyant sur la touche de raccourci ci-dessous:",
 			"reset": {
@@ -107,7 +107,7 @@
 		},
 		"thanks": {
 			"message": "C'est tout pour le moment. J'espère que vous apprécierez mon application.\n\n- Cordialement, Kyusung4698",
-			"title": ""
+			"title": "Je vous remercie!"
 		},
 		"trade": {
 			"highlight": {
