@@ -438,12 +438,23 @@
 			"rate": "Limit reached. Please try again later.\nIf this keeps happening please try lowering the fetched item count. "
 		},
 		"fetching": "Found {{total}}. Fetching {{count}} entries...",
+		"filter": "Filter",
+		"filters": {
+			"incoming": "Incoming",
+			"incomingoutgoing": "Incoming & Outgoing"
+		},
+		"layout": "Layout",
+		"layouts": {
+			"bottomtotop": "Bottom To Top",
+			"toptobottom": "Top To Bottom"
+		},
 		"message": {
 			"item-gone": "Item gone message",
 			"still-interested": "Still interested message",
 			"thanks": "Thanks message",
 			"wait": "Wait message"
 		},
+		"messages": "Messages",
 		"name": "Trade",
 		"no-price": "No price",
 		"not-found": "No data found.",

@@ -146,9 +146,10 @@
                 "disable_rightclick": true,
                 "transparent": true,
                 "resizable": true,
+                "override_on_update": true,
                 "size": {
-                    "width": 1212,
-                    "height": 699
+                    "width": 310,
+                    "height": 400
                 }
             },
             "tradehighlight": {

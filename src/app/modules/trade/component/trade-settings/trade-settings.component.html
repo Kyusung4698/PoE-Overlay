@@ -10,6 +10,31 @@
     <div class="row">
         <div class="col-6">
             <mat-form-field>
+                <mat-label>{{'trade.layout' | translate}}</mat-label>
+                <mat-select [(value)]="settings.tradeLayout" (valueChange)="onChange()">
+                    <mat-option *ngFor="let layout of layouts.keys" [value]="layout">
+                        {{'trade.layouts.' + (layouts.values[layout] | lowercase) | translate}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-6">
+            <mat-form-field>
+                <mat-label>{{'trade.filter' | translate}}</mat-label>
+                <mat-select [(value)]="settings.tradeFilter" (valueChange)="onChange()">
+                    <mat-option *ngFor="let filter of filters.keys" [value]="filter">
+                        {{'trade.filters.' + (filters.values[filter] | lowercase) | translate}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+</app-card>
+
+<app-card [title]="'trade.messages' | translate">
+    <div class="row">
+        <div class="col-6">
+            <mat-form-field>
                 <mat-label>{{'trade.message.wait' | translate}}</mat-label>
                 <input matInput [(ngModel)]="settings.tradeMessageWait" (ngModelChange)="onChange()">
             </mat-form-field>

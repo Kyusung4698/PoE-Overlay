@@ -438,12 +438,23 @@
 			"rate": "已達到限制。請稍後再試。\n如果這種情況持續發生，請嘗試減少獲取的物品數。"
 		},
 		"fetching": "已找到 {{total}}。正在獲取 {{count}} 個條目...",
+		"filter": "過濾",
+		"filters": {
+			"incoming": "來",
+			"incomingoutgoing": "進出"
+		},
+		"layout": "佈局",
+		"layouts": {
+			"bottomtotop": "從下到上",
+			"toptobottom": "從上到下"
+		},
 		"message": {
 			"item-gone": "物品消失的消息",
 			"still-interested": "仍然感興趣的消息",
 			"thanks": "謝謝留言",
 			"wait": "等待訊息"
 		},
+		"messages": "消息",
 		"name": "貿易",
 		"no-price": "沒有價格",
 		"not-found": "沒有找到數據。",

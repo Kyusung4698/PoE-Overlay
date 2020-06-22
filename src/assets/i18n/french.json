@@ -438,12 +438,23 @@
 			"rate": "Limite atteinte. Veuillez réessayer plus tard.\nSi cela continue, essayez de réduire le nombre d'articles récupérés."
 		},
 		"fetching": " {{total}}trouvé. Récupération de {{count}} entrées ...",
+		"filter": "Filtre",
+		"filters": {
+			"incoming": "Entrant",
+			"incomingoutgoing": "Entrant sortant"
+		},
+		"layout": "Disposition",
+		"layouts": {
+			"bottomtotop": "De bas en haut",
+			"toptobottom": "De haut en bas"
+		},
 		"message": {
 			"item-gone": "Message d'élément disparu",
 			"still-interested": "Message toujours intéressé",
 			"thanks": "Message de remerciement",
 			"wait": "Message d'attente"
 		},
+		"messages": "messages",
 		"name": "commerce",
 		"no-price": "Pas de prix",
 		"not-found": "Aucune donnée disponible.",

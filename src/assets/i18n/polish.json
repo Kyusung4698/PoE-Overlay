@@ -438,12 +438,23 @@
 			"rate": "Limit osiągnięty. Spróbuj ponownie później.\nJeśli problem nadal występuje, spróbuj zmniejszyć liczbę pobieranych ofert sprzedaży."
 		},
 		"fetching": "Znaleziono {{total}}. Pobieranie {{count}} aukcji ...",
+		"filter": "filtr",
+		"filters": {
+			"incoming": "Przychodzące",
+			"incomingoutgoing": "Przychodzące i wychodzące"
+		},
+		"layout": "Układ",
+		"layouts": {
+			"bottomtotop": "Od dołu do góry",
+			"toptobottom": "Od góry do dołu"
+		},
 		"message": {
 			"item-gone": "Wiadomość zniknęła z produktu",
 			"still-interested": "Wciąż zainteresowana wiadomość",
 			"thanks": "Dzięki wiadomość",
 			"wait": "Wiadomość oczekująca"
 		},
+		"messages": "Wiadomości",
 		"name": "Handel",
 		"no-price": "Bez ceny",
 		"not-found": "Nie znaleziono danych.",

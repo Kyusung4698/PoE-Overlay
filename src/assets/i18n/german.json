@@ -438,12 +438,23 @@
 			"rate": "Limit erreicht. Bitte versuchen Sie es später noch einmal.\nWenn dies weiterhin geschieht, versuchen Sie bitte, die Anzahl der abgerufenen Artikel zu verringern."
 		},
 		"fetching": "Gefunden {{total}}. {{count}} Einträge abrufen ...",
+		"filter": "Filter",
+		"filters": {
+			"incoming": "Eingehend",
+			"incomingoutgoing": "Eingehend und ausgehend"
+		},
+		"layout": "Layout",
+		"layouts": {
+			"bottomtotop": "unten nach oben",
+			"toptobottom": "Oben nach unten"
+		},
 		"message": {
 			"item-gone": "Artikel weg Nachricht",
 			"still-interested": "Immer noch interessierte Nachricht",
 			"thanks": "Danke Nachricht",
 			"wait": "Warte Nachricht"
 		},
+		"messages": "Mitteilungen",
 		"name": "Handel",
 		"no-price": "Kein Preis",
 		"not-found": "Keine Daten gefunden.",

@@ -24,7 +24,10 @@ $border-color: #1a1a1a;
 }
 
 .header {
-  position: relative;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  right: 0;
   height: $header-size;
   line-height: $header-size + 2px;
   background: $header-background;
@@ -34,6 +37,14 @@ $border-color: #1a1a1a;
 
   .name {
     text-align: center;
+  }
+
+  &:not(.reverse) {
+    top: 0;
+  }
+
+  &.reverse {
+    bottom: 0;
   }
 }
 
@@ -76,12 +87,15 @@ $border-color: #1a1a1a;
   &:not(.inline) {
     height: calc(100% - 30px);
   }
-  border: 1px solid $border-color;
-  border-top: none;
   width: 100%;
+  padding: 30px 0 0 0;
 
-  &.scrollable {
-    overflow-x: hidden;
-    overflow-y: auto;
+  &.frame {
+    border: 1px solid $border-color;
+    border-top: none;
+  }
+
+  &.reverse {
+    padding: 0 0 30px 0;
   }
 }

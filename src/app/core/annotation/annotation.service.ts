@@ -90,8 +90,10 @@ const ANNOTATIONS: Annotation[] = [
         expressions: [AnnotationCondition.BookmarkOpened],
         skippable: true
     },
-    // TODO: Hide until sub is ready
-    // { id: 'support' },
+    {
+        id: 'support',
+        hotkey: Hotkey.SettingsToggle
+    },
     { id: 'thanks' }
 ];
 

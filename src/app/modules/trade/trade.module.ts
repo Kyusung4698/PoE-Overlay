@@ -9,7 +9,7 @@ import { BehaviorSubject, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { TradeMessageActionComponent, TradeMessageBulkComponent, TradeMessageComponent, TradeMessageDirectionComponent, TradeMessageItemComponent, TradeMessageMapComponent, TradeMessageMapTierComponent, TradeSettingsComponent } from './component';
 import { TradeHighlightWindowService, TradeService, TradeWindowService } from './service';
-import { TradeFeatureSettings } from './trade-feature-settings';
+import { TradeFeatureSettings, TradeFilter, TradeLayout } from './trade-feature-settings';
 import { TradeHighlightWindowComponent, TradeWindowComponent } from './window';
 
 const WINDOWS = [
@@ -34,7 +34,7 @@ const WINDOWS = [
     imports: [SharedModule]
 })
 export class TradeModule implements FeatureModule<TradeFeatureSettings> {
-    private enabled = false;
+    private settings: TradeFeatureSettings;
 
     constructor(
         private readonly event: EventService,
@@ -42,7 +42,7 @@ export class TradeModule implements FeatureModule<TradeFeatureSettings> {
         private readonly tradeWindow: TradeWindowService,
         private readonly highlightWindow: TradeHighlightWindowService,
         private readonly annotation: AnnotationService,
-        private readonly ngZone: NgZone, ) { }
+        private readonly ngZone: NgZone) { }
 
     public getConfig(): FeatureConfig<TradeFeatureSettings> {
         const config: FeatureConfig<TradeFeatureSettings> = {
@@ -57,7 +57,9 @@ export class TradeModule implements FeatureModule<TradeFeatureSettings> {
                 tradeStashFactor: {},
                 tradeWindowPinned: false,
                 tradeSoundEnabled: true,
-                tradeSoundVolume: 75
+                tradeSoundVolume: 75,
+                tradeFilter: TradeFilter.IncomingOutgoing,
+                tradeLayout: TradeLayout.TopToBottom
             }
         };
         return config;
@@ -76,7 +78,7 @@ export class TradeModule implements FeatureModule<TradeFeatureSettings> {
             this.highlightWindow.close().subscribe();
             this.trade.clear();
         }
-        this.enabled = settings.tradeEnabled;
+        this.settings = settings;
     }
 
     public onInfo(info: RunningGameInfo, settings: TradeFeatureSettings): void {
@@ -91,12 +93,12 @@ export class TradeModule implements FeatureModule<TradeFeatureSettings> {
             this.highlightWindow.close().subscribe();
             this.trade.clear();
         }
-        this.enabled = settings.tradeEnabled;
+        this.settings = settings;
     }
 
     public onLogLineAdd(line: string): void {
-        if (this.enabled) {
-            this.trade.onLogLineAdd(line);
+        if (this.settings?.tradeEnabled) {
+            this.trade.onLogLineAdd(line, this.settings.tradeFilter);
         }
     }
 

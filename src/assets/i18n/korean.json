@@ -438,12 +438,23 @@
 			"rate": "한도에 도달했습니다. 나중에 다시 시도하십시오.\n이 문제가 계속 발생하면 가져온 품목 수를 줄이십시오."
 		},
 		"fetching": " {{total}}을 (를) 찾았습니다. {{count}} 항목을 가져 오는 중 ...",
+		"filter": "필터",
+		"filters": {
+			"incoming": "들어오는",
+			"incomingoutgoing": "수신 및 발신"
+		},
+		"layout": "형세",
+		"layouts": {
+			"bottomtotop": "아래에서 위로",
+			"toptobottom": "위에서 아래로"
+		},
 		"message": {
 			"item-gone": "사라진 항목 메시지",
 			"still-interested": "여전히 관심있는 메시지",
 			"thanks": "감사 메시지",
 			"wait": "대기 메시지"
 		},
+		"messages": "메시지",
 		"name": "무역",
 		"no-price": "가격 없음",
 		"not-found": "데이터가 없습니다.",

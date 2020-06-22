@@ -438,12 +438,23 @@
 			"rate": "Límite alcanzado. Por favor, inténtelo de nuevo más tarde.\nSi esto sigue sucediendo, intente reducir el recuento de elementos recuperados."
 		},
 		"fetching": "Encontrado {{total}}. Obteniendo {{count}} entradas ...",
+		"filter": "Filtrar",
+		"filters": {
+			"incoming": "Entrante",
+			"incomingoutgoing": "Entrante saliente"
+		},
+		"layout": "diseño",
+		"layouts": {
+			"bottomtotop": "Abajo hacia arriba",
+			"toptobottom": "De arriba hacia abajo"
+		},
 		"message": {
 			"item-gone": "Mensaje de artículo desaparecido",
 			"still-interested": "Mensaje aún interesado",
 			"thanks": "Mensaje de agradecimiento",
 			"wait": "Mensaje de espera"
 		},
+		"messages": "Mensajes",
 		"name": "Comercio",
 		"no-price": "Sin precio",
 		"not-found": "Datos no encontrados.",

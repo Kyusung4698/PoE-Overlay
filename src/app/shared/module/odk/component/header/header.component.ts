@@ -20,9 +20,6 @@ export class HeaderComponent implements OnInit {
   public inline = false;
 
   @Input()
-  public scrollable = false;
-
-  @Input()
   public closeable = true;
 
   @Input()
@@ -41,7 +38,10 @@ export class HeaderComponent implements OnInit {
   public width: number;
 
   @Input()
-  public margin: number;
+  public reverse = false;
+
+  @Input()
+  public frame = true;
 
   @Output()
   public settingsToggle = new EventEmitter<void>();

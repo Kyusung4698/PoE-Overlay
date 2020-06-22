@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.5 (2020-06-22)
+
+- added support page with discord and github issues
+- added trade filter setting (Incoming & Outgoing, Incoming)
+- added trade layout setting (Top To Bottom, Bottom To Top)
+- added trade window to be transparent if no active trades and the window is pinned
+- update trade action finished to be always shown even if no trade has been initalized
+- fixed a focus issue occuring when using the trade whisper button
+
 ## 1.0.4 (2020-06-19)
 
 - added 3.11 data

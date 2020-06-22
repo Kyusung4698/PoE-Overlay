@@ -4,7 +4,7 @@ import { FeatureSettingsService } from '@app/feature/feature-settings.service';
 import { SettingsWindowService } from '@layout/service';
 import { TradeWindowData, TradeWindowService } from '@modules/trade/service';
 import { TradeFeatureSettings } from '@modules/trade/trade-feature-settings';
-import { TradeExchangeMessage } from '@shared/module/poe/trade/chat';
+import { TradeExchangeMessage, TradeMessage } from '@shared/module/poe/trade/chat';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
@@ -52,5 +52,9 @@ export class TradeWindowComponent implements OnInit, OnDestroy {
 
   public onSettingsToggle(): void {
     this.settingsWindow.toggle('trade.name').subscribe();
+  }
+
+  public getMessages(data: TradeWindowData): TradeMessage[] {
+    return data.messages.filter(message => !data.removed.includes(message));
   }
 }

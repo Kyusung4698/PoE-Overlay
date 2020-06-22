@@ -34,6 +34,9 @@ export class TradeMessageComponent implements OnInit {
   @Input()
   public settings: TradeFeatureSettings;
 
+  @Input()
+  public even: boolean;
+
   @Output()
   public dismiss = new EventEmitter<void>();
 
@@ -52,6 +55,7 @@ export class TradeMessageComponent implements OnInit {
       this.visible[TradeMessageAction.Wait] = true;
       this.visible[TradeMessageAction.ItemGone] = true;
       this.visible[TradeMessageAction.ItemHighlight] = true;
+      this.visible[TradeMessageAction.Finished] = true;
       if (this.settings.tradeSoundEnabled) {
         this.audio.play(AudioFile.Notification, this.settings.tradeSoundVolume / 100);
       }
@@ -105,12 +109,12 @@ export class TradeMessageComponent implements OnInit {
         this.hideHighlight();
         this.chat.trade(this.message.name);
         this.visible[TradeMessageAction.ItemHighlight] = false;
-        this.visible[TradeMessageAction.Finished] = true;
         break;
       case TradeMessageAction.ItemHighlight:
         this.toggleHighlight();
         break;
       case TradeMessageAction.Whisper:
+        window.blur();
         this.chat.whisper(this.message.name);
         break;
       case TradeMessageAction.Finished:

@@ -1,4 +1,4 @@
-<div class="message" [class.incoming]="message.direction === 'incoming'" [class.toggled]="toggle$ | async"
+<div class="message" [class.even]="even" [class.incoming]="message.direction === 'incoming'" [class.toggled]="toggle$ | async"
     [class.joined]="message.joined$ | async" (click)="toggle$.next(!toggle$.value)"
     [appAnnotation]="'trade.' + message.direction">
     <div class="content">

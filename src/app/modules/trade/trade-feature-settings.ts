@@ -1,5 +1,15 @@
 import { FeatureSettings } from '@app/feature';
 
+export enum TradeLayout {
+    TopToBottom,
+    BottomToTop
+}
+
+export enum TradeFilter {
+    IncomingOutgoing,
+    Incoming
+}
+
 export interface TradeFeatureSettings extends FeatureSettings {
     tradeEnabled: boolean;
     tradeMessageWait: string;
@@ -12,4 +22,6 @@ export interface TradeFeatureSettings extends FeatureSettings {
     };
     tradeSoundEnabled: boolean;
     tradeSoundVolume: number;
+    tradeFilter: TradeFilter;
+    tradeLayout: TradeLayout;
 }

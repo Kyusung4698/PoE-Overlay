@@ -1,19 +1,5 @@
 @import "../../../../../styles/variables";
 
-::ng-deep {
-  app-trade-message {
-    &:nth-child(even) {
-      .message {
-        background: adjust-color($black-transparent, $alpha: -0.2);
-      }
-    }
-
-    & + app-trade-message {
-      margin-top: 1px;
-    }
-  }
-}
-
 :host {
   display: block;
 }
@@ -29,6 +15,10 @@
   border: 1px solid transparent;
   border-left: 6px solid;
   border-left-color: adjust-color($color: $purple, $alpha: -0.1);
+
+  &.even {
+    background: adjust-color($black-transparent, $alpha: -0.2);
+  }
 
   &.joined {
     border-top: 1px solid rgb(50, 205, 50);
@@ -50,6 +40,7 @@
     top: -8px;
     right: -8px;
     display: none;
+    z-index: 1001;
   }
 
   &:hover {
