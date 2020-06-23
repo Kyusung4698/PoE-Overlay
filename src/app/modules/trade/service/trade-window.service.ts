@@ -6,6 +6,7 @@ import { ProcessStorageService } from '@app/storage';
 import { TradeExchangeMessage } from '@shared/module/poe/trade/chat';
 import { Observable } from 'rxjs';
 import { TradeFeatureSettings } from '../trade-feature-settings';
+import { flatMap } from 'rxjs/operators';
 
 const WINDOW_DATA_KEY = 'TRADE_WINDOW_DATA';
 
@@ -39,7 +40,9 @@ export class TradeWindowService {
         const data = this.data$.get();
         data.settings = settings;
         this.data$.next(data);
-        return this.window.restore();
+        return this.window.restore().pipe(
+            flatMap(() => this.window.changeSize(310, 400))
+        );
     }
 
     public close(): Observable<void> {

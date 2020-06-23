@@ -146,7 +146,6 @@
                 "disable_rightclick": true,
                 "transparent": true,
                 "resizable": true,
-                "override_on_update": true,
                 "size": {
                     "width": 310,
                     "height": 400
