@@ -18,10 +18,10 @@ export class MarketExchangeBarComponent {
   public request: TradeExchangeRequest;
 
   @Output()
-  public highlight = new EventEmitter<string>();
+  public requestChange = new EventEmitter<TradeExchangeRequest>();
 
   @Output()
-  public reset = new EventEmitter<TradeExchangeRequest>();
+  public highlight = new EventEmitter<string>();
 
   @Output()
   public toggle = new EventEmitter<boolean>();
@@ -35,7 +35,11 @@ export class MarketExchangeBarComponent {
 
   public onResetClick(request?: TradeExchangeRequest): void {
     this.recordsVisible$.next(false);
-    this.reset.next(request);
+    if (request) {
+      this.requestChange.next(JSON.parse(JSON.stringify(request)));
+    } else {
+      this.requestChange.next();
+    }
   }
 
   public onToggleClick(): void {

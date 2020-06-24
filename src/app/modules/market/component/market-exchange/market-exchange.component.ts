@@ -93,7 +93,7 @@ export class MarketExchangeComponent implements OnInit, OnDestroy {
     this.page$.next(this.page$.value + 1);
   }
 
-  public onReset(request?: TradeExchangeRequest): void {
+  public onRequestChange(request?: TradeExchangeRequest): void {
     this.request = request || DEFAULT_REQUEST();
     this.initSearch();
     this.clear();

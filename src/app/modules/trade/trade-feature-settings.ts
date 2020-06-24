@@ -24,4 +24,5 @@ export interface TradeFeatureSettings extends FeatureSettings {
     tradeSoundVolume: number;
     tradeFilter: TradeFilter;
     tradeLayout: TradeLayout;
+    tradeHeight: number;
 }

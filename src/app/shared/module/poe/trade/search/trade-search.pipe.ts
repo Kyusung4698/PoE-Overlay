@@ -19,7 +19,7 @@ export class TradeSearchTextPipe implements PipeTransform {
                 }
                 parts.push(text.join(' '));
             } else {
-                parts.push('Any')
+                parts.push('Any');
             }
 
             const { filters } = query;
@@ -47,22 +47,22 @@ export class TradeSearchTextPipe implements PipeTransform {
                     const { sockets } = socket_filters.filters;
                     const socket = [];
                     if (sockets.r) {
-                        socket.push(`R${sockets.r}`)
+                        socket.push(`R${sockets.r}`);
                     }
                     if (sockets.g) {
-                        socket.push(`G${sockets.g}`)
+                        socket.push(`G${sockets.g}`);
                     }
                     if (sockets.b) {
-                        socket.push(`B${sockets.b}`)
+                        socket.push(`B${sockets.b}`);
                     }
                     if (sockets.w) {
-                        socket.push(`W${sockets.w}`)
+                        socket.push(`W${sockets.w}`);
                     }
                     if (sockets.min) {
-                        socket.push(`Min${sockets.min}`)
+                        socket.push(`Min${sockets.min}`);
                     }
                     if (sockets.max) {
-                        socket.push(`Max${sockets.max}`)
+                        socket.push(`Max${sockets.max}`);
                     }
                     parts.push(socket.join(' '));
                 } else {
@@ -74,22 +74,22 @@ export class TradeSearchTextPipe implements PipeTransform {
                     const { links } = socket_filters.filters;
                     const link = [];
                     if (links.r) {
-                        link.push(`R${links.r}`)
+                        link.push(`R${links.r}`);
                     }
                     if (links.g) {
-                        link.push(`G${links.g}`)
+                        link.push(`G${links.g}`);
                     }
                     if (links.b) {
-                        link.push(`B${links.b}`)
+                        link.push(`B${links.b}`);
                     }
                     if (links.w) {
-                        link.push(`W${links.w}`)
+                        link.push(`W${links.w}`);
                     }
                     if (links.min) {
-                        link.push(`Min${links.min}`)
+                        link.push(`Min${links.min}`);
                     }
                     if (links.max) {
-                        link.push(`Max${links.max}`)
+                        link.push(`Max${links.max}`);
                     }
                     parts.push(link.join('-'));
                 } else {

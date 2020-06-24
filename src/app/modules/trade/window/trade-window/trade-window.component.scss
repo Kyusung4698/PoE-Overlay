@@ -53,7 +53,7 @@
 .messages {
   display: flex;
   flex-direction: column;
-  min-height: 370px;
+  min-height: calc(100vh - 30px);
   margin-right: 10px;
 
   &.reverse {

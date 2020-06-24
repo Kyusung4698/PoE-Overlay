@@ -6,7 +6,7 @@
             <mat-icon (click)="onWait($event)" *ngIf="visible['wait']">pan_tool</mat-icon>
         </div>
         <div class="title">
-            <div class="name" [title]="message.name">{{message.name | truncateText: 20}}</div>
+            <div class="name" [title]="message.name">{{message.name | truncateText: 30}}</div>
             <div class="spacer"></div>
             <div class="timer">{{message.timeReceived | timer | async}}</div>
         </div>

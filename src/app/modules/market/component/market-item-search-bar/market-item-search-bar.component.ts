@@ -41,13 +41,13 @@ export class MarketItemSearchBarComponent implements OnInit {
   }
 
   @Output()
+  public requestChange = new EventEmitter<TradeSearchRequest>();
+
+  @Output()
   public search = new EventEmitter<void>();
 
   @Output()
   public toggle = new EventEmitter<boolean>();
-
-  @Output()
-  public reset = new EventEmitter<TradeSearchRequest>();
 
   constructor(private readonly items: TradeItemsService) { }
 
@@ -72,7 +72,11 @@ export class MarketItemSearchBarComponent implements OnInit {
 
   public onResetClick(request?: TradeSearchRequest): void {
     this.recordsVisible$.next(false);
-    this.reset.next(request);
+    if (request) {
+      this.requestChange.next(JSON.parse(JSON.stringify(request)));
+    } else {
+      this.requestChange.next();
+    }
   }
 
   public onItemClick(item: TradeItem): void {
@@ -95,7 +99,7 @@ export class MarketItemSearchBarComponent implements OnInit {
     setTimeout(() => {
       this.filterVisible$.next(false);
       this.update();
-    }, 200)
+    }, 200);
   }
 
   private resetRequest(): void {
@@ -124,8 +128,8 @@ export class MarketItemSearchBarComponent implements OnInit {
     if (hasType || hasName) {
       this.items.get().subscribe(items => {
         let found = false;
-        for (let group of items) {
-          for (let item of group.items) {
+        for (const group of items) {
+          for (const item of group.items) {
             if ((!hasType || item.type === type) && (!hasName || item.name === name)) {
               found = true;
               this.setViewValue(item.text);

@@ -18,7 +18,7 @@ export class TradeSettingsComponent extends FeatureSettingsComponent<TradeFeatur
 
   public layouts = new EnumValues(TradeLayout);
   public filters = new EnumValues(TradeFilter);
-  public displayWithVolume = (volume: number) => `${volume}%`;
+  public displayWithPercentage = (volume: number) => `${volume}%`;
 
   public load(): void { }
 

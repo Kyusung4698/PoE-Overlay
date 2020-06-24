@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { StorageCacheService } from '@app/cache';
+import { b64DecodeUnicode } from '@app/helper';
 import { TradeFetchHttpResult } from '@data/poe/schema';
 import { TradeHttpService } from '@data/poe/service';
 import moment from 'moment';
@@ -166,7 +167,7 @@ export class TradeFetchService {
                 },
                 item: {
                     icon: item.icon.replace(/\\/g, ''),
-                    text: text ? atob(text) : '',
+                    text: text ? b64DecodeUnicode(text) : '',
                     hashes: Object
                         .getOwnPropertyNames(hashes || {})
                         .reduce((a, b) => a.concat(hashes[b].map(([hash]) => hash)), [])

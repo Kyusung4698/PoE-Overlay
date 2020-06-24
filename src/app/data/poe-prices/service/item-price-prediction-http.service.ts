@@ -1,5 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { b64EncodeUnicode } from '@app/helper';
 import { environment } from '@env/environment';
 import { Observable, of, throwError } from 'rxjs';
 import { delay, flatMap, retryWhen } from 'rxjs/operators';
@@ -19,7 +20,7 @@ export class ItemPricePredictionHttpService {
     }
 
     public get(leagueId: string, stringifiedItem: string): Observable<ItemPricePredictionResponse> {
-        const base64Item = btoa(stringifiedItem);
+        const base64Item = b64EncodeUnicode(stringifiedItem);
         const encodedLeagueId = encodeURIComponent(leagueId);
         const encodedItem = encodeURIComponent(base64Item);
 
@@ -52,7 +53,7 @@ export class ItemPricePredictionHttpService {
         form.set('max', `${max}`);
         form.set('selector', selector);
         form.set('currency', currencyId);
-        form.set('qitem_text', btoa(stringifiedItem));
+        form.set('qitem_text', b64EncodeUnicode(stringifiedItem));
         form.set('debug', `${environment.production ? 0 : 1}`);
         form.set('source', SOURCE);
 

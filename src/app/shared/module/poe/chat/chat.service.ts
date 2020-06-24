@@ -44,7 +44,7 @@ export class ChatService {
         this.queue$.next({ message, send: true });
     }
 
-    public hideout(name: string): void {        
+    public hideout(name: string): void {
         const message = this.generateMessage('/hideout', name);
         this.queue$.next({ message, send: true });
     }

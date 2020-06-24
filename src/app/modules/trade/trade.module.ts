@@ -59,7 +59,8 @@ export class TradeModule implements FeatureModule<TradeFeatureSettings> {
                 tradeSoundEnabled: true,
                 tradeSoundVolume: 75,
                 tradeFilter: TradeFilter.IncomingOutgoing,
-                tradeLayout: TradeLayout.TopToBottom
+                tradeLayout: TradeLayout.TopToBottom,
+                tradeHeight: 30
             }
         };
         return config;

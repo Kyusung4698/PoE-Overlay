@@ -8,6 +8,20 @@
         </div>
     </div>
     <div class="row">
+        <div class="col-12">
+            <div class="value-range">
+                <label class="label"> {{'trade.height' | translate}}:
+                    {{displayWithPercentage(settings.tradeHeight)}}
+                </label>
+                <div class="slider">
+                    <mat-slider min="10" max="100" step="5" tickInterval="2" [displayWith]="displayWithPercentage"
+                        [(value)]="settings.tradeHeight" (valueChange)="onChange()">
+                    </mat-slider>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-6">
             <mat-form-field>
                 <mat-label>{{'trade.layout' | translate}}</mat-label>
@@ -75,10 +89,10 @@
         <div class="col-12">
             <div class="value-range">
                 <label class="label"> {{'trade.sound.volume' | translate}}:
-                    {{displayWithVolume(settings.tradeSoundVolume)}}
+                    {{displayWithPercentage(settings.tradeSoundVolume)}}
                 </label>
                 <div class="slider">
-                    <mat-slider min="0" max="100" step="5" tickInterval="2" [displayWith]="displayWithVolume"
+                    <mat-slider min="0" max="100" step="5" tickInterval="2" [displayWith]="displayWithPercentage"
                         [(value)]="settings.tradeSoundVolume" (valueChange)="onChange()">
                     </mat-slider>
                     <button mat-raised-button color="primary" (click)="onPlay()">

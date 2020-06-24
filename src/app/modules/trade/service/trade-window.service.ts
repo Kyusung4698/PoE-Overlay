@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { WindowName } from '@app/config';
 import { EventEmitter } from '@app/event';
-import { OWWindow } from '@app/odk';
+import { OWGames, OWWindow } from '@app/odk';
 import { ProcessStorageService } from '@app/storage';
 import { TradeExchangeMessage } from '@shared/module/poe/trade/chat';
 import { Observable } from 'rxjs';
-import { TradeFeatureSettings } from '../trade-feature-settings';
 import { flatMap } from 'rxjs/operators';
+import { TradeFeatureSettings } from '../trade-feature-settings';
 
 const WINDOW_DATA_KEY = 'TRADE_WINDOW_DATA';
 
@@ -41,7 +41,13 @@ export class TradeWindowService {
         data.settings = settings;
         this.data$.next(data);
         return this.window.restore().pipe(
-            flatMap(() => this.window.changeSize(310, 400))
+            flatMap(() => OWGames.getRunningGameInfo().pipe(
+                flatMap(({ height }) => {
+                    const newHeight = Math.round(height * settings.tradeHeight / 100);
+                    console.log(newHeight);
+                    return this.window.changeSize(310, newHeight);
+                })
+            ))
         );
     }
 

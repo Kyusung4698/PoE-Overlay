@@ -100,7 +100,7 @@ export class MarketItemSearchComponent implements OnInit, OnDestroy {
     this.page$.next(this.page$.value + 1);
   }
 
-  public onReset(request?: TradeSearchRequest): void {
+  public onRequestChange(request?: TradeSearchRequest): void {
     this.request = request || DEFAULT_REQUEST();
     this.initSearch();
     this.clear();

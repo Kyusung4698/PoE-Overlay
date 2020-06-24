@@ -2,11 +2,13 @@
 
 ## 1.0.6 (2020-06-25)
 
-- added market search history
-- added trade offer received timer
-- added trade player name
-- added trade go to hideout action
-- added harvest seeds evaluate support
+- added a history for the market search
+- added a received timer at the trade message
+- added the player name at the trade message
+- added a new action to go to the hideout for outgoing trades
+- added support for the new harvest seeds
+- update the height of the trade window to be configurable
+- fixed an issue parsing unicode item data
 - fixed an issue at the market which resulted in crashing the app
 
 ## 1.0.5 (2020-06-23)
