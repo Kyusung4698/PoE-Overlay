@@ -10,6 +10,7 @@ export * from './leagues/trade-leagues.service';
 export * from './search/trade-search';
 export * from './search/trade-search-options';
 export * from './search/trade-search-request.service';
+export * from './search/trade-search.pipe';
 export * from './search/trade-search.service';
 export * from './statics/trade-statics';
 export * from './statics/trade-statics.service';

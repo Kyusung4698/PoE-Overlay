@@ -29,7 +29,8 @@
     left: 0;
     right: 0;
     height: 240px;
-    background: $black-transparent;
+    min-height: 30px;
+    background: $black;
     border: 1px solid $brown;
 
     &.shown {
@@ -52,5 +53,24 @@
         }
       }
     }
+  }
+}
+
+.records {
+  position: absolute;
+  z-index: 2000;
+  top: 35px;
+  left: 0;
+  right: 0;
+  background: $black;
+  border: 1px solid $brown;
+}
+
+.record {
+  padding: $gutter $gutter * 2;
+  cursor: pointer;
+
+  &:hover {
+    background: $light-brown;
   }
 }

@@ -1,5 +1,5 @@
-<app-market-exchange-bar (search)="onSearch()" (toggle)="onToggle($event)" (highlight)="onHighlight($event)"
-    (clear)="onClear()">
+<app-market-exchange-bar [request]="request" (search)="onSearch()" (toggle)="onToggle($event)"
+    (highlight)="onHighlight($event)" (reset)="onReset($event)">
 </app-market-exchange-bar>
 
 <div class="content">

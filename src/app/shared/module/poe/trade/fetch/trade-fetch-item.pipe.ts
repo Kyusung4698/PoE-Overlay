@@ -20,7 +20,11 @@ export class TradeFetchItemPipe implements PipeTransform {
                 return filter;
             }, {})
         );
-        this.processor.process(item, { normalizeQuality: true });
+        if (item) {
+            this.processor.process(item, { normalizeQuality: true });
+        } else {
+            console.warn(`Could not parse item for market. ${fetchItem.text}`);
+        }
         return item;
     }
 }

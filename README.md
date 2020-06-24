@@ -24,10 +24,8 @@ The complete guide with pictures can be found [here](INSTALLING.md).
 | Market        | Search History  | 🚧     |
 | Market        | Save Queries    | 📚     |
 | Market        | Sort Results    | 📚     |
-| Stash         | Highlight Item  | 📚     |
 | Stash         | Filter Category | 📚     |
 | Stash         | Navigation      | ⚡     | Waiting 🐺
-| Trade         | Parsing Offers  | ⚡     | Waiting 🐺
 | Commands      | @latest_whisper | ⚡     | Waiting 🐺
 
 🚧 In Progress 📚 Backlog ⚡ Blocked 🐺 Overwolf 

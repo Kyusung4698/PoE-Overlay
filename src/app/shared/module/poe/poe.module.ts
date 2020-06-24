@@ -10,8 +10,9 @@ import { BaseItemTypePipe } from './item/base-item-type';
 import { ItemFrameComponent, ItemFrameHeaderComponent, ItemFrameInfluencesComponent, ItemFrameLevelRequirementsComponent, ItemFramePropertiesComponent, ItemFrameQueryComponent, ItemFrameSeparatorComponent, ItemFrameSocketsComponent, ItemFrameStateComponent, ItemFrameStatsComponent, ItemFrameValueComponent, ItemFrameValueGroupComponent, ItemFrameValueInputComponent } from './item/frame';
 import { StatGroupPipe, StatTransformPipe } from './item/stat';
 import { WordPipe } from './item/word';
-import { TradeFetchItemPipe, TradeStatsPipe, TradeStatsTypePipe } from './trade';
-import { TradeWhisperTitle } from './trade/chat';
+import { TradeFetchItemPipe, TradeSearchTextPipe, TradeStatsPipe, TradeStatsTypePipe } from './trade';
+import { TradeWhisperTitlePipe } from './trade/chat';
+import { TradeExchangeTextPipe } from './trade/exchange';
 import { TradeStaticFrameComponent, TradeStaticPipe } from './trade/statics';
 
 const COMPONENTS = [
@@ -26,7 +27,9 @@ const PIPES = [
     TradeStatsPipe,
     TradeStatsTypePipe,
     TradeFetchItemPipe,
-    TradeWhisperTitle
+    TradeWhisperTitlePipe,
+    TradeSearchTextPipe,
+    TradeExchangeTextPipe
 ];
 
 @NgModule({

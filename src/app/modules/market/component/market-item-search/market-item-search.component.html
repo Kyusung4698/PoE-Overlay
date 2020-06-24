@@ -1,4 +1,5 @@
-<app-market-item-search-bar [request]="request" (search)="onSearch()" (toggle)="onToggle($event)" (clear)="onClear()">
+<app-market-item-search-bar [request]="request" (search)="onSearch()" (toggle)="onToggle($event)"
+    (reset)="onReset($event)">
 </app-market-item-search-bar>
 
 <div class="content">
@@ -13,8 +14,8 @@
                     <div class="result">
                         <app-market-infinite-scroll *ngIf="last" [root]="root" (visible)="onNext()">
                         </app-market-infinite-scroll>
-                        <div class="item">
-                            <app-item-frame [item]="entry.item | tradeFetchItem"></app-item-frame>
+                        <div class="item" *ngIf="entry.item | tradeFetchItem as item; else empty">
+                            <app-item-frame [item]="item"></app-item-frame>
                         </div>
                         <div class="listing">
                             <app-market-listing-status class="status" [status]="entry.listing.status">

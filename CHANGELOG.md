@@ -1,6 +1,15 @@
 # Changelog
 
-## 1.0.5 (2020-06-22)
+## 1.0.6 (2020-06-25)
+
+- added market search history
+- added trade offer received timer
+- added trade player name
+- added trade go to hideout action
+- added harvest seeds evaluate support
+- fixed an issue at the market which resulted in crashing the app
+
+## 1.0.5 (2020-06-23)
 
 - added support page with discord and GitHub issues
 - added colors for life, mana and energy shield pseudo stats
