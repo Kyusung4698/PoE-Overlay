@@ -63,6 +63,7 @@ export class TradeMessageComponent implements OnInit {
     } else {
       this.toggle$.next(true);
       this.visible[TradeMessageAction.Resend] = true;
+      this.visible[TradeMessageAction.Hideout] = true;
       this.visible[TradeMessageAction.Finished] = true;
       this.visible[TradeMessageAction.ItemHighlight] = this.message.type === TradeParserType.TradeMap;
     }
@@ -123,6 +124,9 @@ export class TradeMessageComponent implements OnInit {
         });
         this.kick();
         this.close();
+        break;
+      case TradeMessageAction.Hideout:
+        this.chat.hideout(this.message.name);
         break;
     }
   }

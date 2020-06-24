@@ -44,6 +44,11 @@ export class ChatService {
         this.queue$.next({ message, send: true });
     }
 
+    public hideout(name: string): void {        
+        const message = this.generateMessage('/hideout', name);
+        this.queue$.next({ message, send: true });
+    }
+
     private init(): void {
         this.queue$.pipe(
             windowTime(350),
@@ -55,9 +60,9 @@ export class ChatService {
                 delay(10),
                 flatMap(text => of(text).pipe(
                     tap(() => OWUtils.sendKeyStroke('Enter')),
-                    delay(10),
+                    delay(15),
                     tap(() => OWUtils.sendKeyStroke('Ctrl+V')),
-                    delay(10),
+                    delay(15),
                     tap(() => {
                         if (event.send) {
                             OWUtils.sendKeyStroke('Enter');
