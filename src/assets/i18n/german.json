@@ -317,6 +317,7 @@
 	},
 	"market": {
 		"bar": {
+			"history": "Geschichte",
 			"reset": "Filter löschen",
 			"search": "Suche",
 			"toggle": "Filter umschalten"

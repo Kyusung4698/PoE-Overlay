@@ -6,7 +6,7 @@
 		},
 		"changelog-1-0-6": {
 			"message": "- added a history for the market search\n- added a received timer at the trade message\n- added the player name at the trade message\n- added a new action to go to the hideout for outgoing trades\n- added support for the new harvest seeds\n- update the height of the trade window to be configurable\n- fixed an issue parsing unicode item data\n- fixed an issue at the market which resulted in crashing the app",
-			"title": "What's new in 1.0.5?"
+			"title": "What's new in 1.0.6?"
 		},
 		"commands": {
 			"message": "All game commands can be bound to hotkeys.\n\nThere are also placeholders like @char available which will be replaced before executing the command.\n\nTry the hotkey below to teleport into your hideout.",
@@ -321,6 +321,7 @@
 	},
 	"market": {
 		"bar": {
+			"history": "History",
 			"reset": "Clear filter",
 			"search": "Search",
 			"toggle": "Toggle filter"

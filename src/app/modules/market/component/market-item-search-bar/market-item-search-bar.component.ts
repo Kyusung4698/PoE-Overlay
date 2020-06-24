@@ -130,7 +130,8 @@ export class MarketItemSearchBarComponent implements OnInit {
         let found = false;
         for (const group of items) {
           for (const item of group.items) {
-            if ((!hasType || item.type === type) && (!hasName || item.name === name)) {
+            if (((hasType && item.type === type) || (!hasType && !item.type)) &&
+              ((hasName && item.name === name) || (!hasName && !item.name))) {
               found = true;
               this.setViewValue(item.text);
               break;

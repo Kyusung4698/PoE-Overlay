@@ -317,6 +317,7 @@
 	},
 	"market": {
 		"bar": {
+			"history": "历史",
 			"reset": "清除筛选",
 			"search": "搜索",
 			"toggle": "切换过滤器"

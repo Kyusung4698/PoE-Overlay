@@ -60,9 +60,9 @@ export class ChatService {
                 delay(10),
                 flatMap(text => of(text).pipe(
                     tap(() => OWUtils.sendKeyStroke('Enter')),
-                    delay(15),
+                    delay(25),
                     tap(() => OWUtils.sendKeyStroke('Ctrl+V')),
-                    delay(15),
+                    delay(25),
                     tap(() => {
                         if (event.send) {
                             OWUtils.sendKeyStroke('Enter');

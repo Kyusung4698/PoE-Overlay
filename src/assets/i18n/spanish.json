@@ -317,6 +317,7 @@
 	},
 	"market": {
 		"bar": {
+			"history": "historia",
 			"reset": "Filtro claro",
 			"search": "Buscar",
 			"toggle": "Filtro de palanca"
