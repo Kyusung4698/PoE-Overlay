@@ -82,6 +82,20 @@
   justify-content: center;
 }
 
+.content {
+  flex-direction: column;
+}
+
+.title {
+  display: flex;
+  color: $light-dark-grey;
+  font-size: 12px;
+}
+
+.spacer {
+  flex-grow: 1;
+}
+
 .actions {
   padding-top: $gutter-half;
 }

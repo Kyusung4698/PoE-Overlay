@@ -424,6 +424,7 @@
 	"trade": {
 		"action": {
 			"finished": "감사와 안녕",
+			"hideout": "판매자 은신처로 이동",
 			"interested": "여전히 관심이 있습니까?",
 			"invite": "초대",
 			"item-gone": "사라진 항목",

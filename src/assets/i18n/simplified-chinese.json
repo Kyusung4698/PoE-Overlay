@@ -424,6 +424,7 @@
 	"trade": {
 		"action": {
 			"finished": "谢谢，再见",
+			"hideout": "前往卖家藏身处",
 			"interested": "还感兴趣吗？",
 			"invite": "邀请",
 			"item-gone": "物品不见了",

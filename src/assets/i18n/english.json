@@ -4,8 +4,8 @@
 			"message": "Opens a webpage on hotkey press in the in-game browser.\n\nTry the hotkey below to open poe.ninja.",
 			"title": "Bookmarks"
 		},
-		"changelog-1-0-5": {
-			"message": "- added support page with discord and GitHub issues\n- added colors for life, mana and energy shield pseudo stats\n- added trade filter setting (Incoming & Outgoing, Incoming)\n- added trade layout setting (Top To Bottom, Bottom To Top)\n- added trade window to be transparent if no active trades and the window is pinned\n- update trade action finished to be always shown even if no trade have been initialized\n- fixed an focus issue occurring when using the trade whisper button\n- fixed an sorting issue at the market result list\n- fixed an issue at the inspect frame not showing dps",
+		"changelog-1-0-6": {
+			"message": "- added market search history\n- added trade offer received timer\n- added trade player name\n- added trade go to hideout action\n- added harvest seeds evaluate support\n- fixed an issue at the market which resulted in crashing the app",
 			"title": "What's new in 1.0.5?"
 		},
 		"commands": {
@@ -428,6 +428,7 @@
 	"trade": {
 		"action": {
 			"finished": "Thanks and Goodbye",
+			"hideout": "Go to seller hideout",
 			"interested": "Still interested?",
 			"invite": "Invite",
 			"item-gone": "Item gone",

@@ -424,6 +424,7 @@
 	"trade": {
 		"action": {
 			"finished": "Obrigado e adeus",
+			"hideout": "Ir para o esconderijo do vendedor",
 			"interested": "Ainda interessado?",
 			"invite": "convite",
 			"item-gone": "Item desaparecido",

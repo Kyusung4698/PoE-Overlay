@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
     name: 'truncateText',
 })
 export class TruncateTextPipe implements PipeTransform {
-    public transform(text: string, length: number, separator: string = '...'): any {
+    public transform(text: string, length: number, separator: string = '...'): string {
         if (text.length < length) {
             return text;
         }
