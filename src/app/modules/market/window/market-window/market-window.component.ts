@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, HostBinding, HostListener } from '@angular/core';
-import { SettingsWindowService } from '@layout/service';
+import { SettingsFeature, SettingsWindowService } from '@layout/service';
 import { MarketWindowService } from '@modules/market/service';
 
 @Component({
@@ -30,6 +30,6 @@ export class MarketWindowComponent {
   }
 
   public onToggleSettings(): void {
-    this.settings.toggle('market.name').subscribe();
+    this.settings.toggle(SettingsFeature.Market).subscribe();
   }
 }

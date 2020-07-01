@@ -276,6 +276,9 @@
 	"event": {
 		"start-error": "게임 이벤트를들을 수 없습니다."
 	},
+	"footer": {
+		"support": "지원하다"
+	},
 	"help": {
 		"browser": "클릭하는 동안 CTRL을 누르고 있으면 기본 브라우저에서 링크가 열립니다.",
 		"browser-title": "기본 브라우저에서 검색을 열려면 어떻게합니까?",
@@ -449,6 +452,7 @@
 			"incoming": "들어오는",
 			"incomingoutgoing": "수신 및 발신"
 		},
+		"height": "신장",
 		"layout": "형세",
 		"layouts": {
 			"bottomtotop": "아래에서 위로",

@@ -276,6 +276,9 @@
 	"event": {
 		"start-error": "No se pudo comenzar a escuchar los eventos del juego."
 	},
+	"footer": {
+		"support": "Apoyo"
+	},
 	"help": {
 		"browser": "Si mantiene presionada la tecla CTRL mientras hace clic, se abrirá el enlace en el navegador predeterminado.",
 		"browser-title": "¿Cómo abro la búsqueda en mi navegador predeterminado?",
@@ -449,6 +452,7 @@
 			"incoming": "Entrante",
 			"incomingoutgoing": "Entrante saliente"
 		},
+		"height": "Altura",
 		"layout": "diseño",
 		"layouts": {
 			"bottomtotop": "Abajo hacia arriba",

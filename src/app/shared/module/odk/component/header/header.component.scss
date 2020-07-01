@@ -2,6 +2,8 @@ $header-background: #131313;
 $header-color: #a3a3a3;
 $header-size: 30px;
 $header-font-size: 14px;
+$footer-size: 14px;
+$footer-font-size: 10px;
 $icon-size: 16px;
 
 $border-color: #1a1a1a;
@@ -23,25 +25,31 @@ $border-color: #1a1a1a;
   }
 }
 
+.footer,
 .header {
   position: relative;
-  height: $header-size;
-  line-height: $header-size + 2px;
   background: $header-background;
   color: $header-color;
-  font-size: $header-font-size;
   font-family: FontinSmallCaps;
-
-  .name {
-    text-align: center;
-  }
 
   &.fixed {
     position: fixed;
     z-index: 1000;
     left: 0;
     right: 0;
+  }
+}
 
+.header {
+  height: $header-size;
+  line-height: $header-size + 2px;
+  font-size: $header-font-size;
+
+  .name {
+    text-align: center;
+  }
+
+  &.fixed {
     &:not(.reverse) {
       top: 0;
     }
@@ -50,6 +58,28 @@ $border-color: #1a1a1a;
       bottom: 0;
     }
   }
+}
+
+.footer {
+  display: flex;
+  height: $footer-size;
+  line-height: $footer-size;
+  font-size: $footer-font-size;
+  padding: 0 3px;
+
+  &.fixed {
+    &:not(.reverse) {
+      bottom: 0;
+    }
+
+    &.reverse {
+      top: 0;
+    }
+  }
+}
+
+.spacer {
+  flex-grow: 1;
 }
 
 .controls {
@@ -91,14 +121,26 @@ $border-color: #1a1a1a;
   width: 100%;
 
   &:not(.inline) {
-    height: calc(100% - 30px);
+    &.has-footer {
+      height: calc(100% - #{$footer-size} - #{$header-size});
+    }
+
+    height: calc(100% - #{$header-size});
   }
 
   &.fixed {
-    padding: 30px 0 0 0;
+    padding: $header-size 0 0 0;
+
+    &.has-footer {
+      padding: $header-size 0 $footer-size - 1px 0;
+    }
 
     &.reverse {
-      padding: 0 0 30px 0;
+      padding: 0 0 $header-size 0;
+
+      &.has-footer {
+        padding: $footer-size 0 $header-size - 1px 0;
+      }
     }
   }
 

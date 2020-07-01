@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.7 (2020-07-01)
+
+- added the version number at the evaluate, inspect and settings window
+- update trade action still interested to be always shown for incoming requests
+- update the market history to only show unique requests
+- fixed an focus issue occurring when using the trade whisper button
+- fixed an issue accessing the clipboard
+- fixed an issue querying the map tier
+
 ## 1.0.6 (2020-06-25)
 
 - added a history for the market search

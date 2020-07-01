@@ -276,6 +276,9 @@
 	"event": {
 		"start-error": "Nie można rozpocząć słuchania wydarzeń z gry."
 	},
+	"footer": {
+		"support": "Wsparcie"
+	},
 	"help": {
 		"browser": "Kliknięcie z wciśniętym klawiszem CTRL, spowoduje otwarcie odnośnika w domyślnej przeglądarce.",
 		"browser-title": "Jak mogę otworzyć wyszukiwanie w domyślnej przeglądarce?",
@@ -449,6 +452,7 @@
 			"incoming": "Przychodzące",
 			"incomingoutgoing": "Przychodzące i wychodzące"
 		},
+		"height": "Wysokość",
 		"layout": "Układ",
 		"layouts": {
 			"bottomtotop": "Od dołu do góry",

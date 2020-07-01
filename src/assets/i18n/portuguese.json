@@ -28,7 +28,7 @@
 				"title": "Propriedades"
 			},
 			"search": {
-				"message": "A pesquisa mostra todas as listagens com base em seus filtros.\n\nVocê pode escolher entre uma exibição gráfica ou de lista.\nA visualização do gráfico agrupa os itens com base no preço e exibe a contagem desses grupos. A exibição em lista simplesmente mostra a listagem classificada pelo valor.\nAmbas as visualizações são filtradas adicionalmente para possíveis fixadores de preços, agrupando sua listagem em uma.\n\nAo clicar em uma listagem - uma nota de preço formatada será copiada para a área de transferência.",
+				"message": "A pesquisa mostra todas as listagens com base nos seus filtros.\n\nVocê pode escolher entre uma exibição gráfica ou de lista.\nA visualização do gráfico agrupa os itens com base no preço e exibe a contagem desses grupos. A exibição em lista simplesmente mostra a listagem classificada pelo valor.\nAs duas visualizações são filtradas adicionalmente para possíveis fixadores de preços, agrupando sua listagem em uma.\n\nAo clicar em uma listagem - uma nota de preço formatada será copiada para a área de transferência.",
 				"title": "Procurar"
 			},
 			"settings": {
@@ -276,6 +276,9 @@
 	"event": {
 		"start-error": "Não foi possível começar a ouvir os eventos do jogo."
 	},
+	"footer": {
+		"support": "Apoio, suporte"
+	},
 	"help": {
 		"browser": "Pressionar CTRL enquanto clica abrirá o link no navegador padrão.",
 		"browser-title": "Como abro a pesquisa no meu navegador padrão?",
@@ -449,6 +452,7 @@
 			"incoming": "Entrada",
 			"incomingoutgoing": "Entrada saída"
 		},
+		"height": "altura",
 		"layout": "Layout",
 		"layouts": {
 			"bottomtotop": "De baixo para cima",

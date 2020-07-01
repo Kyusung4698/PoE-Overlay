@@ -18,6 +18,13 @@
     </div>
 </div>
 <div class="content" [class.frame]="frame" [class.inline]="inline" [class.fixed]="fixed" [style.width.px]="width"
-    [class.reverse]="reverse">
+    [class.reverse]="reverse" [class.has-footer]="footer">
     <ng-content></ng-content>
+</div>
+<div class="footer" [class.reverse]="reverse" [class.fixed]="fixed" *ngIf="footer">
+    <div>v{{version}}</div>
+    <div class="spacer"></div>
+    <div class="clickable" (click)="supportToggle.next()" *ngIf="supportToggle.observers.length">
+        {{'footer.support' | translate}}
+    </div>
 </div>

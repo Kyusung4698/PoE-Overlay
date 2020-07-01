@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output
 import { OWWindow } from '@app/odk';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+import { meta } from './../../../../../../../manifest.json';
 
 @Component({
   selector: 'app-header',
@@ -12,6 +13,8 @@ import { map, shareReplay } from 'rxjs/operators';
 export class HeaderComponent implements OnInit {
   private readonly window = new OWWindow();
   private obtained$: Observable<boolean>;
+
+  public version = meta.version;
 
   @Input()
   public name: string;
@@ -46,8 +49,14 @@ export class HeaderComponent implements OnInit {
   @Input()
   public frame = true;
 
+  @Input()
+  public footer = false;
+
   @Output()
   public settingsToggle = new EventEmitter<void>();
+
+  @Output()
+  public supportToggle = new EventEmitter<void>();
 
   public ngOnInit(): void {
     this.obtained$ = this.window.assureObtained()

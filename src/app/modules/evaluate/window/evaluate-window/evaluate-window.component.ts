@@ -2,12 +2,12 @@ import { ChangeDetectionStrategy, Component, HostListener, NgZone, OnDestroy, On
 import { EventSubscription } from '@app/event';
 import { NotificationService } from '@app/notification';
 import { OWGames } from '@app/odk';
-import { SettingsWindowService } from '@layout/service';
+import { SettingsFeature, SettingsWindowService } from '@layout/service';
 import { EvaluateSelectEvent } from '@modules/evaluate/class';
 import { EvaluateWindowData, EvaluateWindowService } from '@modules/evaluate/service';
 import { StashPriceTagType, StashService } from '@shared/module/poe/stash';
 import { BehaviorSubject, Subject, Subscription } from 'rxjs';
-import { buffer, debounceTime, filter } from 'rxjs/operators';
+import { buffer, debounceTime, filter, flatMap } from 'rxjs/operators';
 
 const DISPOSE_TIMEOUT = 1000 * 15;
 
@@ -54,17 +54,21 @@ export class EvaluateWindowComponent implements OnInit, OnDestroy {
     }
 
     public onToggleSettings(): void {
-        this.settings.toggle('evaluate.name').subscribe();
+        this.settings.toggle(SettingsFeature.Evaluate).subscribe();
+    }
+
+    public onEvaluateSelect(event: EvaluateSelectEvent): void {
+        this.selectQueue.next(event);
+    }
+
+    public onSupportToggle(): void {
+        this.settings.toggle(SettingsFeature.Support).subscribe();
     }
 
     private onMouseUp = (event: overwolf.games.inputTracking.MouseEvent): void => {
         if (event?.onGame) {
             this.ngZone.run(() => this.reset());
         }
-    }
-
-    public onEvaluateSelect(event: EvaluateSelectEvent): void {
-        this.selectQueue.next(event);
     }
 
     private dispose(): void {
@@ -84,17 +88,17 @@ export class EvaluateWindowComponent implements OnInit, OnDestroy {
             buffer(this.selectQueue.pipe(
                 debounceTime(250)
             )),
-            filter(events => events.length > 0)
-        ).subscribe(([event, double]) => {
-            const { amount, currency, count } = event;
-            const type = double ? StashPriceTagType.Negotiable : StashPriceTagType.Exact;
-            this.notification.show(double ? 'evaluate.tag.negotiable' : 'evaluate.tag.exact');
-            this.stash.copyPrice({
-                amount, currency,
-                count, type
-            });
-            this.reset();
-        });
+            filter(events => events.length > 0),
+            flatMap(([event, double]) => {
+                const { amount, currency, count } = event;
+                const type = double ? StashPriceTagType.Negotiable : StashPriceTagType.Exact;
+                this.notification.show(double ? 'evaluate.tag.negotiable' : 'evaluate.tag.exact');
+                return this.stash.copyPrice({
+                    amount, currency,
+                    count, type
+                });
+            })
+        ).subscribe(() => this.reset());
     }
 
     private unregisterQueue(): void {

@@ -53,6 +53,7 @@ export class TradeMessageComponent implements OnInit {
     this.visible[TradeMessageAction.Whisper] = true;
     if (this.message.direction === TradeWhisperDirection.Incoming) {
       this.visible[TradeMessageAction.Wait] = true;
+      this.visible[TradeMessageAction.Interested] = true;
       this.visible[TradeMessageAction.ItemGone] = true;
       this.visible[TradeMessageAction.ItemHighlight] = true;
       this.visible[TradeMessageAction.Finished] = true;
@@ -90,7 +91,6 @@ export class TradeMessageComponent implements OnInit {
           this.chat.whisper(this.message.name, this.settings.tradeMessageWait, context);
         });
         this.visible[TradeMessageAction.Wait] = false;
-        this.visible[TradeMessageAction.Interested] = true;
         break;
       case TradeMessageAction.Interested:
         this.createMessageContext().subscribe(context => {
@@ -109,13 +109,11 @@ export class TradeMessageComponent implements OnInit {
       case TradeMessageAction.Trade:
         this.hideHighlight();
         this.chat.trade(this.message.name);
-        this.visible[TradeMessageAction.ItemHighlight] = false;
         break;
       case TradeMessageAction.ItemHighlight:
         this.toggleHighlight();
         break;
       case TradeMessageAction.Whisper:
-        window.blur();
         this.chat.whisper(this.message.name);
         break;
       case TradeMessageAction.Finished:

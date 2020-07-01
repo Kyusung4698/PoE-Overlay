@@ -4,7 +4,7 @@
     "meta": {
         "name": "PoE Overlay",
         "author": "Kyusung4698",
-        "version": "1.0.6",
+        "version": "1.0.7",
         "minimum-overwolf-version": "0.147.0",
         "description": "Search the market and send trade offers. Get current market values for your item. View insights for maps and items.",
         "dock_button_title": "PoE Overlay",
@@ -146,6 +146,7 @@
                 "disable_rightclick": true,
                 "transparent": true,
                 "resizable": true,
+                "ignore_keyboard_events": true,
                 "size": {
                     "width": 310,
                     "height": 400
@@ -159,6 +160,7 @@
                 "disable_rightclick": true,
                 "transparent": true,
                 "resizable": true,
+                "ignore_keyboard_events": true,
                 "size": {
                     "width": 1212,
                     "height": 699
@@ -290,6 +292,12 @@
             "enable_auto_refresh": true,
             "reload_delay": 1000,
             "filter": "dist/*.*"
+        },
+        "extra-objects": {
+            "clipboard-plugin": {
+                "file": "plugins/dist/clipboard.dll",
+                "class": "overwolf.plugins.clipboard"
+            }
         }
     }
 }

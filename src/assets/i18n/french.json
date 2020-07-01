@@ -28,7 +28,7 @@
 				"title": "Propriétés"
 			},
 			"search": {
-				"message": "La recherche affiche toutes les annonces en fonction de vos filtres.\n\nVous pouvez choisir entre une vue graphique ou une vue de liste.\nLa vue graphique regroupe les articles en fonction de leur prix et affiche le nombre de ces groupes. La vue liste montre simplement la liste triée par le montant.\nLes deux vues sont filtrées supplémentaires pour les fixateurs de prix potentiels en regroupant leur liste en une seule.\n\nEn cliquant sur une liste - une note de prix formatée sera copiée dans votre presse-papiers.",
+				"message": "La recherche affiche toutes les annonces en fonction de vos filtres.\n\nVous pouvez choisir entre une vue graphique ou une vue de liste.\nLa vue graphique regroupe les articles en fonction de leur prix et affiche le nombre de ces groupes. La vue liste affiche simplement la liste triée par montant.\nLes deux vues sont en outre filtrées pour les fixateurs de prix potentiels en regroupant leur liste en une seule.\n\nEn cliquant sur une liste - une note de prix formatée sera copiée dans votre presse-papiers.",
 				"title": "Chercher"
 			},
 			"settings": {
@@ -276,6 +276,9 @@
 	"event": {
 		"start-error": "Impossible de commencer à écouter les événements du jeu."
 	},
+	"footer": {
+		"support": "Soutien"
+	},
 	"help": {
 		"browser": "Maintenir CTRL tout en cliquant ouvrira le lien dans le navigateur par défaut.",
 		"browser-title": "Comment ouvrir la recherche dans mon navigateur par défaut?",
@@ -449,6 +452,7 @@
 			"incoming": "Entrant",
 			"incomingoutgoing": "Entrant sortant"
 		},
+		"height": "la taille",
 		"layout": "Disposition",
 		"layouts": {
 			"bottomtotop": "De bas en haut",

@@ -49,11 +49,14 @@ export class MarketExchangeBarComponent {
 
   public onSearch(): void {
     this.recordsVisible$.next(false);
-    this.records$.value.unshift(JSON.parse(JSON.stringify(this.request)));
-    if (this.records$.value.length > 10) {
-      this.records$.value.pop();
+    const { value } = this.records$;
+    const hash = JSON.stringify(this.request);
+    const records = value.filter(request => JSON.stringify(request) !== hash);
+    records.unshift(JSON.parse(JSON.stringify(this.request)));
+    if (records.length > 10) {
+      records.pop();
     }
-    this.records$.next(this.records$.value);
+    this.records$.next(records);
     this.search.next();
   }
 }

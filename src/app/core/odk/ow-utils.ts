@@ -7,19 +7,6 @@ export class OWUtils {
         overwolf.utils.sendKeyStroke(key);
     }
 
-    public static placeOnClipboard(content: string): void {
-        overwolf.utils.placeOnClipboard(content);
-    }
-
-    public static getFromClipboard(): Observable<string> {
-        const promise = new Promise<string>((resolve) => {
-            overwolf.utils.getFromClipboard(content => {
-                resolve(content);
-            });
-        });
-        return from(promise);
-    }
-
     public static openUrl(url: string, external: boolean): void {
         if (external) {
             return this.openUrlInDefaultBrowser(url);

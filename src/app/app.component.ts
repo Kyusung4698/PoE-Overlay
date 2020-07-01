@@ -47,7 +47,7 @@ export class AppComponent implements OnInit, OnDestroy {
             flatMap(() => OWWindows.getCurrentWindow()),
             retryWhen(errors => errors.pipe(
                 flatMap(error => {
-                    console.warn('An unexpected error occured while loading PoE Overlay.', error.message ?? JSON.stringify(error));
+                    console.warn(`An unexpected error occured while loading PoE Overlay. ${error.message ?? JSON.stringify(error)}`);
                     return OWWindows.displayMessageBox({
                         message_title: 'PoE Overlay could not be loaded.',
                         message_body: 'An unexpected error occured while loading PoE Overlay.\n' +

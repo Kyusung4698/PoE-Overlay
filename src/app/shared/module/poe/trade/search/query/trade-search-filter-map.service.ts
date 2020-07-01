@@ -18,23 +18,35 @@ export class TradeSearchFilterMapService implements TradeSearchFilterService {
 
         const { mapTier } = item.properties;
         if (mapTier) {
-            const { min, max } = mapTier;
-            query.filters.map_filters.filters.map_tier = { min, max };
+            const { min, max, value } = mapTier;
+            query.filters.map_filters.filters.map_tier = {
+                min: min ? min : value,
+                max: max ? max : value
+            };
         }
         const { mapQuantity } = item.properties;
         if (mapQuantity) {
-            const { min, max } = mapQuantity;
-            query.filters.map_filters.filters.map_iiq = { min, max };
+            const { min, max, value } = mapQuantity;
+            query.filters.map_filters.filters.map_iiq = {
+                min: min ? min : value,
+                max: max ? max : value
+            };
         }
         const { mapRarity } = item.properties;
         if (mapRarity) {
-            const { min, max } = mapRarity;
-            query.filters.map_filters.filters.map_iir = { min, max };
+            const { min, max, value } = mapRarity;
+            query.filters.map_filters.filters.map_iir = {
+                min: min ? min : value,
+                max: max ? max : value
+            };
         }
         const { mapPacksize } = item.properties;
         if (mapPacksize) {
-            const { min, max } = mapPacksize;
-            query.filters.map_filters.filters.map_packsize = { min, max };
+            const { min, max, value } = mapPacksize;
+            query.filters.map_filters.filters.map_packsize = {
+                min: min ? min : value,
+                max: max ? max : value
+            };
         }
     }
 }

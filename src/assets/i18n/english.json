@@ -4,9 +4,9 @@
 			"message": "Opens a webpage on hotkey press in the in-game browser.\n\nTry the hotkey below to open poe.ninja.",
 			"title": "Bookmarks"
 		},
-		"changelog-1-0-6": {
-			"message": "- added a history for the market search\n- added a received timer at the trade message\n- added the player name at the trade message\n- added a new action to go to the hideout for outgoing trades\n- added support for the new harvest seeds\n- update the height of the trade window to be configurable\n- fixed an issue parsing unicode item data\n- fixed an issue at the market which resulted in crashing the app",
-			"title": "What's new in 1.0.6?"
+		"changelog-1-0-7": {
+			"message": "- added the version number at the evaluate, inspect and settings window\n- update trade action still interested to be always shown for incoming requests\n- update the market history to only show unique requests\n- fixed an focus issue occurring when using the trade whisper button\n- fixed an issue accessing the clipboard\n- fixed an issue querying the map tier",
+			"title": "What's new in 1.0.7?"
 		},
 		"commands": {
 			"message": "All game commands can be bound to hotkeys.\n\nThere are also placeholders like @char available which will be replaced before executing the command.\n\nTry the hotkey below to teleport into your hideout.",
@@ -32,7 +32,7 @@
 				"title": "Properties"
 			},
 			"search": {
-				"message": "The search show all listings based on your filters.\n\nYou can choose between a graphical or a list view.\nThe graph view groups the items based on their price and displays the count of those groups. The list view simply shows the listing sorted by the amount.\nBoth views are additional filtered for potential price fixers by grouping their listing into one.\n\nBy clicking a listing - a formatted price note will be copied to your clipboard.",
+				"message": "The search shows all listings based on your filters.\n\nYou can choose between a graphical or a list view.\nThe graph view groups the items based on their price and displays the count of those groups. The list view simply shows the listing sorted by the amount.\nBoth views are additionally filtered for potential price fixers by grouping their listing into one.\n\nBy clicking a listing - a formatted price note will be copied to your clipboard.",
 				"title": "Search"
 			},
 			"settings": {
@@ -280,6 +280,9 @@
 	"event": {
 		"start-error": "Could not start listening to game events."
 	},
+	"footer": {
+		"support": "Support"
+	},
 	"help": {
 		"browser": "Holding CTRL while clicking will open the link in the default browser.",
 		"browser-title": "How do i open the search in my default browser?",
@@ -453,6 +456,7 @@
 			"incoming": "Incoming",
 			"incomingoutgoing": "Incoming & Outgoing"
 		},
+		"height": "Height",
 		"layout": "Layout",
 		"layouts": {
 			"bottomtotop": "Bottom To Top",

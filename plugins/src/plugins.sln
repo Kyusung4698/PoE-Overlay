@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "clipboard", "clipboard\clipboard.csproj", "{927E817E-7977-43D2-B6FE-CD95846C1444}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{927E817E-7977-43D2-B6FE-CD95846C1444}.Debug|x64.ActiveCfg = Debug|x64
+		{927E817E-7977-43D2-B6FE-CD95846C1444}.Debug|x64.Build.0 = Debug|x64
+		{927E817E-7977-43D2-B6FE-CD95846C1444}.Release|x64.ActiveCfg = Release|x64
+		{927E817E-7977-43D2-B6FE-CD95846C1444}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {39C6446F-AC73-49CB-B8EE-7EBFE90E4C2B}
+	EndGlobalSection
+EndGlobal

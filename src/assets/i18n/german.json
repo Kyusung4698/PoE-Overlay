@@ -28,7 +28,7 @@
 				"title": "Eigenschaften"
 			},
 			"search": {
-				"message": "Die Suche zeigt alle Einträge basierend auf Ihren Filtern.\n\nSie können zwischen einer grafischen oder einer Listenansicht wählen.\nIn der Diagrammansicht werden die Artikel anhand ihres Preises gruppiert und die Anzahl dieser Gruppen angezeigt. Die Listenansicht zeigt einfach die Auflistung sortiert nach dem Betrag.\nBeide Ansichten werden zusätzlich nach potenziellen Preisfixierern gefiltert, indem ihre Auflistung in einer zusammengefasst wird.\n\nDurch Klicken auf eine Liste wird eine formatierte Preisnotiz in Ihre Zwischenablage kopiert.",
+				"message": "Die Suche zeigt alle Einträge basierend auf Ihren Filtern.\n\nSie können zwischen einer grafischen oder einer Listenansicht wählen.\nIn der Diagrammansicht werden die Artikel anhand ihres Preises gruppiert und die Anzahl dieser Gruppen angezeigt. Die Listenansicht zeigt einfach die Auflistung sortiert nach dem Betrag.\nBeide Ansichten werden zusätzlich nach potenziellen Preisfixierern gefiltert, indem ihre Auflistung in einer zusammengefasst wird.\n\nDurch Klicken auf eine Auflistung wird eine formatierte Preisnotiz in Ihre Zwischenablage kopiert.",
 				"title": "Suche"
 			},
 			"settings": {
@@ -276,6 +276,9 @@
 	"event": {
 		"start-error": "Spielereignisse konnten nicht angehört werden."
 	},
+	"footer": {
+		"support": "Unterstützung"
+	},
 	"help": {
 		"browser": "Wenn Sie beim Klicken die STRG-Taste gedrückt halten, wird der Link im Standardbrowser geöffnet.",
 		"browser-title": "Wie öffne ich die Suche in meinem Standardbrowser?",
@@ -449,6 +452,7 @@
 			"incoming": "Eingehend",
 			"incomingoutgoing": "Eingehend und ausgehend"
 		},
+		"height": "Höhe",
 		"layout": "Layout",
 		"layouts": {
 			"bottomtotop": "unten nach oben",

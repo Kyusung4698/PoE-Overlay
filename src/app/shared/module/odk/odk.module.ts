@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 import { MaterialModule } from '../material/material.module';
 import { HeaderComponent } from './component';
 import { ResizeDirective } from './directive';
@@ -20,7 +21,7 @@ const COMPONENTS = [
 
 @NgModule({
     declarations: [...DIRECTIVES, ...PIPES, ...COMPONENTS],
-    imports: [CommonModule, MaterialModule],
+    imports: [CommonModule, TranslateModule, MaterialModule],
     exports: [...DIRECTIVES, ...PIPES, ...COMPONENTS]
 })
 export class OdkModule { }

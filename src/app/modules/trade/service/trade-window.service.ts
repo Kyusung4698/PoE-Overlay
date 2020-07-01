@@ -44,7 +44,6 @@ export class TradeWindowService {
             flatMap(() => OWGames.getRunningGameInfo().pipe(
                 flatMap(({ height }) => {
                     const newHeight = Math.round(height * settings.tradeHeight / 100);
-                    console.log(newHeight);
                     return this.window.changeSize(310, newHeight);
                 })
             ))
