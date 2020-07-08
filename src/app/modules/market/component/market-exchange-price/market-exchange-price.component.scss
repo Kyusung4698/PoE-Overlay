@@ -2,8 +2,6 @@
 
 ::ng-deep {
   app-market-exchange-price {
-    display: flex;
-
     &:nth-child(even) {
       > .item,
       > .values,
@@ -16,6 +14,20 @@
       margin-top: $gutter-half;
       margin-bottom: 0;
     }
+  }
+}
+
+:host {
+  display: flex;
+  opacity: 1;
+  transition: all 0.2s ease-in;
+
+  &.whispered {
+    opacity: 0.3;
+  }
+
+  &:hover {
+    opacity: 1;
   }
 }
 

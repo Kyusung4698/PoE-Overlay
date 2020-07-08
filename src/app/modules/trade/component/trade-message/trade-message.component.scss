@@ -21,9 +21,9 @@
   }
 
   &.joined {
-    border-top: 1px solid rgb(50, 205, 50);
-    border-right: 1px solid rgb(50, 205, 50);
-    border-bottom: 1px solid rgb(50, 205, 50);
+    border-top: 1px solid $lime;
+    border-right: 1px solid $lime;
+    border-bottom: 1px solid $lime;
   }
 
   &.incoming {

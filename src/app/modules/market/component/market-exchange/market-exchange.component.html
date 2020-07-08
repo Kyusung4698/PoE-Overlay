@@ -13,7 +13,7 @@
                 <div class="header-spacer"></div>
                 <ng-container *ngFor="let entry of result.entries;trackBy:trackResult; let last = last">
                     <app-market-exchange-price [status]="entry.listing.status" [price]="entry.listing.price"
-                        (send)="onSend(entry.listing.whisper, $event)"></app-market-exchange-price>
+                        (whisper)="onWhisper(entry.listing.whisper, $event)"></app-market-exchange-price>
                     <app-market-infinite-scroll *ngIf="last" [root]="root" (visible)="onNext()">
                     </app-market-infinite-scroll>
                 </ng-container>

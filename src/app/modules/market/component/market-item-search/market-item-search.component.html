@@ -14,25 +14,8 @@
                     <div class="result">
                         <app-market-infinite-scroll *ngIf="last" [root]="root" (visible)="onNext()">
                         </app-market-infinite-scroll>
-                        <div class="item" *ngIf="entry.item | tradeFetchItem as item; else empty">
-                            <app-item-frame [item]="item"></app-item-frame>
-                        </div>
-                        <div class="listing">
-                            <app-market-listing-status class="status" [status]="entry.listing.status">
-                            </app-market-listing-status>
-                            <div class="spacer"></div>
-                            <div class="currency">
-                                <app-currency-frame [currency]="entry.listing.price.currency"
-                                    [amount]="entry.listing.price.amount">
-                                </app-currency-frame>
-                            </div>
-                            <div class="spacer"></div>
-                            <div class="actions">
-                                <button mat-button (click)="onSend(entry.listing)">
-                                    <mat-icon>send</mat-icon>
-                                </button>
-                            </div>
-                        </div>
+                        <app-market-item-search-result [entry]="entry" (whisper)="onWhisper($event)">
+                        </app-market-item-search-result>
                     </div>
                 </ng-container>
                 <ng-container *ngIf="fetching$ | async">

@@ -6,6 +6,7 @@ import { MarketExchangeBarComponent, MarketExchangeComponent, MarketExchangeFilt
 import { MarketFeatureSettings } from './market-feature-settings';
 import { MarketWindowService } from './service';
 import { MarketWindowComponent } from './window';
+import { MarketItemSearchResultComponent } from './component/market-item-search-result/market-item-search-result.component';
 
 @NgModule({
     providers: [{ provide: FEATURE_MODULES, useClass: MarketModule, multi: true }],
@@ -45,6 +46,7 @@ import { MarketWindowComponent } from './window';
         MarketExchangePriceComponent,
         MarketExchangeFilterComponent,
         MarketExchangeFilterItemComponent,
+        MarketItemSearchResultComponent,
     ],
     exports: [MarketWindowComponent],
     imports: [SharedModule]

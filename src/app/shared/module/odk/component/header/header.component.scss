@@ -121,6 +121,14 @@ $border-color: #1a1a1a;
   width: 100%;
   height: 100%;
 
+  &:not(.fixed) {
+    &.has-footer {
+      height: calc(100% - #{$footer-size} - #{$header-size});
+    }
+
+    height: calc(100% - #{$header-size});
+  }
+
   &.fixed {
     padding: $header-size 0 0 0;
 

@@ -4,6 +4,7 @@
 
 - added a new hotkey (default on F10) to manually capture replays
 - added a toggle to disable the leaving of a party via kick using the trade finished action
+- added a opacity to market results once they have been requested
 - fixed an issue at the market type filter resulting in a unknown category error
 
 ## 1.0.7 (2020-07-01)
