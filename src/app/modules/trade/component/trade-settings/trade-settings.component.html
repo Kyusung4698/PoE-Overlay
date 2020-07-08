@@ -7,7 +7,7 @@
             </mat-slide-toggle>
         </div>
     </div>
-    <div class="row">        
+    <div class="row">
         <div class="col-4">
             <mat-form-field>
                 <mat-label>{{'trade.filter' | translate}}</mat-label>
@@ -105,6 +105,10 @@
                     <button mat-raised-button color="primary" (click)="onPlay()">
                         <mat-icon>play_arrow</mat-icon>
                     </button>
+                    <button mat-raised-button color="primary" (click)="onSelect(fileInput)">
+                        <mat-icon>audiotrack</mat-icon>
+                    </button>
+                    <input hidden (change)="onSelected(fileInput)" #fileInput type="file" accept="audio/wav">
                 </div>
             </div>
         </div>

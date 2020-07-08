@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { AudioFile, AudioService } from '@app/audio';
+import { AudioService } from '@app/audio';
 import { Roman } from '@app/helper';
 import { NotificationService } from '@app/notification';
 import { TradeMessageAction, TradeMessageActionState } from '@modules/trade/class';
@@ -58,7 +58,7 @@ export class TradeMessageComponent implements OnInit {
       this.visible[TradeMessageAction.ItemHighlight] = true;
       this.visible[TradeMessageAction.Finished] = true;
       if (this.settings.tradeSoundEnabled) {
-        this.audio.play(AudioFile.Notification, this.settings.tradeSoundVolume / 100);
+        this.audio.play(this.settings.tradeSound, this.settings.tradeSoundVolume / 100);
       }
       this.event.isHideout().subscribe(value => this.toggle$.next(value));
     } else {

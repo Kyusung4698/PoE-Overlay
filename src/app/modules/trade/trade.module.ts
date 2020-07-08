@@ -1,5 +1,6 @@
 import { NgModule, NgZone } from '@angular/core';
 import { AnnotationService } from '@app/annotation';
+import { AudioFile } from '@app/audio';
 import { Feature, FeatureConfig, FeatureModule, FEATURE_MODULES } from '@app/feature';
 import { RunningGameInfo } from '@app/odk';
 import { EventService } from '@shared/module/poe/event';
@@ -61,7 +62,8 @@ export class TradeModule implements FeatureModule<TradeFeatureSettings> {
                 tradeSoundVolume: 75,
                 tradeFilter: TradeFilter.IncomingOutgoing,
                 tradeLayout: TradeLayout.TopToBottom,
-                tradeHeight: 30
+                tradeHeight: 30,
+                tradeSound: AudioFile.Notification
             }
         };
         return config;

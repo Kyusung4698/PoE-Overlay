@@ -1,10 +1,12 @@
 # Changelog
 
-## 1.0.8 (2020-07-05)
+## 1.0.8 (2020-07-09)
 
+- added support for the new cluster jewels stats
 - added a new hotkey (default on F10) to manually capture replays
 - added a toggle to disable the leaving of a party via kick using the trade finished action (#774)
-- added a lower opacity to market results once they have been requested (#780)
+- added a audio button at the trade settings to customize the notification sound (#786)
+- added a lower opacity for market results once they have been requested (#780)
 - added the seller name for items and bulk exchanges at the market (#773)
 - fixed an issue at the market type filter resulting in a unknown category error (#793)
 
