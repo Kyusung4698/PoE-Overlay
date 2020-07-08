@@ -24,6 +24,9 @@ export class MarketExchangePriceComponent implements OnInit {
   public status: string;
 
   @Input()
+  public seller: string;
+
+  @Input()
   public price: TradeFetchListingPrice;
 
   @Output()

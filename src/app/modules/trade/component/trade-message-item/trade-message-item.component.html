@@ -1,5 +1,5 @@
 <div class="item" [class.reverse]="message.direction === 'outgoing'">
-    <div class="name" [title]="message.itemName">{{message.itemName | truncateText: 18}}</div>
+    <div class="name" [title]="message.itemName">{{message.itemName | truncateText: 17}}</div>
     <app-trade-message-direction></app-trade-message-direction>
     <div class="price">
         <ng-container *ngIf="message.price && message.currencyType; else empty">

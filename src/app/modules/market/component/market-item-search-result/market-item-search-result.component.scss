@@ -54,12 +54,6 @@
   margin: 0 $gutter-half;
   min-height: 100px;
 
-  > .status {
-    position: absolute;
-    top: $gutter-half;
-    right: $gutter-half;
-  }
-
   > div {
     display: flex;
     flex-direction: row;

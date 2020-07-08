@@ -2,7 +2,7 @@
     <app-item-frame [item]="item"></app-item-frame>
 </div>
 <div class="listing" *ngIf="entry.listing as listing">
-    <app-market-listing-status class="status" [status]="listing.status">
+    <app-market-listing-status class="status" [status]="listing.status" [seller]="listing.seller">
     </app-market-listing-status>
     <div class="spacer"></div>
     <div class="currency">

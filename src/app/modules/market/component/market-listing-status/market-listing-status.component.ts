@@ -8,5 +8,8 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 })
 export class MarketListingStatusComponent {
   @Input()
+  public seller: string;
+
+  @Input()
   public status: string;
 }
