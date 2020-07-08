@@ -2,6 +2,7 @@
 
 ## 1.0.8 (2020-07-05)
 
+- added a new hotkey (default on F10) to manually capture replays
 - fixed an issue at the market type filter resulting in a unknown category error
 
 ## 1.0.7 (2020-07-01)

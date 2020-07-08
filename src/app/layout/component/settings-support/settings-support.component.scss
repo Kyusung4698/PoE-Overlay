@@ -3,8 +3,7 @@
 p {
   color: $label-color;
   font-size: 13px;
-  margin: 0 0 $gutter 0;
-  height: 40px;
+  margin: 0 0 $gutter * 2 0;
 }
 
 button {

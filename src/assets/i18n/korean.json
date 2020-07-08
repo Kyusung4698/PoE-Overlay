@@ -367,6 +367,7 @@
 		"death": "죽음의 사건",
 		"future-duration": "향후 기간",
 		"kill": "킬 이벤트",
+		"manually": "수동으로",
 		"name": "다시 하다",
 		"past-duration": "지난 기간",
 		"start-error": "이벤트 캡처를 시작할 수 없습니다.",

@@ -367,6 +367,7 @@
 		"death": "Evento de muerte",
 		"future-duration": "Duración futura",
 		"kill": "Evento de muerte",
+		"manually": "a mano",
 		"name": "Repetición",
 		"past-duration": "Duración pasada",
 		"start-error": "No se pudo iniciar la captura de eventos.",

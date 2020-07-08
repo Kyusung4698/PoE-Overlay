@@ -371,6 +371,7 @@
 		"death": "Death event",
 		"future-duration": "Future duration",
 		"kill": "Kill event",
+		"manually": "Manually",
 		"name": "Replay",
 		"past-duration": "Past duration",
 		"start-error": "The events capturing could not be started.",

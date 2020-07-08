@@ -270,9 +270,14 @@
                 "action-type": "custom"
             },
             "misc-stash-highlight": {
-                "title": "Highlight Item in Stash",
+                "title": "Highlight a item in stash",
                 "action-type": "custom",
                 "default": "Alt+F"
+            },
+            "replay-manually": {
+                "title": "Capture a replay manually",
+                "action-type": "custom",
+                "default": "F10"
             }
         },
         "externally_connectable": {

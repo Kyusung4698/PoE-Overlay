@@ -367,6 +367,7 @@
 		"death": "Todesereignis",
 		"future-duration": "Zukünftige Dauer",
 		"kill": "Tötungsereignis",
+		"manually": "Manuell",
 		"name": "Wiederholung",
 		"past-duration": "Vergangene Dauer",
 		"start-error": "Die Ereigniserfassung konnte nicht gestartet werden.",

@@ -119,27 +119,20 @@ $border-color: #1a1a1a;
 
 .content {
   width: 100%;
-
-  &:not(.inline) {
-    &.has-footer {
-      height: calc(100% - #{$footer-size} - #{$header-size});
-    }
-
-    height: calc(100% - #{$header-size});
-  }
+  height: 100%;
 
   &.fixed {
     padding: $header-size 0 0 0;
 
     &.has-footer {
-      padding: $header-size 0 $footer-size - 1px 0;
+      padding: $header-size 0 $footer-size 0;
     }
 
     &.reverse {
       padding: 0 0 $header-size 0;
 
       &.has-footer {
-        padding: $footer-size 0 $header-size - 1px 0;
+        padding: $footer-size 0 $header-size 0;
       }
     }
   }

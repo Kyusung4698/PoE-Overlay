@@ -367,6 +367,7 @@
 		"death": "死亡事件",
 		"future-duration": "未來幾秒內",
 		"kill": "擊殺事件",
+		"manually": "手動地",
 		"name": "重播",
 		"past-duration": "過去幾秒內",
 		"start-error": "無法開始事件獲取。",

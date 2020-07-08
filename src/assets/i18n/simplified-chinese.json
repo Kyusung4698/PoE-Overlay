@@ -367,6 +367,7 @@
 		"death": "死亡事件",
 		"future-duration": "未来持续时间",
 		"kill": "杀死事件",
+		"manually": "手动地",
 		"name": "重播",
 		"past-duration": "过去的持续时间",
 		"start-error": "无法开始事件捕获。",

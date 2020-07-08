@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { Hotkey } from '@app/config';
 import { Feature, FeatureConfig, FeatureModule, FEATURE_MODULES } from '@app/feature';
 import { NotificationService } from '@app/notification';
 import { GameEvent, RunningGameInfo } from '@app/odk';
@@ -35,22 +36,43 @@ export class ReplayModule implements FeatureModule<ReplayFeatureSettings> {
                 replayCaptureDeathPastDuration: 8,
                 replayCaptureKill: false,
                 replayCaptureKillFutureDuration: 3,
-                replayCaptureKillPastDuration: 5
+                replayCaptureKillPastDuration: 5,
+                replayCaptureManually: false,
+                replayCaptureManuallyFutureDuration: 0,
+                replayCaptureManuallyPastDuration: 10,
             }
         };
         return config;
     }
 
     public getFeatures(): Feature[] {
-        const features: Feature[] = [];
+        const features: Feature[] = [
+            { hotkey: Hotkey.ReplayManually }
+        ];
         return features;
     }
 
     public onSettingsChange(settings: ReplayFeatureSettings): void {
-        const shouldCapture = settings.replayCaptureDeath || settings.replayCaptureKill;
+        const shouldCapture = settings.replayCaptureManually || settings.replayCaptureDeath || settings.replayCaptureKill;
         if (shouldCapture !== this.shouldCapture) {
             this.shouldCapture = shouldCapture;
             this.updateCapturing();
+        }
+    }
+
+    public onKeyPressed(hotkey: Hotkey, settings: ReplayFeatureSettings): void {
+        switch (hotkey) {
+            case Hotkey.ReplayManually:
+                if (settings.replayCaptureManually) {
+                    this.replay.capture(
+                        settings.replayCaptureManuallyPastDuration,
+                        settings.replayCaptureManuallyFutureDuration
+                    ).subscribe(() => { }, error => {
+                        console.warn('Could not capture a manually triggered event.', error);
+                        this.notification.show('replay.capture-error');
+                    });
+                }
+                break;
         }
     }
 
@@ -82,12 +104,12 @@ export class ReplayModule implements FeatureModule<ReplayFeatureSettings> {
     }
 
     public onInfo(info: RunningGameInfo, settings: ReplayFeatureSettings): void {
-        const shouldCapture = settings.replayCaptureDeath || settings.replayCaptureKill;
+        const shouldCapture = settings.replayCaptureManually || settings.replayCaptureDeath || settings.replayCaptureKill;
         const { isRunning } = info;
         if (shouldCapture !== this.shouldCapture
             || isRunning !== this.isRunning) {
             this.isRunning = info.isRunning;
-            this.shouldCapture = settings.replayCaptureDeath || settings.replayCaptureKill;
+            this.shouldCapture = shouldCapture;
             this.updateCapturing();
         }
     }
