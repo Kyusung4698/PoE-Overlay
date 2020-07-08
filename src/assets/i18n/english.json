@@ -443,6 +443,7 @@
 			"wait": "Wait?",
 			"whisper": "Whisper"
 		},
+		"actions": "Actions",
 		"analyzing": "Analyzing data...",
 		"empty": "No results. Open in browser?",
 		"enabled": "Enabled",
@@ -463,6 +464,7 @@
 			"bottomtotop": "Bottom To Top",
 			"toptobottom": "Top To Bottom"
 		},
+		"leave-party": "Leave party once finished",
 		"message": {
 			"item-gone": "Item gone message",
 			"still-interested": "Still interested message",

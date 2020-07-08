@@ -439,6 +439,7 @@
 			"wait": "¿Espere?",
 			"whisper": "Susurro"
 		},
+		"actions": "Comportamiento",
 		"analyzing": "Analizando datos ...",
 		"empty": "No hay resultados. ¿Abierta en el navegador?",
 		"enabled": "Habilitado",
@@ -459,6 +460,7 @@
 			"bottomtotop": "Abajo hacia arriba",
 			"toptobottom": "De arriba hacia abajo"
 		},
+		"leave-party": "Salir de fiesta una vez terminado",
 		"message": {
 			"item-gone": "Mensaje de artículo desaparecido",
 			"still-interested": "Mensaje aún interesado",

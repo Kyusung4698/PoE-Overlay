@@ -439,6 +439,7 @@
 			"wait": "等待？",
 			"whisper": "耳語"
 		},
+		"actions": "動作",
 		"analyzing": "正在分析數據...",
 		"empty": "查無結果。是否瀏覽器中打開？",
 		"enabled": "啟用",
@@ -459,6 +460,7 @@
 			"bottomtotop": "從下到上",
 			"toptobottom": "從上到下"
 		},
+		"leave-party": "離開聚會一旦結束",
 		"message": {
 			"item-gone": "物品消失的消息",
 			"still-interested": "仍然感興趣的消息",

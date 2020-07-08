@@ -439,6 +439,7 @@
 			"wait": "等待？",
 			"whisper": "耳语"
 		},
+		"actions": "操作",
 		"analyzing": "正在分析数据...",
 		"empty": "没有结果。在浏览器中打开？",
 		"enabled": "启用",
@@ -459,6 +460,7 @@
 			"bottomtotop": "从下到上",
 			"toptobottom": "从上到下"
 		},
+		"leave-party": "离开聚会一旦结束",
 		"message": {
 			"item-gone": "物品消失的消息",
 			"still-interested": "仍然感兴趣的消息",

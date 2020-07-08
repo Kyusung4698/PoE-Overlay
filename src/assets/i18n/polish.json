@@ -439,6 +439,7 @@
 			"wait": "Czekać?",
 			"whisper": "Szept"
 		},
+		"actions": "działania",
 		"analyzing": "Analiza danych ...",
 		"empty": "Brak wyników. Otworzyć w przeglądarce?",
 		"enabled": "Włączone",
@@ -459,6 +460,7 @@
 			"bottomtotop": "Od dołu do góry",
 			"toptobottom": "Od góry do dołu"
 		},
+		"leave-party": "Po zakończeniu opuść imprezę",
 		"message": {
 			"item-gone": "Wiadomość zniknęła z produktu",
 			"still-interested": "Wciąż zainteresowana wiadomość",

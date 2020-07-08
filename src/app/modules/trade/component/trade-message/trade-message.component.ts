@@ -120,7 +120,9 @@ export class TradeMessageComponent implements OnInit {
         this.createMessageContext().subscribe(context => {
           this.chat.whisper(this.message.name, this.settings.tradeMessageThanks, context);
         });
-        this.kick();
+        if (this.settings.tradeLeaveParty) {
+          this.leaveParty();
+        }
         this.close();
         break;
       case TradeMessageAction.Hideout:
@@ -181,7 +183,7 @@ export class TradeMessageComponent implements OnInit {
     this.highlightWindow.close().subscribe();
   }
 
-  private kick(): void {
+  private leaveParty(): void {
     if (this.message.direction === TradeWhisperDirection.Outgoing) {
       this.event.getCharacter().pipe(
         flatMap(character => {

@@ -439,6 +439,7 @@
 			"wait": "Attendre?",
 			"whisper": "Chuchotement"
 		},
+		"actions": "actes",
 		"analyzing": "Analyse des données ...",
 		"empty": "Aucun résultat. Ouvrir dans le navigateur?",
 		"enabled": "Activée",
@@ -459,6 +460,7 @@
 			"bottomtotop": "De bas en haut",
 			"toptobottom": "De haut en bas"
 		},
+		"leave-party": "Quitter la fête une fois terminé",
 		"message": {
 			"item-gone": "Message d'élément disparu",
 			"still-interested": "Message toujours intéressé",

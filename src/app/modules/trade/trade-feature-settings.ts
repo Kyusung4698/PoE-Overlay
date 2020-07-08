@@ -12,6 +12,7 @@ export enum TradeFilter {
 
 export interface TradeFeatureSettings extends FeatureSettings {
     tradeEnabled: boolean;
+    tradeLeaveParty: boolean;
     tradeMessageWait: string;
     tradeMessageStillInterested: string;
     tradeMessageItemGone: string;

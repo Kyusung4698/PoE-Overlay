@@ -50,6 +50,7 @@ export class TradeModule implements FeatureModule<TradeFeatureSettings> {
             component: TradeSettingsComponent,
             default: {
                 tradeEnabled: true,
+                tradeLeaveParty: true,
                 tradeMessageWait: 'Currently in @zone. Do you want to wait until finished?',
                 tradeMessageStillInterested: 'Do you still want @itemname for @price?',
                 tradeMessageItemGone: 'Sorry, @itemname already gone. Good luck on your search.',
