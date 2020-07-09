@@ -45,7 +45,8 @@ export class OWGamesEventsListener {
             )),
             map(features => !!features?.length),
             catchError(error => {
-                console.error(`Could not set required features: ${JSON.stringify(this.requiredFeatures)}, error: ${error?.message ?? JSON.stringify(error)}`);
+                console.error(`Could not set required features: ${JSON.stringify(this.requiredFeatures)}, `
+                    + `error: ${error?.message ?? JSON.stringify(error)}`);
                 return of(false);
             })
         );
