@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
-import { SettingsFeatureContainerComponent, SettingsFormComponent, SettingsHelpComponent } from './component';
+import { SettingsFeatureContainerComponent, SettingsFormComponent, SettingsSupportComponent } from './component';
 import { AnnotationWindowComponent, BackgroundWindowComponent, LauncherWindowComponent, NotificationWindowComponent, SettingsWindowComponent } from './window';
 
 const WINDOWS = [
@@ -16,8 +16,8 @@ const WINDOWS = [
         ...WINDOWS,
         SettingsFeatureContainerComponent,
         SettingsFormComponent,
-        SettingsHelpComponent,
         AnnotationWindowComponent,
+        SettingsSupportComponent,
     ],
     exports: [
         ...WINDOWS

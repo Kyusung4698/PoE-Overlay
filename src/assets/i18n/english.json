@@ -4,6 +4,10 @@
 			"message": "Opens a webpage on hotkey press in the in-game browser.\n\nTry the hotkey below to open poe.ninja.",
 			"title": "Bookmarks"
 		},
+		"changelog-1-0-8": {
+			"message": "- added support for the new cluster jewels stats\n- added a new hotkey (default on F10) to manually capture replays\n- added a toggle to disable the leaving of a party via kick using the trade finished action\n- added a audio button at the trade settings to customize the notification sound\n- added a lower opacity for market results once they have been requested\n- added the seller name for items and bulk exchanges at the market\n- fixed an issue at the market type filter resulting in a unknown category error",
+			"title": "What's new in 1.0.8?"
+		},
 		"commands": {
 			"message": "All game commands can be bound to hotkeys.\n\nThere are also placeholders like @char available which will be replaced before executing the command.\n\nTry the hotkey below to teleport into your hideout.",
 			"title": "Commands"
@@ -28,7 +32,7 @@
 				"title": "Properties"
 			},
 			"search": {
-				"message": "The search show all listings based on your filters.\n\nYou can choose between a graphical or a list view.\nThe graph view groups the items based on their price and displays the count of those groups. The list view simply shows the listing sorted by the amount.\nBoth views are additional filtered for potential price fixers by grouping their listing into one.\n\nBy clicking a listing - a formatted price note will be copied to your clipboard.",
+				"message": "The search shows all listings based on your filters.\n\nYou can choose between a graphical or a list view.\nThe graph view groups the items based on their price and displays the count of those groups. The list view simply shows the listing sorted by the amount.\nBoth views are additionally filtered for potential price fixers by grouping their listing into one.\n\nBy clicking a listing - a formatted price note will be copied to your clipboard.",
 				"title": "Search"
 			},
 			"settings": {
@@ -104,6 +108,10 @@
 			},
 			"message": "Open the settings window by pressing following hotkey:",
 			"title": "Settings"
+		},
+		"support": {
+			"message": "Do you have a question? Or do you want to request a new feature?\n\nCheck the support tab at the settings menu for further information.\n\nAlso if you love the app, consider supporting me by subscribing.",
+			"title": "Support"
 		},
 		"thanks": {
 			"message": "That's it for now. Hope you enjoy my app. \n\n- Best regards, Kyusung4698",
@@ -272,6 +280,9 @@
 	"event": {
 		"start-error": "Could not start listening to game events."
 	},
+	"footer": {
+		"support": "Support"
+	},
 	"help": {
 		"browser": "Holding CTRL while clicking will open the link in the default browser.",
 		"browser-title": "How do i open the search in my default browser?",
@@ -313,6 +324,7 @@
 	},
 	"market": {
 		"bar": {
+			"history": "History",
 			"reset": "Clear filter",
 			"search": "Search",
 			"toggle": "Toggle filter"
@@ -359,6 +371,7 @@
 		"death": "Death event",
 		"future-duration": "Future duration",
 		"kill": "Kill event",
+		"manually": "Manually",
 		"name": "Replay",
 		"past-duration": "Past duration",
 		"start-error": "The events capturing could not be started.",
@@ -371,6 +384,7 @@
 		"auto-download": "Download update automatically",
 		"auto-launch": "Run on Boot",
 		"cancel": "Cancel",
+		"character-name": "Character Name Fallback ",
 		"dialog": "Dialog",
 		"dialog-opacity": "Dialog Opacity",
 		"dialog-spawn-position": {
@@ -402,9 +416,24 @@
 		"ui-language": "UI Language",
 		"zoom": "Zoom"
 	},
+	"support": {
+		"developer": {
+			"open": "Open the Subscription Page",
+			"text": "If you love the app, consider supporting me by subscribing. This will allow me to spend more time developing this app and keep it up-to-date. You will also get early access to new features.",
+			"title": "Support the Developer"
+		},
+		"name": "Support",
+		"question": {
+			"discord": "Join the Discord-Community",
+			"github": "Submit an Issue at the GitHub Project",
+			"text": "You have a question? Or do you want to request a new feature?",
+			"title": "Get Support"
+		}
+	},
 	"trade": {
 		"action": {
 			"finished": "Thanks and Goodbye",
+			"hideout": "Go to seller hideout",
 			"interested": "Still interested?",
 			"invite": "Invite",
 			"item-gone": "Item gone",
@@ -414,6 +443,7 @@
 			"wait": "Wait?",
 			"whisper": "Whisper"
 		},
+		"actions": "Actions",
 		"analyzing": "Analyzing data...",
 		"empty": "No results. Open in browser?",
 		"enabled": "Enabled",
@@ -423,12 +453,25 @@
 			"rate": "Limit reached. Please try again later.\nIf this keeps happening please try lowering the fetched item count. "
 		},
 		"fetching": "Found {{total}}. Fetching {{count}} entries...",
+		"filter": "Filter",
+		"filters": {
+			"incoming": "Incoming",
+			"incomingoutgoing": "Incoming & Outgoing"
+		},
+		"height": "Height",
+		"layout": "Layout",
+		"layouts": {
+			"bottomtotop": "Bottom To Top",
+			"toptobottom": "Top To Bottom"
+		},
+		"leave-party": "Leave party once finished",
 		"message": {
 			"item-gone": "Item gone message",
 			"still-interested": "Still interested message",
 			"thanks": "Thanks message",
 			"wait": "Wait message"
 		},
+		"messages": "Messages",
 		"name": "Trade",
 		"no-price": "No price",
 		"not-found": "No data found.",

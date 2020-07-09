@@ -1,28 +1,34 @@
 <ng-container *ngIf="settings$ | async as settings">
-    <app-header name="PoE Overlay - Settings">
-        <div class="content">
-            <mat-tab-group mat-stretch-tabs animationDuration="0ms" [selectedIndex]="selectedIndex$ | async"
-                (selectedIndexChange)="onSelectedIndexChange($event)">
-                <mat-tab [label]="'settings.general' | translate">
-                    <div class="tab-content">
-                        <app-settings-form [settings]="settings" (settingsChange)="onSettingsChange($event)">
-                        </app-settings-form>
-                    </div>
-                </mat-tab>
-                <mat-tab *ngFor="let feature of features">
-                    <ng-template mat-tab-label>
-                        <ng-container *ngIf="feature.name === 'replay.name'; else label">
-                            <span appAnnotation="replay">{{feature.name | translate}}</span>
-                        </ng-container>
-                        <ng-template #label>{{feature.name | translate}}</ng-template>
-                    </ng-template>
-                    <div class="tab-content">
-                        <app-settings-feature-container [component]="feature.component" [settings]="settings"
-                            (settingsChange)="onSettingsChange($event)">
-                        </app-settings-feature-container>
-                    </div>
-                </mat-tab>
-            </mat-tab-group>
-        </div>
+    <app-header name="PoE Overlay - Settings" [fixed]="true" [footer]="true" (supportToggle)="onSupportToggle()">
+        <mat-tab-group mat-stretch-tabs animationDuration="0ms" [selectedIndex]="selectedIndex$ | async"
+            (selectedIndexChange)="onSelectedIndexChange($event)">
+            <mat-tab [label]="'settings.general' | translate">
+                <div class="tab-content">
+                    <app-settings-form [settings]="settings" (settingsChange)="onSettingsChange($event)">
+                    </app-settings-form>
+                </div>
+            </mat-tab>
+            <mat-tab *ngFor="let feature of features">
+                <ng-template mat-tab-label>
+                    <ng-container *ngIf="feature.name === 'replay.name'; else label">
+                        <span appAnnotation="replay">{{feature.name | translate}}</span>
+                    </ng-container>
+                    <ng-template #label>{{feature.name | translate}}</ng-template>
+                </ng-template>
+                <div class="tab-content">
+                    <app-settings-feature-container [component]="feature.component" [settings]="settings"
+                        (settingsChange)="onSettingsChange($event)">
+                    </app-settings-feature-container>
+                </div>
+            </mat-tab>
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    <span appAnnotation="support">{{'support.name' | translate}}</span>
+                </ng-template>
+                <div class="tab-content">
+                    <app-settings-support></app-settings-support>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
     </app-header>
 </ng-container>

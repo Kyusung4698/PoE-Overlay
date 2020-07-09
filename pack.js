@@ -10,12 +10,14 @@ fs.rmdirSync(dir, {
 });
 fs.mkdirSync(dir);
 fs.mkdirSync(`${dir}/app`);
+fs.mkdirSync(`${dir}/app/plugins`);
 copyRecursiveSync('./store', `${dir}/store`)
 
 fs.copyFileSync('./CHANGELOG.md', `${dir}/CHANGELOG.md`);
 fs.copyFileSync('./manifest.json', `${dir}/app/manifest.json`);
 copyRecursiveSync('./assets', `${dir}/app/assets`);
 copyRecursiveSync('./dist', `${dir}/app/dist`);
+copyRecursiveSync('./plugins/dist', `${dir}/app/plugins/dist`);
 
 zipDirectory(dir, `./release/poe-overlay-overwolf ${manifest.meta.version}.zip`).then(() => {
     fs.rmdirSync(dir, {

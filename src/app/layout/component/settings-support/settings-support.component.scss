@@ -1,0 +1,15 @@
+@import "./../../../../styles/variables";
+
+p {
+  color: $label-color;
+  font-size: 13px;
+  margin: 0 0 $gutter * 2 0;
+}
+
+button {
+  color: $white !important;
+
+  & + button {
+    margin-left: $gutter-half;
+  }
+}

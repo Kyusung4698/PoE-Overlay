@@ -9,8 +9,10 @@ mat-label {
 mat-card {
   margin-bottom: 12px;
 
-  > mat-label {
-    margin-bottom: 12px;
+  > div {
+    > mat-label {
+      margin-bottom: 12px;
+    }
   }
 }
 

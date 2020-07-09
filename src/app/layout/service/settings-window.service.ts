@@ -7,8 +7,17 @@ import { Observable } from 'rxjs';
 
 const WINDOW_DATA_KEY = 'SETTINGS_WINDOW_DATA';
 
+export enum SettingsFeature {
+    Evaluate = 'evaluate.name',
+    Inspect = 'inspect.name',
+    Market = 'market.name',
+    Replay = 'replay.name',
+    Trade = 'trade.name',
+    Support = 'support.name'
+}
+
 export interface SettingsWindowData {
-    activeFeature?: string;
+    activeFeature?: SettingsFeature;
 }
 
 @Injectable({
@@ -25,10 +34,13 @@ export class SettingsWindowService {
         return this.storage.get(WINDOW_DATA_KEY, () => new EventEmitter<SettingsWindowData>());
     }
 
-    public toggle(activeFeature?: string): Observable<boolean> {
-        this.data$.next({
-            activeFeature
-        });
+    public open(activeFeature?: SettingsFeature): Observable<void> {
+        this.data$.next({ activeFeature });
+        return this.window.restore();
+    }
+
+    public toggle(activeFeature?: SettingsFeature): Observable<boolean> {
+        this.data$.next({ activeFeature });
         return this.window.toggle(true);
     }
 

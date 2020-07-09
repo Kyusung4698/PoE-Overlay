@@ -20,3 +20,9 @@ label {
     }
   }
 }
+
+button {
+  & + button {
+    margin-left: $gutter-half;
+  }
+}

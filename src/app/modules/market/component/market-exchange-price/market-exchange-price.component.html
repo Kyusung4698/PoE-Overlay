@@ -46,8 +46,8 @@
     </div>
 </div>
 <div class="actions">
-    <app-market-listing-status class="status" [status]="status"></app-market-listing-status>
-    <button mat-button (click)="onSend(price.item.amount * value, price.exchange.amount * value)">
+    <app-market-listing-status class="status" [status]="status" [seller]="seller"></app-market-listing-status>
+    <button mat-button (click)="onWhisper(price.item.amount * value, price.exchange.amount * value)">
         <mat-icon>send</mat-icon>
     </button>
 </div>

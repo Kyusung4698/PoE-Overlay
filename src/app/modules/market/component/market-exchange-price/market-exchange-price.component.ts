@@ -1,7 +1,7 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, OnInit, Output } from '@angular/core';
 import { TradeFetchListingPrice } from '@shared/module/poe/trade';
 
-export interface SendEvent {
+export interface WhisperEvent {
   itemAmount: number;
   valueAmount: number;
 }
@@ -17,14 +17,20 @@ export class MarketExchangePriceComponent implements OnInit {
   public min: number;
   public value: number;
 
+  @HostBinding('class.whispered')
+  public whispered = false;
+
   @Input()
   public status: string;
+
+  @Input()
+  public seller: string;
 
   @Input()
   public price: TradeFetchListingPrice;
 
   @Output()
-  public send = new EventEmitter<SendEvent>();
+  public whisper = new EventEmitter<WhisperEvent>();
 
   public ngOnInit(): void {
     this.min = 1;
@@ -32,8 +38,9 @@ export class MarketExchangePriceComponent implements OnInit {
     this.value = 1;
   }
 
-  public onSend(itemAmount: number, valueAmount: number): void {
-    this.send.next({
+  public onWhisper(itemAmount: number, valueAmount: number): void {
+    this.whispered = true;
+    this.whisper.next({
       itemAmount,
       valueAmount
     });

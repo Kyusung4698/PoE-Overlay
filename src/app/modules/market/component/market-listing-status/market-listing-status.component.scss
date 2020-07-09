@@ -1,9 +1,29 @@
+@import "../../../../../styles/variables";
+
 $afk: #f1c40f;
 $online: #27ae60;
 $offline: #2c3e50;
 $size: 12px;
 
-div {
+:host,
+.seller,
+.dot {
+  display: flex;
+}
+
+:host {
+  width: 100%;
+  padding: $gutter-half $gutter-half 0 $gutter-half;
+}
+
+.seller {
+  color: $light-dark-grey;
+  font-size: 12px;
+  width: 60px;
+  overflow: hidden;
+}
+
+.dot {
   width: $size;
   height: $size;
   border-radius: 50%;

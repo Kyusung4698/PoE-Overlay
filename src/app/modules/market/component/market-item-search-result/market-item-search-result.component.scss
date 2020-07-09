@@ -1,0 +1,69 @@
+@import "../../../../../styles/variables";
+
+::ng-deep {
+  app-market-item-search-result {
+    app-item-frame {
+      display: block;
+      height: 100%;
+
+      .frame {
+        width: 100%;
+        height: 100%;
+
+        .detail {
+          white-space: inherit !important;
+          min-width: auto !important;
+        }
+      }
+    }
+  }
+}
+
+:host {
+  display: flex;
+  flex-grow: 1;
+  opacity: 1;
+  transition: all 0.2s ease-in;
+
+  &.whispered {
+    opacity: 0.3;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.item,
+.listing {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+.item {
+  width: 100%;
+}
+
+.listing {
+  position: relative;
+  background: $black-transparent;
+  width: 120px - 22px - $gutter-half * 2;
+  align-items: center;
+  justify-content: center;
+  margin: 0 $gutter-half;
+  min-height: 100px;
+
+  > div {
+    display: flex;
+    flex-direction: row;
+
+    &.spacer {
+      flex-grow: 1;
+    }
+
+    &.actions {
+      color: $purple;
+    }
+  }
+}

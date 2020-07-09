@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { AudioFile, AudioService } from '@app/audio';
+import { AudioService } from '@app/audio';
+import { EnumValues } from '@app/enum';
 import { FeatureSettingsComponent } from '@app/feature';
-import { TradeFeatureSettings } from '@modules/trade/trade-feature-settings';
+import { TradeFeatureSettings, TradeFilter, TradeLayout } from '@modules/trade/trade-feature-settings';
 
 @Component({
   selector: 'app-trade-settings',
@@ -10,11 +11,14 @@ import { TradeFeatureSettings } from '@modules/trade/trade-feature-settings';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TradeSettingsComponent extends FeatureSettingsComponent<TradeFeatureSettings> {
-  public displayWithVolume = (volume: number) => `${volume}%`;
 
   constructor(private readonly audio: AudioService) {
     super();
   }
+
+  public layouts = new EnumValues(TradeLayout);
+  public filters = new EnumValues(TradeFilter);
+  public displayWithPercentage = (volume: number) => `${volume}%`;
 
   public load(): void { }
 
@@ -23,6 +27,21 @@ export class TradeSettingsComponent extends FeatureSettingsComponent<TradeFeatur
   }
 
   public onPlay(): void {
-    this.audio.play(AudioFile.Notification, this.settings.tradeSoundVolume / 100);
+    this.audio.play(this.settings.tradeSound, this.settings.tradeSoundVolume / 100);
+  }
+
+  public onSelect(input: HTMLInputElement): void {
+    input.click();
+  }
+
+  public onSelected(input: HTMLInputElement): void {
+    if (input.files.length > 0) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        this.settings.tradeSound = e.target.result as string;
+        this.save();
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
   }
 }

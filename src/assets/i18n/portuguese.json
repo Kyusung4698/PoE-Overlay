@@ -28,7 +28,7 @@
 				"title": "Propriedades"
 			},
 			"search": {
-				"message": "A pesquisa mostra todas as listagens com base em seus filtros.\n\nVocê pode escolher entre uma exibição gráfica ou de lista.\nA visualização do gráfico agrupa os itens com base no preço e exibe a contagem desses grupos. A exibição em lista simplesmente mostra a listagem classificada pelo valor.\nAmbas as visualizações são filtradas adicionalmente para possíveis fixadores de preços, agrupando sua listagem em uma.\n\nAo clicar em uma listagem - uma nota de preço formatada será copiada para a área de transferência.",
+				"message": "A pesquisa mostra todas as listagens com base nos seus filtros.\n\nVocê pode escolher entre uma exibição gráfica ou de lista.\nA visualização do gráfico agrupa os itens com base no preço e exibe a contagem desses grupos. A exibição em lista simplesmente mostra a listagem classificada pelo valor.\nAs duas visualizações são filtradas adicionalmente para possíveis fixadores de preços, agrupando sua listagem em uma.\n\nAo clicar em uma listagem - uma nota de preço formatada será copiada para a área de transferência.",
 				"title": "Procurar"
 			},
 			"settings": {
@@ -68,7 +68,7 @@
 			},
 			"filter": {
 				"message": "Clique no ícone destacado para abrir o filtro. Ajuste os valores ao seu gosto.",
-				"title": ""
+				"title": "Filtro"
 			},
 			"message": "O mercado permite que você navegue pelos itens listados e troque moedas dentro do jogo.\n\nPode ser alternado pressionando a tecla de atalho abaixo:",
 			"reset": {
@@ -105,9 +105,13 @@
 			"message": "Abra a janela de configurações pressionando a seguinte tecla de atalho:",
 			"title": "Definições"
 		},
+		"support": {
+			"message": "Você tem uma pergunta? Ou você deseja solicitar um novo recurso?\n\nVerifique a guia de suporte no menu de configurações para obter mais informações.\n\nAlém disso, se você ama o aplicativo, considere apoiar-me assinando.",
+			"title": "Apoio, suporte"
+		},
 		"thanks": {
 			"message": "Por enquanto é isso. Espero que você goste do meu aplicativo.\n\n- Atenciosamente, Kyusung4698",
-			"title": ""
+			"title": "Obrigado!"
 		},
 		"trade": {
 			"highlight": {
@@ -272,6 +276,9 @@
 	"event": {
 		"start-error": "Não foi possível começar a ouvir os eventos do jogo."
 	},
+	"footer": {
+		"support": "Apoio, suporte"
+	},
 	"help": {
 		"browser": "Pressionar CTRL enquanto clica abrirá o link no navegador padrão.",
 		"browser-title": "Como abro a pesquisa no meu navegador padrão?",
@@ -313,6 +320,7 @@
 	},
 	"market": {
 		"bar": {
+			"history": "história",
 			"reset": "Filtro limpo",
 			"search": "Procurar",
 			"toggle": "Alternar filtro"
@@ -359,6 +367,7 @@
 		"death": "Evento de morte",
 		"future-duration": "Duração futura",
 		"kill": "Matar evento",
+		"manually": "Manualmente",
 		"name": "Repetir",
 		"past-duration": "Duração passada",
 		"start-error": "A captura de eventos não pôde ser iniciada.",
@@ -371,6 +380,7 @@
 		"auto-download": "Baixar atualização automaticamente",
 		"auto-launch": "Executar na inicialização",
 		"cancel": "Cancelar",
+		"character-name": "Nome do personagem Fallback",
 		"dialog": "Diálogo",
 		"dialog-opacity": "Opacidade da caixa de diálogo",
 		"dialog-spawn-position": {
@@ -402,9 +412,24 @@
 		"ui-language": "Idioma da interface do usuário",
 		"zoom": "Zoom"
 	},
+	"support": {
+		"developer": {
+			"open": "Abra a página de inscrição",
+			"text": "Se você ama o aplicativo, considere apoiar-me assinando. Isso permitirá que eu gaste mais tempo desenvolvendo esse aplicativo e mantenha-o atualizado. Você também terá acesso antecipado a novos recursos.",
+			"title": "Apoie o desenvolvedor"
+		},
+		"name": "Apoio, suporte",
+		"question": {
+			"discord": "Participe da Comunidade Discord",
+			"github": "Envie um problema no projeto GitHub",
+			"text": "Você tem uma pergunta? Ou você deseja solicitar um novo recurso?",
+			"title": "Obter suporte"
+		}
+	},
 	"trade": {
 		"action": {
 			"finished": "Obrigado e adeus",
+			"hideout": "Ir para o esconderijo do vendedor",
 			"interested": "Ainda interessado?",
 			"invite": "convite",
 			"item-gone": "Item desaparecido",
@@ -414,6 +439,7 @@
 			"wait": "Esperar?",
 			"whisper": "Sussurro"
 		},
+		"actions": "Ações",
 		"analyzing": "Analisando dados ...",
 		"empty": "Sem resultados. Abra no navegador?",
 		"enabled": "ativado",
@@ -423,12 +449,25 @@
 			"rate": "Limite alcançado. Por favor, tente novamente mais tarde.\nSe isso continuar acontecendo, tente diminuir a contagem de itens buscados."
 		},
 		"fetching": "Encontrado {{total}}. Buscando {{count}} entradas ...",
+		"filter": "Filtro",
+		"filters": {
+			"incoming": "Entrada",
+			"incomingoutgoing": "Entrada saída"
+		},
+		"height": "altura",
+		"layout": "Layout",
+		"layouts": {
+			"bottomtotop": "De baixo para cima",
+			"toptobottom": "De cima para baixo"
+		},
+		"leave-party": "Sair da festa assim que terminar",
 		"message": {
 			"item-gone": "Mensagem de item desaparecido",
 			"still-interested": "Mensagem ainda interessada",
 			"thanks": "Obrigado mensagem",
 			"wait": "Mensagem de espera"
 		},
+		"messages": "Mensagens",
 		"name": "Comércio",
 		"no-price": "Gratuito",
 		"not-found": "Nenhum dado encontrado.",

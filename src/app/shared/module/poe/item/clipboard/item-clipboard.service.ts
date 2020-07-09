@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
+import { OWClipboard } from '@app/odk';
 import { OWUtils } from '@app/odk/ow-utils';
-import { iif, Observable, of, throwError } from 'rxjs';
-import { catchError, concatMap, delay, flatMap, map, retryWhen, tap } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { catchError, delay, flatMap, map } from 'rxjs/operators';
 import { Item } from '../item';
 import { ItemClipboardParserService } from './item-clipboard-parser.service';
 
@@ -29,9 +30,11 @@ export class ItemClipboardService {
         OWUtils.sendKeyStroke('Ctrl+C');
         return of(null).pipe(
             delay(150),
-            flatMap(() => OWUtils.getFromClipboard()),
+            flatMap(() => OWClipboard.getFromClipboard()),
             catchError(() => of('')),
-            tap(() => OWUtils.placeOnClipboard('')),
+            flatMap(content => OWClipboard.placeOnClipboard('').pipe(
+                map(() => content)
+            )),
             map(content => {
                 if (!content?.length) {
                     return { code: ItemClipboardResultCode.Empty };

@@ -49,6 +49,7 @@ export class ItemClipboardParserService {
         ];
     }
 
+    // TODO: get the language via rarity
     public parse(
         content: string,
         parse?: {

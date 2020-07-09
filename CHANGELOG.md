@@ -1,5 +1,56 @@
 # Changelog
 
+## 1.0.8 (2020-07-09)
+
+- added support for the new cluster jewels stats
+- added a new hotkey (default on F10) to manually capture replays
+- added a toggle to disable the leaving of a party via kick using the trade finished action (#774)
+- added a audio button at the trade settings to customize the notification sound (#786)
+- added a lower opacity for market results once they have been requested (#780)
+- added the seller name for items and bulk exchanges at the market (#773)
+- fixed an issue at the market type filter resulting in a unknown category error (#793)
+
+## 1.0.7 (2020-07-01)
+
+- added the version number at the evaluate, inspect and settings window
+- update trade action still interested to be always shown for incoming requests
+- update the market history to only show unique requests
+- fixed an focus issue occurring when using the trade whisper button
+- fixed an issue accessing the clipboard
+- fixed an issue querying the map tier
+
+## 1.0.6 (2020-06-25)
+
+- added a history for the market search
+- added a received timer at the trade message
+- added the player name at the trade message
+- added a new action to go to the hideout for outgoing trades
+- added support for the new harvest seeds
+- update the height of the trade window to be configurable
+- fixed an issue parsing unicode item data
+- fixed an issue at the market which resulted in crashing the app
+
+## 1.0.5 (2020-06-23)
+
+- added support page with discord and GitHub issues
+- added colors for life, mana and energy shield pseudo stats
+- added trade filter setting (Incoming & Outgoing, Incoming)
+- added trade layout setting (Top To Bottom, Bottom To Top)
+- added trade window to be transparent if no active trades and the window is pinned
+- update trade action finished to be always shown even if no trade have been initialized
+- fixed an focus issue occurring when using the trade whisper button
+- fixed an sorting issue at the market result list
+- fixed an issue at the inspect frame not showing dps
+
+## 1.0.4 (2020-06-19)
+
+- added 3.11 data
+- added `Character Name` setting as fallback
+
+## 1.0.3 (2020-06-18)
+
+- fixed a unhandled error if no event data is available
+
 ## 1.0.2 (2020-06-16)
 
 - added misc module

@@ -1,19 +1,25 @@
-<div appResize>
-    <ng-container *ngIf="data$ | async as data">
-        <app-header [name]="'PoE Overlay - Trade (' + (data.messages.length - data.removed.length) + ')'" [width]="300"
-            [margin]="10" [closeable]="false" [pinnable]="true" [pinned]="data.settings.tradeWindowPinned"
-            (pinnedChange)="onPinnedChange($event)" (settingsToggle)="onSettingsToggle()">
-            <ng-container ngProjectAs="controls">
-                <mat-icon (click)="toggle = !toggle" class="indicator" [class.open]="toggle">keyboard_arrow_down
-                </mat-icon>
-            </ng-container>
-            <ng-container *ngIf="toggle">
-                <ng-container *ngFor="let message of data.messages">
-                    <app-trade-message *ngIf="!data.removed.includes(message)" [message]="message"
-                        [settings]="data.settings" (dismiss)="onDismiss(message)">
-                    </app-trade-message>
+<ng-container *ngIf="data$ | async as data">
+    <ng-container *ngIf="getMessages(data) as messages">
+        <div class="content" [class.pinned]="data.settings.tradeWindowPinned" [class.active]="messages.length">
+            <app-header [name]="'PoE Overlay - Trade (' + messages.length + ')'" [closeable]="false" [pinnable]="true"
+                [fixed]="true" [frame]="false" [pinned]="data.settings.tradeWindowPinned"
+                [reverse]="data.settings.tradeLayout === 1" (pinnedChange)="onPinnedChange($event)"
+                (settingsToggle)="onSettingsToggle()">
+                <ng-container ngProjectAs="controls">
+                    <mat-icon (click)="toggle = !toggle" class="indicator"
+                        [class.open]="data.settings.tradeLayout === 1 ? !toggle : toggle">keyboard_arrow_down
+                    </mat-icon>
                 </ng-container>
-            </ng-container>
-        </app-header>
+                <ng-container *ngIf="toggle">
+                    <div class="messages" [class.reverse]="data.settings.tradeLayout === 1">
+                        <div class="message" *ngFor="let message of messages; even as even">
+                            <app-trade-message [message]="message" [even]="even" [settings]="data.settings"
+                                (dismiss)="onDismiss(message)">
+                            </app-trade-message>
+                        </div>
+                    </div>
+                </ng-container>
+            </app-header>
+        </div>
     </ng-container>
-</div>
+</ng-container>

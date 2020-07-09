@@ -24,8 +24,7 @@
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": [
-              "src/assets/images",
-              "src/assets/audio"
+              "src/assets/images"
             ],
             "styles": [
               "src/styles.scss",

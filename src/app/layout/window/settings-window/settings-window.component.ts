@@ -5,7 +5,7 @@ import { FeatureSettingsService } from '@app/feature/feature-settings.service';
 import { BehaviorSubject, Observable, Subject, Subscription } from 'rxjs';
 import { flatMap, throttleTime } from 'rxjs/operators';
 import { SettingsFeatureContainerComponent } from '../../component';
-import { SettingsWindowService } from '../../service';
+import { SettingsFeature, SettingsWindowService } from '../../service';
 
 @Component({
     selector: 'app-settings-window',
@@ -67,8 +67,14 @@ export class SettingsWindowComponent implements OnInit, AfterViewInit, OnDestroy
         }
     }
 
-    private updateTab(activeFeature: string): void {
-        const feature = this.features.findIndex(x => x.name === activeFeature);
+    public onSupportToggle(): void {
+        this.window.open(SettingsFeature.Support).subscribe();
+    }
+
+    private updateTab(activeFeature: SettingsFeature): void {
+        const feature = activeFeature !== SettingsFeature.Support
+            ? this.features.findIndex(x => x.name === activeFeature)
+            : this.features.length + 1;
         const index = feature + 1;
         if (index > 0) {
             this.selectedIndex$.next(0);

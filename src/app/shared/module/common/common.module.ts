@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { TruncateTextPipe } from './pipe';
+import { TimerPipe } from './pipe/timer.pipe';
 
 const PIPES = [
-    TruncateTextPipe
+    TruncateTextPipe,
+    TimerPipe
 ];
 
 @NgModule({

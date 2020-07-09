@@ -7,7 +7,7 @@ export class AppErrorHandler implements ErrorHandler {
         StackTrace.fromError(error).then(stackframes => {
             const message = error.message ?? error;
             const stack = stackframes.splice(0, 20).map(x => x.toString()).join('\n');
-            console.error('An unexpected application error occured.', JSON.stringify({ message, stack }));
+            console.error(`An unexpected application error occured. ${JSON.stringify({ message, stack })}`);
         });
         throw error;
     }

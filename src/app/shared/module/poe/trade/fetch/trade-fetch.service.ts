@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { StorageCacheService } from '@app/cache';
+import { b64DecodeUnicode } from '@app/helper';
 import { TradeFetchHttpResult } from '@data/poe/schema';
 import { TradeHttpService } from '@data/poe/service';
 import moment from 'moment';
@@ -57,7 +58,9 @@ export class TradeFetchService {
                     map(responses => responses
                         .filter(x => x.result?.length)
                         .reduce<TradeFetchHttpResult[]>((a, b) => a.concat(b.result), cached)
-                        .filter(x => x?.id?.length)),
+                        .filter(x => x?.id?.length)
+                        .sort((a, b) => ids.indexOf(a.id) - ids.indexOf(b.id))
+                    ),
                     map(results => results.map(result => {
                         const key = `${CACHE_PREFIX}_${exchange}_${result.id}`;
                         return this.cache.store(key, result, CACHE_EXPIRY);
@@ -71,68 +74,68 @@ export class TradeFetchService {
     private map(results: TradeFetchHttpResult[], url: string, total: number, checkExchange: boolean): TradeFetchResponse {
         const entries = results.filter(result => {
             if (!result?.listing) {
-                console.log(`Listing was null or undefined.`, result);
+                console.log(`Listing was null or undefined. ${JSON.stringify(result)}`, result);
                 return false;
             }
             if (!moment(result.listing.indexed).isValid()) {
-                console.log(`Indexed was not a valid date.`, result);
+                console.log(`Indexed was not a valid date. ${JSON.stringify(result)}`, result);
                 return false;
             }
             if (!result.listing.account?.name?.length) {
-                console.log(`Account name was empty or undefined.`, result);
+                console.log(`Account name was empty or undefined. ${JSON.stringify(result)}`, result);
                 return false;
             }
 
             const { price } = result.listing;
             if (!price) {
-                console.log(`Price was null or undefined.`, result);
+                console.log(`Price was null or undefined. ${JSON.stringify(result)}`, result);
                 return false;
             }
 
             if (checkExchange) {
                 const { exchange } = price;
                 if (!exchange) {
-                    console.log(`Price exchange was null or undefined.`, result);
+                    console.log(`Price exchange was null or undefined. ${JSON.stringify(result)}`, result);
                     return false;
                 }
                 if (!exchange.currency?.length) {
-                    console.log(`Price exchange currency was empty or undefined.`, result);
+                    console.log(`Price exchange currency was empty or undefined. ${JSON.stringify(result)}`, result);
                     return false;
                 }
                 if (exchange.amount === null || exchange.amount === undefined || exchange.amount === 0) {
-                    console.log(`Price exchange amount was null or undefined or zero.`, result);
+                    console.log(`Price exchange amount was null or undefined or zero. ${JSON.stringify(result)}`, result);
                     return false;
                 }
                 const { item } = price;
                 if (!item) {
-                    console.log(`Price item was null or undefined.`, result);
+                    console.log(`Price item was null or undefined. ${JSON.stringify(result)}`, result);
                     return false;
                 }
                 if (!item.currency?.length) {
-                    console.log(`Price item currency was empty or undefined.`, result);
+                    console.log(`Price item currency was empty or undefined. ${JSON.stringify(result)}`, result);
                     return false;
                 }
                 if (item.amount === null || item.amount === undefined || item.amount <= 0) {
-                    console.log(`Price item amount was null or undefined or zero.`, result);
+                    console.log(`Price item amount was null or undefined or zero. ${JSON.stringify(result)}`, result);
                     return false;
                 }
                 if (item.stock === null || item.stock === undefined || item.stock <= 0) {
-                    console.log(`Price item stock was null or undefined or zero.`, result);
+                    console.log(`Price item stock was null or undefined or zero. ${JSON.stringify(result)}`, result);
                     return false;
                 }
             } else {
                 if (price.amount === null || price.amount === undefined || price.amount <= 0) {
-                    console.log(`Price amount was null or undefined or zero.`, result);
+                    console.log(`Price amount was null or undefined or zero. ${JSON.stringify(result)}`, result);
                     return false;
                 }
                 if (!price.currency?.length) {
-                    console.log(`Price currency was empty or undefined.`, result);
+                    console.log(`Price currency was empty or undefined. ${JSON.stringify(result)}`, result);
                     return false;
                 }
             }
 
             if (!result.item?.icon?.length) {
-                console.log(`Item icon was empty or undefined.`, result);
+                console.log(`Item icon was empty or undefined. ${JSON.stringify(result)}`, result);
                 return false;
             }
             return true;
@@ -164,7 +167,7 @@ export class TradeFetchService {
                 },
                 item: {
                     icon: item.icon.replace(/\\/g, ''),
-                    text: text ? atob(text) : '',
+                    text: text ? b64DecodeUnicode(text) : '',
                     hashes: Object
                         .getOwnPropertyNames(hashes || {})
                         .reduce((a, b) => a.concat(hashes[b].map(([hash]) => hash)), [])

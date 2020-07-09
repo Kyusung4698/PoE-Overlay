@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { AudioFile, AudioService } from '@app/audio';
+import { AudioService } from '@app/audio';
 import { Roman } from '@app/helper';
 import { NotificationService } from '@app/notification';
 import { TradeMessageAction, TradeMessageActionState } from '@modules/trade/class';
@@ -34,6 +34,9 @@ export class TradeMessageComponent implements OnInit {
   @Input()
   public settings: TradeFeatureSettings;
 
+  @Input()
+  public even: boolean;
+
   @Output()
   public dismiss = new EventEmitter<void>();
 
@@ -50,15 +53,18 @@ export class TradeMessageComponent implements OnInit {
     this.visible[TradeMessageAction.Whisper] = true;
     if (this.message.direction === TradeWhisperDirection.Incoming) {
       this.visible[TradeMessageAction.Wait] = true;
+      this.visible[TradeMessageAction.Interested] = true;
       this.visible[TradeMessageAction.ItemGone] = true;
       this.visible[TradeMessageAction.ItemHighlight] = true;
+      this.visible[TradeMessageAction.Finished] = true;
       if (this.settings.tradeSoundEnabled) {
-        this.audio.play(AudioFile.Notification, this.settings.tradeSoundVolume / 100);
+        this.audio.play(this.settings.tradeSound, this.settings.tradeSoundVolume / 100);
       }
       this.event.isHideout().subscribe(value => this.toggle$.next(value));
     } else {
       this.toggle$.next(true);
       this.visible[TradeMessageAction.Resend] = true;
+      this.visible[TradeMessageAction.Hideout] = true;
       this.visible[TradeMessageAction.Finished] = true;
       this.visible[TradeMessageAction.ItemHighlight] = this.message.type === TradeParserType.TradeMap;
     }
@@ -85,7 +91,6 @@ export class TradeMessageComponent implements OnInit {
           this.chat.whisper(this.message.name, this.settings.tradeMessageWait, context);
         });
         this.visible[TradeMessageAction.Wait] = false;
-        this.visible[TradeMessageAction.Interested] = true;
         break;
       case TradeMessageAction.Interested:
         this.createMessageContext().subscribe(context => {
@@ -104,8 +109,6 @@ export class TradeMessageComponent implements OnInit {
       case TradeMessageAction.Trade:
         this.hideHighlight();
         this.chat.trade(this.message.name);
-        this.visible[TradeMessageAction.ItemHighlight] = false;
-        this.visible[TradeMessageAction.Finished] = true;
         break;
       case TradeMessageAction.ItemHighlight:
         this.toggleHighlight();
@@ -117,8 +120,13 @@ export class TradeMessageComponent implements OnInit {
         this.createMessageContext().subscribe(context => {
           this.chat.whisper(this.message.name, this.settings.tradeMessageThanks, context);
         });
-        this.kick();
+        if (this.settings.tradeLeaveParty) {
+          this.leaveParty();
+        }
         this.close();
+        break;
+      case TradeMessageAction.Hideout:
+        this.chat.hideout(this.message.name);
         break;
     }
   }
@@ -175,17 +183,20 @@ export class TradeMessageComponent implements OnInit {
     this.highlightWindow.close().subscribe();
   }
 
-  private kick(): void {
+  private leaveParty(): void {
     if (this.message.direction === TradeWhisperDirection.Outgoing) {
       this.event.getCharacter().pipe(
         flatMap(character => {
           if (character?.name?.length) {
             return of(character.name);
           }
+          if (this.settings.characterName?.length) {
+            return of(this.settings.characterName);
+          }
           return throwError('character name was not set.');
         })
       ).subscribe(name => this.chat.kick(name), error => {
-        console.warn(`Could not kick character.`, error);
+        console.warn(`Could not kick character. ${error?.message ?? JSON.stringify(error)}`, error);
         this.notification.show('trade.kick-error');
       });
     } else {

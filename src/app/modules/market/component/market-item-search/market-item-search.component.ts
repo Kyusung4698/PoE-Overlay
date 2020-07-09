@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, OnDestroy, OnInit, Output, TemplateRef, ViewChild } from '@angular/core';
 import { ChatService } from '@shared/module/poe/chat';
-import { TradeFetchEntryListing, TradeFetchResultEntry, TradeFetchService, TradeSearchRequest, TradeSearchResponse, TradeSearchService } from '@shared/module/poe/trade';
+import { TradeFetchResultEntry, TradeFetchService, TradeSearchRequest, TradeSearchResponse, TradeSearchService } from '@shared/module/poe/trade';
 import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
 import { catchError, flatMap, map, switchMap, takeUntil, tap } from 'rxjs/operators';
 
@@ -100,14 +100,14 @@ export class MarketItemSearchComponent implements OnInit, OnDestroy {
     this.page$.next(this.page$.value + 1);
   }
 
-  public onClear(): void {
-    this.request = DEFAULT_REQUEST();
+  public onRequestChange(request?: TradeSearchRequest): void {
+    this.request = request || DEFAULT_REQUEST();
     this.initSearch();
     this.clear();
   }
 
-  public onSend(listing: TradeFetchEntryListing): void {
-    this.chat.send(listing.whisper);
+  public onWhisper(whisper: string): void {
+    this.chat.send(whisper);
   }
 
   private clear(): void {

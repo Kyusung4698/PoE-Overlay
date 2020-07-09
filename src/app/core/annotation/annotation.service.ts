@@ -44,16 +44,11 @@ const ANNOTATIONS: Annotation[] = [
             }
         ]
     },
-    {
-        id: 'trade',
-        children: [
-            { id: 'init' },
-            { id: 'incoming' },
-            { id: 'highlight' },
-            { id: 'outgoing' },
-            { id: 'settings' }
-        ]
-    },
+    { id: 'trade.init' },
+    { id: 'trade.incoming' },
+    { id: 'trade.highlight' },
+    { id: 'trade.outgoing' },
+    { id: 'trade.settings' },
     {
         id: 'evaluate',
         hotkey: Hotkey.Evaluate,
@@ -81,8 +76,7 @@ const ANNOTATIONS: Annotation[] = [
     },
     {
         id: 'replay',
-        hotkey: Hotkey.SettingsToggle,
-        skippable: true,
+        hotkey: Hotkey.SettingsToggle
     },
     {
         id: 'misc',
@@ -96,7 +90,12 @@ const ANNOTATIONS: Annotation[] = [
         expressions: [AnnotationCondition.BookmarkOpened],
         skippable: true
     },
-    { id: 'thanks' }
+    {
+        id: 'support',
+        hotkey: Hotkey.SettingsToggle
+    },
+    { id: 'thanks' },
+    { id: 'changelog-1-0-8' },
 ];
 
 @Injectable({

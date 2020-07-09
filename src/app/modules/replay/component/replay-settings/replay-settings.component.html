@@ -1,3 +1,51 @@
+<app-card [title]="'replay.manually' | translate" appAnnotation="replay">
+    <div class="row">
+        <div class="col">
+            <mat-slide-toggle [checked]="settings.replayCaptureManually"
+                (change)="settings.replayCaptureManually = $event.checked" (change)="onCaptureChange()">
+                {{'replay.capture' | translate}}
+            </mat-slide-toggle>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <mat-form-field>
+                <mat-label>{{'app.hotkey' | translate}}</mat-label>
+                <input matInput [value]="'replay-manually' | hotkey" readonly>
+                <a matSuffix [href]="'replay-manually' | hotkeyUrl">
+                    <mat-icon> keyboard </mat-icon>
+                </a>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="value-range">
+                <label class="label"> {{'replay.past-duration' | translate}}:
+                    {{displayDuration(settings.replayCaptureManuallyPastDuration)}}
+                </label>
+                <div class="slider">
+                    <mat-slider min="3" max="15" step="1" tickInterval="1" invert [displayWith]="displayDuration"
+                        [(value)]="settings.replayCaptureManuallyPastDuration" (valueChange)="onDurationChange()">
+                    </mat-slider>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="value-range">
+                <label class="label"> {{'replay.future-duration' | translate}}:
+                    {{displayDuration(settings.replayCaptureManuallyFutureDuration)}}
+                </label>
+                <div class="slider">
+                    <mat-slider min="0" max="5" step="1" tickInterval="1" [displayWith]="displayDuration"
+                        [(value)]="settings.replayCaptureManuallyFutureDuration" (valueChange)="onDurationChange()">
+                    </mat-slider>
+                </div>
+            </div>
+        </div>
+    </div>
+</app-card>
+
 <app-card [title]="'replay.death' | translate" appAnnotation="replay">
     <div class="row">
         <div class="col">

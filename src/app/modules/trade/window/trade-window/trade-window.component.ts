@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, NgZone, OnDestroy, OnInit } from '@angular/core';
 import { EventSubscription } from '@app/event';
 import { FeatureSettingsService } from '@app/feature/feature-settings.service';
-import { SettingsWindowService } from '@layout/service';
+import { SettingsWindowService, SettingsFeature } from '@layout/service';
 import { TradeWindowData, TradeWindowService } from '@modules/trade/service';
 import { TradeFeatureSettings } from '@modules/trade/trade-feature-settings';
-import { TradeExchangeMessage } from '@shared/module/poe/trade/chat';
+import { TradeExchangeMessage, TradeMessage } from '@shared/module/poe/trade/chat';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
@@ -27,9 +27,11 @@ export class TradeWindowComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.data$.next(this.window.data$.get());
-    this.subscription = this.window.data$.on(data => this.ngZone.run(() => {
-      this.data$.next(data);
-    }));
+    this.subscription = this.window.data$.on(data => {
+      this.ngZone.run(() => {
+        this.data$.next(data);
+      });
+    });
   }
 
   public ngOnDestroy(): void {
@@ -49,6 +51,10 @@ export class TradeWindowComponent implements OnInit, OnDestroy {
   }
 
   public onSettingsToggle(): void {
-    this.settingsWindow.toggle('trade.name').subscribe();
+    this.settingsWindow.toggle(SettingsFeature.Trade).subscribe();
+  }
+
+  public getMessages(data: TradeWindowData): TradeMessage[] {
+    return data.messages.filter(message => !data.removed.includes(message));
   }
 }

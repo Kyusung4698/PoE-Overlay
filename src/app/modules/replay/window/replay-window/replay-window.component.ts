@@ -1,6 +1,6 @@
 import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
-import { SettingsWindowService } from '@layout/service';
+import { SettingsFeature, SettingsWindowService } from '@layout/service';
 import { ReplayWindowService } from '@modules/replay/service';
 
 @Component({
@@ -65,7 +65,7 @@ export class ReplayWindowComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   public onSettingsToggle(): void {
-    this.settings.toggle('replay.name').subscribe();
+    this.settings.toggle(SettingsFeature.Replay).subscribe();
   }
 
   private close(): void {

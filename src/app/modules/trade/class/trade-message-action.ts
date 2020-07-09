@@ -7,7 +7,8 @@ export enum TradeMessageAction {
     Trade = 'trade',
     ItemHighlight = 'item-highlight',
     Whisper = 'whisper',
-    Finished = 'finished'
+    Finished = 'finished',
+    Hideout = 'hideout'
 }
 
 export interface TradeMessageActionState {

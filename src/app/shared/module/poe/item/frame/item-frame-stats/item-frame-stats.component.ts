@@ -28,7 +28,15 @@ export class ItemFrameStatsComponent {
     if (!id || id.length === 0) {
       return '';
     }
-
+    switch (id) {
+      case 'pseudo_total_life':
+        return 'life';
+      case 'pseudo_total_mana':
+        return 'mana';
+      case 'pseudo_total_energy_shield':
+      case 'pseudo_increased_energy_shield':
+        return 'es';
+    }
     if (id.includes('fire_')) {
       return 'fire';
     }
@@ -41,7 +49,6 @@ export class ItemFrameStatsComponent {
     if (id.includes('chaos_')) {
       return 'chaos';
     }
-
     return '';
   }
 }

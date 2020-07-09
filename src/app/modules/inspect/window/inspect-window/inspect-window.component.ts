@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, HostListener, NgZone, OnDestroy, OnInit } from '@angular/core';
 import { EventSubscription } from '@app/event';
 import { OWGames } from '@app/odk';
-import { SettingsWindowService } from '@layout/service';
+import { SettingsFeature, SettingsWindowService } from '@layout/service';
 import { InspectWindowData, InspectWindowService } from '@modules/inspect/service';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { debounceTime, filter } from 'rxjs/operators';
@@ -46,7 +46,11 @@ export class InspectWindowComponent implements OnInit, OnDestroy {
   }
 
   public onToggleSettings(): void {
-    this.settings.toggle('inspect.name').subscribe();
+    this.settings.toggle(SettingsFeature.Inspect).subscribe();
+  }
+
+  public onSupportToggle(): void {
+    this.settings.toggle(SettingsFeature.Support).subscribe();
   }
 
   private onMouseUp = (event: overwolf.games.inputTracking.MouseEvent): void => {

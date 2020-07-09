@@ -18,6 +18,12 @@
   ::-webkit-scrollbar-thumb {
     display: none;
   }
+
+  app-header {
+    .header {
+      margin-right: 10px;
+    }
+  }
 }
 
 .indicator {
@@ -28,5 +34,41 @@
     top: 0px;
     transform: rotateZ(-180deg);
     transform-origin: center;
+  }
+}
+
+.content {
+  opacity: 1;
+
+  &.pinned {
+    opacity: 0.3;
+  }
+
+  &.active,
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 30px);
+  margin-right: 10px;
+
+  &.reverse {
+    flex-direction: column-reverse;
+
+    .message {
+      & + .message {
+        margin: 0 0 1px 0;
+      }
+    }
+  }
+
+  .message {
+    & + .message {
+      margin: 1px 0 0 0;
+    }
   }
 }

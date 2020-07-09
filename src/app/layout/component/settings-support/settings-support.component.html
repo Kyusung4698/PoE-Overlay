@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col">
+        <app-card [title]="'support.developer.title'">
+            <p>{{'support.developer.text' | translate}}</p>
+            <div>
+                <button mat-raised-button color="primary" (click)="onOpenSubscription()">
+                    {{'support.developer.open' | translate}}
+                </button>
+            </div>
+        </app-card>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <app-card [title]="'support.question.title' | translate">
+            <p>{{'support.question.text' | translate}}</p>
+            <div>
+                <button mat-raised-button
+                    (click)="onOpenUrl('https://github.com/Kyusung4698/PoE-Overlay/issues/new/choose')">
+                    {{'support.question.github' | translate}}
+                </button>
+                <button mat-raised-button (click)="onOpenUrl('https://discord.gg/dbGFmSQ')">
+                    {{'support.question.discord' | translate}}
+                </button>
+            </div>
+        </app-card>
+    </div>
+</div>

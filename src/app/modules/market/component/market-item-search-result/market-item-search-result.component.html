@@ -1,0 +1,18 @@
+<div class="item" *ngIf="entry.item | tradeFetchItem as item">
+    <app-item-frame [item]="item"></app-item-frame>
+</div>
+<div class="listing" *ngIf="entry.listing as listing">
+    <app-market-listing-status class="status" [status]="listing.status" [seller]="listing.seller">
+    </app-market-listing-status>
+    <div class="spacer"></div>
+    <div class="currency">
+        <app-currency-frame [currency]="listing.price.currency" [amount]="listing.price.amount">
+        </app-currency-frame>
+    </div>
+    <div class="spacer"></div>
+    <div class="actions">
+        <button mat-button (click)="onWhisper()">
+            <mat-icon>send</mat-icon>
+        </button>
+    </div>
+</div>

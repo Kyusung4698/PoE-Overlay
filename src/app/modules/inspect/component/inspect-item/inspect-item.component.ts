@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { InspectFeatureSettings } from '@modules/inspect/inspect-feature-settings';
 import { Item } from '@shared/module/poe/item';
 import { WikiMapService } from '@shared/module/poe/wiki';
-import { InspectFeatureSettings } from '@modules/inspect/inspect-feature-settings';
 
 @Component({
   selector: 'app-inspect-item',
@@ -10,7 +10,10 @@ import { InspectFeatureSettings } from '@modules/inspect/inspect-feature-setting
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class InspectItemComponent implements OnInit {
-  public properties = [];
+  public properties = [
+    'weaponCriticalStrikeChance',
+    'weaponAttacksPerSecond'
+  ];
   public maps: string[];
 
   @Input()

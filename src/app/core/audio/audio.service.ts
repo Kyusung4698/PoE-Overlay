@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { tap, throttleTime } from 'rxjs/operators';
-import { AudioFile } from './audio';
 
 interface AudioPlayEvent {
-    file: AudioFile;
+    file: string;
     volume: number;
 }
 
@@ -20,7 +19,7 @@ export class AudioService {
         this.init();
     }
 
-    public play(file: AudioFile, volume: number = 1): void {
+    public play(file: string, volume: number = 1): void {
         this.queue$.next({ file, volume });
     }
 

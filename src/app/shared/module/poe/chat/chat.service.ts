@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
+import { OWClipboard } from '@app/odk';
 import { OWUtils } from '@app/odk/ow-utils';
-import { of, Subject } from 'rxjs';
-import { concatMap, delay, distinctUntilChanged, flatMap, mergeMap, tap, windowTime } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+import { concatMap, delay, distinctUntilChanged, flatMap, map, mergeMap, tap, windowTime } from 'rxjs/operators';
 
 interface ChatEvent {
     message: string;
@@ -44,28 +45,33 @@ export class ChatService {
         this.queue$.next({ message, send: true });
     }
 
+    public hideout(name: string): void {
+        const message = this.generateMessage('/hideout', name);
+        this.queue$.next({ message, send: true });
+    }
+
     private init(): void {
         this.queue$.pipe(
             windowTime(350),
             concatMap(source => source.pipe(
                 distinctUntilChanged((x, y) => JSON.stringify(x) === JSON.stringify(y))
             )),
-            mergeMap(event => OWUtils.getFromClipboard().pipe(
-                tap(() => OWUtils.placeOnClipboard(event.message)),
-                delay(10),
-                flatMap(text => of(text).pipe(
-                    tap(() => OWUtils.sendKeyStroke('Enter')),
-                    delay(10),
-                    tap(() => OWUtils.sendKeyStroke('Ctrl+V')),
-                    delay(10),
-                    tap(() => {
-                        if (event.send) {
-                            OWUtils.sendKeyStroke('Enter');
-                        }
-                    }),
+            mergeMap(event => OWClipboard.getFromClipboard().pipe(
+                flatMap(text => OWClipboard.placeOnClipboard(event.message).pipe(
+                    map(() => text)
                 )),
+                delay(10),
+                tap(() => OWUtils.sendKeyStroke('Enter')),
+                delay(30),
+                tap(() => OWUtils.sendKeyStroke('Ctrl+V')),
+                delay(10),
+                tap(() => {
+                    if (event.send) {
+                        OWUtils.sendKeyStroke('Enter');
+                    }
+                }),
                 delay(200),
-                tap(text => OWUtils.placeOnClipboard(text)),
+                flatMap(text => OWClipboard.placeOnClipboard(text)),
                 delay(10),
             ), 1)
         ).subscribe();

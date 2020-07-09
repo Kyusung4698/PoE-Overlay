@@ -13,8 +13,6 @@ import { BehaviorSubject } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SettingsFormComponent implements OnInit {
-  private language: Language;
-
   public languages = new EnumValues(Language);
   public uiLanguages = new EnumValues(UiLanguage);
 
@@ -32,11 +30,7 @@ export class SettingsFormComponent implements OnInit {
     private readonly leagues: TradeLeaguesService) { }
 
   public ngOnInit(): void {
-    const { language } = this.settings;
-    if (language && this.language !== language) {
-      this.language = language;
-      this.updateLeagues();
-    }
+    this.updateLeagues();
   }
 
   public onChange(): void {
@@ -49,8 +43,8 @@ export class SettingsFormComponent implements OnInit {
   }
 
   private updateLeagues(): void {
-    const { leagueId } = this.settings;
-    this.leagues.get(this.language).subscribe(leagues => {
+    const { leagueId, language } = this.settings;
+    this.leagues.get(language).subscribe(leagues => {
       const selectedLeague = leagues.find(league => league.id === leagueId);
       if (!selectedLeague) {
         this.settings.leagueId = leagues[0].id;

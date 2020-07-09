@@ -5,7 +5,6 @@ export class OWAudio {
     public static create(url: string): Observable<string> {
         const promise = new Promise<string>((resolve, reject) => {
             overwolf.media.audio.create(url, result => {
-                console.log(result);
                 if (result.success) {
                     resolve(result.id);
                 } else {
@@ -19,7 +18,6 @@ export class OWAudio {
     public static play(id: string): Observable<void> {
         const promise = new Promise<void>((resolve, reject) => {
             overwolf.media.audio.play(id, result => {
-                console.log(result);
                 if (result.success) {
                     resolve();
                 } else {
@@ -33,7 +31,6 @@ export class OWAudio {
     public static stop(id: string): Observable<void> {
         const promise = new Promise<void>((resolve, reject) => {
             overwolf.media.audio.stopById(id, result => {
-                console.log(result);
                 if (result.success) {
                     resolve();
                 } else {
@@ -47,7 +44,6 @@ export class OWAudio {
     public static resume(id: string): Observable<void> {
         const promise = new Promise<void>((resolve, reject) => {
             overwolf.media.audio.resumeById(id, result => {
-                console.log(result);
                 if (result.success) {
                     resolve();
                 } else {
@@ -61,7 +57,6 @@ export class OWAudio {
     public static setVolume(volume: number): Observable<void> {
         const promise = new Promise<void>((resolve, reject) => {
             overwolf.media.audio.setVolume(volume, result => {
-                console.log(result);
                 if (result.success) {
                     resolve();
                 } else {

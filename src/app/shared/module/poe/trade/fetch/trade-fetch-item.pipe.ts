@@ -14,13 +14,20 @@ export class TradeFetchItemPipe implements PipeTransform {
         private readonly processor: ItemProcessorService) { }
 
     public transform(fetchItem: TradeFetchEntryItem): Item {
+        if (!fetchItem) {
+            return null;
+        }
         const item = this.parser.parse(fetchItem.text, null,
             fetchItem.hashes.reduce((filter, key) => {
                 filter[key] = true;
                 return filter;
             }, {})
         );
-        this.processor.process(item, { normalizeQuality: true });
+        if (item) {
+            this.processor.process(item, { normalizeQuality: true });
+        } else {
+            console.warn(`Could not parse item for market. ${fetchItem.text}`);
+        }
         return item;
     }
 }

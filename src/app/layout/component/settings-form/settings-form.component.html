@@ -1,6 +1,6 @@
 <app-card [title]="'settings.game-settings' | translate" appAnnotation="settings.game-settings">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-3">
             <mat-form-field>
                 <mat-label>{{'app.language' | translate}}</mat-label>
                 <mat-select [(value)]="settings.language" (valueChange)="onLanguageChange()">
@@ -10,7 +10,7 @@
                 </mat-select>
             </mat-form-field>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-3">
             <mat-form-field>
                 <mat-label>{{'settings.league' | translate}}</mat-label>
                 <mat-select [(value)]="settings.leagueId" (valueChange)="onChange()">
@@ -18,6 +18,12 @@
                         {{league.text}}
                     </mat-option>
                 </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field>
+                <mat-label>{{'settings.character-name' | translate}}</mat-label>
+                <input matInput [(ngModel)]="settings.characterName" (ngModelChange)="onChange()">
             </mat-form-field>
         </div>
     </div>

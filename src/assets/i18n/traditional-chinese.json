@@ -28,7 +28,7 @@
 				"title": "屬性"
 			},
 			"search": {
-				"message": "搜索會根據您的過濾器顯示所有列表。\n\n您可以在圖形視圖或列表視圖之間進行選擇。\n圖形視圖根據項目的價格對項目進行分組，並顯示這些組的數量。列表視圖僅顯示按金額排序的列表。\n通過將它們的列表分組為一個，可以為潛在的價格修正者另外過濾兩種視圖。\n\n通過單擊列表-格式化的價格便箋將被複製到剪貼板。",
+				"message": "搜索將根據您的過濾器顯示所有列表。\n\n您可以在圖形視圖或列表視圖之間進行選擇。\n圖形視圖根據項目的價格對項目進行分組，並顯示這些組的數量。列表視圖僅顯示按金額排序的列表。\n通過將它們的列表分組為一個，可以為潛在的價格修正者另外過濾兩個視圖。\n\n通過單擊列表-格式化的價格便箋將被複製到剪貼板。",
 				"title": "搜索"
 			},
 			"settings": {
@@ -68,7 +68,7 @@
 			},
 			"filter": {
 				"message": "單擊突出顯示的圖標以打開過濾器。將值調整為您喜歡的值。",
-				"title": ""
+				"title": "過濾"
 			},
 			"message": "市場允許您瀏覽列出的項目並在遊戲中交換貨幣。\n\n可以通過按以下熱鍵進行切換：",
 			"reset": {
@@ -105,9 +105,13 @@
 			"message": "通過按以下熱鍵打開設置窗口：",
 			"title": "設置"
 		},
+		"support": {
+			"message": "你有問題嗎？還是要請求一項新功能？\n\n查看設置菜單上的支持標籤以獲取更多信息。\n\n另外，如果您喜歡該應用程序，請考慮通過訂閱支持我。",
+			"title": "支持"
+		},
 		"thanks": {
 			"message": "現在就這樣。希望您喜歡我的應用。\n\n-敬禮，Kyusung4698",
-			"title": ""
+			"title": "謝謝！"
 		},
 		"trade": {
 			"highlight": {
@@ -272,6 +276,9 @@
 	"event": {
 		"start-error": "無法開始監聽遊戲事件。"
 	},
+	"footer": {
+		"support": "支持"
+	},
 	"help": {
 		"browser": "按住CTRL時點擊將在默認瀏覽器中打開鏈接。",
 		"browser-title": "如何在默認瀏覽器中打開搜尋？",
@@ -313,6 +320,7 @@
 	},
 	"market": {
 		"bar": {
+			"history": "歷史",
 			"reset": "清除篩選",
 			"search": "搜尋",
 			"toggle": "切換過濾器"
@@ -359,6 +367,7 @@
 		"death": "死亡事件",
 		"future-duration": "未來幾秒內",
 		"kill": "擊殺事件",
+		"manually": "手動地",
 		"name": "重播",
 		"past-duration": "過去幾秒內",
 		"start-error": "無法開始事件獲取。",
@@ -371,6 +380,7 @@
 		"auto-download": "自動下載更新",
 		"auto-launch": "開機後自動啟動",
 		"cancel": "取消",
+		"character-name": "角色名稱後備",
 		"dialog": "對話",
 		"dialog-opacity": "對話不透明度",
 		"dialog-spawn-position": {
@@ -402,9 +412,24 @@
 		"ui-language": "介面語言",
 		"zoom": "放大"
 	},
+	"support": {
+		"developer": {
+			"open": "打開訂閱頁面",
+			"text": "如果您喜歡該應用程序，請考慮通過訂閱支持我。這將使我花更多的時間來開發此應用程序並保持最新狀態。您還將儘早使用新功能。",
+			"title": "支持開發商"
+		},
+		"name": "支持",
+		"question": {
+			"discord": "加入不和諧社區",
+			"github": "在GitHub Project上提交問題",
+			"text": "你有問題嗎還是要請求一項新功能？",
+			"title": "得到支持"
+		}
+	},
 	"trade": {
 		"action": {
 			"finished": "謝謝，再見",
+			"hideout": "前往賣家藏身處",
 			"interested": "還感興趣嗎？",
 			"invite": "邀請",
 			"item-gone": "物品不見了",
@@ -414,6 +439,7 @@
 			"wait": "等待？",
 			"whisper": "耳語"
 		},
+		"actions": "動作",
 		"analyzing": "正在分析數據...",
 		"empty": "查無結果。是否瀏覽器中打開？",
 		"enabled": "啟用",
@@ -423,12 +449,25 @@
 			"rate": "已達到限制。請稍後再試。\n如果這種情況持續發生，請嘗試減少獲取的物品數。"
 		},
 		"fetching": "已找到 {{total}}。正在獲取 {{count}} 個條目...",
+		"filter": "過濾",
+		"filters": {
+			"incoming": "來",
+			"incomingoutgoing": "進出"
+		},
+		"height": "高度",
+		"layout": "佈局",
+		"layouts": {
+			"bottomtotop": "從下到上",
+			"toptobottom": "從上到下"
+		},
+		"leave-party": "離開聚會一旦結束",
 		"message": {
 			"item-gone": "物品消失的消息",
 			"still-interested": "仍然感興趣的消息",
 			"thanks": "謝謝留言",
 			"wait": "等待訊息"
 		},
+		"messages": "消息",
 		"name": "貿易",
 		"no-price": "沒有價格",
 		"not-found": "沒有找到數據。",

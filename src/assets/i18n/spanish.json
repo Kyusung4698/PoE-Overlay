@@ -68,7 +68,7 @@
 			},
 			"filter": {
 				"message": "Haga clic en el icono resaltado para abrir el filtro. Ajusta los valores a tu gusto.",
-				"title": ""
+				"title": "Filtrar"
 			},
 			"message": "El mercado te permite navegar por los artículos listados e intercambiar monedas dentro del juego.\n\nSe puede activar presionando la tecla de acceso rápido a continuación:",
 			"reset": {
@@ -105,9 +105,13 @@
 			"message": "Abra la ventana de configuración presionando la siguiente tecla de acceso rápido:",
 			"title": "Ajustes"
 		},
+		"support": {
+			"message": "¿Tienes una pregunta? ¿O quieres solicitar una nueva función?\n\nConsulte la pestaña de soporte en el menú de configuración para obtener más información.\n\nAdemás, si te encanta la aplicación, considera apoyarme suscribiéndote.",
+			"title": "Apoyo"
+		},
 		"thanks": {
 			"message": "Eso es todo por ahora. Espero que disfrutes mi aplicación.\n\n- Saludos cordiales, Kyusung4698",
-			"title": ""
+			"title": "¡Gracias!"
 		},
 		"trade": {
 			"highlight": {
@@ -272,6 +276,9 @@
 	"event": {
 		"start-error": "No se pudo comenzar a escuchar los eventos del juego."
 	},
+	"footer": {
+		"support": "Apoyo"
+	},
 	"help": {
 		"browser": "Si mantiene presionada la tecla CTRL mientras hace clic, se abrirá el enlace en el navegador predeterminado.",
 		"browser-title": "¿Cómo abro la búsqueda en mi navegador predeterminado?",
@@ -313,6 +320,7 @@
 	},
 	"market": {
 		"bar": {
+			"history": "historia",
 			"reset": "Filtro claro",
 			"search": "Buscar",
 			"toggle": "Filtro de palanca"
@@ -359,6 +367,7 @@
 		"death": "Evento de muerte",
 		"future-duration": "Duración futura",
 		"kill": "Evento de muerte",
+		"manually": "a mano",
 		"name": "Repetición",
 		"past-duration": "Duración pasada",
 		"start-error": "No se pudo iniciar la captura de eventos.",
@@ -371,6 +380,7 @@
 		"auto-download": "Descargar actualización automáticamente",
 		"auto-launch": "Ejecutar en arranque",
 		"cancel": "Cancelar",
+		"character-name": "Nombre del personaje Fallback",
 		"dialog": "Diálogo",
 		"dialog-opacity": "Diálogo Opacidad",
 		"dialog-spawn-position": {
@@ -402,9 +412,24 @@
 		"ui-language": "Idioma de la interfaz de usuario",
 		"zoom": "Enfocar"
 	},
+	"support": {
+		"developer": {
+			"open": "Abra la página de suscripción",
+			"text": "Si amas la aplicación, considera apoyarme suscribiéndote. Esto me permitirá pasar más tiempo desarrollando esta aplicación y mantenerla actualizada. También obtendrá acceso temprano a nuevas funciones.",
+			"title": "Apoye al desarrollador"
+		},
+		"name": "Apoyo",
+		"question": {
+			"discord": "Únete a la comunidad Discord",
+			"github": "Enviar un problema en el proyecto GitHub",
+			"text": "¿Tienes una pregunta? ¿O quieres solicitar una nueva función?",
+			"title": "Obtener apoyo"
+		}
+	},
 	"trade": {
 		"action": {
 			"finished": "Gracias y adiós",
+			"hideout": "Ir al escondite del vendedor",
 			"interested": "¿Aún interesado?",
 			"invite": "invitación",
 			"item-gone": "Artículo desaparecido",
@@ -414,6 +439,7 @@
 			"wait": "¿Espere?",
 			"whisper": "Susurro"
 		},
+		"actions": "Comportamiento",
 		"analyzing": "Analizando datos ...",
 		"empty": "No hay resultados. ¿Abierta en el navegador?",
 		"enabled": "Habilitado",
@@ -423,12 +449,25 @@
 			"rate": "Límite alcanzado. Por favor, inténtelo de nuevo más tarde.\nSi esto sigue sucediendo, intente reducir el recuento de elementos recuperados."
 		},
 		"fetching": "Encontrado {{total}}. Obteniendo {{count}} entradas ...",
+		"filter": "Filtrar",
+		"filters": {
+			"incoming": "Entrante",
+			"incomingoutgoing": "Entrante saliente"
+		},
+		"height": "Altura",
+		"layout": "diseño",
+		"layouts": {
+			"bottomtotop": "Abajo hacia arriba",
+			"toptobottom": "De arriba hacia abajo"
+		},
+		"leave-party": "Salir de fiesta una vez terminado",
 		"message": {
 			"item-gone": "Mensaje de artículo desaparecido",
 			"still-interested": "Mensaje aún interesado",
 			"thanks": "Mensaje de agradecimiento",
 			"wait": "Mensaje de espera"
 		},
+		"messages": "Mensajes",
 		"name": "Comercio",
 		"no-price": "Sin precio",
 		"not-found": "Datos no encontrados.",

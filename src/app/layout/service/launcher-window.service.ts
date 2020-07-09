@@ -26,7 +26,7 @@ export class LauncherWindowService {
                     if (monitor) {
                         const [x, y] = monitor.Location.split(',').map(loc => +loc.trim());
                         const [width, height] = monitor.Resolution.split(',').map(res => +res.trim());
-                        console.log('monitor', x, y, width, height);
+                        console.log(`monitor x: ${x}, y: ${y}, w: ${width}, h: ${height}`, x, y, width, height);
 
                         const left = x + (width / 2) - (WIN_WIDTH / 2);
                         const top = y + (height / 2) - (WIN_HEIGHT / 2);

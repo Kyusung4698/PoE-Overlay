@@ -57,5 +57,41 @@
         }
       }
     }
+
+    .life {
+      .text,
+      .value,
+      .value.changed {
+        color: $red;
+
+        .text {
+          color: $red !important;
+        }
+      }
+    }
+
+    .mana {
+      .text,
+      .value,
+      .value.changed {
+        color: $river;
+
+        .text {
+          color: $river !important;
+        }
+      }
+    }
+
+    .es {
+      .text,
+      .value,
+      .value.changed {
+        color: $emerald;
+
+        .text {
+          color: $emerald !important;
+        }
+      }
+    }
   }
 }

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ItemPricePredictionHttpService } from '@data/poe-prices';
-import { forkJoin, Observable } from 'rxjs';
+import { Language } from '@data/poe/schema';
+import { forkJoin, Observable, throwError } from 'rxjs';
 import { flatMap, map } from 'rxjs/operators';
 import { ContextService } from '../context';
 import { CurrencyConverterService, CurrencySelectService, CurrencySelectStrategy } from '../currency';
@@ -23,6 +24,11 @@ export class ItemPricePredictionService {
         leagueId = leagueId || this.context.get().leagueId;
 
         // TODO: translate item source
+        const language = this.context.get().language;
+        if (language !== Language.English) {
+            return throwError('evaluate.prediction.language');
+        }
+
         const { content } = item;
         return this.prediction.provide(leagueId, content).pipe(
             flatMap(prediction => forkJoin(

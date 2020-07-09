@@ -8,6 +8,52 @@
         </div>
     </div>
     <div class="row">
+        <div class="col-4">
+            <mat-form-field>
+                <mat-label>{{'trade.filter' | translate}}</mat-label>
+                <mat-select [(value)]="settings.tradeFilter" (valueChange)="onChange()">
+                    <mat-option *ngFor="let filter of filters.keys" [value]="filter">
+                        {{'trade.filters.' + (filters.values[filter] | lowercase) | translate}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-4">
+            <mat-form-field>
+                <mat-label>{{'trade.layout' | translate}}</mat-label>
+                <mat-select [(value)]="settings.tradeLayout" (valueChange)="onChange()">
+                    <mat-option *ngFor="let layout of layouts.keys" [value]="layout">
+                        {{'trade.layouts.' + (layouts.values[layout] | lowercase) | translate}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-4">
+            <div class="value-range">
+                <label class="label"> {{'trade.height' | translate}}:
+                    {{displayWithPercentage(settings.tradeHeight)}}
+                </label>
+                <div class="slider">
+                    <mat-slider min="10" max="100" step="5" tickInterval="2" [displayWith]="displayWithPercentage"
+                        [(value)]="settings.tradeHeight" (valueChange)="onChange()">
+                    </mat-slider>
+                </div>
+            </div>
+        </div>
+    </div>
+</app-card>
+<app-card [title]="'trade.actions' | translate">
+    <div class="row">
+        <div class="col-12">
+            <mat-slide-toggle [checked]="settings.tradeLeaveParty" (change)="settings.tradeLeaveParty = $event.checked"
+                (change)="onChange()">
+                {{'trade.leave-party' | translate}}
+            </mat-slide-toggle>
+        </div>
+    </div>
+</app-card>
+<app-card [title]="'trade.messages' | translate">
+    <div class="row">
         <div class="col-6">
             <mat-form-field>
                 <mat-label>{{'trade.message.wait' | translate}}</mat-label>
@@ -47,17 +93,23 @@
         </div>
     </div>
     <div class="row">
-        <div class="value-range">
-            <label class="label"> {{'trade.sound.volume' | translate}}:
-                {{displayWithVolume(settings.tradeSoundVolume)}}
-            </label>
-            <div class="slider">
-                <mat-slider min="0" max="100" step="5" tickInterval="2" [displayWith]="displayWithVolume"
-                    [(value)]="settings.tradeSoundVolume" (valueChange)="onChange()">
-                </mat-slider>
-                <button mat-button (click)="onPlay()">
-                    <mat-icon>play_arrow</mat-icon>
-                </button>
+        <div class="col-12">
+            <div class="value-range">
+                <label class="label"> {{'trade.sound.volume' | translate}}:
+                    {{displayWithPercentage(settings.tradeSoundVolume)}}
+                </label>
+                <div class="slider">
+                    <mat-slider min="0" max="100" step="5" tickInterval="2" [displayWith]="displayWithPercentage"
+                        [(value)]="settings.tradeSoundVolume" (valueChange)="onChange()">
+                    </mat-slider>
+                    <button mat-raised-button color="primary" (click)="onPlay()">
+                        <mat-icon>play_arrow</mat-icon>
+                    </button>
+                    <button mat-raised-button color="primary" (click)="onSelect(fileInput)">
+                        <mat-icon>audiotrack</mat-icon>
+                    </button>
+                    <input hidden (change)="onSelected(fileInput)" #fileInput type="file" accept="audio/wav">
+                </div>
             </div>
         </div>
     </div>

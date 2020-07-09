@@ -68,7 +68,7 @@
 			},
 			"filter": {
 				"message": "강조 표시된 아이콘을 클릭하여 필터를 엽니 다. 원하는대로 값을 조정하십시오.",
-				"title": ""
+				"title": "필터"
 			},
 			"message": "시장에서는 게임 내에서 나열된 항목을 찾아보고 통화를 교환 할 수 있습니다.\n\n아래 핫키를 눌러 전환 할 수 있습니다.",
 			"reset": {
@@ -105,9 +105,13 @@
 			"message": "다음 핫키를 눌러 설정 창을 엽니 다.",
 			"title": "설정"
 		},
+		"support": {
+			"message": "질문 있습니까? 아니면 새로운 기능을 요청 하시겠습니까?\n\n자세한 내용은 설정 메뉴에서 지원 탭을 확인하십시오.\n\n또한 당신이 응용 프로그램을 사랑한다면, 가입하여 나를 지원하는 것을 고려하십시오.",
+			"title": "지원하다"
+		},
 		"thanks": {
 			"message": "그게 다야. 내 앱을 즐기시기 바랍니다.\n\n-Kyusung4698 감사합니다",
-			"title": ""
+			"title": "고맙습니다!"
 		},
 		"trade": {
 			"highlight": {
@@ -272,6 +276,9 @@
 	"event": {
 		"start-error": "게임 이벤트를들을 수 없습니다."
 	},
+	"footer": {
+		"support": "지원하다"
+	},
 	"help": {
 		"browser": "클릭하는 동안 CTRL을 누르고 있으면 기본 브라우저에서 링크가 열립니다.",
 		"browser-title": "기본 브라우저에서 검색을 열려면 어떻게합니까?",
@@ -313,6 +320,7 @@
 	},
 	"market": {
 		"bar": {
+			"history": "역사",
 			"reset": "필터 지우기",
 			"search": "수색",
 			"toggle": "필터 전환"
@@ -359,6 +367,7 @@
 		"death": "죽음의 사건",
 		"future-duration": "향후 기간",
 		"kill": "킬 이벤트",
+		"manually": "수동으로",
 		"name": "다시 하다",
 		"past-duration": "지난 기간",
 		"start-error": "이벤트 캡처를 시작할 수 없습니다.",
@@ -371,6 +380,7 @@
 		"auto-download": "업데이트 자동 다운로드",
 		"auto-launch": "부팅시 실행",
 		"cancel": "취소",
+		"character-name": "캐릭터 이름 대체",
 		"dialog": "대화",
 		"dialog-opacity": "대화 상자 불투명도",
 		"dialog-spawn-position": {
@@ -402,9 +412,24 @@
 		"ui-language": "UI 언어",
 		"zoom": "줌"
 	},
+	"support": {
+		"developer": {
+			"open": "구독 페이지를여십시오",
+			"text": "당신이 응용 프로그램을 사랑한다면, 가입하여 나를 지원하는 것을 고려하십시오. 이를 통해이 앱을 개발하는 데 더 많은 시간을 할애하고 최신 상태로 유지할 수 있습니다. 또한 새로운 기능에 일찍 액세스 할 수 있습니다.",
+			"title": "개발자 지원"
+		},
+		"name": "지원하다",
+		"question": {
+			"discord": "불화 커뮤니티에 참여",
+			"github": "GitHub 프로젝트에서 이슈 제출",
+			"text": "질문이 있습니까? 아니면 새로운 기능을 요청 하시겠습니까?",
+			"title": "지원을 받다"
+		}
+	},
 	"trade": {
 		"action": {
 			"finished": "감사와 안녕",
+			"hideout": "판매자 은신처로 이동",
 			"interested": "여전히 관심이 있습니까?",
 			"invite": "초대",
 			"item-gone": "사라진 항목",
@@ -414,6 +439,7 @@
 			"wait": "기다림?",
 			"whisper": "속삭임"
 		},
+		"actions": "행위",
 		"analyzing": "데이터 분석 중 ...",
 		"empty": "결과가 없습니다. 브라우저에서 열려?",
 		"enabled": "사용",
@@ -423,12 +449,25 @@
 			"rate": "한도에 도달했습니다. 나중에 다시 시도하십시오.\n이 문제가 계속 발생하면 가져온 품목 수를 줄이십시오."
 		},
 		"fetching": " {{total}}을 (를) 찾았습니다. {{count}} 항목을 가져 오는 중 ...",
+		"filter": "필터",
+		"filters": {
+			"incoming": "들어오는",
+			"incomingoutgoing": "수신 및 발신"
+		},
+		"height": "신장",
+		"layout": "형세",
+		"layouts": {
+			"bottomtotop": "아래에서 위로",
+			"toptobottom": "위에서 아래로"
+		},
+		"leave-party": "파티가 끝나면 퇴장",
 		"message": {
 			"item-gone": "사라진 항목 메시지",
 			"still-interested": "여전히 관심있는 메시지",
 			"thanks": "감사 메시지",
 			"wait": "대기 메시지"
 		},
+		"messages": "메시지",
 		"name": "무역",
 		"no-price": "가격 없음",
 		"not-found": "데이터가 없습니다.",

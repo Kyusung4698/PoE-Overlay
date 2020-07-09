@@ -16,7 +16,12 @@ interface MarektItemSearchEntry {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MarketItemSearchBarComponent implements OnInit {
+  private _request: TradeSearchRequest;
+
   public entries$: Observable<MarektItemSearchEntry[]>;
+
+  public records$ = new BehaviorSubject<TradeSearchRequest[]>([]);
+  public recordsVisible$ = new BehaviorSubject<boolean>(false);
 
   public toggle$ = new BehaviorSubject<boolean>(false);
   public inputValue$ = new BehaviorSubject<string>('');
@@ -25,17 +30,24 @@ export class MarketItemSearchBarComponent implements OnInit {
   @ViewChild('input', { static: true })
   public ref: ElementRef<HTMLInputElement>;
 
+  public get request(): TradeSearchRequest {
+    return this._request;
+  }
+
   @Input()
-  public request: TradeSearchRequest;
+  public set request(request: TradeSearchRequest) {
+    this._request = request;
+    this.update();
+  }
+
+  @Output()
+  public requestChange = new EventEmitter<TradeSearchRequest>();
 
   @Output()
   public search = new EventEmitter<void>();
 
   @Output()
   public toggle = new EventEmitter<boolean>();
-
-  @Output()
-  public clear = new EventEmitter<void>();
 
   constructor(private readonly items: TradeItemsService) { }
 
@@ -44,6 +56,15 @@ export class MarketItemSearchBarComponent implements OnInit {
   }
 
   public onSearch(): void {
+    this.recordsVisible$.next(false);
+    const { value } = this.records$;
+    const hash = JSON.stringify(this.request);
+    const records = value.filter(request => JSON.stringify(request) !== hash);
+    records.unshift(JSON.parse(JSON.stringify(this.request)));
+    if (records.length > 10) {
+      records.pop();
+    }
+    this.records$.next(records);
     this.search.next();
   }
 
@@ -52,22 +73,23 @@ export class MarketItemSearchBarComponent implements OnInit {
     this.toggle.next(this.toggle$.value);
   }
 
-  public onClearClick(): void {
-    // TODO: fill value based on request
-    this.ref.nativeElement.value = '';
-    this.clear.next();
-  }
-
-  public onItemClick(item: TradeItem): void {
-    if (item) {
-      this.updateRequest(item);
-      this.ref.nativeElement.value = item.text;
+  public onResetClick(request?: TradeSearchRequest): void {
+    this.recordsVisible$.next(false);
+    if (request) {
+      this.requestChange.next(JSON.parse(JSON.stringify(request)));
+    } else {
+      this.requestChange.next();
     }
   }
 
+  public onItemClick(item: TradeItem): void {
+    this.filterVisible$.next(false);
+    this.updateRequest(item);
+  }
+
   public onKeyup(): void {
-    this.updateRequest(null);
-    this.inputValue$.next(this.ref.nativeElement.value || '');
+    this.resetRequest();
+    this.setViewValue(this.ref.nativeElement.value || '');
   }
 
   public onFocus(): void {
@@ -76,14 +98,16 @@ export class MarketItemSearchBarComponent implements OnInit {
 
   public onBlur(event: FocusEvent): void {
     event.preventDefault();
-    this.updateRequest(null);
-    this.ref.nativeElement.value = '';
-
+    this.resetRequest();
     setTimeout(() => {
-      this.inputValue$.next(this.ref.nativeElement.value);
       this.filterVisible$.next(false);
-      this.ref.nativeElement.blur();
+      this.update();
     }, 200);
+  }
+
+  private resetRequest(): void {
+    delete this.request.query.name;
+    delete this.request.query.type;
   }
 
   private updateRequest(item: TradeItem): void {
@@ -97,6 +121,41 @@ export class MarketItemSearchBarComponent implements OnInit {
     } else {
       delete this.request.query.name;
     }
+    this.update();
+  }
+
+  private update(): void {
+    const { type, name } = this.request.query;
+    const hasType = type?.length;
+    const hasName = name?.length;
+    if (hasType || hasName) {
+      this.items.get().subscribe(items => {
+        let found = false;
+        for (const group of items) {
+          for (const item of group.items) {
+            if (((hasType && item.type === type) || (!hasType && !item.type)) &&
+              ((hasName && item.name === name) || (!hasName && !item.name))) {
+              found = true;
+              this.setViewValue(item.text);
+              break;
+            }
+          }
+          if (found) {
+            break;
+          }
+        }
+        if (!found) {
+          this.updateRequest(null);
+        }
+      });
+    } else {
+      this.setViewValue('');
+    }
+  }
+
+  private setViewValue(value: string): void {
+    this.ref.nativeElement.value = value;
+    this.inputValue$.next(this.ref.nativeElement.value);
   }
 
   private loadEntries(): void {

@@ -4,7 +4,7 @@ import { TradeFetchResultEntry, TradeFetchService } from '@shared/module/poe/tra
 import { TradeExchangeRequest, TradeExchangeResponse, TradeExchangeService } from '@shared/module/poe/trade/exchange';
 import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
 import { catchError, flatMap, map, switchMap, takeUntil, tap } from 'rxjs/operators';
-import { SendEvent } from '../market-exchange-price/market-exchange-price.component';
+import { WhisperEvent } from '../market-exchange-price/market-exchange-price.component';
 
 const DEFAULT_REQUEST = () => {
   const request: TradeExchangeRequest = {
@@ -93,13 +93,13 @@ export class MarketExchangeComponent implements OnInit, OnDestroy {
     this.page$.next(this.page$.value + 1);
   }
 
-  public onClear(): void {
-    this.request = DEFAULT_REQUEST();
+  public onRequestChange(request?: TradeExchangeRequest): void {
+    this.request = request || DEFAULT_REQUEST();
     this.initSearch();
     this.clear();
   }
 
-  public onSend(whisper: string, event: SendEvent): void {
+  public onWhisper(whisper: string, event: WhisperEvent): void {
     let copy = whisper.slice();
     copy = copy.replace('{0}', `${event.itemAmount}`);
     copy = copy.replace('{1}', `${event.valueAmount}`);

@@ -1,5 +1,5 @@
 <div appResize>
-    <app-header name="PoE Overlay - Evaluate">
+    <app-header name="PoE Overlay - Evaluate" [fixed]="true" [footer]="true" (supportToggle)="onSupportToggle()">
         <ng-container *ngIf="data$ | async as data">
             <app-evaluate-item-frame [item]="data.item" [language]="data.language" [settings]="data.settings"
                 (evaluateSelect)="onEvaluateSelect($event)">

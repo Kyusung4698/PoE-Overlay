@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { TradeChatParserService, TradeExchangeMessage, TradeMessage, TradeParserType, TradePlayerJoinedArea } from '@shared/module/poe/trade/chat';
+import { TradeChatParserService, TradeExchangeMessage, TradeMessage, TradeParserType, TradePlayerJoinedArea, TradeWhisperDirection } from '@shared/module/poe/trade/chat';
+import { TradeFilter } from '../trade-feature-settings';
 import { TradeWindowData, TradeWindowService } from './trade-window.service';
 
 @Injectable({
@@ -23,7 +24,7 @@ export class TradeService {
         this.window.data$.next(data);
     }
 
-    public onLogLineAdd(line: string): void {
+    public onLogLineAdd(line: string, filter: TradeFilter): void {
         const data = this.window.data$.get();
         if (this.processRemoved(data)) {
             this.window.data$.next(data);
@@ -35,10 +36,15 @@ export class TradeService {
             case TradeParserType.TradeBulk:
             case TradeParserType.TradeMap:
                 const message = result as TradeExchangeMessage;
-                if (!this.processMessage(message, data.messages)) {
-                    data.messages.push(message);
+                const { direction } = message;
+                const shouldProcess = direction === TradeWhisperDirection.Incoming
+                    || (direction === TradeWhisperDirection.Outgoing && filter === TradeFilter.IncomingOutgoing);
+                if (shouldProcess) {
+                    if (!this.processMessage(message, data.messages)) {
+                        data.messages.push(message);
+                    }
+                    this.window.data$.next(data);
                 }
-                this.window.data$.next(data);
                 break;
             case TradeParserType.Whisper:
                 if (this.processWhisper(result as TradeMessage, data.messages)) {

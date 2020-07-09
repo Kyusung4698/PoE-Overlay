@@ -1,10 +1,23 @@
 <div class="wrapper">
     <input #input (keyup)="onKeyup(input)" [placeholder]="'market.exchange.highlight' | translate">
-    <button class="small" appAnnotation="market.filter" (click)="onToggleClick()" [title]="'market.bar.toggle' | translate">
+    <button class="small" appAnnotation="market.filter" (click)="onToggleClick()"
+        [title]="'market.bar.toggle' | translate">
         <mat-icon> filter_list </mat-icon>
     </button>
-    <button class="small" appAnnotation="market.reset" (click)="onClearClick()" [title]="'market.bar.reset' | translate">
+    <button class="small" appAnnotation="market.reset" (click)="onResetClick()"
+        [title]="'market.bar.reset' | translate">
         <mat-icon> history </mat-icon>
     </button>
+    <ng-container *ngIf="records$ | async as records">
+        <button class="small" (click)="recordsVisible$.next(!recordsVisible$.value)"
+            [title]="'market.bar.history' | translate" [disabled]="!records.length">
+            <mat-icon> history_edu </mat-icon>
+        </button>
+        <div class="records" *ngIf="recordsVisible$ | async">
+            <div class="record" *ngFor="let record of records" (click)="onResetClick(record)">
+                {{record | tradeExchangeText}}
+            </div>
+        </div>
+    </ng-container>
     <button (click)="onSearch()" appAnnotation="market.search">{{'market.bar.search' | translate}}</button>
 </div>

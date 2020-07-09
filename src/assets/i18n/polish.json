@@ -68,7 +68,7 @@
 			},
 			"filter": {
 				"message": "Kliknij podświetloną ikonę, aby otworzyć filtr. Dostosuj wartości do swoich potrzeb.",
-				"title": ""
+				"title": "filtr"
 			},
 			"message": "Rynek pozwala przeglądać wymienione przedmioty i wymieniać waluty w grze.\n\nMożna go przełączać, naciskając poniższy skrót:",
 			"reset": {
@@ -105,9 +105,13 @@
 			"message": "Otwórz okno ustawień, naciskając następujący skrót:",
 			"title": "Ustawienia"
 		},
+		"support": {
+			"message": "Masz pytanie? A może chcesz poprosić o nową funkcję?\n\nSprawdź kartę pomocy w menu ustawień, aby uzyskać dodatkowe informacje.\n\nRównież jeśli podoba Ci się aplikacja, rozważ wsparcie, subskrybując ją.",
+			"title": "Wsparcie"
+		},
 		"thanks": {
 			"message": "Na razie tyle. Mam nadzieję, że podoba Ci się moja aplikacja.\n\n- Z pozdrowieniami, Kyusung4698",
-			"title": ""
+			"title": "Dziękuję Ci!"
 		},
 		"trade": {
 			"highlight": {
@@ -272,6 +276,9 @@
 	"event": {
 		"start-error": "Nie można rozpocząć słuchania wydarzeń z gry."
 	},
+	"footer": {
+		"support": "Wsparcie"
+	},
 	"help": {
 		"browser": "Kliknięcie z wciśniętym klawiszem CTRL, spowoduje otwarcie odnośnika w domyślnej przeglądarce.",
 		"browser-title": "Jak mogę otworzyć wyszukiwanie w domyślnej przeglądarce?",
@@ -313,6 +320,7 @@
 	},
 	"market": {
 		"bar": {
+			"history": "Historia",
 			"reset": "Czysty filtr",
 			"search": "Szukaj",
 			"toggle": "Przełącz filtr"
@@ -359,6 +367,7 @@
 		"death": "Zdarzenie śmierci",
 		"future-duration": "Przyszły czas trwania",
 		"kill": "Zabij zdarzenie",
+		"manually": "ręcznie",
 		"name": "Powtórna rozgrywka",
 		"past-duration": "Czas przeszły",
 		"start-error": "Nie można rozpocząć przechwytywania zdarzeń.",
@@ -371,6 +380,7 @@
 		"auto-download": "Pobierz aktualizację automatycznie",
 		"auto-launch": "Uruchom wraz ze startem systemu",
 		"cancel": "Anuluj",
+		"character-name": "Nazwa postaci Fallback",
 		"dialog": "Okno dialogowe",
 		"dialog-opacity": "Okno dialogowe Krycie",
 		"dialog-spawn-position": {
@@ -402,9 +412,24 @@
 		"ui-language": "Język programu",
 		"zoom": "Powiększenie"
 	},
+	"support": {
+		"developer": {
+			"open": "Otwórz stronę subskrypcji",
+			"text": "Jeśli podoba Ci się aplikacja, rozważ wsparcie, subskrybując ją. Pozwoli mi to poświęcić więcej czasu na rozwijanie tej aplikacji i aktualizowanie jej. Otrzymasz również wczesny dostęp do nowych funkcji.",
+			"title": "Wspieraj programistę"
+		},
+		"name": "Wsparcie",
+		"question": {
+			"discord": "Dołącz do społeczności Discord",
+			"github": "Prześlij problem w GitHub Project",
+			"text": "Masz pytanie? A może chcesz poprosić o nową funkcję?",
+			"title": "Uzyskać wsparcie"
+		}
+	},
 	"trade": {
 		"action": {
 			"finished": "Dzięki i do widzenia",
+			"hideout": "Idź do kryjówki sprzedawcy",
 			"interested": "Nadal jesteś zainteresowany?",
 			"invite": "Zapraszam",
 			"item-gone": "Element zniknął",
@@ -414,6 +439,7 @@
 			"wait": "Czekać?",
 			"whisper": "Szept"
 		},
+		"actions": "działania",
 		"analyzing": "Analiza danych ...",
 		"empty": "Brak wyników. Otworzyć w przeglądarce?",
 		"enabled": "Włączone",
@@ -423,12 +449,25 @@
 			"rate": "Limit osiągnięty. Spróbuj ponownie później.\nJeśli problem nadal występuje, spróbuj zmniejszyć liczbę pobieranych ofert sprzedaży."
 		},
 		"fetching": "Znaleziono {{total}}. Pobieranie {{count}} aukcji ...",
+		"filter": "filtr",
+		"filters": {
+			"incoming": "Przychodzące",
+			"incomingoutgoing": "Przychodzące i wychodzące"
+		},
+		"height": "Wysokość",
+		"layout": "Układ",
+		"layouts": {
+			"bottomtotop": "Od dołu do góry",
+			"toptobottom": "Od góry do dołu"
+		},
+		"leave-party": "Po zakończeniu opuść imprezę",
 		"message": {
 			"item-gone": "Wiadomość zniknęła z produktu",
 			"still-interested": "Wciąż zainteresowana wiadomość",
 			"thanks": "Dzięki wiadomość",
 			"wait": "Wiadomość oczekująca"
 		},
+		"messages": "Wiadomości",
 		"name": "Handel",
 		"no-price": "Bez ceny",
 		"not-found": "Nie znaleziono danych.",
