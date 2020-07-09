@@ -14,6 +14,9 @@ export class TradeFetchItemPipe implements PipeTransform {
         private readonly processor: ItemProcessorService) { }
 
     public transform(fetchItem: TradeFetchEntryItem): Item {
+        if (!fetchItem) {
+            return null;
+        }
         const item = this.parser.parse(fetchItem.text, null,
             fetchItem.hashes.reduce((filter, key) => {
                 filter[key] = true;

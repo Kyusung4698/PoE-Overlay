@@ -30,7 +30,6 @@ export class OWReplay {
     public static getHighlightsFeatures(gameId: number): Observable<void> {
         const promise = new Promise<void>((resolve, reject) => {
             overwolf.media.replays.getHighlightsFeatures(gameId, result => {
-                console.log(result);
                 if (result.success) {
                     resolve();
                 } else {
@@ -44,14 +43,12 @@ export class OWReplay {
     public static capture(pastDuration: number, futureDuration: number): Observable<string> {
         const promise = new Promise<string>((resolve, reject) => {
             overwolf.media.replays.capture(pastDuration, futureDuration, result => {
-                console.log('finished', result);
                 if (result.success) {
                     resolve(result.url);
                 } else {
                     reject(result.error);
                 }
             }, result => {
-                console.log('called', result, pastDuration, futureDuration);
                 if (!result.success) {
                     reject(result);
                 }

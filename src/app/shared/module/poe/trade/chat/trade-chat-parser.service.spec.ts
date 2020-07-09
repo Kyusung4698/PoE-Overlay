@@ -32,7 +32,6 @@ fdescribe('TradeChatParserService', () => {
     logs.forEach(log => {
         it(`should not get result for log: '${log.slice(0, 30)}'`, () => {
             const result = sut.parse(log);
-            console.log(JSON.stringify(result, undefined, 2));
             expect(result.type !== TradeParserType.Ignored).toBeTruthy();
         });
     });

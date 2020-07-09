@@ -196,7 +196,7 @@ export class TradeMessageComponent implements OnInit {
           return throwError('character name was not set.');
         })
       ).subscribe(name => this.chat.kick(name), error => {
-        console.warn(`Could not kick character.`, error);
+        console.warn(`Could not kick character. ${error?.message ?? JSON.stringify(error)}`, error);
         this.notification.show('trade.kick-error');
       });
     } else {

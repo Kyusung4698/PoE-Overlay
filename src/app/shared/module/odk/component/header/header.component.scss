@@ -133,14 +133,14 @@ $border-color: #1a1a1a;
     padding: $header-size 0 0 0;
 
     &.has-footer {
-      padding: $header-size 0 $footer-size 0;
+      padding: $header-size 0 $footer-size - 1px 0;
     }
 
     &.reverse {
       padding: 0 0 $header-size 0;
 
       &.has-footer {
-        padding: $footer-size 0 $header-size 0;
+        padding: $footer-size 0 $header-size - 1px 0;
       }
     }
   }

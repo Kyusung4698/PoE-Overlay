@@ -74,68 +74,68 @@ export class TradeFetchService {
     private map(results: TradeFetchHttpResult[], url: string, total: number, checkExchange: boolean): TradeFetchResponse {
         const entries = results.filter(result => {
             if (!result?.listing) {
-                console.log(`Listing was null or undefined.`, result);
+                console.log(`Listing was null or undefined. ${JSON.stringify(result)}`, result);
                 return false;
             }
             if (!moment(result.listing.indexed).isValid()) {
-                console.log(`Indexed was not a valid date.`, result);
+                console.log(`Indexed was not a valid date. ${JSON.stringify(result)}`, result);
                 return false;
             }
             if (!result.listing.account?.name?.length) {
-                console.log(`Account name was empty or undefined.`, result);
+                console.log(`Account name was empty or undefined. ${JSON.stringify(result)}`, result);
                 return false;
             }
 
             const { price } = result.listing;
             if (!price) {
-                console.log(`Price was null or undefined.`, result);
+                console.log(`Price was null or undefined. ${JSON.stringify(result)}`, result);
                 return false;
             }
 
             if (checkExchange) {
                 const { exchange } = price;
                 if (!exchange) {
-                    console.log(`Price exchange was null or undefined.`, result);
+                    console.log(`Price exchange was null or undefined. ${JSON.stringify(result)}`, result);
                     return false;
                 }
                 if (!exchange.currency?.length) {
-                    console.log(`Price exchange currency was empty or undefined.`, result);
+                    console.log(`Price exchange currency was empty or undefined. ${JSON.stringify(result)}`, result);
                     return false;
                 }
                 if (exchange.amount === null || exchange.amount === undefined || exchange.amount === 0) {
-                    console.log(`Price exchange amount was null or undefined or zero.`, result);
+                    console.log(`Price exchange amount was null or undefined or zero. ${JSON.stringify(result)}`, result);
                     return false;
                 }
                 const { item } = price;
                 if (!item) {
-                    console.log(`Price item was null or undefined.`, result);
+                    console.log(`Price item was null or undefined. ${JSON.stringify(result)}`, result);
                     return false;
                 }
                 if (!item.currency?.length) {
-                    console.log(`Price item currency was empty or undefined.`, result);
+                    console.log(`Price item currency was empty or undefined. ${JSON.stringify(result)}`, result);
                     return false;
                 }
                 if (item.amount === null || item.amount === undefined || item.amount <= 0) {
-                    console.log(`Price item amount was null or undefined or zero.`, result);
+                    console.log(`Price item amount was null or undefined or zero. ${JSON.stringify(result)}`, result);
                     return false;
                 }
                 if (item.stock === null || item.stock === undefined || item.stock <= 0) {
-                    console.log(`Price item stock was null or undefined or zero.`, result);
+                    console.log(`Price item stock was null or undefined or zero. ${JSON.stringify(result)}`, result);
                     return false;
                 }
             } else {
                 if (price.amount === null || price.amount === undefined || price.amount <= 0) {
-                    console.log(`Price amount was null or undefined or zero.`, result);
+                    console.log(`Price amount was null or undefined or zero. ${JSON.stringify(result)}`, result);
                     return false;
                 }
                 if (!price.currency?.length) {
-                    console.log(`Price currency was empty or undefined.`, result);
+                    console.log(`Price currency was empty or undefined. ${JSON.stringify(result)}`, result);
                     return false;
                 }
             }
 
             if (!result.item?.icon?.length) {
-                console.log(`Item icon was empty or undefined.`, result);
+                console.log(`Item icon was empty or undefined. ${JSON.stringify(result)}`, result);
                 return false;
             }
             return true;

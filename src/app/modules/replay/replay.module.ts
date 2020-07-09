@@ -68,7 +68,7 @@ export class ReplayModule implements FeatureModule<ReplayFeatureSettings> {
                         settings.replayCaptureManuallyPastDuration,
                         settings.replayCaptureManuallyFutureDuration
                     ).subscribe(() => { }, error => {
-                        console.warn('Could not capture a manually triggered event.', error);
+                        console.warn(`Could not capture a manually triggered event. ${error?.message ?? JSON.stringify(error)}`, error);
                         this.notification.show('replay.capture-error');
                     });
                 }
@@ -84,7 +84,7 @@ export class ReplayModule implements FeatureModule<ReplayFeatureSettings> {
                         settings.replayCaptureDeathPastDuration,
                         settings.replayCaptureDeathFutureDuration
                     ).subscribe(() => { }, error => {
-                        console.warn('Could not capture the death event.', event, error);
+                        console.warn(`Could not capture the death event. ${error?.message ?? JSON.stringify(error)}`, event, error);
                         this.notification.show('replay.capture-error');
                     });
                 }
@@ -95,7 +95,7 @@ export class ReplayModule implements FeatureModule<ReplayFeatureSettings> {
                         settings.replayCaptureKillPastDuration,
                         settings.replayCaptureKillFutureDuration
                     ).subscribe(() => { }, error => {
-                        console.warn('Could not capture the kill event.', event, error);
+                        console.warn(`Could not capture the kill event. ${error?.message ?? JSON.stringify(error)}`, event, error);
                         this.notification.show('replay.capture-error');
                     });
                 }
@@ -128,7 +128,7 @@ export class ReplayModule implements FeatureModule<ReplayFeatureSettings> {
                 this.notification.show('replay.started');
             }
         }, error => {
-            console.warn('Could not start the replay capturing.', error);
+            console.warn(`Could not start the replay capturing. ${error?.message ?? JSON.stringify(error)}`, error);
             this.notification.show('replay.start-error');
         });
     }
@@ -139,7 +139,7 @@ export class ReplayModule implements FeatureModule<ReplayFeatureSettings> {
                 this.notification.show('replay.stopped');
             }
         }, error => {
-            console.warn('Could not stop the replay capturing.', error);
+            console.warn(`Could not stop the replay capturing. ${error?.message ?? JSON.stringify(error)}`, error);
             this.notification.show('replay.stop-error');
         });
     }

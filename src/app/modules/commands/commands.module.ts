@@ -82,7 +82,7 @@ export class CommandsModule implements FeatureModule<CommandsFeatureSettings> {
                 const { text } = settings.commands[index - 1];
                 if (text?.length) {
                     this.command.execute(text, settings).subscribe(() => { }, error => {
-                        console.warn(`Could not execute command.`, error, text);
+                        console.warn(`Could not execute command: ${text}, ${error?.message ?? JSON.stringify(error)}`, error, text);
                         this.notification.show('commands.execute-error');
                     });
                 }
