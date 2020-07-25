@@ -48,7 +48,7 @@ export class CurrencyOverviewHttpService {
 
                 const result: CurrencyOverviewResponse = {
                     lines: response.lines,
-                    url: `${environment.poeNinja.baseUrl}/challenge/${PATH_TYPE_MAP[type]}`
+                    url: `${environment.poeNinja.baseUrl}/${this.getLeaguePath(leagueId)}/${PATH_TYPE_MAP[type]}`
                 };
                 return of(result);
             })
@@ -64,5 +64,21 @@ export class CurrencyOverviewHttpService {
 
     private getUrl(leagueId: string, type: CurrencyOverviewType): string {
         return `${this.baseUrl}?league=${encodeURIComponent(leagueId)}&type=${encodeURIComponent(type)}&language=en`;
+    }
+
+    private getLeaguePath(leagueId: string): string {
+        switch (leagueId) {
+            case TradeLeaguesHttpLeague.Standard:
+                return 'standard';
+            case TradeLeaguesHttpLeague.HardCore:
+                return 'hardcore';
+        }
+
+        const exp = new RegExp(`${TradeLeaguesHttpLeague.HardCore} .*`);
+        const regexResult = exp.exec(leagueId);
+        if (regexResult !== null) {
+            return 'challengehc';
+        }
+        return 'challenge';
     }
 }

@@ -2,6 +2,7 @@ import { TradeHttpResponse } from './trade';
 
 export enum TradeLeaguesHttpLeague {
     Standard = 'Standard',
+    HardCore = 'Hardcore',
 }
 
 export interface TradeLeaguesHttpResult {
