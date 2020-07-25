@@ -170,7 +170,7 @@ export class ItemPriceRatesProvider {
                         change: sparkLine.totalChange,
                         history: sparkLine.data,
                         chaosAmount: line.chaosEquivalent,
-                        url: response.url
+                        url: response.url + this.getUrlSuffix(line.currencyTypeName)
                     };
                     return rate;
                 })
@@ -199,7 +199,7 @@ export class ItemPriceRatesProvider {
                         change: sparkLine.totalChange,
                         history: sparkLine.data,
                         chaosAmount: line.chaosValue,
-                        url: response.url
+                        url: response.url + this.getUrlSuffix(line.name)
                     };
                     return rate;
                 })
@@ -207,4 +207,9 @@ export class ItemPriceRatesProvider {
             return result;
         }));
     }
+
+    private getUrlSuffix(name: string): string {
+        return `?name=${encodeURIComponent(name)}`;
+    }
+
 }
