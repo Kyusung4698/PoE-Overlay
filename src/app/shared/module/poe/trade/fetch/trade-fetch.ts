@@ -36,6 +36,8 @@ export interface TradeFetchEntryListing {
 
 export interface TradeFetchEntryItem {
     icon: string;
+    width: number;
+    height: number;
     text: string;
     hashes: string[];
 }

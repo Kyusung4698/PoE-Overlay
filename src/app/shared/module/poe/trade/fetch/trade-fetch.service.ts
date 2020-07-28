@@ -167,6 +167,8 @@ export class TradeFetchService {
                 },
                 item: {
                     icon: item.icon.replace(/\\/g, ''),
+                    width: item.w,
+                    height: item.h,
                     text: text ? b64DecodeUnicode(text) : '',
                     hashes: Object
                         .getOwnPropertyNames(hashes || {})

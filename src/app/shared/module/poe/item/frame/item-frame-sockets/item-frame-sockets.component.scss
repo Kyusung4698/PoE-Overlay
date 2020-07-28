@@ -2,11 +2,20 @@
   position: relative;
   width: 90px;
   margin: 0 auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  &:not(.disabled) {
+    .link,
+    .socket {
+      cursor: pointer;
+    }
+  }
 
   .link,
   .socket {
     position: absolute;
-    cursor: pointer;
     user-select: none;
     transition: all 0.2s ease-in-out;
     background-repeat: no-repeat;

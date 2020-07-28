@@ -9,6 +9,8 @@ import { ItemFrameComponent } from '../item-frame/item-frame.component';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ItemFrameSocketsComponent {
+    public readonly disabled: boolean;
+
     @Input()
     public item: Item;
 
@@ -17,10 +19,16 @@ export class ItemFrameSocketsComponent {
 
     constructor(
         @Inject(ItemFrameComponent)
-        private readonly itemFrame: ItemFrameComponent) {
+        private readonly itemFrame: ItemFrameComponent
+    ) {
+        this.disabled = this.itemFrame.queryItemChange.observers.length <= 0;
     }
 
     public toggleSocketColor(event: MouseEvent, index: number, value: ItemSocket): void {
+        if (this.disabled) {
+            return;
+        }
+
         if (event.shiftKey) {
             const enabled = this.queryItem.sockets.every(x => x.color !== undefined);
             for (let i = 0; i < this.queryItem.sockets.length; i++) {
@@ -33,6 +41,10 @@ export class ItemFrameSocketsComponent {
     }
 
     public toggleSocketLinked(event: MouseEvent, index: number, value: ItemSocket): void {
+        if (this.disabled) {
+            return;
+        }
+
         if (event.shiftKey) {
             const enabled = this.queryItem.sockets.every(x => x.linked !== undefined);
             for (let i = 0; i < this.queryItem.sockets.length; i++) {
@@ -49,7 +61,7 @@ export class ItemFrameSocketsComponent {
     }
 
     public getSocketHeight(): string {
-        const length = this.item.sockets.length;
+        const length = Math.max(this.item.sockets?.length || 0, (this.item.height || 0) * 2);
         const socketHeight = Math.floor((length + 1) / 2) * 34;
         const linkHeight = length >= 3
             ? Math.floor((length - 1) / 2) * 22
