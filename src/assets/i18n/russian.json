@@ -354,7 +354,7 @@
 	"misc": {
 		"highlight": "Stash Highlight",
 		"name": "Разное",
-		"navigation": "Навигация",
+		"navigation": "Тайник навигации",
 		"navigations": {
 			"disabled": "Отключена",
 			"inverse": "Инверсированная",

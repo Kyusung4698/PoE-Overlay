@@ -354,7 +354,7 @@
 	"misc": {
 		"highlight": "Surbrillance Stash",
 		"name": "Divers",
-		"navigation": "Défilement",
+		"navigation": "Navigation cachée",
 		"navigations": {
 			"disabled": "Désactivé",
 			"inverse": "Inversé",

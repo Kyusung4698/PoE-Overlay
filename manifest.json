@@ -302,6 +302,10 @@
             "clipboard-plugin": {
                 "file": "plugins/dist/clipboard.dll",
                 "class": "overwolf.plugins.clipboard"
+            },
+            "mousewheel-plugin": {
+                "file": "plugins/dist/mousewheel.dll",
+                "class": "overwolf.plugins.mousewheel.Plugin"
             }
         }
     }

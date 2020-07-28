@@ -354,7 +354,7 @@
 	"misc": {
 		"highlight": "스 태쉬 하이라이트",
 		"name": "기타",
-		"navigation": "항해",
+		"navigation": "숨김 탐색",
 		"navigations": {
 			"disabled": "장애인",
 			"inverse": "역",

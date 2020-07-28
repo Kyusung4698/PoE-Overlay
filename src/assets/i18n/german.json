@@ -354,7 +354,7 @@
 	"misc": {
 		"highlight": "Stash Highlight",
 		"name": "Sonstiges",
-		"navigation": "Navigation",
+		"navigation": "Stash Navigation",
 		"navigations": {
 			"disabled": "Deaktiviert",
 			"inverse": "Invers",

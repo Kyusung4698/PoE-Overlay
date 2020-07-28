@@ -354,7 +354,7 @@
 	"misc": {
 		"highlight": "隱藏重點",
 		"name": "其它",
-		"navigation": "導航",
+		"navigation": "藏匿導航",
 		"navigations": {
 			"disabled": "不啟用",
 			"inverse": "逆",

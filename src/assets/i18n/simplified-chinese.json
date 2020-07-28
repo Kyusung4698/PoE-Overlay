@@ -354,7 +354,7 @@
 	"misc": {
 		"highlight": "隐藏重点",
 		"name": "杂项",
-		"navigation": "导航",
+		"navigation": "藏匿导航",
 		"navigations": {
 			"disabled": "残",
 			"inverse": "逆",

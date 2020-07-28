@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.9 (2020-07-29)
+
+- added stash navigation on ctrl + mousewheel
+
 ## 1.0.8 (2020-07-09)
 
 - added support for the new cluster jewels stats
