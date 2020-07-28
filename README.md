@@ -21,12 +21,9 @@ The complete guide with pictures can be found [here](INSTALLING.md).
 
 | Module        | Feature         | Status | Note     
 | ------------- | --------------- | ------ | ---------
-| Market        | Search History  | 🚧     |
 | Market        | Save Queries    | 📚     |
 | Market        | Sort Results    | 📚     |
 | Stash         | Filter Category | 📚     |
-| Stash         | Navigation      | ⚡     | Waiting 🐺
-| Commands      | @latest_whisper | ⚡     | Waiting 🐺
 
 🚧 In Progress 📚 Backlog ⚡ Blocked 🐺 Overwolf 
 

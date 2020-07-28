@@ -3,9 +3,10 @@
 ## 1.0.9 (2020-07-29)
 
 - added stash navigation on ctrl + mousewheel
-- added support for the different poe.ninja urls based on the league and name
+- added better support for the generate poe.ninja urls based on the league and name (#208)
 - added latest_whisper placeholder for commands
-- added images for the items at the market
+- added item images at the search market
+- added different step sizes at the exchange market (CTRL 50, SHIFT 25, ALT 5) (#797)
 - fixed an issue at the market enabling sockets to be toggleable
 
 ## 1.0.8 (2020-07-09)

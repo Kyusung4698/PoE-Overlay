@@ -46,11 +46,26 @@ export class MarketExchangePriceComponent implements OnInit {
     });
   }
 
-  public onSub(): void {
-    this.value = Math.max(this.min, this.value - 1);
+  public onSub(event: MouseEvent): void {
+    const factor = this.getFactor(event);
+    this.value = Math.max(this.min, this.value - factor);
   }
 
-  public onAdd(): void {
-    this.value = Math.min(this.max, this.value + 1);
+  public onAdd(event: MouseEvent): void {
+    const factor = this.getFactor(event);
+    this.value = Math.min(this.max, this.value + factor);
+  }
+
+  private getFactor(event: MouseEvent): number {
+    if (event.ctrlKey) {
+      return 50;
+    }
+    if (event.shiftKey) {
+      return 25;
+    }
+    if (event.altKey) {
+      return 5;
+    }
+    return 1;
   }
 }
