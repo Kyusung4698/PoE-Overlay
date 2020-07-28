@@ -1,7 +1,7 @@
 import { TradeLeaguesHttpLeague } from '@data/poe/schema';
 
 export abstract class OverviewHttpService {
-    protected getLeaguePath(leagueId: string): string {
+    public getLeaguePath(leagueId: string): string {
         switch (leagueId) {
             case TradeLeaguesHttpLeague.Standard:
                 return 'standard';
