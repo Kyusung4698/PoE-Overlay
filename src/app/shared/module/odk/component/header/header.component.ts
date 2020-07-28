@@ -69,14 +69,12 @@ export class HeaderComponent implements OnInit {
       );
   }
 
-  public onDrag(event: MouseEvent): void {
-    event.preventDefault();
-    if (this.pinned) {
+  public onDrag(event: MouseEvent, draggable: boolean): void {
+    if (!draggable || this.pinned) {
       return;
     }
-    this.obtained$.subscribe(() => {
-      this.window.dragMove();
-    });
+    event.preventDefault();
+    this.obtained$.subscribe(() => this.window.dragMove());
   }
 
   public onClose(event: MouseEvent): void {
