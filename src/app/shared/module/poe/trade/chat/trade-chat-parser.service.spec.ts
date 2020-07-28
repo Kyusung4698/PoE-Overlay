@@ -6,7 +6,7 @@ import { AssetService } from '@app/assets';
 import { TradeChatParserService } from '.';
 import { TradeParserType } from './trade-chat';
 
-fdescribe('TradeChatParserService', () => {
+describe('TradeChatParserService', () => {
     let sut: TradeChatParserService;
     beforeEach(async () => {
         TestBed.configureTestingModule({

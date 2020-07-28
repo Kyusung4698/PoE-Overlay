@@ -5,6 +5,7 @@ import { environment } from '@env/environment';
 import { Observable, of, throwError } from 'rxjs';
 import { delay, flatMap, retryWhen } from 'rxjs/operators';
 import { CurrencyOverviewResponse } from '../schema/currency-overview';
+import { OverviewHttpService } from './overview-http.service';
 
 export enum CurrencyOverviewType {
     Currency = 'Currency',
@@ -22,11 +23,13 @@ const RETRY_DELAY = 100;
 @Injectable({
     providedIn: 'root'
 })
-export class CurrencyOverviewHttpService {
+export class CurrencyOverviewHttpService extends OverviewHttpService {
     private readonly baseUrl: string;
 
     constructor(
-        private readonly httpClient: HttpClient) {
+        private readonly httpClient: HttpClient
+    ) {
+        super();
         this.baseUrl = `${environment.poeNinja.baseUrl}/api/data/currencyoverview`;
     }
 
@@ -48,7 +51,7 @@ export class CurrencyOverviewHttpService {
 
                 const result: CurrencyOverviewResponse = {
                     lines: response.lines,
-                    url: `${environment.poeNinja.baseUrl}/challenge/${PATH_TYPE_MAP[type]}`
+                    url: `${environment.poeNinja.baseUrl}/${this.getLeaguePath(leagueId)}/${PATH_TYPE_MAP[type]}`
                 };
                 return of(result);
             })
