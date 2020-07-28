@@ -29,6 +29,9 @@ export class HeaderComponent implements OnInit {
   public draggable = true;
 
   @Input()
+  public contentDraggable = true;
+
+  @Input()
   public pinnable = false;
 
   @Input()
