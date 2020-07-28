@@ -5,6 +5,7 @@ import { environment } from '@env/environment';
 import { Observable, of, throwError } from 'rxjs';
 import { delay, flatMap, retryWhen } from 'rxjs/operators';
 import { ItemOverviewResponse } from '../schema/item-overview';
+import { OverviewHttpService } from './overview-http.service';
 
 export enum ItemOverviewType {
     Prophecy = 'Prophecy',
@@ -52,11 +53,13 @@ const RETRY_DELAY = 100;
 @Injectable({
     providedIn: 'root'
 })
-export class ItemOverviewHttpService {
+export class ItemOverviewHttpService extends OverviewHttpService {
     private readonly baseUrl: string;
 
     constructor(
-        private readonly httpClient: HttpClient) {
+        private readonly httpClient: HttpClient
+    ) {
+        super();
         this.baseUrl = `${environment.poeNinja.baseUrl}/api/data/itemoverview`;
     }
 
@@ -78,7 +81,7 @@ export class ItemOverviewHttpService {
 
                 const result: ItemOverviewResponse = {
                     lines: response.lines,
-                    url: `${environment.poeNinja.baseUrl}/challenge/${PATH_TYPE_MAP[type]}`
+                    url: `${environment.poeNinja.baseUrl}/${this.getLeaguePath(leagueId)}/${PATH_TYPE_MAP[type]}`
                 };
                 return of(result);
             })
