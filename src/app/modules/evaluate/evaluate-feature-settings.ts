@@ -15,6 +15,7 @@ export interface EvaluateFeatureSettings extends FeatureSettings {
     evaluateCurrencies: string[];
     evaluateCurrenciesOriginal: boolean;
     evaluateTranslateLanguage: Language;
+    evaluateItemSearchHorizontal: boolean;
     evaluateItemSearchLayout: EvaluateItemSearchLayout;
     evaluateItemSearchQueryInitial: boolean;
     evaluateItemSearchQueryDebounceTime: number;

@@ -7,6 +7,7 @@
 - added latest_whisper placeholder for commands
 - added item images at the search market
 - added different step sizes at the exchange market (CTRL 50, SHIFT 25, ALT 5) (#797)
+- added experimental horizontal layout (enableable at the settings) for the evaluate dialog (#769)
 - updated windows to be draggable by their content (#768)
 - fixed an issue at the market enabling sockets to be toggleable
 

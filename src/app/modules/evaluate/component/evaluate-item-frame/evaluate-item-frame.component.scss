@@ -1,0 +1,24 @@
+$border-color: #1a1a1a;
+
+::ng-deep {
+  app-evaluate-item-frame {
+    .horizontal {
+      app-item-frame {
+        .detail {
+          display: flex;
+        }
+
+        .inner {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          border-right: 1px solid $border-color;
+        }
+      }
+
+      .settings {
+        right: calc(50% + 3px) !important;
+      }
+    }
+  }
+}

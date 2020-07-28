@@ -218,6 +218,7 @@
 			}
 		},
 		"layout": {
+			"horizontal": "가로로 표시",
 			"name": "형세",
 			"value": "결과보기",
 			"values": {

@@ -218,6 +218,7 @@
 			}
 		},
 		"layout": {
+			"horizontal": "显示水平",
 			"name": "布局",
 			"value": "结果视图",
 			"values": {

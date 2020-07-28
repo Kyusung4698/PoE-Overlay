@@ -218,6 +218,7 @@
 			}
 		},
 		"layout": {
+			"horizontal": "Pantalla horizontal",
 			"name": "diseño",
 			"value": "Vista de resultados",
 			"values": {

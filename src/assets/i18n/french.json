@@ -218,6 +218,7 @@
 			}
 		},
 		"layout": {
+			"horizontal": "Affichage horizontal",
 			"name": "Disposition",
 			"value": "Affichage des résultats",
 			"values": {

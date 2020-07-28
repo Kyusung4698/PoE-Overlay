@@ -218,6 +218,7 @@
 			}
 		},
 		"layout": {
+			"horizontal": "顯示水平",
 			"name": "版面",
 			"value": "結果呈現",
 			"values": {

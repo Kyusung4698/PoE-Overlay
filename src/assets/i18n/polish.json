@@ -218,6 +218,7 @@
 			}
 		},
 		"layout": {
+			"horizontal": "Wyświetl w poziomie",
 			"name": "Układ",
 			"value": "Okno wyników",
 			"values": {

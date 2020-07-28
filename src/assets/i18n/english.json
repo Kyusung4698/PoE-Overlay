@@ -222,6 +222,7 @@
 			}
 		},
 		"layout": {
+			"horizontal": "Display horizontal",
 			"name": "Layout",
 			"value": "Result View",
 			"values": {

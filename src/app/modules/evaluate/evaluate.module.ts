@@ -49,6 +49,7 @@ export class EvaluateModule implements FeatureModule<EvaluateFeatureSettings> {
                 evaluateCurrenciesOriginal: true,
                 evaluateTranslateLanguage: Language.English,
                 evaluateItemSearchLayout: EvaluateItemSearchLayout.Graph,
+                evaluateItemSearchHorizontal: false,
                 evaluateItemSearchQueryInitial: false,
                 evaluateItemSearchQueryDebounceTime: 10,
                 evaluateItemSearchQueryFetchCount: 30,

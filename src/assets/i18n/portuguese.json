@@ -218,6 +218,7 @@
 			}
 		},
 		"layout": {
+			"horizontal": "Exibir horizontal",
 			"name": "Layout",
 			"value": "Visualização de resultados",
 			"values": {
