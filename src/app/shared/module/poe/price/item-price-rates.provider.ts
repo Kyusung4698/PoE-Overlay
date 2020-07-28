@@ -135,9 +135,9 @@ export class ItemPriceRatesProvider {
             case ItemCategory.GemActivegem:
             case ItemCategory.GemSupportGem:
             case ItemCategory.GemSupportGemplus: {
-                    const key = `${leagueId}_${ItemCategory.Gem}`;
-                    return this.fetch(key, () => this.fetchItem(leagueId, ItemOverviewType.SkillGem));
-                }
+                const key = `${leagueId}_${ItemCategory.Gem}`;
+                return this.fetch(key, () => this.fetchItem(leagueId, ItemOverviewType.SkillGem));
+            }
             case ItemCategory.MapScarab:
             case ItemCategory.Leaguestone:
             case ItemCategory.MonsterSample:
@@ -170,7 +170,7 @@ export class ItemPriceRatesProvider {
                         change: sparkLine.totalChange,
                         history: sparkLine.data,
                         chaosAmount: line.chaosEquivalent,
-                        url: response.url + this.getUrlSuffix(line.currencyTypeName)
+                        url: `${response.url}${this.getUrlSuffix(line.currencyTypeName)}`
                     };
                     return rate;
                 })
@@ -199,7 +199,7 @@ export class ItemPriceRatesProvider {
                         change: sparkLine.totalChange,
                         history: sparkLine.data,
                         chaosAmount: line.chaosValue,
-                        url: response.url + this.getUrlSuffix(line.name)
+                        url: `${response.url}${this.getUrlSuffix(line.name)}`
                     };
                     return rate;
                 })
@@ -211,5 +211,4 @@ export class ItemPriceRatesProvider {
     private getUrlSuffix(name: string): string {
         return `?name=${encodeURIComponent(name)}`;
     }
-
 }

@@ -5,6 +5,7 @@ import { environment } from '@env/environment';
 import { Observable, of, throwError } from 'rxjs';
 import { delay, flatMap, retryWhen } from 'rxjs/operators';
 import { ItemOverviewResponse } from '../schema/item-overview';
+import { OverviewHttpService } from './overview-http.service';
 
 export enum ItemOverviewType {
     Prophecy = 'Prophecy',
@@ -52,11 +53,13 @@ const RETRY_DELAY = 100;
 @Injectable({
     providedIn: 'root'
 })
-export class ItemOverviewHttpService {
+export class ItemOverviewHttpService extends OverviewHttpService {
     private readonly baseUrl: string;
 
     constructor(
-        private readonly httpClient: HttpClient) {
+        private readonly httpClient: HttpClient
+    ) {
+        super();
         this.baseUrl = `${environment.poeNinja.baseUrl}/api/data/itemoverview`;
     }
 
@@ -94,21 +97,5 @@ export class ItemOverviewHttpService {
 
     private getUrl(leagueId: string, type: ItemOverviewType): string {
         return `${this.baseUrl}?league=${encodeURIComponent(leagueId)}&type=${encodeURIComponent(type)}&language=en`;
-    }
-
-    private getLeaguePath(leagueId: string): string {
-        switch (leagueId) {
-            case TradeLeaguesHttpLeague.Standard:
-                return 'standard';
-            case TradeLeaguesHttpLeague.HardCore:
-                return 'hardcore';
-        }
-
-        const exp = new RegExp(`${TradeLeaguesHttpLeague.HardCore} .*`);
-        const regexResult = exp.exec(leagueId);
-        if (regexResult !== null) {
-            return 'challengehc';
-        }
-        return 'challenge';
     }
 }
