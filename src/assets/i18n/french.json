@@ -158,7 +158,8 @@
 	"commands": {
 		"execute-error": "Une erreur inattendue s'est produite lors de l'exécution de la commande.",
 		"name": "Commande",
-		"text": "Commande"
+		"text": "Commande",
+		"tooltip": "Les espaces réservés suivants sont disponibles:\n@latest_whisper -> dernier nom de joueur chuchoté\n@char -> votre nom de joueur actuel"
 	},
 	"evaluate": {
 		"cancel": "Annuler?",

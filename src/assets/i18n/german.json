@@ -158,7 +158,8 @@
 	"commands": {
 		"execute-error": "Beim Ausführen des Befehls ist ein unerwarteter Fehler aufgetreten.",
 		"name": "Befehle",
-		"text": "Befehl"
+		"text": "Befehl",
+		"tooltip": "Folgende Platzhalter stehen zur Verfügung:\n@latest_whisper -> Name des neuesten Flüsterspielers\n@char -> dein aktueller Spielername"
 	},
 	"evaluate": {
 		"cancel": "Abbrechen?",

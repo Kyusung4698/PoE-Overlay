@@ -158,7 +158,8 @@
 	"commands": {
 		"execute-error": "명령을 실행하는 중 예기치 않은 오류가 발생했습니다.",
 		"name": "명령어",
-		"text": "명령어"
+		"text": "명령어",
+		"tooltip": "다음과 같은 자리 표시자를 사용할 수 있습니다.\n@latest_whisper-> 최신 속삭임 플레이어 이름\n@char-> 현재 플레이어 이름"
 	},
 	"evaluate": {
 		"cancel": "취소?",

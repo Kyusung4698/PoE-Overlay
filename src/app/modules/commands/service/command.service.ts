@@ -5,10 +5,16 @@ import { Observable, of, throwError } from 'rxjs';
 import { flatMap } from 'rxjs/operators';
 import { CommandsFeatureSettings } from '../commands-feature-settings';
 
+interface CommandContext {
+    char?: string;
+    latest_whisper?: string;
+}
+
 @Injectable({
     providedIn: 'root'
 })
 export class CommandService {
+    private readonly context: CommandContext = {};
 
     constructor(
         private readonly chat: ChatService,
@@ -18,22 +24,27 @@ export class CommandService {
         if (command.includes('@char')) {
             return this.event.getCharacter().pipe(
                 flatMap(character => {
-                    if (character?.name?.length) {
-                        command = command.replace('@char', character.name);
-                    } else {
-                        if (settings.characterName?.length) {
-                            command = command.replace('@char', settings.characterName);
-                        } else {
-                            return throwError('character name was not set.');
-                        }
+                    const char = character?.name || settings.characterName;
+                    if (!char?.length) {
+                        return throwError('character name was not set.');
                     }
-                    this.chat.send(command);
+                    this.chat.send(command, {
+                        ...this.context,
+                        char
+                    });
                     return of(null);
                 })
             );
         } else {
-            this.chat.send(command);
+            this.chat.send(command, this.context);
             return of(null);
+        }
+    }
+
+    public onLogLineAdd(line: string): void {
+        const message = this.chat.parse(line);
+        if (message?.from) {
+            this.context.latest_whisper = message.from;
         }
     }
 }

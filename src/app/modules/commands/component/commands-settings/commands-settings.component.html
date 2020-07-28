@@ -6,6 +6,11 @@
                     <mat-form-field>
                         <mat-label>{{'commands.text' | translate}}</mat-label>
                         <input matInput [(ngModel)]="command.text" (ngModelChange)="onChange()">
+                        <ng-container matSuffix >
+                            <button mat-icon-button>
+                                <mat-icon [matTooltip]="'commands.tooltip' | translate" matTooltipPosition="left">help</mat-icon>
+                            </button>
+                        </ng-container>
                     </mat-form-field>
                 </div>
                 <div class="col-12">

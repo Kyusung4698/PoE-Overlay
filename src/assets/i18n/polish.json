@@ -158,7 +158,8 @@
 	"commands": {
 		"execute-error": "Wystąpił nieoczekiwany błąd podczas wykonywania polecenia.",
 		"name": "Komendy",
-		"text": "Komenda"
+		"text": "Komenda",
+		"tooltip": "Dostępne są następujące symbole zastępcze:\n@latest_whisper -> nazwa ostatniego szeptanego gracza\n@char -> Twoja obecna nazwa gracza"
 	},
 	"evaluate": {
 		"cancel": "Anuluj?",

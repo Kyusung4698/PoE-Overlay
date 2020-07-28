@@ -4,9 +4,17 @@ import { OWUtils } from '@app/odk/ow-utils';
 import { Subject } from 'rxjs';
 import { concatMap, delay, distinctUntilChanged, flatMap, map, mergeMap, tap, windowTime } from 'rxjs/operators';
 
+const MESSAGE_REGEXP = /@((?<from>from|de|von|от кого|จาก)|(?<to>to|à|an|para|кому|ถึง)) (<.*?> )*(?<player>.*?):(?<message>.*)/;
+
 interface ChatEvent {
     message: string;
     send: boolean;
+}
+
+export interface ChatMessage {
+    from?: string;
+    to?: string;
+    message: string;
 }
 
 @Injectable({
@@ -17,6 +25,20 @@ export class ChatService {
 
     constructor() {
         this.init();
+    }
+
+    public parse(line: string): ChatMessage {
+        const result = new RegExp(MESSAGE_REGEXP, 'gi').exec(line);
+        if (!result) {
+            return undefined;
+        }
+        const { groups } = result;
+        const { from, to, player, message } = groups;
+        return {
+            from: from ? player : undefined,
+            to: to ? player : undefined,
+            message
+        };
     }
 
     public send(text: string, context?: any): void {

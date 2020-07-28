@@ -158,7 +158,8 @@
 	"commands": {
 		"execute-error": "Se produjo un error inesperado al ejecutar el comando.",
 		"name": "Mando",
-		"text": "Mando"
+		"text": "Mando",
+		"tooltip": "Los siguientes marcadores de posición están disponibles:\n@latest_whisper -> último nombre de jugador susurro\n@char -> tu nombre de jugador actual"
 	},
 	"evaluate": {
 		"cancel": "¿Cancelar?",

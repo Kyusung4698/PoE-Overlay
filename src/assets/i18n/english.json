@@ -162,7 +162,8 @@
 	"commands": {
 		"execute-error": "An unexpected error occurred while executing the command.",
 		"name": "Commands",
-		"text": "Command"
+		"text": "Command",
+		"tooltip": "Following placeholders are available:\n@latest_whisper -> latest whisper player name\n@char -> your current player name"
 	},
 	"evaluate": {
 		"cancel": "Cancel?",

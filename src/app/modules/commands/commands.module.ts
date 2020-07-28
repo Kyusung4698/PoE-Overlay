@@ -92,4 +92,8 @@ export class CommandsModule implements FeatureModule<CommandsFeatureSettings> {
                 throw new Error(`Hotkey: '${hotkey}' out of range.`);
         }
     }
+
+    public onLogLineAdd(line: string): void {
+        this.command.onLogLineAdd(line);
+    }
 }
