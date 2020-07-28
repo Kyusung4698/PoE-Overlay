@@ -3,6 +3,7 @@
 ## 1.0.9 (2020-07-29)
 
 - added stash navigation on ctrl + mousewheel
+- added support for the different poe.ninja urls based on the league and name
 
 ## 1.0.8 (2020-07-09)
 
