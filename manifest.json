@@ -4,7 +4,7 @@
     "meta": {
         "name": "PoE Overlay",
         "author": "Kyusung4698",
-        "version": "1.0.8",
+        "version": "1.0.9",
         "minimum-overwolf-version": "0.147.0",
         "description": "Search the market and send trade offers. Get current market values for your item. View insights for maps and items.",
         "dock_button_title": "PoE Overlay",
@@ -302,6 +302,10 @@
             "clipboard-plugin": {
                 "file": "plugins/dist/clipboard.dll",
                 "class": "overwolf.plugins.clipboard"
+            },
+            "mousewheel-plugin": {
+                "file": "plugins/dist/mousewheel.dll",
+                "class": "overwolf.plugins.mousewheel.Plugin"
             }
         }
     }

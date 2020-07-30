@@ -158,7 +158,8 @@
 	"commands": {
 		"execute-error": "명령을 실행하는 중 예기치 않은 오류가 발생했습니다.",
 		"name": "명령어",
-		"text": "명령어"
+		"text": "명령어",
+		"tooltip": "다음과 같은 자리 표시자를 사용할 수 있습니다.\n@latest_whisper-> 최신 속삭임 플레이어 이름\n@char-> 현재 플레이어 이름"
 	},
 	"evaluate": {
 		"cancel": "취소?",
@@ -217,6 +218,7 @@
 			}
 		},
 		"layout": {
+			"horizontal": "가로로 표시",
 			"name": "형세",
 			"value": "결과보기",
 			"values": {
@@ -354,7 +356,7 @@
 	"misc": {
 		"highlight": "스 태쉬 하이라이트",
 		"name": "기타",
-		"navigation": "항해",
+		"navigation": "숨김 탐색",
 		"navigations": {
 			"disabled": "장애인",
 			"inverse": "역",

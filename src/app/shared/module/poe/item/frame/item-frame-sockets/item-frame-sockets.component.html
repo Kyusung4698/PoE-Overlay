@@ -1,15 +1,17 @@
-<div class="sockets" [style.height]="getSocketHeight()">
-    <div *ngFor="let socket of item.sockets; let index = index"
-        [class]="'socket ' + (socket.color | lowercase)" [class.right]="index % 4 === 1 || index % 4 === 2"
-        [style.top]="getSocketTop(index)"
-        [class.query]="queryItem.sockets[index] && queryItem.sockets[index].color"
-        (click)="toggleSocketColor($event, index, socket)">
-    </div>
-    <ng-container *ngFor="let socket of item.sockets; let index = index">
-        <div *ngIf="socket.linked" class="link" [class.horizontal]="index % 2 === 0"
-            [class.right]="index % 6 === 1 || index % 6 === 5" [style.top]="getSocketTop(index, 10)"
-            [class.query]="queryItem.sockets[index] && queryItem.sockets[index].linked"
-            (click)="toggleSocketLinked($event, index, socket)">
+<div class="sockets" [class.disabled]="disabled" [style.height]="getSocketHeight()"
+    [style.background-image]="item.icon ? 'url('+ item.icon + ')' : ''">
+    <ng-container *ngIf="item.sockets">
+        <div *ngFor="let socket of item.sockets; let index = index" [class]="'socket ' + (socket.color | lowercase)"
+            [class.right]="index % 4 === 1 || index % 4 === 2" [style.top]="getSocketTop(index)"
+            [class.query]="queryItem.sockets[index] && queryItem.sockets[index].color"
+            (click)="toggleSocketColor($event, index, socket)">
         </div>
+        <ng-container *ngFor="let socket of item.sockets; let index = index">
+            <div *ngIf="socket.linked" class="link" [class.horizontal]="index % 2 === 0"
+                [class.right]="index % 6 === 1 || index % 6 === 5" [style.top]="getSocketTop(index, 10)"
+                [class.query]="queryItem.sockets[index] && queryItem.sockets[index].linked"
+                (click)="toggleSocketLinked($event, index, socket)">
+            </div>
+        </ng-container>
     </ng-container>
 </div>

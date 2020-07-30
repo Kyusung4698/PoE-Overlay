@@ -37,11 +37,11 @@
 </div>
 <div class="values">
     <div class="sub">
-        <button (click)="onSub()" [disabled]="value === min">-</button>
+        <button (click)="onSub($event)" [disabled]="value === min">-</button>
         <button (click)="value = min" [disabled]="value === min">{{min}}</button>
     </div>
     <div class="add">
-        <button (click)="onAdd()" [disabled]="value === max">+</button>
+        <button (click)="onAdd($event)" [disabled]="value === max">+</button>
         <button (click)="value = max" [disabled]="value === max">{{max}}</button>
     </div>
 </div>

@@ -24,6 +24,9 @@ export class TradeFetchItemPipe implements PipeTransform {
             }, {})
         );
         if (item) {
+            item.icon = fetchItem.icon;
+            item.width = fetchItem.width;
+            item.height = fetchItem.height;
             this.processor.process(item, { normalizeQuality: true });
         } else {
             console.warn(`Could not parse item for market. ${fetchItem.text}`);

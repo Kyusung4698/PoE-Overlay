@@ -158,7 +158,8 @@
 	"commands": {
 		"execute-error": "Beim Ausführen des Befehls ist ein unerwarteter Fehler aufgetreten.",
 		"name": "Befehle",
-		"text": "Befehl"
+		"text": "Befehl",
+		"tooltip": "Folgende Platzhalter stehen zur Verfügung:\n@latest_whisper -> Name des neuesten Flüsterspielers\n@char -> dein aktueller Spielername"
 	},
 	"evaluate": {
 		"cancel": "Abbrechen?",
@@ -217,6 +218,7 @@
 			}
 		},
 		"layout": {
+			"horizontal": "Horizontal anzeigen",
 			"name": "Layout",
 			"value": "Ergebnisansicht",
 			"values": {
@@ -354,7 +356,7 @@
 	"misc": {
 		"highlight": "Stash Highlight",
 		"name": "Sonstiges",
-		"navigation": "Navigation",
+		"navigation": "Stash Navigation",
 		"navigations": {
 			"disabled": "Deaktiviert",
 			"inverse": "Invers",

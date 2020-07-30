@@ -10,4 +10,16 @@
             </mat-form-field>
         </app-card>
     </div>
+    <div class="col-md-6">
+        <app-card [title]="'misc.navigation' | translate">
+            <mat-form-field>
+                <mat-label>{{'misc.navigation' | translate}}</mat-label>
+                <mat-select [(value)]="settings.miscNavigation" (valueChange)="onChange()">
+                    <mat-option *ngFor="let navigation of navigations.keys" [value]="navigation">
+                        {{'misc.navigations.' + (navigations.values[navigation] | lowercase) | translate}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </app-card>
+    </div>
 </div>

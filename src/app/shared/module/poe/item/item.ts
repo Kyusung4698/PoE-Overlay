@@ -10,6 +10,9 @@ export interface Item {
     nameId?: string;
     type?: string;
     typeId?: string;
+    icon?: string;
+    width?: number;
+    height?: number;
     corrupted?: boolean;
     veiled?: boolean;
     unidentified?: boolean;

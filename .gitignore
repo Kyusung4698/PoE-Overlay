@@ -52,3 +52,5 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+/plugins/src/packages

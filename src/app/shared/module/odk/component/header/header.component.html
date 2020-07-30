@@ -1,5 +1,5 @@
 <div class="header" [style.width.px]="width" [class.reverse]="reverse" [class.fixed]="fixed"
-    (mousedown)="draggable && onDrag($event)">
+    (mousedown)="onDrag($event, draggable)">
     <div class="controls left">
         <ng-content select="controls"></ng-content>
     </div>
@@ -18,7 +18,7 @@
     </div>
 </div>
 <div class="content" [class.frame]="frame" [class.inline]="inline" [class.fixed]="fixed" [style.width.px]="width"
-    [class.reverse]="reverse" [class.has-footer]="footer">
+    [class.reverse]="reverse" [class.has-footer]="footer" (mousedown)="onDrag($event, contentDraggable)">
     <ng-content></ng-content>
 </div>
 <div class="footer" [class.reverse]="reverse" [class.fixed]="fixed" *ngIf="footer">

@@ -5,16 +5,30 @@ VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "clipboard", "clipboard\clipboard.csproj", "{927E817E-7977-43D2-B6FE-CD95846C1444}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mousewheel", "mousewheel\mousewheel.csproj", "{EBCEF3DE-D898-4067-BE9D-97C654862487}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
 		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{927E817E-7977-43D2-B6FE-CD95846C1444}.Debug|Any CPU.ActiveCfg = Debug|x64
 		{927E817E-7977-43D2-B6FE-CD95846C1444}.Debug|x64.ActiveCfg = Debug|x64
 		{927E817E-7977-43D2-B6FE-CD95846C1444}.Debug|x64.Build.0 = Debug|x64
+		{927E817E-7977-43D2-B6FE-CD95846C1444}.Release|Any CPU.ActiveCfg = Release|x64
 		{927E817E-7977-43D2-B6FE-CD95846C1444}.Release|x64.ActiveCfg = Release|x64
 		{927E817E-7977-43D2-B6FE-CD95846C1444}.Release|x64.Build.0 = Release|x64
+		{EBCEF3DE-D898-4067-BE9D-97C654862487}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBCEF3DE-D898-4067-BE9D-97C654862487}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBCEF3DE-D898-4067-BE9D-97C654862487}.Debug|x64.ActiveCfg = Debug|x64
+		{EBCEF3DE-D898-4067-BE9D-97C654862487}.Debug|x64.Build.0 = Debug|x64
+		{EBCEF3DE-D898-4067-BE9D-97C654862487}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBCEF3DE-D898-4067-BE9D-97C654862487}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBCEF3DE-D898-4067-BE9D-97C654862487}.Release|x64.ActiveCfg = Release|x64
+		{EBCEF3DE-D898-4067-BE9D-97C654862487}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

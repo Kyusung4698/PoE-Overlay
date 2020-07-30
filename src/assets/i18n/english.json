@@ -4,9 +4,9 @@
 			"message": "Opens a webpage on hotkey press in the in-game browser.\n\nTry the hotkey below to open poe.ninja.",
 			"title": "Bookmarks"
 		},
-		"changelog-1-0-8": {
-			"message": "- added support for the new cluster jewels stats\n- added a new hotkey (default on F10) to manually capture replays\n- added a toggle to disable the leaving of a party via kick using the trade finished action\n- added a audio button at the trade settings to customize the notification sound\n- added a lower opacity for market results once they have been requested\n- added the seller name for items and bulk exchanges at the market\n- fixed an issue at the market type filter resulting in a unknown category error",
-			"title": "What's new in 1.0.8?"
+		"changelog-1-0-9": {
+			"message": "- added stash navigation on ctrl + mousewheel\n- added better support for the generate poe.ninja urls based on the league and name (#208)\n- added latest_whisper placeholder for commands\n- added item images at the search market\n- added different step sizes at the exchange market (CTRL 50, SHIFT 25, ALT 5) (#797)\n- added experimental horizontal layout (enableable at the settings) for the evaluate dialog (#769)\n- updated windows to be draggable by their content (#768)\n- fixed an issue at the market enabling sockets to be toggleable",
+			"title": "What's new in 1.0.9?"
 		},
 		"commands": {
 			"message": "All game commands can be bound to hotkeys.\n\nThere are also placeholders like @char available which will be replaced before executing the command.\n\nTry the hotkey below to teleport into your hideout.",
@@ -162,7 +162,8 @@
 	"commands": {
 		"execute-error": "An unexpected error occurred while executing the command.",
 		"name": "Commands",
-		"text": "Command"
+		"text": "Command",
+		"tooltip": "Following placeholders are available:\n@latest_whisper -> latest whisper player name\n@char -> your current player name"
 	},
 	"evaluate": {
 		"cancel": "Cancel?",
@@ -221,6 +222,7 @@
 			}
 		},
 		"layout": {
+			"horizontal": "Display horizontal",
 			"name": "Layout",
 			"value": "Result View",
 			"values": {
@@ -358,7 +360,7 @@
 	"misc": {
 		"highlight": "Stash Highlight",
 		"name": "Misc",
-		"navigation": "Navigation",
+		"navigation": "Stash Navigation",
 		"navigations": {
 			"disabled": "Disabled",
 			"inverse": "Inverse",

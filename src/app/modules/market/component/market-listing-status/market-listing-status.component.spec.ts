@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { TranslateFakeLoader, TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { CommonModule } from '@shared/module/common/common.module';
 import { MarketListingStatusComponent } from './market-listing-status.component';
 
 
@@ -16,7 +17,8 @@ describe('MarketListingStatusComponent', () => {
             provide: TranslateLoader,
             useFactory: () => new TranslateFakeLoader()
           }
-        })
+        }),
+        CommonModule
       ]
     })
       .compileComponents();

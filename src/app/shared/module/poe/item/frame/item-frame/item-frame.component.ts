@@ -65,7 +65,9 @@ export class ItemFrameComponent implements OnInit {
             sockets: new Array((this.item.sockets || []).length).fill({})
         };
         this.req = !!(this.item.level || this.item.requirements);
-        this.sockets = !!(this.item.sockets && this.item.sockets.length > 0);
+        const sockets = !!(this.item.sockets && this.item.sockets.length > 0);
+        const icon = !!this.item.icon?.length && this.item.width !== undefined && this.item.height !== undefined;
+        this.sockets = sockets || icon;
         this.stats = !!(this.item.stats && this.item.stats.length > 0);
         this.state = !!(this.item.corrupted !== undefined || this.item.veiled !== undefined || this.item.unidentified !== undefined);
         this.influences = !!this.item.influences;

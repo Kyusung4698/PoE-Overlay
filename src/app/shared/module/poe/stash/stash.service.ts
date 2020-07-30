@@ -2,18 +2,23 @@ import { Injectable } from '@angular/core';
 import { OWClipboard } from '@app/odk';
 import { OWUtils } from '@app/odk/ow-utils';
 import { Observable, Subject } from 'rxjs';
-import { delay, flatMap, map, mergeMap, tap } from 'rxjs/operators';
+import { delay, flatMap, map, mergeMap, tap, throttleTime } from 'rxjs/operators';
 import { StashPriceTag } from './stash-price-tag';
 
 interface HighlightEvent {
     term: string;
 }
 
+interface NavigateEvent {
+    dir: 'left' | 'right';
+}
+
 @Injectable({
     providedIn: 'root'
 })
 export class StashService {
-    private readonly queue$ = new Subject<HighlightEvent>();
+    private readonly hightlight$ = new Subject<HighlightEvent>();
+    private readonly navigate$ = new Subject<NavigateEvent>();
 
     constructor() {
         this.init();
@@ -25,11 +30,15 @@ export class StashService {
     }
 
     public highlight(term: string): void {
-        this.queue$.next({ term });
+        this.hightlight$.next({ term });
+    }
+
+    public navigate(dir: 'right' | 'left'): void {
+        this.navigate$.next({ dir });
     }
 
     private init(): void {
-        this.queue$.pipe(
+        this.hightlight$.pipe(
             mergeMap(event => OWClipboard.getFromClipboard().pipe(
                 flatMap(text => OWClipboard.placeOnClipboard(event.term).pipe(
                     map(() => text)
@@ -42,6 +51,10 @@ export class StashService {
                 flatMap(text => OWClipboard.placeOnClipboard(text)),
                 delay(10),
             ), 1)
+        ).subscribe();
+        this.navigate$.pipe(
+            throttleTime(5),
+            map(({ dir }) => OWUtils.sendKeyStroke(dir))
         ).subscribe();
     }
 }

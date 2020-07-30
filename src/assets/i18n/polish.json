@@ -158,7 +158,8 @@
 	"commands": {
 		"execute-error": "Wystąpił nieoczekiwany błąd podczas wykonywania polecenia.",
 		"name": "Komendy",
-		"text": "Komenda"
+		"text": "Komenda",
+		"tooltip": "Dostępne są następujące symbole zastępcze:\n@latest_whisper -> nazwa ostatniego szeptanego gracza\n@char -> Twoja obecna nazwa gracza"
 	},
 	"evaluate": {
 		"cancel": "Anuluj?",
@@ -217,6 +218,7 @@
 			}
 		},
 		"layout": {
+			"horizontal": "Wyświetl w poziomie",
 			"name": "Układ",
 			"value": "Okno wyników",
 			"values": {
@@ -354,7 +356,7 @@
 	"misc": {
 		"highlight": "Podświetl Skrytkę",
 		"name": "Różne",
-		"navigation": "Przełączanie pomiędzy zakładkami",
+		"navigation": "Nawigacja w schowku",
 		"navigations": {
 			"disabled": "Wyłączone",
 			"inverse": "Odwrotny kierunek",

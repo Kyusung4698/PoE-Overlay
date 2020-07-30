@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.0.9 (2020-07-29)
+
+- added stash navigation on ctrl + mousewheel
+- added better support for the generate poe.ninja urls based on the league and name (#208)
+- added latest_whisper placeholder for commands
+- added item images at the search market
+- added different step sizes at the exchange market (CTRL 50, SHIFT 25, ALT 5) (#797)
+- added experimental horizontal layout (enableable at the settings) for the evaluate dialog (#769)
+- updated windows to be draggable by their content (#768)
+- fixed an issue at the market enabling sockets to be toggleable
+
 ## 1.0.8 (2020-07-09)
 
 - added support for the new cluster jewels stats

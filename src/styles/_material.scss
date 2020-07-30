@@ -30,3 +30,8 @@ mat-card {
     min-width: auto;
   }
 }
+
+.mat-tooltip {
+  white-space: pre-line;
+  background-color: $black-transparent;
+}

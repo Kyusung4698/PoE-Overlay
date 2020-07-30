@@ -158,7 +158,8 @@
 	"commands": {
 		"execute-error": "Ocorreu um erro inesperado ao executar o comando.",
 		"name": "Comando",
-		"text": "Comando"
+		"text": "Comando",
+		"tooltip": "Os seguintes espaços reservados estão disponíveis:\n@latest_whisper -> nome do jogador mais recente do whisper\n@char -> seu nome de jogador atual"
 	},
 	"evaluate": {
 		"cancel": "Cancelar?",
@@ -217,6 +218,7 @@
 			}
 		},
 		"layout": {
+			"horizontal": "Exibir horizontal",
 			"name": "Layout",
 			"value": "Visualização de resultados",
 			"values": {
@@ -354,7 +356,7 @@
 	"misc": {
 		"highlight": "Stash Highlight",
 		"name": "Misc",
-		"navigation": "Navegação",
+		"navigation": "Navegação Stash",
 		"navigations": {
 			"disabled": "Desativado",
 			"inverse": "Inverso",

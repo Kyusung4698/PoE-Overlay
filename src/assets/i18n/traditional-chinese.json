@@ -158,7 +158,8 @@
 	"commands": {
 		"execute-error": "執行命令時發生意外錯誤。",
 		"name": "命令",
-		"text": "命令"
+		"text": "命令",
+		"tooltip": "以下佔位符可用：\n@latest_whisper->最新的耳語玩家名稱\n@char->您當前的玩家名稱"
 	},
 	"evaluate": {
 		"cancel": "取消？",
@@ -217,6 +218,7 @@
 			}
 		},
 		"layout": {
+			"horizontal": "顯示水平",
 			"name": "版面",
 			"value": "結果呈現",
 			"values": {
@@ -354,7 +356,7 @@
 	"misc": {
 		"highlight": "隱藏重點",
 		"name": "其它",
-		"navigation": "導航",
+		"navigation": "藏匿導航",
 		"navigations": {
 			"disabled": "不啟用",
 			"inverse": "逆",

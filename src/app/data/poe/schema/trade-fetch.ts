@@ -47,6 +47,8 @@ export interface TradeFetchHttpResultItemExtended {
 
 export interface TradeFetchHttpResultItem {
     icon: string;
+    w: number;
+    h: number;
     extended: TradeFetchHttpResultItemExtended;
 }
 

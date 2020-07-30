@@ -158,7 +158,8 @@
 	"commands": {
 		"execute-error": "Se produjo un error inesperado al ejecutar el comando.",
 		"name": "Mando",
-		"text": "Mando"
+		"text": "Mando",
+		"tooltip": "Los siguientes marcadores de posición están disponibles:\n@latest_whisper -> último nombre de jugador susurro\n@char -> tu nombre de jugador actual"
 	},
 	"evaluate": {
 		"cancel": "¿Cancelar?",
@@ -217,6 +218,7 @@
 			}
 		},
 		"layout": {
+			"horizontal": "Pantalla horizontal",
 			"name": "diseño",
 			"value": "Vista de resultados",
 			"values": {
@@ -354,7 +356,7 @@
 	"misc": {
 		"highlight": "Stash Highlight",
 		"name": "Misceláneos",
-		"navigation": "Navegación",
+		"navigation": "Stash Navigation",
 		"navigations": {
 			"disabled": "Discapacitado",
 			"inverse": "Inverso",

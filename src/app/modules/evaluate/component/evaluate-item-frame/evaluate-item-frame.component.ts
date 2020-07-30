@@ -10,6 +10,7 @@ import { EvaluateItemOptions } from '../evaluate-item-options/evaluate-item-opti
 @Component({
   selector: 'app-evaluate-item-frame',
   templateUrl: './evaluate-item-frame.component.html',
+  styleUrls: ['./evaluate-item-frame.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EvaluateItemFrameComponent implements OnInit, OnDestroy {

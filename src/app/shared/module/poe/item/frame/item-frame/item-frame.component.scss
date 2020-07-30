@@ -9,8 +9,16 @@
 
   .detail {
     position: relative;
+    white-space: pre;
+  }
+
+  .inner {
+    position: relative;
+  }
+
+  .inner,
+  .outer {
     padding: 2px;
     min-width: 396px;
-    white-space: pre;
   }
 }

@@ -13,6 +13,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { TranslateModule } from '@ngx-translate/core';
 import { CardComponent, SelectListComponent } from './component';
 
@@ -35,6 +36,7 @@ const MODULES = [
     MatTabsModule,
     MatListModule,
     MatProgressBarModule,
+    MatTooltipModule
 ];
 
 @NgModule({
