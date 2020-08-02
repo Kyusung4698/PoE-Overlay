@@ -95,7 +95,7 @@ const ANNOTATIONS: Annotation[] = [
         hotkey: Hotkey.SettingsToggle
     },
     { id: 'thanks' },
-    { id: 'changelog-1-0-9' },
+    { id: 'changelog-1-0-10' },
 ];
 
 @Injectable({
@@ -127,6 +127,21 @@ export class AnnotationService {
         return this.getAnnotations().pipe(
             flatMap(annotations => {
                 this.updateMessage(annotations, true);
+                return this.updateAnnotations(annotations);
+            })
+        );
+    }
+
+    public skip(): Observable<void> {
+        return this.getAnnotations().pipe(
+            flatMap(annotations => {
+                for (const annotation of ANNOTATIONS) {
+                    if (annotation.id === 'thanks' || annotation.id.startsWith('changelog')) {
+                        continue;
+                    }
+                    annotations[annotation.id] = true;
+                }
+                this.updateMessage(annotations, false);
                 return this.updateAnnotations(annotations);
             })
         );

@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.10 (2020-08-02)
+
+- added whois button to the trade window
+- added skip button at the tutorial (#765)
+- fixed an issue on lower resolution having invisible market prices (#811)
+
 ## 1.0.9 (2020-07-29)
 
 - added stash navigation on ctrl + mousewheel

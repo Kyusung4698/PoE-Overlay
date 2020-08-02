@@ -28,6 +28,10 @@ export class AnnotationWindowComponent implements OnInit {
     this.annotation.continue().subscribe();
   }
 
+  public onSkip(): void {
+    this.annotation.skip().subscribe();
+  }
+
   private updateMessage(message: AnnotationMessage): void {
     if (!message) {
       this.window.close().subscribe(() => {

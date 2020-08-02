@@ -105,6 +105,7 @@
 			"message": "Otwórz okno ustawień, naciskając następujący skrót:",
 			"title": "Ustawienia"
 		},
+		"skip": "Pomiń tutorial",
 		"support": {
 			"message": "Masz pytanie? A może chcesz poprosić o nową funkcję?\n\nSprawdź kartę pomocy w menu ustawień, aby uzyskać dodatkowe informacje.\n\nRównież jeśli podoba Ci się aplikacja, rozważ wsparcie, subskrybując ją.",
 			"title": "Wsparcie"
