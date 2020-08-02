@@ -51,6 +51,7 @@ export class TradeMessageComponent implements OnInit {
     this.visible[TradeMessageAction.Invite] = true;
     this.visible[TradeMessageAction.Trade] = true;
     this.visible[TradeMessageAction.Whisper] = true;
+    this.visible[TradeMessageAction.Whois] = true;
     if (this.message.direction === TradeWhisperDirection.Incoming) {
       this.visible[TradeMessageAction.Wait] = true;
       this.visible[TradeMessageAction.Interested] = true;
@@ -127,6 +128,9 @@ export class TradeMessageComponent implements OnInit {
         break;
       case TradeMessageAction.Hideout:
         this.chat.hideout(this.message.name);
+        break;
+      case TradeMessageAction.Whois:
+        this.chat.whois(this.message.name);
         break;
     }
   }
