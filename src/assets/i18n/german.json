@@ -105,6 +105,7 @@
 			"message": "Öffnen Sie das Einstellungsfenster, indem Sie den folgenden Hotkey drücken:",
 			"title": "Einstellungen"
 		},
+		"skip": "Lernprogramm überspringen",
 		"support": {
 			"message": "Hast du eine Frage? Oder möchten Sie eine neue Funktion anfordern?\n\nWeitere Informationen finden Sie auf der Registerkarte Support im Einstellungsmenü.\n\nWenn Sie die App lieben, können Sie mich durch ein Abonnement unterstützen.",
 			"title": "Unterstützung"

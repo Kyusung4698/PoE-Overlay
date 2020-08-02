@@ -105,6 +105,7 @@
 			"message": "Abra a janela de configurações pressionando a seguinte tecla de atalho:",
 			"title": "Definições"
 		},
+		"skip": "Pular tuturial",
 		"support": {
 			"message": "Você tem uma pergunta? Ou você deseja solicitar um novo recurso?\n\nVerifique a guia de suporte no menu de configurações para obter mais informações.\n\nAlém disso, se você ama o aplicativo, considere apoiar-me assinando.",
 			"title": "Apoio, suporte"

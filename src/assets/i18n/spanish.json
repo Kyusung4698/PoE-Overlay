@@ -105,6 +105,7 @@
 			"message": "Abra la ventana de configuración presionando la siguiente tecla de acceso rápido:",
 			"title": "Ajustes"
 		},
+		"skip": "Saltar tutorial",
 		"support": {
 			"message": "¿Tienes una pregunta? ¿O quieres solicitar una nueva función?\n\nConsulte la pestaña de soporte en el menú de configuración para obtener más información.\n\nAdemás, si te encanta la aplicación, considera apoyarme suscribiéndote.",
 			"title": "Apoyo"

@@ -105,6 +105,7 @@
 			"message": "Ouvrez la fenêtre des paramètres en appuyant sur la touche de raccourci suivante:",
 			"title": "Réglages"
 		},
+		"skip": "Passer le tutoriel",
 		"support": {
 			"message": "As-tu une question? Ou souhaitez-vous demander une nouvelle fonctionnalité?\n\nVérifiez l'onglet d'assistance dans le menu des paramètres pour plus d'informations.\n\nAussi, si vous aimez l'application, pensez à me soutenir en vous abonnant.",
 			"title": "Soutien"

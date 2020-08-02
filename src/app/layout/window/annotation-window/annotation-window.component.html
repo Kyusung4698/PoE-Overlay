@@ -1,6 +1,13 @@
 <div appResize>
-    <app-header name="PoE Overlay" [closeable]="false" [fixed]="true">
-        <ng-container *ngIf="message$ | async as message">
+    <ng-container *ngIf="message$ | async as message">
+        <app-header name="PoE Overlay" [closeable]="false" [fixed]="true">
+            <ng-container ngProjectAs="controlsRight">
+                <ng-container *ngIf="message.id !== 'thanks' && !message.id.startsWith('changelog')">
+                    <mat-icon (click)="onSkip()" [title]="'annotation.skip' | translate">
+                        fast_forward
+                    </mat-icon>
+                </ng-container>
+            </ng-container>
             <app-background>
                 <div class="content">
                     <div class="title">{{message.title | translate}}</div>
@@ -15,6 +22,6 @@
                     </div>
                 </div>
             </app-background>
-        </ng-container>
-    </app-header>
+        </app-header>
+    </ng-container>
 </div>
