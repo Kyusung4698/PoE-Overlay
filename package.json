@@ -1,6 +1,6 @@
 {
   "name": "poe-overlay-overwolf",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "scripts": {
     "watch": "ng build --watch",
     "watch:prod": "ng build --watch --prod",
