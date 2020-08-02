@@ -29,6 +29,9 @@
         <app-trade-message-action action="resend" [visible]="visible" [title]="' @' + message.name"
             (execute)="onActionExecute($event)">
         </app-trade-message-action>
+        <app-trade-message-action action="whois" [visible]="visible" [title]="' @' + message.name"
+            (execute)="onActionExecute($event)">
+        </app-trade-message-action>
         <app-trade-message-action action="whisper" [visible]="visible"
             [title]="' @' + message.name + (message.whispers$ | async | tradeWhisperTitle)"
             (execute)="onActionExecute($event)">

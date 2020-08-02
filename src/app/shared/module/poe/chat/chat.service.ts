@@ -72,6 +72,11 @@ export class ChatService {
         this.queue$.next({ message, send: true });
     }
 
+    public whois(name: string): void {
+        const message = this.generateMessage('/whois', name);
+        this.queue$.next({ message, send: true });
+    }
+
     private init(): void {
         this.queue$.pipe(
             windowTime(350),
