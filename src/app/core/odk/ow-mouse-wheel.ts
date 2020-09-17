@@ -1,5 +1,5 @@
 import { from, Observable, Subject } from 'rxjs';
-import { flatMap, map, shareReplay } from 'rxjs/operators';
+import { map, mergeMap, shareReplay } from 'rxjs/operators';
 
 interface Result {
     success: boolean;
@@ -42,7 +42,7 @@ export class OWMouseWheel {
 
     public static setOptions(options: MouseWheelOptions): Observable<void> {
         return this.getExtension().pipe(
-            flatMap(extension => {
+            mergeMap(extension => {
                 const promise = new Promise<void>((resolve, reject) => {
                     extension.setOptions(options, ({ success, error }) => {
                         if (success) {
@@ -59,7 +59,7 @@ export class OWMouseWheel {
 
     public static start(): Observable<void> {
         return this.getExtension().pipe(
-            flatMap(extension => {
+            mergeMap(extension => {
                 const promise = new Promise<void>((resolve, reject) => {
                     extension.start(({ success, error }) => {
                         if (success) {
@@ -83,7 +83,7 @@ export class OWMouseWheel {
     public static onMouseWheelBlocked(): Observable<MouseWheelBlockedEvent> {
         if (!this.onMouseWheelBlocked$) {
             this.onMouseWheelBlocked$ = this.getExtension().pipe(
-                flatMap(extension => {
+                mergeMap(extension => {
                     const subject = new Subject<MouseWheelBlockedEvent>();
                     extension.onMouseWheelBlocked.addListener(event => {
                         subject.next(event);

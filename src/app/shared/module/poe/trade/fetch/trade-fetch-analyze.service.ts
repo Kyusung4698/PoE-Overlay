@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import moment from 'moment';
 import { forkJoin, Observable, of } from 'rxjs';
-import { flatMap, map } from 'rxjs/operators';
+import { map, mergeMap } from 'rxjs/operators';
 import { CurrencyConverterService, CurrencySelectService, CurrencySelectStrategy } from '../../currency';
 import { TradeFetchResponse, TradeFetchResultEntry } from './trade-fetch';
 import { TradeFetchAnalyzeEntry, TradeFetchAnalyzeEntryGrouped, TradeFetchAnalyzeResult } from './trade-fetch-analyze';
@@ -126,7 +126,7 @@ export class TradeFetchAnalyzeService {
 
         const entries$ = currencies.map(currency =>
             this.converter.getConversionRate('chaos', currency).pipe(
-                flatMap(currencyChaosFactor => forkJoin(
+                mergeMap(currencyChaosFactor => forkJoin(
                     entries.map(fetch => forkJoin([
                         this.converter.getConversionRate(fetch.listing.price.currency, 'chaos'),
                         this.converter.getConversionRate(fetch.listing.price.currency, currency)

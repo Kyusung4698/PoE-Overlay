@@ -4,7 +4,7 @@ import { ItemClipboardResultCode, ItemClipboardService } from '@shared/module/po
 import { ItemSectionType } from '@shared/module/poe/item/clipboard/section-parser';
 import { ItemProcessorService } from '@shared/module/poe/item/processor';
 import { Observable, of, throwError } from 'rxjs';
-import { flatMap } from 'rxjs/operators';
+import { mergeMap } from 'rxjs/operators';
 import { InspectFeatureSettings } from '../inspect-feature-settings';
 import { InspectWindowService } from './inspect-window.service';
 
@@ -26,7 +26,7 @@ export class InspectService {
             [ItemSectionType.Corrupted]: true,
             [ItemSectionType.Stats]: true,
         }).pipe(
-            flatMap(({ code, item }) => {
+            mergeMap(({ code, item }) => {
                 switch (code) {
                     case ItemClipboardResultCode.Success:
                         this.processor.process(item, {

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { OWClipboard } from '@app/odk';
 import { OWUtils } from '@app/odk/ow-utils';
 import { Observable, Subject } from 'rxjs';
-import { delay, flatMap, map, mergeMap, tap, throttleTime } from 'rxjs/operators';
+import { delay, map, mergeMap, tap, throttleTime } from 'rxjs/operators';
 import { StashPriceTag } from './stash-price-tag';
 
 interface HighlightEvent {
@@ -40,7 +40,7 @@ export class StashService {
     private init(): void {
         this.hightlight$.pipe(
             mergeMap(event => OWClipboard.getFromClipboard().pipe(
-                flatMap(text => OWClipboard.placeOnClipboard(event.term).pipe(
+                mergeMap(text => OWClipboard.placeOnClipboard(event.term).pipe(
                     map(() => text)
                 )),
                 delay(10),
@@ -48,7 +48,7 @@ export class StashService {
                 delay(175),
                 tap(() => OWUtils.sendKeyStroke('Ctrl+V')),
                 delay(75),
-                flatMap(text => OWClipboard.placeOnClipboard(text)),
+                mergeMap(text => OWClipboard.placeOnClipboard(text)),
                 delay(10),
             ), 1)
         ).subscribe();

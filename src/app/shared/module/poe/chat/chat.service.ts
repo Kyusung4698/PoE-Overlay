@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { OWClipboard } from '@app/odk';
 import { OWUtils } from '@app/odk/ow-utils';
 import { Subject } from 'rxjs';
-import { concatMap, delay, distinctUntilChanged, flatMap, map, mergeMap, tap, windowTime } from 'rxjs/operators';
+import { concatMap, delay, distinctUntilChanged, map, mergeMap, tap, windowTime } from 'rxjs/operators';
 
 const MESSAGE_REGEXP = /@((?<from>from|de|von|от кого|จาก)|(?<to>to|à|an|para|кому|ถึง)) (<.*?> )*(?<player>.*?):(?<message>.*)/;
 
@@ -84,7 +84,7 @@ export class ChatService {
                 distinctUntilChanged((x, y) => JSON.stringify(x) === JSON.stringify(y))
             )),
             mergeMap(event => OWClipboard.getFromClipboard().pipe(
-                flatMap(text => OWClipboard.placeOnClipboard(event.message).pipe(
+                mergeMap(text => OWClipboard.placeOnClipboard(event.message).pipe(
                     map(() => text)
                 )),
                 delay(10),
@@ -98,7 +98,7 @@ export class ChatService {
                     }
                 }),
                 delay(200),
-                flatMap(text => OWClipboard.placeOnClipboard(text)),
+                mergeMap(text => OWClipboard.placeOnClipboard(text)),
                 delay(10),
             ), 1)
         ).subscribe();

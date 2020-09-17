@@ -3,7 +3,7 @@ import { ChatService } from '@shared/module/poe/chat';
 import { TradeFetchResultEntry, TradeFetchService } from '@shared/module/poe/trade';
 import { TradeExchangeRequest, TradeExchangeResponse, TradeExchangeService } from '@shared/module/poe/trade/exchange';
 import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
-import { catchError, flatMap, map, switchMap, takeUntil, tap } from 'rxjs/operators';
+import { catchError, map, mergeMap, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { WhisperEvent } from '../market-exchange-price/market-exchange-price.component';
 
 const DEFAULT_REQUEST = () => {
@@ -116,7 +116,7 @@ export class MarketExchangeComponent implements OnInit, OnDestroy {
     this.result$ = this.queue$.pipe(
       tap(() => this.clear()),
       tap(() => this.searching$.next(true)),
-      flatMap(() => this.exchange.search(this.request).pipe(
+      mergeMap(() => this.exchange.search(this.request).pipe(
         takeUntil(this.queue$),
       )),
       tap(() => this.page$.next(0)),
@@ -127,7 +127,7 @@ export class MarketExchangeComponent implements OnInit, OnDestroy {
         };
         return this.page$.pipe(
           tap(() => this.fetching$.next(true)),
-          flatMap(page => this.fetch.fetch(search, PAGE_SIZE * page, PAGE_SIZE + PAGE_SIZE * page, true).pipe(
+          mergeMap(page => this.fetch.fetch(search, PAGE_SIZE * page, PAGE_SIZE + PAGE_SIZE * page, true).pipe(
             takeUntil(this.queue$)
           )),
           catchError(error => this.handleError(error, {

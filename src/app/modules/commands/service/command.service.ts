@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ChatService } from '@shared/module/poe/chat';
 import { EventService } from '@shared/module/poe/event';
 import { Observable, of, throwError } from 'rxjs';
-import { flatMap } from 'rxjs/operators';
+import { mergeMap } from 'rxjs/operators';
 import { CommandsFeatureSettings } from '../commands-feature-settings';
 
 interface CommandContext {
@@ -23,7 +23,7 @@ export class CommandService {
     public execute(command: string, settings: CommandsFeatureSettings): Observable<void> {
         if (command.includes('@char')) {
             return this.event.getCharacter().pipe(
-                flatMap(character => {
+                mergeMap(character => {
                     const char = character?.name || settings.characterName;
                     if (!char?.length) {
                         return throwError('character name was not set.');

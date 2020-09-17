@@ -9,7 +9,7 @@ import { FeatureSettingsService } from '@app/feature/feature-settings.service';
 import { NotificationService } from '@app/notification';
 import { InfoUpdatesEvent, NewGameEvents, OnPressedEvent, OWFileListener, OWGameClassId, OWGameListener, OWGamesEventsListener, OWHotkeysListener, OWWindow, OWWindowsListener, RunningGameInfo, WindowState, WindowStateChangedEvent } from '@app/odk';
 import { concat, forkJoin } from 'rxjs';
-import { flatMap } from 'rxjs/operators';
+import { mergeMap } from 'rxjs/operators';
 import { AnnotationWindowService, LauncherWindowService, NotificationWindowService, SettingsWindowService } from '../../service';
 
 @Component({
@@ -121,7 +121,7 @@ export class BackgroundWindowComponent implements OnInit, OnDestroy {
             this.annotationWindow.open(info.width, info.height),
             this.notificationWindow.open(info.width, info.height)
         ]).pipe(
-            flatMap(() => this.events.start(false)),
+            mergeMap(() => this.events.start(false)),
         ).subscribe(result => {
             this.settings.get().subscribe(settings => {
                 this.modules.forEach(module => {
@@ -161,7 +161,7 @@ export class BackgroundWindowComponent implements OnInit, OnDestroy {
                 this.notificationWindow.close(),
                 this.annotationWindow.close()
             ]).pipe(
-                flatMap(() => new OWWindow().close())
+                mergeMap(() => new OWWindow().close())
             ).subscribe(() => console.log('PoE Overlay closed.'));
         });
     }

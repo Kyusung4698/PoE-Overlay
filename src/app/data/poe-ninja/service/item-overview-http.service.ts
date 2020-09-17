@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { TradeLeaguesHttpLeague } from '@data/poe/schema';
 import { environment } from '@env/environment';
 import { Observable, of, throwError } from 'rxjs';
-import { delay, flatMap, retryWhen } from 'rxjs/operators';
+import { delay, mergeMap, retryWhen } from 'rxjs/operators';
 import { ItemOverviewResponse } from '../schema/item-overview';
 import { OverviewHttpService } from './overview-http.service';
 
@@ -67,9 +67,9 @@ export class ItemOverviewHttpService extends OverviewHttpService {
         const url = this.getUrl(leagueId, type);
         return this.httpClient.get<ItemOverviewResponse>(url).pipe(
             retryWhen(errors => errors.pipe(
-                flatMap((response, count) => this.handleError(response, count))
+                mergeMap((response, count) => this.handleError(response, count))
             )),
-            flatMap(response => {
+            mergeMap(response => {
                 if (!response?.lines) {
                     if (leagueId !== TradeLeaguesHttpLeague.Standard) {
                         console.log(`Got empty result from '${url}'. Using Standard league for now.`, response);

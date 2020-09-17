@@ -1,5 +1,5 @@
 import { from, Observable } from 'rxjs';
-import { flatMap, map } from 'rxjs/operators';
+import { map, mergeMap } from 'rxjs/operators';
 
 type WindowInfo = overwolf.windows.WindowInfo;
 type WindowIdResultCallback = overwolf.CallbackFunction<overwolf.windows.WindowIdResult>;
@@ -33,32 +33,32 @@ export class OWWindow {
 
     public minimize(): Observable<void> {
         return this.obtain().pipe(
-            flatMap(window => this.minimizeInternal(window.id))
+            mergeMap(window => this.minimizeInternal(window.id))
         );
     }
 
     public maximize(): Observable<void> {
         return this.obtain().pipe(
-            flatMap(window => this.maximizeInternal(window.id))
+            mergeMap(window => this.maximizeInternal(window.id))
         );
     }
 
     public restore(): Observable<void> {
         return this.obtain().pipe(
-            flatMap(window => this.restoreInternal(window.id))
+            mergeMap(window => this.restoreInternal(window.id))
         );
     }
 
     public close(): Observable<void> {
         return this.obtain().pipe(
-            flatMap(window => this.closeInternal(window.id))
+            mergeMap(window => this.closeInternal(window.id))
         );
     }
 
     public toggle(close: boolean = false): Observable<boolean> {
         return this.obtain().pipe(
-            flatMap(window => this.getStateInternal(window.id)),
-            flatMap(state => {
+            mergeMap(window => this.getStateInternal(window.id)),
+            mergeMap(state => {
                 if (state === WindowState.Closed || state === WindowState.Minimized) {
                     return this.restore().pipe(map(() => true));
                 }
@@ -100,19 +100,19 @@ export class OWWindow {
 
     public bringToFront(grabFocus = false): Observable<void> {
         return this.obtain().pipe(
-            flatMap(window => this.bringToFrontInternal(window.id, grabFocus))
+            mergeMap(window => this.bringToFrontInternal(window.id, grabFocus))
         );
     }
 
     public sendToBack(): Observable<void> {
         return this.obtain().pipe(
-            flatMap(window => this.sendToBackInternal(window.id))
+            mergeMap(window => this.sendToBackInternal(window.id))
         );
     }
 
     public getState(): Observable<WindowState> {
         return this.obtain().pipe(
-            flatMap(window => this.getStateInternal(window.id))
+            mergeMap(window => this.getStateInternal(window.id))
         );
     }
 

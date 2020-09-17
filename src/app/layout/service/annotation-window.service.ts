@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { WindowName } from '@app/config';
 import { OWWindow } from '@app/odk';
 import { Observable } from 'rxjs';
-import { flatMap } from 'rxjs/operators';
+import { mergeMap } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'
@@ -16,7 +16,7 @@ export class AnnotationWindowService {
 
     public open(gameWidth: number, gameHeight: number): Observable<void> {
         return this.window.restore().pipe(
-            flatMap(() => this.move(gameWidth, gameHeight))
+            mergeMap(() => this.move(gameWidth, gameHeight))
         );
     }
 

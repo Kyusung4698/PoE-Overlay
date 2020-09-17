@@ -5,7 +5,7 @@ import { ItemClipboardResultCode, ItemClipboardService } from '@shared/module/po
 import { ItemSectionType } from '@shared/module/poe/item/clipboard/section-parser';
 import { StashService } from '@shared/module/poe/stash';
 import { Observable, of, Subscription, throwError } from 'rxjs';
-import { flatMap, tap } from 'rxjs/operators';
+import { mergeMap, tap } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'
@@ -34,7 +34,7 @@ export class MiscStashService {
                 wheelUp: true
             }
         }).pipe(
-            flatMap(() => OWMouseWheel.start()),
+            mergeMap(() => OWMouseWheel.start()),
             tap(() => {
                 if (this.subscription) {
                     this.subscription.unsubscribe();
@@ -72,7 +72,7 @@ export class MiscStashService {
         return this.itemClipboard.copy({
             [ItemSectionType.Rartiy]: true
         }).pipe(
-            flatMap(({ code, item }) => {
+            mergeMap(({ code, item }) => {
                 switch (code) {
                     case ItemClipboardResultCode.Success:
                         if (item.type?.length) {

@@ -3,7 +3,7 @@ import { Hotkey } from '@app/config';
 import { EventEmitter } from '@app/event';
 import { ProcessStorageService, StorageService } from '@app/storage';
 import { Observable, of } from 'rxjs';
-import { flatMap, map } from 'rxjs/operators';
+import { flatMap, map, mergeMap } from 'rxjs/operators';
 import { Annotation, AnnotationCondition, AnnotationConditionMap, AnnotationMap, AnnotationMessage } from './annotation';
 
 const ANNOTATION_DATA_KEY = 'ANNOTATION_DATA';
@@ -116,7 +116,7 @@ export class AnnotationService {
 
     public init(): Observable<void> {
         return this.getAnnotations().pipe(
-            flatMap(annotations => {
+            mergeMap(annotations => {
                 this.updateMessage(annotations, false);
                 return this.updateAnnotations(annotations);
             })
@@ -125,7 +125,7 @@ export class AnnotationService {
 
     public continue(): Observable<void> {
         return this.getAnnotations().pipe(
-            flatMap(annotations => {
+            mergeMap(annotations => {
                 this.updateMessage(annotations, true);
                 return this.updateAnnotations(annotations);
             })
@@ -134,7 +134,7 @@ export class AnnotationService {
 
     public skip(): Observable<void> {
         return this.getAnnotations().pipe(
-            flatMap(annotations => {
+            mergeMap(annotations => {
                 for (const annotation of ANNOTATIONS) {
                     if (annotation.id === 'thanks' || annotation.id.startsWith('changelog')) {
                         continue;
@@ -149,7 +149,7 @@ export class AnnotationService {
 
     public update(condition: AnnotationCondition, value: boolean): Observable<void> {
         return this.getAnnotations().pipe(
-            flatMap(annotations => {
+            mergeMap(annotations => {
                 this.conditions[condition] = value;
                 this.updateMessage(annotations, false);
                 return this.updateAnnotations(annotations);
@@ -214,7 +214,7 @@ export class AnnotationService {
 
     private getAnnotations(): Observable<AnnotationMap> {
         return of(null).pipe(
-            flatMap(() => this.storage.get<AnnotationMap>(`${ANNOTATION_DATA_KEY}_ANNOTATIONS`)),
+            mergeMap(() => this.storage.get<AnnotationMap>(`${ANNOTATION_DATA_KEY}_ANNOTATIONS`)),
             map(value => value || {})
         );
     }

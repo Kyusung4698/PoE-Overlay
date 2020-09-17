@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { cyrb53, StorageCacheService } from '@app/cache';
 import { ItemPricePredictionHttpService } from '@data/poe-prices';
 import { Observable } from 'rxjs';
-import { flatMap, map } from 'rxjs/operators';
+import { map, mergeMap } from 'rxjs/operators';
 
 export interface ItemPricePrediction {
     url: string;
@@ -28,7 +28,7 @@ export class ItemPricePredictionProvider {
         const hash = cyrb53(stringifiedItem);
         const key = `${CACHE_PATH}${leagueId}_${hash}`;
         return this.cache.clear(CACHE_PATH).pipe(
-            flatMap(() => this.cache.proxy(key, () =>
+            mergeMap(() => this.cache.proxy(key, () =>
                 this.http.get(leagueId, stringifiedItem).pipe(
                     map(response => {
                         const currencyId = response.currency === 'exalt' ? 'exa' : response.currency;

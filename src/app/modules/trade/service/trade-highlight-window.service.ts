@@ -5,7 +5,7 @@ import { OWGames, OWWindow } from '@app/odk';
 import { ProcessStorageService } from '@app/storage';
 import { WindowService } from '@shared/module/poe/window';
 import { Observable } from 'rxjs';
-import { flatMap, map } from 'rxjs/operators';
+import { map, mergeMap } from 'rxjs/operators';
 
 const WINDOW_DATA_KEY = 'TRADE_HIGHLIGHT_WINDOW_DATA';
 
@@ -41,7 +41,7 @@ export class TradeHighlightWindowService {
 
     public toggle(data: TradeHighlightWindowData): Observable<void> {
         return OWGames.getRunningGameInfo().pipe(
-            flatMap(({ height }) => {
+            mergeMap(({ height }) => {
                 const width = this.poeWindow.calculateWidth(height);
 
                 data.gridTop = Math.round((height / 20) * 3);
@@ -63,8 +63,8 @@ export class TradeHighlightWindowService {
                     ? this.window.toggle().pipe(map(() => null))
                     : this.window.restore();
                 return fn.pipe(
-                    flatMap(() => this.window.changeSize(width, height).pipe(
-                        flatMap(() => this.window.changePosition(0, 0))
+                    mergeMap(() => this.window.changeSize(width, height).pipe(
+                        mergeMap(() => this.window.changePosition(0, 0))
                     ))
                 );
             })

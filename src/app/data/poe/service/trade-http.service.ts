@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse, HttpParams, HttpResponse } from '@angula
 import { Injectable } from '@angular/core';
 import { environment } from '@env/environment';
 import { Observable, of, throwError } from 'rxjs';
-import { delay, flatMap, map, retryWhen } from 'rxjs/operators';
+import { delay, map, mergeMap, retryWhen } from 'rxjs/operators';
 import { Language, TradeExchangeHttpRequest, TradeExchangeHttpResponse, TradeFetchHttpResponse, TradeItemsHttpResponse, TradeLeaguesHttpResponse, TradeSearchHttpRequest, TradeSearchHttpResponse, TradeStaticHttpResponse, TradeStatsHttpResponse } from '../schema';
 import { TradeRateLimitService } from './trade-rate-limit.service';
 
@@ -45,7 +45,7 @@ export class TradeHttpService {
             observe: 'response'
         })).pipe(
             retryWhen(errors => errors.pipe(
-                flatMap((response, count) => this.handleError(url, response, count))
+                mergeMap((response, count) => this.handleError(url, response, count))
             )),
             map(response => {
                 response.url = `${url.replace('/api', '')}/${encodeURIComponent(response.id)}`;
@@ -62,7 +62,7 @@ export class TradeHttpService {
             observe: 'response'
         })).pipe(
             retryWhen(errors => errors.pipe(
-                flatMap((response, count) => this.handleError(url, response, count))
+                mergeMap((response, count) => this.handleError(url, response, count))
             )),
             map(response => {
                 response.url = `${url.replace('/api', '')}/${encodeURIComponent(response.id)}`;
@@ -86,7 +86,7 @@ export class TradeHttpService {
             observe: 'response'
         })).pipe(
             retryWhen(errors => errors.pipe(
-                flatMap((response, count) => this.handleError(url, response, count))
+                mergeMap((response, count) => this.handleError(url, response, count))
             ))
         );
     }
@@ -98,7 +98,7 @@ export class TradeHttpService {
             withCredentials: true
         }).pipe(
             retryWhen(errors => errors.pipe(
-                flatMap((response, count) => this.handleError(url, response, count))
+                mergeMap((response, count) => this.handleError(url, response, count))
             )),
             map(response => this.transformResponse(response))
         );

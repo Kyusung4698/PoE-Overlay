@@ -5,7 +5,7 @@ import { TradeFetchHttpResult } from '@data/poe/schema';
 import { TradeHttpService } from '@data/poe/service';
 import moment from 'moment';
 import { forkJoin, from, Observable, of } from 'rxjs';
-import { flatMap, map, toArray } from 'rxjs/operators';
+import { map, mergeMap, toArray } from 'rxjs/operators';
 import { TradeFetchListingStatus, TradeFetchRequest, TradeFetchResponse, TradeFetchResultEntry } from './trade-fetch';
 
 const MAX_FETCH_PER_REQUEST_COUNT = 10;
@@ -37,8 +37,8 @@ export class TradeFetchService {
         });
 
         return this.cache.clear(CACHE_PREFIX).pipe(
-            flatMap(() => forkJoin(locals$)),
-            flatMap(locals => {
+            mergeMap(() => forkJoin(locals$)),
+            mergeMap(locals => {
                 const missing = locals.filter(x => !x.value).map(x => x.id);
                 const cached = locals.filter(x => x.value).map(x => x.value);
 
@@ -53,7 +53,7 @@ export class TradeFetchService {
 
                 const { id, language } = request;
                 return from(chunks).pipe(
-                    flatMap(chunk => this.trade.fetch(chunk, id, language, exchange)),
+                    mergeMap(chunk => this.trade.fetch(chunk, id, language, exchange)),
                     toArray(),
                     map(responses => responses
                         .filter(x => x.result?.length)

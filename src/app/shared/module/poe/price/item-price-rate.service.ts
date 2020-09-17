@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Language } from '@data/poe/schema';
 import { forkJoin, iif, Observable, of } from 'rxjs';
-import { flatMap, map } from 'rxjs/operators';
+import { map, mergeMap } from 'rxjs/operators';
 import { ContextService } from '../context';
 import { CurrencyConverterService, CurrencySelectService, CurrencySelectStrategy } from '../currency';
 import { Item, ItemSocketsService } from '../item';
@@ -37,7 +37,7 @@ export class ItemPriceRateService {
         leagueId = leagueId || this.context.get().leagueId;
 
         return this.getValue(leagueId, item).pipe(
-            flatMap(value => iif(() => !value,
+            mergeMap(value => iif(() => !value,
                 of(undefined),
                 forkJoin(currencies.map(currency =>
                     this.currencyConverter.getConversionRate('chaos', currency))

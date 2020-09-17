@@ -7,7 +7,7 @@ import { I18nService } from '@app/i18n';
 import { OWWindow, OWWindows, WindowInfo } from '@app/odk';
 import { ContextService } from '@shared/module/poe/context';
 import { iif, Observable, of, throwError } from 'rxjs';
-import { catchError, flatMap, map, retryWhen, tap } from 'rxjs/operators';
+import { catchError, map, mergeMap, retryWhen, tap } from 'rxjs/operators';
 
 @Component({
     selector: 'app-root',
@@ -30,7 +30,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
     public ngOnInit(): void {
         this.window$ = this.settings.init(this.modules).pipe(
-            flatMap(settings => {
+            mergeMap(settings => {
                 this.i18n.use(settings.uiLanguage);
                 const { language, leagueId } = settings;
                 return this.context.init({ language, leagueId });
@@ -44,9 +44,9 @@ export class AppComponent implements OnInit, OnDestroy {
                     });
                 });
             }),
-            flatMap(() => OWWindows.getCurrentWindow()),
+            mergeMap(() => OWWindows.getCurrentWindow()),
             retryWhen(errors => errors.pipe(
-                flatMap(error => {
+                mergeMap(error => {
                     console.warn(`An unexpected error occured while loading PoE Overlay. ${error?.message ?? JSON.stringify(error)}`);
                     return OWWindows.displayMessageBox({
                         message_title: 'PoE Overlay could not be loaded.',
@@ -56,7 +56,7 @@ export class AppComponent implements OnInit, OnDestroy {
                         cancel_button_text: 'Exit',
                         message_box_icon: overwolf.windows.enums.MessagePromptIcon.ExclamationMark
                     }).pipe(
-                        flatMap(confirmed => iif(
+                        mergeMap(confirmed => iif(
                             () => confirmed, of(null), throwError(error))
                         )
                     );

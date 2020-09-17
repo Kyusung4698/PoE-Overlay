@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { flatMap, map } from 'rxjs/operators';
+import { map, mergeMap } from 'rxjs/operators';
 import { TradeStatic } from './trade-statics';
 import { TradeStaticsService } from './trade-statics.service';
 
@@ -13,7 +13,7 @@ export class TradeStaticPipe implements PipeTransform {
 
     public transform(id: string): Observable<TradeStatic> {
         return this.statics.match(id).pipe(
-            flatMap(matched => {
+            mergeMap(matched => {
                 if (matched) {
                     return of(matched);
                 }

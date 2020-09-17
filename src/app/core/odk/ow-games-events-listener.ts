@@ -1,5 +1,5 @@
 import { Observable, of, throwError } from 'rxjs';
-import { catchError, delay, flatMap, map, retryWhen } from 'rxjs/operators';
+import { catchError, delay, map, mergeMap, retryWhen } from 'rxjs/operators';
 import { OWGamesEvents } from './ow-games-events';
 import { InfoUpdatesEvent, NewGameEvents } from './ow-types';
 
@@ -31,9 +31,9 @@ export class OWGamesEventsListener {
 
     private setRequiredFeatures(): Observable<boolean> {
         return of(null).pipe(
-            flatMap(() => OWGamesEvents.setRequiredFeatures(this.requiredFeatures)),
+            mergeMap(() => OWGamesEvents.setRequiredFeatures(this.requiredFeatures)),
             retryWhen(errors => errors.pipe(
-                flatMap((error, count) => {
+                mergeMap((error, count) => {
                     if (error !== 'Provider did not set features yet.'
                         && count >= REQUIRED_FEATURES_RETRY_COUNT) {
                         return throwError(error);

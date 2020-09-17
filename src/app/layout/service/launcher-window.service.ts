@@ -3,7 +3,7 @@ import { WindowName } from '@app/config';
 import { OWWindow } from '@app/odk';
 import { OWUtils } from '@app/odk/ow-utils';
 import { of } from 'rxjs';
-import { flatMap, map } from 'rxjs/operators';
+import { map, mergeMap } from 'rxjs/operators';
 
 const WIN_WIDTH = 278;
 const WIN_HEIGHT = 348;
@@ -21,8 +21,8 @@ export class LauncherWindowService {
     public open(): void {
         OWUtils.getSystemInformation().pipe(
             map(info => info.Monitors.find(x => x.IsMain)),
-            flatMap(monitor => this.window.restore().pipe(
-                flatMap(() => {
+            mergeMap(monitor => this.window.restore().pipe(
+                mergeMap(() => {
                     if (monitor) {
                         const [x, y] = monitor.Location.split(',').map(loc => +loc.trim());
                         const [width, height] = monitor.Resolution.split(',').map(res => +res.trim());
