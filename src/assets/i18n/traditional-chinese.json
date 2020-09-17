@@ -369,6 +369,7 @@
 		"capture-error": "無法獲取該事件。",
 		"death": "死亡事件",
 		"future-duration": "未來幾秒內",
+		"help": "重放保存在：'{{path}}'\n達到大小閾值後，舊視頻將被刪除。",
 		"kill": "擊殺事件",
 		"manually": "手動地",
 		"name": "重播",

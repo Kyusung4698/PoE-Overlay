@@ -1,7 +1,23 @@
+$help-size: 18px;
+
 ::ng-deep {
     app-card {
         > .mat-card {
             padding: 14px 10px;
+        }
+
+        mat-label,
+        mat-icon {
+            display: inline-block;
+        }
+
+        .mat-icon {
+            height: $help-size;
+            width: $help-size;
+            font-size: $help-size;
+            line-height: $help-size;
+            margin-left: 8px;
+            vertical-align: text-top;
         }
     }
 }

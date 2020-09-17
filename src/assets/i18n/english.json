@@ -373,6 +373,7 @@
 		"capture-error": "The event could not be captured.",
 		"death": "Death event",
 		"future-duration": "Future duration",
+		"help": "Replays are saved at: '{{path}}'\nOld videos are deleted after reaching a size threshold.",
 		"kill": "Kill event",
 		"manually": "Manually",
 		"name": "Replay",

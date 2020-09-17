@@ -1,4 +1,4 @@
-<app-card [title]="'replay.manually' | translate" appAnnotation="replay">
+<app-card [title]="'replay.manually' | translate" [help]="'replay.help' | translate:{path: path$ | async}" appAnnotation="replay">
     <div class="row">
         <div class="col">
             <mat-slide-toggle [checked]="settings.replayCaptureManually"
@@ -46,7 +46,7 @@
     </div>
 </app-card>
 
-<app-card [title]="'replay.death' | translate" appAnnotation="replay">
+<app-card [title]="'replay.death' | translate" [help]="'replay.help' | translate:{path: path$ | async}" appAnnotation="replay">
     <div class="row">
         <div class="col">
             <mat-slide-toggle [checked]="settings.replayCaptureDeath"
@@ -82,7 +82,7 @@
         </div>
     </div>
 </app-card>
-<app-card [title]="'replay.kill' | translate" appAnnotation="replay">
+<app-card [title]="'replay.kill' | translate" [help]="'replay.help' | translate:{path: path$ | async}" appAnnotation="replay">
     <div class="row">
         <div class="col">
             <mat-slide-toggle [checked]="settings.replayCaptureKill"
