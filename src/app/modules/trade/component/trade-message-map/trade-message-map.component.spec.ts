@@ -1,16 +1,16 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { TradeMessageMapComponent } from './trade-message-map.component';
+
 
 describe('TradeMessageMapComponent', () => {
   let component: TradeMessageMapComponent;
   let fixture: ComponentFixture<TradeMessageMapComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ TradeMessageMapComponent ]
+      declarations: [TradeMessageMapComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

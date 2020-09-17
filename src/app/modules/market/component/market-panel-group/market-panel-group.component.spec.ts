@@ -1,16 +1,16 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { MarketPanelGroupComponent } from './market-panel-group.component';
+
 
 describe('MarketPanelGroupComponent', () => {
   let component: MarketPanelGroupComponent;
   let fixture: ComponentFixture<MarketPanelGroupComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ MarketPanelGroupComponent ]
+      declarations: [MarketPanelGroupComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

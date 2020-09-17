@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { EventEmitter } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { BrowserModule } from '@angular/platform-browser';
 import { ItemFrameComponent } from '../item-frame/item-frame.component';
 import { ItemFrameQueryComponent } from './item-frame-query.component';
@@ -11,7 +11,7 @@ describe('ItemFrameQueryComponent', () => {
   let component: ItemFrameQueryComponent;
   let fixture: ComponentFixture<ItemFrameQueryComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
         CommonModule,

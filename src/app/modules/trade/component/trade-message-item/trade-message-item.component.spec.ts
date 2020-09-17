@@ -1,16 +1,16 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { TradeMessageItemComponent } from './trade-message-item.component';
+
 
 describe('TradeMessageItemComponent', () => {
   let component: TradeMessageItemComponent;
   let fixture: ComponentFixture<TradeMessageItemComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ TradeMessageItemComponent ]
+      declarations: [TradeMessageItemComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

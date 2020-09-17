@@ -1,16 +1,16 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { EvaluateItemSearchHeaderComponent } from './evaluate-item-search-header.component';
+
 
 describe('EvaluateItemSearchHeaderComponent', () => {
   let component: EvaluateItemSearchHeaderComponent;
   let fixture: ComponentFixture<EvaluateItemSearchHeaderComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ EvaluateItemSearchHeaderComponent ]
+      declarations: [EvaluateItemSearchHeaderComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

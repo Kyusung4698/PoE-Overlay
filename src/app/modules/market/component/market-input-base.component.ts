@@ -1,8 +1,11 @@
-import { Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { TradeSearchRequest } from '@shared/module/poe/trade';
 
 const JS_NAME_REGEX = /([a-zA-Z_]+)(?:\[(\d+)\])?/;
 
+@Component({
+    template: ''
+})
 export abstract class MarketInputBaseComponent {
     private _request: TradeSearchRequest;
 

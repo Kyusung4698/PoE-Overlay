@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { MarketInputSelectComponent } from './market-input-select.component';
 
 
@@ -6,7 +6,7 @@ describe('MarketInputSelectComponent', () => {
   let component: MarketInputSelectComponent;
   let fixture: ComponentFixture<MarketInputSelectComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [MarketInputSelectComponent]
     })

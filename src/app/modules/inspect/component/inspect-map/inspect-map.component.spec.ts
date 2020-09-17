@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { BrowserModule } from '@angular/platform-browser';
 import { AssetService } from '@app/assets';
 import { TranslateFakeLoader, TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -11,7 +11,7 @@ describe('InspectMapComponent', () => {
   let component: InspectMapComponent;
   let fixture: ComponentFixture<InspectMapComponent>;
 
-  beforeEach(async(async () => {
+  beforeEach(waitForAsync(async () => {
     TestBed.configureTestingModule({
       imports: [
         CommonModule,

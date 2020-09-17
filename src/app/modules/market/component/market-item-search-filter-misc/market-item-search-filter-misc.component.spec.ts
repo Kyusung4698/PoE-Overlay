@@ -1,16 +1,16 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { MarketItemSearchFilterMiscComponent } from './market-item-search-filter-misc.component';
+
 
 describe('MarketItemSearchFilterMiscComponent', () => {
   let component: MarketItemSearchFilterMiscComponent;
   let fixture: ComponentFixture<MarketItemSearchFilterMiscComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ MarketItemSearchFilterMiscComponent ]
+      declarations: [MarketItemSearchFilterMiscComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

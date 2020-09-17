@@ -1,16 +1,16 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { EvaluateItemSearchGraphComponent } from './evaluate-item-search-graph.component';
+
 
 describe('EvaluateItemSearchGraphComponent', () => {
   let component: EvaluateItemSearchGraphComponent;
   let fixture: ComponentFixture<EvaluateItemSearchGraphComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ EvaluateItemSearchGraphComponent ]
+      declarations: [EvaluateItemSearchGraphComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

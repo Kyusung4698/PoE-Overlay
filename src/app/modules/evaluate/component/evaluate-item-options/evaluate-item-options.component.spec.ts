@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { BrowserModule } from '@angular/platform-browser';
 import { EvaluateItemOptionsComponent } from './evaluate-item-options.component';
 
@@ -9,7 +9,7 @@ describe('EvaluateItemOptionsComponent', () => {
   let component: EvaluateItemOptionsComponent;
   let fixture: ComponentFixture<EvaluateItemOptionsComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [EvaluateItemOptionsComponent],
       imports: [

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { TranslateFakeLoader, TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { CommonModule } from '@shared/module/common/common.module';
 import { MarketListingStatusComponent } from './market-listing-status.component';
@@ -8,7 +8,7 @@ describe('MarketListingStatusComponent', () => {
   let component: MarketListingStatusComponent;
   let fixture: ComponentFixture<MarketListingStatusComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [MarketListingStatusComponent],
       imports: [
