@@ -5,7 +5,7 @@ import { Feature, FeatureConfig, FeatureModule, FEATURE_MODULES } from '@app/fea
 import { NotificationService } from '@app/notification';
 import { RunningGameInfo } from '@app/odk';
 import { SharedModule } from '@shared/shared.module';
-import { flatMap } from 'rxjs/operators';
+import { mergeMap } from 'rxjs/operators';
 import { MiscSettingsComponent } from './component';
 import { MiscFeatureSettings, MiscNavigation } from './misc-feature-settings';
 import { MiscStashService } from './service/misc-stash.service';
@@ -60,7 +60,7 @@ export class MiscModule implements FeatureModule<MiscFeatureSettings> {
         switch (hotkey) {
             case Hotkey.MiscStashHighlight:
                 this.stash.highlight().pipe(
-                    flatMap(() => this.annotation.update(AnnotationCondition.MiscStashHighlightExecuted, true))
+                    mergeMap(() => this.annotation.update(AnnotationCondition.MiscStashHighlightExecuted, true))
                 ).subscribe();
                 break;
             default:

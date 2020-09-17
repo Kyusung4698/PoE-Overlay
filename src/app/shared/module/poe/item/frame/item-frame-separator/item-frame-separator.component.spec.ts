@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { BrowserModule } from '@angular/platform-browser';
 import { ItemFrameSeparatorComponent } from './item-frame-separator.component';
 
@@ -9,7 +9,7 @@ describe('ItemFrameSeparatorComponent', () => {
   let component: ItemFrameSeparatorComponent;
   let fixture: ComponentFixture<ItemFrameSeparatorComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
         CommonModule,

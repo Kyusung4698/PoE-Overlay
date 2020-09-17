@@ -1,16 +1,16 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { MarketItemSearchStatGroupComponent } from './market-item-search-stat-group.component';
+
 
 describe('MarketItemSearchStatGroupComponent', () => {
   let component: MarketItemSearchStatGroupComponent;
   let fixture: ComponentFixture<MarketItemSearchStatGroupComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ MarketItemSearchStatGroupComponent ]
+      declarations: [MarketItemSearchStatGroupComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

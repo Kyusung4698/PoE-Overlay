@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { TradeItem, TradeItemsService, TradeSearchRequest } from '@shared/module/poe/trade';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { flatMap, map } from 'rxjs/operators';
+import { map, mergeMap } from 'rxjs/operators';
 
 interface MarektItemSearchEntry {
   text: string;
@@ -160,7 +160,7 @@ export class MarketItemSearchBarComponent implements OnInit {
 
   private loadEntries(): void {
     this.entries$ = this.items.get().pipe(
-      flatMap(groups => this.inputValue$.pipe(
+      mergeMap(groups => this.inputValue$.pipe(
         map(value => {
           const lower = value.toLowerCase();
           const exp = new RegExp(value, 'gi');

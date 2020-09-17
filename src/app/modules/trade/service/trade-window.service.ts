@@ -5,7 +5,7 @@ import { OWGames, OWWindow } from '@app/odk';
 import { ProcessStorageService } from '@app/storage';
 import { TradeExchangeMessage } from '@shared/module/poe/trade/chat';
 import { Observable } from 'rxjs';
-import { flatMap } from 'rxjs/operators';
+import { mergeMap } from 'rxjs/operators';
 import { TradeFeatureSettings } from '../trade-feature-settings';
 
 const WINDOW_DATA_KEY = 'TRADE_WINDOW_DATA';
@@ -41,8 +41,8 @@ export class TradeWindowService {
         data.settings = settings;
         this.data$.next(data);
         return this.window.restore().pipe(
-            flatMap(() => OWGames.getRunningGameInfo().pipe(
-                flatMap(({ height }) => {
+            mergeMap(() => OWGames.getRunningGameInfo().pipe(
+                mergeMap(({ height }) => {
                     const newHeight = Math.round(height * settings.tradeHeight / 100);
                     return this.window.changeSize(310, newHeight);
                 })

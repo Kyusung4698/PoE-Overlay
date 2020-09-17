@@ -1,13 +1,13 @@
 import { ChangeDetectorRef, OnDestroy, Pipe, PipeTransform } from '@angular/core';
-import { HotKeyChangedEvent, OWHotkeys } from '@app/odk';
+import { OnChangedEvent, OWHotkeys } from '@app/odk';
 
 @Pipe({
     name: 'hotkey',
     pure: false
 })
 export class HotkeyPipe implements PipeTransform, OnDestroy {
-    private text: string;
-    private hotkey: string;
+    private binding: string;
+    private name: string;
 
     constructor(private ref: ChangeDetectorRef) { }
 
@@ -15,29 +15,29 @@ export class HotkeyPipe implements PipeTransform, OnDestroy {
         OWHotkeys.onChanged.removeListener(this.onChange);
     }
 
-    public transform(hotkey: string): string {
-        if (hotkey === this.hotkey) {
-            return this.text;
+    public transform(name: string): string {
+        if (name === this.name) {
+            return this.binding;
         }
-        this.hotkey = hotkey;
+        this.name = name;
 
-        OWHotkeys.getHotkeyText(this.hotkey).subscribe(text => {
+        OWHotkeys.getHotkeyText(this.name).subscribe(text => {
             this.updateText(text);
         });
         OWHotkeys.onChanged.removeListener(this.onChange);
         OWHotkeys.onChanged.addListener(this.onChange);
 
-        return this.text;
+        return this.binding;
     }
 
-    private onChange = (event: HotKeyChangedEvent) => {
-        if (event.source === this.hotkey && this.text !== event.hotkey) {
-            this.updateText(event.hotkey);
+    private onChange = (event: OnChangedEvent) => {
+        if (event.name === this.name && this.binding !== event.binding) {
+            this.updateText(event.binding);
         }
     }
 
     private updateText(text: string): void {
-        this.text = text;
+        this.binding = text;
         this.ref.markForCheck();
     }
 }

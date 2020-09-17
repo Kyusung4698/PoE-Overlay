@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, OnInit, O
 import { TradeSearchHttpStatsFilter } from '@data/poe/schema';
 import { TradeStat, TradeStatsService } from '@shared/module/poe/trade';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { flatMap, map } from 'rxjs/operators';
+import { map, mergeMap } from 'rxjs/operators';
 
 interface MarektItemSearchOption {
   text: string;
@@ -62,7 +62,7 @@ export class MarketItemSearchStatsComponent implements OnInit {
 
   private loadOptions(): void {
     this.options$ = this.stats.get().pipe(
-      flatMap(groups => this.inputValue$.pipe(
+      mergeMap(groups => this.inputValue$.pipe(
         map(value => {
           const lower = value.toLowerCase();
           const exp = new RegExp(value, 'gi');

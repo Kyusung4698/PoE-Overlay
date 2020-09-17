@@ -4,7 +4,7 @@ import { Language } from '@data/poe/schema';
 import { ItemClipboardResultCode, ItemClipboardService } from '@shared/module/poe/item/clipboard';
 import { ItemProcessorService } from '@shared/module/poe/item/processor';
 import { Observable, of, throwError } from 'rxjs';
-import { flatMap } from 'rxjs/operators';
+import { mergeMap } from 'rxjs/operators';
 import { EvaluateFeatureSettings } from '../evaluate-feature-settings';
 import { EvaluateWindowService } from './evaluate-window.service';
 
@@ -21,7 +21,7 @@ export class EvaluateService {
 
     public evaluate(settings: EvaluateFeatureSettings, language?: Language): Observable<void> {
         return this.clipboard.copy().pipe(
-            flatMap(({ code, item }) => {
+            mergeMap(({ code, item }) => {
                 switch (code) {
                     case ItemClipboardResultCode.Success:
                         this.itemProcessor.process(item, {

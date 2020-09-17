@@ -7,7 +7,7 @@ import { EvaluateSelectEvent } from '@modules/evaluate/class';
 import { EvaluateWindowData, EvaluateWindowService } from '@modules/evaluate/service';
 import { StashPriceTagType, StashService } from '@shared/module/poe/stash';
 import { BehaviorSubject, Subject, Subscription } from 'rxjs';
-import { buffer, debounceTime, filter, flatMap } from 'rxjs/operators';
+import { buffer, debounceTime, filter, mergeMap } from 'rxjs/operators';
 
 const DISPOSE_TIMEOUT = 1000 * 15;
 
@@ -89,7 +89,7 @@ export class EvaluateWindowComponent implements OnInit, OnDestroy {
                 debounceTime(250)
             )),
             filter(events => events.length > 0),
-            flatMap(([event, double]) => {
+            mergeMap(([event, double]) => {
                 const { amount, currency, count } = event;
                 const type = double ? StashPriceTagType.Negotiable : StashPriceTagType.Exact;
                 this.notification.show(double ? 'evaluate.tag.negotiable' : 'evaluate.tag.exact');

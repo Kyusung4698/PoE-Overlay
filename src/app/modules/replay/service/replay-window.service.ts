@@ -4,7 +4,7 @@ import { EventEmitter } from '@app/event';
 import { OWWindow } from '@app/odk';
 import { ProcessStorageService } from '@app/storage';
 import { Observable } from 'rxjs';
-import { flatMap } from 'rxjs/operators';
+import { mergeMap } from 'rxjs/operators';
 
 const WINDOW_DATA_KEY = 'REPLAY_WINDOW_DATA';
 const WINDOW_BORDER_SIZE = 20;
@@ -34,8 +34,8 @@ export class ReplayWindowService {
     public open(data: ReplayWindowData): Observable<void> {
         this.data$.next(data);
         return this.window.close().pipe(
-            flatMap(() => this.window.restore()),
-            flatMap(() => this.restorePosition())
+            mergeMap(() => this.window.restore()),
+            mergeMap(() => this.restorePosition())
         );
     }
 
@@ -50,7 +50,7 @@ export class ReplayWindowService {
         const left = gameWidth - width - WINDOW_BORDER_SIZE;
         const top = gameHeight - height - WINDOW_BORDER_SIZE;
         return this.window.changeSize(width, height).pipe(
-            flatMap(() => this.window.changePosition(left, top))
+            mergeMap(() => this.window.changePosition(left, top))
         );
     }
 }

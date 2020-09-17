@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { TranslateFakeLoader, TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { EvaluateItemPriceRateFactorsComponent } from './evaluate-item-price-rate-factors.component';
 
@@ -7,7 +7,7 @@ describe('EvaluateItemPriceRateFactorsComponent', () => {
   let component: EvaluateItemPriceRateFactorsComponent;
   let fixture: ComponentFixture<EvaluateItemPriceRateFactorsComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [EvaluateItemPriceRateFactorsComponent],
       imports: [

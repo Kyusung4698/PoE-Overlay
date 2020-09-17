@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { BrowserModule } from '@angular/platform-browser';
 import { Language } from '@data/poe/schema';
 import { ItemFrameInfluencesComponent } from './item-frame-influences.component';
@@ -10,7 +10,7 @@ describe('ItemFrameInfluencesComponent', () => {
     let component: ItemFrameInfluencesComponent;
     let fixture: ComponentFixture<ItemFrameInfluencesComponent>;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
             imports: [
                 CommonModule,

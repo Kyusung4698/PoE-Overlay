@@ -1,7 +1,7 @@
 import { HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
-import { catchError, delay, finalize, flatMap, map, retryWhen } from 'rxjs/operators';
+import { catchError, delay, finalize, map, mergeMap, retryWhen } from 'rxjs/operators';
 import { TradeRateLimitProvider } from '../provider/trade-rate-limit.provider';
 import { TradeRateLimitRequest, TradeRateLimitRule } from './trade-rate-limit';
 
@@ -63,7 +63,7 @@ export class TradeRateLimitService {
 
     public throttle<TResult>(resource: string, getRequest: () => Observable<HttpResponse<TResult>>): Observable<TResult> {
         return of(null).pipe(
-            flatMap(() => {
+            mergeMap(() => {
                 const reason = this.shouldThrottle(resource);
                 switch (reason) {
                     case TradeRateThrottle.Limited:
@@ -75,7 +75,7 @@ export class TradeRateLimitService {
                     default:
                         const request = this.createRequest(resource);
                         return of(null).pipe(
-                            flatMap(() => getRequest().pipe(
+                            mergeMap(() => getRequest().pipe(
                                 finalize(() => request.finished = Date.now())
                             )),
                             map(response => {
@@ -94,7 +94,7 @@ export class TradeRateLimitService {
                 }
             }),
             retryWhen(errors => errors.pipe(
-                flatMap((error, count) => {
+                mergeMap((error, count) => {
                     if (error === 'limited') {
                         return throwError({
                             status: 429

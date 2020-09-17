@@ -3,7 +3,7 @@ import { UiLanguage } from '@app/config';
 import { EventEmitter } from '@app/event';
 import { Language } from '@data/poe/schema';
 import { Observable } from 'rxjs';
-import { flatMap, tap } from 'rxjs/operators';
+import { mergeMap, tap } from 'rxjs/operators';
 import { FeatureModule } from './feature-module';
 import { FeatureSettings } from './feature-settings';
 import { FeatureSettingsStorageService } from './feature-settings-storage.service';
@@ -35,13 +35,13 @@ export class FeatureSettingsService {
     public update(updateFn: (settings: FeatureSettings) => void): Observable<FeatureSettings> {
         return this.get().pipe(
             tap(settings => updateFn(settings)),
-            flatMap(settings => this.put(settings))
+            mergeMap(settings => this.put(settings))
         );
     }
 
     public init(modules: FeatureModule<FeatureSettings>[]): Observable<FeatureSettings> {
         return this.get().pipe(
-            flatMap(settings => {
+            mergeMap(settings => {
                 let merged: FeatureSettings = {
                     ...DEFAULT_SETTINGS
                 };

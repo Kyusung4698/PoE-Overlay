@@ -1,16 +1,16 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { EvaluateItemSearchTableComponent } from './evaluate-item-search-table.component';
+
 
 describe('EvaluateItemSearchTableComponent', () => {
   let component: EvaluateItemSearchTableComponent;
   let fixture: ComponentFixture<EvaluateItemSearchTableComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ EvaluateItemSearchTableComponent ]
+      declarations: [EvaluateItemSearchTableComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

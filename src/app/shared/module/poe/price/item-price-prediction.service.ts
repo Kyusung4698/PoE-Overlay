@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ItemPricePredictionHttpService } from '@data/poe-prices';
 import { Language } from '@data/poe/schema';
 import { forkJoin, Observable, throwError } from 'rxjs';
-import { flatMap, map } from 'rxjs/operators';
+import { map, mergeMap } from 'rxjs/operators';
 import { ContextService } from '../context';
 import { CurrencyConverterService, CurrencySelectService, CurrencySelectStrategy } from '../currency';
 import { Item } from '../item';
@@ -31,7 +31,7 @@ export class ItemPricePredictionService {
 
         const { content } = item;
         return this.prediction.provide(leagueId, content).pipe(
-            flatMap(prediction => forkJoin(
+            mergeMap(prediction => forkJoin(
                 currencies.map(currency => this.currencyConverter.getConversionRate(prediction.currencyId, currency))
             ).pipe(map(factors => {
                 const { min, max, url } = prediction;

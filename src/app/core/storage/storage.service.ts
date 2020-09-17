@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as localForage from 'localforage';
 import { forkJoin, from, Observable, of } from 'rxjs';
-import { flatMap, map } from 'rxjs/operators';
+import { map, mergeMap } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'
@@ -33,7 +33,7 @@ export class StorageService {
         });
 
         return from(iteratePromise).pipe(
-            flatMap(() => {
+            mergeMap(() => {
                 if (toDelete.length === 0) {
                     return of(null);
                 }

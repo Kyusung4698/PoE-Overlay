@@ -1,16 +1,16 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { TradeMessageDirectionComponent } from './trade-message-direction.component';
+
 
 describe('TradeMessageDirectionComponent', () => {
   let component: TradeMessageDirectionComponent;
   let fixture: ComponentFixture<TradeMessageDirectionComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ TradeMessageDirectionComponent ]
+      declarations: [TradeMessageDirectionComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

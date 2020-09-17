@@ -9,7 +9,7 @@ import { ChatService } from '@shared/module/poe/chat';
 import { EventService } from '@shared/module/poe/event';
 import { TradeBulkMessage, TradeExchangeMessage, TradeItemMessage, TradeMapMessage, TradeParserType, TradeWhisperDirection } from '@shared/module/poe/trade/chat';
 import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
-import { catchError, flatMap, map } from 'rxjs/operators';
+import { catchError, map, mergeMap } from 'rxjs/operators';
 
 interface MessageContext {
   zone: string;
@@ -190,7 +190,7 @@ export class TradeMessageComponent implements OnInit {
   private leaveParty(): void {
     if (this.message.direction === TradeWhisperDirection.Outgoing) {
       this.event.getCharacter().pipe(
-        flatMap(character => {
+        mergeMap(character => {
           if (character?.name?.length) {
             return of(character.name);
           }

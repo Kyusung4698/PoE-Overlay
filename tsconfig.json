@@ -8,7 +8,7 @@
 		"downlevelIteration": true,
 		"experimentalDecorators": true,
 		"allowSyntheticDefaultImports": true,
-		"module": "esnext",
+		"module": "es2020",
 		"target": "es5",
 		"moduleResolution": "node",
 		"resolveJsonModule": true,
@@ -41,7 +41,7 @@
 			"@layout/*": [
 				"src/app/layout/*"
 			]
-		},
+		}
 	},
 	"angularCompilerOptions": {
 		"fullTemplateTypeCheck": true,

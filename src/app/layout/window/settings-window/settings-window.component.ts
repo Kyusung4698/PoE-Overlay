@@ -3,7 +3,7 @@ import { EventSubscription } from '@app/event';
 import { FeatureConfig, FeatureModule, FeatureSettings, FEATURE_MODULES } from '@app/feature';
 import { FeatureSettingsService } from '@app/feature/feature-settings.service';
 import { BehaviorSubject, Observable, Subject, Subscription } from 'rxjs';
-import { flatMap, throttleTime } from 'rxjs/operators';
+import { mergeMap, throttleTime } from 'rxjs/operators';
 import { SettingsFeatureContainerComponent } from '../../component';
 import { SettingsFeature, SettingsWindowService } from '../../service';
 
@@ -38,7 +38,7 @@ export class SettingsWindowComponent implements OnInit, AfterViewInit, OnDestroy
         this.features = this.modules.map(x => x.getConfig());
         this.queueSubscription = this.settingsQueue.pipe(
             throttleTime(500, undefined, { trailing: true, leading: false }),
-            flatMap(settings => this.settings.put(settings))
+            mergeMap(settings => this.settings.put(settings))
         ).subscribe();
         this.dataSubscription = this.window.data$.on(({ activeFeature }) => {
             this.ngZone.run(() => this.updateTab(activeFeature));

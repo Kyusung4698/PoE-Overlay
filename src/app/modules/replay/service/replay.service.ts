@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { OWGames, OWReplay } from '@app/odk';
 import { Observable, of, throwError } from 'rxjs';
-import { catchError, flatMap, map } from 'rxjs/operators';
+import { catchError, map, mergeMap } from 'rxjs/operators';
 import { ReplayWindowService } from './replay-window.service';
 
 @Injectable({
@@ -45,8 +45,8 @@ export class ReplayService {
             Math.max(pastDuration * 1000, 1),
             Math.max(futureDuration * 1000, 1)
         ).pipe(
-            flatMap(url => OWGames.getRunningGameInfo().pipe(
-                flatMap(({ width, height }) => this.window.open({
+            mergeMap(url => OWGames.getRunningGameInfo().pipe(
+                mergeMap(({ width, height }) => this.window.open({
                     url,
                     gameWidth: width,
                     gameHeight: height

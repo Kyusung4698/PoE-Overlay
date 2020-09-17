@@ -1,22 +1,22 @@
 .poe-close {
-  background: url(./assets/poe/interface/close.png) no-repeat;
+  background: url(./../assets/poe/interface/close.png) no-repeat;
   height: 28px;
   width: 28px;
   cursor: pointer;
 
   &:hover {
-    background: url(./assets/poe/interface/close-active.png) no-repeat;
+    background: url(./../assets/poe/interface/close-active.png) no-repeat;
   }
 }
 
 .poe-settings {
-  background: url(./assets/poe/interface/settings.png) no-repeat;
+  background: url(./../assets/poe/interface/settings.png) no-repeat;
   height: 28px;
   width: 28px;
   cursor: pointer;
 
   &:hover {
-    background: url(./assets/poe/interface/settings-active.png) no-repeat;
+    background: url(./../assets/poe/interface/settings-active.png) no-repeat;
   }
 }
 

@@ -1,16 +1,16 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { MarketInputNumberComponent } from './market-input-number.component';
+
 
 describe('MarketInputNumberComponent', () => {
   let component: MarketInputNumberComponent;
   let fixture: ComponentFixture<MarketInputNumberComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ MarketInputNumberComponent ]
+      declarations: [MarketInputNumberComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

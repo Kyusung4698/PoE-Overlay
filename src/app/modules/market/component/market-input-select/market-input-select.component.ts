@@ -1,6 +1,6 @@
 import { AfterViewInit, ChangeDetectionStrategy, Component, ContentChildren, ElementRef, Input, OnDestroy, OnInit, QueryList, ViewChild } from '@angular/core';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
-import { flatMap, map } from 'rxjs/operators';
+import { map, mergeMap } from 'rxjs/operators';
 import { MarketInputBaseComponent } from '../market-input-base.component';
 import { MarketInputSelectOptionComponent } from '../market-input-select-option/market-input-select-option.component';
 
@@ -36,7 +36,7 @@ export class MarketInputSelectComponent extends MarketInputBaseComponent impleme
 
   public ngOnInit(): void {
     this.optionsFiltered$ = this.options$.pipe(
-      flatMap(options => this.inputValue$.pipe(
+      mergeMap(options => this.inputValue$.pipe(
         map(value => {
           const lower = value.toLowerCase();
           const exp = new RegExp(value, 'gi');

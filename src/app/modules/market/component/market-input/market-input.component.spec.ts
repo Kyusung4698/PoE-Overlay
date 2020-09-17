@@ -1,16 +1,16 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { MarketInputComponent } from './market-input.component';
+
 
 describe('MarketInputComponent', () => {
   let component: MarketInputComponent;
   let fixture: ComponentFixture<MarketInputComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ MarketInputComponent ]
+      declarations: [MarketInputComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

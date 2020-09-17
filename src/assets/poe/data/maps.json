@@ -363,6 +363,7 @@
 				"Jack in the Box",
 				"Lucky Connections",
 				"The Gambler",
+				"The Pact",
 				"Assassin's Favour",
 				"Two-Toned Boots",
 				"Two-Toned Boots",
@@ -494,7 +495,8 @@
 				"The Scavenger",
 				"Lingering Remnants",
 				"The Opulent",
-				"Boon of Justice"
+				"Boon of Justice",
+				"Divine Justice"
 			],
 			"layoutRating": "C",
 			"bosses": [
@@ -1428,13 +1430,9 @@
 		},
 		"The Vinktar Square": {
 			"items": [
-				"The Gambler",
-				"The Encroaching Darkness",
-				"Vessel of Vinktar",
-				"Blue Pearl Amulet",
-				"The Iron Bard",
-				"Monochrome",
-				"Vermillion Ring"
+				"No Traces",
+				"Arrogance of the Vaal",
+				"Monochrome"
 			],
 			"layoutRating": "C",
 			"bosses": [
@@ -1700,7 +1698,8 @@
 				"The Catalyst",
 				"Marble Amulet",
 				"The Admirer",
-				"Three Voices"
+				"Three Voices",
+				"The Hive of Knowledge"
 			],
 			"layoutRating": "C",
 			"bosses": [
@@ -2073,10 +2072,8 @@
 		},
 		"The Coward's Trial": {
 			"items": [
-				"The Gambler",
-				"The Encroaching Darkness",
-				"The Wretched",
-				"The Forsaken",
+				"No Traces",
+				"Arrogance of the Vaal",
 				"Monochrome"
 			],
 			"layoutRating": "A",
@@ -2175,7 +2172,8 @@
 				"Bone Helmet",
 				"Steel Ring",
 				"Lingering Remnants",
-				"The Blazing Fire"
+				"The Blazing Fire",
+				"The Lord of Celebration"
 			],
 			"layoutRating": "A",
 			"bosses": [
@@ -2506,10 +2504,9 @@
 		},
 		"Death and Taxes": {
 			"items": [
-				"The Gambler",
-				"The Encroaching Darkness",
-				"Crystal Belt",
-				"Steel Ring"
+				"No Traces",
+				"Arrogance of the Vaal",
+				"Monochrome"
 			],
 			"layoutRating": "A",
 			"bosses": [
@@ -3094,75 +3091,15 @@
 			"bossCount": 1,
 			"url": "https://pathofexile.gamepedia.com/Sunken_City_Map"
 		},
-		"Forge of the Phoenix Map": {
-			"items": [
-				"The Gambler",
-				"The Encroaching Darkness",
-				"The Wretched",
-				"The Standoff",
-				"Lingering Remnants",
-				"Perfection",
-				"Burning Blood"
-			],
+		"16x16px": {
+			"items": [],
 			"layoutRating": "B",
 			"bosses": [
-				"Guardian of the Phoenix"
+				"The Shaper"
 			],
 			"bossRating": "5",
 			"bossCount": 1,
-			"url": "https://pathofexile.gamepedia.com/Forge_of_the_Phoenix_Map"
-		},
-		"Lair of the Hydra Map": {
-			"items": [
-				"The Feast",
-				"The Gambler",
-				"The Encroaching Darkness",
-				"The Throne",
-				"Lingering Remnants",
-				"The Celestial Stone",
-				"Perfection"
-			],
-			"layoutRating": "A",
-			"bosses": [
-				"Guardian of the Hydra"
-			],
-			"bossRating": "5",
-			"bossCount": 1,
-			"url": "https://pathofexile.gamepedia.com/Lair_of_the_Hydra_Map"
-		},
-		"Maze of the Minotaur Map": {
-			"items": [
-				"The Gambler",
-				"The Encroaching Darkness",
-				"Lingering Remnants",
-				"The Ruthless Ceinture",
-				"Perfection"
-			],
-			"layoutRating": "A",
-			"bosses": [
-				"Guardian of the Minotaur"
-			],
-			"bossRating": "5",
-			"bossCount": 1,
-			"url": "https://pathofexile.gamepedia.com/Maze_of_the_Minotaur_Map"
-		},
-		"Pit of the Chimera Map": {
-			"items": [
-				"The Gladiator",
-				"The Gambler",
-				"The Encroaching Darkness",
-				"The Dragon's Heart",
-				"Lingering Remnants",
-				"Perfection",
-				"Boon of the First Ones"
-			],
-			"layoutRating": "B",
-			"bosses": [
-				"Guardian of the Chimera"
-			],
-			"bossRating": "5",
-			"bossCount": 1,
-			"url": "https://pathofexile.gamepedia.com/Pit_of_the_Chimera_Map"
+			"url": "https://pathofexile.gamepedia.com/index.php?title=Special:Upload&wpDestFile=The_Shaper%27s_Realm_(Harvest)_inventory_icon.png"
 		},
 		"Vaal Temple Map": {
 			"items": [
@@ -3187,16 +3124,6 @@
 			"bossRating": "5",
 			"bossCount": 3,
 			"url": "https://pathofexile.gamepedia.com/Vaal_Temple_Map"
-		},
-		"The Shaper's Realm": {
-			"items": [],
-			"layoutRating": "B",
-			"bosses": [
-				"The Shaper"
-			],
-			"bossRating": "5",
-			"bossCount": 1,
-			"url": "https://pathofexile.gamepedia.com/The_Shaper%27s_Realm"
 		},
 		"Crater Map": {
 			"items": [

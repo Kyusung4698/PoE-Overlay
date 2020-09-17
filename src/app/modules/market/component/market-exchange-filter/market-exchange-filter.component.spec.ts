@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { BrowserModule } from '@angular/platform-browser';
 import { TranslateFakeLoader, TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { MarketExchangeFilterComponent } from './market-exchange-filter.component';
@@ -10,7 +10,7 @@ describe('MarketExchangeFilterComponent', () => {
   let component: MarketExchangeFilterComponent;
   let fixture: ComponentFixture<MarketExchangeFilterComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [MarketExchangeFilterComponent],
       imports: [

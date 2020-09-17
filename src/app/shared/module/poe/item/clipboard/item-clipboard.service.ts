@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { OWClipboard } from '@app/odk';
 import { OWUtils } from '@app/odk/ow-utils';
 import { Observable, of } from 'rxjs';
-import { catchError, delay, flatMap, map } from 'rxjs/operators';
+import { catchError, delay, map, mergeMap } from 'rxjs/operators';
 import { Item } from '../item';
 import { ItemClipboardParserService } from './item-clipboard-parser.service';
 
@@ -30,9 +30,9 @@ export class ItemClipboardService {
         OWUtils.sendKeyStroke('Ctrl+C');
         return of(null).pipe(
             delay(150),
-            flatMap(() => OWClipboard.getFromClipboard()),
+            mergeMap(() => OWClipboard.getFromClipboard()),
             catchError(() => of('')),
-            flatMap(content => OWClipboard.placeOnClipboard('').pipe(
+            mergeMap(content => OWClipboard.placeOnClipboard('').pipe(
                 map(() => content)
             )),
             map(content => {

@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, OnDestroy, OnInit, Ou
 import { ChatService } from '@shared/module/poe/chat';
 import { TradeFetchResultEntry, TradeFetchService, TradeSearchRequest, TradeSearchResponse, TradeSearchService } from '@shared/module/poe/trade';
 import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
-import { catchError, flatMap, map, switchMap, takeUntil, tap } from 'rxjs/operators';
+import { catchError, map, mergeMap, switchMap, takeUntil, tap } from 'rxjs/operators';
 
 const DEFAULT_REQUEST = () => {
   const request: TradeSearchRequest = {
@@ -120,7 +120,7 @@ export class MarketItemSearchComponent implements OnInit, OnDestroy {
     this.result$ = this.queue$.pipe(
       tap(() => this.clear()),
       tap(() => this.searching$.next(true)),
-      flatMap(() => this.search.search(this.request).pipe(
+      mergeMap(() => this.search.search(this.request).pipe(
         takeUntil(this.queue$),
       )),
       tap(() => this.page$.next(0)),
@@ -131,7 +131,7 @@ export class MarketItemSearchComponent implements OnInit, OnDestroy {
         };
         return this.page$.pipe(
           tap(() => this.fetching$.next(true)),
-          flatMap(page => this.fetch.fetch(search, PAGE_SIZE * page, PAGE_SIZE + PAGE_SIZE * page).pipe(
+          mergeMap(page => this.fetch.fetch(search, PAGE_SIZE * page, PAGE_SIZE + PAGE_SIZE * page).pipe(
             takeUntil(this.queue$)
           )),
           catchError(error => this.handleError(error, {

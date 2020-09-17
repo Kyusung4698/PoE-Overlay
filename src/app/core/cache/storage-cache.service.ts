@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ProcessStorageService, StorageService } from '@app/storage';
 import { Observable, of, throwError } from 'rxjs';
-import { catchError, flatMap, map, shareReplay, tap } from 'rxjs/operators';
+import { catchError, map, mergeMap, shareReplay, tap } from 'rxjs/operators';
 
 interface CacheEntry<TValue> {
     value: TValue;
@@ -33,7 +33,7 @@ export class StorageCacheService {
         expiry: number
     ): Observable<TValue> {
         return this.get(key).pipe(
-            flatMap(entry => {
+            mergeMap(entry => {
                 const now = Date.now();
                 if (entry && entry.expiry > now) {
                     return of(entry.value);

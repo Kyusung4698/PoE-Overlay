@@ -40,7 +40,8 @@
 		"evasion_rating___": "local_evasion_rating___",
 		"base_maximum_energy_shield": "base_maximum_energy_shield",
 		"local_accuracy_rating": "accuracy_rating",
-		"accuracy_rating": "local_accuracy_rating"
+		"accuracy_rating": "local_accuracy_rating",
+		"base_chance_to_poison_on_hit__": "base_chance_to_poison_on_hit__"
 	},
 	"crafted": {
 		"local_minimum_added_fire_damagelocal_maximum_added_fire_damage": "global_minimum_added_fire_damageglobal_maximum_added_fire_damage",

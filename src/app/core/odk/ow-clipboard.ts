@@ -1,5 +1,5 @@
 import { from, Observable } from 'rxjs';
-import { flatMap, shareReplay } from 'rxjs/operators';
+import { mergeMap, shareReplay } from 'rxjs/operators';
 
 interface Result {
     success: boolean;
@@ -20,7 +20,7 @@ export class OWClipboard {
 
     public static placeOnClipboard(content: string): Observable<void> {
         return this.getExtension().pipe(
-            flatMap(extension => {
+            mergeMap(extension => {
                 const promise = new Promise<void>((resolve, reject) => {
                     extension.placeOnClipboard(content, result => {
                         if (result.success) {
@@ -37,7 +37,7 @@ export class OWClipboard {
 
     public static getFromClipboard(): Observable<string> {
         return this.getExtension().pipe(
-            flatMap(extension => {
+            mergeMap(extension => {
                 const promise = new Promise<string>((resolve, reject) => {
                     extension.getFromClipboard(result => {
                         if (result.success) {

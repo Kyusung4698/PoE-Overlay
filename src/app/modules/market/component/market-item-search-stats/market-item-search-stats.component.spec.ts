@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { BrowserModule } from '@angular/platform-browser';
 import { MarketItemSearchStatsComponent } from './market-item-search-stats.component';
 
@@ -9,7 +9,7 @@ describe('MarketItemSearchStatsComponent', () => {
   let component: MarketItemSearchStatsComponent;
   let fixture: ComponentFixture<MarketItemSearchStatsComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [MarketItemSearchStatsComponent],
       imports: [

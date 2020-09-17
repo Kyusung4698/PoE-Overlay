@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Language } from '@data/poe/schema';
 import { Observable, of } from 'rxjs';
-import { flatMap, map } from 'rxjs/operators';
+import { map, mergeMap } from 'rxjs/operators';
 import { ContextService } from '../context';
 import { CurrencyChaosEquivalentsProvider } from './currency-chaos-equivalents.provider';
 import { CurrencyService } from './currency.service';
@@ -20,7 +20,7 @@ export class CurrencyChaosEquivalentsService {
         leagueId = leagueId || this.context.get().leagueId;
 
         return this.currency.searchById(currency, Language.English).pipe(
-            flatMap(englishCurrency => {
+            mergeMap(englishCurrency => {
                 if (!englishCurrency) {
                     return of(undefined);
                 }

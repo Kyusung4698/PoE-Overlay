@@ -1,11 +1,11 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { SettingsFeatureContainerComponent } from './settings-feature-container.component';
 
 describe('SettingsFeatureContainerComponent', () => {
   let component: SettingsFeatureContainerComponent;
   let fixture: ComponentFixture<SettingsFeatureContainerComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [SettingsFeatureContainerComponent]
     }).compileComponents();
