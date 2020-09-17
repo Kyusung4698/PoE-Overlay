@@ -4,6 +4,7 @@
 
 - updated the external link behaviour to skip in game notification
 - fixed an issue with too long stats at the market window (#814)
+- fixed an issue using the slider at the settings window (#815)
 
 ## 1.0.10 (2020-08-02)
 
