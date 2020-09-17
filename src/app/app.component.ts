@@ -35,16 +35,6 @@ export class AppComponent implements OnInit, OnDestroy {
                 const { language, leagueId } = settings;
                 return this.context.init({ language, leagueId });
             }),
-            tap(() => {
-                this.subscription = this.settings.change().on(settings => {
-                    this.ngZone.run(() => {
-                        this.i18n.use(settings.uiLanguage);
-                        const { language, leagueId } = settings;
-                        this.context.update({ language, leagueId });
-                    });
-                });
-            }),
-            mergeMap(() => OWWindows.getCurrentWindow()),
             retryWhen(errors => errors.pipe(
                 mergeMap(error => {
                     console.warn(`An unexpected error occured while loading PoE Overlay. ${error?.message ?? JSON.stringify(error)}`);
@@ -62,7 +52,23 @@ export class AppComponent implements OnInit, OnDestroy {
                     );
                 })
             )),
-            tap(win => this.title.setTitle(`PoE Overlay - ${win.name.charAt(0).toUpperCase()}${win.name.slice(1)}`)),
+            tap(() => {
+                this.subscription = this.settings.change().on(settings => {
+                    this.ngZone.run(() => {
+                        this.i18n.use(settings.uiLanguage);
+                        const { language, leagueId } = settings;
+                        this.context.update({ language, leagueId });
+                    });
+                });
+            }),
+            mergeMap(() => OWWindows.getCurrentWindow().pipe(
+                map(win => win.name),
+                catchError(error => {
+                    console.warn(`An unexpected error occured while getting current window. ${error?.message ?? JSON.stringify(error)}`);
+                    return of('background');
+                })
+            )),
+            tap(win => this.title.setTitle(`PoE Overlay - ${win.charAt(0).toUpperCase()}${win.slice(1)}`)),
             catchError(() => new OWWindow().close().pipe(
                 map(() => null)
             ))

@@ -14,7 +14,7 @@ export class OWWindows {
                 if (result?.success) {
                     resolve(result.window);
                 } else {
-                    reject(result.error);
+                    reject(`Could not get current window. reason: ${result.error ?? JSON.stringify(result)}.`);
                 }
             });
         });
