@@ -32,7 +32,17 @@
             ],
             "scripts": [],
             "allowedCommonJsDependencies": [
-              "stacktrace-js"
+              "stacktrace-js",
+              "videojs-vtt.js",
+              "@videojs/xhr",
+              "@babel/runtime/helpers/possibleConstructorReturn",
+              "@babel/runtime/helpers/construct",
+              "@babel/runtime/helpers/inherits",
+              "global/document",
+              "mux.js/lib/tools/ts-inspector.js",
+              "mux.js/lib/tools/mp4-inspector",
+              "mux.js/lib/mp4/probe",
+              "mux.js/lib/mp4/caption-parser"
             ],
             "customWebpackConfig": {
               "path": "./extra-webpack.config.js",
