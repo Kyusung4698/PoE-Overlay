@@ -31,6 +31,9 @@
               "src/assets/fonts/fonts.css"
             ],
             "scripts": [],
+            "allowedCommonJsDependencies": [
+              "stacktrace-js"
+            ],
             "customWebpackConfig": {
               "path": "./extra-webpack.config.js",
               "replaceDuplicatePlugins": true,
