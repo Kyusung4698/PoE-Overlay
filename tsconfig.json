@@ -41,7 +41,7 @@
 			"@layout/*": [
 				"src/app/layout/*"
 			]
-		},
+		}
 	},
 	"angularCompilerOptions": {
 		"fullTemplateTypeCheck": true,
