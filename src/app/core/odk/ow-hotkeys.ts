@@ -1,7 +1,7 @@
 import { from, Observable } from 'rxjs';
 
 export class OWHotkeys {
-    public static onChanged = overwolf.settings.OnHotKeyChanged;
+    public static onChanged = overwolf.settings.hotkeys.onChanged;
     public static onPressed = overwolf.settings.hotkeys.onPressed;
 
     public static getHotkeyText(hotkeyId: string): Observable<string> {
