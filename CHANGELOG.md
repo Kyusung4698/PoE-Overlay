@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.11 (2020-09-17)
+
+- fixed an issue with too long stats at the market window (#814)
+
 ## 1.0.10 (2020-08-02)
 
 - added whois button to the trade window
