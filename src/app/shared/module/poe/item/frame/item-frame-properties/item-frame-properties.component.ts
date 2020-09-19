@@ -42,11 +42,16 @@ export class ItemFramePropertiesComponent implements OnInit {
       'armourEnergyShield',
       'stackSize',
       'gemLevel',
+      'heistAreaLevel',
+      'heistWingsRevealed',
+      'heistEscapeRoutesRevealed',
+      'heistSecretRewardRoomsRevealed',
       'mapTier',
       'mapQuantity',
       'mapRarity',
       'mapPacksize',
       'quality',
+      'heistReinforcements',
       'gemExperience',
     ];
     this.isArmour = this.item.category.startsWith(ItemCategory.Armour);

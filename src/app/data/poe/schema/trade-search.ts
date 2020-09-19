@@ -64,6 +64,25 @@ export interface TradeSearchHttpMapFilters {
     map_series?: FilterOption;
 }
 
+export interface TradeSearchHttpHeistFilters {
+    heist_wings?: FilterValueOption;
+    heist_max_wings?: FilterValueOption;
+    heist_escape_routes?: FilterValueOption;
+    heist_max_escape_routes?: FilterValueOption;
+    heist_reward_rooms?: FilterValueOption;
+    heist_max_reward_rooms?: FilterValueOption;
+    area_level?: FilterValueOption;
+    heist_lockpicking?: FilterValueOption;
+    heist_brute_force?: FilterValueOption;
+    heist_perception?: FilterValueOption;
+    heist_demolition?: FilterValueOption;
+    heist_counter_thaumaturgy?: FilterValueOption;
+    heist_trap_disarmament?: FilterValueOption;
+    heist_agility?: FilterValueOption;
+    heist_deception?: FilterValueOption;
+    heist_engineering?: FilterValueOption;
+}
+
 export interface TradeSearchHttpMiscFilters {
     quality?: FilterValueOption;
     ilvl?: FilterValueOption;
@@ -104,6 +123,7 @@ export interface TradeSearchHttpFilters {
     socket_filters?: FilterGroup<TradeSearchHttpSocketFilters>;
     req_filters?: FilterGroup<TradeSearchHttpReqFilters>;
     map_filters?: FilterGroup<TradeSearchHttpMapFilters>;
+    heist_filters?: FilterGroup<TradeSearchHttpHeistFilters>;
     misc_filters?: FilterGroup<TradeSearchHttpMiscFilters>;
     trade_filters?: TradeSearchHttpFilterGroup;
 }

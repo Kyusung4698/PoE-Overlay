@@ -58,6 +58,11 @@ export interface ItemProperties {
     mapQuantity?: ItemValue;
     mapRarity?: ItemValue;
     mapPacksize?: ItemValue;
+    heistAreaLevel?: ItemValue;
+    heistWingsRevealed?: ItemValue;
+    heistEscapeRoutesRevealed?: ItemValue;
+    heistSecretRewardRoomsRevealed?: ItemValue;
+    heistReinforcements?: ItemValue;
 }
 
 export enum ItemQualityType {

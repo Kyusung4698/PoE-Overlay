@@ -78,6 +78,26 @@
                 *ngTemplateOutlet="query; context: { prop: prop, key: 'ItemDisplayMapPackSizeIncrease'}">
             </ng-container>
         </ng-container>
+        <ng-container *ngSwitchCase="'heistAreaLevel'">
+            <ng-container
+                *ngTemplateOutlet="value; context: { prop: prop, key: 'ItemDisplayHeistContractLevel', range: true}">
+            </ng-container>
+        </ng-container>
+        <ng-container *ngSwitchCase="'heistWingsRevealed'">
+            <ng-container
+                *ngTemplateOutlet="query; context: { prop: prop, key: 'ItemDisplayHeistBlueprintWings'}">
+            </ng-container>
+        </ng-container>
+        <ng-container *ngSwitchCase="'heistEscapeRoutesRevealed'">
+            <ng-container
+                *ngTemplateOutlet="query; context: { prop: prop, key: 'ItemDisplayHeistBlueprintEscapeRooms'}">
+            </ng-container>
+        </ng-container>
+        <ng-container *ngSwitchCase="'heistSecretRewardRoomsRevealed'">
+            <ng-container
+                *ngTemplateOutlet="query; context: { prop: prop, key: 'ItemDisplayHeistBlueprintRewardRooms'}">
+            </ng-container>
+        </ng-container>
         <ng-container *ngSwitchCase="'quality'">
             <app-item-frame-query [(property)]="queryItem.properties[prop]" [value]="item.properties[prop]">
                 <app-item-frame-value-group>
@@ -95,6 +115,11 @@
                 </app-item-frame-value-group>
             </app-item-frame-query>
         </ng-container>
+        <ng-container *ngSwitchCase="'heistReinforcements'">
+            <ng-container
+                *ngTemplateOutlet="static; context: { prop: prop, key: 'ItemDisplayHeistMaxReinforcements'}">
+            </ng-container>
+        </ng-container>        
         <ng-container *ngSwitchCase="'gemExperience'">
             <ng-container *ngTemplateOutlet="query; context: { prop: prop, key: 'Experience'}">
             </ng-container>

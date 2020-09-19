@@ -144,6 +144,9 @@ export class ItemPriceRatesProvider {
             case ItemCategory.MonsterSample:
             case ItemCategory.CurrencyPiece:
                 return of({ rates: [] });
+            default:
+                // TODO: Add heist rates once poe.ninja supports those
+                return of({ rates: [] });
         }
     }
 
