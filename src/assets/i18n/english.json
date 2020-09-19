@@ -5,7 +5,7 @@
 			"title": "Bookmarks"
 		},
 		"changelog-1-0-11": {
-			"message": "- added heist item data & stats\n- added heist item properties at the evaluate dialog\n- added heist item types at the market\n- added heist filter group at the market\n- updated the external link behaviour to skip in game notification\n- fixed an issue causing values at the evaluate dialog to be cut off (#827, #829)\n- fixed an issue freezing the launcher (#826)\n- fixed an issue with too long stats at the market window (#814)\n- fixed an issue using the slider at the settings window (#815)",
+			"message": "- added heist item data & stats\n- added heist item properties at the evaluate dialog\n- added heist item types at the market\n- added heist filter group at the market\n- updated the external link behavior to skip in game notification\n- fixed an issue causing values at the evaluate dialog to be cut off (#827, #829)\n- fixed an issue freezing the launcher (#826)\n- fixed an issue with too long stats at the market window (#814)\n- fixed an issue using the slider at the settings window (#815)",
 			"title": "What's new in 1.0.11?"
 		},
 		"commands": {
