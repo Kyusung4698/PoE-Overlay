@@ -12,3 +12,7 @@ $grid-gutter-width: 12px;
 *::after {
     box-sizing: border-box;
 }
+
+input {
+    padding: 0;
+}

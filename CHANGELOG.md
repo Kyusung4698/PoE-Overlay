@@ -6,7 +6,8 @@
 - added heist item types at the market
 - added heist filter group at the market
 - updated the external link behaviour to skip in game notification
-- fixed an issue that could freeze the launcher (#826)
+- fixed an issue causing values at the evaluate dialog to be cut off (#827, #829)
+- fixed an issue freezing the launcher (#826)
 - fixed an issue with too long stats at the market window (#814)
 - fixed an issue using the slider at the settings window (#815)
 
