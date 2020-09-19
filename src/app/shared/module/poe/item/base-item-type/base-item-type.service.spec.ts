@@ -81,4 +81,9 @@ describe('BaseItemTypeService', () => {
         const result = sut.search('Titan\'s Arcade Map of Temporal Chains', Language.English);
         expect(result).toBe('MapTier2_7');
     });
+
+    it(`should find 'Blueprint: Bunker of Power'`, () => {
+        const result = sut.search('Blueprint: Bunker of Power', Language.English);
+        expect(result).toBe('HeistBlueprintControlBlocks');
+    });
 });
