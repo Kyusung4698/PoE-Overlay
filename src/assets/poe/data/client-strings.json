@@ -245,7 +245,14 @@
 		"ItemDisplayHeistBlueprintEscapeRooms": "Escape Routes Revealed",
 		"ItemDisplayHeistMaxReinforcements": "Maximum Alive Reinforcements",
 		"ItemDisplayHeistEquipmentUsersAll": "Any Heist member can equip this item.",
-		"ItemDisplayHeistEquipmentUsers": "This item can be equipped by:\n{0}"
+		"ItemDisplayHeistEquipmentUsers": "This item can be equipped by:\n{0}",
+		"Quality1": "Quality (Elemental Damage)",
+		"Quality2": "Quality (Caster Modifiers)",
+		"Quality3": "Quality (Attack Modifiers)",
+		"Quality4": "Quality (Defence Modifiers)",
+		"Quality5": "Quality (Life and Mana Modifiers)",
+		"Quality6": "Quality (Resistance Modifiers)",
+		"Quality7": "Quality (Attribute Modifiers)"
 	},
 	"French": {
 		"Level": "Niveau",
@@ -493,7 +500,14 @@
 		"ItemDisplayHeistBlueprintEscapeRooms": "Échappatoires révélées",
 		"ItemDisplayHeistMaxReinforcements": "Renforts maximaux en vie",
 		"ItemDisplayHeistEquipmentUsersAll": "Cet objet peut être équipé par n'importe quel Malfaiteur.",
-		"ItemDisplayHeistEquipmentUsers": "Cet objet peut être équipé par :\n{0}"
+		"ItemDisplayHeistEquipmentUsers": "Cet objet peut être équipé par :\n{0}",
+		"Quality1": "Qualité (Dégâts élémentaires)",
+		"Quality2": "Qualité (Modificateurs de Sorts)",
+		"Quality3": "Qualité (Modificateurs d'Attaque)",
+		"Quality4": "Qualité (Modificateurs de Défenses)",
+		"Quality5": "Qualité (Modificateurs de Vie et de Mana)",
+		"Quality6": "Qualité (Modificateurs de Résistances)",
+		"Quality7": "Qualité (Modificateurs d'Attributs)"
 	},
 	"German": {
 		"Level": "Stufe",
@@ -741,7 +755,14 @@
 		"ItemDisplayHeistBlueprintEscapeRooms": "Aufgedeckte Fluchtwege",
 		"ItemDisplayHeistMaxReinforcements": "Maximale Verstärkungen",
 		"ItemDisplayHeistEquipmentUsersAll": "Dieser Gegenstand kann von allen Heist-Mitgliedern ausgerüstet werden.",
-		"ItemDisplayHeistEquipmentUsers": "Dieser Gegenstand kann ausgerüstet werden von:\n{0}"
+		"ItemDisplayHeistEquipmentUsers": "Dieser Gegenstand kann ausgerüstet werden von:\n{0}",
+		"Quality1": "Qualität (Elementarschaden)",
+		"Quality2": "Qualität (Zaubermodifikatoren)",
+		"Quality3": "Qualität (Angriffsmodifikatoren)",
+		"Quality4": "Qualität (Defensiv-Modifikatoren)",
+		"Quality5": "Qualität (Lebens- und Mana-Modifikatoren)",
+		"Quality6": "Qualität (Widerstands-Modifikatoren)",
+		"Quality7": "Qualität (Attributs-Modifikatoren)"
 	},
 	"Korean": {
 		"Level": "레벨",
@@ -989,7 +1010,14 @@
 		"ItemDisplayHeistBlueprintEscapeRooms": "탈출 경로 드러남",
 		"ItemDisplayHeistMaxReinforcements": "최대 생존 지원군",
 		"ItemDisplayHeistEquipmentUsersAll": "모든 강탈 단원이 이 아이템을 장착할 수 있습니다.",
-		"ItemDisplayHeistEquipmentUsers": "이 아이템을 장착할 수 있는 대상:\n{0}"
+		"ItemDisplayHeistEquipmentUsers": "이 아이템을 장착할 수 있는 대상:\n{0}",
+		"Quality1": "퀄리티 (원소 피해)",
+		"Quality2": "퀄리티 (시전 속성 부여)",
+		"Quality3": "퀄리티 (공격 속성 부여)",
+		"Quality4": "퀄리티 (방어 속성 부여)",
+		"Quality5": "퀄리티 (생명력과 마나 속성 부여)",
+		"Quality6": "퀄리티 (저항 속성 부여)",
+		"Quality7": "퀄리티 (능력치 속성 부여)"
 	},
 	"Portuguese": {
 		"Level": "Nível",
@@ -1237,7 +1265,14 @@
 		"ItemDisplayHeistBlueprintEscapeRooms": "Rotas de Escape Reveladas",
 		"ItemDisplayHeistMaxReinforcements": "Máximo de Reforços Vivos",
 		"ItemDisplayHeistEquipmentUsersAll": "Qualquer membro Heist pode equipar este item.",
-		"ItemDisplayHeistEquipmentUsers": "Este item pode ser equipado por:\n{0}"
+		"ItemDisplayHeistEquipmentUsers": "Este item pode ser equipado por:\n{0}",
+		"Quality1": "Qualidade (Dano Elemental)",
+		"Quality2": "Qualidade (Modificadores de Conjuração)",
+		"Quality3": "Qualidade (Modificadores de Ataque)",
+		"Quality4": "Qualidade (Modificadores Defensivos)",
+		"Quality5": "Qualidade (Modificadores de Vida e Mana)",
+		"Quality6": "Qualidade (Modificadores de Resistências)",
+		"Quality7": "Qualidade (Modificadores de Atributos)"
 	},
 	"Russian": {
 		"Level": "Уровень",
@@ -1485,7 +1520,14 @@
 		"ItemDisplayHeistBlueprintEscapeRooms": "Путей отхода обнаружено",
 		"ItemDisplayHeistMaxReinforcements": "Максимум выживших стражей подкрепления",
 		"ItemDisplayHeistEquipmentUsersAll": "Этот предмет может использовать любой наёмник.",
-		"ItemDisplayHeistEquipmentUsers": "Этот предмет могут использовать:\n{0}"
+		"ItemDisplayHeistEquipmentUsers": "Этот предмет могут использовать:\n{0}",
+		"Quality1": "Качество (урон от стихий)",
+		"Quality2": "Качество (чародейские свойства)",
+		"Quality3": "Качество (свойства атак)",
+		"Quality4": "Качество (защитные свойства)",
+		"Quality5": "Качество (свойства здоровья и маны)",
+		"Quality6": "Качество (свойства сопротивлений)",
+		"Quality7": "Качество (свойства характеристик)"
 	},
 	"SimplifiedChinese": {
 		"Level": "等级",
@@ -1926,7 +1968,14 @@
 		"ItemDisplayHeistBlueprintEscapeRooms": "Rutas de escape reveladas",
 		"ItemDisplayHeistMaxReinforcements": "Refuerzos vivos máximos",
 		"ItemDisplayHeistEquipmentUsersAll": "Cualquier miembro de la banda puede equiparse este objeto.",
-		"ItemDisplayHeistEquipmentUsers": "Este objeto puede ser equipado por:\n{0}"
+		"ItemDisplayHeistEquipmentUsers": "Este objeto puede ser equipado por:\n{0}",
+		"Quality1": "Calidad (daño elemental)",
+		"Quality2": "Calidad (mods. de lanzador de hechizos)",
+		"Quality3": "Calidad (mods. de ataque)",
+		"Quality4": "Calidad (mods. de defensa)",
+		"Quality5": "Calidad (mods. de vida y maná)",
+		"Quality6": "Calidad (mods. de resistencia)",
+		"Quality7": "Calidad (mods. de atributos)"
 	},
 	"Thai": {
 		"Level": "เลเวล",
@@ -2174,7 +2223,14 @@
 		"ItemDisplayHeistBlueprintEscapeRooms": "Escape Routes Revealed",
 		"ItemDisplayHeistMaxReinforcements": "Maximum Alive Reinforcements",
 		"ItemDisplayHeistEquipmentUsersAll": "Any Heist member can equip this item.",
-		"ItemDisplayHeistEquipmentUsers": "This item can be equipped by:\n{0}"
+		"ItemDisplayHeistEquipmentUsers": "This item can be equipped by:\n{0}",
+		"Quality1": "คุณภาพ (ความเสียหายธาตุ)",
+		"Quality2": "คุณภาพ (ม็อดนักเวทย์)",
+		"Quality3": "คุณภาพ (ม็อดโจมตี)",
+		"Quality4": "คุณภาพ (ม็อดป้องกัน)",
+		"Quality5": "คุณภาพ (ม็อดพลังชีวิตและมานา)",
+		"Quality6": "คุณภาพ (ม็อดต้านทาน)",
+		"Quality7": "คุณภาพ (ม็อดคุณสมบัติ)"
 	},
 	"TraditionalChinese": {
 		"Level": "等級",
