@@ -2,11 +2,10 @@ import { NgModule } from '@angular/core';
 import { Hotkey } from '@app/config';
 import { Feature, FeatureConfig, FeatureModule, FEATURE_MODULES } from '@app/feature';
 import { SharedModule } from '@shared/shared.module';
-import { MarketExchangeBarComponent, MarketExchangeComponent, MarketExchangeFilterComponent, MarketExchangeFilterItemComponent, MarketExchangePriceComponent, MarketFrameComponent, MarketInfiniteScrollComponent, MarketInputBooleanComponent, MarketInputComponent, MarketInputNumberComponent, MarketInputRangeComponent, MarketInputSelectComponent, MarketInputSelectOptionComponent, MarketItemSearchBarComponent, MarketItemSearchComponent, MarketItemSearchFilterComponent, MarketItemSearchFilterMiscComponent, MarketItemSearchFilterTradeComponent, MarketItemSearchFilterTypeComponent, MarketItemSearchStatComponent, MarketItemSearchStatGroupComponent, MarketItemSearchStatsComponent, MarketListingStatusComponent, MarketPanelComponent, MarketPanelGroupComponent, MarketSettingsComponent, MarketTabComponent, MarketTabGroupComponent } from './component';
+import { MarketExchangeBarComponent, MarketExchangeComponent, MarketExchangeFilterComponent, MarketExchangeFilterItemComponent, MarketExchangePriceComponent, MarketFrameComponent, MarketInfiniteScrollComponent, MarketInputBooleanComponent, MarketInputComponent, MarketInputNumberComponent, MarketInputRangeComponent, MarketInputSelectComponent, MarketInputSelectOptionComponent, MarketItemSearchBarComponent, MarketItemSearchComponent, MarketItemSearchFilterComponent, MarketItemSearchFilterHeistComponent, MarketItemSearchFilterMiscComponent, MarketItemSearchFilterTradeComponent, MarketItemSearchFilterTypeComponent, MarketItemSearchResultComponent, MarketItemSearchStatComponent, MarketItemSearchStatGroupComponent, MarketItemSearchStatsComponent, MarketListingStatusComponent, MarketPanelComponent, MarketPanelGroupComponent, MarketSettingsComponent, MarketTabComponent, MarketTabGroupComponent } from './component';
 import { MarketFeatureSettings } from './market-feature-settings';
 import { MarketWindowService } from './service';
 import { MarketWindowComponent } from './window';
-import { MarketItemSearchResultComponent } from './component/market-item-search-result/market-item-search-result.component';
 
 @NgModule({
     providers: [{ provide: FEATURE_MODULES, useClass: MarketModule, multi: true }],
@@ -32,6 +31,7 @@ import { MarketItemSearchResultComponent } from './component/market-item-search-
         MarketListingStatusComponent,
 
         MarketItemSearchComponent,
+        MarketItemSearchResultComponent,
         MarketItemSearchBarComponent,
         MarketItemSearchStatsComponent,
         MarketItemSearchStatGroupComponent,
@@ -40,13 +40,13 @@ import { MarketItemSearchResultComponent } from './component/market-item-search-
         MarketItemSearchFilterTypeComponent,
         MarketItemSearchFilterMiscComponent,
         MarketItemSearchFilterTradeComponent,
+        MarketItemSearchFilterHeistComponent,
 
         MarketExchangeComponent,
         MarketExchangeBarComponent,
         MarketExchangePriceComponent,
         MarketExchangeFilterComponent,
-        MarketExchangeFilterItemComponent,
-        MarketItemSearchResultComponent,
+        MarketExchangeFilterItemComponent
     ],
     exports: [MarketWindowComponent],
     imports: [SharedModule]
