@@ -1,4 +1,4 @@
-<babeledit_project be_version="2.7.1" version="1.2">
+<babeledit_project version="1.2" be_version="2.7.1">
     <!--
 
     BabelEdit project file
@@ -130,7 +130,7 @@
                         </children>
                     </folder_node>
                     <folder_node>
-                        <name>changelog-1-0-10</name>
+                        <name>changelog-1-0-11</name>
                         <children>
                             <concept_node>
                                 <name>message</name>
