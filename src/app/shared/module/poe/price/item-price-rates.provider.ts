@@ -126,6 +126,7 @@ export class ItemPriceRatesProvider {
             case ItemCategory.AccessoryAmulet:
             case ItemCategory.AccessoryBelt:
             case ItemCategory.AccessoryRing:
+            case ItemCategory.AccessoryTrinket:
                 if (rarity === ItemRarity.Unique) {
                     const key = `${leagueId}_${ItemCategory.Accessory}`;
                     return this.fetch(key, () => this.fetchItem(leagueId, ItemOverviewType.UniqueAccessory));
