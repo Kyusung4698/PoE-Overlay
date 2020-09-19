@@ -369,6 +369,7 @@
 		"capture-error": "Nie można zarejestrować zdarzenia.",
 		"death": "Zdarzenie śmierci",
 		"future-duration": "Przyszły czas trwania",
+		"help": "Powtórki są zapisywane w: „{{path}}”\nStare filmy są usuwane po osiągnięciu progu rozmiaru.",
 		"kill": "Zabij zdarzenie",
 		"manually": "ręcznie",
 		"name": "Powtórna rozgrywka",

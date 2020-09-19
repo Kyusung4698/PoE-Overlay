@@ -369,6 +369,7 @@
 		"capture-error": "O evento não pôde ser capturado.",
 		"death": "Evento de morte",
 		"future-duration": "Duração futura",
+		"help": "As repetições são salvas em: '{{path}}'\nVídeos antigos são excluídos após atingir um limite de tamanho.",
 		"kill": "Matar evento",
 		"manually": "Manualmente",
 		"name": "Repetir",

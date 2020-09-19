@@ -17,7 +17,8 @@ export abstract class ItemSectionParserService {
 
         const values = text.split('-');
         const value = values
-            .map(x => +x.replace('%', ''))
+            .map(x => x.split('/')[0])      // '1/3' -> 1
+            .map(x => +x.replace('%', ''))  // '1%' -> 1
             .reduce((a, b) => a + b, 0) / values.length;
 
         const result: ItemValue = {

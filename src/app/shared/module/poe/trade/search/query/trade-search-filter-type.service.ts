@@ -60,6 +60,7 @@ export class TradeSearchFilterTypeService implements TradeSearchFilterService {
             case ItemCategory.AccessoryAmulet:
             case ItemCategory.AccessoryBelt:
             case ItemCategory.AccessoryRing:
+            case ItemCategory.AccessoryTrinket:
                 if (item.rarity === ItemRarity.Unique) {
                     query.filters.type_filters.filters.rarity = {
                         option: ItemRarity.Unique
@@ -109,6 +110,16 @@ export class TradeSearchFilterTypeService implements TradeSearchFilterService {
             case ItemCategory.CurrencyResonator:
             case ItemCategory.CurrencyFossil:
             case ItemCategory.CurrencyIncubator:
+            case ItemCategory.CurrencyHeistTarget:
+            // heist
+            case ItemCategory.HeistEquipment:
+            case ItemCategory.HeistEquipmentGear:
+            case ItemCategory.HeistEquipmentTool:
+            case ItemCategory.HeistEquipmentCloak:
+            case ItemCategory.HeistEquipmentBrooch:
+            case ItemCategory.HeistEquipmentMission:
+            case ItemCategory.HeistEquipmentContract:
+            case ItemCategory.HeistEquipmentBlueprint:
             // map
             case ItemCategory.MapFragment:
             case ItemCategory.MapScarab:

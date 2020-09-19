@@ -29,6 +29,7 @@ export enum ItemCategory {
     AccessoryAmulet = 'accessory.amulet',
     AccessoryBelt = 'accessory.belt',
     AccessoryRing = 'accessory.ring',
+    AccessoryTrinket = 'accessory.trinket',
     Gem = 'gem',
     GemActivegem = 'gem.activegem',
     GemSupportGem = 'gem.supportgem',
@@ -45,11 +46,20 @@ export enum ItemCategory {
     Card = 'card',
     MonsterBeast = 'monster.beast',
     MonsterSample = 'monster.sample',
+    HeistEquipment = 'heistequipment',
+    HeistEquipmentGear = 'heistequipment.heistweapon',
+    HeistEquipmentTool = 'heistequipment.heisttool',
+    HeistEquipmentCloak = 'heistequipment.heistutility',
+    HeistEquipmentBrooch = 'heistequipment.heistreward',
+    HeistEquipmentMission = 'heistmission',
+    HeistEquipmentContract = 'heistmission.contract',
+    HeistEquipmentBlueprint = 'heistmission.blueprint',
     Currency = 'currency',
     CurrencyPiece = 'currency.piece',
     CurrencyResonator = 'currency.resonator',
     CurrencyFossil = 'currency.fossil',
     CurrencyIncubator = 'currency.incubator',
+    CurrencyHeistTarget = 'currency.heistobjective',
 }
 
 export interface BaseItemTypeCategoryMap {

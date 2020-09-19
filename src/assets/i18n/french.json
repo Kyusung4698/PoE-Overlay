@@ -369,6 +369,7 @@
 		"capture-error": "L'événement n'a pas pu être capturé.",
 		"death": "Événement de décès",
 		"future-duration": "Durée future",
+		"help": "Les rediffusions sont enregistrées à l'adresse: \"{{path}}\"\nLes anciennes vidéos sont supprimées après avoir atteint un seuil de taille.",
 		"kill": "Tuer l'événement",
 		"manually": "Manuellement",
 		"name": "Rejouer",

@@ -4,6 +4,7 @@
             <div class="col">
                 <div class="title">
                     <mat-label>{{title | translate}}</mat-label>
+                    <mat-icon *ngIf="help" [matTooltip]="help">help</mat-icon>
                 </div>
             </div>
         </div>

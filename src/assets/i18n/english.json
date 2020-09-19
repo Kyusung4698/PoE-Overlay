@@ -4,9 +4,9 @@
 			"message": "Opens a webpage on hotkey press in the in-game browser.\n\nTry the hotkey below to open poe.ninja.",
 			"title": "Bookmarks"
 		},
-		"changelog-1-0-10": {
-			"message": "- added whois button to the trade window\n- added skip button at the tutorial (#765)\n- fixed an issue on lower resolution having invisible market prices (#811)",
-			"title": "What's new in 1.0.10?"
+		"changelog-1-0-11": {
+			"message": "- added heist item data & stats\n- added heist item properties at the evaluate dialog\n- added heist item types at the market\n- added heist filter group at the market\n- updated the external link behavior to skip in game notification\n- fixed an issue causing values at the evaluate dialog to be cut off (#827, #829)\n- fixed an issue freezing the launcher (#826)\n- fixed an issue with too long stats at the market window (#814)\n- fixed an issue using the slider at the settings window (#815)",
+			"title": "What's new in 1.0.11?"
 		},
 		"commands": {
 			"message": "All game commands can be bound to hotkeys.\n\nThere are also placeholders like @char available which will be replaced before executing the command.\n\nTry the hotkey below to teleport into your hideout.",
@@ -373,6 +373,7 @@
 		"capture-error": "The event could not be captured.",
 		"death": "Death event",
 		"future-duration": "Future duration",
+		"help": "Replays are saved at: '{{path}}'\nOld videos are deleted after reaching a size threshold.",
 		"kill": "Kill event",
 		"manually": "Manually",
 		"name": "Replay",

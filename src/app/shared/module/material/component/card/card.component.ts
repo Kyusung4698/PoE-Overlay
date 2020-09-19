@@ -9,4 +9,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 export class CardComponent {
   @Input()
   public title: string;
+
+  @Input()
+  public help: string;
 }

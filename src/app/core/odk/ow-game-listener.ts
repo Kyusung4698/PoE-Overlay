@@ -25,7 +25,7 @@ export class OWGameListener {
 
         if (update.resolutionChanged) {
             if (this.delegate.onGameResolutionChanged) {
-                this.delegate.onGameResolutionChanged(update.gameInfo);
+                this.delegate.onGameResolutionChanged({...update.gameInfo});
             }
         }
 
@@ -35,11 +35,11 @@ export class OWGameListener {
 
         if (update.gameInfo.isRunning) {
             if (this.delegate.onGameStarted) {
-                this.delegate.onGameStarted(update.gameInfo);
+                this.delegate.onGameStarted({...update.gameInfo});
             }
         } else {
             if (this.delegate.onGameEnded) {
-                this.delegate.onGameEnded(update.gameInfo);
+                this.delegate.onGameEnded({...update.gameInfo});
             }
         }
     }
@@ -51,7 +51,7 @@ export class OWGameListener {
 
         if (info.isRunning) {
             if (this.delegate.onGameStarted) {
-                this.delegate.onGameStarted(info);
+                this.delegate.onGameStarted({...info});
             }
         }
     }

@@ -4,8 +4,8 @@
     "meta": {
         "name": "PoE Overlay",
         "author": "Kyusung4698",
-        "version": "1.0.10",
-        "minimum-overwolf-version": "0.147.0",
+        "version": "1.0.11",
+        "minimum-overwolf-version": "0.153.0",
         "description": "Search the market and send trade offers. Get current market values for your item. View insights for maps and items.",
         "dock_button_title": "PoE Overlay",
         "icon": "assets/logo.png",

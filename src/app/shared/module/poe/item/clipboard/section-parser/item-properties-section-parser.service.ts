@@ -53,6 +53,11 @@ export class ItemPropertiesSectionParserService extends ItemSectionParserService
                     props.qualityType = quality;
                 }
             }
+            props.heistAreaLevel = this.parseProperty(line, phrases[25], props.heistAreaLevel);
+            props.heistWingsRevealed = this.parseProperty(line, phrases[26], props.heistWingsRevealed);
+            props.heistEscapeRoutesRevealed = this.parseProperty(line, phrases[27], props.heistEscapeRoutesRevealed);
+            props.heistSecretRewardRoomsRevealed = this.parseProperty(line, phrases[28], props.heistSecretRewardRoomsRevealed);
+            props.heistReinforcements = this.parseProperty(line, phrases[29], props.heistReinforcements);
         }
 
         target.properties = props;
@@ -70,7 +75,7 @@ export class ItemPropertiesSectionParserService extends ItemSectionParserService
         return line.slice(phrase.length)
             .split(',')
             .map(text => {
-                const max = this.clientString.translate('ItemDisplaySkillGemMaxLevel').replace('%1%', '');
+                const max = this.clientString.translate('ItemDisplaySkillGemMaxLevel').replace('{0}', '');
                 text = text.replace(max, '');
                 return this.parseItemValue(text);
             });
@@ -78,31 +83,37 @@ export class ItemPropertiesSectionParserService extends ItemSectionParserService
 
     private getPhrases(): string[] {
         return [
-            `${this.clientString.translate('ItemDisplayWeaponPhysicalDamage')}: `,
-            `${this.clientString.translate('ItemDisplayWeaponElementalDamage')}: `,
-            `${this.clientString.translate('ItemDisplayWeaponChaosDamage')}: `,
-            `${this.clientString.translate('ItemDisplayWeaponCriticalStrikeChance')}: `,
-            `${this.clientString.translate('ItemDisplayWeaponAttacksPerSecond')}: `,
-            `${this.clientString.translate('ItemDisplayWeaponRange')}: `,
-            `${this.clientString.translate('ItemDisplayShieldBlockChance')}: `,
-            `${this.clientString.translate('ItemDisplayArmourArmour')}: `,
-            `${this.clientString.translate('ItemDisplayArmourEvasionRating')}: `,
-            `${this.clientString.translate('ItemDisplayArmourEnergyShield')}: `,
-            `${this.clientString.translate('ItemDisplayStackSize')}: `,
-            `${this.clientString.translate('Level')}: `,
-            `${this.clientString.translate('Experience')}: `,
-            `${this.clientString.translate('ItemDisplayMapTier')}: `,
-            `${this.clientString.translate('ItemDisplayMapQuantityIncrease')}: `,
-            `${this.clientString.translate('ItemDisplayMapRarityIncrease')}: `,
-            `${this.clientString.translate('ItemDisplayMapPackSizeIncrease')}: `,
-            `${this.clientString.translate('Quality')}: `,
-            `${this.clientString.translate('Quality1')}: `,
-            `${this.clientString.translate('Quality2')}: `,
-            `${this.clientString.translate('Quality3')}: `,
-            `${this.clientString.translate('Quality4')}: `,
-            `${this.clientString.translate('Quality5')}: `,
-            `${this.clientString.translate('Quality6')}: `,
-            `${this.clientString.translate('Quality7')}: `,
+            `${this.clientString.translate('ItemDisplayWeaponPhysicalDamage')}: `,  // 0
+            `${this.clientString.translate('ItemDisplayWeaponElementalDamage')}: `,     // 1
+            `${this.clientString.translate('ItemDisplayWeaponChaosDamage')}: `, // 2
+            `${this.clientString.translate('ItemDisplayWeaponCriticalStrikeChance')}: `,    // 3
+            `${this.clientString.translate('ItemDisplayWeaponAttacksPerSecond')}: `,    // 4
+            `${this.clientString.translate('ItemDisplayWeaponRange')}: `,   // 5
+            `${this.clientString.translate('ItemDisplayShieldBlockChance')}: `, // 6
+            `${this.clientString.translate('ItemDisplayArmourArmour')}: `,  // 7
+            `${this.clientString.translate('ItemDisplayArmourEvasionRating')}: `,   // 8
+            `${this.clientString.translate('ItemDisplayArmourEnergyShield')}: `,    // 9
+            `${this.clientString.translate('ItemDisplayStackSize')}: `, // 10
+            `${this.clientString.translate('Level')}: `,    // 11
+            `${this.clientString.translate('Experience')}: `,   // 12
+            `${this.clientString.translate('ItemDisplayMapTier')}: `,   // 13
+            `${this.clientString.translate('ItemDisplayMapQuantityIncrease')}: `,   // 14
+            `${this.clientString.translate('ItemDisplayMapRarityIncrease')}: `, // 15
+            `${this.clientString.translate('ItemDisplayMapPackSizeIncrease')}: `,   // 16
+            `${this.clientString.translate('Quality')}: `,  // 17
+            `${this.clientString.translate('Quality1')}: `, // 18
+            `${this.clientString.translate('Quality2')}: `, // 19
+            `${this.clientString.translate('Quality3')}: `, // 20
+            `${this.clientString.translate('Quality4')}: `, // 21
+            `${this.clientString.translate('Quality5')}: `, // 22
+            `${this.clientString.translate('Quality6')}: `, // 23
+            `${this.clientString.translate('Quality7')}: `, // 24
+            `${this.clientString.translate('ItemDisplayHeistContractLevel')}: `, // 25
+            `${this.clientString.translate('ItemDisplayHeistBlueprintWings')}: `, // 26
+            `${this.clientString.translate('ItemDisplayHeistBlueprintEscapeRooms')}: `, // 27
+            `${this.clientString.translate('ItemDisplayHeistBlueprintRewardRooms')}: `, // 28
+            `${this.clientString.translate('ItemDisplayHeistMaxReinforcements')}: `, // 29
+
         ];
     }
 }

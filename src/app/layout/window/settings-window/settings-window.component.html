@@ -1,5 +1,5 @@
 <ng-container *ngIf="settings$ | async as settings">
-    <app-header name="PoE Overlay - Settings" [fixed]="true" [footer]="true" (supportToggle)="onSupportToggle()">
+    <app-header name="PoE Overlay - Settings" [fixed]="true" [footer]="true" [contentDraggable]="false" (supportToggle)="onSupportToggle()">
         <mat-tab-group mat-stretch-tabs animationDuration="0ms" [selectedIndex]="selectedIndex$ | async"
             (selectedIndexChange)="onSelectedIndexChange($event)">
             <mat-tab [label]="'settings.general' | translate">

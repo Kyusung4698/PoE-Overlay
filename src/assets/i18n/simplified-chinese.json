@@ -369,6 +369,7 @@
 		"capture-error": "无法捕获该事件。",
 		"death": "死亡事件",
 		"future-duration": "未来持续时间",
+		"help": "重放保存在：'{{path}}'\n达到大小阈值后，旧视频将被删除。",
 		"kill": "杀死事件",
 		"manually": "手动地",
 		"name": "重播",

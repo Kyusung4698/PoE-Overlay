@@ -126,6 +126,7 @@ export class ItemPriceRatesProvider {
             case ItemCategory.AccessoryAmulet:
             case ItemCategory.AccessoryBelt:
             case ItemCategory.AccessoryRing:
+            case ItemCategory.AccessoryTrinket:
                 if (rarity === ItemRarity.Unique) {
                     const key = `${leagueId}_${ItemCategory.Accessory}`;
                     return this.fetch(key, () => this.fetchItem(leagueId, ItemOverviewType.UniqueAccessory));
@@ -142,6 +143,9 @@ export class ItemPriceRatesProvider {
             case ItemCategory.Leaguestone:
             case ItemCategory.MonsterSample:
             case ItemCategory.CurrencyPiece:
+                return of({ rates: [] });
+            default:
+                // TODO: Add heist rates once poe.ninja supports those
                 return of({ rates: [] });
         }
     }

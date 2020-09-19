@@ -63,6 +63,12 @@
 		"accuracy_rating": "local_accuracy_rating"
 	},
 	"fractured": {
+		"local_minimum_added_fire_damagelocal_maximum_added_fire_damage": "global_minimum_added_fire_damageglobal_maximum_added_fire_damage",
+		"global_minimum_added_fire_damageglobal_maximum_added_fire_damage": "local_minimum_added_fire_damagelocal_maximum_added_fire_damage",
+		"local_minimum_added_cold_damagelocal_maximum_added_cold_damage": "global_minimum_added_cold_damageglobal_maximum_added_cold_damage",
+		"global_minimum_added_cold_damageglobal_maximum_added_cold_damage": "local_minimum_added_cold_damagelocal_maximum_added_cold_damage",
+		"local_minimum_added_lightning_damagelocal_maximum_added_lightning_damage": "global_minimum_added_lightning_damageglobal_maximum_added_lightning_damage",
+		"global_minimum_added_lightning_damageglobal_maximum_added_lightning_damage": "local_minimum_added_lightning_damagelocal_maximum_added_lightning_damage",
 		"local_attack_speed___": "attack_speed___",
 		"attack_speed___": "local_attack_speed___",
 		"base_physical_damage_reduction_rating": "base_physical_damage_reduction_rating",

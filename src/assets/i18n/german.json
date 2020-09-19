@@ -369,6 +369,7 @@
 		"capture-error": "Das Ereignis konnte nicht erfasst werden.",
 		"death": "Todesereignis",
 		"future-duration": "Zukünftige Dauer",
+		"help": "Wiederholungen werden gespeichert unter: '{{path}}'\nAlte Videos werden nach Erreichen eines Größenschwellenwerts gelöscht.",
 		"kill": "Tötungsereignis",
 		"manually": "Manuell",
 		"name": "Wiederholung",

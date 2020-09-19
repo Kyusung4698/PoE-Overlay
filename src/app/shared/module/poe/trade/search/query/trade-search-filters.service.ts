@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Language, TradeSearchHttpQuery } from '@data/poe/schema';
 import { Item } from '../../../item';
 import { TradeSearchFilterArmourService } from './trade-search-filter-armour.service';
+import { TradeSearchFilterHeistService } from './trade-search-filter-heist.service';
 import { TradeSearchFilterMapService } from './trade-search-filter-map.service';
 import { TradeSearchFilterMiscsService } from './trade-search-filter-miscs.service';
 import { TradeSearchFilterRequirementsService } from './trade-search-filter-requirements.service';
@@ -25,10 +26,11 @@ export class TradeSearchFiltersService {
         requirements: TradeSearchFilterRequirementsService,
         miscs: TradeSearchFilterMiscsService,
         map: TradeSearchFilterMapService,
-        stats: TradeSearchFilterStatsService) {
+        stats: TradeSearchFilterStatsService,
+        heist: TradeSearchFilterHeistService) {
         this.filters = [
             type, sockets, weapon, armour,
-            requirements, miscs, map, stats
+            requirements, miscs, map, stats, heist
         ];
     }
 

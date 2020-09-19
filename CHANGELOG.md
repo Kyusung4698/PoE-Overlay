@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.0.11 (2020-09-20)
+
+- added heist item data & stats
+- added heist item properties at the evaluate dialog
+- added heist item types at the market
+- added heist filter group at the market
+- updated the external link behavior to skip in game notification
+- fixed an issue causing values at the evaluate dialog to be cut off (#827, #829)
+- fixed an issue freezing the launcher (#826)
+- fixed an issue with too long stats at the market window (#814)
+- fixed an issue using the slider at the settings window (#815)
+
 ## 1.0.10 (2020-08-02)
 
 - added whois button to the trade window

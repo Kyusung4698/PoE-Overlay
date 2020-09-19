@@ -117,9 +117,10 @@ export class BackgroundWindowComponent implements OnInit, OnDestroy {
         this.shouldQuit = false;
         this.launcherWindow.close();
 
+        const { width, height } = info;
         forkJoin([
-            this.annotationWindow.open(info.width, info.height),
-            this.notificationWindow.open(info.width, info.height)
+            this.annotationWindow.open(width, height),
+            this.notificationWindow.open(width, height)
         ]).pipe(
             mergeMap(() => this.events.start(false)),
         ).subscribe(result => {
@@ -196,7 +197,8 @@ export class BackgroundWindowComponent implements OnInit, OnDestroy {
         if (info?.classId !== OWGameClassId.PathOfExile) {
             return;
         }
-        this.notificationWindow.resize(info.width, info.height).subscribe();
+        const { width, height } = info;
+        this.notificationWindow.resize(width, height).subscribe();
     }
 
     private onStateChange(event: WindowStateChangedEvent): void {

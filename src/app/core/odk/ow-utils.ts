@@ -26,7 +26,10 @@ export class OWUtils {
     }
 
     public static openUrlInDefaultBrowser(url: string): void {
-        overwolf.utils.openUrlInDefaultBrowser(url);
+        // TODO: Update types
+        (overwolf.utils.openUrlInDefaultBrowser as any)(url, {
+            skip_in_game_notification: true
+        });
     }
 
     public static getSystemInformation(): Observable<SystemInfo> {
