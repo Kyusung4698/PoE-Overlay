@@ -5,27 +5,47 @@ export interface OWFileListenerDelegate {
     onError(error?: string): void;
 }
 
+const RESTART_DELAY = 1000 * 10;
+
 interface OWFileListenerResult extends overwolf.Result {
     content: string;
     info: string;
 }
 
 export class OWFileListener {
+    private restartHandle: any;
+    private path: string;
+    private skipToEnd: boolean;
+
     constructor(
         private readonly id: string,
         private readonly delegate: OWFileListenerDelegate) { }
 
     public start(path: string, skipToEnd = true): void {
-        overwolf.io.listenOnFile(this.id, path, { skipToEnd }, this.onListenOnFile);
+        this.path = path;
+        this.skipToEnd = skipToEnd;
+        this.listen();
     }
 
     public stop(): void {
         overwolf.io.stopFileListener(this.id);
     }
 
+    private restart(): void {
+        this.stop();
+        clearTimeout(this.restartHandle);
+        this.restartHandle = setTimeout(() => this.listen(), RESTART_DELAY);
+    }
+
+    private listen(): void {
+        overwolf.io.listenOnFile(this.id, this.path, { skipToEnd: this.skipToEnd }, this.onListenOnFile);
+    }
+
     private onListenOnFile = (event: OWFileListenerResult): void => {
         if (!event.success || event.error) {
-            return this.delegate.onError(event.error);
+            this.delegate.onError(event.error)
+            this.restart();
+            return;
         }
 
         if (!event.info?.length) {
@@ -38,7 +58,9 @@ export class OWFileListener {
         try {
             info = JSON.parse(event.info);
         } catch (error) {
-            return this.delegate.onError(error);
+            this.delegate.onError(error)
+            this.restart();
+            return;
         }
 
         if (info.isNew) {
