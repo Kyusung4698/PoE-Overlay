@@ -44,7 +44,7 @@ export class TradeHighlightWindowService {
             mergeMap(({ height }) => {
                 const width = this.poeWindow.calculateWidth(height);
 
-                data.gridTop = Math.round((height / 20) * 3);
+                data.gridTop = Math.round(height / 8.3);
                 data.gridSize = Math.floor(width / 12);
                 for (let j = data.gridSize; j >= 1; --j) {
                     const fraction = width / j;
