@@ -20,6 +20,7 @@ export interface TradeHighlightWindowData {
     stash?: string;
     items: TradeHighlightItem[];
     gridTop?: number;
+    gridTopFolder?: number;
     gridSize?: number;
 }
 
@@ -43,8 +44,8 @@ export class TradeHighlightWindowService {
         return OWGames.getRunningGameInfo().pipe(
             mergeMap(({ height }) => {
                 const width = this.poeWindow.calculateWidth(height);
-
-                data.gridTop = Math.round(height / 8.3);
+                data.gridTop = Math.round(height / 8.14);
+                data.gridTopFolder = Math.round(height / 6.43);
                 data.gridSize = Math.floor(width / 12);
                 for (let j = data.gridSize; j >= 1; --j) {
                     const fraction = width / j;
