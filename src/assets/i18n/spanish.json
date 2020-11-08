@@ -482,6 +482,7 @@
 			"volume": "Volumen"
 		},
 		"stale": "El filtro ha sido cambiado. Buscando de nuevo ... - ¿Ahora?",
+		"stash-folder": "Alternar diseño de carpeta",
 		"stash-size": "Cambiar tamaño de alijo (Normal, Cuádruple)"
 	}
 }

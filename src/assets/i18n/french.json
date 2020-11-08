@@ -482,6 +482,7 @@
 			"volume": "Le volume"
 		},
 		"stale": "Le filtre a été changé. Aller chercher à nouveau ... - Maintenant?",
+		"stash-folder": "Basculer la disposition des dossiers",
 		"stash-size": "Modifier la taille de la réserve (normale, quadruple)"
 	}
 }

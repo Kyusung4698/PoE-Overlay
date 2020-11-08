@@ -482,6 +482,7 @@
 			"volume": "Volume"
 		},
 		"stale": "O filtro foi alterado. Buscando de novo ... - Agora?",
+		"stash-folder": "Alternar layout de pasta",
 		"stash-size": "Alterar tamanho do esconderijo (Normal, Quad)"
 	}
 }

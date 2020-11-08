@@ -482,6 +482,7 @@
 			"volume": "Volumen"
 		},
 		"stale": "Filter wurde geändert. Wieder holen ... - Jetzt?",
+		"stash-folder": "Ordnerlayout umschalten",
 		"stash-size": "Stash-Größe ändern (Normal, Quad)"
 	}
 }
