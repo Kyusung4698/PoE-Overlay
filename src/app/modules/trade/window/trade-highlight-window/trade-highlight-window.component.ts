@@ -23,6 +23,7 @@ export class TradeHighlightWindowComponent implements OnInit, OnDestroy {
   public data$ = new BehaviorSubject<TradeHighlightWindowData>(null);
 
   public factor = TradeStashFactor.Normal;
+  public folder = false;
 
   constructor(
     private readonly window: TradeHighlightWindowService,
@@ -47,6 +48,15 @@ export class TradeHighlightWindowComponent implements OnInit, OnDestroy {
     this.stash.highlight(item);
   }
 
+  public onFolderChange(stash?: string): void {
+    this.folder = !this.folder;
+    if (stash) {
+      this.settings.update((settings: TradeFeatureSettings) => {
+        settings.tradeStashFolder[stash] = this.folder;
+      }).subscribe();
+    }
+  }
+
   public onFactorChange(stash?: string): void {
     this.factor = this.factor === TradeStashFactor.Quad
       ? TradeStashFactor.Normal : TradeStashFactor.Quad;
@@ -59,6 +69,7 @@ export class TradeHighlightWindowComponent implements OnInit, OnDestroy {
 
   private updateData(data: TradeHighlightWindowData): void {
     this.settings.get().subscribe((settings: TradeFeatureSettings) => {
+      this.folder = !!settings.tradeStashFolder[data.stash];
       const factor = settings.tradeStashFactor[data.stash];
       if (factor) {
         this.factor = factor;

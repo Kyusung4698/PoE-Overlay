@@ -57,6 +57,7 @@ export class TradeModule implements FeatureModule<TradeFeatureSettings> {
                 tradeMessageItemGone: 'Sorry, @itemname already gone. Good luck on your search.',
                 tradeMessageThanks: 'Thank you for the trade. Have a nice day and good luck.',
                 tradeStashFactor: {},
+                tradeStashFolder: {},
                 tradeWindowPinned: false,
                 tradeSoundEnabled: true,
                 tradeSoundVolume: 75,

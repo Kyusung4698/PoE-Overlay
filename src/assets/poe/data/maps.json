@@ -25,10 +25,11 @@
 				"The Summoner",
 				"The Warden",
 				"The Gambler",
-				"Gripped Gloves",
-				"Spiked Gloves",
-				"The Wretched",
-				"Cerulean Ring"
+				"Her Mask",
+				"Fingerless Silk Gloves",
+				"Vanguard Belt",
+				"Opal Ring",
+				"The Wretched"
 			],
 			"layoutRating": "C",
 			"bosses": [
@@ -43,11 +44,14 @@
 				"Hope",
 				"The Gambler",
 				"The Union",
+				"Her Mask",
 				"Fingerless Silk Gloves",
 				"Vanguard Belt",
+				"Opal Ring",
 				"The Coming Storm",
 				"Struck by Lightning",
-				"Three Voices"
+				"Three Voices",
+				"Cursed Words"
 			],
 			"layoutRating": "B",
 			"bosses": [
@@ -66,8 +70,9 @@
 				"Hope",
 				"The Gambler",
 				"Her Mask",
-				"Fingerless Silk Gloves",
-				"Vanguard Belt"
+				"Two-Toned Boots",
+				"Two-Toned Boots",
+				"Vermillion Ring"
 			],
 			"layoutRating": "A",
 			"bosses": [
@@ -83,11 +88,10 @@
 				"The Gambler",
 				"Assassin's Favour",
 				"Her Mask",
-				"Crystal Belt",
-				"Two-Toned Boots",
-				"Steel Ring",
 				"The Saint's Treasure",
-				"The Blazing Fire"
+				"The Blazing Fire",
+				"Convoking Wand",
+				"Cerulean Ring"
 			],
 			"layoutRating": "A",
 			"bosses": [
@@ -120,10 +124,10 @@
 				"The Gambler",
 				"Her Mask",
 				"Earth Drinker",
-				"Two-Toned Boots",
-				"Two-Toned Boots",
-				"Imperial Legacy",
-				"Vermillion Ring"
+				"Fingerless Silk Gloves",
+				"Vanguard Belt",
+				"Opal Ring",
+				"Imperial Legacy"
 			],
 			"layoutRating": "C",
 			"bosses": [
@@ -167,10 +171,9 @@
 				"Death",
 				"Pride Before the Fall",
 				"Her Mask",
-				"Gripped Gloves",
-				"Spiked Gloves",
-				"The Eye of the Dragon",
-				"Cerulean Ring"
+				"Bone Helmet",
+				"Steel Ring",
+				"The Eye of the Dragon"
 			],
 			"layoutRating": "B",
 			"bosses": [
@@ -178,7 +181,8 @@
 			],
 			"bossRating": "3",
 			"bossCount": 1,
-			"url": "https://pathofexile.gamepedia.com/Marshes_Map"
+			"url": "https://pathofexile.gamepedia.com/Marshes_Map",
+			"encounter": "The boss can be found in an arena. Tore, Towering Ancient, based on Barkhul."
 		},
 		"Pen Map": {
 			"items": [
@@ -186,9 +190,8 @@
 				"The Warden",
 				"The Gambler",
 				"Her Mask",
-				"Gripped Gloves",
-				"Spiked Gloves",
 				"The Master",
+				"Convoking Wand",
 				"Cerulean Ring"
 			],
 			"layoutRating": "A",
@@ -207,9 +210,10 @@
 				"The Gambler",
 				"Assassin's Favour",
 				"Her Mask",
-				"Blue Pearl Amulet",
+				"Gripped Gloves",
+				"Spiked Gloves",
 				"The Saint's Treasure",
-				"Vermillion Ring"
+				"Cerulean Ring"
 			],
 			"layoutRating": "B",
 			"bosses": [
@@ -229,8 +233,8 @@
 				"The Incantation",
 				"The Betrayal",
 				"Her Mask",
-				"Fingerless Silk Gloves",
-				"Vanguard Belt",
+				"Marble Amulet",
+				"Opal Ring",
 				"Lingering Remnants",
 				"The Witch"
 			],
@@ -248,8 +252,9 @@
 				"The Warden",
 				"The Gambler",
 				"Her Mask",
-				"Blue Pearl Amulet",
-				"Vermillion Ring"
+				"Gripped Gloves",
+				"Spiked Gloves",
+				"Cerulean Ring"
 			],
 			"layoutRating": "A",
 			"bosses": [
@@ -290,10 +295,9 @@
 				"Volatile Power",
 				"Her Mask",
 				"The Endurance",
-				"Gripped Gloves",
-				"Spiked Gloves",
 				"The Cacophony",
 				"Buried Treasure",
+				"Convoking Wand",
 				"Cerulean Ring"
 			],
 			"layoutRating": "C",
@@ -309,10 +313,11 @@
 		"Iceberg Map": {
 			"items": [
 				"The Gambler",
-				"Crystal Belt",
-				"Two-Toned Boots",
-				"Steel Ring",
-				"Mitts"
+				"Her Mask",
+				"Gripped Gloves",
+				"Spiked Gloves",
+				"Mitts",
+				"Cerulean Ring"
 			],
 			"layoutRating": "B",
 			"bosses": [
@@ -327,9 +332,10 @@
 			"items": [
 				"The Gambler",
 				"Her Mask",
-				"Marble Amulet",
+				"Blue Pearl Amulet",
 				"The Coming Storm",
-				"Struck by Lightning"
+				"Struck by Lightning",
+				"Vermillion Ring"
 			],
 			"layoutRating": "B",
 			"bosses": [
@@ -346,8 +352,8 @@
 				"The Scarred Meadow",
 				"The Gambler",
 				"Her Mask",
-				"Fingerless Silk Gloves",
-				"Vanguard Belt",
+				"Marble Amulet",
+				"Opal Ring",
 				"The Primordial"
 			],
 			"layoutRating": "A",
@@ -365,10 +371,10 @@
 				"The Gambler",
 				"The Pact",
 				"Assassin's Favour",
-				"Two-Toned Boots",
-				"Two-Toned Boots",
+				"Her Mask",
 				"The Saint's Treasure",
-				"Vermillion Ring"
+				"Convoking Wand",
+				"Cerulean Ring"
 			],
 			"layoutRating": "A",
 			"bosses": [
@@ -385,9 +391,9 @@
 				"Hunter's Resolve",
 				"Her Mask",
 				"Emperor of Purity",
-				"Gripped Gloves",
-				"Spiked Gloves",
-				"Cerulean Ring"
+				"Crystal Belt",
+				"Two-Toned Boots",
+				"Steel Ring"
 			],
 			"layoutRating": "B",
 			"bosses": [
@@ -401,10 +407,6 @@
 			"items": [
 				"The Gambler",
 				"The Encroaching Darkness",
-				"Blessing of Esh",
-				"Voice of the Storm",
-				"Hand of Thought and Motion",
-				"Esh's Mirror",
 				"The Escape"
 			],
 			"layoutRating": "N/A",
@@ -475,8 +477,9 @@
 		"Canyon Map": {
 			"items": [
 				"The Gambler",
-				"Convoking Wand",
-				"Cerulean Ring"
+				"Her Mask",
+				"Bone Helmet",
+				"Steel Ring"
 			],
 			"layoutRating": "A",
 			"bosses": [
@@ -491,7 +494,10 @@
 		"Chateau Map": {
 			"items": [
 				"The Gambler",
-				"Marble Amulet",
+				"Her Mask",
+				"Crystal Belt",
+				"Two-Toned Boots",
+				"Steel Ring",
 				"The Scavenger",
 				"Lingering Remnants",
 				"The Opulent",
@@ -511,9 +517,8 @@
 				"The Carrion Crow",
 				"The Gambler",
 				"Her Mask",
-				"Crystal Belt",
-				"Two-Toned Boots",
-				"Steel Ring",
+				"Marble Amulet",
+				"Opal Ring",
 				"Three Voices"
 			],
 			"layoutRating": "B",
@@ -529,12 +534,13 @@
 		"Courthouse Map": {
 			"items": [
 				"The Gambler",
-				"Blue Pearl Amulet",
+				"Her Mask",
+				"Bone Helmet",
+				"Steel Ring",
 				"Lingering Remnants",
 				"The Rite of Elements",
 				"The Undaunted",
-				"Three Voices",
-				"Vermillion Ring"
+				"Three Voices"
 			],
 			"layoutRating": "C",
 			"bosses": [
@@ -551,10 +557,10 @@
 				"The Gambler",
 				"Her Mask",
 				"The Lion",
-				"Gripped Gloves",
-				"Spiked Gloves",
+				"Two-Toned Boots",
+				"Two-Toned Boots",
 				"The Wolverine",
-				"Cerulean Ring"
+				"Vermillion Ring"
 			],
 			"layoutRating": "A",
 			"bosses": [
@@ -574,8 +580,9 @@
 				"Her Mask",
 				"Treasure Hunter",
 				"Rain Tempter",
-				"Marble Amulet",
-				"Opal Ring",
+				"Crystal Belt",
+				"Two-Toned Boots",
+				"Steel Ring",
 				"The Rite of Elements",
 				"Pride of the First Ones",
 				"The Primordial"
@@ -592,8 +599,10 @@
 			"items": [
 				"Lantador's Lost Love",
 				"The Gambler",
+				"Her Mask",
 				"Fingerless Silk Gloves",
 				"Vanguard Belt",
+				"Opal Ring",
 				"The Journey"
 			],
 			"layoutRating": "B",
@@ -625,7 +634,8 @@
 				"The Gambler",
 				"Blind Venture",
 				"Her Mask",
-				"Bone Helmet",
+				"Crystal Belt",
+				"Two-Toned Boots",
 				"Steel Ring",
 				"The Polymath",
 				"Might is Right",
@@ -648,10 +658,9 @@
 				"The Betrayal",
 				"Her Mask",
 				"Thunderous Skies",
-				"Crystal Belt",
-				"Two-Toned Boots",
-				"Steel Ring",
-				"The Landing"
+				"Blue Pearl Amulet",
+				"The Landing",
+				"Vermillion Ring"
 			],
 			"layoutRating": "A",
 			"bosses": [
@@ -680,9 +689,10 @@
 				"The Gambler",
 				"The King's Heart",
 				"Pride Before the Fall",
-				"Two-Toned Boots",
-				"Two-Toned Boots",
-				"Vermillion Ring"
+				"Her Mask",
+				"Gripped Gloves",
+				"Spiked Gloves",
+				"Cerulean Ring"
 			],
 			"layoutRating": "A",
 			"bosses": [
@@ -717,9 +727,9 @@
 				"The Fox",
 				"Loyalty",
 				"Her Mask",
+				"Marble Amulet",
+				"Opal Ring",
 				"Pride of the First Ones",
-				"Convoking Wand",
-				"Cerulean Ring",
 				"The Tinkerer's Table"
 			],
 			"layoutRating": "C",
@@ -736,10 +746,9 @@
 				"Humility",
 				"The Gambler",
 				"Her Mask",
-				"Gripped Gloves",
-				"The Scavenger",
-				"Spiked Gloves",
-				"Cerulean Ring"
+				"Bone Helmet",
+				"Steel Ring",
+				"The Scavenger"
 			],
 			"layoutRating": "C",
 			"bosses": [
@@ -753,7 +762,10 @@
 		"Conservatory Map": {
 			"items": [
 				"The Gambler",
-				"Marble Amulet",
+				"Her Mask",
+				"Fingerless Silk Gloves",
+				"Vanguard Belt",
+				"Opal Ring",
 				"The Opulent"
 			],
 			"layoutRating": "C",
@@ -790,8 +802,7 @@
 				"Her Mask",
 				"Boundless Realms",
 				"Dialla's Subjugation",
-				"Two-Toned Boots",
-				"Two-Toned Boots",
+				"Blue Pearl Amulet",
 				"Lingering Remnants",
 				"The Opulent",
 				"The Mayor",
@@ -806,7 +817,7 @@
 			"bossRating": "3",
 			"bossCount": 1,
 			"url": "https://pathofexile.gamepedia.com/Ivory_Temple_Map",
-			"encounter": "Got 1, not 5 bosses like on Map_bosses page. (1 of 5, or 4 are not counted as map boss)"
+			"encounter": "Any one of these bosses:"
 		},
 		"Maze Map": {
 			"items": [
@@ -814,10 +825,10 @@
 				"The Inventor",
 				"The Catalyst",
 				"Her Mask",
-				"Two-Toned Boots",
-				"Two-Toned Boots",
-				"The Admirer",
-				"Vermillion Ring"
+				"Fingerless Silk Gloves",
+				"Vanguard Belt",
+				"Opal Ring",
+				"The Admirer"
 			],
 			"layoutRating": "C",
 			"bosses": [
@@ -849,10 +860,9 @@
 			"items": [
 				"The Gambler",
 				"Her Mask",
-				"Gripped Gloves",
-				"Spiked Gloves",
-				"The Eye of the Dragon",
-				"Cerulean Ring"
+				"Bone Helmet",
+				"Steel Ring",
+				"The Eye of the Dragon"
 			],
 			"layoutRating": "C",
 			"bosses": [
@@ -866,10 +876,11 @@
 			"items": [
 				"The Feast",
 				"The Gambler",
+				"Her Mask",
 				"The Throne",
-				"Bone Helmet",
-				"Steel Ring",
-				"Vile Power"
+				"Vile Power",
+				"Convoking Wand",
+				"Cerulean Ring"
 			],
 			"layoutRating": "C",
 			"bosses": [
@@ -888,8 +899,10 @@
 				"The Scholar",
 				"The Gambler",
 				"The Encroaching Darkness",
+				"Her Mask",
 				"Destined to Crumble",
 				"Marble Amulet",
+				"Opal Ring",
 				"A Dab of Ink",
 				"Thirst for Knowledge"
 			],
@@ -907,10 +920,10 @@
 				"The Gambler",
 				"The Encroaching Darkness",
 				"Her Mask",
-				"Crystal Belt",
-				"Two-Toned Boots",
-				"Steel Ring",
-				"The Spark and the Flame"
+				"Marble Amulet",
+				"Opal Ring",
+				"The Spark and the Flame",
+				"The Tinkerer's Table"
 			],
 			"layoutRating": "A",
 			"bosses": [
@@ -960,11 +973,11 @@
 				"The Gambler",
 				"The Union",
 				"The Encroaching Darkness",
-				"Two-Toned Boots",
-				"Two-Toned Boots",
+				"Her Mask",
+				"Marble Amulet",
+				"Opal Ring",
 				"Struck by Lightning",
-				"The Cacophony",
-				"Vermillion Ring"
+				"The Cacophony"
 			],
 			"layoutRating": "B",
 			"bosses": [
@@ -1021,9 +1034,9 @@
 				"The Flora's Gift",
 				"Her Mask",
 				"The Web",
-				"Two-Toned Boots",
-				"Two-Toned Boots",
-				"Vermillion Ring"
+				"Gripped Gloves",
+				"Spiked Gloves",
+				"Cerulean Ring"
 			],
 			"layoutRating": "A",
 			"bosses": [
@@ -1039,11 +1052,11 @@
 				"The Encroaching Darkness",
 				"The Trial",
 				"Her Mask",
+				"Crystal Belt",
 				"Two-Toned Boots",
-				"Two-Toned Boots",
+				"Steel Ring",
 				"Might is Right",
-				"No Traces",
-				"Vermillion Ring"
+				"No Traces"
 			],
 			"layoutRating": "B",
 			"bosses": [
@@ -1062,8 +1075,10 @@
 				"The Encroaching Darkness",
 				"The Surveyor",
 				"Her Mask",
-				"Marble Amulet",
-				"The Oath"
+				"Gripped Gloves",
+				"The Oath",
+				"Spiked Gloves",
+				"Cerulean Ring"
 			],
 			"layoutRating": "A",
 			"bosses": [
@@ -1079,8 +1094,8 @@
 				"The Gambler",
 				"The Encroaching Darkness",
 				"Her Mask",
-				"Convoking Wand",
-				"Cerulean Ring"
+				"Blue Pearl Amulet",
+				"Vermillion Ring"
 			],
 			"layoutRating": "B",
 			"bosses": [
@@ -1099,6 +1114,7 @@
 				"The Siren",
 				"The Survivalist",
 				"Glimmer of Hope",
+				"Her Mask",
 				"Treasure Hunter",
 				"Lysah's Respite",
 				"Two-Toned Boots",
@@ -1167,6 +1183,7 @@
 				"The Encroaching Darkness",
 				"The Trial",
 				"Assassin's Favour",
+				"Her Mask",
 				"Two-Toned Boots",
 				"Two-Toned Boots",
 				"The Saint's Treasure",
@@ -1191,11 +1208,13 @@
 				"The Trial",
 				"Grave Knowledge",
 				"The Lich",
+				"Her Mask",
 				"The Wretched",
 				"The Forsaken",
 				"The Standoff",
 				"Convoking Wand",
-				"Cerulean Ring"
+				"Cerulean Ring",
+				"The Craving"
 			],
 			"layoutRating": "C",
 			"bosses": [
@@ -1225,6 +1244,7 @@
 				"The Encroaching Darkness",
 				"The Trial",
 				"The Vast",
+				"Her Mask",
 				"Two-Toned Boots",
 				"Two-Toned Boots",
 				"The Deep Ones",
@@ -1243,9 +1263,9 @@
 				"The Gambler",
 				"The Encroaching Darkness",
 				"The Trial",
+				"Her Mask",
 				"Earth Drinker",
-				"Two-Toned Boots",
-				"Two-Toned Boots",
+				"Blue Pearl Amulet",
 				"Imperial Legacy",
 				"Vermillion Ring"
 			],
@@ -1273,9 +1293,11 @@
 				"The Gambler",
 				"The Encroaching Darkness",
 				"The Trial",
+				"Her Mask",
 				"Bone Helmet",
 				"Steel Ring",
-				"The Porcupine"
+				"The Porcupine",
+				"The Easy Stroll"
 			],
 			"layoutRating": "C",
 			"bosses": [
@@ -1294,11 +1316,12 @@
 				"The Gambler",
 				"The Encroaching Darkness",
 				"The Trial",
-				"Gripped Gloves",
-				"Spiked Gloves",
+				"Her Mask",
+				"Two-Toned Boots",
+				"Two-Toned Boots",
 				"The Standoff",
 				"Burning Blood",
-				"Cerulean Ring"
+				"Vermillion Ring"
 			],
 			"layoutRating": "B",
 			"bosses": [
@@ -1318,9 +1341,9 @@
 				"The Traitor",
 				"Her Mask",
 				"Lucky Deck",
-				"Gripped Gloves",
-				"Spiked Gloves",
-				"Cerulean Ring"
+				"Two-Toned Boots",
+				"Two-Toned Boots",
+				"Vermillion Ring"
 			],
 			"layoutRating": "A",
 			"bosses": [
@@ -1338,11 +1361,13 @@
 				"The Trial",
 				"The Tower",
 				"The Dapper Prodigy",
+				"Her Mask",
 				"Light and Truth",
+				"Crystal Belt",
 				"Two-Toned Boots",
-				"Two-Toned Boots",
+				"Steel Ring",
 				"The Opulent",
-				"Vermillion Ring"
+				"The Unexpected Prize"
 			],
 			"layoutRating": "B",
 			"bosses": [
@@ -1358,12 +1383,13 @@
 				"The Encroaching Darkness",
 				"The Trial",
 				"Hunter's Reward",
+				"Her Mask",
 				"Treasure Hunter",
 				"The Wolf's Shadow",
+				"Crystal Belt",
 				"Two-Toned Boots",
-				"Two-Toned Boots",
-				"The Scavenger",
-				"Vermillion Ring"
+				"Steel Ring",
+				"The Scavenger"
 			],
 			"layoutRating": "A",
 			"bosses": [
@@ -1374,7 +1400,16 @@
 			"url": "https://pathofexile.gamepedia.com/Underground_River_Map"
 		},
 		"Caer Blaidd, Wolfpack's Den": {
-			"items": [],
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Trial",
+				"The Wolf's Shadow",
+				"The Cursed King",
+				"Two-Toned Boots",
+				"Two-Toned Boots",
+				"Vermillion Ring"
+			],
 			"layoutRating": "B",
 			"bosses": [
 				"Solus, Pack Alpha",
@@ -1383,7 +1418,8 @@
 			],
 			"bossRating": "4",
 			"bossCount": 3,
-			"url": "https://pathofexile.gamepedia.com/Caer_Blaidd,_Wolfpack%27s_Den"
+			"url": "https://pathofexile.gamepedia.com/Caer_Blaidd,_Wolfpack%27s_Den",
+			"layout": "Indoors. Based on The Den (Act 2)."
 		},
 		"Armoury Map": {
 			"items": [
@@ -1392,9 +1428,9 @@
 				"The Trial",
 				"Merciless Armament",
 				"Her Mask",
-				"Gripped Gloves",
-				"Spiked Gloves",
-				"Cerulean Ring"
+				"Crystal Belt",
+				"Two-Toned Boots",
+				"Steel Ring"
 			],
 			"layoutRating": "B",
 			"bosses": [
@@ -1413,7 +1449,8 @@
 				"The Trial",
 				"Her Mask",
 				"Thunderous Skies",
-				"Blue Pearl Amulet",
+				"Two-Toned Boots",
+				"Two-Toned Boots",
 				"Struck by Lightning",
 				"Three Voices",
 				"Vermillion Ring"
@@ -1430,9 +1467,13 @@
 		},
 		"The Vinktar Square": {
 			"items": [
-				"No Traces",
-				"Arrogance of the Vaal",
-				"Monochrome"
+				"The Gambler",
+				"The Encroaching Darkness",
+				"Her Mask",
+				"Blue Pearl Amulet",
+				"The Iron Bard",
+				"Monochrome",
+				"Vermillion Ring"
 			],
 			"layoutRating": "C",
 			"bosses": [
@@ -1455,6 +1496,7 @@
 				"The Trial",
 				"Gift of the Gemling Queen",
 				"Volatile Power",
+				"Her Mask",
 				"The Endurance",
 				"Bone Helmet",
 				"Steel Ring",
@@ -1476,12 +1518,12 @@
 				"The Gambler",
 				"The Encroaching Darkness",
 				"The Trial",
-				"Gripped Gloves",
-				"Spiked Gloves",
+				"Her Mask",
 				"The Coming Storm",
 				"Call to the First Ones",
 				"Struck by Lightning",
 				"More is Never Enough",
+				"Convoking Wand",
 				"Cerulean Ring"
 			],
 			"layoutRating": "B",
@@ -1498,8 +1540,8 @@
 				"The Gambler",
 				"The Encroaching Darkness",
 				"The Trial",
-				"Crystal Belt",
-				"Two-Toned Boots",
+				"Her Mask",
+				"Bone Helmet",
 				"Steel Ring",
 				"The Opulent",
 				"The Dreamland",
@@ -1522,10 +1564,10 @@
 				"The Trial",
 				"The Survivalist",
 				"Lysah's Respite",
-				"Fingerless Silk Gloves",
-				"Vanguard Belt",
-				"Opal Ring",
-				"The Cacophony"
+				"Two-Toned Boots",
+				"Two-Toned Boots",
+				"The Cacophony",
+				"Vermillion Ring"
 			],
 			"layoutRating": "A",
 			"bosses": [
@@ -1546,7 +1588,9 @@
 				"The Trial",
 				"Her Mask",
 				"Fingerless Silk Gloves",
-				"Vanguard Belt"
+				"Vanguard Belt",
+				"Opal Ring",
+				"The Tinkerer's Table"
 			],
 			"layoutRating": "B",
 			"bosses": [
@@ -1567,8 +1611,8 @@
 				"Her Mask",
 				"Shard of Fate",
 				"Emperor of Purity",
-				"Fingerless Silk Gloves",
-				"Vanguard Belt",
+				"Bone Helmet",
+				"Steel Ring",
 				"The Wretched",
 				"The Garish Power",
 				"Echoes of Love"
@@ -1590,10 +1634,11 @@
 				"The Encroaching Darkness",
 				"The Trial",
 				"Prosperity",
-				"Gripped Gloves",
-				"Spiked Gloves",
-				"The Landing",
-				"Cerulean Ring"
+				"Her Mask",
+				"Crystal Belt",
+				"Two-Toned Boots",
+				"Steel Ring",
+				"The Landing"
 			],
 			"layoutRating": "B",
 			"bosses": [
@@ -1642,9 +1687,9 @@
 				"The Flora's Gift",
 				"The Trial",
 				"Her Mask",
-				"Crystal Belt",
-				"Two-Toned Boots",
-				"Steel Ring"
+				"Gripped Gloves",
+				"Spiked Gloves",
+				"Cerulean Ring"
 			],
 			"layoutRating": "A",
 			"bosses": [
@@ -1661,9 +1706,7 @@
 				"The Gambler",
 				"The Encroaching Darkness",
 				"The Infinite Pursuit",
-				"Blessing of Uul-Netol",
-				"Uul-Netol's Kiss",
-				"The Anticipation"
+				"Uul-Netol's Kiss"
 			],
 			"layoutRating": "N/A",
 			"bosses": [
@@ -1696,9 +1739,12 @@
 				"The Spoiled Prince",
 				"The Trial",
 				"The Catalyst",
-				"Marble Amulet",
+				"Her Mask",
+				"Two-Toned Boots",
+				"Two-Toned Boots",
 				"The Admirer",
 				"Three Voices",
+				"Vermillion Ring",
 				"The Hive of Knowledge"
 			],
 			"layoutRating": "C",
@@ -1724,11 +1770,13 @@
 				"The Gambler",
 				"The Encroaching Darkness",
 				"The Trial",
+				"Her Mask",
 				"The Visionary",
+				"Two-Toned Boots",
+				"Two-Toned Boots",
 				"The Deceiver",
 				"Three Voices",
-				"Convoking Wand",
-				"Cerulean Ring"
+				"Vermillion Ring"
 			],
 			"layoutRating": "B",
 			"bosses": [
@@ -1744,6 +1792,7 @@
 			"items": [
 				"The Gambler",
 				"The Trial",
+				"Her Mask",
 				"Heterochromia",
 				"Bone Helmet",
 				"Steel Ring"
@@ -1763,10 +1812,12 @@
 				"The Gambler",
 				"The Encroaching Darkness",
 				"The Trial",
-				"Blue Pearl Amulet",
+				"Her Mask",
+				"Crystal Belt",
+				"Two-Toned Boots",
+				"Steel Ring",
 				"The Twilight Moon",
-				"The Twins",
-				"Vermillion Ring"
+				"The Twins"
 			],
 			"layoutRating": "C",
 			"bosses": [
@@ -1796,14 +1847,15 @@
 				"The Encroaching Darkness",
 				"The Trial",
 				"Blind Venture",
+				"Her Mask",
 				"Destined to Crumble",
 				"Shard of Fate",
-				"Crystal Belt",
-				"Two-Toned Boots",
-				"Steel Ring",
+				"Gripped Gloves",
+				"Spiked Gloves",
 				"The Polymath",
 				"A Dab of Ink",
-				"Thirst for Knowledge"
+				"Thirst for Knowledge",
+				"Cerulean Ring"
 			],
 			"layoutRating": "C",
 			"bosses": [
@@ -1828,6 +1880,7 @@
 				"The Gambler",
 				"The Encroaching Darkness",
 				"The Trial",
+				"Her Mask",
 				"Two-Toned Boots",
 				"Two-Toned Boots",
 				"The Spark and the Flame",
@@ -1850,10 +1903,12 @@
 				"The Trial",
 				"The Aesthete",
 				"The Offering",
+				"Her Mask",
 				"Destined to Crumble",
-				"Fingerless Silk Gloves",
-				"Vanguard Belt",
-				"A Dab of Ink"
+				"Gripped Gloves",
+				"Spiked Gloves",
+				"A Dab of Ink",
+				"Cerulean Ring"
 			],
 			"layoutRating": "A",
 			"bosses": [
@@ -1869,12 +1924,14 @@
 				"The Gambler",
 				"The Encroaching Darkness",
 				"The Trial",
+				"Her Mask",
 				"The Soul",
-				"Bone Helmet",
-				"Steel Ring",
+				"Two-Toned Boots",
+				"Two-Toned Boots",
 				"Might is Right",
 				"No Traces",
-				"The Cacophony"
+				"The Cacophony",
+				"Vermillion Ring"
 			],
 			"bosses": [
 				"Doedre the Defiler"
@@ -1888,6 +1945,7 @@
 				"The Gambler",
 				"The Encroaching Darkness",
 				"The Trial",
+				"Her Mask",
 				"Boundless Realms",
 				"Dialla's Subjugation",
 				"Crystal Belt",
@@ -1925,13 +1983,15 @@
 				"The Tower",
 				"The Aesthete",
 				"The Offering",
+				"Her Mask",
 				"Thunderous Skies",
-				"Bone Helmet",
-				"Steel Ring",
+				"Two-Toned Boots",
+				"Two-Toned Boots",
 				"The Wretched",
 				"Lingering Remnants",
 				"Struck by Lightning",
-				"The Nurse"
+				"The Nurse",
+				"Vermillion Ring"
 			],
 			"layoutRating": "B",
 			"bosses": [
@@ -1950,14 +2010,14 @@
 				"The Gambler",
 				"The Encroaching Darkness",
 				"The Trial",
-				"Gripped Gloves",
-				"Spiked Gloves",
+				"Her Mask",
+				"Marble Amulet",
+				"Opal Ring",
 				"The Opulent",
 				"Immortal Resolve",
 				"The Rite of Elements",
 				"The Primordial",
-				"The Side Quest",
-				"Cerulean Ring"
+				"The Side Quest"
 			],
 			"layoutRating": "B",
 			"bosses": [
@@ -1971,14 +2031,13 @@
 			"items": [
 				"The Feast",
 				"The Gambler",
-				"Doedre's Madness",
 				"The Encroaching Darkness",
 				"The Trial",
 				"Her Mask",
 				"The Throne",
-				"Blue Pearl Amulet",
 				"Vile Power",
-				"Vermillion Ring"
+				"Convoking Wand",
+				"Cerulean Ring"
 			],
 			"layoutRating": "C",
 			"bosses": [
@@ -1995,10 +2054,10 @@
 				"The Trial",
 				"Her Mask",
 				"The Web",
-				"Bone Helmet",
-				"Steel Ring",
+				"Blue Pearl Amulet",
 				"Lingering Remnants",
-				"The Nurse"
+				"The Nurse",
+				"Vermillion Ring"
 			],
 			"layoutRating": "A",
 			"bosses": [
@@ -2014,6 +2073,7 @@
 				"The Wrath",
 				"The Encroaching Darkness",
 				"The Trial",
+				"Her Mask",
 				"Two-Toned Boots",
 				"Two-Toned Boots",
 				"Vermillion Ring"
@@ -2032,10 +2092,10 @@
 				"The Encroaching Darkness",
 				"Death",
 				"The Trial",
-				"Two-Toned Boots",
-				"Two-Toned Boots",
-				"Lingering Remnants",
-				"Vermillion Ring"
+				"Her Mask",
+				"Marble Amulet",
+				"Opal Ring",
+				"Lingering Remnants"
 			],
 			"layoutRating": "B",
 			"bosses": [
@@ -2055,10 +2115,10 @@
 				"The Trial",
 				"Grave Knowledge",
 				"Her Mask",
-				"Crystal Belt",
 				"Two-Toned Boots",
-				"Steel Ring",
-				"The Wretched"
+				"Two-Toned Boots",
+				"The Wretched",
+				"Vermillion Ring"
 			],
 			"layoutRating": "C",
 			"bosses": [
@@ -2072,6 +2132,7 @@
 		},
 		"The Coward's Trial": {
 			"items": [
+				"Her Mask",
 				"No Traces",
 				"Arrogance of the Vaal",
 				"Monochrome"
@@ -2091,10 +2152,11 @@
 				"The Gambler",
 				"The Encroaching Darkness",
 				"The Trial",
-				"Two-Toned Boots",
-				"Two-Toned Boots",
+				"Her Mask",
+				"Gripped Gloves",
+				"Spiked Gloves",
 				"Boon of Justice",
-				"Vermillion Ring"
+				"Cerulean Ring"
 			],
 			"layoutRating": "C",
 			"bosses": [
@@ -2113,7 +2175,8 @@
 				"The Trial",
 				"Her Mask",
 				"Fingerless Silk Gloves",
-				"Vanguard Belt"
+				"Vanguard Belt",
+				"Opal Ring"
 			],
 			"layoutRating": "C",
 			"bosses": [
@@ -2121,7 +2184,8 @@
 			],
 			"bossRating": "2",
 			"bossCount": 1,
-			"url": "https://pathofexile.gamepedia.com/Pier_Map"
+			"url": "https://pathofexile.gamepedia.com/Pier_Map",
+			"encounter": "Ancient Architect"
 		},
 		"Precinct Map": {
 			"items": [
@@ -2130,6 +2194,7 @@
 				"The Gambler",
 				"The Encroaching Darkness",
 				"The Trial",
+				"Her Mask",
 				"The Tyrant",
 				"Marble Amulet",
 				"Opal Ring",
@@ -2151,10 +2216,12 @@
 				"The Gambler",
 				"The Encroaching Darkness",
 				"The Trial",
+				"Her Mask",
+				"Fingerless Silk Gloves",
+				"Vanguard Belt",
+				"Opal Ring",
 				"The Coming Storm",
-				"Struck by Lightning",
-				"Convoking Wand",
-				"Cerulean Ring"
+				"Struck by Lightning"
 			],
 			"layoutRating": "B",
 			"bosses": [
@@ -2169,11 +2236,12 @@
 				"The Gambler",
 				"The Encroaching Darkness",
 				"The Trial",
-				"Bone Helmet",
-				"Steel Ring",
+				"Her Mask",
 				"Lingering Remnants",
 				"The Blazing Fire",
-				"The Lord of Celebration"
+				"The Lord of Celebration",
+				"Convoking Wand",
+				"Cerulean Ring"
 			],
 			"layoutRating": "A",
 			"bosses": [
@@ -2181,7 +2249,8 @@
 			],
 			"bossRating": "4",
 			"bossCount": 1,
-			"url": "https://pathofexile.gamepedia.com/Siege_Map"
+			"url": "https://pathofexile.gamepedia.com/Siege_Map",
+			"encounter": "Tahsin, Warmaker, based on Tukohama, Karui God of War"
 		},
 		"Wasteland Map": {
 			"items": [
@@ -2189,8 +2258,10 @@
 				"The Gambler",
 				"The Encroaching Darkness",
 				"The Trial",
+				"Her Mask",
 				"Fingerless Silk Gloves",
-				"Vanguard Belt"
+				"Vanguard Belt",
+				"Opal Ring"
 			],
 			"layoutRating": "C",
 			"bosses": [
@@ -2210,6 +2281,7 @@
 				"The Encroaching Darkness",
 				"The Trial",
 				"Merciless Armament",
+				"Her Mask",
 				"Gripped Gloves",
 				"Spiked Gloves",
 				"The Coming Storm",
@@ -2232,6 +2304,7 @@
 				"The Encroaching Darkness",
 				"The Trial",
 				"Scholar of the Seas",
+				"Her Mask",
 				"Gripped Gloves",
 				"Spiked Gloves",
 				"The Rite of Elements",
@@ -2256,6 +2329,7 @@
 				"Rats",
 				"Fingerless Silk Gloves",
 				"Vanguard Belt",
+				"Opal Ring",
 				"Lingering Remnants"
 			],
 			"layoutRating": "C",
@@ -2275,6 +2349,7 @@
 				"Her Mask",
 				"Fingerless Silk Gloves",
 				"Vanguard Belt",
+				"Opal Ring",
 				"Lingering Remnants",
 				"The Tinkerer's Table"
 			],
@@ -2292,13 +2367,15 @@
 				"The Encroaching Darkness",
 				"The Trial",
 				"Loyalty",
+				"Her Mask",
 				"The Wolf's Shadow",
+				"Two-Toned Boots",
+				"Two-Toned Boots",
 				"The Wolven King's Bite",
 				"Lingering Remnants",
 				"The Mad King",
 				"Pride of the First Ones",
-				"Convoking Wand",
-				"Cerulean Ring"
+				"Vermillion Ring"
 			],
 			"layoutRating": "B",
 			"bosses": [
@@ -2316,8 +2393,9 @@
 				"The Encroaching Darkness",
 				"The King's Blade",
 				"The Trial",
-				"Convoking Wand",
-				"Cerulean Ring"
+				"Her Mask",
+				"Blue Pearl Amulet",
+				"Vermillion Ring"
 			],
 			"layoutRating": "C",
 			"bosses": [
@@ -2334,9 +2412,8 @@
 				"The Trial",
 				"The Inoculated",
 				"Her Mask",
-				"Crystal Belt",
-				"Two-Toned Boots",
-				"Steel Ring"
+				"Marble Amulet",
+				"Opal Ring"
 			],
 			"layoutRating": "A",
 			"bosses": [
@@ -2356,9 +2433,9 @@
 				"The Trial",
 				"The Traitor",
 				"Her Mask",
-				"Fingerless Silk Gloves",
-				"Vanguard Belt",
-				"Opal Ring",
+				"Crystal Belt",
+				"Two-Toned Boots",
+				"Steel Ring",
 				"Struck by Lightning"
 			],
 			"layoutRating": "A",
@@ -2407,9 +2484,10 @@
 				"The Gambler",
 				"The Encroaching Darkness",
 				"The Trial",
-				"Crystal Belt",
-				"Two-Toned Boots",
-				"Steel Ring",
+				"Her Mask",
+				"Fingerless Silk Gloves",
+				"Vanguard Belt",
+				"Opal Ring",
 				"The Rite of Elements",
 				"The Primordial"
 			],
@@ -2419,7 +2497,8 @@
 			],
 			"bossRating": "3",
 			"bossCount": 1,
-			"url": "https://pathofexile.gamepedia.com/Waterways_Map"
+			"url": "https://pathofexile.gamepedia.com/Waterways_Map",
+			"encounter": "Fragment of Winter"
 		},
 		"Castle Ruins Map": {
 			"items": [
@@ -2429,7 +2508,9 @@
 				"The Encroaching Darkness",
 				"The Fox",
 				"The Mercenary",
+				"Her Mask",
 				"Marble Amulet",
+				"Opal Ring",
 				"Lingering Remnants"
 			],
 			"layoutRating": "B",
@@ -2446,9 +2527,9 @@
 				"The Encroaching Darkness",
 				"Gift of the Gemling Queen",
 				"Volatile Power",
+				"Her Mask",
 				"The Endurance",
-				"Two-Toned Boots",
-				"Two-Toned Boots",
+				"Blue Pearl Amulet",
 				"Lingering Remnants",
 				"The Jeweller's Boon",
 				"Three Voices",
@@ -2470,6 +2551,7 @@
 			"items": [
 				"The Gambler",
 				"The Encroaching Darkness",
+				"Her Mask",
 				"Bone Helmet",
 				"Steel Ring",
 				"Lingering Remnants",
@@ -2488,9 +2570,10 @@
 			"items": [
 				"The Gambler",
 				"The Encroaching Darkness",
-				"Crystal Belt",
-				"Two-Toned Boots",
-				"Steel Ring",
+				"Her Mask",
+				"Fingerless Silk Gloves",
+				"Vanguard Belt",
+				"Opal Ring",
 				"The Wretched",
 				"Lingering Remnants"
 			],
@@ -2500,13 +2583,16 @@
 			],
 			"bossRating": "3",
 			"bossCount": 1,
-			"url": "https://pathofexile.gamepedia.com/Necropolis_Map"
+			"url": "https://pathofexile.gamepedia.com/Necropolis_Map",
+			"encounter": "Burtok, Conjurer of Bones"
 		},
 		"Death and Taxes": {
 			"items": [
-				"No Traces",
-				"Arrogance of the Vaal",
-				"Monochrome"
+				"The Gambler",
+				"The Encroaching Darkness",
+				"Fingerless Silk Gloves",
+				"Vanguard Belt",
+				"Opal Ring"
 			],
 			"layoutRating": "A",
 			"bosses": [
@@ -2528,15 +2614,16 @@
 				"The Encroaching Darkness",
 				"The Surgeon",
 				"The Sigil",
+				"Her Mask",
 				"Shard of Fate",
 				"Emperor of Purity",
 				"The Soul",
-				"Fingerless Silk Gloves",
-				"Vanguard Belt",
-				"Opal Ring",
+				"Two-Toned Boots",
+				"Two-Toned Boots",
 				"The Garish Power",
 				"Lingering Remnants",
-				"Echoes of Love"
+				"Echoes of Love",
+				"Vermillion Ring"
 			],
 			"layoutRating": "C",
 			"bosses": [
@@ -2544,10 +2631,21 @@
 			],
 			"bossRating": "4",
 			"bossCount": 1,
-			"url": "https://pathofexile.gamepedia.com/Overgrown_Shrine_Map"
+			"url": "https://pathofexile.gamepedia.com/Overgrown_Shrine_Map",
+			"encounter": "Maligaro, The Broken",
+			"layout": "Chamber of Sins tileset with a portal to Maligaro's Misery tileset. Once the boss is defeated there is a portal back to the first area."
 		},
 		"Acton's Nightmare": {
-			"items": [],
+			"items": [
+				"The Summoner",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"Fingerless Silk Gloves",
+				"Vanguard Belt",
+				"Opal Ring",
+				"The Wretched",
+				"The Wilted Rose"
+			],
 			"layoutRating": "C",
 			"bosses": [
 				"Rose",
@@ -2561,6 +2659,7 @@
 			"items": [
 				"The Gambler",
 				"The Encroaching Darkness",
+				"Her Mask",
 				"The Visionary",
 				"Gripped Gloves",
 				"Spiked Gloves",
@@ -2582,13 +2681,14 @@
 			"items": [
 				"The Gambler",
 				"The Encroaching Darkness",
-				"Blue Pearl Amulet",
+				"Her Mask",
 				"Mitts",
 				"Lingering Remnants",
 				"The Wolverine",
 				"The Ruthless Ceinture",
 				"The Mountain",
-				"Vermillion Ring"
+				"Convoking Wand",
+				"Cerulean Ring"
 			],
 			"bosses": [
 				"Mephod, the Earth Scorcher"
@@ -2602,10 +2702,11 @@
 				"The Avenger",
 				"The Gambler",
 				"The Encroaching Darkness",
-				"Blue Pearl Amulet",
+				"Her Mask",
+				"Bone Helmet",
+				"Steel Ring",
 				"The Wretched",
-				"Lingering Remnants",
-				"Vermillion Ring"
+				"Lingering Remnants"
 			],
 			"layoutRating": "C",
 			"bosses": [
@@ -2620,13 +2721,15 @@
 				"The Gambler",
 				"The Encroaching Darkness",
 				"The Conduit",
+				"Her Mask",
 				"Light and Truth",
-				"Fingerless Silk Gloves",
-				"Vanguard Belt",
+				"Two-Toned Boots",
+				"Two-Toned Boots",
 				"The Coming Storm",
 				"Lingering Remnants",
 				"Struck by Lightning",
-				"The Opulent"
+				"The Opulent",
+				"Vermillion Ring"
 			],
 			"layoutRating": "C",
 			"bosses": [
@@ -2646,10 +2749,10 @@
 				"The Encroaching Darkness",
 				"The Warlord",
 				"Rats",
+				"Her Mask",
 				"Two-Toned Boots",
 				"Two-Toned Boots",
 				"Lingering Remnants",
-				"The Saint's Treasure",
 				"Vermillion Ring"
 			],
 			"layoutRating": "C",
@@ -2667,10 +2770,12 @@
 				"The King's Heart",
 				"The Encroaching Darkness",
 				"Pride Before the Fall",
+				"Her Mask",
 				"The Lion",
+				"Gripped Gloves",
+				"Spiked Gloves",
 				"Lingering Remnants",
 				"The Mad King",
-				"Convoking Wand",
 				"Cerulean Ring"
 			],
 			"layoutRating": "C",
@@ -2729,10 +2834,13 @@
 			"items": [
 				"The Gambler",
 				"The Encroaching Darkness",
-				"Bone Helmet",
+				"Her Mask",
+				"Crystal Belt",
+				"Two-Toned Boots",
 				"Steel Ring",
 				"Lingering Remnants",
-				"Imperial Legacy"
+				"Imperial Legacy",
+				"A Note in the Wind"
 			],
 			"bosses": [
 				"Terror of the Infinite Drifts",
@@ -2748,11 +2856,11 @@
 				"The Gambler",
 				"The Encroaching Darkness",
 				"The Gentleman",
-				"Crystal Belt",
-				"Two-Toned Boots",
-				"Steel Ring",
+				"Her Mask",
+				"Blue Pearl Amulet",
 				"Lingering Remnants",
-				"The Saint's Treasure"
+				"The Saint's Treasure",
+				"Vermillion Ring"
 			],
 			"layoutRating": "C",
 			"bosses": [
@@ -2768,10 +2876,10 @@
 				"The Gambler",
 				"The Encroaching Darkness",
 				"The Surveyor",
-				"Marble Amulet",
 				"The Oath",
-				"Opal Ring",
-				"Lingering Remnants"
+				"Lingering Remnants",
+				"Convoking Wand",
+				"Cerulean Ring"
 			],
 			"layoutRating": "C",
 			"bosses": [
@@ -2786,9 +2894,11 @@
 				"The Gambler",
 				"The Encroaching Darkness",
 				"Assassin's Favour",
-				"Blue Pearl Amulet",
-				"Lingering Remnants",
-				"Vermillion Ring"
+				"Her Mask",
+				"Fingerless Silk Gloves",
+				"Vanguard Belt",
+				"Opal Ring",
+				"Lingering Remnants"
 			],
 			"bosses": [
 				"Suncaller Asha"
@@ -2805,10 +2915,10 @@
 				"The Encroaching Darkness",
 				"The Thaumaturgist",
 				"The Lunaris Priestess",
-				"Marble Amulet",
-				"Opal Ring",
+				"Blue Pearl Amulet",
 				"Lingering Remnants",
-				"The Army of Blood"
+				"The Army of Blood",
+				"Vermillion Ring"
 			],
 			"layoutRating": "B",
 			"bosses": [
@@ -2817,18 +2927,20 @@
 			"bossRating": "4",
 			"bossCount": 1,
 			"url": "https://pathofexile.gamepedia.com/Shrine_Map",
-			"encounter": "Piety (End of act3)"
+			"encounter": "Piety the Empyrean, based on Piety fight at the end of Act 3"
 		},
 		"Terrace Map": {
 			"items": [
 				"Emperor's Luck",
 				"The Gambler",
 				"The Encroaching Darkness",
-				"Marble Amulet",
-				"Opal Ring",
+				"Her Mask",
+				"Gripped Gloves",
+				"Spiked Gloves",
 				"The Porcupine",
 				"Lingering Remnants",
-				"The Celestial Stone"
+				"The Celestial Stone",
+				"Cerulean Ring"
 			],
 			"layoutRating": "C",
 			"bosses": [
@@ -2862,9 +2974,10 @@
 				"The Gambler",
 				"The Encroaching Darkness",
 				"The Inoculated",
-				"Blue Pearl Amulet",
+				"Gripped Gloves",
+				"Spiked Gloves",
 				"Lingering Remnants",
-				"Vermillion Ring"
+				"Cerulean Ring"
 			],
 			"layoutRating": "A",
 			"bosses": [
@@ -2873,16 +2986,18 @@
 			],
 			"bossRating": "4",
 			"bossCount": 2,
-			"url": "https://pathofexile.gamepedia.com/Acid_Caverns_Map"
+			"url": "https://pathofexile.gamepedia.com/Acid_Caverns_Map",
+			"encounter": "By random, the game will chosen 2 bosses from the following Renegades Warband:"
 		},
 		"Colosseum Map": {
 			"items": [
 				"The Gladiator",
 				"The Gambler",
 				"The Encroaching Darkness",
+				"Her Mask",
 				"The Visionary",
-				"Bone Helmet",
-				"Steel Ring",
+				"Marble Amulet",
+				"Opal Ring",
 				"Lingering Remnants",
 				"The Deceiver",
 				"The Sword King's Salute"
@@ -2899,11 +3014,11 @@
 			"items": [
 				"The Gambler",
 				"The Encroaching Darkness",
+				"Bone Helmet",
+				"Steel Ring",
 				"Lingering Remnants",
 				"The Opulent",
-				"The Cacophony",
-				"Convoking Wand",
-				"Cerulean Ring"
+				"The Cacophony"
 			],
 			"bosses": [
 				"The Sanguine Siren"
@@ -2916,9 +3031,11 @@
 				"The Dragon",
 				"The Gambler",
 				"The Encroaching Darkness",
-				"Bone Helmet",
-				"Steel Ring",
+				"Her Mask",
+				"Fingerless Silk Gloves",
+				"Vanguard Belt",
 				"Mawr Blaidd",
+				"Opal Ring",
 				"The Wolven King's Bite",
 				"Lingering Remnants",
 				"The Mad King"
@@ -2937,12 +3054,14 @@
 				"The Encroaching Darkness",
 				"Gift of the Gemling Queen",
 				"Volatile Power",
+				"Her Mask",
 				"The Endurance",
-				"Marble Amulet",
-				"Opal Ring",
+				"Gripped Gloves",
+				"Spiked Gloves",
 				"Lingering Remnants",
 				"The Ruthless Ceinture",
-				"Buried Treasure"
+				"Buried Treasure",
+				"Cerulean Ring"
 			],
 			"bosses": [
 				"Stalker of the Endless Dunes",
@@ -2977,11 +3096,12 @@
 			"items": [
 				"The Gambler",
 				"The Encroaching Darkness",
-				"Gripped Gloves",
-				"Spiked Gloves",
+				"Her Mask",
+				"Fingerless Silk Gloves",
+				"Vanguard Belt",
+				"Opal Ring",
 				"The Porcupine",
-				"Boon of Justice",
-				"Cerulean Ring"
+				"Boon of Justice"
 			],
 			"layoutRating": "B",
 			"bosses": [
@@ -2996,6 +3116,7 @@
 			"items": [
 				"The Gambler",
 				"The Encroaching Darkness",
+				"Her Mask",
 				"Blue Pearl Amulet",
 				"Lingering Remnants",
 				"The Opulent",
@@ -3020,11 +3141,12 @@
 				"The Gambler",
 				"The Encroaching Darkness",
 				"The Surveyor",
+				"Gripped Gloves",
 				"The Oath",
+				"Spiked Gloves",
 				"Lingering Remnants",
 				"The Insatiable",
 				"Immortal Resolve",
-				"Convoking Wand",
 				"Cerulean Ring"
 			],
 			"bosses": [
@@ -3060,12 +3182,13 @@
 				"The Gambler",
 				"The Encroaching Darkness",
 				"Scholar of the Seas",
+				"Her Mask",
 				"The Formless Sea",
+				"Blue Pearl Amulet",
 				"Lingering Remnants",
 				"The Mad King",
 				"The Deep Ones",
-				"Convoking Wand",
-				"Cerulean Ring"
+				"Vermillion Ring"
 			],
 			"layoutRating": "B",
 			"bosses": [
@@ -3080,10 +3203,11 @@
 				"The Gambler",
 				"The Encroaching Darkness",
 				"The Fox",
-				"Blue Pearl Amulet",
+				"Her Mask",
 				"Lingering Remnants",
 				"Arrogance of the Vaal",
-				"Vermillion Ring"
+				"Convoking Wand",
+				"Cerulean Ring"
 			],
 			"bosses": [
 				"Armala, the Widow"
@@ -3095,11 +3219,11 @@
 			"items": [],
 			"layoutRating": "B",
 			"bosses": [
-				"The Shaper"
+				"Guardian of the Chimera"
 			],
 			"bossRating": "5",
 			"bossCount": 1,
-			"url": "https://pathofexile.gamepedia.com/index.php?title=Special:Upload&wpDestFile=The_Shaper%27s_Realm_(Harvest)_inventory_icon.png"
+			"url": "https://pathofexile.gamepedia.com/Special:Upload?wpDestFile=Pit_of_the_Chimera_Map_(Heist)_inventory_icon.png"
 		},
 		"Vaal Temple Map": {
 			"items": [
@@ -3125,6 +3249,21 @@
 			"bossCount": 3,
 			"url": "https://pathofexile.gamepedia.com/Vaal_Temple_Map"
 		},
+		"The Shaper's Realm": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"The Shaper"
+			],
+			"bossRating": "5",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/The_Shaper%27s_Realm",
+			"encounter": "The Shaper",
+			"layout": "The first stage of The Shaper fight is carried on the X-shaped area. There are 4 portals to arenas for 4 minibosses (the pool is draw from existing map bosses). After that, there is a portal to the arena proper for the Shaper. The fight is divided in phases, which the Shaper would teleport the player character twice to another linear areas for another minibosses The Uncreated and The Unshaped. Killing the two minibosses will teleport the player character back to the Shaper's arena."
+		},
 		"Crater Map": {
 			"items": [
 				"The Gambler",
@@ -3132,9 +3271,9 @@
 				"The Trial",
 				"Her Mask",
 				"The Soul",
-				"Fingerless Silk Gloves",
-				"Vanguard Belt",
-				"Opal Ring",
+				"Crystal Belt",
+				"Two-Toned Boots",
+				"Steel Ring",
 				"The Standoff"
 			],
 			"bosses": [

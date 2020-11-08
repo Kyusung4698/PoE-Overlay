@@ -70,7 +70,8 @@ export class HeaderComponent implements OnInit {
   }
 
   public onDrag(event: MouseEvent, draggable: boolean): void {
-    if (!draggable || this.pinned) {
+    const target = event.target as HTMLInputElement;
+    if (!draggable || this.pinned || target?.tagName === 'INPUT') {
       return;
     }
     event.preventDefault();

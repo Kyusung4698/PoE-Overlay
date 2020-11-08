@@ -18,6 +18,10 @@ export class ItemFrameValueGroupComponent implements AfterViewInit {
   }
 
   public onMouseDown(event: MouseEvent): void {
+    const target = event.target as HTMLInputElement;
+    if (target?.tagName === 'INPUT') {
+      return;
+    }
     event.preventDefault();
     event.stopImmediatePropagation();
   }

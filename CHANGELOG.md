@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.12 (2020-11-08)
+
+- added stash folder layout support
+- update items, stats & mods to patch 3.12.4d
+- fixed an issue at the evaluate dialog input not focusable
+
 ## 1.0.11 (2020-09-20)
 
 - added heist item data & stats

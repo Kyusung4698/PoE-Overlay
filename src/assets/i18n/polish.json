@@ -482,6 +482,7 @@
 			"volume": "Tom"
 		},
 		"stale": "Filtr został zmieniony. Ponowne pobranie ... - Teraz?",
+		"stash-folder": "Przełącz układ folderów",
 		"stash-size": "Zmień rozmiar skrytki (normalny, poczwórny)"
 	}
 }

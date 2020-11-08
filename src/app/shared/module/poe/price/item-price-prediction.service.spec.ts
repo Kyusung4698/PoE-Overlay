@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 import { BrowserModule } from '@angular/platform-browser';
+import { Language } from '@data/poe/schema';
+import { ContextService } from '../context';
 import { Item } from '../item';
 import { ItemPricePredictionService } from './item-price-prediction.service';
 
@@ -17,6 +19,10 @@ describe('ItemPricePredictionService', () => {
             ]
         }).compileComponents();
         sut = TestBed.inject<ItemPricePredictionService>(ItemPricePredictionService);
+        const context = TestBed.inject<ContextService>(ContextService);
+        context.update({
+            language: Language.English
+        })
     });
 
     it('should return items', (done) => {
