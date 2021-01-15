@@ -30,7 +30,6 @@ describe('WordService', () => {
         Language.French,
         Language.Spanish,
         Language.Korean,
-        Language.TraditionalChinese,
     ];
     const texts = [
         'Vix Lunaris',

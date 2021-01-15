@@ -4,9 +4,9 @@
 			"message": "Opens a webpage on hotkey press in the in-game browser.\n\nTry the hotkey below to open poe.ninja.",
 			"title": "Bookmarks"
 		},
-		"changelog-1-0-12": {
-			"message": "- added stash folder layout support\n- update items, stats & mods to patch 3.12.4d\n- fixed an issue at the evaluate dialog input not focusable",
-			"title": "What's new in 1.0.12?"
+		"changelog-1-0-13": {
+			"message": "- update items, stats & mods to patch 3.13.0",
+			"title": "What's new in 1.0.13?"
 		},
 		"commands": {
 			"message": "All game commands can be bound to hotkeys.\n\nThere are also placeholders like @char available which will be replaced before executing the command.\n\nTry the hotkey below to teleport into your hideout.",

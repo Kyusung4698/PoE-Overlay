@@ -109,6 +109,7 @@
 				"Two-Toned Boots",
 				"Two-Toned Boots",
 				"Vermillion Ring",
+				"The Fishmonger",
 				"The Tinkerer's Table"
 			],
 			"layoutRating": "B",
@@ -421,7 +422,6 @@
 			"items": [
 				"The Gambler",
 				"The Encroaching Darkness",
-				"Blessing of Tul",
 				"Tulborn",
 				"The Halcyon",
 				"The Snowblind Grace",
@@ -442,7 +442,6 @@
 				"The Formless Flame",
 				"Xoph's Heart",
 				"Xoph's Inception",
-				"Blessing of Xoph",
 				"The Escape"
 			],
 			"layoutRating": "N/A",
@@ -1470,7 +1469,8 @@
 				"The Gambler",
 				"The Encroaching Darkness",
 				"Her Mask",
-				"Blue Pearl Amulet",
+				"Two-Toned Boots",
+				"Two-Toned Boots",
 				"The Iron Bard",
 				"Monochrome",
 				"Vermillion Ring"
@@ -1626,7 +1626,7 @@
 			"bossCount": 1,
 			"url": "https://pathofexile.gamepedia.com/Overgrown_Ruin_Map",
 			"encounter": "Visceris, based on Maligaro, the Artist.",
-			"layout": "The map use the tileset of The Chamber of Sins. At the end of the map there is a portal to the boss arena, which the arena is identical to the boss arena of the Maligaro's Sanctum."
+			"layout": "The map uses the tileset of The Chamber of Sins. At the end of the map there is a portal to the boss arena, which is identical to the boss arena of Maligaro's Sanctum."
 		},
 		"Shore Map": {
 			"items": [
@@ -1786,7 +1786,8 @@
 			],
 			"bossRating": "4",
 			"bossCount": 3,
-			"url": "https://pathofexile.gamepedia.com/Arena_Map"
+			"url": "https://pathofexile.gamepedia.com/Arena_Map",
+			"layout": "Similar to the act zone the map is based upon, the layout features multiple circular arenas connected by subterranean passageways. The bosses wait in one of the arenas, of which the entrance will seal behind the player."
 		},
 		"Estuary Map": {
 			"items": [
@@ -2084,7 +2085,8 @@
 			],
 			"bossRating": "5",
 			"bossCount": 1,
-			"url": "https://pathofexile.gamepedia.com/Belfry_Map"
+			"url": "https://pathofexile.gamepedia.com/Belfry_Map",
+			"encounter": "Lord of the Grey, based on Act 5 version Kitava."
 		},
 		"Bog Map": {
 			"items": [
@@ -2095,7 +2097,8 @@
 				"Her Mask",
 				"Marble Amulet",
 				"Opal Ring",
-				"Lingering Remnants"
+				"Lingering Remnants",
+				"The Fishmonger"
 			],
 			"layoutRating": "B",
 			"bosses": [
@@ -2449,11 +2452,18 @@
 			"encounter": "This map has two bosses."
 		},
 		"Hall of Grandmasters": {
-			"items": [],
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Last One Standing",
+				"Her Mask",
+				"The Immortal"
+			],
 			"layoutRating": "A",
 			"bossRating": "5",
 			"bossCount": 0,
-			"url": "https://pathofexile.gamepedia.com/Hall_of_Grandmasters"
+			"url": "https://pathofexile.gamepedia.com/Hall_of_Grandmasters",
+			"layout": "Instead of containing randomly spawned monsters as in most other maps, the Hall of Grandmasters includes other exiles based on characters of players who purchased a Grandmaster supporter pack."
 		},
 		"Spider Forest Map": {
 			"items": [
@@ -2720,7 +2730,6 @@
 			"items": [
 				"The Gambler",
 				"The Encroaching Darkness",
-				"The Conduit",
 				"Her Mask",
 				"Light and Truth",
 				"Two-Toned Boots",
@@ -2815,8 +2824,6 @@
 			"items": [
 				"The Gambler",
 				"The Encroaching Darkness",
-				"Blessing of Chayula",
-				"Skin of the Loyal",
 				"Severed in Sleep",
 				"The Blue Dream",
 				"The Green Dream",
@@ -3046,7 +3053,8 @@
 			],
 			"bossRating": "5",
 			"bossCount": 1,
-			"url": "https://pathofexile.gamepedia.com/Dark_Forest_Map"
+			"url": "https://pathofexile.gamepedia.com/Dark_Forest_Map",
+			"layout": "The boss room occasionally applies debuff or hex curse to the player character, such as Shrink and Creeping Ice."
 		},
 		"Dig Map": {
 			"items": [
@@ -3132,7 +3140,7 @@
 			],
 			"bossCount": 1,
 			"url": "https://pathofexile.gamepedia.com/Basilica_Map",
-			"encounter": "Konley, the Unrepentant, based on the High Templar Avarius from the Chamber of Innocence in Act 5. He transforms into The Cleansing Light for the second stage of the fight once Konley is killed. He has the same attacks as Avarius.",
+			"encounter": "Konley, the Unrepentant, based on the High Templar Avarius from the Chamber of Innocence in Act 5. He transforms into The Cleansing Light for the second stage of the fight once Konley is killed.",
 			"layout": "Layout is based upon The Chamber of Innocence. The layout is cross-shaped, but very wide. Arena entrance is to one of the sides of the cross."
 		},
 		"Carcass Map": {
@@ -3181,6 +3189,7 @@
 				"Lantador's Lost Love",
 				"The Gambler",
 				"The Encroaching Darkness",
+				"The Vast",
 				"Scholar of the Seas",
 				"Her Mask",
 				"The Formless Sea",
@@ -3215,15 +3224,78 @@
 			"bossCount": 1,
 			"url": "https://pathofexile.gamepedia.com/Sunken_City_Map"
 		},
-		"16x16px": {
-			"items": [],
+		"Forge of the Phoenix Map": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Wretched",
+				"The Standoff",
+				"Lingering Remnants",
+				"Perfection",
+				"Burning Blood"
+			],
+			"layoutRating": "B",
+			"bosses": [
+				"Guardian of the Phoenix"
+			],
+			"bossRating": "5",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Forge_of_the_Phoenix_Map",
+			"layout": "Indoors. Based on The Crematorium."
+		},
+		"Lair of the Hydra Map": {
+			"items": [
+				"The Feast",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Throne",
+				"Lingering Remnants",
+				"The Celestial Stone",
+				"Perfection"
+			],
+			"layoutRating": "A",
+			"bosses": [
+				"Guardian of the Hydra"
+			],
+			"bossRating": "5",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Lair_of_the_Hydra_Map"
+		},
+		"Maze of the Minotaur Map": {
+			"items": [
+				"The Gambler",
+				"The Encroaching Darkness",
+				"Lingering Remnants",
+				"The Ruthless Ceinture",
+				"Perfection"
+			],
+			"layoutRating": "A",
+			"bosses": [
+				"Guardian of the Minotaur"
+			],
+			"bossRating": "5",
+			"bossCount": 1,
+			"url": "https://pathofexile.gamepedia.com/Maze_of_the_Minotaur_Map",
+			"layout": "Indoors. Based on The Caverns."
+		},
+		"Pit of the Chimera Map": {
+			"items": [
+				"The Gladiator",
+				"The Gambler",
+				"The Encroaching Darkness",
+				"The Dragon's Heart",
+				"Lingering Remnants",
+				"Perfection",
+				"Boon of the First Ones"
+			],
 			"layoutRating": "B",
 			"bosses": [
 				"Guardian of the Chimera"
 			],
 			"bossRating": "5",
 			"bossCount": 1,
-			"url": "https://pathofexile.gamepedia.com/Special:Upload?wpDestFile=Pit_of_the_Chimera_Map_(Heist)_inventory_icon.png"
+			"url": "https://pathofexile.gamepedia.com/Pit_of_the_Chimera_Map",
+			"layout": "Outdoors. Based on Daresso's Dream."
 		},
 		"Vaal Temple Map": {
 			"items": [

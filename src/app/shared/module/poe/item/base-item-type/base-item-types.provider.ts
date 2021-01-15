@@ -31,8 +31,8 @@ export class BaseItemTypesProvider {
                 return content.Korean;
             // case Language.SimplifiedChinese:
             //     return SimplifiedChinese;
-            case Language.TraditionalChinese:
-                return content.TraditionalChinese;
+            // case Language.TraditionalChinese:
+            //     return content.TraditionalChinese;
             default:
                 throw new Error(`Could not map words to language: '${Language[language]}'.`);
         }

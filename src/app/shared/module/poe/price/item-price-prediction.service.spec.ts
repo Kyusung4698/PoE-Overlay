@@ -22,7 +22,7 @@ describe('ItemPricePredictionService', () => {
         const context = TestBed.inject<ContextService>(ContextService);
         context.update({
             language: Language.English
-        })
+        });
     });
 
     it('should return items', (done) => {

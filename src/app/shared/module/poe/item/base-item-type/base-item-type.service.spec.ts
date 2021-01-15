@@ -30,7 +30,6 @@ describe('BaseItemTypeService', () => {
         Language.French,
         Language.Spanish,
         Language.Korean,
-        Language.TraditionalChinese,
     ];
     const texts = [
         'Orbe du chaos',

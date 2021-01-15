@@ -42,7 +42,7 @@ const LANGUAGE_MAPPING = {
     [Language.Spanish]: 'sp',
     [Language.Thai]: 'th',
     // [Language.SimplifiedChinese]: 'cn',
-    [Language.TraditionalChinese]: 'tw',
+    // [Language.TraditionalChinese]: 'tw',
 };
 
 

@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.13 (2021-01-15)
+
+- update items, stats & mods to patch 3.13.0
+
 ## 1.0.12 (2020-11-08)
 
 - added stash folder layout support

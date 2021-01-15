@@ -30,7 +30,6 @@ describe('ClientStringService', () => {
         Language.French,
         Language.Spanish,
         Language.Korean,
-        Language.TraditionalChinese,
     ];
 
     const ids = [

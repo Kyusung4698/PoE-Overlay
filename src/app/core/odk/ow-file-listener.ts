@@ -43,7 +43,7 @@ export class OWFileListener {
 
     private onListenOnFile = (event: OWFileListenerResult): void => {
         if (!event.success || event.error) {
-            this.delegate.onError(event.error)
+            this.delegate.onError(event.error);
             this.restart();
             return;
         }
@@ -58,7 +58,7 @@ export class OWFileListener {
         try {
             info = JSON.parse(event.info);
         } catch (error) {
-            this.delegate.onError(error)
+            this.delegate.onError(error);
             this.restart();
             return;
         }

@@ -95,7 +95,7 @@ const ANNOTATIONS: Annotation[] = [
         hotkey: Hotkey.SettingsToggle
     },
     { id: 'thanks' },
-    { id: 'changelog-1-0-12' },
+    { id: 'changelog-1-0-13' },
 ];
 
 @Injectable({
