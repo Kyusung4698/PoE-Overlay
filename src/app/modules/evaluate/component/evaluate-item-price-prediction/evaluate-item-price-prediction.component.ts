@@ -105,14 +105,14 @@ export class EvaluateItemPricePredictionComponent implements OnInit, OnDestroy {
 
   private handleError(error: any, context: any): Observable<any> {
     if (typeof error === 'string') {
-      console.log('An error occured while predicting item.', error, context);
+      console.log('An error occurred while predicting item.', error, context);
       this.error$.next({
         key: error
       });
     } else if (error && error.status) {
       switch (error.status) {
         default:
-          console.warn('An http error occured while predicting item.', error, context);
+          console.warn('An http error occurred while predicting item.', error, context);
           this.error$.next({
             key: 'evaluate.prediction.errors.http'
           });
@@ -122,7 +122,7 @@ export class EvaluateItemPricePredictionComponent implements OnInit, OnDestroy {
       this.error$.next({
         key: 'evaluate.prediction.error'
       });
-      console.error('An unexpected error occured while predicting item.', error, context);
+      console.error('An unexpected error occurred while predicting item.', error, context);
     }
     return of(null);
   }

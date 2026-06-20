@@ -37,10 +37,10 @@ export class AppComponent implements OnInit, OnDestroy {
             }),
             retryWhen(errors => errors.pipe(
                 mergeMap(error => {
-                    console.warn(`An unexpected error occured while loading PoE Overlay. ${error?.message ?? JSON.stringify(error)}`);
+                    console.warn(`An unexpected error occurred while loading PoE Overlay. ${error?.message ?? JSON.stringify(error)}`);
                     return OWWindows.displayMessageBox({
                         message_title: 'PoE Overlay could not be loaded.',
-                        message_body: 'An unexpected error occured while loading PoE Overlay.\n' +
+                        message_body: 'An unexpected error occurred while loading PoE Overlay.\n' +
                             'Please check your internet connection and try again.',
                         confirm_button_text: 'Try again',
                         cancel_button_text: 'Exit',
@@ -64,7 +64,7 @@ export class AppComponent implements OnInit, OnDestroy {
             mergeMap(() => OWWindows.getCurrentWindow().pipe(
                 map(win => win.name),
                 catchError(error => {
-                    console.warn(`An unexpected error occured while getting current window. ${error?.message ?? JSON.stringify(error)}`);
+                    console.warn(`An unexpected error occurred while getting current window. ${error?.message ?? JSON.stringify(error)}`);
                     return of('background');
                 })
             )),

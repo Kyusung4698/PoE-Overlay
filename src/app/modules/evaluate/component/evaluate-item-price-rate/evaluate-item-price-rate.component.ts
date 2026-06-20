@@ -117,14 +117,14 @@ export class EvaluateItemPriceRateComponent implements OnInit, OnDestroy {
 
   private handleError(error: any, context: any): Observable<any> {
     if (typeof error === 'string') {
-      console.log('An error occured while rating item.', error, context);
+      console.log('An error occurred while rating item.', error, context);
       this.error$.next({
         key: error
       });
     } else if (error && error.status) {
       switch (error.status) {
         default:
-          console.warn('An http error occured while rating item.', error, context);
+          console.warn('An http error occurred while rating item.', error, context);
           this.error$.next({
             key: 'evaluate.rate.errors.http'
           });
@@ -134,7 +134,7 @@ export class EvaluateItemPriceRateComponent implements OnInit, OnDestroy {
       this.error$.next({
         key: 'evaluate.rate.error'
       });
-      console.error('An unexpected error occured while rating item.', error, context);
+      console.error('An unexpected error occurred while rating item.', error, context);
     }
     return of(null);
   }

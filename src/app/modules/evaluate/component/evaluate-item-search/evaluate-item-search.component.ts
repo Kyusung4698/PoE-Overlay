@@ -162,20 +162,20 @@ export class EvaluateItemSearchComponent implements OnInit, OnDestroy {
 
   private handleError(error: any, context: any): Observable<any> {
     if (typeof error === 'string') {
-      console.log('An error occured while searching item.', error, context);
+      console.log('An error occurred while searching item.', error, context);
       this.error$.next({
         key: error
       });
     } else if (error && error.status) {
       switch (error.status) {
         case 429:
-          console.log('An http rate error occured while searching item.', error, context);
+          console.log('An http rate error occurred while searching item.', error, context);
           this.error$.next({
             key: 'trade.errors.rate'
           });
           break;
         default:
-          console.warn('An http error occured while searching item.', error, context);
+          console.warn('An http error occurred while searching item.', error, context);
           this.error$.next({
             key: 'trade.errors.http'
           });
@@ -185,7 +185,7 @@ export class EvaluateItemSearchComponent implements OnInit, OnDestroy {
       this.error$.next({
         key: 'trade.error'
       });
-      console.error('An unexpected error occured while searching item.', error, context);
+      console.error('An unexpected error occurred while searching item.', error, context);
     }
     return of(null);
   }

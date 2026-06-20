@@ -249,6 +249,6 @@ export class BackgroundWindowComponent implements OnInit, OnDestroy {
     }
 
     public onLogError(error: string): void {
-        console.error(`An unexpected error occured while listening to the Client.txt file. ${error}`, error);
+        console.error(`An unexpected error occurred while listening to the Client.txt file. ${error}`, error);
     }
 }
